@@ -2,12 +2,12 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { useCountUp } from '@/hooks/useCountUp';
 import { STAGES } from '@/data/stages';
-import { MAX_POINTS } from '@/lib/scoring';
+import { MAX_POINTS, pointsFor } from '@/lib/scoring';
 import { buildShareText, copyText } from '@/lib/share';
 import { formatCountdown, msUntilNextDay, prettyDate } from '@/lib/dates';
-import { rarestEntry } from '@/lib/prompts';
-import { Chamber } from './Chamber';
-import { EvolutionOverlay } from './EvolutionOverlay';
+import { bestEntries } from '@/lib/prompts';
+import { SceneView } from './SceneView';
+import { AscentOverlay } from './AscentOverlay';
 import { GrowthBar } from './GrowthBar';
 import { TierChip } from './TierChip';
 import { IconArrow, IconCheck, IconClock, IconCopy, IconFlame, IconShare } from './Icons';
@@ -69,7 +69,7 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
           Obscura #{String(daily.number).padStart(3, '0')} · {prettyDate(daily.dateKey)}
         </p>
         <h1 className={`mt-3 font-display text-xl font-semibold uppercase tracking-[0.3em] text-bio-300 ${cls}`} style={d(0)} data-testid="result-headline">
-          Dive complete
+          Ascent complete
         </h1>
 
         <div className="relative mt-2">
@@ -80,7 +80,7 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
               ))}
             </div>
           )}
-          <Chamber stage={out.stage} size={300} className="w-[min(70vw,250px)] lg:w-[min(100%,280px)]" />
+          <SceneView stage={out.stage} points={out.points} className="max-w-md" />
         </div>
 
         <p className={`mt-2 font-display text-3xl font-semibold uppercase tracking-[0.15em] text-white ${cls}`} style={d(300)} data-testid="result-stage">
@@ -101,7 +101,7 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
 
         {evolvedAtEnd || out.stage > 0 ? (
           <button className={`btn-ghost mt-4 ${cls}`} style={d(1000)} onClick={() => setShowEvo(true)} data-testid="replay-evo">
-            Watch evolution
+            Watch the climb
           </button>
         ) : null}
       </section>
@@ -112,7 +112,7 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
           <ol className="mt-3 divide-y divide-white/8" data-testid="breakdown">
             {game.rounds.map((r, i) => {
               const prompt = daily.prompts[i];
-              const rarest = rarestEntry(prompt);
+              const best = bestEntries(prompt, 5);
               return (
                 <li key={r.promptId} className="py-3" data-testid="breakdown-row">
                   <div className="flex items-start justify-between gap-3">
@@ -127,10 +127,21 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
                       <p className="mt-1 font-mono text-sm text-amber-glow">+{r.points}</p>
                     </div>
                   </div>
-                  <p className="mt-1.5 text-xs text-mist-500">
-                    Rarest answer: <span className="text-mist-300">{rarest.name}</span>
-                    {r.answer === rarest.name ? ' — you found it!' : ''}
-                  </p>
+                  <div className="mt-2.5" data-testid="best-answers">
+                    <p className="text-[0.7rem] font-semibold text-mist-500">Best possible answers</p>
+                    <ul className="mt-1.5 flex flex-wrap gap-1.5">
+                      {best.map((e) => {
+                        const mine = r.answer === e.name;
+                        return (
+                          <li key={e.name} className={`rounded-full border px-2.5 py-1 text-xs ${mine ? 'border-amber-glow/60 bg-amber-glow/10 text-white' : 'border-white/10 bg-white/5 text-mist-300'}`} data-testid="best-answer">
+                            {e.name}
+                            <span className="ml-1.5 font-mono text-amber-glow/90">{pointsFor(e.score)}</span>
+                            {mine && <span className="ml-1">✓</span>}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 </li>
               );
             })}
@@ -157,7 +168,7 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
 
         <div className={`flex items-center justify-between gap-3 px-1 text-sm text-mist-500 ${cls}`} style={d(1500)}>
           <span className="flex items-center gap-2" data-testid="countdown">
-            <IconClock size={16} /> Next dive in <span className="font-mono text-mist-100">{countdown}</span>
+            <IconClock size={16} /> Next ascent in <span className="font-mono text-mist-100">{countdown}</span>
           </span>
           <button className="btn-ghost !min-h-10" onClick={onOpenStats} data-testid="result-stats">
             Stats <IconArrow size={14} />
@@ -166,7 +177,7 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
       </section>
 
       {showEvo && (
-        <EvolutionOverlay
+        <AscentOverlay
           from={replayFrom}
           to={Math.max(out.stage, replayFrom + 1)}
           onDone={() => {

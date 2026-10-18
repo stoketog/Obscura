@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": { "plugins": [], "incremental": false, "types": ["node"], "typeRoots": ["/opt/npm-tools/node_modules/@types"] },
-  "include": ["src/lib", "src/data", "tests/engine.test.ts"]
+  "include": ["src/lib", "src/data", "src/scene", "tests/engine.test.ts"]
 }

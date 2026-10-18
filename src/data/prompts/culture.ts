@@ -3,6 +3,7 @@ import type { PromptSeed } from '@/lib/types';
 export const CULTURE: PromptSeed[] = [
   {
     id: 'instrument',
+    group: 'music',
     text: 'Name a musical instrument',
     category: 'Instruments',
     answers: [
@@ -21,6 +22,7 @@ export const CULTURE: PromptSeed[] = [
   },
   {
     id: 'dance',
+    group: 'music',
     text: 'Name a type of dance',
     category: 'Dance',
     answers: [
@@ -31,12 +33,13 @@ export const CULTURE: PromptSeed[] = [
       'Voguing|36', 'Ceilidh|36', 'Bunny hop|36', 'Cumbia|40', 'Barn dance|40', 'Minuet|40', 'Capoeira|44', 'Kathak|44', 'Polonaise|46', 'Hora|48', 'Popping|50',
       'Fandango|50', 'Hustle|52', 'Tarantella|52', 'Maypole|52', 'Mazurka|52', 'Locking|56', 'Bharatanatyam|56', 'Sirtaki|56', 'Zorba|60', 'Zouk|62', 'Kizomba|62',
       'Jota|62', 'Krumping|62', 'Sword dance|62', 'Gavotte|62', 'Cakewalk|62', 'Shag|62', 'Kolo|64', 'Hopak|66', 'Sevillanas|66', 'Galliard|70', 'Pavane|70',
-      'Gigue|78', 'Kuchipudi|76', 'Waacking|78', 'Balboa|80', 'Odissi|82', 'Sarabande|82', 'Bourrée|88|bourree', 'Allemande|86', 'Farandole|90', 'Courante|90', 'Volta|92',
+      'Gigue|78', 'Kuchipudi|76', 'Waacking|78', 'Balboa|80', 'Odissi|82', 'Sarabande|82', 'Bourrée|88|bourree', 'Allemande|86', 'Farandole|90', 'Courante|90', 'Volta|95',
       'Branle|96',
     ],
   },
   {
     id: 'mythical',
+    group: 'general',
     text: 'Name a mythical or legendary creature',
     category: 'Myths & legends',
     answers: [
@@ -53,6 +56,7 @@ export const CULTURE: PromptSeed[] = [
   },
   {
     id: 'dinosaur',
+    group: 'nature',
     text: 'Name a dinosaur',
     category: 'Dinosaurs',
     answers: [
@@ -64,11 +68,12 @@ export const CULTURE: PromptSeed[] = [
       'Ceratosaurus|60', 'Mamenchisaurus|62', 'Torosaurus|62', 'Corythosaurus|62', 'Kentrosaurus|62', 'Tarbosaurus|62', 'Psittacosaurus|62', 'Pentaceratops|66',
       'Gorgosaurus|66', 'Daspletosaurus|66', 'Herrerasaurus|70', 'Eoraptor|70', 'Lambeosaurus|70', 'Suchomimus|74', 'Tenontosaurus|74', 'Nodosaurus|76',
       'Majungasaurus|76', 'Sinosauropteryx|76', 'Yutyrannus|78', 'Gastonia|78', 'Nigersaurus|80', 'Dracorex|80', 'Ouranosaurus|80', 'Minmi|82', 'Muttaburrasaurus|82',
-      'Irritator|84', 'Leaellynasaura|90', 'Zuniceratops|94', 'Oryctodromeus|94', 'Nqwebasaurus|96',
+      'Irritator|84', 'Leaellynasaura|90', 'Zuniceratops|95', 'Oryctodromeus|94', 'Nqwebasaurus|96',
     ],
   },
   {
     id: 'currency',
+    group: 'general',
     text: 'Name a currency',
     category: 'Currencies',
     answers: [
@@ -83,6 +88,7 @@ export const CULTURE: PromptSeed[] = [
   },
   {
     id: 'boardgame',
+    group: 'general',
     text: 'Name a board game or card game',
     category: 'Games',
     answers: [
@@ -98,6 +104,7 @@ export const CULTURE: PromptSeed[] = [
   },
   {
     id: 'bone',
+    group: 'science',
     text: 'Name a bone in the human body',
     category: 'Anatomy',
     answers: [
@@ -107,7 +114,7 @@ export const CULTURE: PromptSeed[] = [
       'Tarsals|40|tarsal', 'Maxilla|40', 'Atlas|40', 'Nasal bone|46', 'Calcaneus|52|heel bone', 'Scaphoid|52', 'Talus|54', 'Ilium|54', 'Hyoid|56', 'Zygomatic|54|cheekbone',
       'Temporal bone|56', 'Parietal bone|56', 'Frontal bone|56', 'Axis|56', 'Occipital bone|60', 'Ischium|62', 'Pubis|62', 'Navicular|66', 'Cuboid|70', 'Manubrium|76',
       'Lunate|76', 'Ethmoid|78', 'Sphenoid|78', 'Cuneiform|78', 'Lacrimal|78', 'Capitate|80', 'Pisiform|80', 'Trapezium|80', 'Sesamoid|80', 'Trapezoid|82', 'Palatine|82',
-      'Xiphoid process|82', 'Triquetrum|84', 'Hamate|90', 'Vomer|92',
+      'Xiphoid process|82', 'Triquetrum|84', 'Hamate|95', 'Vomer|95',
     ],
   },
 ];

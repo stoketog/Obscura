@@ -3,8 +3,8 @@ import { MAX_POINTS, ROUNDS_PER_DAY, stageIndexFor, stageProgress } from '@/lib/
 import { currentRoundIndex } from '@/lib/game';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { prettyDate } from '@/lib/dates';
-import { Chamber } from './Chamber';
-import { Creature } from './Creature';
+import { SceneView } from './SceneView';
+import { StageIcon } from './StageIcon';
 import { IconFlame, IconTrophy, IconArrow } from './Icons';
 
 export function HomeScreen({ api }: { api: ObscuraApi }) {
@@ -29,7 +29,7 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
         </div>
         <p className="font-display text-2xl italic text-mist-100 sm:text-3xl lg:mt-5">How obscure can you get?</p>
         <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-mist-300 lg:mx-0">
-          {ROUNDS_PER_DAY} prompts a day, the same for everyone. Name anything that fits. The rarer your answer, the more you evolve.
+          {ROUNDS_PER_DAY} prompts a day, the same for everyone. Name anything that fits. The rarer your answer, the higher you rise: from a microbe on the sea floor to the solar system.
         </p>
 
         <div className="mx-auto mt-6 max-w-sm lg:mx-0" data-testid="home-creature-info">
@@ -41,7 +41,7 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
               {s.name}
             </h2>
           </div>
-          <p className="mt-1 text-sm text-mist-300">{started || done ? s.blurb : 'Today’s form. Every answer you give grows it.'}</p>
+          <p className="mt-1 text-sm text-mist-300">{started || done ? s.blurb : 'Where you start today. Every answer lifts you.'}</p>
           <div className="mt-4">
             <div className="bar-track h-2.5">
               <div className="bar-fill" style={{ width: `${next ? pct : 100}%` }} />
@@ -101,7 +101,7 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
             Obscura
           </h1>
         </div>
-        <Chamber stage={stage} size={420} className="w-[min(64vw,290px)] lg:w-full" />
+        <SceneView stage={stage} points={points} className="max-w-[34rem]" />
         <Ladder current={stage} />
       </section>
     </main>
@@ -111,12 +111,12 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
 /** The whole journey at a glance: reached forms lit, future forms as silhouettes. */
 export function Ladder({ current, small = false }: { current: number; small?: boolean }) {
   return (
-    <div className="mx-auto mt-3 flex max-w-md flex-wrap items-center justify-center gap-x-1.5 gap-y-1" data-testid="ladder" aria-label="Evolution ladder">
+    <div className="mx-auto mt-3 flex max-w-md flex-wrap items-center justify-center gap-x-1.5 gap-y-1" data-testid="ladder" aria-label="The ascent">
       {STAGES.map((st, i) => {
         const reached = i <= current;
         return (
           <div key={st.id} title={reached ? st.name : '???'} className={`grid place-items-center rounded-full ${i === current ? 'bg-white/10 ring-1 ring-bio-400/60' : ''}`} style={{ width: small ? 24 : 30, height: small ? 24 : 30 }}>
-            <Creature stage={i} size={small ? 18 : 22} animate={false} silhouette={!reached} />
+            <StageIcon stage={i} size={small ? 18 : 22} silhouette={!reached} />
           </div>
         );
       })}

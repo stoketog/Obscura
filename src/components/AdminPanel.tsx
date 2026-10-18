@@ -9,8 +9,9 @@ import { matchAnswer } from '@/lib/match';
 import { pointsFor, tierFor } from '@/lib/scoring';
 import { loadUnrecognised } from '@/lib/admin';
 import { Modal } from './Modal';
-import { Creature } from './Creature';
-import { EvolutionOverlay } from './EvolutionOverlay';
+import { StageIcon } from './StageIcon';
+import { AscentOverlay } from './AscentOverlay';
+import { SceneView } from './SceneView';
 
 type Tab = 'day' | 'test' | 'player' | 'gallery';
 
@@ -20,6 +21,7 @@ const label = 'mb-1 block text-[0.65rem] font-semibold uppercase tracking-widest
 export default function AdminPanel({ api, onClose }: { api: ObscuraApi; onClose: () => void }) {
   const [tab, setTab] = useState<Tab>('day');
   const [evo, setEvo] = useState<[number, number] | null>(null);
+  const [preview, setPreview] = useState(0);
   const { admin, dateKey } = api;
 
   return (
@@ -47,18 +49,21 @@ export default function AdminPanel({ api, onClose }: { api: ObscuraApi; onClose:
       {tab === 'player' && <PlayerTab api={api} onClose={onClose} />}
       {tab === 'gallery' && (
         <div>
-          <div className="grid grid-cols-4 gap-3">
-            {STAGES.map((s, i) => (
-              <button key={s.id} className="rounded-xl bg-white/5 p-2 text-center" onClick={() => i > 0 && setEvo([i - 1, i])} title={`Preview evolution to ${s.name}`}>
-                <Creature stage={i} size={64} />
-                <span className="mt-1 block truncate text-[0.62rem] text-mist-300">{s.name}</span>
+          <SceneView stage={preview} className="max-w-sm" />
+          <div className="mt-3 grid grid-cols-4 gap-2">
+            {STAGES.map((st, i) => (
+              <button key={st.id} className={`rounded-xl p-2 text-center ${i === preview ? 'bg-bio-500/20 ring-1 ring-bio-400/60' : 'bg-white/5'}`} onClick={() => setPreview(i)} title={`Preview ${st.name}`} data-testid={`gallery-${st.id}`}>
+                <StageIcon stage={i} size={30} />
+                <span className="mt-1 block truncate text-[0.62rem] text-mist-300">{st.name}</span>
               </button>
             ))}
           </div>
-          <p className="mt-3 text-xs text-mist-500">Tap a creature to preview the evolution animation into it.</p>
+          <button className="btn-ghost mt-3 !min-h-9" onClick={() => preview > 0 && setEvo([preview - 1, preview])} disabled={preview === 0} data-testid="gallery-ascent">
+            Preview the ascent into {STAGES[preview].name}
+          </button>
         </div>
       )}
-      {evo && <EvolutionOverlay from={evo[0]} to={evo[1]} onDone={() => setEvo(null)} />}
+      {evo && <AscentOverlay from={evo[0]} to={evo[1]} onDone={() => setEvo(null)} />}
     </Modal>
   );
 }

@@ -2,7 +2,7 @@ import type { ObscuraApi } from '@/hooks/useObscura';
 import { STAGES } from '@/data/stages';
 import { TIERS } from '@/lib/scoring';
 import { Modal } from './Modal';
-import { Creature } from './Creature';
+import { StageIcon } from './StageIcon';
 import { Ladder } from './HomeScreen';
 import { TierChip } from './TierChip';
 
@@ -25,9 +25,9 @@ export function StatsModal({ api, onClose }: { api: ObscuraApi; onClose: () => v
   return (
     <Modal title="Your journey" onClose={onClose} testId="stats-modal">
       <div className="flex items-center gap-4 rounded-2xl bg-white/4 p-4">
-        <Creature stage={s.bestStage} size={72} />
+        <StageIcon stage={s.bestStage} size={56} />
         <div>
-          <p className="eyebrow">Best form so far</p>
+          <p className="eyebrow">Highest point so far</p>
           <p className="font-display text-2xl font-semibold text-white" data-testid="stats-stage">
             {stage.name}
           </p>

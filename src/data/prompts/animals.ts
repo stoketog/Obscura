@@ -3,6 +3,7 @@ import type { PromptSeed } from '@/lib/types';
 export const ANIMALS: PromptSeed[] = [
   {
     id: 'mammal',
+    group: 'nature',
     text: 'Name a mammal',
     category: 'Mammals',
     answers: [
@@ -13,11 +14,12 @@ export const ANIMALS: PromptSeed[] = [
       'Walrus|18', 'Lemur|20', 'Wombat|20', 'Capybara|22', 'Narwhal|22', 'Manatee|22', 'Mongoose|22', 'Lynx|22', 'Aardvark|24', 'Wolverine|26',
       'Tapir|28', 'Pangolin|30', 'Okapi|32', 'Ocelot|34', 'Stoat|34', 'Tarsier|44', 'Polecat|44', 'Serval|40', 'Dugong|40', 'Caracal|46', 'Quokka|50',
       'Aye-aye|56|aye aye', 'Fossa|62', 'Pika|62', 'Hyrax|62', 'Binturong|70', 'Numbat|66', 'Quoll|68', 'Bilby|66', 'Saiga|70', 'Solenodon|88',
-      'Tenrec|84', 'Colugo|88', 'Saola|92', 'Desman|94', 'Tuco-tuco|94', 'Dibatag|97',
+      'Tenrec|84', 'Colugo|88', 'Saola|92', 'Desman|95', 'Tuco-tuco|94', 'Dibatag|97',
     ],
   },
   {
     id: 'bird',
+    group: 'nature',
     text: 'Name a bird',
     category: 'Birds',
     answers: [
@@ -30,12 +32,13 @@ export const ANIMALS: PromptSeed[] = [
       'Rhea|48', 'Coot|48', 'Booby|50', 'Spoonbill|50', 'Lapwing|50', 'Plover|50', 'Lyrebird|52', 'Nuthatch|52', 'Sandpiper|54', 'Curlew|54', 'Oystercatcher|64',
       'Harrier|56', 'Ptarmigan|56', 'Kea|56', 'Oriole|56', 'Grebe|56', 'Snipe|58', 'Hoopoe|58', 'Bowerbird|58', 'Quetzal|58', 'Bee-eater|62', 'Skua|62',
       'Shoebill|64', 'Waxwing|66', 'Bittern|66', 'Tanager|66', 'Secretarybird|70', 'Avocet|70', 'Dipper|72', 'Shrike|72', 'Frigatebird|72', 'Takahe|74',
-      'Roller|78', 'Weka|76', 'Tropicbird|80', 'Hoatzin|82', 'Trogon|82', 'Motmot|84', 'Potoo|88', 'Tinamou|90', 'Oilbird|92', 'Seriema|92', 'Sunbittern|94',
+      'Roller|78', 'Weka|76', 'Tropicbird|80', 'Hoatzin|82', 'Trogon|82', 'Motmot|84', 'Potoo|88', 'Tinamou|90', 'Oilbird|92', 'Seriema|92', 'Sunbittern|95',
       'Kagu|97',
     ],
   },
   {
     id: 'fish',
+    group: 'nature',
     text: 'Name a fish',
     category: 'Fish',
     answers: [
@@ -49,11 +52,12 @@ export const ANIMALS: PromptSeed[] = [
       'Molly|54', 'Platy|56', 'Swordtail|54', 'John Dory|56', 'Wrasse|56', 'Grayling|56', 'Char|56', 'Surgeonfish|56', 'Garfish|56', 'Lungfish|56', 'Zander|58',
       'Brill|60', 'Dab|62', 'Viperfish|62', 'Loach|62', 'Butterflyfish|62', 'Arowana|62', 'Snakehead|62', 'Hagfish|66', 'Rudd|66', 'Paddlefish|66', 'Damselfish|66',
       'Goby|66', 'Gulper eel|70', 'Gudgeon|70', 'Burbot|74', 'Blenny|74', 'Bleak|76', 'Bowfin|76', 'Pipefish|76', 'Lanternfish|78', 'Ruffe|78', 'Opah|78',
-      'Hatchetfish|80', 'Barreleye|82', 'Fangtooth|82', 'Pilotfish|82', 'Bichir|82', 'Ribbonfish|86', 'Escolar|90', 'Pearlfish|94', 'Telescopefish|97',
+      'Hatchetfish|80', 'Barreleye|82', 'Fangtooth|82', 'Pilotfish|82', 'Bichir|82', 'Ribbonfish|86', 'Escolar|90', 'Pearlfish|95', 'Telescopefish|97',
     ],
   },
   {
     id: 'bug',
+    group: 'nature',
     text: 'Name a bug or creepy-crawly',
     category: 'Bugs',
     answers: [
@@ -72,6 +76,7 @@ export const ANIMALS: PromptSeed[] = [
   },
   {
     id: 'reptile-amphibian',
+    group: 'nature',
     text: 'Name a reptile or amphibian',
     category: 'Reptiles & amphibians',
     answers: [
@@ -83,11 +88,12 @@ export const ANIMALS: PromptSeed[] = [
       'Horned lizard|36', 'Slow worm|36', 'Sea snake|38', 'Anole|40', 'Sidewinder|40', 'Gharial|40', 'Tuatara|40', 'Fire salamander|40', 'Box turtle|40', 'Green turtle|40',
       'Loggerhead|44', 'Taipan|48', 'Tiger salamander|50', 'Glass frog|52', 'Hawksbill|54', 'Painted turtle|54', 'Aldabra tortoise|56', 'Olm|62', 'Hellbender|52',
       'Tomato frog|66', 'Ratsnake|66', 'Bushmaster|66', 'Fer-de-lance|72', 'Surinam toad|72', 'Mudpuppy|74', 'Caecilian|76', 'Matamata|78', 'Hairy frog|80',
-      'Purple frog|88', 'Wallace\'s flying frog|90|flying frog', 'Pig-nosed turtle|93', 'Pinocchio lizard|96|pinocchio anole',
+      'Purple frog|88', 'Wallace\'s flying frog|90|flying frog', 'Pig-nosed turtle|95', 'Pinocchio lizard|96|pinocchio anole',
     ],
   },
   {
     id: 'sea-creature',
+    group: 'nature',
     text: 'Name a sea creature that isn\'t a fish',
     category: 'Sea life',
     answers: [
@@ -105,6 +111,7 @@ export const ANIMALS: PromptSeed[] = [
   },
   {
     id: 'dog-breed',
+    group: 'nature',
     text: 'Name a dog breed',
     category: 'Dog breeds',
     answers: [

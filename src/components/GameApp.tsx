@@ -4,7 +4,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { useObscura } from '@/hooks/useObscura';
 import { stageIndexFor } from '@/lib/scoring';
 import { Backdrop } from './Backdrop';
-import { stageHue } from './Creature';
+import { STAGES } from '@/data/stages';
 import { HomeScreen } from './HomeScreen';
 import { GameScreen } from './GameScreen';
 import { ResultScreen } from './ResultScreen';
@@ -50,7 +50,7 @@ export function GameApp() {
 
   return (
     <div className="relative flex min-h-dvh flex-col">
-      <Backdrop hue={stageHue(stage)} />
+      <Backdrop hue={STAGES[stage].hue} />
       <header className="relative z-20 mx-auto flex w-full max-w-5xl items-center justify-between px-5 pb-1 pt-[max(1rem,env(safe-area-inset-top))]">
         {api.view === 'play' ? (
           <button className="icon-btn" aria-label="Back to home" onClick={() => api.setView('home')} data-testid="back-btn">

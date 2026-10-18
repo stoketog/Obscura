@@ -18,13 +18,13 @@ export function GrowthBar({ points, compact = false }: Props) {
     <div className="w-full" data-testid="growth-bar">
       <div className={`flex items-baseline justify-between gap-2 ${compact ? 'text-[0.7rem]' : 'text-xs'} tracking-wide`}>
         <span className="truncate font-semibold text-mist-100">{STAGES[idx].name}</span>
-        <span className="truncate text-mist-500">{last ? 'Final form' : STAGES[idx + 1].name}</span>
+        <span className="truncate text-mist-500">{last ? 'The end of the line' : STAGES[idx + 1].name}</span>
       </div>
       <div className={`bar-track mt-1.5 ${compact ? 'h-2' : 'h-3'}`}>
         <div className="bar-fill" style={{ width: `${fill}%` }} />
       </div>
       <p className={`mt-1.5 ${compact ? 'text-[0.68rem]' : 'text-xs'} text-mist-500`} data-testid="growth-pct">
-        {last ? 'Complete' : `${end - points} more points to evolve`}
+        {last ? 'Complete' : `${end - points} more points to rise`}
       </p>
     </div>
   );

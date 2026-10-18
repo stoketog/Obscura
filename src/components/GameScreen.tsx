@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import type { RoundState } from '@/lib/types';
 import { currentRoundIndex, lastDoneIndex, remainingMs } from '@/lib/game';
-import { MAX_POINTS, MISS_PENALTY_MS, ROUND_MS, ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, stageIndexFor, tierById } from '@/lib/scoring';
+import { MAX_POINTS, ROUND_MS, ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, stageIndexFor, tierById } from '@/lib/scoring';
 import { prettyDate } from '@/lib/dates';
 import { STAGES } from '@/data/stages';
 import { useCountUp } from '@/hooks/useCountUp';
-import { Creature } from './Creature';
-import { Chamber } from './Chamber';
+import { SceneView } from './SceneView';
+import { StageIcon } from './StageIcon';
 import { GrowthBar } from './GrowthBar';
 import { TierChip } from './TierChip';
 import { IconArrow } from './Icons';
@@ -52,18 +52,10 @@ export function GameScreen({ api, holding, onFinished, onContinue }: Props) {
           ))}
         </div>
 
-        <div className="glass relative rounded-3xl p-4">
-          <div className="hidden lg:block">
-            <Chamber stage={stage} size={260} />
-            <div className="mt-3" />
-          </div>
-          <div className="flex items-center gap-4 lg:block">
-            <div key={stage} className="animate-pop grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded-2xl bg-white/5 lg:hidden" data-testid="mini-creature">
-              <Creature stage={stage} size={60} title={STAGES[stage].name} />
-            </div>
-            <div className="min-w-0 flex-1">
-              <GrowthBar points={game.points} compact />
-            </div>
+        <div className="glass relative rounded-3xl p-3">
+          <SceneView stage={stage} points={game.points} aspect="aspect-[16/8] lg:aspect-[4/3]" />
+          <div className="mt-3 px-1 pb-1">
+            <GrowthBar points={game.points} compact />
           </div>
         </div>
       </aside>
@@ -101,12 +93,12 @@ function RoundPip({ round, current }: { round: RoundState; current: boolean }) {
 function Intro({ api }: { api: ObscuraApi }) {
   return (
     <section className="glass animate-rise rounded-3xl p-6 text-center" data-testid="intro">
-      <p className="eyebrow">Today’s dive</p>
+      <p className="eyebrow">Today’s ascent</p>
       <h1 className="mt-3 font-display text-3xl font-semibold text-white sm:text-4xl">
         {ROUNDS_PER_DAY} prompts. {ROUND_SECONDS} seconds each.
       </h1>
       <p className="mx-auto mt-3 max-w-md text-[0.95rem] leading-relaxed text-mist-300">
-        You’ll get a prompt like <em>“Name a cheese”</em>. Type any answer that fits. The rarer the answer, the more points it earns and the further you evolve.
+        You’ll get a prompt like <em>“Name a cheese”</em>. Type any answer that fits. The rarer the answer, the more points it earns and the higher you rise.
       </p>
       <ul className="mx-auto mt-5 grid max-w-md grid-cols-2 gap-2 sm:grid-cols-3" aria-label="Rarity tiers">
         {TIERS.map((t) => (
@@ -170,7 +162,7 @@ function ActivePrompt({ api, round, index, onFinished }: { api: ObscuraApi; roun
       <AnswerBox api={api} round={round} onFinished={onFinished} />
 
       <div className="mt-4 flex items-center justify-between text-xs text-mist-500">
-        <span>Unrecognised answers cost {MISS_PENALTY_MS / 1000}s.</span>
+        <span>Any answer in the category counts. Guess as many as you like.</span>
         <button
           className="rounded-lg px-2 py-1 text-mist-300 transition hover:bg-white/8 hover:text-white"
           onClick={() => {
@@ -201,7 +193,7 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
       setText('');
       setMsg(null);
     } else if (outcome.kind === 'miss') {
-      setMsg({ text: outcome.expired ? 'Time’s up.' : `Not on our list for this prompt. −${MISS_PENALTY_MS / 1000}s`, near: outcome.near });
+      setMsg({ text: outcome.expired ? 'Time’s up.' : 'Not on our list for this prompt. Try another.', near: outcome.near });
       setShake(true);
       window.setTimeout(() => setShake(false), 450);
       setText('');
@@ -334,16 +326,17 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
           <h2 className="relative mt-2 font-display text-4xl font-semibold text-white" data-testid="reveal-answer">
             {round.end === 'timeout' ? 'Time’s up' : 'Skipped'}
           </h2>
-          <p className="relative mt-3 text-sm text-mist-300">No points this round. The rarest answer is revealed when you finish the day.</p>
+          <p className="relative mt-3 text-sm text-mist-300">No points this round. The best answers are revealed when you finish the day.</p>
         </>
       )}
 
       {evolved && (
         <div className="relative mx-auto mt-5 flex max-w-xs items-center justify-center gap-3 rounded-2xl border border-bio-400/30 bg-bio-500/10 px-4 py-3" data-testid="reveal-evolved">
-          <Creature stage={after} size={44} />
+          <StageIcon stage={after} size={44} />
           <p className="text-left text-sm">
-            <span className="block text-[0.65rem] font-semibold uppercase tracking-widest text-bio-300">Evolved</span>
+            <span className="block text-[0.65rem] font-semibold uppercase tracking-widest text-bio-300">You’ve risen to</span>
             <span className="font-display text-lg font-semibold text-white">{STAGES[after].name}</span>
+            <span className="block text-xs text-mist-300">{STAGES[after].place}</span>
           </p>
         </div>
       )}

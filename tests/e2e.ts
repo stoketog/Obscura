@@ -10,7 +10,9 @@ import { chromium, type Browser, type Page } from 'playwright';
 import { spawn, type ChildProcess } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { getDaily } from '@/lib/daily';
-import { rarestEntry } from '@/lib/prompts';
+import { rarestEntry, bestEntries } from '@/lib/prompts';
+import { STAGES } from '@/data/stages';
+import { stageIndexFor } from '@/lib/scoring';
 import type { Prompt } from '@/lib/types';
 
 const ADMIN = 'http://localhost:4181/';
@@ -70,8 +72,8 @@ async function playDay(p: Page, choose: (i: number) => string) {
   await q(p, 'result').waitFor();
 }
 async function skipEvo(p: Page) {
-  const o = q(p, 'evolution-overlay');
-  try { await o.waitFor({ timeout: 4500 }); await q(p, 'evo-skip').click(); await o.waitFor({ state: 'detached' }); } catch { /* none */ }
+  const o = q(p, 'ascent-overlay');
+  try { await o.waitFor({ timeout: 4500 }); await q(p, 'ascent-skip').click(); await o.waitFor({ state: 'detached' }); } catch { /* none */ }
 }
 async function noHScroll(p: Page, where: string) {
   const w = await p.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));
@@ -96,6 +98,28 @@ async function main() {
     ok(/play today/i.test(await text(p, 'play-btn')), 'cta');
     await p.reload(); await p.waitForTimeout(400);
     eq(await q(p, 'help-modal').count(), 0, 'help not shown again'); await ctx.close();
+  });
+
+  await t('the home scene is a live animated canvas at the start of the climb (microbe, 4,000 m down)', async () => {
+    const { ctx, page: p, errors } = await open(b);
+    await q(p, 'scene-canvas').waitFor();
+    eq(await q(p, 'scene-view').getAttribute('data-stage'), 'microbe');
+    eq(await text(p, 'scene-altitude'), '−4,000 m');
+    ok((await text(p, 'scene-place')).includes('sea floor'), 'place readout');
+    const snap = () => p.evaluate(() => {
+      const c = document.querySelector('[data-testid=scene-canvas]') as HTMLCanvasElement;
+      const d = c.getContext('2d')!.getImageData(0, 0, c.width, c.height).data;
+      const colours = new Set<number>();
+      let sum = 0;
+      for (let i = 0; i < d.length; i += 4 * 37) { colours.add(((d[i] >> 4) << 8) | ((d[i + 1] >> 4) << 4) | (d[i + 2] >> 4)); sum = (sum * 31 + d[i] + d[i + 1] * 3 + d[i + 2] * 7) % 1000003; }
+      return { n: colours.size, sum };
+    });
+    const a = await snap();
+    ok(a.n > 8, `canvas is painted (${a.n} colours)`);
+    await p.waitForTimeout(700);
+    const b2 = await snap();
+    ok(a.sum !== b2.sum, 'canvas animates between frames');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
   });
 
   console.log('Playing a round');
@@ -146,16 +170,16 @@ async function main() {
     await answer(p, typo2); await q(p, 'reveal').waitFor();
     eq(await text(p, 'reveal-answer'), e2.name, `typo "${typo2}" corrected`); await ctx.close();
   });
-  await t('unrecognised answers cost 2s, are listed, and never end the round; repeats are free', async () => {
+  await t('unrecognised answers are free, listed, and never end the round; repeats are ignored', async () => {
     const { ctx, page: p } = await open(b); await begin(p);
     await answer(p, 'definitely not real'); await q(p, 'answer-error').waitFor();
-    ok((await text(p, 'answer-error')).includes('−2s'), 'penalty message');
+    ok(!(await text(p, 'answer-error')).includes('−'), 'no penalty message');
     eq(await q(p, 'round').count(), 1, 'round continues');
-    const s = parseInt(await text(p, 'timer-secs'), 10); ok(s <= 28, `time lost (${s})`);
+    const s = parseInt(await text(p, 'timer-secs'), 10); ok(s >= 28, `no time lost (${s})`);
     eq(await q(p, 'misses').locator('li').count(), 1, 'listed');
     await answer(p, 'Definitely  NOT real'); ok((await text(p, 'answer-error')).includes('already'), 'repeat message');
-    const s2 = parseInt(await text(p, 'timer-secs'), 10); ok(s2 >= s - 1, 'repeat is free');
-    await answer(p, 'x'); eq(await q(p, 'misses').locator('li').count(), 2, 'second miss listed'); await ctx.close();
+    await answer(p, 'x'); eq(await q(p, 'misses').locator('li').count(), 2, 'second miss listed');
+    const s2 = parseInt(await text(p, 'timer-secs'), 10); ok(s2 >= 27, `still no time lost (${s2})`); await ctx.close();
   });
   await t('a near miss offers "did you mean" and accepts it', async () => {
     const { ctx, page: p } = await open(b); await begin(p);
@@ -192,9 +216,9 @@ async function main() {
     eq(await q(p, 'timer-secs').count(), 0, 'timer waits for the player'); await ctx.close();
   });
 
-  console.log('Finishing the day, evolution, share, persistence');
+  console.log('Finishing the day, ascent, best answers, share, persistence');
   for (const mobile of [false, true]) {
-    await t(`finishing seven rounds → results, evolution, spoiler-free share (${mobile ? 'mobile' : 'desktop'})`, async () => {
+    await t(`finishing seven rounds → results, ascent, best answers, spoiler-free share (${mobile ? 'mobile' : 'desktop'})`, async () => {
       const { ctx, page: p, errors } = await open(b, { mobile });
       await begin(p);
       for (let i = 0; i < 7; i++) {
@@ -204,17 +228,25 @@ async function main() {
         if (i < 6) await q(p, 'round').waitFor();
       }
       await q(p, 'result').waitFor(); await noHScroll(p, 'result');
-      await p.waitForTimeout(2400);
-      const pts = parseInt(await text(p, 'result-points'), 10);
+      let pts = -1;
+      for (let i = 0; i < 40; i++) { const v = parseInt(await text(p, 'result-points'), 10); if (v > 0 && v === pts) break; pts = v; await p.waitForTimeout(500); }
       ok(pts > 450 && pts <= 700, `rarest answers score big (${pts})`);
-      ok(['Marine Mammal', 'Whale', 'Mythic Form', 'Large Mammal'].includes(await text(p, 'result-stage')), `high form (${await text(p, 'result-stage')})`);
+      eq(await text(p, 'result-stage'), STAGES[stageIndexFor(pts)].name, 'form matches points');
+      ok(stageIndexFor(pts) >= 6, `a high climb (${await text(p, 'result-stage')})`);
       eq(await q(p, 'breakdown-row').count(), 7, 'breakdown');
-      await q(p, 'evolution-overlay').waitFor({ timeout: 6000 });
+      const rows = q(p, 'breakdown-row');
+      for (let i = 0; i < 7; i++) {
+        const rowText = (await rows.nth(i).textContent()) ?? '';
+        ok(rowText.includes('Best possible answers'), `row ${i} lists best answers`);
+        ok(rowText.includes(bestEntries(daily.prompts[i], 1)[0].name), `row ${i} shows the top answer`);
+        ok((await rows.nth(i).locator('[data-testid=best-answer]').count()) === 5, `row ${i} shows five best answers`);
+      }
+      await q(p, 'ascent-overlay').waitFor({ timeout: 6000 });
       const phases = new Set<string>();
-      for (let i = 0; i < 24; i++) { phases.add((await q(p, 'evolution-overlay').getAttribute('data-phase'))!); await p.waitForTimeout(150); }
-      ok(phases.has('gather') || phases.has('flash') || phases.has('reveal'), 'evolution phases');
-      await q(p, 'evo-title').waitFor(); await noHScroll(p, 'evolution');
-      await q(p, 'evo-continue').click(); await q(p, 'evolution-overlay').waitFor({ state: 'detached' });
+      for (let i = 0; i < 24; i++) { phases.add((await q(p, 'ascent-overlay').getAttribute('data-phase'))!); await p.waitForTimeout(150); }
+      ok(phases.has('rise') || phases.has('reveal'), 'ascent phases');
+      await q(p, 'ascent-place').waitFor(); await noHScroll(p, 'ascent');
+      await q(p, 'ascent-continue').click(); await q(p, 'ascent-overlay').waitFor({ state: 'detached' });
       const share = await text(p, 'share-preview');
       for (const pr of daily.prompts) for (const e of pr.entries) if (e.name.length > 4) ok(!share.toLowerCase().includes(e.name.toLowerCase()), `share leaks ${e.name}`);
       ok(/OBSCURA #\d{3}/.test(share) && new RegExp(`${pts}/700 pts`).test(share) && /🔥 1 day streak/.test(share), `share:\n${share}`);
@@ -223,7 +255,7 @@ async function main() {
       ok((await text(p, 'copy-btn')).includes('Copied'), 'copied feedback');
       ok(/\d\d:\d\d:\d\d/.test(await text(p, 'countdown')), 'countdown');
       await p.reload(); await p.waitForTimeout(300); await q(p, 'play-btn').click(); await q(p, 'result').waitFor();
-      eq(await q(p, 'evolution-overlay').count(), 0, 'no replay after reload');
+      eq(await q(p, 'ascent-overlay').count(), 0, 'no replay after reload');
       eq(parseInt(await text(p, 'result-points'), 10), pts, 'persisted');
       await q(p, 'back-btn').click(); ok(/view result/i.test(await text(p, 'play-btn')), 'home offers result');
       ok((await text(p, 'home-streak')).startsWith('1'), 'streak 1');
@@ -231,12 +263,12 @@ async function main() {
       eq(errors.length, 0, errors.join('|')); await ctx.close();
     });
   }
-  await t('everyday answers give a small form; the day cannot be replayed', async () => {
+  await t('everyday answers keep you deep in the sea; the day cannot be replayed', async () => {
     const { ctx, page: p } = await open(b);
     await playDay(p, (i) => common(i).name);
     await p.waitForTimeout(300);
     ok(parseInt(await text(p, 'result-points'), 10) <= 70, 'low score');
-    ok(['Bacterium', 'Protozoan', 'Tiny Invertebrate'].includes(await text(p, 'result-stage')), await text(p, 'result-stage'));
+    ok(['Microbe', 'Jellyfish'].includes(await text(p, 'result-stage')), await text(p, 'result-stage'));
     await skipEvo(p);
     await q(p, 'back-btn').click(); await q(p, 'play-btn').click(); await q(p, 'result').waitFor();
     eq(await q(p, 'answer-input').count(), 0, 'no input after finishing'); await ctx.close();

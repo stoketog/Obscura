@@ -14,7 +14,7 @@ export function parseAnswer(raw: string): AnswerEntry {
 }
 
 export function parsePrompt(seed: PromptSeed): Prompt {
-  return { id: seed.id, text: seed.text, category: seed.category, entries: seed.answers.map(parseAnswer) };
+  return { id: seed.id, group: seed.group, text: seed.text, category: seed.category, entries: seed.answers.map(parseAnswer) };
 }
 
 let cache: Prompt[] | null = null;
@@ -35,4 +35,12 @@ export function getPrompt(id: string): Prompt | undefined {
 /** The rarest accepted answer, revealed once a day is finished. */
 export function rarestEntry(prompt: Prompt): AnswerEntry {
   return prompt.entries.reduce((best, e) => (e.score > best.score ? e : best), prompt.entries[0]);
+}
+
+/**
+ * The highest-scoring accepted answers, best first (ties broken alphabetically
+ * so the list is stable). Shown once a day is finished.
+ */
+export function bestEntries(prompt: Prompt, count = 5): AnswerEntry[] {
+  return [...prompt.entries].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name)).slice(0, count);
 }

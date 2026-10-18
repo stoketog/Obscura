@@ -1,4 +1,4 @@
-import { ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, MISS_PENALTY_MS } from '@/lib/scoring';
+import { ROUND_SECONDS, ROUNDS_PER_DAY, TIERS } from '@/lib/scoring';
 import { Modal } from './Modal';
 import { TierChip } from './TierChip';
 
@@ -14,13 +14,13 @@ export function HelpModal({ onClose }: { onClose: () => void }) {
           <b className="text-white">Type any answer.</b> The first answer we recognise ends the round, so choose with care. Spelling doesn’t need to be perfect.
         </li>
         <li>
-          <b className="text-white">Not on our list?</b> You lose {MISS_PENALTY_MS / 1000} seconds and can try again. You can also skip a round for no points.
+          <b className="text-white">Not on our list?</b> Nothing is lost: keep trying until the clock runs out. You can also skip a round for no points.
         </li>
         <li>
           <b className="text-white">Rarity is the reward.</b> Every answer has a rarity. Obvious answers barely count; answers few people would think of are worth far more.
         </li>
         <li>
-          <b className="text-white">Evolve.</b> Your points for the day grow a creature from a Microbe towards the Mythic Form. Come back tomorrow for seven new prompts and keep your streak.
+          <b className="text-white">Rise.</b> Your points for the day lift you from a microbe on the sea floor, through fish, a dolphin, a walk through the city, a bird, a helicopter, a plane and a rocket, to the solar system (a perfect 700). Come back tomorrow for seven new prompts and keep your streak.
         </li>
       </ul>
       <div className="mt-5 grid grid-cols-2 gap-2" aria-label="Points per rarity">

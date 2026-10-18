@@ -1,5 +1,5 @@
 import type { DailySet, GameState, HistoryEntry, Outcome, PlayerProfile, RoundState, TierId } from './types';
-import { MAX_POINTS, MISS_PENALTY_MS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, stageIndexFor, tierFor } from './scoring';
+import { MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, stageIndexFor, tierFor } from './scoring';
 import { matchAnswer } from './match';
 import { normalize } from './text';
 import { addDays } from './dates';
@@ -10,7 +10,7 @@ export function freshGame(daily: DailySet): GameState {
   return {
     dateKey: daily.dateKey,
     puzzleNumber: daily.number,
-    rounds: daily.prompts.map((p): RoundState => ({ promptId: p.id, status: 'pending', penaltyMs: 0, misses: [], points: 0 })),
+    rounds: daily.prompts.map((p): RoundState => ({ promptId: p.id, status: 'pending', misses: [], points: 0 })),
     status: 'playing',
     points: 0,
   };
@@ -36,7 +36,7 @@ export function lastDoneIndex(game: GameState): number {
 
 export function remainingMs(round: RoundState, now: number): number {
   if (round.status !== 'active' || round.startedAt === undefined) return ROUND_MS;
-  return Math.max(0, ROUND_MS - (now - round.startedAt) - round.penaltyMs);
+  return Math.max(0, ROUND_MS - (now - round.startedAt));
 }
 
 export function dayPoints(game: GameState): number {
@@ -139,14 +139,13 @@ export function submitAnswer(profile: PlayerProfile, daily: DailySet, raw: strin
 
   const key = normalize(raw);
   if (round.misses.includes(key)) return { profile, outcome: { kind: 'repeat' } };
-  const penalised: RoundState = { ...round, penaltyMs: round.penaltyMs + MISS_PENALTY_MS, misses: [...round.misses, key] };
-  const left = remainingMs(penalised, now);
-  const rounds = game.rounds.map((r, k) => (k === i ? penalised : r));
-  const nextProfile = withGame(profile, { ...game, rounds });
-  if (left <= 0) {
-    return { profile: finishRound(nextProfile, daily, i, { end: 'timeout', points: 0 }), outcome: { kind: 'miss', near: m.near?.name, remainingMs: 0, expired: true } };
-  }
-  return { profile: nextProfile, outcome: { kind: 'miss', near: m.near?.name, remainingMs: left, expired: false } };
+  // An unrecognised answer is free: the clock keeps running, nothing is lost.
+  const noted: RoundState = { ...round, misses: [...round.misses, key] };
+  const rounds = game.rounds.map((r, k) => (k === i ? noted : r));
+  return {
+    profile: withGame(profile, { ...game, rounds }),
+    outcome: { kind: 'miss', near: m.near?.name, remainingMs: remainingMs(noted, now), expired: false },
+  };
 }
 
 /** Called by the UI when the countdown reaches zero. Safe to call repeatedly. */

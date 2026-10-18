@@ -3,6 +3,7 @@ import type { PromptSeed } from '@/lib/types';
 export const NATURE: PromptSeed[] = [
   {
     id: 'tree',
+    group: 'nature',
     text: 'Name a tree',
     category: 'Trees',
     answers: [
@@ -13,11 +14,12 @@ export const NATURE: PromptSeed[] = [
       'Lime|42|linden', 'Larch|44', 'Mulberry|44', 'Jacaranda|48', 'Hornbeam|50', 'Laburnum|52', 'Rosewood|54', 'Cork oak|54', 'Sandalwood|56', 'Tulip tree|56',
       'Kapok|62', 'Ceiba|66', 'Sweet gum|66', 'Redbud|66', 'Kauri|66', 'Bristlecone pine|66', 'Dragon blood tree|70', 'Wych elm|70', 'Field maple|72', 'Whitebeam|74',
       'Quiver tree|76', 'Pohutukawa|78', 'Wollemi pine|80', 'Jarrah|80', 'Rimu|82', 'Karri|84', 'Coolibah|84', 'Totara|88', 'Sausage tree|90', 'Cannonball tree|93',
-      'Ombú|94|ombu', 'Franklinia|97',
+      'Ombú|95|ombu', 'Franklinia|97',
     ],
   },
   {
     id: 'flower',
+    group: 'nature',
     text: 'Name a flower',
     category: 'Flowers',
     answers: [
@@ -30,11 +32,12 @@ export const NATURE: PromptSeed[] = [
       'Clematis|44', 'Cyclamen|44', 'Nasturtium|44', 'Amaryllis|44', 'Protea|44', 'Echinacea|54', 'Verbena|54', 'Salvia|54', 'Rafflesia|56', 'Ranunculus|56',
       'Agapanthus|56', 'Campanula|60', 'Columbine|62', 'Scabious|66', 'Alstroemeria|66', 'Anthurium|66', 'Phlox|66', 'Lobelia|66', 'Ylang-ylang|68', 'Gentian|70',
       'Hellebore|70', 'Larkspur|70', 'Stock|70', 'Rudbeckia|74', 'Tuberose|78', 'Statice|80', 'Trillium|82', 'Celosia|82', 'Chocolate cosmos|82', 'Ghost orchid|90',
-      'Monkey orchid|94', 'Kadupul|97|kadupul flower',
+      'Monkey orchid|95', 'Kadupul|97|kadupul flower',
     ],
   },
   {
     id: 'gemstone',
+    group: 'science',
     text: 'Name a gemstone or mineral',
     category: 'Gems & minerals',
     answers: [
@@ -49,6 +52,7 @@ export const NATURE: PromptSeed[] = [
   },
   {
     id: 'element',
+    group: 'science',
     text: 'Name a chemical element',
     category: 'Elements',
     answers: [
@@ -68,6 +72,7 @@ export const NATURE: PromptSeed[] = [
   },
   {
     id: 'mountain',
+    group: 'geography',
     text: 'Name a mountain or volcano',
     category: 'Mountains',
     answers: [
@@ -80,11 +85,12 @@ export const NATURE: PromptSeed[] = [
       'Manaslu|52', 'Cerro Torre|54', 'Toubkal|54', 'Mount Hermon|54', 'Mount Erebus|56', 'Tambora|56', 'Mount Meru|62', 'Puncak Jaya|62|carstensz pyramid', 'Huascarán|62|huascaran',
       'Grossglockner|62', 'Longs Peak|62', 'Mount Logan|62', 'Pico de Orizaba|66', 'Mount Elbert|66', 'Mount Katahdin|66', 'Mount Pelée|70|mount pelee', 'Triglav|74',
       'Dom|76', 'Weisshorn|76', 'Mount Robson|76', 'Mount Mitchell|76', 'Musala|82', 'Dent Blanche|84', 'Piz Bernina|84', 'Ras Dashen|84', 'Clingmans Dome|86',
-      'Mount Marcy|88', 'Mont Aiguille|90', 'Mount Ossa|90', 'Gangkhar Puensum|96',
+      'Mount Marcy|88', 'Mont Aiguille|95', 'Mount Ossa|90', 'Gangkhar Puensum|96',
     ],
   },
   {
     id: 'river',
+    group: 'geography',
     text: 'Name a river',
     category: 'Rivers',
     answers: [
@@ -99,6 +105,7 @@ export const NATURE: PromptSeed[] = [
   },
   {
     id: 'desert',
+    group: 'geography',
     text: 'Name a desert',
     category: 'Deserts',
     answers: [
@@ -107,11 +114,12 @@ export const NATURE: PromptSeed[] = [
       'Painted Desert|42', 'Great Basin|44', 'Ténéré|46|tenere', 'Libyan|50', 'Great Victoria|52', 'Nubian|52', 'Syrian|52', 'Dasht-e Lut|66|lut', 'Karakum|56',
       'Karoo|54', 'Danakil|62', 'Gibson|62', 'Simpson|62', 'Great Sandy|66', 'Kyzylkum|66', 'Nefud|66', 'Colorado Desert|66', 'Tabernas|70', 'Tanami|72',
       'Dasht-e Kavir|72', 'Cholistan|78', 'Registan|80', 'Ordos|80', 'Sechura|80', 'Monte|82', 'Bardenas Reales|82', 'Little Sandy|82', 'Sturt Stony|82',
-      'Badain Jaran|86', 'Dasht-e Margo|88', 'Chalbi|90', 'Błędów|96|bledow',
+      'Badain Jaran|86', 'Dasht-e Margo|88', 'Chalbi|95', 'Błędów|96|bledow',
     ],
   },
   {
     id: 'island',
+    group: 'geography',
     text: 'Name an island',
     category: 'Islands',
     answers: [
@@ -129,6 +137,7 @@ export const NATURE: PromptSeed[] = [
   },
   {
     id: 'moon',
+    group: 'science',
     text: 'Name a moon in our solar system',
     category: 'Moons',
     answers: [
@@ -142,6 +151,7 @@ export const NATURE: PromptSeed[] = [
   },
   {
     id: 'constellation',
+    group: 'science',
     text: 'Name a constellation',
     category: 'Constellations',
     answers: [

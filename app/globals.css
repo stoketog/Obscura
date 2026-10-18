@@ -133,9 +133,11 @@ button { font: inherit; color: inherit; }
   animation: shimmer 5s linear infinite;
 }
 
-/* ───────────────────────── Creature chamber ───────────────────────── */
-.chamber-ring { transform-origin: 50% 50%; animation: spin 90s linear infinite; }
-.chamber-ring.rev { animation-direction: reverse; animation-duration: 140s; }
+/* ───────────────────────── Scene viewport ───────────────────────── */
+.scene-frame {
+  background: #04101c; border: 1px solid rgb(255 255 255 / 0.12);
+  box-shadow: 0 20px 70px -20px hsl(var(--stage-hue) 90% 50% / 0.45), 0 0 0 1px rgb(0 0 0 / 0.4);
+}
 .creature-glow { filter: drop-shadow(0 0 14px hsl(var(--h) 95% 60% / 0.55)) drop-shadow(0 0 40px hsl(var(--h) 95% 55% / 0.3)); }
 .creature-idle { animation: float 7s ease-in-out infinite; transform-origin: 50% 55%; }
 .wiggle { animation: wiggle 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
@@ -187,21 +189,12 @@ button { font: inherit; color: inherit; }
   .sheet { bottom: auto; top: 50%; transform: translate(-50%, -50%); border-radius: 1.5rem; border-bottom: 1px solid rgb(255 255 255 / 0.1); animation-name: sheetInCenter; max-height: 88dvh; }
 }
 
-/* Evolution sequence */
-.evo-flash { position: absolute; inset: 0; background: white; opacity: 0; pointer-events: none; }
-.evo-flash.go { animation: flash 0.9s ease-out both; }
-.evo-particle {
-  position: absolute; left: 50%; top: 50%; width: var(--s); height: var(--s); margin: calc(var(--s) / -2);
-  border-radius: 999px; background: hsl(var(--h) 100% 78%); box-shadow: 0 0 12px hsl(var(--h) 100% 65%);
-  opacity: 0; animation: gather var(--d) cubic-bezier(0.5, 0, 0.7, 0.4) var(--delay) both;
+/* Ascent sequence */
+.ascent-streak {
+  position: absolute; bottom: -45%; width: 2px; border-radius: 999px;
+  background: linear-gradient(to top, transparent, rgb(255 255 255 / 0.55), transparent);
+  animation: streak 0.9s linear infinite;
 }
-.evo-ring {
-  position: absolute; left: 50%; top: 50%; width: 10rem; height: 10rem; margin: -5rem; border-radius: 999px;
-  border: 2px solid hsl(var(--h) 100% 75%); opacity: 0; animation: shock 1.5s ease-out var(--delay, 0s) both;
-}
-.evo-charge { animation: charge 1.5s ease-in both; }
-.evo-reveal { animation: reveal 1.1s cubic-bezier(0.2, 1.2, 0.3, 1) both; }
-
 /* Confetti-ish sparkle used on the result screen */
 .spark { position: absolute; width: 4px; height: 4px; border-radius: 999px; background: var(--color-amber-glow); box-shadow: 0 0 10px var(--color-amber-glow); animation: spark 1.6s ease-out both; }
 
@@ -223,19 +216,8 @@ button { font: inherit; color: inherit; }
 }
 @keyframes sheetIn { from { transform: translate(-50%, 100%); } to { transform: translate(-50%, 0); } }
 @keyframes sheetInCenter { from { opacity: 0; transform: translate(-50%, -46%); } to { opacity: 1; transform: translate(-50%, -50%); } }
+@keyframes streak { from { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } to { transform: translateY(-260%); opacity: 0; } }
 @keyframes flash { 0% { opacity: 0; } 18% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes gather {
-  0% { opacity: 0; transform: translate(var(--x), var(--y)) scale(0.4); }
-  20% { opacity: 1; }
-  100% { opacity: 0; transform: translate(0, 0) scale(1.4); }
-}
-@keyframes shock { 0% { opacity: 0.9; transform: scale(0.3); } 100% { opacity: 0; transform: scale(4.2); } }
-@keyframes charge {
-  0% { transform: scale(1); filter: brightness(1); }
-  60% { transform: scale(1.1) translateX(0); filter: brightness(1.6) saturate(1.4); }
-  100% { transform: scale(1.35); filter: brightness(5) saturate(0); }
-}
-@keyframes reveal { 0% { transform: scale(0.4); filter: brightness(6) saturate(0); opacity: 0; } 55% { transform: scale(1.12); filter: brightness(1.8); opacity: 1; } 100% { transform: scale(1); filter: none; opacity: 1; } }
 @keyframes spark { 0% { opacity: 0; transform: translate(0, 0) scale(0.4); } 15% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1); } }
 @keyframes shakeX { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(3px); } }
 .shake { animation: shakeX 0.4s ease; }

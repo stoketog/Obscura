@@ -1,6 +1,6 @@
 # Obscura — how obscure can you get?
 
-A daily game about the obscure. Seven shared prompts a day ("Name a cheese"), 30 seconds each. Type any answer that fits: the rarer it is, the more points it earns, and your points evolve a creature from a Microbe to the Mythic Form.
+A daily game about the obscure. Seven shared prompts a day ("Name a cheese"), 30 seconds each. Type any answer that fits: the rarer it is, the more points it earns, and your points lift you on an ascent: a microbe on the sea floor, then a jellyfish, fish, dolphin, a human walking down a street, a bird (200 pts), a helicopter (300), a plane, a rocket, a satellite, an astronaut and, for a perfect 700, the whole solar system. Every form has its own animated 3D scene.
 
 ## Run it
 
@@ -25,20 +25,21 @@ npm run test:e2e              # Playwright suite (needs both builds, see tests/e
 | Path | Purpose |
 |---|---|
 | `src/data/prompts/*` | The answer library. Each prompt lists every accepted answer as `Name\|rarity\|alias;alias` |
-| `src/data/stages.ts` | The evolution ladder and the points needed for each form (swap this + `Creature.tsx` to re-theme) |
-| `src/lib/scoring.ts` | Rarity tiers → points, round timer, points → evolution stage |
+| `src/data/stages.ts` | The ascent: each form, its points threshold, place and altitude |
+| `src/scene/*` | A small software 3D renderer on a 2D canvas (`engine.ts`) and the 12 scenes (`scenes-sea/land/space.ts`, registry in `scenes.ts`). No 3D library needed |
+| `src/lib/scoring.ts` | Rarity tiers → points, round timer, points → stage |
 | `src/lib/match.ts` | Forgiving answer matching: case, accents, plurals, small typos, "did you mean" |
-| `src/lib/daily.ts` | Date → seven prompts (pure function; seeded reshuffle after each full pass of the library) |
-| `src/lib/game.ts` | Pure rules: rounds, timer, penalties, finishing a day, streaks, stats |
+| `src/lib/daily.ts` | Date → seven prompts (pure function; each day mixes topics, weighted to general knowledge, dealt from seeded per-topic shuffles) |
+| `src/lib/game.ts` | Pure rules: rounds, timer, finishing a day, streaks, stats |
 | `src/lib/storage.ts` | `PlayerRepository` interface + localStorage implementation (swap for an API later) |
-| `src/components/*` | UI. `Creature.tsx` holds the 14 SVG creatures |
+| `src/components/*` | UI. `SceneCanvas`/`SceneView` show the animated scene, `AscentOverlay` plays the climb between forms |
 | `app/` | Next.js App Router entry (`layout.tsx`, `page.tsx`, `globals.css`) |
 
 ### How scoring works
-Every answer has a rarity from 1 (everyone says it) to 100 (almost nobody does). Tiers: Everyday 10 pts, Familiar 20, Uncommon 35, Rare 55, Obscure 80, Mythic 100. Seven mythic answers (700) is the ceiling. The first recognised answer ends a round; an unrecognised answer costs 2 seconds; running out of time or skipping scores 0.
+Every answer has a rarity from 1 (everyone says it) to 100 (almost nobody does). Tiers: Everyday 10 pts, Familiar 20, Uncommon 35, Rare 55, Obscure 80, Mythic 100. Seven mythic answers (700) is the ceiling. The first recognised answer ends a round (the results screen then shows the best possible answers for every prompt); an unrecognised answer is free (the clock just keeps running); running out of time or skipping scores 0.
 
 ### Adding prompts
-Add a `PromptSeed` to a file in `src/data/prompts/` (or create a new file and list it in `index.ts`). Give it plenty of answers (40+), from everyday to obscure, with aliases for alternative spellings. `npm test` checks for duplicate spellings, score range, that every answer matches itself, and that each prompt has both easy and obscure answers.
+Add a `PromptSeed` to a file in `src/data/prompts/` (or create a new file and list it in `index.ts`). Give it plenty of answers (40+), from everyday to obscure, with aliases for alternative spellings. `npx tsx tests/validate-prompts.ts src/data/prompts/<file>.ts` checks for duplicate spellings, score range, that every answer matches itself, and that each prompt has both easy and obscure answers.
 
 Answers players type that the game doesn't recognise are logged locally (`obscura:v1:unrecognised`, visible in the admin Test tab) so the lists can be grown from real play.
 

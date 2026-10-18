@@ -18,8 +18,14 @@ export interface AnswerEntry {
  * Authoring format. Each answer is one string: `Name|score` or `Name|score|alias;alias`.
  * Keeping the data this compact is what lets the library scale to thousands of answers.
  */
+export type PromptGroup = 'general' | 'geography' | 'history' | 'sport' | 'screen' | 'music' | 'arts' | 'science' | 'food' | 'nature';
+
+export const PROMPT_GROUPS: PromptGroup[] = ['general', 'geography', 'history', 'sport', 'screen', 'music', 'arts', 'science', 'food', 'nature'];
+
 export interface PromptSeed {
   id: string;
+  /** Topic area. The daily set draws from different groups so every day is a mix. */
+  group: PromptGroup;
   /** What the player sees, e.g. "Name a cheese". */
   text: string;
   /** Short topic label shown on the result screen. */
@@ -29,6 +35,7 @@ export interface PromptSeed {
 
 export interface Prompt {
   id: string;
+  group: PromptGroup;
   text: string;
   category: string;
   entries: AnswerEntry[];
@@ -55,9 +62,7 @@ export interface RoundState {
   status: RoundStatus;
   /** Epoch ms when the timer started. The clock keeps running across reloads. */
   startedAt?: number;
-  /** Time lost to unrecognised answers. */
-  penaltyMs: number;
-  /** Normalised text of unrecognised answers already tried. */
+  /** Normalised text of unrecognised answers already tried (listed to the player, never penalised). */
   misses: string[];
   end?: RoundEnd;
   /** Canonical name of the accepted answer. */
@@ -101,7 +106,7 @@ export interface HistoryEntry {
 }
 
 export interface PlayerProfile {
-  version: 2;
+  version: 3;
   currentStreak: number;
   longestStreak: number;
   lastCompletedDate: string | null;

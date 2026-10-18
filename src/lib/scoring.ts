@@ -20,8 +20,6 @@ export const TIERS: Tier[] = [
 export const ROUNDS_PER_DAY = 7;
 export const ROUND_SECONDS = 30;
 export const ROUND_MS = ROUND_SECONDS * 1000;
-/** Time lost for an answer the game doesn't recognise. */
-export const MISS_PENALTY_MS = 2000;
 export const MAX_POINTS = TIERS[TIERS.length - 1].points * ROUNDS_PER_DAY;
 
 export function tierFor(score: number): Tier {

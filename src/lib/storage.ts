@@ -16,7 +16,7 @@ export interface PlayerRepository {
 
 export function emptyProfile(): PlayerProfile {
   return {
-    version: 2,
+    version: 3,
     currentStreak: 0,
     longestStreak: 0,
     lastCompletedDate: null,
@@ -59,7 +59,7 @@ function sanitize(raw: unknown): PlayerProfile {
   if (!raw || typeof raw !== 'object') return base;
   const r = raw as Partial<PlayerProfile>;
   // Profiles from the original clue-based version are incompatible; start fresh.
-  if (r.version !== 2) return base;
+  if (r.version !== 3) return base;
   return {
     ...base,
     ...r,

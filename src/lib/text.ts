@@ -5,6 +5,12 @@ export function normalize(input: string): string {
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
     .replace(/[’'`]/g, '')
+    // Symbols that carry meaning in answers: "C++", "C#", "R&B", "Nidoran♀".
+    .replace(/&/g, ' and ')
+    .replace(/\+/g, ' plus ')
+    .replace(/#/g, ' sharp ')
+    .replace(/♀/g, ' female ')
+    .replace(/♂/g, ' male ')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
     .replace(/^(the|a|an)\s+/, '');

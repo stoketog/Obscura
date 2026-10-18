@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
 import { PROMPT_SEEDS } from '@/data/prompts';
-import { STAGES } from '@/data/stages';
+import { STAGES, altitudeFor, formatAltitude } from '@/data/stages';
+import { SCENES } from '@/scene/scenes';
 import { getPrompts, parseAnswer, rarestEntry } from '@/lib/prompts';
 import { matchAnswer } from '@/lib/match';
 import { normalize } from '@/lib/text';
-import { TIERS, MAX_POINTS, ROUND_MS, MISS_PENALTY_MS, ROUNDS_PER_DAY, pointsFor, stageIndexFor, tierFor, stageProgress } from '@/lib/scoring';
+import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, stageIndexFor, tierFor, stageProgress } from '@/lib/scoring';
 import { getDaily, pickPrompts } from '@/lib/daily';
 import { addDays, puzzleNumberFor, EPOCH } from '@/lib/dates';
 import { currentRoundIndex, deriveStats, effectiveStreak, expireRound, freshGame, getGame, remainingMs, skipRound, startRound, submitAnswer } from '@/lib/game';
@@ -66,7 +67,7 @@ test('parseAnswer parses aliases and rejects junk', () => {
 });
 test('stages are ordered with increasing thresholds', () => {
   for (let i = 1; i < STAGES.length; i++) assert.ok(STAGES[i].threshold > STAGES[i - 1].threshold, STAGES[i].id);
-  assert.equal(STAGES.length, 14);
+  assert.equal(STAGES.length, 12);
 });
 
 console.log('Scoring');
@@ -83,13 +84,35 @@ test('tiers map scores to points steeply', () => {
   assert.equal(MAX_POINTS, 700);
   for (let i = 1; i < TIERS.length; i++) assert.ok(TIERS[i].points > TIERS[i - 1].points);
 });
-test('stage thresholds: first answer evolves, seven everyday answers are a tiny invertebrate', () => {
+test('stage thresholds: microbe at 0, a form every 40–90 points, the solar system only for a perfect 700', () => {
   assert.equal(stageIndexFor(0), 0);
-  assert.equal(stageIndexFor(10), 1);
-  assert.equal(stageIndexFor(70), 3);
+  assert.equal(stageIndexFor(39), 0);
+  assert.equal(stageIndexFor(40), 1);
+  assert.equal(stageIndexFor(199), 4);
+  assert.equal(stageIndexFor(200), 5); // bird at 200
+  assert.equal(stageIndexFor(300), 6); // helicopter at 300
+  assert.equal(STAGES[stageIndexFor(699)].id, 'astronaut');
   assert.equal(stageIndexFor(700), STAGES.length - 1);
+  assert.equal(STAGES[STAGES.length - 1].id, 'solar');
   assert.equal(stageProgress(700), 100);
   assert.ok(stageProgress(45) > 0 && stageProgress(45) < 100);
+  for (let i = 1; i < STAGES.length; i++) assert.ok(STAGES[i].threshold > STAGES[i - 1].threshold && STAGES[i].altitude > STAGES[i - 1].altitude);
+});
+test('altitude climbs monotonically with points and reads sensibly', () => {
+  let prev = -Infinity;
+  for (let p = 0; p <= 700; p += 5) {
+    const a = altitudeFor(p);
+    assert.ok(a >= prev, `altitude dropped at ${p}`);
+    prev = a;
+  }
+  assert.equal(formatAltitude(altitudeFor(0)), '−4,000 m');
+  assert.equal(formatAltitude(0), 'Sea level');
+  assert.equal(formatAltitude(10700), '10.7 km');
+  assert.ok(formatAltitude(altitudeFor(700)).endsWith('billion km'));
+});
+test('every stage has a scene', () => {
+  const ids = new Set(Object.keys(SCENES));
+  for (const st of STAGES) assert.ok(ids.has(st.id), st.id);
 });
 
 console.log('Answer matching');
@@ -145,12 +168,25 @@ test('same date always gives the same seven prompts', () => {
 test('seven distinct prompts each day', () => {
   for (let i = 0; i < 200; i++) assert.equal(new Set(pickPrompts(addDays(D0, i)).map((p) => p.id)).size, ROUNDS_PER_DAY, `day ${i}`);
 });
-test('consecutive days differ and a whole pass uses every prompt once', () => {
+test('consecutive days differ, topics are mixed and nothing repeats within three days', () => {
   assert.notDeepEqual(pickPrompts(D0).map((p) => p.id), pickPrompts(addDays(D0, 1)).map((p) => p.id));
-  const stream = new Set<string>();
-  const days = Math.floor(prompts.length / ROUNDS_PER_DAY);
-  for (let i = 0; i < days; i++) pickPrompts(addDays(D0, i)).forEach((p) => stream.add(p.id));
-  assert.equal(stream.size, days * ROUNDS_PER_DAY);
+  const groups = new Map<string, number>();
+  for (let i = 0; i < 120; i++) {
+    const today = pickPrompts(addDays(D0, i));
+    const groupsToday = new Set(today.map((p) => p.group));
+    assert.ok(groupsToday.size >= 4, `day ${i} only has ${groupsToday.size} topics`);
+    today.forEach((p) => groups.set(p.group, (groups.get(p.group) ?? 0) + 1));
+    if (i >= 3) {
+      const recent = new Set<string>();
+      for (let k = 1; k <= 3; k++) pickPrompts(addDays(D0, i - k)).forEach((p) => recent.add(p.id));
+      today.forEach((p) => assert.ok(!recent.has(p.id), `${p.id} repeated within three days (day ${i})`));
+    }
+  }
+  const total = [...groups.values()].reduce((a, b) => a + b, 0);
+  const general = groups.get('general') ?? 0;
+  assert.ok(general / total >= 0.28, 'general knowledge should be the focus');
+  for (const [g, n] of groups) if (g !== 'general') assert.ok(n < general, `${g} outweighs general knowledge`);
+  for (const g of ['geography', 'history', 'sport', 'screen']) assert.ok((groups.get(g) ?? 0) > 0, `${g} never appears`);
 });
 test('day numbers count from the epoch; admin overrides replace the list', () => {
   assert.equal(puzzleNumberFor(D0), 1);
@@ -209,17 +245,17 @@ test('a correct answer scores its tier and closes the round', () => {
   assert.equal(g.points, 55);
   assert.equal(currentRoundIndex(g), 1);
 });
-test('an unrecognised answer costs time but never ends the round; repeats are free', () => {
+test('an unrecognised answer is free: no time lost, never ends the round; repeats are ignored', () => {
   const p = startRound(emptyProfile(), daily, T0);
   const a = submitAnswer(p, daily, 'definitely not a thing', T0 + 1000);
   assert.equal(a.outcome.kind, 'miss');
   const r = getGame(a.profile, daily).rounds[0];
   assert.equal(r.status, 'active');
-  assert.equal(r.penaltyMs, MISS_PENALTY_MS);
-  assert.equal(remainingMs(r, T0 + 1000), ROUND_MS - 1000 - MISS_PENALTY_MS);
+  assert.equal(remainingMs(r, T0 + 1000), ROUND_MS - 1000);
+  assert.deepEqual(r.misses, ['definitely not a thing']);
   const again = submitAnswer(a.profile, daily, 'Definitely  NOT a thing', T0 + 1500);
   assert.equal(again.outcome.kind, 'repeat');
-  assert.equal(getGame(again.profile, daily).rounds[0].penaltyMs, MISS_PENALTY_MS);
+  assert.equal(getGame(again.profile, daily).rounds[0].misses.length, 1);
 });
 test('answering after time is up scores nothing', () => {
   const p = startRound(emptyProfile(), daily, T0);
@@ -229,15 +265,12 @@ test('answering after time is up scores nothing', () => {
   assert.equal(r.end, 'timeout');
   assert.equal(r.points, 0);
 });
-test('penalties can run the clock out', () => {
+test('many wrong guesses never shorten the clock', () => {
   let p = startRound(emptyProfile(), daily, T0);
-  let outcome = 'miss';
-  for (let i = 0; i < 20 && outcome === 'miss'; i++) {
-    const res = submitAnswer(p, daily, `nonsense${i}x`, T0 + 27_000);
-    p = res.profile;
-    if (res.outcome.kind === 'miss' && res.outcome.expired) break;
-  }
-  assert.equal(getGame(p, daily).rounds[0].end, 'timeout');
+  for (let i = 0; i < 30; i++) p = submitAnswer(p, daily, `nonsense${i}x`, T0 + 10_000).profile;
+  const r = getGame(p, daily).rounds[0];
+  assert.equal(r.status, 'active');
+  assert.equal(remainingMs(r, T0 + 10_000), ROUND_MS - 10_000);
 });
 test('expireRound only acts when the timer has really run out; skip scores zero', () => {
   const p = startRound(emptyProfile(), daily, T0);

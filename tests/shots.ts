@@ -33,7 +33,7 @@ for (const [name, vp, mobile] of [['d', { width: 1280, height: 860 }, false], ['
   }
   await p.locator('[data-testid=result]').waitFor(); await p.waitForTimeout(2600);
   await p.screenshot({ path: `${OUT}/${name}-evo.png` });
-  await p.locator('[data-testid=evo-skip]').click().catch(() => {});
+  await p.locator('[data-testid=ascent-skip]').click().catch(() => {});
   await p.waitForTimeout(800);
   await p.screenshot({ path: `${OUT}/${name}-result.png` });
   await p.screenshot({ path: `${OUT}/${name}-result-full.png`, fullPage: true });

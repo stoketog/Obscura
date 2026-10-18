@@ -8,6 +8,7 @@ import type { PromptSeed } from '@/lib/types';
 export const FOOD: PromptSeed[] = [
   {
     id: 'cheese',
+    group: 'food',
     text: 'Name a cheese',
     category: 'Cheese',
     answers: [
@@ -25,6 +26,7 @@ export const FOOD: PromptSeed[] = [
   },
   {
     id: 'pasta',
+    group: 'food',
     text: 'Name a pasta shape',
     category: 'Pasta',
     answers: [
@@ -35,11 +37,12 @@ export const FOOD: PromptSeed[] = [
       'Paccheri|58', 'Trenette|60', 'Campanelle|62', 'Agnolotti|62', 'Casarecce|64', 'Cappelletti|66', 'Cavatelli|66', 'Spaghettoni|68', 'Lumache|68',
       'Strozzapreti|70', 'Stelline|70', 'Trofie|72', 'Maltagliati|72', 'Anelli|72', 'Garganelli|74', 'Pici|74', 'Bigoli|74', 'Mafalde|76',
       'Sedanini|76', 'Fregola|78', 'Mezzelune|80', 'Tonnarelli|82', 'Busiate|84', 'Mezze maniche|88', 'Tripoline|88', 'Scialatielli|90',
-      'Malloreddus|90', 'Corzetti|92', 'Culurgiones|94', 'Su filindeu|99',
+      'Malloreddus|90', 'Corzetti|92', 'Culurgiones|95', 'Su filindeu|99',
     ],
   },
   {
     id: 'bread',
+    group: 'food',
     text: 'Name a type of bread',
     category: 'Bread',
     answers: [
@@ -50,11 +53,12 @@ export const FOOD: PromptSeed[] = [
       'Puri|38', 'Matzo|38|matzah', 'Stollen|40', 'Bloomer|42', 'Injera|44', 'Arepa|44', 'Milk bread|46|shokupan', 'Khubz|48', 'Fougasse|52',
       'Cottage loaf|56', 'Kulcha|56', 'Bhatura|56', 'Pandesal|66', 'Manakish|66|manousheh', 'Bara brith|66', 'Barmbrack|62', 'Bannock|64',
       'Melonpan|70', 'Vollkornbrot|72', 'Farl|74', 'Limpa|78', 'Barbari|78', 'Sangak|80', 'Taftan|82', 'Markook|82|shrak', 'Pan de muerto|82',
-      'Anadama bread|90', 'Pane carasau|95|carta da musica',
+      'Anadama bread|95', 'Pane carasau|95|carta da musica',
     ],
   },
   {
     id: 'cocktail',
+    group: 'food',
     text: 'Name a cocktail',
     category: 'Cocktails',
     answers: [
@@ -66,11 +70,12 @@ export const FOOD: PromptSeed[] = [
       'Grasshopper|38', 'Blue Hawaiian|38', 'Sazerac|40', 'Zombie|44', 'Rob Roy|44', 'Brandy Alexander|44', 'Rusty nail|44', 'Godfather|44',
       'Pimms cup|44|pimm\'s cup;pimms', 'Boulevardier|52', 'Aviation|52', 'Stinger|56', 'Gibson|56', 'Bramble|56', 'Last word|62', 'Painkiller|62',
       'Bronx|62', 'Paper plane|64', 'Ramos gin fizz|66', 'Clover club|66', 'Blood and sand|70', 'Penicillin|72', 'Corpse reviver|72', 'Brooklyn|72',
-      'Jungle bird|74', 'Vieux Carré|78|vieux carre', 'Tuxedo|80', 'Monkey gland|86', 'Toronto|88', 'Bijou|90', 'Remember the Maine|97',
+      'Jungle bird|74', 'Vieux Carré|78|vieux carre', 'Tuxedo|80', 'Monkey gland|86', 'Toronto|88', 'Bijou|95', 'Remember the Maine|97',
     ],
   },
   {
     id: 'fruit',
+    group: 'food',
     text: 'Name a fruit',
     category: 'Fruit',
     answers: [
@@ -82,11 +87,12 @@ export const FOOD: PromptSeed[] = [
       'Tamarind|46', 'Yuzu|52', 'Physalis|52|cape gooseberry;goldenberry', 'Loquat|56', 'Soursop|56|graviola', 'Longan|56', 'Custard apple|58',
       'Cherimoya|62', 'Jujube|62', 'Breadfruit|62', 'Ugli fruit|66', 'Ackee|66', 'Feijoa|66', 'Bergamot|66', 'Tamarillo|70', 'Citron|70', 'Pawpaw|72',
       'Sapodilla|76', 'Medlar|76', 'Salak|78|snake fruit', 'Buddha\'s hand|78', 'Langsat|82', 'Lucuma|84', 'Cupuaçu|88|cupuacu', 'Mamey sapote|90',
-      'Jabuticaba|93', 'Marang|97',
+      'Jabuticaba|95', 'Marang|97',
     ],
   },
   {
     id: 'spice',
+    group: 'food',
     text: 'Name a herb or spice',
     category: 'Herbs & spices',
     answers: [
@@ -98,7 +104,7 @@ export const FOOD: PromptSeed[] = [
       'Szechuan pepper|52|sichuan pepper', 'Ras el hanout|52', 'Kaffir lime leaf|54|makrut lime leaf', 'Galangal|56', 'Savory|56|summer savory;winter savory',
       'Lovage|62', 'Sorrel|62', 'Annatto|66|achiote', 'Borage|66', 'Berbere|70', 'Hyssop|74', 'Ajwain|74|carom', 'Angelica|76', 'Epazote|80',
       'Grains of paradise|82|melegueta pepper', 'Long pepper|82|pippali', 'Amchur|84', 'Panch phoron|88', 'Asafoetida|74|hing', 'Mahlab|90|mahleb',
-      'Tonka bean|90', 'Vadouvan|90', 'Cubeb|90', 'Mastic|93|mastiha', 'Voatsiperifery|99|voatsiperifery pepper',
+      'Tonka bean|90', 'Vadouvan|90', 'Cubeb|90', 'Mastic|95|mastiha', 'Voatsiperifery|99|voatsiperifery pepper',
     ],
   },
 ];
