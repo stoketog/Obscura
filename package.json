@@ -2,7 +2,7 @@
   "name": "obscura",
   "version": "1.0.0",
   "private": true,
-  "description": "Obscura \u2014 a daily guessing game about the obscure. How obscure can you get?",
+  "description": "Obscura — a daily guessing game about the obscure. How obscure can you get?",
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
@@ -15,6 +15,7 @@
     "serve:static": "node scripts/serve.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "next": "^15.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
