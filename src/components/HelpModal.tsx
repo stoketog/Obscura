@@ -1,26 +1,36 @@
+import { ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, MISS_PENALTY_MS } from '@/lib/scoring';
 import { Modal } from './Modal';
+import { TierChip } from './TierChip';
 
 export function HelpModal({ onClose }: { onClose: () => void }) {
   return (
     <Modal title="How to play" onClose={onClose} testId="help-modal">
-      <p className="font-display text-xl italic text-white">There is one mystery a day. It is probably obscure.</p>
+      <p className="font-display text-xl italic text-white">Name anything that fits. The rarer, the better.</p>
       <ul className="mt-4 space-y-4 text-sm leading-relaxed text-mist-300">
         <li>
-          <b className="text-white">Follow the clues.</b> You start with one broad clue. Every guess unlocks the next, sharper one. You have 8 guesses.
+          <b className="text-white">{ROUNDS_PER_DAY} prompts a day.</b> Everyone gets the same ones, like “Name a cheese” or “Name a bird”. You have {ROUND_SECONDS} seconds for each.
         </li>
         <li>
-          <b className="text-white">Think laterally.</b> Each guess is scored for how close it is: category, habitat, traits, size, family. You never need to know everything; you need to triangulate.
+          <b className="text-white">Type any answer.</b> The first answer we recognise ends the round, so choose with care. Spelling doesn’t need to be perfect.
         </li>
         <li>
-          <b className="text-white">Rarity is the reward.</b> Every answer has an Obscurity score from 1 to 100, built from public familiarity, how much has been written about it, how specific it is and how niche it is. The more obscure the answer, the more you grow.
+          <b className="text-white">Not on our list?</b> You lose {MISS_PENALTY_MS / 1000} seconds and can try again. You can also skip a round for no points.
         </li>
         <li>
-          <b className="text-white">Even a miss can pay off.</b> A rare guess that’s <em>close</em> earns growth in play (the amber bar). A vague common guess like “fish” earns almost nothing.
+          <b className="text-white">Rarity is the reward.</b> Every answer has a rarity. Obvious answers barely count; answers few people would think of are worth far more.
         </li>
         <li>
-          <b className="text-white">Evolve.</b> Grow from Microbe through fish, birds and mammals to the Whale, and beyond. Later forms need much more. Solve daily to keep your streak.
+          <b className="text-white">Evolve.</b> Your points for the day grow a creature from a Microbe towards the Mythic Form. Come back tomorrow for seven new prompts and keep your streak.
         </li>
       </ul>
+      <div className="mt-5 grid grid-cols-2 gap-2" aria-label="Points per rarity">
+        {TIERS.map((t) => (
+          <div key={t.id} className="flex items-center justify-between gap-2 rounded-xl bg-white/4 px-3 py-2">
+            <TierChip id={t.id} />
+            <span className="font-mono text-sm text-white">{t.points}</span>
+          </div>
+        ))}
+      </div>
       <button className="btn-primary mt-6 w-full" onClick={onClose} data-testid="help-close">
         Got it
       </button>

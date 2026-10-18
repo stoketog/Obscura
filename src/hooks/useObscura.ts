@@ -1,19 +1,22 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { Entity, GameState, GuessResult, PlayerProfile, ResolvedPuzzle } from '@/lib/types';
+import type { DailySet, GameState, PlayerProfile } from '@/lib/types';
 import { playerRepository, emptyProfile } from '@/lib/storage';
 import { toDateKey } from '@/lib/dates';
-import { pickPuzzle, resolvePuzzle } from '@/lib/puzzles';
-import { applyGuess, deriveStats, effectiveStreak, getGame, resolveGuess, type Stats } from '@/lib/game';
+import { getDaily } from '@/lib/daily';
+import { deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
 import { ADMIN_ENABLED } from '@/lib/config';
-import { applyOverride, loadForcedDate, loadOverrides, saveForcedDate, saveOverrides, type OverrideMap, type PuzzleOverride } from '@/lib/admin';
+import { logUnrecognised, loadForcedDate, loadOverrides, saveForcedDate, saveOverrides, type OverrideMap } from '@/lib/admin';
+import { rarestEntry } from '@/lib/prompts';
 
 export type View = 'home' | 'play';
 
-export type SubmitResult =
-  | { ok: true; result: GuessResult; finished: boolean }
-  | { ok: false; reason: string; suggestions?: Entity[] };
+export interface SubmitResult {
+  outcome: SubmitOutcome;
+  /** True when this answer closed the whole day. */
+  finished: boolean;
+}
 
 export interface ObscuraApi {
   ready: boolean;
@@ -22,23 +25,29 @@ export interface ObscuraApi {
   today: string;
   /** The date being played (differs from `today` only in admin time-travel). */
   dateKey: string;
-  puzzle: ResolvedPuzzle | null;
+  daily: DailySet | null;
   game: GameState | null;
   stats: Stats;
   streak: number;
   view: View;
   setView: (v: View) => void;
+  /** Start the timer on the next round. */
+  start: () => void;
   submit: (raw: string) => SubmitResult;
+  skip: () => boolean;
+  /** Called when the countdown reaches zero. Returns true if that closed the day. */
+  expire: () => boolean;
   markCelebrated: () => void;
   dismissHelp: () => void;
   admin: {
     overrides: OverrideMap;
     forcedDate: string | null;
     setForcedDate: (d: string | null) => void;
-    setOverride: (dateKey: string, o: PuzzleOverride | null) => void;
+    setOverride: (dateKey: string, ids: string[] | null) => void;
     resetProfile: () => void;
     resetGame: (dateKey: string) => void;
-    setGrowth: (n: number) => void;
+    /** Instantly play the whole day with the rarest or the most common answers. */
+    autoplay: (mode: 'rarest' | 'common') => void;
   };
 }
 
@@ -79,7 +88,7 @@ export function useObscura(): ObscuraApi {
     };
   }, []);
 
-  // When the day rolls over, fall back to the home screen so the new puzzle is a fresh start.
+  // When the day rolls over, fall back to the home screen so the new set is a fresh start.
   const lastToday = useRef(today);
   useEffect(() => {
     if (lastToday.current !== today) {
@@ -90,18 +99,11 @@ export function useObscura(): ObscuraApi {
 
   const dateKey = ADMIN_ENABLED && forcedDate ? forcedDate : today;
 
-  const puzzle = useMemo<ResolvedPuzzle | null>(() => {
-    if (!ready) return null;
-    const base = pickPuzzle(dateKey);
-    const ov = ADMIN_ENABLED ? overrides[dateKey] : undefined;
-    try {
-      return resolvePuzzle(applyOverride(base, ov), dateKey);
-    } catch {
-      return resolvePuzzle(base, dateKey);
-    }
-  }, [ready, dateKey, overrides]);
+  const daily = useMemo<DailySet | null>(() => (ready ? getDaily(dateKey, ADMIN_ENABLED ? overrides : undefined) : null), [ready, dateKey, overrides]);
+  const dailyRef = useRef(daily);
+  dailyRef.current = daily;
 
-  const game = useMemo(() => (puzzle ? getGame(profile, puzzle) : null), [profile, puzzle]);
+  const game = useMemo(() => (daily ? getGame(profile, daily) : null), [profile, daily]);
 
   const commit = useCallback((next: PlayerProfile) => {
     profileRef.current = next;
@@ -109,36 +111,53 @@ export function useObscura(): ObscuraApi {
     playerRepository.save(next);
   }, []);
 
+  const isDone = (p: PlayerProfile, d: DailySet) => getGame(p, d).status === 'done';
+
+  const start = useCallback(() => {
+    const d = dailyRef.current;
+    if (d) commit(startRound(profileRef.current, d, Date.now()));
+  }, [commit]);
+
   const submit = useCallback(
     (raw: string): SubmitResult => {
-      if (!puzzle) return { ok: false, reason: 'Loading…' };
-      const current = profileRef.current;
-      const g = getGame(current, puzzle);
-      if (g.status !== 'playing') return { ok: false, reason: 'Today’s puzzle is finished.' };
-      const res = resolveGuess(raw, g, puzzle);
-      if (res.kind === 'empty') return { ok: false, reason: 'Type a guess first.' };
-      if (res.kind === 'duplicate') return { ok: false, reason: `You already guessed ${res.entity.name}.` };
-      if (res.kind === 'unknown') {
-        return {
-          ok: false,
-          reason: res.suggestions.length ? 'Not recognised. Did you mean:' : 'Obscura doesn’t know that one yet. That didn’t cost you a guess.',
-          suggestions: res.suggestions,
-        };
-      }
-      const applied = applyGuess(current, puzzle, res.entity);
-      commit(applied.profile);
-      return { ok: true, result: applied.result, finished: applied.game.status !== 'playing' };
+      const d = dailyRef.current;
+      if (!d) return { outcome: { kind: 'inactive' }, finished: false };
+      const before = profileRef.current;
+      const idx = currentRoundIndex(getGame(before, d));
+      const res = submitAnswer(before, d, raw, Date.now());
+      if (res.profile !== before) commit(res.profile);
+      if (res.outcome.kind === 'miss' && idx >= 0) logUnrecognised(d.prompts[idx].id, raw.trim().toLowerCase().slice(0, 60));
+      return { outcome: res.outcome, finished: res.profile !== before && isDone(res.profile, d) && !isDone(before, d) };
     },
-    [puzzle, commit],
+    [commit],
   );
 
+  const skip = useCallback((): boolean => {
+    const d = dailyRef.current;
+    if (!d) return false;
+    const before = profileRef.current;
+    const next = skipRound(before, d);
+    if (next !== before) commit(next);
+    return next !== before && isDone(next, d);
+  }, [commit]);
+
+  const expire = useCallback((): boolean => {
+    const d = dailyRef.current;
+    if (!d) return false;
+    const before = profileRef.current;
+    const next = expireRound(before, d, Date.now());
+    if (next !== before) commit(next);
+    return next !== before && isDone(next, d);
+  }, [commit]);
+
   const markCelebrated = useCallback(() => {
-    if (!puzzle) return;
+    const d = dailyRef.current;
+    if (!d) return;
     const cur = profileRef.current;
-    const g = cur.games[puzzle.dateKey];
+    const g = cur.games[d.dateKey];
     if (!g || g.celebrated) return;
-    commit({ ...cur, games: { ...cur.games, [puzzle.dateKey]: { ...g, celebrated: true } } });
-  }, [puzzle, commit]);
+    commit({ ...cur, games: { ...cur.games, [d.dateKey]: { ...g, celebrated: true } } });
+  }, [commit]);
 
   const dismissHelp = useCallback(() => {
     commit({ ...profileRef.current, seenHelp: true });
@@ -156,9 +175,9 @@ export function useObscura(): ObscuraApi {
         saveForcedDate(d);
         setForced(d);
       },
-      setOverride: (key, o) => {
+      setOverride: (key, ids) => {
         const next = { ...overrides };
-        if (o && Object.keys(o).length) next[key] = o;
+        if (ids && ids.length) next[key] = ids;
         else delete next[key];
         saveOverrides(next);
         setOverrides(next);
@@ -174,16 +193,27 @@ export function useObscura(): ObscuraApi {
         const cur = profileRef.current;
         const games = { ...cur.games };
         const history = { ...cur.history };
-        const prior = history[key];
         delete games[key];
         delete history[key];
-        // Roll back the growth that game awarded so a replay is a fair test.
-        commit({ ...cur, games, history, totalGrowth: prior ? prior.totalBefore : cur.totalGrowth });
+        commit({ ...cur, games, history });
       },
-      setGrowth: (n) => commit({ ...profileRef.current, totalGrowth: Math.min(100, Math.max(0, n)) }),
+      autoplay: (mode) => {
+        const d = dailyRef.current;
+        if (!d) return;
+        let p = profileRef.current;
+        for (let i = 0; i < d.prompts.length; i++) {
+          if (getGame(p, d).status === 'done') break;
+          const now = Date.now();
+          p = startRound(p, d, now);
+          const prompt = d.prompts[i];
+          const pick = mode === 'rarest' ? rarestEntry(prompt) : prompt.entries.reduce((a, b) => (b.score < a.score ? b : a));
+          p = submitAnswer(p, d, pick.name, now + 500).profile;
+        }
+        commit(p);
+      },
     }),
     [overrides, forcedDate, commit],
   );
 
-  return { ready, profile, today, dateKey, puzzle, game, stats, streak, view, setView, submit, markCelebrated, dismissHelp, admin };
+  return { ready, profile, today, dateKey, daily, game, stats, streak, view, setView, start, submit, skip, expire, markCelebrated, dismissHelp, admin };
 }

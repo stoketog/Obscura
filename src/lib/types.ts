@@ -1,170 +1,107 @@
 /**
  * Core domain types for Obscura.
  *
- * Everything the game knows about a guessable thing is an `Entity` in the
- * lexicon. A `Puzzle` simply points at one entity and adds clues around it.
- * That means any guess a player makes can be scored for BOTH closeness
- * (similarity to the target) and obscurity (how rare the guess itself is).
+ * The game is a daily "dive": seven shared prompts ("Name a cheese"). The
+ * player types any answer from the category; the rarer the answer, the more
+ * points it earns, and the day's points evolve their creature.
  */
 
-export type Domain =
-  | 'animal'
-  | 'plant'
-  | 'microbe'
-  | 'person'
-  | 'place'
-  | 'invention'
-  | 'object'
-  | 'food'
-  | 'science'
-  | 'event';
-
-/** Scale is a 1–5 rating whose meaning depends on the domain (size, era, extent). */
-export type Scale = 1 | 2 | 3 | 4 | 5;
+/** One accepted answer to a prompt, with how obscure it is (1 = everyone says it, 100 = almost nobody). */
+export interface AnswerEntry {
+  name: string;
+  aliases: string[];
+  /** 1–100. Editorial estimate of how rarely players would think of it. */
+  score: number;
+}
 
 /**
- * Inputs to the obscurity model. These are editorial estimates today; the
- * shape is deliberately the same as what a data pipeline (Wikipedia
- * pageviews API, search volume, survey data) would produce later.
+ * Authoring format. Each answer is one string: `Name|score` or `Name|score|alias;alias`.
+ * Keeping the data this compact is what lets the library scale to thousands of answers.
  */
-export interface ObscurityFactors {
-  /** Estimated % of English-speaking adults who could identify it (0–100). */
-  familiarity: number;
-  /** Estimated English Wikipedia pageviews per year, in thousands. */
-  wikiViews: number;
-  /** Semantic specificity: 1 = whole kingdom/category … 5 = one exact species/person/event. */
-  specificity: 1 | 2 | 3 | 4 | 5;
-  /** 0–1: how confined it is to a specialist community or region. */
-  niche: number;
-  /** True if the name is also an everyday word (penalises obscurity). */
-  commonWord?: boolean;
-  /** Number of independent reputable references that document it (verifiability). */
-  sources: number;
-}
-
-export interface Entity {
+export interface PromptSeed {
   id: string;
-  name: string;
-  aliases?: string[];
-  domain: Domain;
-  /** Sub-category within a domain: fish, bird, astronomer, island, instrument… */
-  group: string;
-  /** Close-relative cluster (e.g. "anglerfish", "beaked-whale", "cepheid"). */
-  family?: string;
-  /** Habitat / region / era tags. */
-  setting: string[];
-  /** Distinguishing characteristics. */
-  traits: string[];
-  scale: Scale;
-  factors: ObscurityFactors;
-}
-
-export interface PuzzleSource {
-  title: string;
-  url: string;
-}
-
-export type Difficulty = 'moderate' | 'hard' | 'brutal';
-
-export interface Puzzle {
-  id: string;
-  /** Optional pin: show this puzzle on exactly this date (YYYY-MM-DD). */
-  date?: string;
-  /** Entity id of the secret answer. */
-  answerId: string;
-  /** Human category label shown after the reveal. */
-  category: string;
-  /** Extra accepted spellings (the entity's own name/aliases are always accepted). */
-  accepted: string[];
-  /** 5–8 clues, broad → specific. */
-  clues: string[];
-  /** Semantic tags describing the puzzle (used for admin tooling and future analytics). */
-  semanticTags: string[];
-  difficulty: Difficulty;
-  /** Shown after the puzzle is finished. */
-  explanation: string;
-  source: PuzzleSource;
-  /** Editorial overrides. When omitted, both are computed from the entity. */
-  obscurityOverride?: number;
-  growthRewardOverride?: number;
-}
-
-/** A puzzle after date resolution and overrides, ready to play. */
-export interface ResolvedPuzzle extends Puzzle {
-  dateKey: string;
-  number: number;
-  answer: Entity;
-  obscurity: number;
-  /** Growth (percentage points) awarded for a perfect, 1-guess solve before resistance. */
-  growthReward: number;
-}
-
-export type MatchLevel = 'match' | 'close' | 'miss';
-
-export interface FeedbackRow {
-  key: 'category' | 'setting' | 'traits' | 'scale' | 'family';
-  label: string;
-  level: MatchLevel;
-  /** Short qualitative text: "Strong match", "Partial", "No overlap". */
+  /** What the player sees, e.g. "Name a cheese". */
   text: string;
+  /** Short topic label shown on the result screen. */
+  category: string;
+  answers: string[];
 }
 
-export type Warmth = 'freezing' | 'cold' | 'cool' | 'warm' | 'hot' | 'scorching' | 'correct';
-
-export interface GuessResult {
-  entityId: string;
-  name: string;
-  correct: boolean;
-  /** 0–100 closeness to the target. */
-  similarity: number;
-  warmth: Warmth;
-  warmthLabel: string;
-  rows: FeedbackRow[];
-  /** 1–100 obscurity of the guessed thing itself. */
-  obscurity: number;
-  obscurityLabel: string;
-  /** Provisional growth (pp) this guess is worth if it ends up being the best one. */
-  provisionalGrowth: number;
-  /** Index (0-based) of the guess in the game. */
-  index: number;
+export interface Prompt {
+  id: string;
+  text: string;
+  category: string;
+  entries: AnswerEntry[];
 }
 
-export type GameStatus = 'playing' | 'won' | 'lost';
+export type TierId = 'everyday' | 'familiar' | 'uncommon' | 'rare' | 'obscure' | 'mythic';
+
+export interface Tier {
+  id: TierId;
+  label: string;
+  /** Lowest obscurity score in this tier. */
+  min: number;
+  points: number;
+  emoji: string;
+  /** Hue used for glow and chips. */
+  hue: number;
+}
+
+export type RoundStatus = 'pending' | 'active' | 'done';
+export type RoundEnd = 'answered' | 'timeout' | 'skipped';
+
+export interface RoundState {
+  promptId: string;
+  status: RoundStatus;
+  /** Epoch ms when the timer started. The clock keeps running across reloads. */
+  startedAt?: number;
+  /** Time lost to unrecognised answers. */
+  penaltyMs: number;
+  /** Normalised text of unrecognised answers already tried. */
+  misses: string[];
+  end?: RoundEnd;
+  /** Canonical name of the accepted answer. */
+  answer?: string;
+  score?: number;
+  tier?: TierId;
+  points: number;
+}
+
+export type GameStatus = 'playing' | 'done';
 
 export interface GameState {
   dateKey: string;
   puzzleNumber: number;
-  guesses: GuessResult[];
+  rounds: RoundState[];
   status: GameStatus;
-  /** Set when finished. */
+  /** Sum of round points so far. */
+  points: number;
   outcome?: Outcome;
-  /** True once the reveal / evolution sequence has been shown, so it never replays by accident. */
+  /** True once the end-of-day evolution reveal has been shown. */
   celebrated?: boolean;
 }
 
 export interface Outcome {
-  solved: boolean;
-  guessesUsed: number;
-  obscurity: number;
-  growth: number;
-  stageBefore: number;
-  stageAfter: number;
-  totalBefore: number;
-  totalAfter: number;
-  answerName: string;
-  /** Streak value after this completion. */
+  points: number;
+  stage: number;
+  /** The form the creature had before the final round; the finale evolves from here. */
+  stageBeforeFinal: number;
   streakAfter: number;
+  tiers: Array<TierId | null>;
 }
 
-export interface HistoryEntry extends Outcome {
+export interface HistoryEntry {
   dateKey: string;
   puzzleNumber: number;
+  points: number;
+  stage: number;
+  tiers: Array<TierId | null>;
+  /** Highest-scoring answer of the day. */
+  best: { name: string; score: number } | null;
 }
 
 export interface PlayerProfile {
-  version: 1;
-  /** Total growth points, 0–100. Drives the evolutionary stage. */
-  totalGrowth: number;
+  version: 2;
   currentStreak: number;
   longestStreak: number;
   lastCompletedDate: string | null;
@@ -172,4 +109,11 @@ export interface PlayerProfile {
   games: Record<string, GameState>;
   /** Set once the player has seen the how-to-play sheet. */
   seenHelp: boolean;
+}
+
+/** A day's seven prompts, resolved. */
+export interface DailySet {
+  dateKey: string;
+  number: number;
+  prompts: Prompt[];
 }

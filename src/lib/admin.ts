@@ -1,21 +1,16 @@
-import type { Puzzle } from './types';
 import { STORAGE_PREFIX } from './config';
 import { safeStorage } from './storage';
 
 /**
- * Admin overrides: per-date edits to a puzzle (answer, clues, obscurity …).
- * They live in localStorage purely for the dev workflow. They are only ever
- * read when ADMIN_ENABLED, so a production build ignores them completely.
+ * Admin overrides: per-date edits to the day's prompt list. They live in
+ * localStorage purely for the dev workflow and are only ever read when
+ * ADMIN_ENABLED, so a production build ignores them completely.
  */
-export type PuzzleOverride = Partial<Pick<Puzzle, 'answerId' | 'clues' | 'accepted' | 'explanation' | 'category'>> & {
-  /** `null` = clear the editorial override and use the computed value */
-  obscurityOverride?: number | null;
-  growthRewardOverride?: number | null;
-};
-export type OverrideMap = Record<string, PuzzleOverride>;
+export type OverrideMap = Record<string, string[]>;
 
 const KEY = STORAGE_PREFIX + 'admin-overrides';
 const DATE_KEY = STORAGE_PREFIX + 'admin-date';
+const MISSES_KEY = STORAGE_PREFIX + 'unrecognised';
 
 export function loadOverrides(): OverrideMap {
   try {
@@ -36,15 +31,26 @@ export function saveForcedDate(date: string | null): void {
   else safeStorage.remove(DATE_KEY);
 }
 
-export function applyOverride(puzzle: Puzzle, override?: PuzzleOverride): Puzzle {
-  if (!override) return puzzle;
-  const merged: Puzzle = { ...puzzle };
-  (Object.keys(override) as Array<keyof PuzzleOverride>).forEach((k) => {
-    const v = override[k];
-    if (v !== undefined && v !== null) (merged as unknown as Record<string, unknown>)[k] = v;
-  });
-  // `null` explicitly clears an editorial override back to the computed value.
-  if (override.obscurityOverride === null) delete merged.obscurityOverride;
-  if (override.growthRewardOverride === null) delete merged.growthRewardOverride;
-  return merged;
+/**
+ * Answers players typed that the game didn't recognise. Kept locally so a
+ * future backend can collect them to grow the answer lists.
+ */
+export function logUnrecognised(promptId: string, text: string): void {
+  try {
+    const raw = safeStorage.get(MISSES_KEY);
+    const list: Array<[string, string]> = raw ? JSON.parse(raw) : [];
+    if (list.some(([p, t]) => p === promptId && t === text)) return;
+    list.push([promptId, text]);
+    safeStorage.set(MISSES_KEY, JSON.stringify(list.slice(-200)));
+  } catch {
+    /* best effort */
+  }
+}
+export function loadUnrecognised(): Array<[string, string]> {
+  try {
+    const raw = safeStorage.get(MISSES_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
 }

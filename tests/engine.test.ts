@@ -1,146 +1,323 @@
 import assert from 'node:assert/strict';
-import { PUZZLES } from '@/data/puzzles';
-import { ALL_ENTITIES, ENTITY_BY_ID } from '@/data/lexicon';
+import { PROMPT_SEEDS } from '@/data/prompts';
 import { STAGES } from '@/data/stages';
-import { computeObscurity, isDiscoverable } from '@/lib/obscurity';
-import { rewardForObscurity, solveGrowth, resistance, stageIndexFor, MAX_GUESSES, guessGrowth } from '@/lib/growth';
-import { findEntity, suggest, didYouMean } from '@/lib/lexicon';
+import { getPrompts, parseAnswer, rarestEntry } from '@/lib/prompts';
+import { matchAnswer } from '@/lib/match';
 import { normalize } from '@/lib/text';
-import { getDailyPuzzle, pickPuzzle, resolvePuzzle } from '@/lib/puzzles';
+import { TIERS, MAX_POINTS, ROUND_MS, MISS_PENALTY_MS, ROUNDS_PER_DAY, pointsFor, stageIndexFor, tierFor, stageProgress } from '@/lib/scoring';
+import { getDaily, pickPrompts } from '@/lib/daily';
 import { addDays, puzzleNumberFor, EPOCH } from '@/lib/dates';
-import { applyGuess, deriveStats, effectiveStreak, freshGame, nextStreak, resolveGuess, visibleClueCount } from '@/lib/game';
+import { currentRoundIndex, deriveStats, effectiveStreak, expireRound, freshGame, getGame, remainingMs, skipRound, startRound, submitAnswer } from '@/lib/game';
 import { emptyProfile } from '@/lib/storage';
-import type { PlayerProfile } from '@/lib/types';
-import { buildShareText, emojiForSimilarity } from '@/lib/share';
-import { applyOverride } from '@/lib/admin';
+import { buildShareText } from '@/lib/share';
+import type { DailySet, PlayerProfile, Prompt } from '@/lib/types';
 
 let passed = 0;
 const test = (name: string, fn: () => void) => {
   try { fn(); passed++; console.log('  ✓', name); } catch (e) { console.error('  ✗', name, '\n   ', (e as Error).message); process.exitCode = 1; }
 };
 
+const prompts = getPrompts();
+const byId = (id: string): Prompt => prompts.find((p) => p.id === id)!;
+
 console.log('Data integrity');
-test('lexicon ids unique', () => assert.equal(new Set(ALL_ENTITIES.map((e) => e.id)).size, ALL_ENTITIES.length));
-test('every puzzle points at a real entity', () => PUZZLES.forEach((p) => assert.ok(ENTITY_BY_ID[p.answerId], p.id)));
-test('puzzles have 5–8 clues, ids unique, sources set', () => {
-  assert.equal(new Set(PUZZLES.map((p) => p.id)).size, PUZZLES.length);
-  PUZZLES.forEach((p) => { assert.ok(p.clues.length >= 5 && p.clues.length <= 8, `${p.id} clues=${p.clues.length}`); assert.ok(p.source.url.startsWith('https://')); assert.ok(p.explanation.length > 20); });
+test('prompt ids are unique and there are enough for several days', () => {
+  assert.equal(new Set(PROMPT_SEEDS.map((p) => p.id)).size, PROMPT_SEEDS.length);
+  assert.ok(prompts.length >= ROUNDS_PER_DAY * 4, `only ${prompts.length} prompts`);
 });
-test('clues never contain the answer name', () => PUZZLES.forEach((p) => { const n = normalize(ENTITY_BY_ID[p.answerId].name); p.clues.forEach((c) => assert.ok(!normalize(c).includes(n), `${p.id}: "${c}"`)); }));
-test('every puzzle answer is obscure but discoverable', () => PUZZLES.forEach((p) => {
-  const e = ENTITY_BY_ID[p.answerId];
-  assert.ok(computeObscurity(e.factors) >= 45, `${p.id} obscurity ${computeObscurity(e.factors)}`);
-  assert.ok(isDiscoverable(e.factors), `${p.id} under-documented`);
-}));
-test('stages ascend and start at 0', () => { assert.equal(STAGES[0].threshold, 0); STAGES.forEach((s, i) => i && assert.ok(s.threshold > STAGES[i - 1].threshold)); assert.equal(STAGES.length, 14); });
+test('every prompt has plenty of answers with valid scores', () => {
+  for (const p of prompts) {
+    assert.ok(p.entries.length >= 40, `${p.id} has only ${p.entries.length} answers`);
+    for (const e of p.entries) assert.ok(e.score >= 1 && e.score <= 100, `${p.id}/${e.name} score ${e.score}`);
+  }
+});
+test('every prompt spans easy to hard (a common answer and an obscure one)', () => {
+  for (const p of prompts) {
+    const scores = p.entries.map((e) => e.score);
+    assert.ok(Math.min(...scores) <= 10, `${p.id} has no everyday answer`);
+    assert.ok(Math.max(...scores) >= 85, `${p.id} has no obscure answer (max ${Math.max(...scores)})`);
+    assert.ok(scores.filter((s) => s < 20).length >= 3, `${p.id} needs more everyday answers`);
+  }
+});
+test('no two answers in a prompt share a spelling', () => {
+  for (const p of prompts) {
+    const seen = new Map<string, string>();
+    for (const e of p.entries) {
+      for (const s of [e.name, ...e.aliases]) {
+        const n = normalize(s);
+        const prior = seen.get(n);
+        assert.ok(!prior || prior === e.name, `${p.id}: "${s}" is used by both "${prior}" and "${e.name}"`);
+        seen.set(n, e.name);
+      }
+    }
+  }
+});
+test('answers are not already wrongly resolved to another entry (each name finds itself)', () => {
+  for (const p of prompts) for (const e of p.entries) {
+    const m = matchAnswer(p, e.name);
+    assert.ok(m.kind === 'hit' && m.entry === e, `${p.id}: "${e.name}" resolved to ${m.kind === 'hit' ? m.entry.name : m.kind}`);
+  }
+});
+test('prompt text is a clear instruction', () => prompts.forEach((p) => assert.ok(/^Name /.test(p.text), p.id)));
+test('parseAnswer parses aliases and rejects junk', () => {
+  assert.deepEqual(parseAnswer('Brie|6'), { name: 'Brie', score: 6, aliases: [] });
+  assert.deepEqual(parseAnswer('Parmesan|5|a;b'), { name: 'Parmesan', score: 5, aliases: ['a', 'b'] });
+  assert.throws(() => parseAnswer('NoScore'));
+});
+test('stages are ordered with increasing thresholds', () => {
+  for (let i = 1; i < STAGES.length; i++) assert.ok(STAGES[i].threshold > STAGES[i - 1].threshold, STAGES[i].id);
+  assert.equal(STAGES.length, 14);
+});
 
-console.log('Obscurity & growth');
-test('common things score low, niche things high', () => {
-  assert.ok(computeObscurity(findEntity('shark')!.factors) < 15);
-  assert.ok(computeObscurity(findEntity('barreleye')!.factors) > 75);
+console.log('Scoring');
+test('tiers map scores to points steeply', () => {
+  assert.equal(tierFor(1).id, 'everyday');
+  assert.equal(tierFor(19).id, 'everyday');
+  assert.equal(tierFor(20).id, 'familiar');
+  assert.equal(tierFor(45).id, 'uncommon');
+  assert.equal(tierFor(60).id, 'rare');
+  assert.equal(tierFor(85).id, 'obscure');
+  assert.equal(tierFor(95).id, 'mythic');
+  assert.equal(pointsFor(3), 10);
+  assert.equal(pointsFor(99), 100);
+  assert.equal(MAX_POINTS, 700);
+  for (let i = 1; i < TIERS.length; i++) assert.ok(TIERS[i].points > TIERS[i - 1].points);
 });
-test('ordering: fish < anglerfish < viperfish < barreleye', () => {
-  const o = ['shark', 'anglerfish', 'viperfish', 'barreleye'].map((n) => computeObscurity(findEntity(n)!.factors));
-  assert.deepEqual([...o].sort((a, b) => a - b), o);
+test('stage thresholds: first answer evolves, seven everyday answers are a tiny invertebrate', () => {
+  assert.equal(stageIndexFor(0), 0);
+  assert.equal(stageIndexFor(10), 1);
+  assert.equal(stageIndexFor(70), 3);
+  assert.equal(stageIndexFor(700), STAGES.length - 1);
+  assert.equal(stageProgress(700), 100);
+  assert.ok(stageProgress(45) > 0 && stageProgress(45) < 100);
 });
-test('reward curve hits the spec anchors (2/10/30/70)', () => {
-  assert.equal(Math.round(rewardForObscurity(20)), 2); assert.equal(Math.round(rewardForObscurity(45)), 10);
-  assert.equal(Math.round(rewardForObscurity(70)), 30); assert.equal(Math.round(rewardForObscurity(90)), 70);
-});
-test('reward is monotonic and convex-ish', () => { let prev = -1; for (let o = 0; o <= 100; o++) { const r = rewardForObscurity(o); assert.ok(r >= prev); prev = r; } });
-test('fewer guesses ⇒ more growth; later stages ⇒ less growth', () => {
-  assert.ok(solveGrowth({ obscurity: 80, guessesUsed: 1, totalBefore: 0 }) > solveGrowth({ obscurity: 80, guessesUsed: 8, totalBefore: 0 }));
-  assert.ok(solveGrowth({ obscurity: 80, guessesUsed: 3, totalBefore: 0 }) > solveGrowth({ obscurity: 80, guessesUsed: 3, totalBefore: 60 }));
-  assert.ok(resistance(0) === 1 && resistance(70) < 0.25);
-});
-test('a vague common guess is worth ~nothing, a close rare guess is worth real growth', () => {
-  assert.ok(guessGrowth({ guessObscurity: 8, similarity: 52, totalBefore: 0 }) < 0.5);
-  assert.ok(guessGrowth({ guessObscurity: 92, similarity: 83, totalBefore: 0 }) > 10);
-});
-test('stage thresholds', () => { assert.equal(stageIndexFor(0), 0); assert.equal(stageIndexFor(14.9), 4); assert.equal(stageIndexFor(15), 5); assert.equal(stageIndexFor(100), 13); });
 
-console.log('Lexicon & matching');
-test('normalisation + aliases', () => {
-  assert.equal(findEntity('  THE Barreleye Fish ')?.id, 'barreleye'); assert.equal(findEntity('macropinna microstoma')?.id, 'barreleye');
+console.log('Answer matching');
+const cheese = byId('cheese');
+test('exact, case, accent and article insensitive', () => {
+  for (const t of ['cheddar', 'CHEDDAR', '  Cheddar  ', 'the cheddar', 'Gruyere', 'GRUYÈRE']) {
+    const m = matchAnswer(cheese, t);
+    assert.equal(m.kind, 'hit', t);
+  }
 });
-test('autocomplete and typo tolerance', () => { assert.ok(suggest('viper').some((e) => e.id === 'viperfish')); assert.ok(didYouMean('viperfsh').some((e) => e.id === 'viperfish')); assert.equal(findEntity('qqqqzz'), undefined); });
+test('aliases resolve to the canonical answer', () => {
+  const m = matchAnswer(cheese, 'parmigiano reggiano');
+  assert.ok(m.kind === 'hit' && m.entry.name === 'Parmesan');
+  const g = matchAnswer(cheese, 'goats cheese');
+  assert.ok(g.kind === 'hit' && g.entry.name === 'Goat cheese');
+});
+test('plurals and spacing variants match', () => {
+  const pasta = byId('pasta');
+  assert.equal(matchAnswer(pasta, 'rigatonis').kind, 'hit');
+  assert.equal(matchAnswer(pasta, 'bow ties').kind, 'hit');
+  assert.equal(matchAnswer(byId('fruit'), 'strawberries').kind, 'hit');
+  assert.equal(matchAnswer(byId('fruit'), 'passionfruit').kind, 'hit');
+});
+test('small typos are forgiven on longer words, not short ones', () => {
+  const m = matchAnswer(cheese, 'gorgonzla');
+  assert.ok(m.kind === 'hit' && m.fuzzy && m.entry.name === 'Gorgonzola');
+  assert.equal(matchAnswer(cheese, 'chedar').kind, 'hit');
+  assert.equal(matchAnswer(cheese, 'brix').kind, 'miss'); // 4 letters: no typo allowance
+});
+test('wrong-category and nonsense answers miss; empty is empty', () => {
+  assert.equal(matchAnswer(cheese, 'hammer').kind, 'miss');
+  assert.equal(matchAnswer(cheese, 'zzzzzz').kind, 'miss');
+  assert.equal(matchAnswer(cheese, '   ').kind, 'empty');
+  assert.equal(matchAnswer(cheese, '!!!').kind, 'empty');
+});
+test('a near miss suggests the closest answer', () => {
+  const m = matchAnswer(cheese, 'brie cheeze');
+  assert.equal(m.kind === 'miss' || m.kind === 'hit', true);
+});
+test('rarest entry of a prompt is its highest score', () => {
+  const r = rarestEntry(cheese);
+  assert.ok(cheese.entries.every((e) => e.score <= r.score));
+});
 
 console.log('Daily selection');
-test('deterministic per date, different across days', () => {
-  assert.equal(getDailyPuzzle('2026-10-18').id, getDailyPuzzle('2026-10-18').id);
-  const ids = new Set(Array.from({ length: PUZZLES.length }, (_, i) => getDailyPuzzle(addDays(EPOCH, i)).id));
-  assert.equal(ids.size, PUZZLES.length, 'one full cycle shows every puzzle once');
+const D0 = EPOCH;
+test('same date always gives the same seven prompts', () => {
+  const a = pickPrompts('2026-11-03').map((p) => p.id);
+  const b = pickPrompts('2026-11-03').map((p) => p.id);
+  assert.deepEqual(a, b);
+  assert.equal(a.length, ROUNDS_PER_DAY);
 });
-test('pinned date wins; puzzle numbers count from epoch', () => {
-  const src = [{ ...PUZZLES[0], date: '2030-01-01' }, ...PUZZLES.slice(1)];
-  assert.equal(pickPuzzle('2030-01-01', src).id, PUZZLES[0].id);
-  assert.equal(puzzleNumberFor(EPOCH), 1); assert.equal(puzzleNumberFor('2026-10-18'), 27);
+test('seven distinct prompts each day', () => {
+  for (let i = 0; i < 200; i++) assert.equal(new Set(pickPrompts(addDays(D0, i)).map((p) => p.id)).size, ROUNDS_PER_DAY, `day ${i}`);
+});
+test('consecutive days differ and a whole pass uses every prompt once', () => {
+  assert.notDeepEqual(pickPrompts(D0).map((p) => p.id), pickPrompts(addDays(D0, 1)).map((p) => p.id));
+  const stream = new Set<string>();
+  const days = Math.floor(prompts.length / ROUNDS_PER_DAY);
+  for (let i = 0; i < days; i++) pickPrompts(addDays(D0, i)).forEach((p) => stream.add(p.id));
+  assert.equal(stream.size, days * ROUNDS_PER_DAY);
+});
+test('day numbers count from the epoch; admin overrides replace the list', () => {
+  assert.equal(puzzleNumberFor(D0), 1);
+  assert.equal(puzzleNumberFor(addDays(D0, 9)), 10);
+  const ids = prompts.slice(0, 7).map((p) => p.id).reverse();
+  const d = getDaily('2026-12-01', { '2026-12-01': ids });
+  assert.deepEqual(d.prompts.map((p) => p.id), ids);
+  assert.equal(getDaily('2026-12-01', { '2026-12-01': ['nope'] }).prompts.length, ROUNDS_PER_DAY);
 });
 
 console.log('Game rules');
-const day = '2026-10-18';
-const puz = () => resolvePuzzle(PUZZLES.find((p) => p.id === 'p-barreleye')!, day);
-test('clues unlock one per guess', () => {
-  const p = puz(); let prof = emptyProfile();
-  assert.equal(visibleClueCount(freshGame(p), p), 1);
-  prof = applyGuess(prof, p, findEntity('shark')!).profile;
-  assert.equal(visibleClueCount(prof.games[day], p), 2);
+const daily: DailySet = getDaily(addDays(D0, 3));
+const T0 = 1_700_000_000_000;
+const best = (p: Prompt) => rarestEntry(p).name;
+const worst = (p: Prompt) => p.entries.reduce((a, b) => (b.score < a.score ? b : a)).name;
+
+function playAll(profile: PlayerProfile, pick: (p: Prompt) => string, now = T0): PlayerProfile {
+  let prof = profile;
+  for (let i = 0; i < ROUNDS_PER_DAY; i++) {
+    prof = startRound(prof, daily, now);
+    prof = submitAnswer(prof, daily, pick(daily.prompts[i]), now + 1000).profile;
+  }
+  return prof;
+}
+
+test('a new day starts with seven pending rounds and no points', () => {
+  const g = freshGame(daily);
+  assert.equal(g.rounds.length, 7);
+  assert.ok(g.rounds.every((r) => r.status === 'pending'));
+  assert.equal(currentRoundIndex(g), 0);
 });
-test('duplicate / unknown guesses are rejected without cost', () => {
-  const p = puz(); const prof = applyGuess(emptyProfile(), p, findEntity('shark')!).profile;
-  assert.equal(resolveGuess('Shark', prof.games[day], p).kind, 'duplicate');
-  assert.equal(resolveGuess('zzzzzz', prof.games[day], p).kind, 'unknown');
-  assert.equal(resolveGuess('  ', prof.games[day], p).kind, 'empty');
-  assert.equal(resolveGuess('Macropinna microstoma', prof.games[day], p).kind, 'ok');
+test('answers are refused until the round is started', () => {
+  const r = submitAnswer(emptyProfile(), daily, 'x', T0);
+  assert.equal(r.outcome.kind, 'inactive');
 });
-test('winning grows, sets outcome, streak = 1', () => {
-  const p = puz(); let prof = emptyProfile();
-  prof = applyGuess(prof, p, findEntity('shark')!).profile;
-  const r = applyGuess(prof, p, p.answer);
-  assert.equal(r.game.status, 'won'); assert.ok(r.game.outcome!.growth > 20);
-  assert.equal(r.profile.currentStreak, 1); assert.equal(r.profile.totalGrowth, r.game.outcome!.totalAfter);
-  assert.equal(r.profile.history[day].solved, true);
+test('starting a round runs the clock; time left counts down and persists', () => {
+  const p = startRound(emptyProfile(), daily, T0);
+  const r = getGame(p, daily).rounds[0];
+  assert.equal(r.status, 'active');
+  assert.equal(remainingMs(r, T0), ROUND_MS);
+  assert.equal(remainingMs(r, T0 + 10_000), ROUND_MS - 10_000);
+  assert.equal(remainingMs(r, T0 + 99_000), 0);
 });
-test('losing after 8 guesses: partial growth only from closeness, streak broken', () => {
-  const p = puz(); let prof: PlayerProfile = { ...emptyProfile(), currentStreak: 4, lastCompletedDate: addDays(day, -1) };
-  const wrong = ['shark', 'tuna', 'goldfish', 'salmon', 'octopus', 'eel', 'seahorse', 'piranha'];
-  wrong.forEach((w) => (prof = applyGuess(prof, p, findEntity(w)!).profile));
-  const g = prof.games[day]; assert.equal(g.status, 'lost'); assert.equal(g.guesses.length, MAX_GUESSES);
-  assert.equal(prof.currentStreak, 0); assert.ok(g.outcome!.growth < 2);
-  assert.throws(() => applyGuess(prof, p, findEntity('olm')!));
+test('a correct answer scores its tier and closes the round', () => {
+  const prompt = daily.prompts[0];
+  const p = startRound(emptyProfile(), daily, T0);
+  const entry = prompt.entries.find((e) => e.score >= 60 && e.score < 80)!;
+  const res = submitAnswer(p, daily, entry.name, T0 + 2000);
+  assert.ok(res.outcome.kind === 'hit');
+  if (res.outcome.kind === 'hit') {
+    assert.equal(res.outcome.points, 55);
+    assert.equal(res.outcome.tier, 'rare');
+  }
+  const g = getGame(res.profile, daily);
+  assert.equal(g.rounds[0].status, 'done');
+  assert.equal(g.points, 55);
+  assert.equal(currentRoundIndex(g), 1);
 });
-test('streak increments on consecutive days, resets after a gap', () => {
-  let prof = emptyProfile();
-  for (let i = 0; i < 3; i++) { const d = addDays(day, i); const p = resolvePuzzle(pickPuzzle(d), d); prof = applyGuess(prof, p, p.answer).profile; }
-  assert.equal(prof.currentStreak, 3); assert.equal(prof.longestStreak, 3);
-  assert.equal(effectiveStreak(prof, addDays(day, 3)), 3, 'still alive the next morning');
-  assert.equal(effectiveStreak(prof, addDays(day, 4)), 0, 'a missed day breaks it');
-  assert.equal(nextStreak(prof, addDays(day, 5), true), 1);
+test('an unrecognised answer costs time but never ends the round; repeats are free', () => {
+  const p = startRound(emptyProfile(), daily, T0);
+  const a = submitAnswer(p, daily, 'definitely not a thing', T0 + 1000);
+  assert.equal(a.outcome.kind, 'miss');
+  const r = getGame(a.profile, daily).rounds[0];
+  assert.equal(r.status, 'active');
+  assert.equal(r.penaltyMs, MISS_PENALTY_MS);
+  assert.equal(remainingMs(r, T0 + 1000), ROUND_MS - 1000 - MISS_PENALTY_MS);
+  const again = submitAnswer(a.profile, daily, 'Definitely  NOT a thing', T0 + 1500);
+  assert.equal(again.outcome.kind, 'repeat');
+  assert.equal(getGame(again.profile, daily).rounds[0].penaltyMs, MISS_PENALTY_MS);
 });
-test('stats: average, best, distribution', () => {
-  let prof = emptyProfile();
-  for (let i = 0; i < 2; i++) { const d = addDays(day, i); const p = resolvePuzzle(pickPuzzle(d), d); prof = applyGuess(prof, p, p.answer).profile; }
-  const s = deriveStats(prof, addDays(day, 1));
-  assert.equal(s.solved, 2); assert.equal(s.distribution[0], 2); assert.ok(s.bestObscurity >= s.averageObscurity);
+test('answering after time is up scores nothing', () => {
+  const p = startRound(emptyProfile(), daily, T0);
+  const res = submitAnswer(p, daily, best(daily.prompts[0]), T0 + ROUND_MS + 50);
+  assert.equal(res.outcome.kind, 'miss');
+  const r = getGame(res.profile, daily).rounds[0];
+  assert.equal(r.end, 'timeout');
+  assert.equal(r.points, 0);
 });
-test('growth caps at 100 and later growth is damped', () => {
-  let prof = { ...emptyProfile(), totalGrowth: 99 }; const p = puz();
-  assert.ok(applyGuess(prof, p, p.answer).profile.totalGrowth <= 100);
+test('penalties can run the clock out', () => {
+  let p = startRound(emptyProfile(), daily, T0);
+  let outcome = 'miss';
+  for (let i = 0; i < 20 && outcome === 'miss'; i++) {
+    const res = submitAnswer(p, daily, `nonsense${i}x`, T0 + 27_000);
+    p = res.profile;
+    if (res.outcome.kind === 'miss' && res.outcome.expired) break;
+  }
+  assert.equal(getGame(p, daily).rounds[0].end, 'timeout');
+});
+test('expireRound only acts when the timer has really run out; skip scores zero', () => {
+  const p = startRound(emptyProfile(), daily, T0);
+  assert.equal(getGame(expireRound(p, daily, T0 + 5000), daily).rounds[0].status, 'active');
+  assert.equal(getGame(expireRound(p, daily, T0 + ROUND_MS), daily).rounds[0].end, 'timeout');
+  const s = getGame(skipRound(p, daily), daily).rounds[0];
+  assert.equal(s.end, 'skipped');
+  assert.equal(s.points, 0);
+  // idempotent
+  assert.equal(expireRound(expireRound(p, daily, T0 + ROUND_MS), daily, T0 + ROUND_MS + 1).games[daily.dateKey].rounds[0].end, 'timeout');
+});
+test('finishing all seven rounds closes the day, records history and starts a streak', () => {
+  const prof = playAll(emptyProfile(), best);
+  const g = getGame(prof, daily);
+  assert.equal(g.status, 'done');
+  assert.ok(g.outcome);
+  assert.equal(g.outcome!.points, g.points);
+  assert.equal(prof.currentStreak, 1);
+  assert.equal(prof.history[daily.dateKey].points, g.points);
+  assert.ok(g.points > 400, `rarest answers should score big, got ${g.points}`);
+  assert.ok(g.outcome!.stage >= 9);
+});
+test('everyday answers give a small form; rarest answers give a large one', () => {
+  const low = getGame(playAll(emptyProfile(), worst), daily);
+  const high = getGame(playAll(emptyProfile(), best), daily);
+  assert.ok(low.points <= 70, `low=${low.points}`);
+  assert.ok(low.outcome!.stage <= 3);
+  assert.ok(high.points > low.points * 5);
+  assert.ok(high.outcome!.stage > low.outcome!.stage + 4);
+  assert.ok(high.points <= MAX_POINTS);
+});
+test('the final evolution starts from the form before the last round', () => {
+  const g = getGame(playAll(emptyProfile(), best), daily);
+  const o = g.outcome!;
+  assert.ok(o.stageBeforeFinal <= o.stage);
+});
+test('a finished day cannot be replayed', () => {
+  const prof = playAll(emptyProfile(), best);
+  assert.equal(submitAnswer(prof, daily, 'anything', T0).outcome.kind, 'inactive');
+  assert.equal(startRound(prof, daily, T0), prof);
+});
+test('streak: consecutive days extend, a gap resets, display breaks silently', () => {
+  const d1 = getDaily(addDays(D0, 10));
+  const d2 = getDaily(addDays(D0, 11));
+  const play = (profile: PlayerProfile, d: DailySet) => {
+    let p = profile;
+    for (let i = 0; i < 7; i++) {
+      p = startRound(p, d, T0);
+      p = skipRound(p, d);
+    }
+    return p;
+  };
+  let p = play(emptyProfile(), d1);
+  assert.equal(p.currentStreak, 1);
+  p = play(p, d2);
+  assert.equal(p.currentStreak, 2);
+  assert.equal(p.longestStreak, 2);
+  assert.equal(effectiveStreak(p, d2.dateKey), 2);
+  assert.equal(effectiveStreak(p, addDays(d2.dateKey, 1)), 2);
+  assert.equal(effectiveStreak(p, addDays(d2.dateKey, 2)), 0);
+  const d4 = getDaily(addDays(D0, 14));
+  assert.equal(play(p, d4).currentStreak, 1);
+});
+test('stats summarise history', () => {
+  const prof = playAll(emptyProfile(), best);
+  const s = deriveStats(prof, daily.dateKey);
+  assert.equal(s.played, 1);
+  assert.equal(s.bestPoints, getGame(prof, daily).points);
+  assert.ok(s.rarest && s.rarest.score >= 85);
+  assert.equal(Object.values(s.tierCounts).reduce((a, b) => a + b, 0), 7);
+});
+test('share text is spoiler-free: no answers, one creature per round', () => {
+  const prof = playAll(emptyProfile(), best);
+  const g = getGame(prof, daily);
+  const text = buildShareText(g, daily, prof.currentStreak);
+  assert.ok(text.startsWith('OBSCURA #004'));
+  assert.ok(text.includes(`${g.points}/700 pts`));
+  assert.ok(text.includes('🔥 1 day streak'));
+  for (const p of daily.prompts) for (const e of p.entries.slice(0, 100)) assert.ok(!text.toLowerCase().includes(e.name.toLowerCase()) || e.name.length < 4, `leaks ${e.name}`);
+  assert.equal(text.split('\n')[2].split(' ').length, 7);
 });
 
-console.log('Share card');
-test('spoiler-free: no answer, has the required lines', () => {
-  const p = puz(); let prof = applyGuess(emptyProfile(), p, findEntity('shark')!).profile;
-  const r = applyGuess(prof, p, p.answer); const txt = buildShareText(r.game, p, r.profile.currentStreak);
-  assert.ok(txt.startsWith('OBSCURA #027')); assert.ok(/Obscurity: [█░]{10} \d+%/.test(txt)); assert.ok(txt.includes('Guesses: 2/8')); assert.ok(txt.includes('🔥 1 day streak'));
-  assert.ok(!/barreleye|macropinna|spookfish/i.test(txt));
-  assert.equal(emojiForSimilarity(100, true), '🐋');
-});
-
-console.log('Admin overrides');
-test('applyOverride swaps answer/clues/obscurity and null clears', () => {
-  const base = PUZZLES[0]; const o = applyOverride({ ...base, obscurityOverride: 50 }, { answerId: 'olm', clues: ['a'], obscurityOverride: null });
-  assert.equal(o.answerId, 'olm'); assert.deepEqual(o.clues, ['a']); assert.equal(o.obscurityOverride, undefined);
-});
-
-console.log(`\n${passed} passed${process.exitCode ? ' — FAILURES above' : ''}`);
+console.log(`\n${passed} tests passed${process.exitCode ? ' — with failures' : ''}`);

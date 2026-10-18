@@ -1,5 +1,6 @@
 import { STAGES } from '@/data/stages';
-import { stageIndexFor, stageProgress, MAX_GUESSES } from '@/lib/growth';
+import { MAX_POINTS, ROUNDS_PER_DAY, stageIndexFor, stageProgress } from '@/lib/scoring';
+import { currentRoundIndex } from '@/lib/game';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { prettyDate } from '@/lib/dates';
 import { Chamber } from './Chamber';
@@ -7,14 +8,16 @@ import { Creature } from './Creature';
 import { IconFlame, IconTrophy, IconArrow } from './Icons';
 
 export function HomeScreen({ api }: { api: ObscuraApi }) {
-  const { profile, stats, streak, game, puzzle, dateKey } = api;
-  const stage = stageIndexFor(profile.totalGrowth);
+  const { stats, streak, game, daily, dateKey } = api;
+  const points = game?.points ?? 0;
+  const stage = stageIndexFor(points);
   const s = STAGES[stage];
   const next = STAGES[stage + 1];
-  const pct = stageProgress(profile.totalGrowth);
-  const status = game?.status ?? 'playing';
-  const used = game?.guesses.length ?? 0;
-  const cta = status !== 'playing' ? 'View result' : used > 0 ? 'Continue' : 'Play today';
+  const pct = stageProgress(points);
+  const done = game?.status === 'done';
+  const roundsDone = game?.rounds.filter((r) => r.status === 'done').length ?? 0;
+  const started = roundsDone > 0 || game?.rounds.some((r) => r.status === 'active');
+  const cta = done ? 'View result' : started ? `Continue · round ${Math.max(0, currentRoundIndex(game!)) + 1}` : 'Play today';
 
   return (
     <main className="relative z-10 mx-auto grid w-full max-w-5xl flex-1 grid-cols-[minmax(0,1fr)] items-center gap-6 px-5 pb-10 pt-2 lg:grid-cols-2 lg:gap-12" data-testid="home">
@@ -25,9 +28,11 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
           </h1>
         </div>
         <p className="font-display text-2xl italic text-mist-100 sm:text-3xl lg:mt-5">How obscure can you get?</p>
-        <p className="eyebrow mt-3 !tracking-[0.18em]">One mystery. One day. One chance to evolve.</p>
+        <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-mist-300 lg:mx-0">
+          {ROUNDS_PER_DAY} prompts a day, the same for everyone. Name anything that fits. The rarer your answer, the more you evolve.
+        </p>
 
-        <div className="mx-auto mt-7 max-w-sm lg:mx-0" data-testid="home-creature-info">
+        <div className="mx-auto mt-6 max-w-sm lg:mx-0" data-testid="home-creature-info">
           <div className="flex items-center justify-center gap-3 lg:justify-start">
             <span className="text-2xl" aria-hidden>
               {s.emoji}
@@ -36,19 +41,14 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
               {s.name}
             </h2>
           </div>
-          <p className="mt-1 text-sm text-mist-300">{s.blurb}</p>
+          <p className="mt-1 text-sm text-mist-300">{started || done ? s.blurb : 'Today’s form. Every answer you give grows it.'}</p>
           <div className="mt-4">
             <div className="bar-track h-2.5">
               <div className="bar-fill" style={{ width: `${next ? pct : 100}%` }} />
             </div>
             <p className="mt-2 text-sm font-semibold text-bio-300" data-testid="home-progress">
-              {next ? (
-                <>
-                  {pct}% <span className="text-mist-500">→ next evolution</span> <span className="text-mist-300">· {next.name}</span>
-                </>
-              ) : (
-                'Final form reached'
-              )}
+              {points} <span className="text-mist-500">/ {MAX_POINTS} points today</span>
+              {next && <span className="text-mist-300"> · next: {next.name}</span>}
             </p>
           </div>
         </div>
@@ -59,14 +59,14 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
             <IconArrow size={18} />
           </button>
           <p className="text-xs text-mist-500">
-            {puzzle ? (
+            {daily ? (
               <>
-                Obscura #{String(puzzle.number).padStart(3, '0')} · {prettyDate(dateKey)}
-                {status === 'playing' && used > 0 ? ` · ${used}/${MAX_GUESSES} guesses used` : ''}
-                {status === 'won' ? ' · Solved ✓' : status === 'lost' ? ' · Not found' : ''}
+                Obscura #{String(daily.number).padStart(3, '0')} · {prettyDate(dateKey)}
+                {!done && roundsDone > 0 ? ` · ${roundsDone}/${ROUNDS_PER_DAY} rounds done` : ''}
+                {done ? ' · Completed ✓' : ''}
               </>
             ) : (
-              ' '
+              ' '
             )}
           </p>
         </div>
@@ -85,11 +85,11 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
           <div className="glass rounded-2xl px-4 py-3 text-left">
             <div className="flex items-center gap-2 text-bio-400">
               <IconTrophy size={16} />
-              <span className="eyebrow !text-mist-500">Best obscurity</span>
+              <span className="eyebrow !text-mist-500">Best day</span>
             </div>
             <div className="mt-1 font-display text-3xl font-semibold" data-testid="home-best">
-              {stats.bestObscurity || '—'}
-              {stats.bestObscurity > 0 && <span className="ml-1 text-sm font-normal text-mist-500">/ 100</span>}
+              {stats.bestPoints || '—'}
+              {stats.bestPoints > 0 && <span className="ml-1 text-sm font-normal text-mist-500">pts</span>}
             </div>
           </div>
         </div>

@@ -1,35 +1,12 @@
-import type { GameState, ResolvedPuzzle } from './types';
+import type { DailySet, GameState } from './types';
 import { STAGES } from '@/data/stages';
-import { MAX_GUESSES } from './growth';
+import { MAX_POINTS, tierById } from './scoring';
 
-/** Map a guess's closeness onto the evolutionary ladder (microbe … whale). */
-export function emojiForSimilarity(similarity: number, correct: boolean): string {
-  if (correct) return '🐋';
-  const top = STAGES.length - 3; // never use the whale / mythic for a miss
-  const idx = Math.min(top, Math.floor((similarity / 100) * (top + 1)));
-  return STAGES[idx].emoji;
-}
-
-export function obscurityBar(score: number, cells = 10): string {
-  const filled = Math.round((score / 100) * cells);
-  return '█'.repeat(filled) + '░'.repeat(cells - filled);
-}
-
-/** Spoiler-free: shows closeness per guess and the obscurity score, never the answer. */
-export function buildShareText(game: GameState, puzzle: ResolvedPuzzle, streak: number): string {
+/** Spoiler-free: one creature per prompt showing how deep you went, never the answers. */
+export function buildShareText(game: GameState, daily: DailySet, streak: number): string {
   const out = game.outcome!;
-  const path = game.guesses.map((g) => emojiForSimilarity(g.similarity, g.correct)).join(' → ');
-  const lines = [`OBSCURA #${String(puzzle.number).padStart(3, '0')}`, '', path];
-  if (out.solved) {
-    lines.push(``, `Obscurity: ${obscurityBar(out.obscurity)} ${out.obscurity}%`);
-    lines.push(`Guesses: ${out.guessesUsed}/${MAX_GUESSES}`);
-    if (out.stageAfter > out.stageBefore) {
-      lines.push(`Evolved: ${STAGES[out.stageBefore].emoji} → ${STAGES[out.stageAfter].emoji}`);
-    }
-  } else {
-    lines.push(``, `Obscurity: ${obscurityBar(0)} unsolved`);
-    lines.push(`Guesses: X/${MAX_GUESSES}`);
-  }
+  const row = out.tiers.map((t) => (t ? tierById(t).emoji : '⚫')).join(' ');
+  const lines = [`OBSCURA #${String(daily.number).padStart(3, '0')}`, '', row, '', `${out.points}/${MAX_POINTS} pts · ${STAGES[out.stage].emoji} ${STAGES[out.stage].name}`];
   if (streak > 0) lines.push(`🔥 ${streak} day streak`);
   return lines.join('\n');
 }

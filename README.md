@@ -1,6 +1,6 @@
 # Obscura — how obscure can you get?
 
-A daily guessing game. One shared puzzle per day, 5–8 clues, 8 guesses. The rarer the answer you find, the more your creature grows: Microbe → … → Whale → Mythic Form.
+A daily game about the obscure. Seven shared prompts a day ("Name a cheese"), 30 seconds each. Type any answer that fits: the rarer it is, the more points it earns, and your points evolve a creature from a Microbe to the Mythic Form.
 
 ## Run it
 
@@ -24,26 +24,29 @@ npm run test:e2e              # Playwright suite (needs both builds, see tests/e
 
 | Path | Purpose |
 |---|---|
-| `src/data/lexicon/*` | Every guessable thing (`Entity`): domain, group, family, setting, traits, scale + obscurity factors |
-| `src/data/puzzles.ts` | The puzzle dataset: answer, clues, accepted answers, category, tags, difficulty, explanation, source |
-| `src/data/stages.ts` | The evolution ladder (swap this + `Creature.tsx` to re-theme) |
-| `src/lib/obscurity.ts` | Obscurity model (familiarity, Wikipedia prominence, specificity, nicheness, common-word penalty) |
-| `src/lib/growth.ts` | Non-linear reward curve, guess efficiency, stage resistance |
-| `src/lib/similarity.ts` | Guess scoring: category / habitat / traits / size / family → warmth + feedback rows |
-| `src/lib/puzzles.ts` | Date → puzzle (pure function; pinned dates; seeded reshuffle after each full cycle) |
-| `src/lib/game.ts` | Pure rules: clue unlock, guess application, streaks, stats |
+| `src/data/prompts/*` | The answer library. Each prompt lists every accepted answer as `Name\|rarity\|alias;alias` |
+| `src/data/stages.ts` | The evolution ladder and the points needed for each form (swap this + `Creature.tsx` to re-theme) |
+| `src/lib/scoring.ts` | Rarity tiers → points, round timer, points → evolution stage |
+| `src/lib/match.ts` | Forgiving answer matching: case, accents, plurals, small typos, "did you mean" |
+| `src/lib/daily.ts` | Date → seven prompts (pure function; seeded reshuffle after each full pass of the library) |
+| `src/lib/game.ts` | Pure rules: rounds, timer, penalties, finishing a day, streaks, stats |
 | `src/lib/storage.ts` | `PlayerRepository` interface + localStorage implementation (swap for an API later) |
 | `src/components/*` | UI. `Creature.tsx` holds the 14 SVG creatures |
 | `app/` | Next.js App Router entry (`layout.tsx`, `page.tsx`, `globals.css`) |
 
-### Adding puzzles
-Add an `Entity` to the lexicon (so it is guessable and scoreable), then a row in `puzzles.ts`. Obscurity and growth reward are computed from the entity's factors unless overridden. `npm test` checks clue count, source, that no clue contains the answer, and that the answer is "obscure but discoverable" (obscurity ≥ 45 and ≥ 4 independent sources).
+### How scoring works
+Every answer has a rarity from 1 (everyone says it) to 100 (almost nobody does). Tiers: Everyday 10 pts, Familiar 20, Uncommon 35, Rare 55, Obscure 80, Mythic 100. Seven mythic answers (700) is the ceiling. The first recognised answer ends a round; an unrecognised answer costs 2 seconds; running out of time or skipping scores 0.
+
+### Adding prompts
+Add a `PromptSeed` to a file in `src/data/prompts/` (or create a new file and list it in `index.ts`). Give it plenty of answers (40+), from everyday to obscure, with aliases for alternative spellings. `npm test` checks for duplicate spellings, score range, that every answer matches itself, and that each prompt has both easy and obscure answers.
+
+Answers players type that the game doesn't recognise are logged locally (`obscura:v1:unrecognised`, visible in the admin Test tab) so the lists can be grown from real play.
 
 ### Admin / dev mode
-Compiled in only for `next dev` or `NEXT_PUBLIC_OBSCURA_ADMIN=1`. Open with the gear button or **Ctrl/Cmd+Shift+A**: pick any date, preview/edit answer, clues and obscurity, test guesses against the answer, set growth, reset a day or all progress. A production build contains none of this code.
+Compiled in only for `next dev` or `NEXT_PUBLIC_OBSCURA_ADMIN=1`. Open with the gear button or **Ctrl/Cmd+Shift+A**: pick any date, swap which prompt appears in each of the day's seven rounds, test any answer against any prompt, instantly play a day, reset a day or all progress. A production build contains none of this code.
 
 ### Going to a backend later
 - `PlayerRepository` → accounts, sync, leaderboards
-- `getPuzzleSource()` in `src/lib/puzzles.ts` → fetch puzzles from a database
-- `ObscurityFactors` already has the shape a pipeline (Wikipedia pageviews, search volume) would fill in
-- NOTE: v1 ships the answers inside the client bundle. Before launching competitively, serve clues from an API and verify guesses server-side.
+- `getPrompts()` in `src/lib/prompts.ts` → fetch prompts from a database
+- Real rarity: replace the editorial scores with measured data (how often other players submit each answer, as in leaderboards) once there is a backend
+- NOTE: v1 ships the answer lists inside the client bundle. Before launching competitively, check answers server-side.

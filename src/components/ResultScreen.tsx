@@ -2,14 +2,15 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { useCountUp } from '@/hooks/useCountUp';
 import { STAGES } from '@/data/stages';
-import { MAX_GUESSES, stageProgress } from '@/lib/growth';
+import { MAX_POINTS } from '@/lib/scoring';
 import { buildShareText, copyText } from '@/lib/share';
 import { formatCountdown, msUntilNextDay, prettyDate } from '@/lib/dates';
-import { obscurityLabel } from '@/lib/obscurity';
-import { Creature } from './Creature';
+import { rarestEntry } from '@/lib/prompts';
+import { Chamber } from './Chamber';
 import { EvolutionOverlay } from './EvolutionOverlay';
 import { GrowthBar } from './GrowthBar';
-import { IconArrow, IconCheck, IconClock, IconCopy, IconExternal, IconFlame, IconShare } from './Icons';
+import { TierChip } from './TierChip';
+import { IconArrow, IconCheck, IconClock, IconCopy, IconFlame, IconShare } from './Icons';
 
 function useNow(ms = 1000) {
   const [now, setNow] = useState(() => new Date());
@@ -20,46 +21,19 @@ function useNow(ms = 1000) {
   return now;
 }
 
-function Gauge({ value, delay, animate }: { value: number; delay: number; animate: boolean }) {
-  const v = useCountUp(value, animate ? 1500 : 0, delay);
-  const r = 78;
-  const len = Math.PI * r;
-  return (
-    <div className="relative mx-auto w-full max-w-[17rem]" data-testid="obscurity-gauge">
-      <svg viewBox="0 0 200 112" className="w-full overflow-visible">
-        <defs>
-          <linearGradient id="gauge" x1="0" x2="1">
-            <stop offset="0" stopColor="#22d3bd" />
-            <stop offset="0.6" stopColor="#ffc15e" />
-            <stop offset="1" stopColor="#ff7a8a" />
-          </linearGradient>
-        </defs>
-        <path d={`M22 100 A${r} ${r} 0 0 1 178 100`} fill="none" stroke="rgb(255 255 255 / 0.08)" strokeWidth="12" strokeLinecap="round" />
-        <path d={`M22 100 A${r} ${r} 0 0 1 178 100`} fill="none" stroke="url(#gauge)" strokeWidth="12" strokeLinecap="round" strokeDasharray={`${(v / 100) * len} ${len}`} style={{ filter: 'drop-shadow(0 0 8px rgb(255 193 94 / 0.55))' }} />
-      </svg>
-      <div className="absolute inset-x-0 bottom-0 text-center">
-        <div className="font-display text-5xl font-semibold leading-none text-white" data-testid="result-obscurity">
-          {Math.round(v)}
-          <span className="ml-1 text-xl font-normal text-mist-500">/ 100</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStats: () => void }) {
-  const { puzzle, game, streak, markCelebrated } = api;
+  const { daily, game, streak, markCelebrated } = api;
   const fresh = useRef(!game?.celebrated).current;
   const out = game?.outcome;
-  const evolved = !!out && out.stageAfter > out.stageBefore;
+  const evolvedAtEnd = !!out && out.stage > out.stageBeforeFinal;
   const [showEvo, setShowEvo] = useState(false);
   const [copied, setCopied] = useState<null | 'ok' | 'fail'>(null);
   const now = useNow();
 
   useEffect(() => {
     if (!fresh) return;
-    if (evolved) {
-      const t = window.setTimeout(() => setShowEvo(true), 2300);
+    if (evolvedAtEnd) {
+      const t = window.setTimeout(() => setShowEvo(true), 1800);
       return () => window.clearTimeout(t);
     }
     markCelebrated();
@@ -71,14 +45,15 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
     [],
   );
 
-  const shareText = useMemo(() => (game && puzzle && out ? buildShareText(game, puzzle, streak) : ''), [game, puzzle, out, streak]);
-  const growth = useCountUp(out?.growth ?? 0, fresh ? 1300 : 0, fresh ? 1500 : 0, 1);
+  const shareText = useMemo(() => (game && daily && out ? buildShareText(game, daily, streak) : ''), [game, daily, out, streak]);
+  const points = useCountUp(out?.points ?? 0, fresh ? 1500 : 0, fresh ? 600 : 0);
 
-  if (!puzzle || !game || !out) return null;
-  const won = out.solved;
+  if (!daily || !game || !out) return null;
+  const stage = STAGES[out.stage];
   const d = (ms: number) => (fresh ? { animationDelay: `${ms}ms` } : { animation: 'none' });
   const cls = fresh ? 'animate-rise' : '';
   const countdown = formatCountdown(msUntilNextDay(now));
+  const replayFrom = out.stageBeforeFinal < out.stage ? out.stageBeforeFinal : Math.max(0, out.stage - 1);
 
   const onCopy = async () => {
     const ok = await copyText(shareText);
@@ -88,99 +63,81 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
   const canShare = typeof navigator !== 'undefined' && typeof navigator.share === 'function';
 
   return (
-    <main className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 pb-16 pt-2 sm:px-5 lg:grid lg:grid-cols-2 lg:gap-8" data-testid="result">
-      <section className="text-center">
+    <main className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 pb-16 pt-2 sm:px-5 lg:grid lg:grid-cols-[1fr_1.1fr] lg:gap-8" data-testid="result">
+      <section className="text-center lg:sticky lg:top-4 lg:self-start">
         <p className="eyebrow">
-          Obscura #{String(puzzle.number).padStart(3, '0')} · {prettyDate(puzzle.dateKey)}
+          Obscura #{String(daily.number).padStart(3, '0')} · {prettyDate(daily.dateKey)}
         </p>
-        <h1 className={`mt-4 font-display text-xl font-semibold uppercase tracking-[0.35em] ${won ? 'text-bio-300' : 'text-mist-300'} ${cls}`} style={d(0)} data-testid="result-headline">
-          {won ? 'You found it' : 'The deep keeps its secret'}
+        <h1 className={`mt-3 font-display text-xl font-semibold uppercase tracking-[0.3em] text-bio-300 ${cls}`} style={d(0)} data-testid="result-headline">
+          Dive complete
         </h1>
-        {!won && <p className="mt-2 text-sm text-mist-500">The answer was</p>}
 
-        <div className="relative mt-4">
-          {won && fresh && (
-            <div className="pointer-events-none absolute left-1/2 top-1/2">
+        <div className="relative mt-2">
+          {out.points >= 250 && fresh && (
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-10">
               {sparks.map((s) => (
-                <span key={s.i} className="spark" style={{ ['--tx' as string]: `${s.tx}px`, ['--ty' as string]: `${s.ty}px`, animationDelay: `${400 + s.d * 1000}ms` }} />
+                <span key={s.i} className="spark" style={{ ['--tx' as string]: `${s.tx}px`, ['--ty' as string]: `${s.ty}px`, animationDelay: `${600 + s.d * 1000}ms` }} />
               ))}
             </div>
           )}
-          <h2 className={`shimmer-text mx-auto max-w-[22rem] break-words font-display text-[2.6rem] font-semibold leading-tight sm:text-5xl ${fresh ? 'animate-pop' : ''}`} style={{ ...d(500), animationFillMode: 'both' }} data-testid="result-answer">
-            {out.answerName}
-          </h2>
-          <span className={`mt-3 inline-block rounded-full border border-white/12 bg-white/5 px-3 py-1 text-xs uppercase tracking-widest text-mist-300 ${cls}`} style={d(800)} data-testid="result-category">
-            {puzzle.category}
-          </span>
+          <Chamber stage={out.stage} size={300} className="w-[min(70vw,250px)] lg:w-[min(100%,280px)]" />
         </div>
 
-        <div className={`mt-8 ${cls}`} style={d(1000)}>
-          <p className="eyebrow mb-2">Obscurity</p>
-          <Gauge value={out.obscurity} delay={fresh ? 1100 : 0} animate={fresh} />
-          <p className="mt-2 text-sm font-semibold text-amber-glow" data-testid="result-obscurity-label">
-            {obscurityLabel(out.obscurity)}
-          </p>
+        <p className={`mt-2 font-display text-3xl font-semibold uppercase tracking-[0.15em] text-white ${cls}`} style={d(300)} data-testid="result-stage">
+          {stage.name}
+        </p>
+        <p className={`mx-auto mt-1 max-w-xs text-sm text-mist-300 ${cls}`} style={d(400)}>
+          {stage.blurb}
+        </p>
+
+        <div className={`mt-5 grid grid-cols-2 gap-3 ${cls}`} style={d(700)}>
+          <Stat label="Points" value={`${Math.round(points)}`} sub={`of ${MAX_POINTS}`} testId="result-points" />
+          <Stat label="Streak" value={String(streak)} sub={streak === 1 ? 'day' : 'days'} icon={<IconFlame size={14} />} accent="text-amber-glow" testId="result-streak" />
         </div>
 
-        <div className={`mt-6 grid grid-cols-3 gap-3 ${cls}`} style={d(1300)}>
-          <Stat label={won ? 'Growth' : 'Closest-guess growth'} value={`+${growth.toFixed(1)}%`} accent="text-bio-300" testId="result-growth" />
-          <Stat label="Guesses" value={won ? `${out.guessesUsed} / ${MAX_GUESSES}` : `X / ${MAX_GUESSES}`} testId="result-guesses" />
-          <Stat label="Streak" value={String(streak)} icon={<IconFlame size={14} />} accent="text-amber-glow" testId="result-streak" />
+        <div className={`glass mt-4 rounded-2xl p-4 text-left ${cls}`} style={d(900)}>
+          <GrowthBar points={out.points} />
         </div>
+
+        {evolvedAtEnd || out.stage > 0 ? (
+          <button className={`btn-ghost mt-4 ${cls}`} style={d(1000)} onClick={() => setShowEvo(true)} data-testid="replay-evo">
+            Watch evolution
+          </button>
+        ) : null}
       </section>
 
       <section className="mt-8 space-y-4 lg:mt-0">
-        <div className={`glass relative overflow-hidden rounded-3xl p-5 text-center ${cls}`} style={d(1600)} data-testid="evolution-card">
-          {evolved ? (
-            <>
-              <p className="eyebrow !text-amber-glow">New evolution</p>
-              <div className="mt-3 flex items-center justify-center gap-3 sm:gap-6">
-                <div className="opacity-60">
-                  <Creature stage={out.stageBefore} size={84} animate={false} />
-                  <p className="mt-1 text-xs text-mist-500">{STAGES[out.stageBefore].name}</p>
-                </div>
-                <span className="text-2xl text-bio-400" aria-hidden>
-                  →
-                </span>
-                <div>
-                  <Creature stage={out.stageAfter} size={132} />
-                  <p className="mt-1 font-display text-lg font-semibold text-white" data-testid="result-new-stage">
-                    {STAGES[out.stageAfter].name}
+        <div className={`glass rounded-3xl p-5 ${cls}`} style={d(1100)}>
+          <p className="eyebrow">Your answers</p>
+          <ol className="mt-3 divide-y divide-white/8" data-testid="breakdown">
+            {game.rounds.map((r, i) => {
+              const prompt = daily.prompts[i];
+              const rarest = rarestEntry(prompt);
+              return (
+                <li key={r.promptId} className="py-3" data-testid="breakdown-row">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="text-xs text-mist-500">{prompt.text}</p>
+                      <p className="mt-0.5 break-words font-display text-xl font-semibold text-white" data-testid="breakdown-answer">
+                        {r.answer ?? (r.end === 'timeout' ? 'Time’s up' : 'Skipped')}
+                      </p>
+                    </div>
+                    <div className="shrink-0 text-right">
+                      {r.tier ? <TierChip id={r.tier} /> : <span className="chip miss">No answer</span>}
+                      <p className="mt-1 font-mono text-sm text-amber-glow">+{r.points}</p>
+                    </div>
+                  </div>
+                  <p className="mt-1.5 text-xs text-mist-500">
+                    Rarest answer: <span className="text-mist-300">{rarest.name}</span>
+                    {r.answer === rarest.name ? ' — you found it!' : ''}
                   </p>
-                </div>
-              </div>
-              <p className="mt-2 text-lg" aria-label="evolution">
-                {STAGES[out.stageBefore].emoji} → {STAGES[out.stageAfter].emoji}
-              </p>
-              <button className="btn-ghost mt-3" onClick={() => setShowEvo(true)} data-testid="replay-evo">
-                Watch evolution again
-              </button>
-            </>
-          ) : (
-            <>
-              <p className="eyebrow">Your form</p>
-              <div className="mt-2 flex items-center gap-4">
-                <Creature stage={out.stageAfter} size={84} />
-                <div className="flex-1 text-left">
-                  <GrowthBar total={out.totalAfter} />
-                </div>
-              </div>
-              <p className="mt-2 text-xs text-mist-500">{stageProgress(out.totalAfter) < 100 ? 'Keep finding the obscure to evolve.' : ''}</p>
-            </>
-          )}
+                </li>
+              );
+            })}
+          </ol>
         </div>
 
-        <div className={`glass rounded-3xl p-5 ${cls}`} style={d(1800)}>
-          <p className="eyebrow">Why it’s obscure</p>
-          <p className="mt-2 text-[0.95rem] leading-relaxed text-mist-100" data-testid="result-explanation">
-            {puzzle.explanation}
-          </p>
-          <a className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-bio-400 hover:text-bio-300" href={puzzle.source.url} target="_blank" rel="noopener noreferrer">
-            {puzzle.source.title} <IconExternal size={14} />
-          </a>
-        </div>
-
-        <div className={`glass rounded-3xl p-5 ${cls}`} style={d(2000)}>
+        <div className={`glass rounded-3xl p-5 ${cls}`} style={d(1300)}>
           <p className="eyebrow">Share · spoiler free</p>
           <pre className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-2xl border border-white/8 bg-black/30 p-4 text-center font-mono text-[0.92rem] leading-relaxed text-mist-100" data-testid="share-preview">
             {shareText}
@@ -198,9 +155,9 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
           </div>
         </div>
 
-        <div className={`flex items-center justify-between gap-3 px-1 text-sm text-mist-500 ${cls}`} style={d(2200)}>
+        <div className={`flex items-center justify-between gap-3 px-1 text-sm text-mist-500 ${cls}`} style={d(1500)}>
           <span className="flex items-center gap-2" data-testid="countdown">
-            <IconClock size={16} /> Next mystery in <span className="font-mono text-mist-100">{countdown}</span>
+            <IconClock size={16} /> Next dive in <span className="font-mono text-mist-100">{countdown}</span>
           </span>
           <button className="btn-ghost !min-h-10" onClick={onOpenStats} data-testid="result-stats">
             Stats <IconArrow size={14} />
@@ -210,8 +167,8 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
 
       {showEvo && (
         <EvolutionOverlay
-          from={out.stageBefore}
-          to={out.stageAfter}
+          from={replayFrom}
+          to={Math.max(out.stage, replayFrom + 1)}
           onDone={() => {
             setShowEvo(false);
             markCelebrated();
@@ -222,16 +179,17 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
   );
 }
 
-function Stat({ label, value, icon, accent = 'text-white', testId }: { label: string; value: string; icon?: React.ReactNode; accent?: string; testId: string }) {
+function Stat({ label, value, sub, icon, accent = 'text-white', testId }: { label: string; value: string; sub?: string; icon?: React.ReactNode; accent?: string; testId: string }) {
   return (
     <div className="glass rounded-2xl px-2 py-3">
       <p className="eyebrow flex items-center justify-center gap-1 !text-[0.58rem]">
         {icon}
         {label}
       </p>
-      <p className={`mt-1 font-display text-2xl font-semibold ${accent}`} data-testid={testId}>
+      <p className={`mt-1 font-display text-3xl font-semibold ${accent}`} data-testid={testId}>
         {value}
       </p>
+      {sub && <p className="text-xs text-mist-500">{sub}</p>}
     </div>
   );
 }

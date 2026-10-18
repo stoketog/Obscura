@@ -1,8 +1,8 @@
 'use client';
 
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { useObscura } from '@/hooks/useObscura';
-import { stageIndexFor } from '@/lib/growth';
+import { stageIndexFor } from '@/lib/scoring';
 import { Backdrop } from './Backdrop';
 import { stageHue } from './Creature';
 import { HomeScreen } from './HomeScreen';
@@ -19,15 +19,10 @@ const AdminPanel = (process.env.NEXT_PUBLIC_OBSCURA_ADMIN === '1' || process.env
 export function GameApp() {
   const api = useObscura();
   const [modal, setModal] = useState<null | 'stats' | 'help' | 'admin'>(null);
-  // After the final guess, linger on the game screen so the last feedback lands before the reveal.
+  // After the last round, keep its reveal on screen until the player chooses to see the results.
   const [hold, setHold] = useState(false);
-  const holdTimer = useRef<number | undefined>(undefined);
-  const onFinished = () => {
-    setHold(true);
-    window.clearTimeout(holdTimer.current);
-    holdTimer.current = window.setTimeout(() => setHold(false), 1700);
-  };
-  useEffect(() => () => window.clearTimeout(holdTimer.current), []);
+  const onFinished = () => setHold(true);
+  const onContinue = () => setHold(false);
 
   // First visit: show the how-to-play sheet once.
   useEffect(() => {
@@ -47,7 +42,7 @@ export function GameApp() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  const stage = stageIndexFor(api.profile.totalGrowth);
+  const stage = stageIndexFor(api.game?.points ?? 0);
   const closeHelp = () => {
     setModal(null);
     if (!api.profile.seenHelp) api.dismissHelp();
@@ -80,14 +75,14 @@ export function GameApp() {
         </div>
       </header>
 
-      {!api.ready || !api.puzzle || !api.game ? (
+      {!api.ready || !api.daily || !api.game ? (
         <div className="relative z-10 grid flex-1 place-items-center text-mist-500" aria-busy>
           <span className="logo animate-pulse text-xl">Obscura</span>
         </div>
       ) : api.view === 'home' ? (
         <HomeScreen api={api} />
       ) : api.game.status === 'playing' || hold ? (
-        <GameScreen api={api} onFinished={onFinished} />
+        <GameScreen api={api} holding={hold} onFinished={onFinished} onContinue={onContinue} />
       ) : (
         <ResultScreen api={api} onOpenStats={() => setModal('stats')} />
       )}

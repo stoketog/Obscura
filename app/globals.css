@@ -265,3 +265,34 @@ button { font: inherit; color: inherit; }
 .pip.used { background: hsl(var(--stage-hue) 30% 30%); }
 .pip.hit { background: var(--color-bio-400); box-shadow: 0 0 10px var(--color-bio-400); border-color: transparent; }
 .pip.left { background: rgb(255 255 255 / 0.28); }
+
+/* ───────────────────────── Daily dive ───────────────────────── */
+.tier-chip {
+  --th: 175;
+  display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.28rem 0.65rem; border-radius: 999px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap;
+  color: hsl(var(--th) 90% 82%);
+  border: 1px solid hsl(var(--th) 80% 60% / 0.4);
+  background: hsl(var(--th) 80% 50% / 0.12);
+}
+
+.round-pip {
+  --th: 175;
+  flex: 1 1 0; height: 1.9rem; max-width: 3rem; border-radius: 0.7rem; display: grid; place-items: center; font-size: 0.95rem;
+  background: rgb(255 255 255 / 0.06); border: 1px solid rgb(255 255 255 / 0.1); transition: all 0.4s;
+}
+.round-pip.current { border-color: rgb(94 242 222 / 0.8); box-shadow: 0 0 0 3px rgb(94 242 222 / 0.15), 0 0 18px rgb(94 242 222 / 0.35); background: rgb(94 242 222 / 0.1); }
+.round-pip.done { background: hsl(var(--th) 70% 45% / 0.22); border-color: hsl(var(--th) 80% 60% / 0.55); box-shadow: 0 0 14px hsl(var(--th) 90% 55% / 0.3); }
+.round-pip.done[data-state="timeout"], .round-pip.done[data-state="skipped"] { background: rgb(255 255 255 / 0.04); border-color: rgb(255 255 255 / 0.12); box-shadow: none; color: var(--color-mist-500); }
+
+.timer-track { height: 0.5rem; border-radius: 999px; background: rgb(255 255 255 / 0.08); overflow: hidden; }
+.timer-fill { height: 100%; border-radius: 999px; transition: width 0.12s linear, background 0.4s; }
+.timer-fill.ok { background: linear-gradient(90deg, var(--color-bio-600), var(--color-bio-400)); box-shadow: 0 0 14px rgb(94 242 222 / 0.55); }
+.timer-fill.warn { background: linear-gradient(90deg, #d99a2b, var(--color-amber-glow)); box-shadow: 0 0 14px rgb(255 193 94 / 0.55); }
+.timer-fill.danger { background: linear-gradient(90deg, #d94a5c, var(--color-coral-glow)); box-shadow: 0 0 14px rgb(255 122 138 / 0.6); }
+.timer-secs { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.timer-secs.ok { color: var(--color-bio-300); }
+.timer-secs.warn { color: var(--color-amber-glow); }
+.timer-secs.danger { color: var(--color-coral-glow); animation: pulseSoft 0.8s ease-in-out infinite; }
+
+.reveal-glow { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(70% 60% at 50% 30%, hsl(var(--th) 90% 55% / 0.28), transparent 70%); }

@@ -16,8 +16,7 @@ export interface PlayerRepository {
 
 export function emptyProfile(): PlayerProfile {
   return {
-    version: 1,
-    totalGrowth: 0,
+    version: 2,
     currentStreak: 0,
     longestStreak: 0,
     lastCompletedDate: null,
@@ -59,13 +58,13 @@ function sanitize(raw: unknown): PlayerProfile {
   const base = emptyProfile();
   if (!raw || typeof raw !== 'object') return base;
   const r = raw as Partial<PlayerProfile>;
-  if (r.version !== 1) return base;
+  // Profiles from the original clue-based version are incompatible; start fresh.
+  if (r.version !== 2) return base;
   return {
     ...base,
     ...r,
     history: r.history && typeof r.history === 'object' ? r.history : {},
     games: r.games && typeof r.games === 'object' ? r.games : {},
-    totalGrowth: Number.isFinite(r.totalGrowth) ? Math.min(100, Math.max(0, r.totalGrowth as number)) : 0,
   };
 }
 

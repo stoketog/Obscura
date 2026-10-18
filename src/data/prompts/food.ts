@@ -1,0 +1,104 @@
+import type { PromptSeed } from '@/lib/types';
+
+/**
+ * Answer format: 'Name|score' or 'Name|score|alias;alias'.
+ * score = how rarely players would think of it, 1 (everyone) … 100 (almost nobody).
+ * Tiers: <20 Everyday · 20–39 Familiar · 40–59 Uncommon · 60–79 Rare · 80–94 Obscure · 95+ Mythic.
+ */
+export const FOOD: PromptSeed[] = [
+  {
+    id: 'cheese',
+    text: 'Name a cheese',
+    category: 'Cheese',
+    answers: [
+      'Cheddar|3', 'Mozzarella|4', 'Parmesan|5|parmigiano reggiano;parmigiano', 'Brie|6', 'Feta|7', 'Gouda|8', 'Swiss|10|swiss cheese',
+      'Cream cheese|10', 'Cottage cheese|12', 'Camembert|12', 'Blue cheese|14|bleu cheese;blue', 'Ricotta|14', 'Goat cheese|16|goats cheese;chevre',
+      'Gorgonzola|17', 'Halloumi|18', 'Provolone|18', 'Monterey Jack|18|jack cheese;jack', 'Emmental|20|emmenthal;emmentaler', 'Edam|20',
+      'Paneer|20', 'Mascarpone|22', 'Stilton|22', 'Pepper Jack|22', 'Colby|24', 'Gruyère|24|gruyere', 'Manchego|26', 'Burrata|28', 'Havarti|28',
+      'Roquefort|30', 'Pecorino|32|pecorino romano', 'Munster|36', 'Raclette|38', 'Fontina|38', 'Asiago|40', 'Jarlsberg|40', 'Wensleydale|40',
+      'Queso fresco|40', 'Cotija|42', 'Red Leicester|42|leicester', 'Quark|44', 'Limburger|46', 'Comté|46|comte', 'Cheshire|48', 'Lancashire|50',
+      'Taleggio|52', 'Labneh|56', 'Caerphilly|58', 'Port Salut|58', 'Double Gloucester|55', 'Reblochon|62', 'Oaxaca cheese|62|quesillo',
+      'Saint Agur|62', 'Cambozola|64', 'Kashkaval|68', 'Époisses|70|epoisses', 'Mimolette|72', 'Tomme de Savoie|74|tomme', 'Stinking Bishop|76',
+      'Brillat-Savarin|78|brillat savarin', 'Cashel Blue|78', 'Cabrales|82', 'Vacherin Mont d\'Or|84|vacherin', 'Gjetost|84|brunost', 'Idiazabal|85',
+      'Ossau-Iraty|86|ossau iraty', 'Sbrinz|88', 'Casu marzu|96|maggot cheese', 'Pule|99|donkey cheese',
+    ],
+  },
+  {
+    id: 'pasta',
+    text: 'Name a pasta shape',
+    category: 'Pasta',
+    answers: [
+      'Spaghetti|2', 'Penne|3', 'Macaroni|4', 'Lasagne|5|lasagna', 'Fusilli|6', 'Ravioli|8', 'Farfalle|9|bow tie;bowtie;bow ties', 'Fettuccine|9|fettucine',
+      'Linguine|10', 'Tortellini|10', 'Rigatoni|12', 'Angel hair|14|capellini', 'Tagliatelle|14', 'Cannelloni|14', 'Orzo|16', 'Gnocchi|16',
+      'Vermicelli|18', 'Rotini|24', 'Ziti|26', 'Conchiglie|28|shells;pasta shells', 'Bucatini|30', 'Pappardelle|30', 'Manicotti|36', 'Orecchiette|38',
+      'Tortelloni|40', 'Cavatappi|40', 'Gemelli|42', 'Ditalini|46', 'Fideo|50', 'Pastina|50', 'Tagliolini|52', 'Rotelle|54', 'Radiatori|56',
+      'Paccheri|58', 'Trenette|60', 'Campanelle|62', 'Agnolotti|62', 'Casarecce|64', 'Cappelletti|66', 'Cavatelli|66', 'Spaghettoni|68', 'Lumache|68',
+      'Strozzapreti|70', 'Stelline|70', 'Trofie|72', 'Maltagliati|72', 'Anelli|72', 'Garganelli|74', 'Pici|74', 'Bigoli|74', 'Mafalde|76',
+      'Sedanini|76', 'Fregola|78', 'Mezzelune|80', 'Tonnarelli|82', 'Busiate|84', 'Mezze maniche|88', 'Tripoline|88', 'Scialatielli|90',
+      'Malloreddus|90', 'Corzetti|92', 'Culurgiones|94', 'Su filindeu|99',
+    ],
+  },
+  {
+    id: 'bread',
+    text: 'Name a type of bread',
+    category: 'Bread',
+    answers: [
+      'White bread|3|sliced bread;white loaf', 'Wholemeal bread|6|whole wheat;brown bread;wholewheat', 'Sourdough|5', 'Baguette|6', 'Bagel|6', 'Naan|7',
+      'Pita|8|pitta', 'Ciabatta|9', 'Focaccia|10', 'Brioche|11', 'Tortilla|10', 'Rye bread|12|rye', 'Flatbread|12', 'Chapati|14', 'Roti|14',
+      'Multigrain|14', 'Cornbread|16', 'Bap|18|bread roll;roll', 'English muffin|20', 'Soda bread|22', 'Pumpernickel|24', 'Challah|24',
+      'Crumpet|24', 'Cob loaf|24|cob', 'Bao|28|baozi;steamed bun', 'Tiger bread|30', 'Paratha|30', 'Panettone|34', 'Lavash|36', 'Potato bread|36',
+      'Puri|38', 'Matzo|38|matzah', 'Stollen|40', 'Bloomer|42', 'Injera|44', 'Arepa|44', 'Milk bread|46|shokupan', 'Khubz|48', 'Fougasse|52',
+      'Cottage loaf|56', 'Kulcha|56', 'Bhatura|56', 'Pandesal|66', 'Manakish|66|manousheh', 'Bara brith|66', 'Barmbrack|62', 'Bannock|64',
+      'Melonpan|70', 'Vollkornbrot|72', 'Farl|74', 'Limpa|78', 'Barbari|78', 'Sangak|80', 'Taftan|82', 'Markook|82|shrak', 'Pan de muerto|82',
+      'Anadama bread|90', 'Pane carasau|95|carta da musica',
+    ],
+  },
+  {
+    id: 'cocktail',
+    text: 'Name a cocktail',
+    category: 'Cocktails',
+    answers: [
+      'Margarita|3', 'Mojito|4', 'Martini|4', 'Gin and tonic|4|g&t;gin tonic;g and t', 'Cosmopolitan|6', 'Pina colada|6|piña colada', 'Daiquiri|8',
+      'Old fashioned|8', 'Bloody Mary|8', 'Long Island iced tea|8', 'Sex on the beach|8', 'Aperol spritz|8', 'Manhattan|10', 'Mimosa|10',
+      'Tequila sunrise|10', 'Moscow mule|10', 'Espresso martini|10', 'Negroni|12', 'Whiskey sour|14|whisky sour', 'Mai tai|14', 'White Russian|14',
+      'Caipirinha|16', 'Cuba libre|18', 'Bellini|22', 'Mint julep|26', 'Singapore sling|26', 'Tom Collins|28', 'Black Russian|28', 'Gimlet|30',
+      'Sidecar|32', 'Dark and stormy|32', 'Americano|34', 'Hurricane|34', 'Paloma|36', 'Kir royale|36', 'Kir|38', 'Pisco sour|38', 'Vesper|38',
+      'Grasshopper|38', 'Blue Hawaiian|38', 'Sazerac|40', 'Zombie|44', 'Rob Roy|44', 'Brandy Alexander|44', 'Rusty nail|44', 'Godfather|44',
+      'Pimms cup|44|pimm\'s cup;pimms', 'Boulevardier|52', 'Aviation|52', 'Stinger|56', 'Gibson|56', 'Bramble|56', 'Last word|62', 'Painkiller|62',
+      'Bronx|62', 'Paper plane|64', 'Ramos gin fizz|66', 'Clover club|66', 'Blood and sand|70', 'Penicillin|72', 'Corpse reviver|72', 'Brooklyn|72',
+      'Jungle bird|74', 'Vieux Carré|78|vieux carre', 'Tuxedo|80', 'Monkey gland|86', 'Toronto|88', 'Bijou|90', 'Remember the Maine|97',
+    ],
+  },
+  {
+    id: 'fruit',
+    text: 'Name a fruit',
+    category: 'Fruit',
+    answers: [
+      'Apple|1', 'Banana|1', 'Orange|2', 'Strawberry|2', 'Lemon|3', 'Grape|3', 'Pear|4', 'Pineapple|4', 'Mango|4', 'Cherry|4', 'Watermelon|4', 'Peach|5',
+      'Blueberry|5', 'Lime|6', 'Raspberry|6', 'Kiwi|7', 'Plum|8', 'Blackberry|8', 'Melon|8', 'Apricot|10', 'Grapefruit|10', 'Coconut|12', 'Nectarine|12',
+      'Pomegranate|14', 'Cantaloupe|14', 'Papaya|14', 'Fig|14', 'Tangerine|14', 'Clementine|14', 'Mandarin|14', 'Cranberry|14', 'Date|16', 'Passion fruit|16',
+      'Guava|22', 'Lychee|22', 'Dragon fruit|22|pitaya', 'Durian|24', 'Persimmon|30', 'Jackfruit|32', 'Starfruit|34|carambola', 'Blackcurrant|34',
+      'Kumquat|36', 'Rambutan|36', 'Gooseberry|36', 'Mangosteen|40', 'Quince|40', 'Redcurrant|40', 'Pomelo|40', 'Elderberry|44', 'Mulberry|44',
+      'Tamarind|46', 'Yuzu|52', 'Physalis|52|cape gooseberry;goldenberry', 'Loquat|56', 'Soursop|56|graviola', 'Longan|56', 'Custard apple|58',
+      'Cherimoya|62', 'Jujube|62', 'Breadfruit|62', 'Ugli fruit|66', 'Ackee|66', 'Feijoa|66', 'Bergamot|66', 'Tamarillo|70', 'Citron|70', 'Pawpaw|72',
+      'Sapodilla|76', 'Medlar|76', 'Salak|78|snake fruit', 'Buddha\'s hand|78', 'Langsat|82', 'Lucuma|84', 'Cupuaçu|88|cupuacu', 'Mamey sapote|90',
+      'Jabuticaba|93', 'Marang|97',
+    ],
+  },
+  {
+    id: 'spice',
+    text: 'Name a herb or spice',
+    category: 'Herbs & spices',
+    answers: [
+      'Pepper|3|black pepper', 'Garlic|4', 'Cinnamon|4', 'Basil|5', 'Parsley|5', 'Mint|5', 'Rosemary|5', 'Thyme|6', 'Ginger|6', 'Paprika|6', 'Oregano|7',
+      'Chilli|7|chili;chilli powder;chili powder', 'Sage|8', 'Cumin|8', 'Turmeric|8', 'Nutmeg|8', 'Vanilla|8', 'Cloves|9|clove', 'Coriander|10|cilantro',
+      'Dill|10', 'Bay leaf|10|bay;bay leaves', 'Chives|12', 'Cardamom|14', 'Saffron|14', 'Cayenne|14', 'Tarragon|18', 'Fennel|18', 'Lemongrass|18',
+      'Mustard seed|20', 'Allspice|20', 'Wasabi|20', 'Star anise|22', 'Marjoram|22', 'Horseradish|22', 'Lavender|24', 'Anise|26', 'Caraway|28',
+      'Sumac|34', 'Fenugreek|38', 'Mace|40', 'Za\'atar|44|zaatar', 'Juniper|48|juniper berries', 'Curry leaf|46', 'Chervil|50', 'Nigella|52|black seed;kalonji',
+      'Szechuan pepper|52|sichuan pepper', 'Ras el hanout|52', 'Kaffir lime leaf|54|makrut lime leaf', 'Galangal|56', 'Savory|56|summer savory;winter savory',
+      'Lovage|62', 'Sorrel|62', 'Annatto|66|achiote', 'Borage|66', 'Berbere|70', 'Hyssop|74', 'Ajwain|74|carom', 'Angelica|76', 'Epazote|80',
+      'Grains of paradise|82|melegueta pepper', 'Long pepper|82|pippali', 'Amchur|84', 'Panch phoron|88', 'Asafoetida|74|hing', 'Mahlab|90|mahleb',
+      'Tonka bean|90', 'Vadouvan|90', 'Cubeb|90', 'Mastic|93|mastiha', 'Voatsiperifery|99|voatsiperifery pepper',
+    ],
+  },
+];
