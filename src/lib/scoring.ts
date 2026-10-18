@@ -10,11 +10,11 @@ import { STAGES } from '@/data/stages';
  */
 export const TIERS: Tier[] = [
   { id: 'everyday', label: 'Everyday', min: 0, points: 10, color: '#9aa7b5', square: '⬜' },
-  { id: 'familiar', label: 'Familiar', min: 20, points: 20, color: '#4ade80', square: '🟩' },
-  { id: 'uncommon', label: 'Uncommon', min: 40, points: 35, color: '#facc15', square: '🟨' },
-  { id: 'rare', label: 'Rare', min: 60, points: 55, color: '#3b82f6', square: '🟦' },
-  { id: 'obscure', label: 'Obscure', min: 80, points: 80, color: '#a855f7', square: '🟪' },
-  { id: 'mythic', label: 'Mythic', min: 95, points: 100, color: '#fb923c', square: '🟧' },
+  { id: 'familiar', label: 'Familiar', min: 15, points: 20, color: '#4ade80', square: '🟩' },
+  { id: 'uncommon', label: 'Uncommon', min: 32, points: 35, color: '#facc15', square: '🟨' },
+  { id: 'rare', label: 'Rare', min: 50, points: 55, color: '#3b82f6', square: '🟦' },
+  { id: 'obscure', label: 'Obscure', min: 72, points: 80, color: '#a855f7', square: '🟪' },
+  { id: 'mythic', label: 'Mythic', min: 92, points: 100, color: '#fb923c', square: '🟧' },
 ];
 
 export const ROUNDS_PER_DAY = 7;

@@ -1,6 +1,6 @@
 # Obscura — how obscure can you get?
 
-A daily game about the obscure. Seven shared prompts a day ("Name a cheese"), 30 seconds each. Type any answer that fits: the rarer it is, the more points it earns, and your points lift you on an ascent: a microbe on the sea floor, then a jellyfish, fish, dolphin, a human walking down a street, a bird (200 pts), a helicopter (300), a plane, a rocket, a satellite, an astronaut and, for a perfect 700, the whole solar system. The whole screen is one continuous glossy toy world (Three.js): the sea floor, the surface, a seaside town, the sky and space are all the same place, and the camera climbs through it as you score.
+A daily game about the obscure. Seven shared prompts a day ("Name a cheese"), 30 seconds each. Type any answer that fits: the rarer it is, the more points it earns, and your points lift you on an ascent: a microbe on the sea floor, then a jellyfish, fish, dolphin, a human walking down a street, a bird (200 pts), a helicopter (300), a plane, a rocket, a satellite, an astronaut and, for a perfect 700, the whole solar system. The whole screen is one continuous soft-pastel world (Three.js): the sea floor, the surface, a seaside town, the sky and space are all the same place, and the camera climbs through it as you score.
 
 ## Run it
 
@@ -26,7 +26,7 @@ npm run test:e2e              # Playwright suite (needs both builds, see tests/e
 |---|---|
 | `src/data/prompts/*` | The answer library. Each prompt lists every accepted answer as `Name\|rarity\|alias;alias` |
 | `src/data/stages.ts` | The ascent: each form, its points threshold, place and altitude |
-| `src/toy/*` | The 3D world (Three.js): `world.ts` is the engine (camera, lighting, climbing, hero swaps), `heroes-*.ts` the 12 toy forms, `biomes.ts` the scenery (sea floor, water, town, sky, space), `layout.ts` where each stage sits in the world, `kit.ts` shared materials and shapes |
+| `src/toy/*` | The 3D world (Three.js): `world.ts` is the engine (camera, lighting, climbing, hero swaps), `heroes-*.ts` the 12 forms, `biomes.ts` the scenery (sea floor, water, town, sky, space), `layout.ts` where each stage sits in the world, `kit.ts` shared materials and shapes |
 | `src/lib/scoring.ts` | Rarity tiers → points, round timer, points → stage |
 | `src/lib/match.ts` | Forgiving answer matching: case, accents, plurals, small typos, "did you mean" |
 | `src/lib/daily.ts` | Date → seven prompts (pure function; each day mixes topics, weighted to general knowledge, dealt from seeded per-topic shuffles) |

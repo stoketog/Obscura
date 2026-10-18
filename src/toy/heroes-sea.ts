@@ -230,7 +230,7 @@ export function dolphin(): Hero {
   root.add(inner);
   const pose = new THREE.Group();
   inner.add(pose);
-  const skin = toy('#4ba5e6', { rough: 0.22 });
+  const skin = toy('#2f7fcf', { rough: 0.3 });
   const belly = toy('#eaf7ff', { rough: 0.3 });
   const body = capsule(0.85, 2.3, skin);
   body.rotation.z = Math.PI / 2;
@@ -271,41 +271,17 @@ export function dolphin(): Hero {
     pose.add(f);
   }
   pose.add(eyes(0.17, 0.75, 2.05, 0.35));
-  // splash droplets
-  const dropMat = toy('#d9f6ff', { opacity: 0.85 });
-  const DROPS = 22;
-  const drops = new THREE.InstancedMesh(new THREE.SphereGeometry(0.11, 10, 8), dropMat, DROPS);
-  drops.frustumCulled = false;
-  inner.add(drops);
-  const T = 4.8, X0 = -6.5, X1 = 6.5, DEPTH = -2.6, PEAK = 4.4;
+  // A calm swim: the dolphin cruises at the surface, rising and dipping a little, never leaving the water.
   return {
     root,
     sparkle: '#4ba5e6',
     yaw: -0.2,
     update(t) {
-      const ph = (t % T) / T;
-      const u = ph;
-      const x = lerp(X0, X1, u);
-      const y = DEPTH + PEAK * 4 * u * (1 - u);
-      const slope = (PEAK * 4 * (1 - 2 * u)) / (X1 - X0);
-      pose.position.set(x, y, 0);
-      pose.rotation.z = Math.atan(slope);
-      tailPivot.rotation.z = Math.sin(t * 9) * 0.35;
-      // droplets burst where the dolphin breaks the surface (u ≈ 0.1 and 0.9)
-      const surfaceU = [0.1 - 0.0, 0.9];
-      for (let i = 0; i < DROPS; i++) {
-        const which = i % 2;
-        const rr = (Math.floor(i / 2) + 1) / (DROPS / 2);
-        const since = ((ph - surfaceU[which]) * T + T) % T;
-        const dx = lerp(X0, X1, surfaceU[which]) + (which ? 0.5 : -0.5) + Math.cos(rr * 7) * 0.7 * since;
-        const dy = -0.4 + (3.2 + rr * 2.2) * since - 4.9 * since * since;
-        const show = since < 1.1 && dy > -0.45;
-        dummy.position.set(dx, show ? dy : -9, 0.3 * Math.sin(rr * 11));
-        dummy.scale.setScalar(show ? 0.6 + rr * 0.8 : 0.001);
-        dummy.updateMatrix();
-        drops.setMatrixAt(i, dummy.matrix);
-      }
-      drops.instanceMatrix.needsUpdate = true;
+      const swell = Math.sin(t * 1.15);
+      pose.position.set(Math.sin(t * 0.4) * 0.9, 0.2 + swell * 0.34, 0);
+      pose.rotation.z = Math.cos(t * 1.15) * 0.13;
+      pose.rotation.y = Math.sin(t * 0.4) * 0.05;
+      tailPivot.rotation.z = Math.sin(t * 3.2 + 0.6) * 0.3;
     },
   };
 }

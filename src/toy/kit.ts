@@ -42,13 +42,28 @@ export interface MatOpts {
 }
 
 /** Glossy plastic. */
+/**
+ * The art direction in three numbers: soft, dusty pastels on satin (not candy-gloss) surfaces.
+ * Glowing and translucent things (the jellyfish, water, lamps) keep their own colour.
+ */
+const STYLE = { saturation: 0.74, pastel: 0.16, gloss: 0.3, satin: 0.2 };
+const hsl = { h: 0, s: 0, l: 0 };
+
+function pastel(color: Col): THREE.Color {
+  const c = new THREE.Color(color);
+  c.getHSL(hsl);
+  c.setHSL(hsl.h, hsl.s * STYLE.saturation, hsl.l + (0.8 - hsl.l) * STYLE.pastel * (hsl.l > 0.12 ? 1 : 0));
+  return c;
+}
+
 export function toy(color: Col, o: MatOpts = {}): THREE.MeshPhysicalMaterial {
+  const keep = !!o.glow || (o.opacity !== undefined && o.opacity < 1);
   const m = new THREE.MeshPhysicalMaterial({
-    color,
-    roughness: o.rough ?? 0.32,
+    color: keep ? new THREE.Color(color) : pastel(color),
+    roughness: Math.min(1, (o.rough ?? 0.32) + (keep ? 0 : STYLE.satin)),
     metalness: o.metal ?? 0,
-    clearcoat: o.clear ?? 1,
-    clearcoatRoughness: o.coatRough ?? 0.08,
+    clearcoat: (o.clear ?? 1) * (keep ? 1 : STYLE.gloss),
+    clearcoatRoughness: o.coatRough ?? (keep ? 0.08 : 0.25),
     envMapIntensity: o.env ?? 1,
   });
   if (o.glow) {
@@ -106,13 +121,13 @@ export function scaled<T extends THREE.Object3D>(o: T, x: number, y = x, z = x):
 
 /** A pair of big, shiny cartoon eyes looking along +x. */
 export function eyes(size: number, gap: number, x = 0, y = 0): THREE.Group {
-  const sclera = toy('#ffffff', { rough: 0.15 });
-  const pupil = toy('#0d1224', { rough: 0.1 });
+  // small, dark and set in the face: a bead with a pinprick of light (no cartoon whites)
+  const pupil = toy('#0d1224', { rough: 0.12, clear: 1 });
   const glint = lit('#ffffff');
+  const r = size * 0.62;
   const one = (z: number) => {
-    const e = grp(ball(size, sclera));
-    e.add(at(ball(size * 0.58, pupil), size * 0.5, 0, 0));
-    e.add(at(ball(size * 0.2, glint, [1, 1, 1], 12), size * 0.86, size * 0.3, size * 0.12));
+    const e = grp(ball(r, pupil));
+    e.add(at(ball(r * 0.26, glint, [1, 1, 1], 10), r * 0.62, r * 0.5, r * 0.3));
     e.position.set(x, y, z);
     return e;
   };

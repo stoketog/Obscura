@@ -41,6 +41,6 @@ export function rarestEntry(prompt: Prompt): AnswerEntry {
  * The highest-scoring accepted answers, best first (ties broken alphabetically
  * so the list is stable). Shown once a day is finished.
  */
-export function bestEntries(prompt: Prompt, count = 5): AnswerEntry[] {
+export function bestEntries(prompt: Prompt, count = Infinity): AnswerEntry[] {
   return [...prompt.entries].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name)).slice(0, count);
 }

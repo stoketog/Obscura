@@ -33,7 +33,7 @@ const DAY = '2026-11-05';
 const CLOCK = `${DAY}T10:00:00Z`;
 const daily = getDaily(DAY);
 const pick = (prompt: Prompt, min: number, max: number) => prompt.entries.find((e) => e.score >= min && e.score < max)!;
-const rare = (i: number) => pick(daily.prompts[i], 60, 80);
+const rare = (i: number) => pick(daily.prompts[i], 50, 72);
 const common = (i: number) => daily.prompts[i].entries.reduce((a, b) => (b.score < a.score ? b : a));
 
 /**
@@ -189,7 +189,7 @@ async function main() {
   await t('a near miss offers "did you mean" and accepts it', async () => {
     const { ctx, page: p } = await open(b); await begin(p);
     // two letters wrong on a long name is beyond the automatic typo allowance but close enough to suggest
-    const e = daily.prompts[0].entries.find((x) => x.name.length >= 6 && x.name.length <= 8 && !x.name.includes(' ') && x.aliases.length === 0 && x.score < 60)!;
+    const e = daily.prompts[0].entries.find((x) => x.name.length >= 6 && x.name.length <= 8 && !x.name.includes(' ') && x.aliases.length === 0 && x.score < 50)!;
     const mangled = e.name.slice(0, 1) + 'xx' + e.name.slice(3);
     await answer(p, mangled);
     await q(p, 'answer-error').waitFor();
@@ -246,6 +246,10 @@ async function main() {
         ok(rowText.includes(bestEntries(daily.prompts[i], 1)[0].name), `row ${i} shows the top answer`);
         ok((await rows.nth(i).locator('[data-testid=best-answer]').count()) === 5, `row ${i} shows five best answers`);
       }
+      await rows.nth(0).locator('[data-testid=toggle-all-answers]').click();
+      eq(await rows.nth(0).locator('[data-testid=all-answer]').count(), daily.prompts[0].entries.length, 'every accepted answer is listed');
+      ok((await rows.nth(0).textContent())!.includes('Mythic'), 'grouped by rarity');
+      await rows.nth(0).locator('[data-testid=toggle-all-answers]').click();
       await q(p, 'ascent-overlay').waitFor({ timeout: 6000 });
       await q(p, 'ascent-place').waitFor(); await noHScroll(p, 'ascent');
       ok((await text(p, 'ascent-name')).length > 2, 'ascent names the new form');

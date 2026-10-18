@@ -1,7 +1,7 @@
 import { useId } from 'react';
 
 /**
- * The Obscura emblem: a glossy toy orb rising out of layered waves, ringed by an
+ * The Obscura emblem: a glossy orb rising out of layered waves, ringed by an
  * orbit. The sea, the climb and the solar system in one badge.
  */
 export function Emblem({ size = 96, className = '', title }: { size?: number; className?: string; title?: string }) {

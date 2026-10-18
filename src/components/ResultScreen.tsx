@@ -2,13 +2,14 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { useCountUp } from '@/hooks/useCountUp';
 import { STAGES } from '@/data/stages';
-import { MAX_POINTS, pointsFor } from '@/lib/scoring';
+import { MAX_POINTS, TIERS, pointsFor, tierFor } from '@/lib/scoring';
+import type { Prompt } from '@/lib/types';
 import { buildShareText, copyText } from '@/lib/share';
 import { formatCountdown, msUntilNextDay, prettyDate } from '@/lib/dates';
 import { bestEntries } from '@/lib/prompts';
 import { AscentOverlay } from './AscentOverlay';
 import { GrowthBar } from './GrowthBar';
-import { TierChip } from './TierChip';
+import { TierChip, TierDot } from './TierChip';
 import { useWorld } from './WorldContext';
 import { IconArrow, IconCheck, IconClock, IconCopy, IconFlame, IconShare } from './Icons';
 
@@ -127,7 +128,6 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
           <ol className="mt-2 divide-y divide-white/10" data-testid="breakdown">
             {game.rounds.map((r, i) => {
               const prompt = daily.prompts[i];
-              const best = bestEntries(prompt, 5);
               return (
                 <li key={r.promptId} className="py-3" data-testid="breakdown-row">
                   <div className="flex items-start justify-between gap-3">
@@ -142,21 +142,7 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
                       <p className="mt-1 font-mono text-sm text-amber-glow">+{r.points}</p>
                     </div>
                   </div>
-                  <div className="mt-2.5" data-testid="best-answers">
-                    <p className="text-[0.7rem] font-semibold text-mist-500">Best possible answers</p>
-                    <ul className="mt-1.5 flex flex-wrap gap-1.5">
-                      {best.map((e) => {
-                        const mine = r.answer === e.name;
-                        return (
-                          <li key={e.name} className={`rounded-full border px-2.5 py-1 text-xs ${mine ? 'border-amber-glow/60 bg-amber-glow/10 text-white' : 'border-white/10 bg-white/5 text-mist-300'}`} data-testid="best-answer">
-                            {e.name}
-                            <span className="ml-1.5 font-mono text-amber-glow/90">{pointsFor(e.score)}</span>
-                            {mine && <span className="ml-1">✓</span>}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
+                  <AnswerList prompt={prompt} mine={r.answer} />
                 </li>
               );
             })}
@@ -202,6 +188,61 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
         />
       )}
     </main>
+  );
+}
+
+/** The five best answers, and a button that opens every accepted answer, rarest first, grouped by colour. */
+function AnswerList({ prompt, mine }: { prompt: Prompt; mine?: string }) {
+  const [all, setAll] = useState(false);
+  const entries = useMemo(() => bestEntries(prompt), [prompt]);
+  const best = entries.slice(0, 5);
+  return (
+    <div className="mt-2.5">
+      {!all ? (
+        <div data-testid="best-answers">
+          <p className="text-[0.7rem] font-semibold text-mist-500">Best possible answers</p>
+          <ul className="mt-1.5 flex flex-wrap gap-1.5">
+            {best.map((e) => (
+              <Chip key={e.name} name={e.name} score={e.score} mine={mine === e.name} testId="best-answer" />
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="space-y-3" data-testid="all-answers">
+          {[...TIERS].reverse().map((t) => {
+            const group = entries.filter((e) => tierFor(e.score).id === t.id);
+            if (!group.length) return null;
+            return (
+              <div key={t.id}>
+                <p className="flex items-center gap-2 text-[0.7rem] font-semibold text-mist-300">
+                  <TierDot id={t.id} size={9} />
+                  {t.label} · {t.points} pts
+                  <span className="font-normal text-mist-500">{group.length}</span>
+                </p>
+                <ul className="mt-1.5 flex flex-wrap gap-1.5">
+                  {group.map((e) => (
+                    <Chip key={e.name} name={e.name} score={e.score} mine={mine === e.name} testId="all-answer" />
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <button className="mt-2.5 text-xs font-semibold text-bio-300 underline decoration-bio-500/40 underline-offset-2 hover:text-white" onClick={() => setAll((v) => !v)} aria-expanded={all} data-testid="toggle-all-answers">
+        {all ? 'Show fewer' : `Show all ${entries.length} answers`}
+      </button>
+    </div>
+  );
+}
+
+function Chip({ name, score, mine, testId }: { name: string; score: number; mine: boolean; testId: string }) {
+  return (
+    <li className={`rounded-full border px-2.5 py-1 text-xs ${mine ? 'border-amber-glow/60 bg-amber-glow/10 text-white' : 'border-white/10 bg-white/5 text-mist-300'}`} data-testid={testId}>
+      {name}
+      <span className="ml-1.5 font-mono text-amber-glow/90">{pointsFor(score)}</span>
+      {mine && <span className="ml-1">✓</span>}
+    </li>
   );
 }
 

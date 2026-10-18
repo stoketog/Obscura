@@ -20,7 +20,7 @@ export function HelpModal({ onClose }: { onClose: () => void }) {
           <b className="text-white">Rarity is the reward.</b> Every answer has a rarity, shown as a colour: grey for the obvious, then green, yellow, blue, purple and orange for the answers few people would think of.
         </li>
         <li>
-          <b className="text-white">Rise.</b> Your points for the day lift one little toy world around you, from a microbe on the sea floor, through fish, a dolphin, a walk through the city, a bird, a helicopter, a plane and a rocket, to the solar system (a perfect 700). Come back tomorrow for seven new prompts and keep your streak.
+          <b className="text-white">Rise.</b> Your points for the day carry you up through one continuous world, from a microbe on the sea floor, through fish, a dolphin, a walk through the city, a bird, a helicopter, a plane and a rocket, to the solar system (a perfect 700). Come back tomorrow for seven new prompts and keep your streak.
         </li>
       </ul>
       <div className="mt-5 grid grid-cols-2 gap-2" aria-label="Points per rarity">

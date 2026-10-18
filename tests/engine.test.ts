@@ -72,12 +72,12 @@ test('stages are ordered with increasing thresholds', () => {
 console.log('Scoring');
 test('tiers map scores to points steeply', () => {
   assert.equal(tierFor(1).id, 'everyday');
-  assert.equal(tierFor(19).id, 'everyday');
-  assert.equal(tierFor(20).id, 'familiar');
-  assert.equal(tierFor(45).id, 'uncommon');
-  assert.equal(tierFor(60).id, 'rare');
-  assert.equal(tierFor(85).id, 'obscure');
-  assert.equal(tierFor(95).id, 'mythic');
+  assert.equal(tierFor(14).id, 'everyday');
+  assert.equal(tierFor(15).id, 'familiar');
+  assert.equal(tierFor(32).id, 'uncommon');
+  assert.equal(tierFor(50).id, 'rare');
+  assert.equal(tierFor(72).id, 'obscure');
+  assert.equal(tierFor(92).id, 'mythic');
   assert.equal(pointsFor(3), 10);
   assert.equal(pointsFor(99), 100);
   assert.equal(MAX_POINTS, 700);
@@ -235,7 +235,7 @@ test('starting a round runs the clock; time left counts down and persists', () =
 test('a correct answer scores its tier and closes the round', () => {
   const prompt = daily.prompts[0];
   const p = startRound(emptyProfile(), daily, T0);
-  const entry = prompt.entries.find((e) => e.score >= 60 && e.score < 80)!;
+  const entry = prompt.entries.find((e) => e.score >= 50 && e.score < 72)!;
   const res = submitAnswer(p, daily, entry.name, T0 + 2000);
   assert.ok(res.outcome.kind === 'hit');
   if (res.outcome.kind === 'hit') {

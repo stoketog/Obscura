@@ -20,7 +20,7 @@ for (const [name, vp, mobile] of [['d', { width: 1280, height: 860 }, false], ['
   await p.screenshot({ path: `${OUT}/${name}-intro.png` });
   await p.locator('[data-testid=start-btn]').click();
   const pick = (i: number, lo: number, hi: number) => daily.prompts[i].entries.find((e) => e.score >= lo && e.score < hi)!.name;
-  const plan: Array<[number, number]> = [[3, 20], [40, 60], [60, 80], [20, 40], [80, 95], [3, 20], [95, 101]];
+  const plan: Array<[number, number]> = [[3, 15], [32, 50], [50, 72], [15, 32], [72, 92], [3, 15], [92, 101]];
   for (let i = 0; i < 7; i++) {
     const [lo, hi] = plan[i];
     const input = p.locator('[data-testid=answer-input]');
