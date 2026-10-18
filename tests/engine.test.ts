@@ -1,11 +1,10 @@
 import assert from 'node:assert/strict';
 import { PROMPT_SEEDS } from '@/data/prompts';
 import { STAGES, altitudeFor, formatAltitude } from '@/data/stages';
-import { SCENES } from '@/scene/scenes';
 import { getPrompts, parseAnswer, rarestEntry } from '@/lib/prompts';
 import { matchAnswer } from '@/lib/match';
 import { normalize } from '@/lib/text';
-import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, stageIndexFor, tierFor, stageProgress } from '@/lib/scoring';
+import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, stageIndexFor, tierFor, tierById, stageProgress } from '@/lib/scoring';
 import { getDaily, pickPrompts } from '@/lib/daily';
 import { addDays, puzzleNumberFor, EPOCH } from '@/lib/dates';
 import { currentRoundIndex, deriveStats, effectiveStreak, expireRound, freshGame, getGame, remainingMs, skipRound, startRound, submitAnswer } from '@/lib/game';
@@ -110,9 +109,12 @@ test('altitude climbs monotonically with points and reads sensibly', () => {
   assert.equal(formatAltitude(10700), '10.7 km');
   assert.ok(formatAltitude(altitudeFor(700)).endsWith('billion km'));
 });
-test('every stage has a scene', () => {
-  const ids = new Set(Object.keys(SCENES));
-  for (const st of STAGES) assert.ok(ids.has(st.id), st.id);
+test('every rarity tier has its own colour and square (grey, green, yellow, blue, purple, orange)', () => {
+  assert.equal(new Set(TIERS.map((t) => t.color)).size, TIERS.length);
+  assert.equal(new Set(TIERS.map((t) => t.square)).size, TIERS.length);
+  assert.deepEqual(TIERS.map((t) => t.square), ['⬜', '🟩', '🟨', '🟦', '🟪', '🟧']);
+  for (const t of TIERS) assert.match(t.color, /^#[0-9a-f]{6}$/i, t.id);
+  assert.equal(tierById('rare').square, '🟦');
 });
 
 console.log('Answer matching');
@@ -342,7 +344,7 @@ test('stats summarise history', () => {
   assert.ok(s.rarest && s.rarest.score >= 85);
   assert.equal(Object.values(s.tierCounts).reduce((a, b) => a + b, 0), 7);
 });
-test('share text is spoiler-free: no answers, one creature per round', () => {
+test('share text is spoiler-free: no answers, one coloured square per round', () => {
   const prof = playAll(emptyProfile(), best);
   const g = getGame(prof, daily);
   const text = buildShareText(g, daily, prof.currentStreak);
@@ -350,7 +352,9 @@ test('share text is spoiler-free: no answers, one creature per round', () => {
   assert.ok(text.includes(`${g.points}/700 pts`));
   assert.ok(text.includes('🔥 1 day streak'));
   for (const p of daily.prompts) for (const e of p.entries.slice(0, 100)) assert.ok(!text.toLowerCase().includes(e.name.toLowerCase()) || e.name.length < 4, `leaks ${e.name}`);
-  assert.equal(text.split('\n')[2].split(' ').length, 7);
+  const row = text.split('\n')[2].split(' ');
+  assert.equal(row.length, 7);
+  for (const sq of row) assert.ok(TIERS.some((t) => t.square === sq), `unexpected ${sq}`);
 });
 
 console.log(`\n${passed} tests passed${process.exitCode ? ' — with failures' : ''}`);

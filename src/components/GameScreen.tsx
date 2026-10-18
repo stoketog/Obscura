@@ -2,14 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import type { RoundState } from '@/lib/types';
 import { currentRoundIndex, lastDoneIndex, remainingMs } from '@/lib/game';
-import { MAX_POINTS, ROUND_MS, ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, stageIndexFor, tierById } from '@/lib/scoring';
+import { MAX_POINTS, ROUND_MS, ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, stageIndexFor, stageProgress, tierById } from '@/lib/scoring';
 import { prettyDate } from '@/lib/dates';
-import { STAGES } from '@/data/stages';
-import { useCountUp } from '@/hooks/useCountUp';
-import { SceneView } from './SceneView';
+import { STAGES, altitudeFor, formatAltitude } from '@/data/stages';
+import { useCountUp, useTween } from '@/hooks/useCountUp';
 import { StageIcon } from './StageIcon';
-import { GrowthBar } from './GrowthBar';
-import { TierChip } from './TierChip';
+import { TierChip, TierDot } from './TierChip';
 import { IconArrow } from './Icons';
 
 interface Props {
@@ -18,58 +16,96 @@ interface Props {
   holding: boolean;
   onFinished: () => void;
   onContinue: () => void;
+  /** The on-screen keyboard is up, so there is very little room. */
+  compact?: boolean;
 }
 
-export function GameScreen({ api, holding, onFinished, onContinue }: Props) {
+export function GameScreen({ api, holding, onFinished, onContinue, compact = false }: Props) {
   const { daily, game } = api;
   if (!daily || !game) return null;
   const idx = currentRoundIndex(game);
   const active = idx >= 0 && game.rounds[idx].status === 'active' ? game.rounds[idx] : null;
   const lastIdx = lastDoneIndex(game);
-  const stage = stageIndexFor(game.points);
 
   return (
-    <main className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 pb-16 pt-1 sm:px-5 lg:grid lg:grid-cols-[19rem_1fr] lg:gap-8" data-testid="game">
-      <aside className="lg:sticky lg:top-4 lg:self-start">
-        <div className="mb-3 flex items-end justify-between lg:mb-5">
-          <div>
-            <p className="eyebrow !text-bio-400" data-testid="puzzle-number">
-              Obscura #{String(daily.number).padStart(3, '0')}
-            </p>
-            <p className="text-xs text-mist-500">{prettyDate(daily.dateKey)}</p>
-          </div>
-          <div className="text-right">
-            <p className="font-display text-3xl font-semibold leading-none text-white" data-testid="day-points">
-              {game.points}
-            </p>
-            <p className="mt-1 text-xs text-mist-500">of {MAX_POINTS} points</p>
-          </div>
+    <main className="flex flex-1 flex-col" data-testid="game">
+      <Hud api={api} compact={compact} />
+      <div className="min-h-2 flex-1" />
+      <div className="mx-auto w-full max-w-xl sm:px-4 sm:pb-4">
+        <div className="glass-dock rounded-t-[1.75rem] px-4 safe-pb pt-3 sm:rounded-3xl sm:px-5 sm:pb-5">
+          {active ? (
+            <ActivePrompt key={active.promptId} api={api} round={active} index={idx} onFinished={onFinished} compact={compact} />
+          ) : lastIdx >= 0 ? (
+            <Reveal key={lastIdx} api={api} index={lastIdx} done={holding || game.status === 'done'} onContinue={onContinue} />
+          ) : (
+            <Intro api={api} />
+          )}
         </div>
-
-        <div className="mb-3 flex items-center justify-between gap-1.5" data-testid="round-pips" aria-label={`Round ${Math.min(ROUNDS_PER_DAY, (idx < 0 ? ROUNDS_PER_DAY : idx) + 1)} of ${ROUNDS_PER_DAY}`}>
-          {game.rounds.map((r, i) => (
-            <RoundPip key={r.promptId} round={r} current={i === idx} />
-          ))}
-        </div>
-
-        <div className="glass relative rounded-3xl p-3">
-          <SceneView stage={stage} points={game.points} aspect="aspect-[16/8] lg:aspect-[4/3]" />
-          <div className="mt-3 px-1 pb-1">
-            <GrowthBar points={game.points} compact />
-          </div>
-        </div>
-      </aside>
-
-      <div className="mt-4 space-y-4 lg:mt-0">
-        {active ? (
-          <ActivePrompt key={active.promptId} api={api} round={active} index={idx} onFinished={onFinished} />
-        ) : lastIdx >= 0 ? (
-          <Reveal key={lastIdx} api={api} index={lastIdx} done={holding || game.status === 'done'} onContinue={onContinue} />
-        ) : (
-          <Intro api={api} />
-        )}
       </div>
     </main>
+  );
+}
+
+/* ───────────────────────── Heads-up display ───────────────────────── */
+
+function Hud({ api, compact }: { api: ObscuraApi; compact: boolean }) {
+  const { daily, game } = api;
+  const points = game!.points;
+  const stage = stageIndexFor(points);
+  const st = STAGES[stage];
+  const next = STAGES[stage + 1];
+  const alt = useTween(altitudeFor(points));
+  return (
+    <div className="mx-auto w-full max-w-5xl px-4 pt-1 sm:px-5" data-testid="hud">
+      <div className="flex items-start justify-between gap-3">
+        <div className="rounded-2xl bg-black/30 px-3 py-2 backdrop-blur-md">
+          <p className="eyebrow !text-white/80" data-testid="puzzle-number">
+            Obscura #{String(daily!.number).padStart(3, '0')}
+          </p>
+          {!compact && <p className="text-[0.7rem] text-white/60">{prettyDate(daily!.dateKey)}</p>}
+        </div>
+        <div className="rounded-2xl bg-black/30 px-3 py-2 text-right backdrop-blur-md">
+          <p className="font-display text-2xl font-semibold leading-none text-white" data-testid="day-points">
+            {points}
+          </p>
+          <p className="mt-0.5 text-[0.68rem] text-white/60">of {MAX_POINTS} points</p>
+        </div>
+      </div>
+      {!compact && (
+        <div className="mx-auto mt-2 w-full max-w-xs rounded-2xl bg-black/30 px-3 py-2 backdrop-blur-md" data-testid="hud-form-card" data-stage={st.id}>
+          <div className="flex items-center justify-between gap-2">
+            <span className="flex min-w-0 items-center gap-2 text-sm font-semibold text-white" data-testid="hud-form">
+              <StageIcon stage={stage} size={20} />
+              <span className="truncate">{st.name}</span>
+            </span>
+            <span className="shrink-0 font-display text-sm font-semibold tabular-nums text-bio-300" data-testid="hud-altitude">
+              {formatAltitude(alt)}
+            </span>
+          </div>
+          <p className="mt-0.5 truncate text-[0.68rem] text-white/60" data-testid="hud-place">
+            {st.place}
+          </p>
+          <div className="bar-track mt-1.5 h-1.5">
+            <div className="bar-fill" style={{ width: `${next ? stageProgress(points) : 100}%` }} />
+          </div>
+          <p className="mt-1 text-[0.66rem] text-white/60" data-testid="hud-next">
+            {next ? `${next.threshold - points} points to ${next.name}` : 'The end of the line'}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** Seven tiny dots, one per round, coloured by how rare the answer was. */
+function Pips({ api, index }: { api: ObscuraApi; index: number }) {
+  const game = api.game!;
+  return (
+    <div className="flex items-center gap-2" data-testid="round-pips" aria-label={`Round ${Math.min(ROUNDS_PER_DAY, (index < 0 ? ROUNDS_PER_DAY : index) + 1)} of ${ROUNDS_PER_DAY}`}>
+      {game.rounds.map((r, i) => (
+        <RoundPip key={r.promptId} round={r} current={i === index} />
+      ))}
+    </div>
   );
 }
 
@@ -79,12 +115,10 @@ function RoundPip({ round, current }: { round: RoundState; current: boolean }) {
   return (
     <span
       className={`round-pip ${done ? 'done' : ''} ${current ? 'current' : ''}`}
-      style={t ? { ['--th' as string]: t.hue } : undefined}
+      style={t ? { background: t.color, boxShadow: `0 0 8px ${t.color}aa, inset 0 1px 0 rgb(255 255 255 / 0.5)` } : undefined}
       data-state={done ? (t ? t.id : round.end) : current ? 'current' : 'pending'}
       title={t ? t.label : undefined}
-    >
-      {done ? (t ? t.emoji : '·') : ''}
-    </span>
+    />
   );
 }
 
@@ -92,23 +126,24 @@ function RoundPip({ round, current }: { round: RoundState; current: boolean }) {
 
 function Intro({ api }: { api: ObscuraApi }) {
   return (
-    <section className="glass animate-rise rounded-3xl p-6 text-center" data-testid="intro">
-      <p className="eyebrow">Today’s ascent</p>
-      <h1 className="mt-3 font-display text-3xl font-semibold text-white sm:text-4xl">
+    <section className="animate-rise text-center" data-testid="intro">
+      <Pips api={api} index={-1} />
+      <h1 className="mt-3 font-display text-2xl font-semibold text-white sm:text-3xl">
         {ROUNDS_PER_DAY} prompts. {ROUND_SECONDS} seconds each.
       </h1>
-      <p className="mx-auto mt-3 max-w-md text-[0.95rem] leading-relaxed text-mist-300">
-        You’ll get a prompt like <em>“Name a cheese”</em>. Type any answer that fits. The rarer the answer, the more points it earns and the higher you rise.
+      <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-mist-300">
+        You’ll get a prompt like <em>“Name a cheese”</em>. Type any answer that fits. The rarer it is, the more points you earn and the higher you rise.
       </p>
-      <ul className="mx-auto mt-5 grid max-w-md grid-cols-2 gap-2 sm:grid-cols-3" aria-label="Rarity tiers">
+      <ul className="mx-auto mt-3 flex max-w-sm flex-wrap justify-center gap-x-3 gap-y-1.5" aria-label="Rarity colours">
         {TIERS.map((t) => (
-          <li key={t.id} className="flex items-center justify-between gap-2 rounded-xl bg-white/4 px-3 py-2 text-left">
-            <TierChip id={t.id} />
-            <span className="font-mono text-sm text-white">{t.points}</span>
+          <li key={t.id} className="flex items-center gap-1.5 text-[0.7rem] text-mist-300">
+            <TierDot id={t.id} size={9} />
+            {t.label}
+            <span className="font-mono text-white/80">{t.points}</span>
           </li>
         ))}
       </ul>
-      <button className="btn-primary mt-6 w-full max-w-sm" onClick={api.start} data-testid="start-btn">
+      <button className="btn-primary mt-4 w-full" onClick={api.start} data-testid="start-btn">
         Start round 1
         <IconArrow size={18} />
       </button>
@@ -118,7 +153,7 @@ function Intro({ api }: { api: ObscuraApi }) {
 
 /* ───────────────────────── A round in progress ───────────────────────── */
 
-function ActivePrompt({ api, round, index, onFinished }: { api: ObscuraApi; round: RoundState; index: number; onFinished: () => void }) {
+function ActivePrompt({ api, round, index, onFinished, compact }: { api: ObscuraApi; round: RoundState; index: number; onFinished: () => void; compact: boolean }) {
   const prompt = api.daily!.prompts[index];
   const [now, setNow] = useState(() => Date.now());
   const expired = useRef(false);
@@ -141,30 +176,33 @@ function ActivePrompt({ api, round, index, onFinished }: { api: ObscuraApi; roun
   const tone = left <= 8000 ? 'danger' : left <= 15000 ? 'warn' : 'ok';
 
   return (
-    <section className="glass animate-rise rounded-3xl p-5 sm:p-6" data-testid="round">
-      <div className="flex items-center justify-between">
-        <p className="eyebrow" data-testid="round-label">
-          Round {index + 1} of {ROUNDS_PER_DAY}
-        </p>
+    <section className="animate-rise" data-testid="round">
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <Pips api={api} index={index} />
+          <p className="eyebrow !text-[0.62rem]" data-testid="round-label">
+            Round {index + 1} of {ROUNDS_PER_DAY}
+          </p>
+        </div>
         <p className={`timer-secs ${tone}`} data-testid="timer-secs" aria-live="off">
           {secs}
           <span className="text-xs font-normal opacity-60">s</span>
         </p>
       </div>
-      <div className="timer-track mt-2" role="timer" aria-label={`${secs} seconds left`}>
+      <div className="timer-track mt-2 !h-1.5" role="timer" aria-label={`${secs} seconds left`}>
         <div className={`timer-fill ${tone}`} style={{ width: `${Math.max(0, frac) * 100}%` }} />
       </div>
 
-      <h1 className="mt-6 text-center font-display text-[2.1rem] font-semibold leading-tight text-white sm:text-5xl" data-testid="prompt-text">
+      <h1 className={`mt-3 text-center font-display font-semibold leading-tight text-white ${compact ? 'text-xl' : 'text-[1.7rem] sm:text-4xl'}`} data-testid="prompt-text">
         {prompt.text}
       </h1>
 
       <AnswerBox api={api} round={round} onFinished={onFinished} />
 
-      <div className="mt-4 flex items-center justify-between text-xs text-mist-500">
-        <span>Any answer in the category counts. Guess as many as you like.</span>
+      <div className="mt-2 flex items-center justify-between text-xs text-mist-500">
+        <span className={compact ? 'hidden' : ''}>Any answer in the category counts. Guess as many as you like.</span>
         <button
-          className="rounded-lg px-2 py-1 text-mist-300 transition hover:bg-white/8 hover:text-white"
+          className="ml-auto rounded-lg px-2 py-1 text-mist-300 transition hover:bg-white/8 hover:text-white"
           onClick={() => {
             if (api.skip()) onFinished();
           }}
@@ -184,7 +222,7 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
   const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    ref.current?.focus();
+    ref.current?.focus({ preventScroll: true });
   }, []);
 
   const send = (value: string) => {
@@ -203,12 +241,12 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
       window.setTimeout(() => setShake(false), 450);
     }
     if (finished) onFinished();
-    ref.current?.focus();
+    ref.current?.focus({ preventScroll: true });
   };
 
   return (
     <form
-      className="mx-auto mt-6 max-w-md"
+      className="mt-3"
       onSubmit={(e) => {
         e.preventDefault();
         if (text.trim()) send(text);
@@ -247,10 +285,10 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
       </div>
 
       {msg && (
-        <div className="mt-3 rounded-xl border border-coral-glow/30 bg-coral-glow/10 px-4 py-3 text-sm text-[#ffc3cb]" role="alert" data-testid="answer-error">
+        <div className="mt-2 rounded-xl border border-coral-glow/30 bg-coral-glow/10 px-3 py-2 text-sm text-[#ffc3cb]" role="alert" data-testid="answer-error">
           <p>{msg.text}</p>
           {msg.near && (
-            <p className="mt-1.5 text-mist-100">
+            <p className="mt-1 text-mist-100">
               Did you mean{' '}
               <button type="button" className="font-semibold text-bio-300 underline decoration-bio-500/40 underline-offset-2 hover:text-white" onClick={() => send(msg.near!)} data-testid="did-you-mean">
                 {msg.near}
@@ -262,7 +300,7 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
       )}
 
       {round.misses.length > 0 && (
-        <ul className="mt-3 flex flex-wrap justify-center gap-2" aria-label="Answers you tried" data-testid="misses">
+        <ul className="mt-2 flex flex-wrap justify-center gap-1.5" aria-label="Answers you tried" data-testid="misses">
           {round.misses.map((m) => (
             <li key={m} className="chip miss line-through decoration-mist-700">
               {m}
@@ -295,53 +333,50 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
   const answered = round.end === 'answered' && round.tier;
   const pts = useCountUp(round.points, 900, 250);
   const next = index + 2;
+  const tier = answered ? tierById(round.tier!) : null;
 
   return (
-    <section className="glass animate-pop relative overflow-hidden rounded-3xl p-6 text-center" data-testid="reveal" style={answered ? ({ ['--th' as string]: tierById(round.tier!).hue } as React.CSSProperties) : undefined}>
-      {answered && <div className="reveal-glow" />}
-      <p className="eyebrow relative">{prompt.text}</p>
-      {answered ? (
+    <section className="animate-pop relative text-center" data-testid="reveal" style={tier ? ({ ['--tc' as string]: tier.color } as React.CSSProperties) : undefined}>
+      <div className="flex items-center justify-between gap-3">
+        <Pips api={api} index={-1} />
+        <p className="eyebrow !text-[0.62rem]">{prompt.text}</p>
+      </div>
+      {tier ? (
         <>
-          <p className="relative mt-4 text-5xl" aria-hidden>
-            {tierById(round.tier!).emoji}
-          </p>
-          <h2 className={`relative mt-2 break-words font-display text-4xl font-semibold sm:text-5xl ${round.tier === 'mythic' || round.tier === 'obscure' ? 'shimmer-text' : 'text-white'}`} data-testid="reveal-answer">
+          <h2 className={`mt-3 break-words font-display text-3xl font-semibold sm:text-4xl ${round.tier === 'mythic' || round.tier === 'obscure' ? 'shimmer-text' : 'text-white'}`} data-testid="reveal-answer">
             {round.answer}
           </h2>
-          <div className="relative mt-3 flex items-center justify-center gap-3">
+          <div className="mt-2 flex items-center justify-center gap-3">
             <TierChip id={round.tier!} />
             <span className="font-display text-2xl font-semibold text-amber-glow" data-testid="reveal-points">
               +{Math.round(pts)}
             </span>
           </div>
-          <p className="relative mt-3 text-sm text-mist-300" data-testid="reveal-line">
+          <p className="mt-2 text-sm text-mist-300" data-testid="reveal-line">
             {TIER_LINE[round.tier!]}
           </p>
         </>
       ) : (
         <>
-          <p className="relative mt-4 text-5xl" aria-hidden>
-            {round.end === 'timeout' ? '⌛' : '⏭️'}
-          </p>
-          <h2 className="relative mt-2 font-display text-4xl font-semibold text-white" data-testid="reveal-answer">
+          <h2 className="mt-3 font-display text-3xl font-semibold text-white" data-testid="reveal-answer">
             {round.end === 'timeout' ? 'Time’s up' : 'Skipped'}
           </h2>
-          <p className="relative mt-3 text-sm text-mist-300">No points this round. The best answers are revealed when you finish the day.</p>
+          <p className="mt-2 text-sm text-mist-300">No points this round. The best answers are revealed when you finish the day.</p>
         </>
       )}
 
       {evolved && (
-        <div className="relative mx-auto mt-5 flex max-w-xs items-center justify-center gap-3 rounded-2xl border border-bio-400/30 bg-bio-500/10 px-4 py-3" data-testid="reveal-evolved">
-          <StageIcon stage={after} size={44} />
+        <div className="mx-auto mt-3 flex max-w-xs items-center justify-center gap-3 rounded-2xl border border-bio-400/30 bg-bio-500/10 px-4 py-2" data-testid="reveal-evolved">
+          <StageIcon stage={after} size={32} />
           <p className="text-left text-sm">
-            <span className="block text-[0.65rem] font-semibold uppercase tracking-widest text-bio-300">You’ve risen to</span>
-            <span className="font-display text-lg font-semibold text-white">{STAGES[after].name}</span>
-            <span className="block text-xs text-mist-300">{STAGES[after].place}</span>
+            <span className="block text-[0.62rem] font-semibold uppercase tracking-widest text-bio-300">You’ve risen to</span>
+            <span className="font-display text-base font-semibold text-white">{STAGES[after].name}</span>
+            <span className="ml-2 text-xs text-mist-300">{STAGES[after].place}</span>
           </p>
         </div>
       )}
 
-      <button className="btn-primary relative mt-6 w-full max-w-sm" onClick={done ? onContinue : api.start} data-testid="next-btn" autoFocus>
+      <button className="btn-primary mt-4 w-full" onClick={done ? onContinue : api.start} data-testid="next-btn" autoFocus>
         {done ? 'See your results' : `Start round ${next}`}
         <IconArrow size={18} />
       </button>

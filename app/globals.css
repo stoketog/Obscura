@@ -33,7 +33,7 @@
 }
 
 * { -webkit-tap-highlight-color: transparent; }
-html { background: var(--color-abyss-950); }
+html { background: var(--color-abyss-950); overscroll-behavior: none; }
 body {
   margin: 0;
   min-height: 100dvh;
@@ -42,7 +42,8 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 button { font: inherit; color: inherit; }
 ::selection { background: rgb(94 242 222 / 0.3); }
@@ -62,11 +63,6 @@ button { font: inherit; color: inherit; }
   background-image: radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
   background-size: 3px 3px; mix-blend-mode: overlay; opacity: 0.5;
 }
-.snow {
-  position: absolute; border-radius: 999px; background: rgb(190 255 245 / 0.7);
-  box-shadow: 0 0 8px rgb(94 242 222 / 0.7);
-  animation: drift linear infinite; opacity: 0;
-}
 
 /* ───────────────────────── Surfaces ───────────────────────── */
 .glass {
@@ -75,6 +71,20 @@ button { font: inherit; color: inherit; }
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 20px 50px -20px rgb(0 0 0 / 0.7);
   backdrop-filter: blur(14px) saturate(1.3);
   -webkit-backdrop-filter: blur(14px) saturate(1.3);
+}
+/* The panels that float over the 3D world: dark enough to read on a bright sky, clear enough to feel part of it. */
+.glass-dock {
+  background: linear-gradient(180deg, rgb(10 24 42 / 0.72), rgb(5 14 26 / 0.8));
+  border: 1px solid rgb(255 255 255 / 0.12);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1), 0 -10px 50px -18px rgb(0 0 0 / 0.55), 0 20px 50px -20px rgb(0 0 0 / 0.6);
+  backdrop-filter: blur(18px) saturate(1.45);
+  -webkit-backdrop-filter: blur(18px) saturate(1.45);
+}
+/* A soft scrim over the world so white text always reads, whatever is behind it. */
+.world-shade { background: linear-gradient(180deg, rgb(2 8 16 / 0.42) 0%, rgb(2 8 16 / 0) 26%, rgb(2 8 16 / 0) 52%, rgb(2 8 16 / 0.34) 100%); transition: opacity 0.6s; }
+@media (min-width: 1024px) {
+  .world-shade[data-view="home"] { background: linear-gradient(90deg, rgb(2 8 16 / 0.62) 0%, rgb(2 8 16 / 0.3) 36%, rgb(2 8 16 / 0) 60%), linear-gradient(180deg, rgb(2 8 16 / 0.3), rgb(2 8 16 / 0) 30%); }
+  .world-shade[data-view="result"] { background: linear-gradient(270deg, rgb(2 8 16 / 0.55) 0%, rgb(2 8 16 / 0.25) 45%, rgb(2 8 16 / 0) 62%), linear-gradient(180deg, rgb(2 8 16 / 0.3), rgb(2 8 16 / 0) 30%); }
 }
 .hairline { border: 1px solid rgb(255 255 255 / 0.08); }
 
@@ -120,11 +130,12 @@ button { font: inherit; color: inherit; }
 .btn-ghost:active { transform: scale(0.98); }
 
 .icon-btn {
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   width: 2.5rem; height: 2.5rem; display: inline-grid; place-items: center; border-radius: 999px; cursor: pointer;
-  background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.1); color: var(--color-mist-300);
+  background: rgb(4 12 24 / 0.42); border: 1px solid rgb(255 255 255 / 0.16); color: var(--color-mist-100);
   transition: all 0.2s;
 }
-.icon-btn:hover { color: white; background: rgb(255 255 255 / 0.1); }
+.icon-btn:hover { color: white; background: rgb(4 12 24 / 0.65); }
 
 /* Gradient headline text */
 .shimmer-text {
@@ -132,17 +143,6 @@ button { font: inherit; color: inherit; }
   background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: shimmer 5s linear infinite;
 }
-
-/* ───────────────────────── Scene viewport ───────────────────────── */
-.scene-frame {
-  background: #04101c; border: 1px solid rgb(255 255 255 / 0.12);
-  box-shadow: 0 20px 70px -20px hsl(var(--stage-hue) 90% 50% / 0.45), 0 0 0 1px rgb(0 0 0 / 0.4);
-}
-.creature-glow { filter: drop-shadow(0 0 14px hsl(var(--h) 95% 60% / 0.55)) drop-shadow(0 0 40px hsl(var(--h) 95% 55% / 0.3)); }
-.creature-idle { animation: float 7s ease-in-out infinite; transform-origin: 50% 55%; }
-.wiggle { animation: wiggle 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.cilia { animation: cilia 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.pulse-soft { animation: pulseSoft 3.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 
 /* ───────────────────────── Progress ───────────────────────── */
 .bar-track { background: rgb(255 255 255 / 0.07); border-radius: 999px; overflow: hidden; position: relative; }
@@ -160,13 +160,6 @@ button { font: inherit; color: inherit; }
 }
 
 /* ───────────────────────── Guess feedback ───────────────────────── */
-.warm-freezing { --w: 205 70% 62%; }
-.warm-cold { --w: 195 75% 58%; }
-.warm-cool { --w: 175 70% 52%; }
-.warm-warm { --w: 48 95% 60%; }
-.warm-hot { --w: 25 98% 60%; }
-.warm-scorching { --w: 8 98% 62%; }
-.warm-correct { --w: 160 90% 60%; }
 
 .chip {
   display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.28rem 0.6rem; border-radius: 999px;
@@ -179,6 +172,8 @@ button { font: inherit; color: inherit; }
 
 /* ───────────────────────── Overlays ───────────────────────── */
 .scrim { position: fixed; inset: 0; z-index: 50; background: rgb(1 5 10 / 0.72); backdrop-filter: blur(6px); }
+.scrim.peek { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; pointer-events: none; }
+.sheet.peek { max-height: 46dvh; }
 .sheet {
   position: fixed; z-index: 51; left: 50%; bottom: 0; transform: translateX(-50%);
   width: min(100%, 34rem); max-height: 92dvh; overflow: auto; border-radius: 1.5rem 1.5rem 0 0;
@@ -186,39 +181,22 @@ button { font: inherit; color: inherit; }
   animation: sheetIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both; padding-bottom: env(safe-area-inset-bottom);
 }
 @media (min-width: 640px) {
+  .sheet.peek { top: auto; bottom: 0; transform: translateX(-50%); border-radius: 1.5rem 1.5rem 0 0; animation: none; max-height: 46dvh; border-bottom: 0; }
   .sheet { bottom: auto; top: 50%; transform: translate(-50%, -50%); border-radius: 1.5rem; border-bottom: 1px solid rgb(255 255 255 / 0.1); animation-name: sheetInCenter; max-height: 88dvh; }
 }
 
-/* Ascent sequence */
-.ascent-streak {
-  position: absolute; bottom: -45%; width: 2px; border-radius: 999px;
-  background: linear-gradient(to top, transparent, rgb(255 255 255 / 0.55), transparent);
-  animation: streak 0.9s linear infinite;
-}
-/* Confetti-ish sparkle used on the result screen */
-.spark { position: absolute; width: 4px; height: 4px; border-radius: 999px; background: var(--color-amber-glow); box-shadow: 0 0 10px var(--color-amber-glow); animation: spark 1.6s ease-out both; }
 
 /* ───────────────────────── Keyframes ───────────────────────── */
 @keyframes float { 0%,100% { transform: translateY(0) rotate(-0.6deg); } 50% { transform: translateY(-8px) rotate(0.6deg); } }
-@keyframes wiggle { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
-@keyframes cilia { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.6); } }
 @keyframes pulseSoft { 0%,100% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.06); opacity: 1; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes pop { 0% { opacity: 0; transform: scale(0.7); } 100% { opacity: 1; transform: scale(1); } }
 @keyframes sheen { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
 @keyframes shimmer { to { background-position: -220% 0; } }
-@keyframes drift {
-  0% { transform: translate3d(0, 20vh, 0); opacity: 0; }
-  15% { opacity: var(--o, 0.6); }
-  85% { opacity: var(--o, 0.6); }
-  100% { transform: translate3d(var(--dx, 20px), -110vh, 0); opacity: 0; }
-}
 @keyframes sheetIn { from { transform: translate(-50%, 100%); } to { transform: translate(-50%, 0); } }
 @keyframes sheetInCenter { from { opacity: 0; transform: translate(-50%, -46%); } to { opacity: 1; transform: translate(-50%, -50%); } }
-@keyframes streak { from { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } to { transform: translateY(-260%); opacity: 0; } }
 @keyframes flash { 0% { opacity: 0; } 18% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes spark { 0% { opacity: 0; transform: translate(0, 0) scale(0.4); } 15% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1); } }
 @keyframes shakeX { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(3px); } }
 .shake { animation: shakeX 0.4s ease; }
 @keyframes toastIn { from { opacity: 0; transform: translate(-50%, 12px) scale(0.96); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
@@ -226,14 +204,11 @@ button { font: inherit; color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .snow { display: none; }
 }
 
 @keyframes barGrow { from { width: 0; } }
 .bar-grow { animation: barGrow 1s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 @keyframes scan { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-.guess-card { position: relative; overflow: hidden; border-left: 3px solid hsl(var(--w)); }
-.guess-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(120% 140% at 0% 0%, hsl(var(--w) / 0.14), transparent 55%); }
 .rare-glow { box-shadow: 0 0 0 1px rgb(255 193 94 / 0.5), 0 0 40px -6px rgb(255 193 94 / 0.55), inset 0 0 30px rgb(255 193 94 / 0.08); }
 .burst { animation: burst 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 .input-field {
@@ -250,22 +225,23 @@ button { font: inherit; color: inherit; }
 
 /* ───────────────────────── Daily dive ───────────────────────── */
 .tier-chip {
-  --th: 175;
-  display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.28rem 0.65rem; border-radius: 999px;
+  --tc: #5ef2de;
+  display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.26rem 0.65rem; border-radius: 999px;
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap;
-  color: hsl(var(--th) 90% 82%);
-  border: 1px solid hsl(var(--th) 80% 60% / 0.4);
-  background: hsl(var(--th) 80% 50% / 0.12);
+  color: color-mix(in srgb, var(--tc) 40%, white);
+  border: 1px solid color-mix(in srgb, var(--tc) 55%, transparent);
+  background: color-mix(in srgb, var(--tc) 16%, transparent);
 }
 
+/* One tiny dot per round, coloured by the rarity of the answer (like Krillion's progress row). */
 .round-pip {
-  --th: 175;
-  flex: 1 1 0; height: 1.9rem; max-width: 3rem; border-radius: 0.7rem; display: grid; place-items: center; font-size: 0.95rem;
-  background: rgb(255 255 255 / 0.06); border: 1px solid rgb(255 255 255 / 0.1); transition: all 0.4s;
+  width: 0.7rem; height: 0.7rem; border-radius: 999px; flex: none;
+  background: rgb(255 255 255 / 0.12); border: 1px solid rgb(255 255 255 / 0.28);
+  transition: background 0.4s, box-shadow 0.4s, transform 0.3s;
 }
-.round-pip.current { border-color: rgb(94 242 222 / 0.8); box-shadow: 0 0 0 3px rgb(94 242 222 / 0.15), 0 0 18px rgb(94 242 222 / 0.35); background: rgb(94 242 222 / 0.1); }
-.round-pip.done { background: hsl(var(--th) 70% 45% / 0.22); border-color: hsl(var(--th) 80% 60% / 0.55); box-shadow: 0 0 14px hsl(var(--th) 90% 55% / 0.3); }
-.round-pip.done[data-state="timeout"], .round-pip.done[data-state="skipped"] { background: rgb(255 255 255 / 0.04); border-color: rgb(255 255 255 / 0.12); box-shadow: none; color: var(--color-mist-500); }
+.round-pip.current { background: transparent; border-color: var(--color-bio-300); box-shadow: 0 0 0 3px rgb(94 242 222 / 0.18); transform: scale(1.12); }
+.round-pip.done { border-color: transparent; }
+.round-pip.done[data-state="timeout"], .round-pip.done[data-state="skipped"] { background: transparent; border: 1px dashed rgb(255 255 255 / 0.4); box-shadow: none; }
 
 .timer-track { height: 0.5rem; border-radius: 999px; background: rgb(255 255 255 / 0.08); overflow: hidden; }
 .timer-fill { height: 100%; border-radius: 999px; transition: width 0.12s linear, background 0.4s; }
@@ -277,4 +253,12 @@ button { font: inherit; color: inherit; }
 .timer-secs.warn { color: var(--color-amber-glow); }
 .timer-secs.danger { color: var(--color-coral-glow); animation: pulseSoft 0.8s ease-in-out infinite; }
 
-.reveal-glow { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(70% 60% at 50% 30%, hsl(var(--th) 90% 55% / 0.28), transparent 70%); }
+
+/* Helpers that need CSS functions (kept out of utility classes so every build tool reads them the same). */
+.safe-pt { padding-top: max(0.75rem, env(safe-area-inset-top)); }
+.safe-pb { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+.text-soft-shadow { text-shadow: 0 1px 14px rgb(0 0 0 / 0.5), 0 1px 2px rgb(0 0 0 / 0.35); }
+.hero-col { min-height: 44dvh; }
+@media (min-width: 1024px) {
+  .hero-col { position: sticky; top: 0; align-self: start; min-height: 0; height: calc(100dvh - 4.5rem); }
+}

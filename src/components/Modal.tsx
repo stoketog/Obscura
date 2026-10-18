@@ -1,7 +1,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { IconClose } from './Icons';
 
-export function Modal({ title, onClose, children, testId }: { title: string; onClose: () => void; children: ReactNode; testId?: string }) {
+export function Modal({ title, onClose, children, testId, peek = false }: { title: string; onClose: () => void; children: ReactNode; testId?: string; peek?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
@@ -16,8 +16,8 @@ export function Modal({ title, onClose, children, testId }: { title: string; onC
   }, [onClose]);
   return (
     <>
-      <div className="scrim" onClick={onClose} />
-      <div ref={ref} tabIndex={-1} role="dialog" aria-modal="true" aria-label={title} data-testid={testId} className="sheet outline-none">
+      <div className={`scrim ${peek ? 'peek' : ''}`} onClick={onClose} />
+      <div ref={ref} tabIndex={-1} role="dialog" aria-modal="true" aria-label={title} data-testid={testId} className={`sheet outline-none ${peek ? 'peek' : ''}`}>
         <div className="sticky top-0 z-10 flex items-center justify-between bg-[#0a1d31]/90 px-5 py-4 backdrop-blur">
           <h2 className="eyebrow !text-mist-300">{title}</h2>
           <button className="icon-btn" onClick={onClose} aria-label="Close">

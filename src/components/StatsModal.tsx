@@ -54,7 +54,7 @@ export function StatsModal({ api, onClose }: { api: ObscuraApi; onClose: () => v
                 <TierChip id={t.id} />
               </span>
               <div className="h-5 flex-1 overflow-hidden rounded-md bg-white/5">
-                <div className="flex h-full items-center justify-end rounded-md px-2 font-semibold text-[#02211d]" style={{ width: n ? `${Math.max(8, (n / max) * 100)}%` : 0, background: `hsl(${t.hue} 80% 62%)` }}>
+                <div className="flex h-full items-center justify-end rounded-md px-2 font-semibold text-black/80" style={{ width: n ? `${Math.max(8, (n / max) * 100)}%` : 0, background: t.color }}>
                   {n || ''}
                 </div>
               </div>

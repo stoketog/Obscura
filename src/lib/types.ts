@@ -49,9 +49,10 @@ export interface Tier {
   /** Lowest obscurity score in this tier. */
   min: number;
   points: number;
-  emoji: string;
-  /** Hue used for glow and chips. */
-  hue: number;
+  /** The tier's colour (hex): grey → green → yellow → blue → purple → orange. */
+  color: string;
+  /** The matching square emoji, used in the spoiler-free share text. */
+  square: string;
 }
 
 export type RoundStatus = 'pending' | 'active' | 'done';

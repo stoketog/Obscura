@@ -9,12 +9,12 @@ import { STAGES } from '@/data/stages';
  * 10, a mythic one 100. Seven mythic answers (700) is the theoretical ceiling.
  */
 export const TIERS: Tier[] = [
-  { id: 'everyday', label: 'Everyday', min: 0, points: 10, emoji: '🦠', hue: 200 },
-  { id: 'familiar', label: 'Familiar', min: 20, points: 20, emoji: '🪱', hue: 175 },
-  { id: 'uncommon', label: 'Uncommon', min: 40, points: 35, emoji: '🐟', hue: 150 },
-  { id: 'rare', label: 'Rare', min: 60, points: 55, emoji: '🦎', hue: 85 },
-  { id: 'obscure', label: 'Obscure', min: 80, points: 80, emoji: '🐋', hue: 38 },
-  { id: 'mythic', label: 'Mythic', min: 95, points: 100, emoji: '✨', hue: 330 },
+  { id: 'everyday', label: 'Everyday', min: 0, points: 10, color: '#9aa7b5', square: '⬜' },
+  { id: 'familiar', label: 'Familiar', min: 20, points: 20, color: '#4ade80', square: '🟩' },
+  { id: 'uncommon', label: 'Uncommon', min: 40, points: 35, color: '#facc15', square: '🟨' },
+  { id: 'rare', label: 'Rare', min: 60, points: 55, color: '#3b82f6', square: '🟦' },
+  { id: 'obscure', label: 'Obscure', min: 80, points: 80, color: '#a855f7', square: '🟪' },
+  { id: 'mythic', label: 'Mythic', min: 95, points: 100, color: '#fb923c', square: '🟧' },
 ];
 
 export const ROUNDS_PER_DAY = 7;

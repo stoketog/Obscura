@@ -36,14 +36,20 @@ const pick = (prompt: Prompt, min: number, max: number) => prompt.entries.find((
 const rare = (i: number) => pick(daily.prompts[i], 60, 80);
 const common = (i: number) => daily.prompts[i].entries.reduce((a, b) => (b.score < a.score ? b : a));
 
-async function open(b: Browser, opts: { mobile?: boolean; url?: string; clock?: string; skipHelp?: boolean } = {}) {
-  const ctx = await b.newContext({ viewport: opts.mobile ? { width: 360, height: 740 } : { width: 1280, height: 800 }, hasTouch: !!opts.mobile, timezoneId: 'UTC', permissions: ['clipboard-read', 'clipboard-write'] });
+/**
+ * The 3D world is software-rendered in headless Chromium (no GPU), which is far too slow for the many quick clicks in
+ * these tests. So by default the app opens with ?lite (plain backdrop, no WebGL) and reduced motion; the few tests about
+ * the world itself pass `world: true` (live 3D) and `animate: true` (the running loop rather than still frames).
+ */
+async function open(b: Browser, opts: { mobile?: boolean; url?: string; clock?: string; skipHelp?: boolean; animate?: boolean; world?: boolean } = {}) {
+  const ctx = await b.newContext({ viewport: opts.mobile ? { width: 360, height: 740 } : { width: 1280, height: 800 }, hasTouch: !!opts.mobile, reducedMotion: opts.animate ? 'no-preference' : 'reduce', timezoneId: 'UTC', permissions: ['clipboard-read', 'clipboard-write'] });
   const page = await ctx.newPage();
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(String(e)));
-  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
+  page.on('console', (m) => m.type() === 'error' && !/GL Driver|swiftshader|GroupMarker/i.test(m.text()) && errors.push(m.text()));
   await page.clock.install({ time: new Date(opts.clock ?? CLOCK) });
-  await page.goto(opts.url ?? ADMIN);
+  if (opts.world) page.setDefaultTimeout(120_000);
+  await page.goto((opts.url ?? ADMIN) + (opts.world ? '' : '?lite'));
   await page.clock.resume();
   await q(page, 'help-modal').waitFor();
   if (opts.skipHelp !== false) await q(page, 'help-close').click();
@@ -73,7 +79,7 @@ async function playDay(p: Page, choose: (i: number) => string) {
 }
 async function skipEvo(p: Page) {
   const o = q(p, 'ascent-overlay');
-  try { await o.waitFor({ timeout: 4500 }); await q(p, 'ascent-skip').click(); await o.waitFor({ state: 'detached' }); } catch { /* none */ }
+  try { await o.waitFor({ timeout: 4500 }); await q(p, 'ascent-continue').click(); await o.waitFor({ state: 'detached' }); } catch { /* none */ }
 }
 async function noHScroll(p: Page, where: string) {
   const w = await p.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));
@@ -100,25 +106,22 @@ async function main() {
     eq(await q(p, 'help-modal').count(), 0, 'help not shown again'); await ctx.close();
   });
 
-  await t('the home scene is a live animated canvas at the start of the climb (microbe, 4,000 m down)', async () => {
-    const { ctx, page: p, errors } = await open(b);
-    await q(p, 'scene-canvas').waitFor();
-    eq(await q(p, 'scene-view').getAttribute('data-stage'), 'microbe');
-    eq(await text(p, 'scene-altitude'), '−4,000 m');
-    ok((await text(p, 'scene-place')).includes('sea floor'), 'place readout');
-    const snap = () => p.evaluate(() => {
-      const c = document.querySelector('[data-testid=scene-canvas]') as HTMLCanvasElement;
-      const d = c.getContext('2d')!.getImageData(0, 0, c.width, c.height).data;
-      const colours = new Set<number>();
-      let sum = 0;
-      for (let i = 0; i < d.length; i += 4 * 37) { colours.add(((d[i] >> 4) << 8) | ((d[i + 1] >> 4) << 4) | (d[i + 2] >> 4)); sum = (sum * 31 + d[i] + d[i + 1] * 3 + d[i + 2] * 7) % 1000003; }
-      return { n: colours.size, sum };
-    });
-    const a = await snap();
-    ok(a.n > 8, `canvas is painted (${a.n} colours)`);
-    await p.waitForTimeout(700);
-    const b2 = await snap();
-    ok(a.sum !== b2.sum, 'canvas animates between frames');
+  await t('one 3D world fills the whole screen behind home: microbe 4,000 m down, painted and animated', async () => {
+    const { ctx, page: p, errors } = await open(b, { animate: true, world: true });
+    const canvas = q(p, 'world-canvas');
+    await canvas.waitFor();
+    const box = (await canvas.boundingBox())!;
+    const vp = p.viewportSize()!;
+    ok(Math.abs(box.width - vp.width) <= 1 && Math.abs(box.height - vp.height) <= 1, `canvas covers the screen (${box.width}x${box.height})`);
+    eq(await canvas.getAttribute('data-stage'), '0', 'starts as the microbe');
+    ok((await text(p, 'home-creature-info')).includes('−4,000 m'), 'altitude readout');
+    ok((await text(p, 'home-creature-info')).includes('sea floor'), 'place readout');
+    eq(await q(p, 'scene-view').count(), 0, 'no separate scene box any more');
+    const a = await canvas.screenshot();
+    ok(a.length > 8000, `world is painted (${a.length} bytes)`);
+    await p.waitForTimeout(2500);
+    const b2 = await canvas.screenshot();
+    ok(Buffer.compare(a, b2) !== 0, 'world animates between frames');
     eq(errors.length, 0, errors.join('|')); await ctx.close();
   });
 
@@ -154,6 +157,8 @@ async function main() {
     ok((await text(p, 'reveal')).includes('Rare'), 'tier label');
     eq(await text(p, 'day-points'), '55');
     eq(await q(p, 'round-pips').locator('[data-state=rare]').count(), 1, 'pip coloured by tier');
+    eq(await q(p, 'round-pips').locator('[data-state=rare]').evaluate((el) => getComputedStyle(el).backgroundColor), 'rgb(59, 130, 246)', 'rare is blue');
+    const dock = (await q(p, 'answer-form').count()) ? 1 : 0; void dock;
     await q(p, 'next-btn').click(); await q(p, 'round').waitFor();
     ok((await text(p, 'round-label')).includes('Round 2'), 'moved on'); await ctx.close();
   });
@@ -242,13 +247,12 @@ async function main() {
         ok((await rows.nth(i).locator('[data-testid=best-answer]').count()) === 5, `row ${i} shows five best answers`);
       }
       await q(p, 'ascent-overlay').waitFor({ timeout: 6000 });
-      const phases = new Set<string>();
-      for (let i = 0; i < 24; i++) { phases.add((await q(p, 'ascent-overlay').getAttribute('data-phase'))!); await p.waitForTimeout(150); }
-      ok(phases.has('rise') || phases.has('reveal'), 'ascent phases');
       await q(p, 'ascent-place').waitFor(); await noHScroll(p, 'ascent');
+      ok((await text(p, 'ascent-name')).length > 2, 'ascent names the new form');
       await q(p, 'ascent-continue').click(); await q(p, 'ascent-overlay').waitFor({ state: 'detached' });
       const share = await text(p, 'share-preview');
       for (const pr of daily.prompts) for (const e of pr.entries) if (e.name.length > 4) ok(!share.toLowerCase().includes(e.name.toLowerCase()), `share leaks ${e.name}`);
+      ok(/[⬜🟩🟨🟦🟪🟧]/u.test(share) && !/[🦠🪱🐟🦎🐋]/u.test(share), `share uses colour squares:\n${share}`);
       ok(/OBSCURA #\d{3}/.test(share) && new RegExp(`${pts}/700 pts`).test(share) && /🔥 1 day streak/.test(share), `share:\n${share}`);
       await q(p, 'copy-btn').click(); await p.waitForTimeout(200);
       eq(await p.evaluate(() => navigator.clipboard.readText()), share, 'clipboard');
@@ -317,6 +321,8 @@ async function main() {
     await q(p, 'start-btn').click(); await q(p, 'round').waitFor(); await noHScroll(p, 'round');
     const fs = await q(p, 'answer-input').evaluate((el) => parseFloat(getComputedStyle(el).fontSize)); ok(fs >= 16, `input font ${fs}`);
     const box = await q(p, 'answer-submit').boundingBox(); ok(box!.width >= 40 && box!.height >= 40, 'tap target');
+    ok(box!.y + box!.height > 740 - 120, `the answer box is docked at the bottom of the screen (y=${box!.y})`);
+    const hud = (await q(p, 'hud').boundingBox())!; ok(hud.y < 120, 'heads-up display is at the top');
     await answer(p, 'nonsense words that wrap onto a lot of text lines'); await noHScroll(p, 'round with error');
     await answer(p, rare(0).name); await q(p, 'reveal').waitFor(); await noHScroll(p, 'reveal');
     await q(p, 'stats-btn').click(); await noHScroll(p, 'stats'); await p.keyboard.press('Escape');
@@ -341,6 +347,18 @@ async function main() {
     ok(parseInt(await text(p, 'result-points'), 10) > 400, 'autoplay rarest'); await skipEvo(p);
     await q(p, 'admin-btn').click(); await q(p, 'admin-tab-player').click(); await q(p, 'admin-reset-all').click();
     await q(p, 'home-stage-name').waitFor(); eq(await text(p, 'home-stage-name'), 'Microbe'); ok((await text(p, 'home-streak')).startsWith('0'), 'streak reset'); await ctx.close();
+  });
+  await t('admin gallery flies the live world to any stage', async () => {
+    const { ctx, page: p, errors } = await open(b, { world: true }); await q(p, 'admin-btn').click();
+    await q(p, 'admin-tab-gallery').click();
+    await q(p, 'gallery-rocket').click();
+    eq(await q(p, 'world-canvas').getAttribute('data-points'), '470', 'world points follow the preview');
+    let stage = '';
+    for (let i = 0; i < 30; i++) { stage = (await q(p, 'world-canvas').getAttribute('data-stage')) ?? ''; if (stage === '8') break; await p.waitForTimeout(400); }
+    eq(stage, '8', 'the world reached the rocket');
+    await p.keyboard.press('Escape'); await p.waitForTimeout(200);
+    eq(await q(p, 'world-canvas').getAttribute('data-points'), '0', 'back to the real points on close');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
   });
   await t('admin keyboard shortcut works in admin build', async () => {
     const { ctx, page: p } = await open(b); await p.keyboard.press('Control+Shift+A'); await q(p, 'admin-panel').waitFor(); await ctx.close();

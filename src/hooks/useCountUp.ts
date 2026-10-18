@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /** Animate a number from 0 to `target` (respects reduced motion). */
 export function useCountUp(target: number, ms = 1100, delay = 0, decimals = 0): number {
@@ -29,4 +29,34 @@ export function useCountUp(target: number, ms = 1100, delay = 0, decimals = 0): 
   }, [target, ms, delay]);
   const f = Math.pow(10, decimals);
   return Math.round(v * f) / f;
+}
+
+/** Glide a number to a new target whenever it changes (it starts at the target, so there is no flash on mount). */
+export function useTween(target: number, ms = 1800): number {
+  const [v, setV] = useState(target);
+  const from = useRef(target);
+  const cur = useRef(target);
+  useEffect(() => {
+    const reduce = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || from.current === target) {
+      cur.current = from.current = target;
+      setV(target);
+      return;
+    }
+    const a = cur.current;
+    let raf = 0;
+    let start = 0;
+    const step = (now: number) => {
+      if (!start) start = now;
+      const p = Math.min(1, (now - start) / ms);
+      const e = p * p * (3 - 2 * p);
+      cur.current = a + (target - a) * e;
+      setV(cur.current);
+      if (p < 1) raf = requestAnimationFrame(step);
+      else from.current = target;
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [target, ms]);
+  return v;
 }

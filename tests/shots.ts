@@ -11,7 +11,7 @@ const srv = spawn('node', ['scripts/serve.mjs'], { env: { ...process.env, OBSCUR
 await new Promise((r) => setTimeout(r, 800));
 const b = await chromium.launch();
 for (const [name, vp, mobile] of [['d', { width: 1280, height: 860 }, false], ['m', { width: 390, height: 844 }, true]] as const) {
-  const ctx = await b.newContext({ viewport: vp, hasTouch: mobile, deviceScaleFactor: 2, timezoneId: 'UTC' });
+  const ctx = await b.newContext({ viewport: vp, hasTouch: mobile, deviceScaleFactor: 1, reducedMotion: 'reduce', timezoneId: 'UTC' });
   const p = await ctx.newPage();
   await p.clock.install({ time: new Date(`${DAY}T10:00:00Z`) });
   await p.goto('http://localhost:4195/'); await p.clock.resume();
@@ -33,7 +33,7 @@ for (const [name, vp, mobile] of [['d', { width: 1280, height: 860 }, false], ['
   }
   await p.locator('[data-testid=result]').waitFor(); await p.waitForTimeout(2600);
   await p.screenshot({ path: `${OUT}/${name}-evo.png` });
-  await p.locator('[data-testid=ascent-skip]').click().catch(() => {});
+  await p.locator('[data-testid=ascent-continue]').click().catch(() => {});
   await p.waitForTimeout(800);
   await p.screenshot({ path: `${OUT}/${name}-result.png` });
   await p.screenshot({ path: `${OUT}/${name}-result-full.png`, fullPage: true });

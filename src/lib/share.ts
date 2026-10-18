@@ -2,10 +2,10 @@ import type { DailySet, GameState } from './types';
 import { STAGES } from '@/data/stages';
 import { MAX_POINTS, tierById } from './scoring';
 
-/** Spoiler-free: one creature per prompt showing how deep you went, never the answers. */
+/** Spoiler-free: one coloured square per prompt showing how rare your answer was, never the answers. */
 export function buildShareText(game: GameState, daily: DailySet, streak: number): string {
   const out = game.outcome!;
-  const row = out.tiers.map((t) => (t ? tierById(t).emoji : '⚫')).join(' ');
+  const row = out.tiers.map((t) => (t ? tierById(t).square : '⬛')).join(' ');
   const lines = [`OBSCURA #${String(daily.number).padStart(3, '0')}`, '', row, '', `${out.points}/${MAX_POINTS} pts · ${STAGES[out.stage].emoji} ${STAGES[out.stage].name}`];
   if (streak > 0) lines.push(`🔥 ${streak} day streak`);
   return lines.join('\n');

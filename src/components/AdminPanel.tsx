@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { STAGES } from '@/data/stages';
 import { addDays } from '@/lib/dates';
@@ -10,8 +10,7 @@ import { pointsFor, tierFor } from '@/lib/scoring';
 import { loadUnrecognised } from '@/lib/admin';
 import { Modal } from './Modal';
 import { StageIcon } from './StageIcon';
-import { AscentOverlay } from './AscentOverlay';
-import { SceneView } from './SceneView';
+import { useWorld } from './WorldContext';
 
 type Tab = 'day' | 'test' | 'player' | 'gallery';
 
@@ -20,12 +19,37 @@ const label = 'mb-1 block text-[0.65rem] font-semibold uppercase tracking-widest
 
 export default function AdminPanel({ api, onClose }: { api: ObscuraApi; onClose: () => void }) {
   const [tab, setTab] = useState<Tab>('day');
-  const [evo, setEvo] = useState<[number, number] | null>(null);
   const [preview, setPreview] = useState(0);
   const { admin, dateKey } = api;
+  const world = useWorld();
+  const timer = useRef(0);
+
+  // The gallery flies the real world to each stage, so the panel steps aside to let you see it.
+  const show = (i: number) => {
+    window.clearTimeout(timer.current);
+    setPreview(i);
+    world.setOverride(STAGES[i].threshold);
+  };
+  const ascend = () => {
+    window.clearTimeout(timer.current);
+    world.setOverride(STAGES[preview - 1].threshold);
+    timer.current = window.setTimeout(() => world.setOverride(STAGES[preview].threshold), 900);
+  };
+  useEffect(() => {
+    if (tab !== 'gallery') world.setOverride(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tab]);
+  useEffect(
+    () => () => {
+      window.clearTimeout(timer.current);
+      world.setOverride(null);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
 
   return (
-    <Modal title="Admin · developer tools" onClose={onClose} testId="admin-panel">
+    <Modal title="Admin · developer tools" onClose={onClose} testId="admin-panel" peek={tab === 'gallery'}>
       <div className="mb-4 flex gap-1 rounded-xl bg-white/5 p-1 text-xs font-semibold uppercase tracking-wider">
         {(['day', 'test', 'player', 'gallery'] as Tab[]).map((t) => (
           <button key={t} className={`flex-1 rounded-lg px-2 py-2 ${tab === t ? 'bg-bio-500 text-[#02211d]' : 'text-mist-300'}`} onClick={() => setTab(t)} data-testid={`admin-tab-${t}`}>
@@ -49,21 +73,22 @@ export default function AdminPanel({ api, onClose }: { api: ObscuraApi; onClose:
       {tab === 'player' && <PlayerTab api={api} onClose={onClose} />}
       {tab === 'gallery' && (
         <div>
-          <SceneView stage={preview} className="max-w-sm" />
-          <div className="mt-3 grid grid-cols-4 gap-2">
+          <p className="mb-2 text-xs text-mist-500" data-testid="gallery-current">
+            Showing <b className="text-white">{STAGES[preview].name}</b> in the live world.
+          </p>
+          <div className="grid grid-cols-6 gap-2">
             {STAGES.map((st, i) => (
-              <button key={st.id} className={`rounded-xl p-2 text-center ${i === preview ? 'bg-bio-500/20 ring-1 ring-bio-400/60' : 'bg-white/5'}`} onClick={() => setPreview(i)} title={`Preview ${st.name}`} data-testid={`gallery-${st.id}`}>
-                <StageIcon stage={i} size={30} />
-                <span className="mt-1 block truncate text-[0.62rem] text-mist-300">{st.name}</span>
+              <button key={st.id} className={`rounded-xl p-2 text-center ${i === preview ? 'bg-bio-500/20 ring-1 ring-bio-400/60' : 'bg-white/5'}`} onClick={() => show(i)} title={`Preview ${st.name}`} data-testid={`gallery-${st.id}`}>
+                <StageIcon stage={i} size={26} />
+                <span className="mt-1 block truncate text-[0.58rem] text-mist-300">{st.name}</span>
               </button>
             ))}
           </div>
-          <button className="btn-ghost mt-3 !min-h-9" onClick={() => preview > 0 && setEvo([preview - 1, preview])} disabled={preview === 0} data-testid="gallery-ascent">
-            Preview the ascent into {STAGES[preview].name}
+          <button className="btn-ghost mt-3 !min-h-9" onClick={ascend} disabled={preview === 0} data-testid="gallery-ascent">
+            Preview the climb into {STAGES[preview].name}
           </button>
         </div>
       )}
-      {evo && <AscentOverlay from={evo[0]} to={evo[1]} onDone={() => setEvo(null)} />}
     </Modal>
   );
 }

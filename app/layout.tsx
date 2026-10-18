@@ -4,11 +4,11 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Obscura — How obscure can you get?',
-  description: 'One mystery. One day. One chance to evolve. A daily guessing game about the obscure.',
+  description: 'A daily game about the obscure. Seven prompts, thirty seconds each: the rarer your answers, the higher you rise.',
   icons: { icon: '/icon.svg' },
   openGraph: {
     title: 'Obscura',
-    description: 'One mystery. One day. One chance to evolve.',
+    description: 'How obscure can you get? Seven prompts a day, and the rarer your answers the higher you rise.',
     type: 'website',
   },
 };

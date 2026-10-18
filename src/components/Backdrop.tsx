@@ -1,35 +1,11 @@
-import { useMemo } from 'react';
+import { STAGES } from '@/data/stages';
 
-function rng(seed: number) {
-  return () => {
-    seed = (seed * 1664525 + 1013904223) % 4294967296;
-    return seed / 4294967296;
-  };
-}
-
-/** Deep-water atmosphere: tinted gradient (hue follows the creature) plus drifting marine snow. */
-export function Backdrop({ hue }: { hue: number }) {
-  const flecks = useMemo(() => {
-    const r = rng(7);
-    return Array.from({ length: 34 }, (_, i) => ({
-      id: i,
-      left: r() * 100,
-      size: 1.5 + r() * 3.2,
-      dur: 22 + r() * 30,
-      delay: -r() * 40,
-      dx: (r() - 0.5) * 90,
-      o: 0.25 + r() * 0.55,
-    }));
-  }, []);
+/** A plain gradient and the current form's emoji, used only if WebGL isn't available. */
+export function Backdrop({ stage }: { stage: number }) {
+  const st = STAGES[stage];
   return (
-    <div className="backdrop" style={{ ['--stage-hue' as string]: hue }} aria-hidden>
-      {flecks.map((f) => (
-        <span
-          key={f.id}
-          className="snow"
-          style={{ left: `${f.left}%`, width: f.size, height: f.size, animationDuration: `${f.dur}s`, animationDelay: `${f.delay}s`, ['--dx' as string]: `${f.dx}px`, ['--o' as string]: f.o }}
-        />
-      ))}
+    <div className="backdrop" style={{ ['--stage-hue' as string]: st.hue }} aria-hidden data-testid="backdrop-fallback">
+      <div className="absolute left-1/2 top-[34%] -translate-x-1/2 -translate-y-1/2 text-[7rem] opacity-90 animate-float">{st.emoji}</div>
     </div>
   );
 }
