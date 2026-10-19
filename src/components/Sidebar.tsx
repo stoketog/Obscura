@@ -1,24 +1,24 @@
 import { useEffect, useRef } from 'react';
+import { useSettings } from '@/hooks/useSettings';
+import { ENGINEERLE_URL } from '@/lib/sites';
+import { withSettings } from '@/lib/settings';
 import { IconChart, IconClose, IconGear, IconHelp, IconWrench, IconGlobe } from './Icons';
 import { Emblem } from './Emblem';
 import { Wordmark } from './Wordmark';
 
-export type Mode = 'obscura' | 'engineerle';
-
 interface Props {
-  mode: Mode;
-  onMode: (m: Mode) => void;
+  /** Close the menu and go to Obscura's home screen. */
+  onHome: () => void;
   onStats: () => void;
   onHelp: () => void;
   onSettings: () => void;
   onClose: () => void;
-  /** Show the Engineerle entry. */
-  engineerle?: boolean;
 }
 
 /** The side menu: switch between games, and reach stats, help and settings. */
-export function Sidebar({ mode, onMode, onStats, onHelp, onSettings, onClose, engineerle = false }: Props) {
+export function Sidebar({ onHome, onStats, onHelp, onSettings, onClose }: Props) {
   const ref = useRef<HTMLElement>(null);
+  const { settings } = useSettings();
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', onKey);
@@ -44,24 +44,22 @@ export function Sidebar({ mode, onMode, onStats, onHelp, onSettings, onClose, en
         </div>
         <nav className="flex-1 overflow-y-auto px-3 py-3" aria-label="Games and tools">
           <p className="eyebrow px-2 !text-[0.6rem]">Games</p>
-          <button className="side-item" data-on={mode === 'obscura'} onClick={go(() => onMode('obscura'))} data-testid="side-obscura" aria-current={mode === 'obscura' ? 'page' : undefined}>
+          <button className="side-item" data-on="true" onClick={go(onHome)} data-testid="side-obscura" aria-current="page">
             <span className="side-ico"><IconGlobe size={18} /></span>
             <span className="min-w-0 text-left">
               <b className="block text-sm text-white">Obscura</b>
               <span className="block text-xs text-mist-500">Seven daily prompts. Be obscure.</span>
             </span>
           </button>
-          {engineerle && (
-            <button className="side-item" data-on={mode === 'engineerle'} onClick={go(() => onMode('engineerle'))} data-testid="side-engineerle" aria-current={mode === 'engineerle' ? 'page' : undefined}>
-              <span className="side-ico"><IconWrench size={18} /></span>
-              <span className="min-w-0 text-left">
-                <b className="block text-sm text-white">
-                  Engineerle <span className="ml-1 rounded-full border border-amber-glow/40 bg-amber-glow/10 px-1.5 py-0.5 align-middle text-[0.58rem] font-semibold text-amber-glow">New</span>
-                </b>
-                <span className="block text-xs text-mist-500">Five daily engineering puzzles.</span>
-              </span>
-            </button>
-          )}
+          <a className="side-item" href={withSettings(ENGINEERLE_URL, settings)} data-testid="side-engineerle" data-silent>
+            <span className="side-ico"><IconWrench size={18} /></span>
+            <span className="min-w-0 text-left">
+              <b className="block text-sm text-white">
+                Engineerle <span aria-hidden>↗</span>
+              </b>
+              <span className="block text-xs text-mist-500">Five daily engineering puzzles.</span>
+            </span>
+          </a>
           <p className="eyebrow mt-5 px-2 !text-[0.6rem]">You</p>
           <button className="side-item" onClick={go(onStats)} data-testid="side-stats">
             <span className="side-ico"><IconChart size={18} /></span>

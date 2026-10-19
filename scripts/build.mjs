@@ -34,6 +34,7 @@ await build({
   define: {
     'process.env.NODE_ENV': '"production"',
     'process.env.NEXT_PUBLIC_OBSCURA_ADMIN': admin ? '"1"' : '"0"',
+    'process.env.NEXT_PUBLIC_ENGINEERLE_URL': JSON.stringify(process.env.NEXT_PUBLIC_ENGINEERLE_URL || ''),
   },
   logLevel: 'info',
 });
