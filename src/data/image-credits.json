@@ -159,6 +159,18 @@
       "PD-old-100-expired"
     ]
   },
+  "hagia-sophia": {
+    "file": "373952dfd0d5a61d.jpg",
+    "width": 1280,
+    "height": 960,
+    "title": "File:Hagia Sophia exterior 2007 006.jpg",
+    "author": "Gryffindor",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_exterior_2007_006.jpg",
+    "templates": [
+      "PD-self"
+    ]
+  },
   "lincoln": {
     "file": "f56544d2a1269025.jpg",
     "width": 975,
@@ -169,6 +181,19 @@
     "source": "https://commons.wikimedia.org/wiki/File:Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg",
     "templates": [
       "Template:PD-old-100-expired"
+    ]
+  },
+  "marie-curie": {
+    "file": "d228b27bb98f5df8.jpg",
+    "width": 942,
+    "height": 1280,
+    "title": "File:Marie Curie c. 1920s.jpg",
+    "author": "Henri Manuel",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Marie_Curie_c._1920s.jpg",
+    "templates": [
+      "PD-old-auto-1923",
+      "PD-old-auto-expired"
     ]
   },
   "moai": {
@@ -182,6 +207,21 @@
     "templates": [
       "Template:PD-user-at-project",
       "Template:PD-user-en"
+    ]
+  },
+  "mona-lisa": {
+    "file": "a900f05c9c741e78.jpg",
+    "width": 859,
+    "height": 1280,
+    "title": "File:Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg",
+    "author": "Leonardo da Vinci",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
+    "templates": [
+      "PD-Art",
+      "PD-art",
+      "PD-art-category",
+      "PD-old-100-expired"
     ]
   },
   "pillars-of-creation": {
