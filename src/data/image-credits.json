@@ -224,6 +224,69 @@
       "PD-old-100-expired"
     ]
   },
+  "mount-fuji": {
+    "file": "7c537ca6ed22f1a9.jpg",
+    "width": 1280,
+    "height": 853,
+    "title": "File:Mount Fuji at sunset, March 2025.jpg",
+    "author": "Romain Guy from San Francisco, USA",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Mount_Fuji_at_sunset,_March_2025.jpg",
+    "templates": [
+      "Cc-zero"
+    ]
+  },
+  "narwhal": {
+    "file": "c84886c21e8c61c8.jpg",
+    "width": 1280,
+    "height": 662,
+    "title": "File:Pod Monodon monoceros.jpg",
+    "author": "Dr. Kristin Laidre, Polar Science Center, UW NOAA/OAR/OER",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Pod_Monodon_monoceros.jpg",
+    "templates": [
+      "PD-USGov-NOAA"
+    ]
+  },
+  "neuschwanstein": {
+    "file": "12e0ce811b609c8e.jpg",
+    "width": 1280,
+    "height": 872,
+    "title": "File:Neuschwanstein Castle 2024-02.jpg",
+    "author": "Wilfredor",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Neuschwanstein_Castle_2024-02.jpg",
+    "templates": [
+      "Cc-zero"
+    ]
+  },
+  "pangolin": {
+    "file": "654167da10b29333.jpg",
+    "width": 1280,
+    "height": 960,
+    "title": "File:Steppenschuppentier2.jpg",
+    "author": "Masteraah",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Steppenschuppentier2.jpg",
+    "templates": [
+      "PD-self"
+    ]
+  },
+  "penny-farthing": {
+    "file": "34cfa3dbaa1123bc.jpg",
+    "width": 1280,
+    "height": 960,
+    "title": "File:Carnegie Science Center The Penny Farthing Adult.JPG",
+    "author": "Photojunkie",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Carnegie_Science_Center_The_Penny_Farthing_Adult.JPG",
+    "templates": [
+      "PD-self",
+      "Pd-self"
+    ]
+  },
   "pillars-of-creation": {
     "file": "a71a834ba839c904.jpg",
     "width": 1280,
@@ -234,6 +297,82 @@
     "source": "https://commons.wikimedia.org/wiki/File:Eagle_nebula_pillars.jpg",
     "templates": [
       "Template:PD-Hubble"
+    ]
+  },
+  "rosetta-stone": {
+    "file": "f7ce95ec63725391.jpg",
+    "width": 960,
+    "height": 1280,
+    "title": "File:June 2008 Rosetta stone.jpg",
+    "author": "Syced",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:June_2008_Rosetta_stone.jpg",
+    "templates": [
+      "Cc-zero"
+    ]
+  },
+  "saturn-v": {
+    "file": "25e5be19a034b957.jpg",
+    "width": 1024,
+    "height": 1280,
+    "title": "File:Apollo 11 Launch - GPN-2000-000630.jpg",
+    "author": "NASA",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Apollo_11_Launch_-_GPN-2000-000630.jpg",
+    "templates": [
+      "PD-USGov-NASA"
+    ]
+  },
+  "shoebill": {
+    "file": "f2130b07d653f883.jpg",
+    "width": 1239,
+    "height": 1280,
+    "title": "File:Schuhschnabel (Balaeniceps rex).jpg",
+    "author": "Bildflut",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Schuhschnabel_(Balaeniceps_rex).jpg",
+    "templates": [
+      "Cc-zero"
+    ]
+  },
+  "sphinx": {
+    "file": "5b6769930da393a4.jpg",
+    "width": 1280,
+    "height": 940,
+    "title": "File:Sphinx partially excavated2.jpg",
+    "author": "Maison Bonfils (Beirut, Lebanon), photographers : Félix (1831-1885), his wife, Lydie (1837-1918) and his son, Adrien (18",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Sphinx_partially_excavated2.jpg",
+    "templates": [
+      "PD-old-auto-1923",
+      "PD-old-auto-expired"
+    ]
+  },
+  "stonehenge": {
+    "file": "f661a6b3dc5a0054.jpg",
+    "width": 1280,
+    "height": 824,
+    "title": "File:Stonehenge 2007.jpg",
+    "author": "kallerna",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Stonehenge_2007.jpg",
+    "templates": [
+      "PD-self"
+    ]
+  },
+  "venus-flytrap": {
+    "file": "9433dfbd9ee73d2f.jpg",
+    "width": 1280,
+    "height": 960,
+    "title": "File:Venus flytrap in pot.jpg",
+    "author": "Deltapug",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Venus_flytrap_in_pot.jpg",
+    "templates": [
+      "Cc-zero"
     ]
   }
 }

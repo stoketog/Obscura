@@ -25,7 +25,7 @@ interface Editorial {
 }
 
 const EDITORIAL: Editorial[] = [
-  { id: 'bell-rock', answer: 'Bell Rock Lighthouse', aliases: ['Bell Rock', 'Inchcape Rock Lighthouse', 'Inchcape Lighthouse', 'Inchcape Rock'], kind: 'place', blurb: 'Built by Robert Stevenson between 1807 and 1810 on a reef off the Angus coast of Scotland, it is the oldest surviving sea-washed lighthouse in the world.' },
+  { id: 'bell-rock', answer: 'Bell Rock Lighthouse', aliases: ['Bell Rock', 'Inchcape Rock Lighthouse', 'Inchcape Lighthouse', 'Inchcape Rock'], kind: 'place', blurb: 'Built by Robert Stevenson between 1807 and 1810 on a reef off the Angus coast of Scotland, it is the oldest surviving sea-washed lighthouse in the world. Painted here in a storm by J. M. W. Turner.' },
   { id: 'stonehenge', answer: 'Stonehenge', aliases: [], kind: 'place', blurb: 'A prehistoric stone circle on Salisbury Plain in Wiltshire, England, raised in stages from around 3000 BC.' },
   { id: 'hagia-sophia', answer: 'Hagia Sophia', aliases: ['Ayasofya', 'Aya Sofya', 'Hagia Sofia', 'Aya Sofia', 'Saint Sophia', 'Sancta Sophia', 'Haghia Sophia'], kind: 'place', blurb: 'Completed in Constantinople in 537 under the emperor Justinian, it was the largest cathedral in the world for nearly a thousand years.' },
   { id: 'machu-picchu', answer: 'Machu Picchu', aliases: ['Machu Pichu', 'Machupicchu'], kind: 'place', blurb: 'A 15th-century Inca citadel on a ridge high in the Andes of Peru, brought to the wider world’s attention in 1911.' },
