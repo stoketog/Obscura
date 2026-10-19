@@ -1,0 +1,68 @@
+{
+  "aurora": {
+    "file": "cddfaa09af0a50c0.jpg",
+    "width": 1280,
+    "height": 834,
+    "title": "File:Aurora borealis over Eielson Air Force Base, Alaska.jpg",
+    "author": "United States Air Force photo by Senior Airman Joshua Strang",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Aurora_borealis_over_Eielson_Air_Force_Base,_Alaska.jpg",
+    "templates": [
+      "Template:PD-USGov-Military-Air Force",
+      "Template:PD-USGov-Military-Air Force/en",
+      "Template:PD-USGov-Military-Air Force/lang",
+      "Template:PD-USGov-Military-Air Force/layout"
+    ]
+  },
+  "earthrise": {
+    "file": "a4b180959d841be4.jpg",
+    "width": 1280,
+    "height": 1280,
+    "title": "File:NASA-Apollo8-Dec24-Earthrise.jpg",
+    "author": "NASA/Bill Anders",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:NASA-Apollo8-Dec24-Earthrise.jpg",
+    "templates": [
+      "Template:PD-USGov-NASA",
+      "Template:PD-USGov-NASA/en",
+      "Template:PD-USGov-NASA/layout"
+    ]
+  },
+  "lincoln": {
+    "file": "f56544d2a1269025.jpg",
+    "width": 975,
+    "height": 1280,
+    "title": "File:Abraham Lincoln head on shoulders photo portrait.jpg",
+    "author": "Alexander Gardner",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg",
+    "templates": [
+      "Template:PD-old-100-expired"
+    ]
+  },
+  "moai": {
+    "file": "f67dbaaf4b54b23c.jpg",
+    "width": 960,
+    "height": 1280,
+    "title": "File:Moai Rano raraku.jpg",
+    "author": "Aurbina",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Moai_Rano_raraku.jpg",
+    "templates": [
+      "Template:PD-user-at-project",
+      "Template:PD-user-en"
+    ]
+  },
+  "pillars-of-creation": {
+    "file": "a71a834ba839c904.jpg",
+    "width": 1280,
+    "height": 1262,
+    "title": "File:Eagle nebula pillars.jpg",
+    "author": "Credit: NASA, Jeff Hester, and Paul Scowen (Arizona State University)",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Eagle_nebula_pillars.jpg",
+    "templates": [
+      "Template:PD-Hubble"
+    ]
+  }
+}

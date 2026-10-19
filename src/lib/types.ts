@@ -1,9 +1,10 @@
 /**
  * Core domain types for Obscura.
  *
- * The game is a daily "dive": seven shared prompts ("Name a cheese"). The
- * player types any answer from the category; the rarer the answer, the more
- * points it earns, and the day's points evolve their creature.
+ * Every day is one dark chamber with a hidden photograph and seven shared prompts ("Name a cheese").
+ * The player types any answer from the category; the rarer the answer, the more points it earns, and the
+ * points let light into the chamber: the day's photograph develops from black to sharp. At the end the
+ * player gets one guess at what the photograph shows, worth more the less of it they could see.
  */
 
 /** One accepted answer to a prompt, with how obscure it is (1 = everyone says it, 100 = almost nobody). */
@@ -83,27 +84,42 @@ export interface GameState {
   /** Sum of round points so far. */
   points: number;
   outcome?: Outcome;
-  /** True once the end-of-day evolution reveal has been shown. */
+  /** The final guess at the photograph; absent until it is made. */
+  guess?: GuessRecord;
+  /** True once the end-of-day reveal has been shown. */
   celebrated?: boolean;
 }
 
 export interface Outcome {
   points: number;
-  stage: number;
-  /** The form the creature had before the final round; the finale evolves from here. */
-  stageBeforeFinal: number;
+  /** 0–100: how much of the photograph the day's points developed. */
+  developed: number;
   streakAfter: number;
   tiers: Array<TierId | null>;
+}
+
+/** The one guess at the day's photograph. */
+export interface GuessRecord {
+  /** What the player typed (trimmed). Empty when they passed. */
+  text: string;
+  correct: boolean;
+  /** How developed the photograph was when they guessed (0–100). */
+  developed: number;
+  /** Bonus points earned (0 when wrong or passed). */
+  bonus: number;
 }
 
 export interface HistoryEntry {
   dateKey: string;
   puzzleNumber: number;
+  /** Points from the seven prompts. */
   points: number;
-  stage: number;
+  developed: number;
   tiers: Array<TierId | null>;
   /** Highest-scoring answer of the day. */
   best: { name: string; score: number } | null;
+  /** Set once the final guess is made. */
+  guess?: { correct: boolean; bonus: number };
 }
 
 export interface PlayerProfile {
@@ -117,11 +133,36 @@ export interface PlayerProfile {
   seenHelp: boolean;
 }
 
-/** A day's seven prompts, resolved. */
+/** What a daily photograph shows. Used only as a vague hint before the reveal. */
+export type ImageKind = 'place' | 'object' | 'person' | 'nature' | 'artwork' | 'space';
+
+/**
+ * A daily photograph. Every image is a real photograph (or a photograph of a real artwork) that is in the
+ * public domain or released under CC0, checked against its Wikimedia Commons record, so it can be used on a
+ * commercial site with no conditions. The credit is still shown, as good practice.
+ */
+export interface DailyImage {
+  id: string;
+  /** The accepted answer, as shown at the reveal. */
+  answer: string;
+  /** Other accepted spellings and names. */
+  aliases: string[];
+  kind: ImageKind;
+  /** One or two sentences shown at the reveal. */
+  blurb: string;
+  /** Path under /public. */
+  src: string;
+  width: number;
+  height: number;
+  credit: { author: string; license: string; licenseUrl?: string; source: string };
+}
+
+/** A day's seven prompts and its photograph, resolved. */
 export interface DailySet {
   dateKey: string;
   number: number;
   prompts: Prompt[];
+  image: DailyImage;
   /** Set for an endless-mode dive (1, 2, …). Dives never touch streaks, history or stats. */
   endless?: number;
 }

@@ -1,11 +1,11 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { DailySet, GameState, PlayerProfile } from '@/lib/types';
+import type { DailySet, GameState, GuessRecord, PlayerProfile } from '@/lib/types';
 import { playerRepository, emptyProfile } from '@/lib/storage';
 import { toDateKey } from '@/lib/dates';
 import { ENDLESS_DIVES, getDaily, getEndlessDive } from '@/lib/daily';
-import { deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
+import { deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, submitGuess, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
 import { ADMIN_ENABLED } from '@/lib/config';
 import { logUnrecognised, loadForcedDate, loadOverrides, saveForcedDate, saveOverrides, type OverrideMap } from '@/lib/admin';
 import { rarestEntry } from '@/lib/prompts';
@@ -50,6 +50,8 @@ export interface ObscuraApi {
   skip: () => boolean;
   /** Called when the countdown reaches zero. Returns true if that closed the day. */
   expire: () => boolean;
+  /** The one guess at the photograph (empty text passes). Null if it is not allowed now. */
+  guess: (raw: string) => GuessRecord | null;
   markCelebrated: () => void;
   dismissHelp: () => void;
   admin: {
@@ -61,6 +63,8 @@ export interface ObscuraApi {
     resetGame: (dateKey: string) => void;
     /** Instantly play the whole day with the rarest or the most common answers. */
     autoplay: (mode: 'rarest' | 'common') => void;
+    /** Undo the final guess for the day being played, so it can be tried again. */
+    resetGuess: () => void;
   };
 }
 
@@ -169,6 +173,17 @@ export function useObscura(): ObscuraApi {
     return next !== before && isDone(next, d);
   }, [commit]);
 
+  const guess = useCallback(
+    (raw: string): GuessRecord | null => {
+      const d = dailyRef.current;
+      if (!d) return null;
+      const res = submitGuess(profileRef.current, d, raw);
+      if (res.guess) commit(res.profile);
+      return res.guess;
+    },
+    [commit],
+  );
+
   const markCelebrated = useCallback(() => {
     const d = dailyRef.current;
     if (!d) return;
@@ -234,6 +249,17 @@ export function useObscura(): ObscuraApi {
         delete history[key];
         commit({ ...cur, games, history });
       },
+      resetGuess: () => {
+        const d = dailyRef.current;
+        if (!d) return;
+        const cur = profileRef.current;
+        const g = cur.games[d.dateKey];
+        if (!g?.guess) return;
+        const { guess: _drop, ...rest } = g;
+        const h = cur.history[d.dateKey];
+        const history = h ? { ...cur.history, [d.dateKey]: { ...h, guess: undefined } } : cur.history;
+        commit({ ...cur, history, games: { ...cur.games, [d.dateKey]: rest } });
+      },
       autoplay: (mode) => {
         const d = dailyRef.current;
         if (!d) return;
@@ -252,5 +278,5 @@ export function useObscura(): ObscuraApi {
     [overrides, forcedDate, commit],
   );
 
-  return { ready, profile, today, dateKey, daily, game, stats, streak, view, setView, endless, openEndless, endlessDives, start, submit, skip, expire, markCelebrated, dismissHelp, admin };
+  return { ready, profile, today, dateKey, daily, game, stats, streak, view, setView, endless, openEndless, endlessDives, start, submit, skip, expire, guess, markCelebrated, dismissHelp, admin };
 }

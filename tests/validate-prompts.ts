@@ -42,6 +42,7 @@ async function main() {
       const mid = sc.filter((s) => s >= 18 && s < 38).length, rare = sc.filter((s) => s >= 38 && s < 92).length;
       if (n < 30) fail(id, `only ${n} answers (need 30+)`);
       if (lo < 3) fail(id, `needs 3+ everyday answers (score < 18), has ${lo}`);
+      if (lo > 8) fail(id, `at most 8 everyday answers (score < 18), has ${lo}: move the rest to Uncommon`);
       if (hi < 1 || hi > 2) fail(id, `needs 1 or 2 top-tier (Obscure, 100 pts) answers (score >= 92), has ${hi}`);
       if (mid < 5) fail(id, `needs 5+ answers scored 18-37, has ${mid}`);
       if (rare < (n < 80 ? 2 : 4)) fail(id, `needs ${n < 80 ? 2 : 4}+ answers scored 38-91, has ${rare}`);

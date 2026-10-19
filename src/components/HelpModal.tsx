@@ -5,29 +5,29 @@ import { TierChip } from './TierChip';
 export function HelpModal({ onClose }: { onClose: () => void }) {
   return (
     <Modal title="How to play" onClose={onClose} testId="help-modal">
-      <p className="font-display text-xl italic text-white">Name anything that fits. The rarer, the better.</p>
+      <p className="font-display text-3xl leading-tight text-mist-100">One photograph. Seven prompts. One guess.</p>
       <ul className="mt-4 space-y-4 text-sm leading-relaxed text-mist-300">
         <li>
-          <b className="text-white">{ROUNDS_PER_DAY} prompts a day.</b> Everyone gets the same ones, like “Name a cheese” or “Name a bird”. You have {ROUND_SECONDS} seconds for each.
+          <b className="font-medium text-mist-100">A photograph hangs in a dark room.</b> Everyone gets the same one each day, along with the same {ROUNDS_PER_DAY} prompts, like “Name a cheese” or “Name a bird”. You have {ROUND_SECONDS} seconds for each.
         </li>
         <li>
-          <b className="text-white">Type any answer.</b> The first answer we recognise ends the round, so choose with care. Spelling doesn’t need to be perfect.
+          <b className="font-medium text-mist-100">Name anything that fits.</b> The first answer we recognise ends the prompt. Spelling doesn’t need to be perfect, and answers we don’t recognise are free: keep trying until the clock runs out.
         </li>
         <li>
-          <b className="text-white">Not on our list?</b> Nothing is lost: keep trying until the clock runs out. You can also skip a round for no points.
+          <b className="font-medium text-mist-100">Rare answers let in more light.</b> Every answer has a rarity. The rarer it is, the more points it earns and the more of the photograph develops. Seven Obscure answers develop it fully.
         </li>
         <li>
-          <b className="text-white">Rarity is the reward.</b> Every answer has a rarity, shown as a colour: grey for the obvious, then yellow, blue, purple and orange for the answers few people would think of.
+          <b className="font-medium text-mist-100">Then, one guess.</b> Name what’s in the photograph: a place, a person or a thing. A right guess earns a bonus, and the less you could see, the bigger it is (about +80 at 25% developed, +30 at 80%).
         </li>
         <li>
-          <b className="text-white">Rise.</b> Your points for the day carry you up through one continuous world, from a microbe on the sea floor, through fish, a walk through the city, a bird, a helicopter, a plane and a rocket, to the solar system (a perfect 700). Come back tomorrow for seven new prompts and keep your streak.
+          <b className="font-medium text-mist-100">See every answer.</b> Afterwards the photograph is revealed, with every answer you could have given for each prompt. Come back tomorrow to keep your streak.
         </li>
       </ul>
       <div className="mt-5 grid grid-cols-2 gap-2" aria-label="Points per rarity">
-        {TIERS.map((t) => (
-          <div key={t.id} className="flex items-center justify-between gap-2 rounded-xl bg-white/4 px-3 py-2">
+        {[...TIERS].reverse().map((t) => (
+          <div key={t.id} className="flex items-center justify-between gap-2 rounded-md bg-white/4 px-3 py-2">
             <TierChip id={t.id} />
-            <span className="font-mono text-sm text-white">{t.points}</span>
+            <span className="font-mono text-sm text-mist-100">{t.points}</span>
           </div>
         ))}
       </div>

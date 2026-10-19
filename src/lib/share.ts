@@ -1,13 +1,17 @@
 import type { DailySet, GameState } from './types';
-import { STAGES } from '@/data/stages';
-import { MAX_POINTS, tierById } from './scoring';
+import { tierById } from './scoring';
+import { dayTotal } from './game';
 
-/** Spoiler-free: one coloured square per prompt showing how rare your answer was, never the answers. */
-export function buildShareText(game: GameState, daily: DailySet, streak: number): string {
+/** Spoiler-free: how developed the photograph was, whether the guess landed, one square per prompt. Never an answer. */
+export function buildShareText(game: GameState, daily: DailySet, streak: number, link = ''): string {
   const out = game.outcome!;
-  const row = out.tiers.map((t) => (t ? tierById(t).square : '⬛')).join(' ');
-  const lines = [`OBSCURA #${String(daily.number).padStart(3, '0')}`, '', row, '', `${out.points}/${MAX_POINTS} pts · ${STAGES[out.stage].emoji} ${STAGES[out.stage].name}`];
-  if (streak > 0) lines.push(`🔥 ${streak} day streak`);
+  const row = out.tiers.map((t) => (t ? tierById(t).square : '▫️')).join('');
+  const title = daily.endless ? `Obscura · Endless dive ${daily.endless}` : `Obscura No. ${daily.number}`;
+  const guess = game.guess;
+  const line = !guess ? `Photograph ${out.developed}% developed` : guess.correct ? `Named the photograph at ${guess.developed}% developed ✓` : `Photograph ${out.developed}% developed · guess missed`;
+  const lines = [title, line, row, `${dayTotal(game)} points`];
+  if (streak > 1 && !daily.endless) lines.push(`${streak} day streak`);
+  if (link) lines.push(link);
   return lines.join('\n');
 }
 

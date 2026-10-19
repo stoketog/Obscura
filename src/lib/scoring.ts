@@ -1,25 +1,25 @@
 import type { Tier, TierId } from './types';
-import { STAGES } from '@/data/stages';
 
 /**
  * SCORING
  * -------
- * Every answer carries an obscurity score (1–100). Its tier decides the
- * points, and the tiers are deliberately steep: an everyday answer is worth
- * 10, an Obscure one 100. Seven Obscure answers (700) is the theoretical ceiling.
- *
- * Five tiers: Everyday, Uncommon, Rare, Mythic and Obscure (there used to be a sixth, "Familiar").
+ * Every answer carries an obscurity score (1–100). Its tier decides the points, and the tiers are
+ * deliberately steep: an everyday answer is worth 10, an Obscure one 100. Seven Obscure answers (700)
+ * is the ceiling, and develops the day's photograph fully.
  *
  * Naming: the top tier (100 pts, at most two answers per prompt) is called "Obscure" and the one below
  * it (80 pts) "Mythic". The ids stay as they were (`mythic` = 100, `obscure` = 80) so saved games
  * and stats keep their meaning; only the labels the player sees are swapped.
+ *
+ * Colours run from dim to bright, like light coming into the chamber: the rarer the answer, the more
+ * light it lets in.
  */
 export const TIERS: Tier[] = [
-  { id: 'everyday', label: 'Everyday', min: 0, points: 10, color: '#9aa7b5', square: '⬜' },
-  { id: 'uncommon', label: 'Uncommon', min: 18, points: 30, color: '#facc15', square: '🟨' },
-  { id: 'rare', label: 'Rare', min: 38, points: 55, color: '#3b82f6', square: '🟦' },
-  { id: 'obscure', label: 'Mythic', min: 62, points: 80, color: '#a855f7', square: '🟪' },
-  { id: 'mythic', label: 'Obscure', min: 92, points: 100, color: '#fb923c', square: '🟧' },
+  { id: 'everyday', label: 'Everyday', min: 0, points: 10, color: '#5b5146', square: '⬛' },
+  { id: 'uncommon', label: 'Uncommon', min: 18, points: 30, color: '#857660', square: '⬜' },
+  { id: 'rare', label: 'Rare', min: 38, points: 55, color: '#b59a74', square: '🟫' },
+  { id: 'obscure', label: 'Mythic', min: 62, points: 80, color: '#d4904a', square: '🟧' },
+  { id: 'mythic', label: 'Obscure', min: 92, points: 100, color: '#f2c66d', square: '🟨' },
 ];
 
 export const ROUNDS_PER_DAY = 7;
@@ -42,18 +42,17 @@ export function pointsFor(score: number): number {
   return tierFor(score).points;
 }
 
-/** Highest stage whose threshold the day's points have reached. */
-export function stageIndexFor(points: number): number {
-  let idx = 0;
-  for (let i = 0; i < STAGES.length; i++) if (points >= STAGES[i].threshold) idx = i;
-  return idx;
+/** How much of the photograph a number of points develops, 0–100. */
+export function developedFor(points: number): number {
+  return Math.max(0, Math.min(100, Math.round((points / MAX_POINTS) * 100)));
 }
 
-/** 0–100 progress through the current stage towards the next. */
-export function stageProgress(points: number): number {
-  const idx = stageIndexFor(points);
-  if (idx >= STAGES.length - 1) return 100;
-  const start = STAGES[idx].threshold;
-  const end = STAGES[idx + 1].threshold;
-  return Math.round(((points - start) / (end - start)) * 100);
+/**
+ * The final guess: the less of the photograph you could see, the more a correct guess is worth.
+ * 100 points at 0%, falling in a straight line (about 80 at 25%, 55 at 54%, 30 at 80%), never below 10.
+ * Rounded to the nearest 5.
+ */
+export function guessBonusFor(developed: number): number {
+  const raw = 100 - 0.875 * Math.max(0, Math.min(100, developed));
+  return Math.max(10, Math.round(raw / 5) * 5);
 }

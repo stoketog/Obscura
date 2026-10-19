@@ -1,5 +1,6 @@
-import type { DailySet, Prompt, PromptGroup } from './types';
+import type { DailyImage, DailySet, Prompt, PromptGroup } from './types';
 import { getPrompts } from './prompts';
+import { IMAGES } from '@/data/images';
 import { puzzleNumberFor } from './dates';
 import { ROUNDS_PER_DAY } from './scoring';
 
@@ -113,6 +114,28 @@ export function pickPrompts(dateKey: string, pool: Prompt[] = getPrompts(), coun
   return out;
 }
 
+/**
+ * The day's photograph. The library is dealt in seeded shuffled passes (like the prompts), so every image is
+ * used once before any repeats, and a new pass never starts with an image from the end of the last one.
+ */
+export function imageForDay(day: number, library: DailyImage[] = IMAGES): DailyImage {
+  const n = library.length;
+  const d = Math.max(0, day);
+  const pass = Math.floor(d / n);
+  const order = shuffledOrder(n, 0x1a6e ^ hash(`images:${pass}`));
+  if (pass > 0) {
+    const prev = shuffledOrder(n, 0x1a6e ^ hash(`images:${pass - 1}`));
+    const guard = Math.min(10, Math.floor(n / 3));
+    const tail = new Set(prev.slice(-guard));
+    for (let i = 0; i < guard; i++) {
+      if (!tail.has(order[i])) continue;
+      const j = order.findIndex((v, k) => k >= guard && !tail.has(v));
+      if (j >= 0) [order[i], order[j]] = [order[j], order[i]];
+    }
+  }
+  return library[order[d % n]];
+}
+
 /** `overrides` maps a date to an explicit list of prompt ids (admin / editorial). */
 export function getDaily(dateKey: string, overrides?: Record<string, string[]>, pool: Prompt[] = getPrompts()): DailySet {
   const forced = overrides?.[dateKey];
@@ -122,7 +145,8 @@ export function getDaily(dateKey: string, overrides?: Record<string, string[]>, 
     const picked = forced.map((id, i) => byId.get(id) ?? prompts[i]).filter(Boolean) as Prompt[];
     if (picked.length === ROUNDS_PER_DAY) prompts = picked;
   }
-  return { dateKey, number: puzzleNumberFor(dateKey), prompts };
+  const number = puzzleNumberFor(dateKey);
+  return { dateKey, number, prompts, image: imageForDay(number - 1) };
 }
 
 /**
@@ -144,7 +168,8 @@ export function getEndlessDive(n: number, pool?: Prompt[]): DailySet {
     const used = new Set(getEndlessDive(k, pool).prompts.map((p) => p.id));
     source = source.filter((p) => !used.has(p.id));
   }
-  const set: DailySet = { dateKey: key, number: 0, endless: n, prompts: pickPrompts(key, source, ROUNDS_PER_DAY, 4000 + n * 37) };
+  // Endless dives take their photographs from the far end of the daily deal, so they rarely match a recent day.
+  const set: DailySet = { dateKey: key, number: 0, endless: n, prompts: pickPrompts(key, source, ROUNDS_PER_DAY, 4000 + n * 37), image: imageForDay(IMAGES.length * 3 - n) };
   if (!pool) dives.set(key, set);
   return set;
 }

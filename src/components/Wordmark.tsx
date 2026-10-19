@@ -9,12 +9,8 @@ function wavePath(): string {
 }
 const WAVE = wavePath();
 
-/**
- * The name, set wide and light, with a colour wave under it. The ink follows the
- * scenery behind it (see `.ambient` in the stylesheet): pale on dark water and space,
- * deep navy against a bright sky.
- */
-export function Wordmark({ className = '', wave = true }: { className?: string; wave?: boolean }) {
+/** The name, in the display serif, with a thin wave of light under it. */
+export function Wordmark({ className = '', wave = false }: { className?: string; wave?: boolean }) {
   const id = useId().replace(/[^a-zA-Z0-9_-]/g, '');
   return (
     <span className={`wordmark ${className}`}>
@@ -28,7 +24,7 @@ export function Wordmark({ className = '', wave = true }: { className?: string; 
               ))}
             </linearGradient>
           </defs>
-          <path d={WAVE} fill="none" stroke={`url(#${id})`} strokeWidth="2.2" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+          <path d={WAVE} fill="none" stroke={`url(#${id})`} strokeWidth="1.4" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
         </svg>
       )}
     </span>

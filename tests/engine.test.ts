@@ -1,13 +1,16 @@
 import assert from 'node:assert/strict';
 import { PROMPT_SEEDS } from '@/data/prompts';
-import { STAGES, altitudeFor, formatAltitude } from '@/data/stages';
+import { IMAGES, IMAGE_EDITORIAL } from '@/data/images';
+import CREDITS from '@/data/image-credits.json';
+import { existsSync } from 'node:fs';
 import { getPrompts, parseAnswer, rarestEntry } from '@/lib/prompts';
 import { matchAnswer } from '@/lib/match';
 import { normalize } from '@/lib/text';
-import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, stageIndexFor, tierFor, tierById, stageProgress } from '@/lib/scoring';
-import { getDaily, pickPrompts } from '@/lib/daily';
+import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, tierFor, tierById, developedFor, guessBonusFor } from '@/lib/scoring';
+import { matchGuess } from '@/lib/picture';
+import { getDaily, pickPrompts, imageForDay } from '@/lib/daily';
 import { addDays, puzzleNumberFor, EPOCH } from '@/lib/dates';
-import { currentRoundIndex, deriveStats, effectiveStreak, expireRound, freshGame, getGame, remainingMs, skipRound, startRound, submitAnswer } from '@/lib/game';
+import { currentRoundIndex, dayTotal, deriveStats, effectiveStreak, expireRound, freshGame, getGame, remainingMs, skipRound, startRound, submitAnswer, submitGuess } from '@/lib/game';
 import { emptyProfile } from '@/lib/storage';
 import { buildShareText } from '@/lib/share';
 import type { DailySet, PlayerProfile, Prompt } from '@/lib/types';
@@ -70,9 +73,16 @@ test('parseAnswer parses aliases and rejects junk', () => {
   assert.deepEqual(parseAnswer('Parmesan|5|a;b'), { name: 'Parmesan', score: 5, aliases: ['a', 'b'] });
   assert.throws(() => parseAnswer('NoScore'));
 });
-test('stages are ordered with increasing thresholds', () => {
-  for (let i = 1; i < STAGES.length; i++) assert.ok(STAGES[i].threshold > STAGES[i - 1].threshold, STAGES[i].id);
-  assert.equal(STAGES.length, 11);
+test('no prompt has more than eight everyday answers', () => {
+  for (const p of prompts) {
+    const n = p.entries.filter((e) => tierFor(e.score).id === 'everyday').length;
+    assert.ok(n <= 8, `${p.id} has ${n} everyday answers`);
+  }
+});
+test('most answers are uncommon or rarer', () => {
+  const all = prompts.flatMap((p) => p.entries);
+  const everyday = all.filter((e) => tierFor(e.score).id === 'everyday').length;
+  assert.ok(everyday / all.length < 0.1, `${everyday} of ${all.length} are everyday`);
 });
 
 console.log('Scoring');
@@ -96,38 +106,23 @@ test('tiers map scores to points steeply', () => {
   assert.equal(MAX_POINTS, 700);
   for (let i = 1; i < TIERS.length; i++) assert.ok(TIERS[i].points > TIERS[i - 1].points);
 });
-test('stage thresholds: microbe at 0, a form every 40–90 points, the solar system only for a perfect 700', () => {
-  assert.equal(stageIndexFor(0), 0);
-  assert.equal(stageIndexFor(39), 0);
-  assert.equal(stageIndexFor(40), 1);
-  assert.equal(stageIndexFor(189), 3); // human
-  assert.equal(stageIndexFor(190), 4); // bird at 190
-  assert.equal(stageIndexFor(280), 5); // helicopter at 280
-  assert.equal(STAGES[stageIndexFor(699)].id, 'astronaut');
-  assert.equal(stageIndexFor(700), STAGES.length - 1);
-  assert.equal(STAGES[STAGES.length - 1].id, 'solar');
-  assert.equal(stageProgress(700), 100);
-  assert.ok(stageProgress(45) > 0 && stageProgress(45) < 100);
-  for (let i = 1; i < STAGES.length; i++) assert.ok(STAGES[i].threshold > STAGES[i - 1].threshold && STAGES[i].altitude > STAGES[i - 1].altitude);
+test('the photograph develops in step with the points, and the guess bonus shrinks as it does', () => {
+  assert.equal(developedFor(0), 0);
+  assert.equal(developedFor(MAX_POINTS), 100);
+  assert.equal(developedFor(380), 54);
+  assert.equal(guessBonusFor(0), 100);
+  assert.equal(guessBonusFor(25), 80);
+  assert.equal(guessBonusFor(54), 55);
+  assert.equal(guessBonusFor(80), 30);
+  assert.equal(guessBonusFor(100), 10);
+  for (let d = 1; d <= 100; d++) assert.ok(guessBonusFor(d) <= guessBonusFor(d - 1));
 });
-test('altitude climbs monotonically with points and reads sensibly', () => {
-  let prev = -Infinity;
-  for (let p = 0; p <= 700; p += 5) {
-    const a = altitudeFor(p);
-    assert.ok(a >= prev, `altitude dropped at ${p}`);
-    prev = a;
-  }
-  assert.equal(formatAltitude(altitudeFor(0)), '−4,000 m');
-  assert.equal(formatAltitude(0), 'Sea level');
-  assert.equal(formatAltitude(10700), '10.7 km');
-  assert.ok(formatAltitude(altitudeFor(700)).endsWith('billion km'));
-});
-test('every rarity tier has its own colour and square (grey, yellow, blue, purple, orange)', () => {
+test('every rarity tier has its own colour and square, dim to bright', () => {
   assert.equal(new Set(TIERS.map((t) => t.color)).size, TIERS.length);
   assert.equal(new Set(TIERS.map((t) => t.square)).size, TIERS.length);
-  assert.deepEqual(TIERS.map((t) => t.square), ['⬜', '🟨', '🟦', '🟪', '🟧']);
   for (const t of TIERS) assert.match(t.color, /^#[0-9a-f]{6}$/i, t.id);
-  assert.equal(tierById('rare').square, '🟦');
+  const lum = (h: string) => [1, 3, 5].reduce((s, i) => s + parseInt(h.slice(i, i + 2), 16), 0);
+  for (let i = 1; i < TIERS.length; i++) assert.ok(lum(TIERS[i].color) > lum(TIERS[i - 1].color), TIERS[i].id);
 });
 
 console.log('Answer matching');
@@ -306,21 +301,33 @@ test('finishing all seven rounds closes the day, records history and starts a st
   assert.equal(prof.currentStreak, 1);
   assert.equal(prof.history[daily.dateKey].points, g.points);
   assert.ok(g.points > 400, `rarest answers should score big, got ${g.points}`);
-  assert.ok(g.outcome!.stage >= 9);
+  assert.equal(g.outcome!.developed, developedFor(g.points));
 });
-test('everyday answers give a small form; rarest answers give a large one', () => {
+test('everyday answers develop little of the photograph; rare ones develop most of it', () => {
   const low = getGame(playAll(emptyProfile(), worst), daily);
   const high = getGame(playAll(emptyProfile(), best), daily);
   assert.ok(low.points <= 70, `low=${low.points}`);
-  assert.ok(low.outcome!.stage <= 3);
-  assert.ok(high.points > low.points * 5);
-  assert.ok(high.outcome!.stage > low.outcome!.stage + 4);
+  assert.ok(low.outcome!.developed <= 10);
+  assert.ok(high.outcome!.developed > 60);
   assert.ok(high.points <= MAX_POINTS);
 });
-test('the final evolution starts from the form before the last round', () => {
-  const g = getGame(playAll(emptyProfile(), best), daily);
-  const o = g.outcome!;
-  assert.ok(o.stageBeforeFinal <= o.stage);
+test('one guess at the photograph, only once the day is over; the bonus depends on how developed it was', () => {
+  const done = playAll(emptyProfile(), best);
+  const early = submitGuess(startRound(emptyProfile(), daily, T0), daily, daily.image.answer);
+  assert.equal(early.guess, null, 'no guessing mid-day');
+  const right = submitGuess(done, daily, `the ${daily.image.answer.toUpperCase()}`);
+  assert.ok(right.guess?.correct);
+  const g = getGame(right.profile, daily);
+  assert.equal(right.guess!.bonus, guessBonusFor(g.outcome!.developed));
+  assert.equal(dayTotal(g), g.points + right.guess!.bonus);
+  assert.equal(right.profile.history[daily.dateKey].guess?.bonus, right.guess!.bonus);
+  assert.equal(submitGuess(right.profile, daily, 'again').guess, null, 'only one guess');
+  const wrong = submitGuess(done, daily, 'definitely not it');
+  assert.equal(wrong.guess?.correct, false);
+  assert.equal(wrong.guess?.bonus, 0);
+  const pass = submitGuess(done, daily, '  ');
+  assert.equal(pass.guess?.correct, false);
+  assert.equal(pass.guess?.text, '');
 });
 test('a finished day cannot be replayed', () => {
   const prof = playAll(emptyProfile(), best);
@@ -357,17 +364,48 @@ test('stats summarise history', () => {
   assert.ok(s.rarest && s.rarest.score >= 85);
   assert.equal(Object.values(s.tierCounts).reduce((a, b) => a + b, 0), 7);
 });
-test('share text is spoiler-free: no answers, one coloured square per round', () => {
-  const prof = playAll(emptyProfile(), best);
+test('share text is spoiler-free: no answers, no photograph name, one square per round', () => {
+  const prof = submitGuess(playAll(emptyProfile(), best), daily, daily.image.answer).profile;
   const g = getGame(prof, daily);
-  const text = buildShareText(g, daily, prof.currentStreak);
-  assert.ok(text.startsWith('OBSCURA #004'));
-  assert.ok(text.includes(`${g.points}/700 pts`));
-  assert.ok(text.includes('🔥 1 day streak'));
+  const text = buildShareText(g, daily, prof.currentStreak, 'obscura.example');
+  assert.ok(text.startsWith(`Obscura No. ${daily.number}`));
+  assert.ok(text.includes(`${dayTotal(g)} points`));
+  assert.ok(text.includes('✓'));
+  assert.ok(text.endsWith('obscura.example'));
+  for (const name of [daily.image.answer, ...daily.image.aliases]) assert.ok(!text.toLowerCase().includes(name.toLowerCase()), `leaks ${name}`);
   for (const p of daily.prompts) for (const e of p.entries.slice(0, 100)) assert.ok(!text.toLowerCase().includes(e.name.toLowerCase()) || e.name.length < 4, `leaks ${e.name}`);
-  const row = text.split('\n')[2].split(' ');
+  const row = [...text.split('\n')[2]].filter((c) => c.trim() && c !== '\ufe0f');
   assert.equal(row.length, 7);
-  for (const sq of row) assert.ok(TIERS.some((t) => t.square === sq), `unexpected ${sq}`);
+});
+
+console.log('Photographs');
+test('every photograph in use has an approved licence, a file and a credit', () => {
+  assert.ok(IMAGES.length >= 20, `only ${IMAGES.length} photographs`);
+  const credits = CREDITS as Record<string, { license: string; source: string; author: string; file: string }>;
+  for (const img of IMAGES) {
+    const c = credits[img.id];
+    assert.ok(c.license === 'CC0' || c.license === 'Public domain', `${img.id}: ${c.license}`);
+    assert.ok(/^https:\/\/commons\.wikimedia\.org\//.test(c.source), `${img.id}: source`);
+    assert.ok(c.author, `${img.id}: author`);
+    assert.ok(existsSync(`public/daily/${c.file}`), `${img.id}: missing file`);
+    assert.ok(!c.file.includes(img.id), `${img.id}: file name gives the answer away`);
+  }
+  for (const id of Object.keys(credits)) assert.ok(IMAGE_EDITORIAL.some((e) => e.id === id), `credit for unknown image ${id}`);
+});
+const asImage = (e: (typeof IMAGE_EDITORIAL)[number]) => ({ ...e, src: '', width: 1, height: 1, credit: { author: '', license: '', source: '' } });
+test('every photograph accepts its own name and aliases, forgivingly, and refuses generic words', () => {
+  for (const e of IMAGE_EDITORIAL) for (const n of [e.answer, ...e.aliases]) assert.ok(matchGuess(asImage(e), n), `${e.id}: ${n}`);
+  const img = asImage(IMAGE_EDITORIAL.find((i) => i.id === 'colosseum')!);
+  assert.ok(matchGuess(img, 'colloseum'));
+  assert.ok(matchGuess(img, 'The Colosseum in Rome'));
+  assert.ok(!matchGuess(img, 'amphitheatre'));
+  assert.ok(!matchGuess(img, ''));
+});
+test('photographs are dealt without repeats until the library is used up', () => {
+  const n = IMAGES.length;
+  const seen = new Set(Array.from({ length: n }, (_, d) => imageForDay(d).id));
+  assert.equal(seen.size, n);
+  for (let d = 0; d < n * 3; d++) assert.notEqual(imageForDay(d).id, imageForDay(d + 1).id);
 });
 
 console.log(`\n${passed} tests passed${process.exitCode ? ' — with failures' : ''}`);

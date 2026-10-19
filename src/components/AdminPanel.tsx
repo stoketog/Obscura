@@ -2,57 +2,30 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
-import { STAGES } from '@/data/stages';
+import { IMAGES } from '@/data/images';
+import { chamberFilter, chamberScale, matchGuess } from '@/lib/picture';
+import { guessBonusFor } from '@/lib/scoring';
 import { addDays } from '@/lib/dates';
 import { getPrompts, rarestEntry } from '@/lib/prompts';
 import { matchAnswer } from '@/lib/match';
 import { pointsFor, tierFor } from '@/lib/scoring';
 import { loadUnrecognised } from '@/lib/admin';
 import { Modal } from './Modal';
-import { StageIcon } from './StageIcon';
-import { useWorld } from './WorldContext';
 
-type Tab = 'day' | 'test' | 'player' | 'gallery';
+type Tab = 'day' | 'test' | 'player' | 'photos';
 
 const field = 'w-full rounded-lg border border-white/12 bg-black/30 px-3 py-2 text-sm text-white outline-none focus:border-bio-400';
 const label = 'mb-1 block text-[0.65rem] font-semibold uppercase tracking-widest text-mist-500';
 
 export default function AdminPanel({ api, onClose }: { api: ObscuraApi; onClose: () => void }) {
   const [tab, setTab] = useState<Tab>('day');
-  const [preview, setPreview] = useState(0);
   const { admin, dateKey } = api;
-  const world = useWorld();
-  const timer = useRef(0);
-
-  // The gallery flies the real world to each stage, so the panel steps aside to let you see it.
-  const show = (i: number) => {
-    window.clearTimeout(timer.current);
-    setPreview(i);
-    world.setOverride(STAGES[i].threshold);
-  };
-  const ascend = () => {
-    window.clearTimeout(timer.current);
-    world.setOverride(STAGES[preview - 1].threshold);
-    timer.current = window.setTimeout(() => world.setOverride(STAGES[preview].threshold), 900);
-  };
-  useEffect(() => {
-    if (tab !== 'gallery') world.setOverride(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab]);
-  useEffect(
-    () => () => {
-      window.clearTimeout(timer.current);
-      world.setOverride(null);
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
 
   return (
-    <Modal title="Admin · developer tools" onClose={onClose} testId="admin-panel" peek={tab === 'gallery'}>
+    <Modal title="Admin · developer tools" onClose={onClose} testId="admin-panel">
       <div className="mb-4 flex gap-1 rounded-xl bg-white/5 p-1 text-xs font-semibold uppercase tracking-wider">
-        {(['day', 'test', 'player', 'gallery'] as Tab[]).map((t) => (
-          <button key={t} className={`flex-1 rounded-lg px-2 py-2 ${tab === t ? 'bg-bio-500 text-[#02211d]' : 'text-mist-300'}`} onClick={() => setTab(t)} data-testid={`admin-tab-${t}`}>
+        {(['day', 'test', 'player', 'photos'] as Tab[]).map((t) => (
+          <button key={t} className={`flex-1 rounded-lg px-2 py-2 ${tab === t ? 'bg-bio-400 text-[#1a120a]' : 'text-mist-300'}`} onClick={() => setTab(t)} data-testid={`admin-tab-${t}`}>
             {t}
           </button>
         ))}
@@ -71,24 +44,7 @@ export default function AdminPanel({ api, onClose }: { api: ObscuraApi; onClose:
       {tab === 'day' && api.daily && <DayTab api={api} />}
       {tab === 'test' && <TestTab api={api} />}
       {tab === 'player' && <PlayerTab api={api} onClose={onClose} />}
-      {tab === 'gallery' && (
-        <div>
-          <p className="mb-2 text-xs text-mist-500" data-testid="gallery-current">
-            Showing <b className="text-white">{STAGES[preview].name}</b> in the live world.
-          </p>
-          <div className="grid grid-cols-6 gap-2">
-            {STAGES.map((st, i) => (
-              <button key={st.id} className={`rounded-xl p-2 text-center ${i === preview ? 'bg-bio-500/20 ring-1 ring-bio-400/60' : 'bg-white/5'}`} onClick={() => show(i)} title={`Preview ${st.name}`} data-testid={`gallery-${st.id}`}>
-                <StageIcon stage={i} size={26} />
-                <span className="mt-1 block truncate text-[0.58rem] text-mist-300">{st.name}</span>
-              </button>
-            ))}
-          </div>
-          <button className="btn-ghost mt-3 !min-h-9" onClick={ascend} disabled={preview === 0} data-testid="gallery-ascent">
-            Preview the climb into {STAGES[preview].name}
-          </button>
-        </div>
-      )}
+      {tab === 'photos' && <PhotosTab api={api} />}
     </Modal>
   );
 }
@@ -198,6 +154,52 @@ function PlayerTab({ api, onClose }: { api: ObscuraApi; onClose: () => void }) {
       </div>
       <button className="btn-ghost w-full" onClick={() => admin.resetGame(dateKey)} data-testid="admin-reset-game">Reset this date’s game</button>
       <button className="btn-ghost w-full !border-coral-glow/40 !text-coral-glow" onClick={() => { admin.resetProfile(); onClose(); }} data-testid="admin-reset-all">Reset all progression</button>
+    </div>
+  );
+}
+
+/** Every photograph in the library: preview it at any stage of development, check its credit and test guesses. */
+function PhotosTab({ api }: { api: ObscuraApi }) {
+  const [id, setId] = useState(api.daily?.image.id ?? IMAGES[0]?.id);
+  const [pct, setPct] = useState(api.game?.outcome?.developed ?? 30);
+  const [guess, setGuess] = useState('');
+  const img = IMAGES.find((i) => i.id === id) ?? IMAGES[0];
+  if (!img) return <p className="text-sm text-mist-500">No photographs in the library yet.</p>;
+  const ok = guess.trim() ? matchGuess(img, guess) : null;
+  return (
+    <div className="space-y-3" data-testid="admin-photos">
+      <p className="text-xs text-mist-500">
+        {IMAGES.length} photographs. Today’s is <b className="text-mist-100">{api.daily?.image.answer}</b>.
+      </p>
+      <select className={field} value={img.id} onChange={(e) => setId(e.target.value)} data-testid="admin-photo">
+        {IMAGES.map((i) => (
+          <option key={i.id} value={i.id}>
+            {i.answer} ({i.kind})
+          </option>
+        ))}
+      </select>
+      <div className="projection" style={{ aspectRatio: '16 / 10' }}>
+        <img src={img.src} alt={img.answer} style={{ filter: chamberFilter(pct), transform: `scale(${chamberScale(pct)})` }} />
+      </div>
+      <label className={label}>
+        Developed: {pct}% · a right guess would earn +{guessBonusFor(pct)}
+      </label>
+      <input type="range" min={0} max={100} value={pct} onChange={(e) => setPct(Number(e.target.value))} className="range w-full" style={{ ['--fill' as string]: `${pct}%` }} data-testid="admin-photo-pct" />
+      <p className="text-xs text-mist-300">{img.blurb}</p>
+      <p className="text-[0.7rem] text-mist-500">
+        {img.credit.author} · {img.credit.license} ·{' '}
+        <a className="underline" href={img.credit.source} target="_blank" rel="noopener noreferrer">
+          Commons record
+        </a>
+      </p>
+      <p className="text-[0.7rem] text-mist-500">Accepted: {[img.answer, ...img.aliases].join(' · ')}</p>
+      <input className={field} placeholder="Test a guess" value={guess} onChange={(e) => setGuess(e.target.value)} data-testid="admin-photo-guess" />
+      {ok !== null && <p className={`text-sm ${ok ? 'text-bio-300' : 'err-text'}`}>{ok ? 'Accepted' : 'Not accepted'}</p>}
+      {api.game?.guess && (
+        <button className="btn-ghost w-full !min-h-9" onClick={api.admin.resetGuess} data-testid="admin-reset-guess">
+          Undo today’s guess
+        </button>
+      )}
     </div>
   );
 }

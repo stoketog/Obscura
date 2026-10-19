@@ -78,9 +78,12 @@ writeFileSync(
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#030b14" />
+<meta name="theme-color" content="#0d0b09" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" />
 <title>Obscura — How obscure can you get?</title>
-<meta name="description" content="One mystery. One day. One chance to evolve. A daily guessing game about the obscure." />
+<meta name="description" content="One photograph. Seven prompts. One guess. A daily game about the obscure: rare answers let light into a dark room." />
 <link rel="icon" href="/icon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="/styles.css" />
 </head>

@@ -1,7 +1,7 @@
 import { useId } from 'react';
 
-/** The colour waves: cool at the surface, warming as they get rarer (the same road the rarity colours take). */
-export const WAVE_COLORS = ['#22d3ee', '#3b9cf5', '#5b7cf7', '#8b5cf6', '#d05ad0', '#fb923c'];
+/** The bands of light: dim near the top of the chamber, brightening as they fall (the same road the rarity colours take). */
+export const WAVE_COLORS = ['#3a2f25', '#5b4a38', '#86694a', '#b38653', '#d9a45c', '#f2c66d'];
 
 /** One flowing ribbon, as an SVG path, between two sine curves `thick` apart. */
 function ribbon(base: number, amp: number, len: number, phase: number, thick: number): string {
@@ -16,9 +16,8 @@ function ribbon(base: number, amp: number, len: number, phase: number, thick: nu
 const RIBBONS = WAVE_COLORS.map((_, i) => ribbon(40 + i * 13.5, 5 + i * 0.7, 78 + i * 7, 0.5 + i * 0.85, 11));
 
 /**
- * The Obscura emblem: colour waves flowing through a round aperture, with a
- * single pinhole of light above them (a camera obscura). Cool and calm at the
- * top, warmer and rarer as the waves fall away.
+ * The Obscura emblem: a round aperture (the lens of a camera obscura) with a single pinhole of light,
+ * and bands of light falling through the dark: dim at the top, warm and bright as they fall away.
  */
 export function Emblem({ size = 96, className = '', title }: { size?: number; className?: string; title?: string }) {
   const id = useId().replace(/[^a-zA-Z0-9_-]/g, '');
@@ -26,13 +25,13 @@ export function Emblem({ size = 96, className = '', title }: { size?: number; cl
     <svg width={size} height={size} viewBox="0 0 128 128" className={className} role={title ? 'img' : undefined} aria-label={title} aria-hidden={title ? undefined : true}>
       <defs>
         <linearGradient id={`${id}bg`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#101a3d" />
-          <stop offset="1" stopColor="#05070f" />
+          <stop offset="0" stopColor="#1e1914" />
+          <stop offset="1" stopColor="#080706" />
         </linearGradient>
         <linearGradient id={`${id}ring`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#22d3ee" />
-          <stop offset="0.5" stopColor="#8b5cf6" />
-          <stop offset="1" stopColor="#fb923c" />
+          <stop offset="0" stopColor="#6b5a46" />
+          <stop offset="0.5" stopColor="#b38653" />
+          <stop offset="1" stopColor="#f2c66d" />
         </linearGradient>
         {WAVE_COLORS.map((c, i) => (
           <linearGradient key={c} id={`${id}w${i}`} x1="0" y1="0" x2="1" y2="0">
@@ -42,8 +41,8 @@ export function Emblem({ size = 96, className = '', title }: { size?: number; cl
         ))}
         <radialGradient id={`${id}pin`}>
           <stop offset="0" stopColor="#ffffff" stopOpacity="0.95" />
-          <stop offset="0.35" stopColor="#cfe9ff" stopOpacity="0.4" />
-          <stop offset="1" stopColor="#cfe9ff" stopOpacity="0" />
+          <stop offset="0.35" stopColor="#ffe2a8" stopOpacity="0.45" />
+          <stop offset="1" stopColor="#ffe2a8" stopOpacity="0" />
         </radialGradient>
         <clipPath id={`${id}c`}>
           <circle cx="64" cy="64" r="56" />
