@@ -3,7 +3,7 @@ import type { PromptSeed } from '@/lib/types';
 /**
  * Answer format: 'Name|score' or 'Name|score|alias;alias'.
  * score = how rarely players would think of it, 1 (everyone) … 100 (almost nobody).
- * Tiers: <20 Everyday · 20–39 Familiar · 40–59 Uncommon · 60–79 Rare · 80–94 Obscure · 95+ Mythic.
+ * Tiers: <15 Everyday · 15–31 Familiar · 32–49 Uncommon · 50–71 Rare · 72–91 Mythic · 92+ Obscure (100 pts: exactly two answers per prompt).
  */
 export const FOOD: PromptSeed[] = [
   {
@@ -37,7 +37,7 @@ export const FOOD: PromptSeed[] = [
       'Paccheri|58', 'Trenette|60', 'Campanelle|62', 'Agnolotti|62', 'Casarecce|64', 'Cappelletti|66', 'Cavatelli|66', 'Spaghettoni|68', 'Lumache|68',
       'Strozzapreti|70', 'Stelline|70', 'Trofie|72', 'Maltagliati|72', 'Anelli|72', 'Garganelli|74', 'Pici|74', 'Bigoli|74', 'Mafalde|76',
       'Sedanini|76', 'Fregola|78', 'Mezzelune|80', 'Tonnarelli|82', 'Busiate|84', 'Mezze maniche|88', 'Tripoline|88', 'Scialatielli|90',
-      'Malloreddus|90', 'Corzetti|92', 'Culurgiones|95', 'Su filindeu|99',
+      'Malloreddus|90', 'Corzetti|91', 'Culurgiones|95', 'Su filindeu|99',
     ],
   },
   {

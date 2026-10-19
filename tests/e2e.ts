@@ -248,7 +248,7 @@ async function main() {
       }
       await rows.nth(0).locator('[data-testid=toggle-all-answers]').click();
       eq(await rows.nth(0).locator('[data-testid=all-answer]').count(), daily.prompts[0].entries.length, 'every accepted answer is listed');
-      ok((await rows.nth(0).textContent())!.includes('Mythic'), 'grouped by rarity');
+      ok((await rows.nth(0).textContent())!.includes('Obscure') && (await rows.nth(0).textContent())!.includes('Mythic'), 'grouped by rarity, Obscure (100) on top');
       await rows.nth(0).locator('[data-testid=toggle-all-answers]').click();
       await q(p, 'ascent-overlay').waitFor({ timeout: 6000 });
       await q(p, 'ascent-place').waitFor(); await noHScroll(p, 'ascent');

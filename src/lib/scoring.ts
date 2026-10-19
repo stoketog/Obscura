@@ -6,15 +6,19 @@ import { STAGES } from '@/data/stages';
  * -------
  * Every answer carries an obscurity score (1–100). Its tier decides the
  * points, and the tiers are deliberately steep: an everyday answer is worth
- * 10, a mythic one 100. Seven mythic answers (700) is the theoretical ceiling.
+ * 10, an Obscure one 100. Seven Obscure answers (700) is the theoretical ceiling.
+ *
+ * Naming: the top tier (100 pts, at most two answers per prompt) is called "Obscure" and the one below
+ * it (80 pts) "Mythic". The ids stay as they were (`mythic` = 100, `obscure` = 80) so saved games
+ * and stats keep their meaning; only the labels the player sees are swapped.
  */
 export const TIERS: Tier[] = [
   { id: 'everyday', label: 'Everyday', min: 0, points: 10, color: '#9aa7b5', square: '⬜' },
   { id: 'familiar', label: 'Familiar', min: 15, points: 20, color: '#4ade80', square: '🟩' },
   { id: 'uncommon', label: 'Uncommon', min: 32, points: 35, color: '#facc15', square: '🟨' },
   { id: 'rare', label: 'Rare', min: 50, points: 55, color: '#3b82f6', square: '🟦' },
-  { id: 'obscure', label: 'Obscure', min: 72, points: 80, color: '#a855f7', square: '🟪' },
-  { id: 'mythic', label: 'Mythic', min: 92, points: 100, color: '#fb923c', square: '🟧' },
+  { id: 'obscure', label: 'Mythic', min: 72, points: 80, color: '#a855f7', square: '🟪' },
+  { id: 'mythic', label: 'Obscure', min: 92, points: 100, color: '#fb923c', square: '🟧' },
 ];
 
 export const ROUNDS_PER_DAY = 7;

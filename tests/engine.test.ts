@@ -31,6 +31,12 @@ test('every prompt has plenty of answers with valid scores', () => {
     for (const e of p.entries) assert.ok(e.score >= 1 && e.score <= 100, `${p.id}/${e.name} score ${e.score}`);
   }
 });
+test('at most two answers per prompt are worth the top 100 points (and at least one)', () => {
+  for (const p of prompts) {
+    const n = p.entries.filter((e) => pointsFor(e.score) === 100).length;
+    assert.ok(n >= 1 && n <= 2, `${p.id} has ${n} top-tier answers`);
+  }
+});
 test('every prompt spans easy to hard (a common answer and an obscure one)', () => {
   for (const p of prompts) {
     const scores = p.entries.map((e) => e.score);
@@ -78,6 +84,9 @@ test('tiers map scores to points steeply', () => {
   assert.equal(tierFor(50).id, 'rare');
   assert.equal(tierFor(72).id, 'obscure');
   assert.equal(tierFor(92).id, 'mythic');
+  // players see the top (100 pt) tier as "Obscure" and the one below it (80 pt) as "Mythic"
+  assert.equal(tierFor(95).label, 'Obscure');
+  assert.equal(tierFor(80).label, 'Mythic');
   assert.equal(pointsFor(3), 10);
   assert.equal(pointsFor(99), 100);
   assert.equal(MAX_POINTS, 700);

@@ -14,7 +14,7 @@ export const ANIMALS: PromptSeed[] = [
       'Walrus|18', 'Lemur|20', 'Wombat|20', 'Capybara|22', 'Narwhal|22', 'Manatee|22', 'Mongoose|22', 'Lynx|22', 'Aardvark|24', 'Wolverine|26',
       'Tapir|28', 'Pangolin|30', 'Okapi|32', 'Ocelot|34', 'Stoat|34', 'Tarsier|44', 'Polecat|44', 'Serval|40', 'Dugong|40', 'Caracal|46', 'Quokka|50',
       'Aye-aye|56|aye aye', 'Fossa|62', 'Pika|62', 'Hyrax|62', 'Binturong|70', 'Numbat|66', 'Quoll|68', 'Bilby|66', 'Saiga|70', 'Solenodon|88',
-      'Tenrec|84', 'Colugo|88', 'Saola|92', 'Desman|95', 'Tuco-tuco|94', 'Dibatag|97',
+      'Tenrec|84', 'Colugo|88', 'Saola|91', 'Desman|95', 'Tuco-tuco|91', 'Dibatag|97',
     ],
   },
   {
@@ -32,7 +32,7 @@ export const ANIMALS: PromptSeed[] = [
       'Rhea|48', 'Coot|48', 'Booby|50', 'Spoonbill|50', 'Lapwing|50', 'Plover|50', 'Lyrebird|52', 'Nuthatch|52', 'Sandpiper|54', 'Curlew|54', 'Oystercatcher|64',
       'Harrier|56', 'Ptarmigan|56', 'Kea|56', 'Oriole|56', 'Grebe|56', 'Snipe|58', 'Hoopoe|58', 'Bowerbird|58', 'Quetzal|58', 'Bee-eater|62', 'Skua|62',
       'Shoebill|64', 'Waxwing|66', 'Bittern|66', 'Tanager|66', 'Secretarybird|70', 'Avocet|70', 'Dipper|72', 'Shrike|72', 'Frigatebird|72', 'Takahe|74',
-      'Roller|78', 'Weka|76', 'Tropicbird|80', 'Hoatzin|82', 'Trogon|82', 'Motmot|84', 'Potoo|88', 'Tinamou|90', 'Oilbird|92', 'Seriema|92', 'Sunbittern|95',
+      'Roller|78', 'Weka|76', 'Tropicbird|80', 'Hoatzin|82', 'Trogon|82', 'Motmot|84', 'Potoo|88', 'Tinamou|90', 'Oilbird|91', 'Seriema|91', 'Sunbittern|95',
       'Kagu|97',
     ],
   },
@@ -70,8 +70,8 @@ export const ANIMALS: PromptSeed[] = [
       'Trapdoor spider|56', 'Harvestman|56', 'Hawk moth|56', 'Luna moth|56', 'Camel spider|60', 'Sphinx moth|60', 'Brimstone|60', 'Assassin bug|62',
       'Atlas moth|62', 'Orange tip|62', 'Sawfly|66', 'Leafhopper|66', 'Treehopper|70', 'Whip scorpion|70', 'Velvet ant|72', 'Antlion|74', 'Backswimmer|74',
       'Planthopper|76', 'Springtail|78', 'Ichneumon wasp|80', 'Owl butterfly|80', 'Vinegaroon|80', 'Scorpionfly|82', 'Dobsonfly|82', 'Pseudoscorpion|82',
-      'Solifuge|86', 'Whirligig beetle|82', 'Horntail|88', 'Bristletail|88', 'Snakefly|90', 'Mantisfly|90', 'Alderfly|90', 'Embiopteran|96|webspinner',
-      'Proturan|97', 'Strepsiptera|98|twisted-wing parasite', 'Zorapteran|99|zoraptera;angel insect',
+      'Solifuge|86', 'Whirligig beetle|82', 'Horntail|88', 'Bristletail|88', 'Snakefly|90', 'Mantisfly|90', 'Alderfly|90', 'Embiopteran|91|webspinner',
+      'Proturan|91', 'Strepsiptera|98|twisted-wing parasite', 'Zorapteran|99|zoraptera;angel insect',
     ],
   },
   {
@@ -125,7 +125,7 @@ export const ANIMALS: PromptSeed[] = [
       'Lhasa apso|36', 'Great Pyrenees|36', 'Rhodesian ridgeback|36', 'Bullmastiff|38', 'Borzoi|40', 'Papillon|40', 'Airedale|40', 'Havanese|40', 'Belgian malinois|40',
       'Chinese crested|46', 'Basenji|52', 'Foxhound|52', 'Saluki|56', 'Kelpie|56', 'Norwegian elkhound|66', 'Tibetan mastiff|62', 'Komondor|62', 'Leonberger|62',
       'Keeshond|74', 'Puli|76', 'Lagotto Romagnolo|78', 'Otterhound|80', 'Xoloitzcuintli|82|xolo', 'Bergamasco|84', 'Kuvasz|86', 'Sloughi|88', 'Thai ridgeback|88',
-      'Azawakh|90', 'Berger Picard|90', 'Finnish spitz|90', 'Kooikerhondje|94', 'Mudi|95', 'Norrbottenspets|96',
+      'Azawakh|90', 'Berger Picard|90', 'Finnish spitz|90', 'Kooikerhondje|91', 'Mudi|95', 'Norrbottenspets|96',
     ],
   },
 ];

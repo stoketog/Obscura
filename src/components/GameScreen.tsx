@@ -319,8 +319,8 @@ const TIER_LINE: Record<string, string> = {
   familiar: 'A familiar find.',
   uncommon: 'Not everyone would think of that.',
   rare: 'Rare. Few people would name it.',
-  obscure: 'A deep cut. Very few would name it.',
-  mythic: 'Mythic. One of the rarest answers there is.',
+  obscure: 'Mythic. A deep cut. Very few would name it.',
+  mythic: 'Obscure. One of the rarest answers there is.',
 };
 
 function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: number; done: boolean; onContinue: () => void }) {

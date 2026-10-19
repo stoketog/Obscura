@@ -36,10 +36,10 @@ npm run test:e2e              # Playwright suite (needs both builds, see tests/e
 | `app/` | Next.js App Router entry (`layout.tsx`, `page.tsx`, `globals.css`) |
 
 ### How scoring works
-Every answer has a rarity from 1 (everyone says it) to 100 (almost nobody does). Tiers (each has a colour, shown as a small dot): Everyday 10 pts (grey), Familiar 20 (green), Uncommon 35 (yellow), Rare 55 (blue), Obscure 80 (purple), Mythic 100 (orange). The share text uses the matching coloured squares. Seven mythic answers (700) is the ceiling. The first recognised answer ends a round (the results screen then shows the best possible answers for every prompt); an unrecognised answer is free (the clock just keeps running); running out of time or skipping scores 0.
+Every answer has a rarity from 1 (everyone says it) to 100 (almost nobody does). Tiers (each has a colour, shown as a small dot): Everyday 10 pts (grey), Familiar 20 (green), Uncommon 35 (yellow), Rare 55 (blue), Mythic 80 (purple), Obscure 100 (orange; at most two answers per prompt). The share text uses the matching coloured squares. Seven Obscure answers (700) is the ceiling. The first recognised answer ends a round (the results screen then shows the best possible answers for every prompt); an unrecognised answer is free (the clock just keeps running); running out of time or skipping scores 0.
 
 ### Adding prompts
-Add a `PromptSeed` to a file in `src/data/prompts/` (or create a new file and list it in `index.ts`). Give it plenty of answers (40+), from everyday to obscure, with aliases for alternative spellings. `npx tsx tests/validate-prompts.ts src/data/prompts/<file>.ts` checks for duplicate spellings, score range, that every answer matches itself, and that each prompt has both easy and obscure answers.
+Add a `PromptSeed` to a file in `src/data/prompts/` (or create a new file and list it in `index.ts`). Give it plenty of answers (40+), from everyday to obscure (score 92+ is the 100-point Obscure tier: give each prompt one or two of those, no more), with aliases for alternative spellings. `npx tsx tests/validate-prompts.ts src/data/prompts/<file>.ts` checks for duplicate spellings, score range, that every answer matches itself, and that each prompt has both easy and obscure answers.
 
 Answers players type that the game doesn't recognise are logged locally (`obscura:v1:unrecognised`, visible in the admin Test tab) so the lists can be grown from real play.
 

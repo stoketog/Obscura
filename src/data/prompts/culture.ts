@@ -16,7 +16,7 @@ export const CULTURE: PromptSeed[] = [
       'Shamisen|56', 'Washboard|54', 'Jaw harp|54|jews harp;jew\'s harp', 'Harmonium|58', 'Moog|60', 'Pipa|60', 'Guzheng|62', 'Kora|62', 'Hurdy-gurdy|62|hurdy gurdy',
       'Celesta|62', 'Shakuhachi|62', 'Hang drum|66', 'Veena|66', 'Sarangi|68', 'Santoor|70', 'Bandoneon|74', 'Tanpura|76', 'Stylophone|76', 'Cimbalom|78',
       'Charango|78', 'Cuatro|78', 'Sackbut|80', 'Quena|82', 'Mellotron|82', 'Serpent|84', 'Theorbo|84', 'Zampoña|86|zampona', 'Shawm|86', 'Glass harmonica|88',
-      'Crumhorn|90', 'Rebec|90', 'Cornett|90', 'Nyckelharpa|90', 'Hardanger fiddle|90', 'Aeolian harp|90', 'Ophicleide|92', 'Ondes Martenot|94', 'Sarrusophone|96',
+      'Crumhorn|90', 'Rebec|90', 'Cornett|90', 'Nyckelharpa|90', 'Hardanger fiddle|90', 'Aeolian harp|90', 'Ophicleide|91', 'Ondes Martenot|91', 'Sarrusophone|91',
       'Octobass|97', 'Heckelphone|97',
     ],
   },
@@ -50,8 +50,8 @@ export const CULTURE: PromptSeed[] = [
       'Faun|30', 'Wendigo|30', 'Selkie|30', 'Brownie|30', 'Wyvern|34', 'Kelpie|36', 'Dryad|36', 'Bogeyman|36', 'Jackalope|36', 'Thunderbird|40', 'Kitsune|40',
       'Manticore|40', 'Drop bear|40', 'Naga|44', 'Oni|44', 'Kappa|48', 'Roc|52', 'Will-o\'-the-wisp|52|will o the wisp', 'Cockatrice|52', 'Baba Yaga|52', 'Kirin|54',
       'Tengu|54', 'Garuda|58', 'Tanuki|56', 'Qilin|62', 'Bunyip|62', 'Simurgh|70', 'Jiangshi|70', 'Strigoi|76', 'Fenghuang|78', 'Pooka|80', 'Rusalka|80', 'Redcap|82',
-      'Aswang|82', 'Baku|82', 'Manananggal|86', 'Domovoi|86', 'Leshy|88', 'Nuckelavee|90', 'Tikbalang|93', 'Tsuchinoko|94', 'Kapre|94', 'Each-uisge|94', 'Hodag|95',
-      'Squonk|97', 'Hidebehind|98', 'Fur-bearing trout|99',
+      'Aswang|82', 'Baku|82', 'Manananggal|86', 'Domovoi|86', 'Leshy|88', 'Nuckelavee|90', 'Tikbalang|91', 'Tsuchinoko|91', 'Kapre|91', 'Each-uisge|91', 'Hodag|91',
+      'Squonk|91', 'Hidebehind|98', 'Fur-bearing trout|99',
     ],
   },
   {
@@ -68,7 +68,7 @@ export const CULTURE: PromptSeed[] = [
       'Ceratosaurus|60', 'Mamenchisaurus|62', 'Torosaurus|62', 'Corythosaurus|62', 'Kentrosaurus|62', 'Tarbosaurus|62', 'Psittacosaurus|62', 'Pentaceratops|66',
       'Gorgosaurus|66', 'Daspletosaurus|66', 'Herrerasaurus|70', 'Eoraptor|70', 'Lambeosaurus|70', 'Suchomimus|74', 'Tenontosaurus|74', 'Nodosaurus|76',
       'Majungasaurus|76', 'Sinosauropteryx|76', 'Yutyrannus|78', 'Gastonia|78', 'Nigersaurus|80', 'Dracorex|80', 'Ouranosaurus|80', 'Minmi|82', 'Muttaburrasaurus|82',
-      'Irritator|84', 'Leaellynasaura|90', 'Zuniceratops|95', 'Oryctodromeus|94', 'Nqwebasaurus|96',
+      'Irritator|84', 'Leaellynasaura|90', 'Zuniceratops|95', 'Oryctodromeus|91', 'Nqwebasaurus|96',
     ],
   },
   {
@@ -83,7 +83,7 @@ export const CULTURE: PromptSeed[] = [
       'Doubloon|44', 'Cedi|56', 'Denarius|56', 'Leu|56', 'Talent|60', 'Lev|62', 'Birr|62', 'Punt|62', 'Kuna|60', 'Quetzal|66', 'Hryvnia|66', 'Tenge|66', 'Kyat|66',
       'Kwacha|66', 'Bolívar|66|bolivar', 'Balboa|68', 'Riel|70', 'Kip|76', 'Pula|76', 'Guaraní|78|guarani', 'Boliviano|78', 'Lempira|80', 'Kwanza|80', 'Tugrik|80',
       'Leone|80', 'Pataca|80', 'Gourde|82', 'Vatu|82', 'Kina|82', 'Rufiyaa|82', 'Córdoba|82|cordoba', 'Dram|80', 'Lari|80', 'Manat|80', 'Pa\'anga|88|paanga',
-      'Metical|90', 'Ariary|92', 'Somoni|92', 'Ngultrum|92', 'Lilangeni|94', 'Dalasi|96', 'Ouguiya|96',
+      'Metical|90', 'Ariary|91', 'Somoni|91', 'Ngultrum|91', 'Lilangeni|91', 'Dalasi|96', 'Ouguiya|96',
     ],
   },
   {
@@ -99,7 +99,7 @@ export const CULTURE: PromptSeed[] = [
       'Craps|30', 'Sorry|30|sorry!', 'Cranium|30', 'Mastermind|32', 'Othello|34', 'Reversi|40', 'Codenames|36', 'Stratego|40', 'Parcheesi|40', 'Mancala|40',
       'Shogi|40', 'Buckaroo|40', 'Canasta|40', 'Wingspan|44', 'Azul|44', 'Scotland Yard|44', 'Xiangqi|46', 'Pinochle|48', 'Euchre|52', 'Articulate|52', 'Splendor|54',
       'Dominion|54', 'Tarot|56', 'Gloomhaven|58', 'Dixit|62', 'Skat|62', 'Pachisi|66', 'Terraforming Mars|66', 'Agricola|70', 'Nine men\'s morris|76|nine mens morris',
-      'Senet|74', 'Hnefatafl|74', 'Piquet|76', 'Bezique|78', 'Hive|88', 'Fox and geese|90', 'Tak|94', 'Onitama|95', 'Gipf|98',
+      'Senet|74', 'Hnefatafl|74', 'Piquet|76', 'Bezique|78', 'Hive|88', 'Fox and geese|90', 'Tak|91', 'Onitama|95', 'Gipf|98',
     ],
   },
   {

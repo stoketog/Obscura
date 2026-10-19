@@ -42,7 +42,7 @@ async function main() {
       const mid = sc.filter((s) => s >= 15 && s < 50).length, rare = sc.filter((s) => s >= 50 && s < 92).length;
       if (n < 30) fail(id, `only ${n} answers (need 30+)`);
       if (lo < 3) fail(id, `needs 3+ everyday answers (score < 15), has ${lo}`);
-      if (hi < 2) fail(id, `needs 2+ mythic answers (score >= 92) so 100 points is possible, has ${hi}`);
+      if (hi < 1 || hi > 2) fail(id, `needs 1 or 2 top-tier (Obscure, 100 pts) answers (score >= 92), has ${hi}`);
       if (mid < 5) fail(id, `needs 5+ answers scored 15-49, has ${mid}`);
       if (rare < (n < 80 ? 2 : 4)) fail(id, `needs ${n < 80 ? 2 : 4}+ answers scored 50-91, has ${rare}`);
       const seen = new Map<string, string>();
@@ -58,7 +58,7 @@ async function main() {
         const m = matchAnswer(p, e.name);
         if (!(m.kind === 'hit' && m.entry === e)) fail(id, `"${e.name}" does not resolve to itself (got ${m.kind === 'hit' ? m.entry.name : m.kind})`);
       }
-      console.log(`  ${bad ? ' ' : '✓'} ${id.padEnd(22)} ${String(n).padStart(4)} answers · ${lo} everyday · ${hi} mythic · max ${Math.max(...sc)}`);
+      console.log(`  ${bad ? ' ' : '✓'} ${id.padEnd(22)} ${String(n).padStart(4)} answers · ${lo} everyday · ${hi} obscure · max ${Math.max(...sc)}`);
     }
   }
   console.log(bad ? `\n${bad} problem(s)` : '\nAll good');
