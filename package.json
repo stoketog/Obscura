@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start -p 3000",
     "typecheck": "tsc --noEmit",
-    "test": "tsx tests/engine.test.ts",
+    "test": "tsx tests/engine.test.ts && tsx tests/engineerle.test.ts",
     "test:e2e": "tsx tests/e2e.ts",
     "build:static": "node scripts/build.mjs",
     "build:static:admin": "OBSCURA_ADMIN=1 node scripts/build.mjs",

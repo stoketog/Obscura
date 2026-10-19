@@ -7,7 +7,7 @@
 
 export type SfxName =
   | 'tap' | 'toggle' | 'open' | 'close' | 'start' | 'tick' | 'tickUrgent' | 'hit' | 'miss' | 'repeat' | 'timeup' | 'skip' | 'ascent' | 'finish'
-  | 'scribble' | 'correct' | 'wrong' | 'solved' | 'failed' | 'creak' | 'crack' | 'clunk' | 'snap' | 'whoosh' | 'rumble';
+  | 'scribble' | 'correct' | 'wrong' | 'solved' | 'failed' | 'creak' | 'crack' | 'clunk' | 'snap' | 'whoosh' | 'rumble' | 'splash' | 'pencil';
 
 interface ToneOpts {
   f: number;
@@ -185,6 +185,61 @@ class Engine {
     this.tone({ f: f * 3.01, dur: dur * 0.25, gain: gain * 0.12, at, attack: 0.002 });
   }
 
+  /* ── the engine loop (Engineerle): a firing-order buzz whose pitch follows `level` and whose wobble follows `rough` ── */
+  private eng: { o1: OscillatorNode; o2: OscillatorNode; lfo: OscillatorNode; depth: GainNode; amp: GainNode; lp: BiquadFilterNode } | null = null;
+
+  engineOn() {
+    if (this.eng || !this.enabled) return;
+    const ctx = this.ensure();
+    if (!ctx || ctx.state !== 'running' || !this.master) return;
+    const o1 = ctx.createOscillator(), o2 = ctx.createOscillator(), lfo = ctx.createOscillator();
+    o1.type = 'sawtooth';
+    o2.type = 'square';
+    lfo.type = 'sine';
+    const lp = ctx.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.value = 420;
+    const amp = ctx.createGain();
+    amp.gain.value = 0.0001;
+    const depth = ctx.createGain();
+    depth.gain.value = 0;
+    lfo.connect(depth);
+    depth.connect(amp.gain);
+    o1.connect(lp);
+    o2.connect(lp);
+    lp.connect(amp);
+    amp.connect(this.master);
+    o1.frequency.value = 40;
+    o2.frequency.value = 20;
+    lfo.frequency.value = 9;
+    o1.start();
+    o2.start();
+    lfo.start();
+    amp.gain.setTargetAtTime(0.16, ctx.currentTime, 0.15);
+    this.eng = { o1, o2, lfo, depth, amp, lp };
+  }
+  /** level 0–1 sets the speed, rough 0–1 how violently it shudders. */
+  engineSet(level: number, rough: number) {
+    const e = this.eng;
+    if (!e || !this.ctx) return;
+    const t = this.ctx.currentTime;
+    const f = 34 + level * 46;
+    e.o1.frequency.setTargetAtTime(f, t, 0.08);
+    e.o2.frequency.setTargetAtTime(f / 2, t, 0.08);
+    e.lp.frequency.setTargetAtTime(300 + level * 500 + rough * 500, t, 0.1);
+    e.lfo.frequency.setTargetAtTime(5 + level * 9, t, 0.1);
+    e.depth.gain.setTargetAtTime(rough * 0.14, t, 0.1);
+  }
+  engineOff() {
+    const e = this.eng;
+    if (!e || !this.ctx) return;
+    this.eng = null;
+    const t = this.ctx.currentTime;
+    e.amp.gain.cancelScheduledValues(t);
+    e.amp.gain.setTargetAtTime(0.0001, t, 0.12);
+    for (const o of [e.o1, e.o2, e.lfo]) o.stop(t + 0.6);
+  }
+
   play(name: SfxName, arg = 0) {
     if (!this.enabled) return;
     const ctx = this.ensure();
@@ -307,6 +362,14 @@ class Engine {
         break;
       case 'whoosh':
         this.noise({ dur: 0.35, f: 500, to: 3500, q: 0.8, gain: 0.08, attack: 0.12 });
+        break;
+      case 'splash':
+        this.noise({ dur: 0.7, f: 1800, to: 500, q: 0.7, gain: 0.2, attack: 0.02, type: 'bandpass', echo: 0.15 });
+        this.tone({ f: 90, to: 45, dur: 0.5, gain: 0.22, type: 'sine' });
+        this.noise({ dur: 1.0, at: 0.15, f: 700, type: 'lowpass', gain: 0.07, attack: 0.2 });
+        break;
+      case 'pencil':
+        this.noise({ dur: 0.06, f: 3200, q: 2, gain: 0.05, attack: 0.01 });
         break;
       case 'rumble':
         this.tone({ f: 55 + arg * 25, dur: 0.5, gain: 0.18, type: 'sawtooth', lp: 220 });

@@ -16,7 +16,7 @@ import { Emblem } from './Emblem';
 import { Wordmark } from './Wordmark';
 import { IconChart, IconHelp, IconGear, IconBack, IconMenu } from './Icons';
 import { SettingsModal } from './SettingsModal';
-import { Sidebar } from './Sidebar';
+import { Sidebar, type Mode } from './Sidebar';
 import { SettingsProvider, useSettings } from '@/hooks/useSettings';
 
 // The flag is written out literally at each use (not via a shared const) so bundlers
@@ -24,6 +24,8 @@ import { SettingsProvider, useSettings } from '@/hooks/useSettings';
 const AdminPanel = (process.env.NEXT_PUBLIC_OBSCURA_ADMIN === '1' || process.env.NODE_ENV === 'development') ? lazy(() => import('./AdminPanel')) : null;
 // Three.js is the heaviest part of the app, so it loads after the first paint.
 const WorldCanvas = lazy(() => import('./WorldCanvas'));
+// Engineerle is its own game with its own scenes, so it is only fetched when someone opens it.
+const EngineerleApp = lazy(() => import('./engineerle/EngineerleApp'));
 
 type ViewKind = 'home' | 'play' | 'result';
 
@@ -47,6 +49,22 @@ function GameAppInner() {
   const api = useObscura();
   const { settings } = useSettings();
   const [menu, setMenu] = useState(false);
+  // Which game is open. The address carries it (#engineerle) so the page can be bookmarked and shared.
+  const [game, setGame] = useState<Mode>('obscura');
+  useEffect(() => {
+    const read = () => setGame(window.location.hash === '#engineerle' ? 'engineerle' : 'obscura');
+    read();
+    window.addEventListener('hashchange', read);
+    return () => window.removeEventListener('hashchange', read);
+  }, []);
+  const switchGame = useCallback((m: Mode) => {
+    setGame(m);
+    try {
+      window.history.replaceState(null, '', m === 'engineerle' ? '#engineerle' : window.location.pathname + window.location.search);
+    } catch {
+      /* the address cannot be changed here */
+    }
+  }, []);
   const [modal, setModal] = useState<null | 'stats' | 'help' | 'admin' | 'settings'>(null);
   // After the last round, keep its reveal on screen until the player chooses to see the results.
   const [hold, setHold] = useState(false);
@@ -98,6 +116,14 @@ function GameAppInner() {
   useEffect(() => {
     if (mode !== '3d') setAmb(ambienceAt(STAGE_Y[stageIndexFor(points)] + 1.3));
   }, [mode, points, setAmb]);
+
+  if (game === 'engineerle') {
+    return (
+      <Suspense fallback={<div className="ens" aria-busy><div className="ens-paper" aria-hidden /></div>}>
+        <EngineerleApp onMode={switchGame} />
+      </Suspense>
+    );
+  }
 
   return (
     <WorldContext.Provider value={world}>
@@ -169,7 +195,8 @@ function GameAppInner() {
       {menu && (
         <Sidebar
           mode="obscura"
-          onMode={() => api.setView('home')}
+          engineerle
+          onMode={(m) => (m === 'engineerle' ? switchGame('engineerle') : api.setView('home'))}
           onStats={() => setModal('stats')}
           onHelp={() => setModal('help')}
           onSettings={() => setModal('settings')}

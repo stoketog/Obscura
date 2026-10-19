@@ -13,6 +13,8 @@ import { getDaily, getEndlessDive } from '@/lib/daily';
 import { rarestEntry, bestEntries } from '@/lib/prompts';
 import { STAGES } from '@/data/stages';
 import { stageIndexFor } from '@/lib/scoring';
+import { getEngineerleDaily } from '@/engineerle/daily';
+import { solutions as bargeSolutions } from '@/engineerle/barge';
 import type { Prompt } from '@/lib/types';
 
 const ADMIN = 'http://localhost:4181/';
@@ -55,6 +57,44 @@ async function open(b: Browser, opts: { mobile?: boolean; url?: string; clock?: 
   if (opts.skipHelp !== false) await q(page, 'help-close').click();
   return { ctx, page, errors };
 }
+/* ───────────────────────────── Engineerle ───────────────────────────── */
+const en = getEngineerleDaily(DAY);
+const [gSpec, lSpec, bSpec, eSpec, aSpec] = en.specs;
+const leverAnswer = Math.round(lSpec.answer * 20) / 20;
+const wrongPivot = Math.abs(leverAnswer - -3.5) > 1.5 ? -3.5 : 3.5;
+const bargeAnswer = bargeSolutions(aSpec, 10, 1)[0];
+
+async function openEn(b: Browser, opts: { mobile?: boolean; settings?: Record<string, unknown>; noGL?: boolean; url?: string; skipHelp?: boolean } = {}) {
+  const ctx = await b.newContext({ viewport: opts.mobile ? { width: 360, height: 740 } : { width: 1280, height: 900 }, hasTouch: !!opts.mobile, reducedMotion: 'reduce', timezoneId: 'UTC', permissions: ['clipboard-read', 'clipboard-write'] });
+  if (opts.settings) await ctx.addInitScript((st) => { try { if (!localStorage.getItem('obscura:v1:settings')) localStorage.setItem('obscura:v1:settings', JSON.stringify(st)); } catch { /* none */ } }, opts.settings);
+  if (opts.noGL) await ctx.addInitScript(() => {
+    const orig = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (this: HTMLCanvasElement, type: string, ...rest: unknown[]) { return /webgl/i.test(type) ? null : (orig as (...a: unknown[]) => unknown).call(this, type, ...rest); } as typeof orig;
+  });
+  const page = await ctx.newPage();
+  page.setDefaultTimeout(20_000);
+  const errors: string[] = [];
+  page.on('pageerror', (e) => errors.push(String(e)));
+  page.on('console', (m) => m.type() === 'error' && !/GL Driver|swiftshader|GroupMarker|WebGL|webgl|THREE/i.test(m.text()) && errors.push(m.text()));
+  await page.clock.install({ time: new Date(`${DAY}T10:00:00Z`) });
+  await page.goto((opts.url ?? PROD) + '?lite#engineerle');
+  await page.clock.resume();
+  await q(page, 'ens-help-modal').waitFor();
+  if (opts.skipHelp !== false) await q(page, 'ens-help-ok').click();
+  return { ctx, page, errors };
+}
+const pipsUsed = async (p: Page) => /^(\d) of 3/.exec((await q(p, 'pips').getAttribute('aria-label')) ?? '')?.[1];
+async function setDials(p: Page, angles: number[]) {
+  for (let i = 1; i < angles.length; i++) {
+    await q(p, `dial-${i}`).locator('svg').focus();
+    for (let k = 0; k < angles[i] / 30; k++) await p.keyboard.press('ArrowRight');
+  }
+}
+async function solveLever(p: Page) { await q(p, 'lever-slider').fill(String(leverAnswer)); await q(p, 'lever-release').click(); await q(p, 'lever-final').waitFor(); }
+async function solveBridge(p: Page) { for (const i of bSpec.weak) await q(p, `bridge-m-${i}`).click(); await q(p, 'bridge-test').click(); await q(p, 'bridge-final').waitFor(); }
+async function solveEngine(p: Page) { await setDials(p, eSpec.answer); await q(p, 'engine-start').click(); await q(p, 'engine-final').waitFor(); }
+async function solveBarge(p: Page) { for (let i = 0; i < 4; i++) await q(p, `barge-tank-${i}`).fill(String(bargeAnswer[i])); await q(p, 'barge-flood').click(); await q(p, 'barge-final').waitFor(); }
+
 async function begin(p: Page) {
   await q(p, 'play-btn').click();
   await q(p, 'start-btn').click();
@@ -476,6 +516,116 @@ async function main() {
     await q(p, 'admin-btn').click(); await q(p, 'admin-tab-player').click(); await q(p, 'admin-reset-all').click();
     await q(p, 'home-stage-name').waitFor(); eq(await text(p, 'home-stage-name'), 'Microbe'); ok((await text(p, 'home-streak')).startsWith('0'), 'streak reset'); await ctx.close();
   });
+  console.log('\nEngineerle');
+  await t('the side menu opens Engineerle, the address keeps it, and Obscura is one tap back', async () => {
+    const { ctx, page: p, errors } = await open(b, { url: PROD });
+    await q(p, 'menu-btn').click(); await q(p, 'side-engineerle').click();
+    await q(p, 'ens-help-modal').waitFor(); await q(p, 'ens-help-ok').click();
+    for (let i = 0; i < 5; i++) await q(p, `ens-tab-${i}`).waitFor();
+    eq(await p.evaluate(() => location.hash), '#engineerle', 'address');
+    await p.reload(); await q(p, 'ens-tab-0').waitFor();
+    await q(p, 'menu-btn').click(); await q(p, 'side-obscura').click(); await q(p, 'play-btn').waitFor();
+    eq(await p.evaluate(() => location.hash), '', 'address cleared');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('curve: a wrong equation costs a guess and gives a hint, an unreadable one is free, the right one solves', async () => {
+    const { ctx, page: p, errors } = await openEn(b);
+    await q(p, 'graph-input').fill('x +'); await q(p, 'graph-submit').click(); await q(p, 'graph-msg').waitFor();
+    ok((await text(p, 'graph-msg')).includes("didn't use up a guess"), 'free'); eq(await pipsUsed(p), '0', 'no guess used');
+    await q(p, 'graph-input').fill('x^2'); await q(p, 'graph-submit').click();
+    await p.waitForFunction(() => document.querySelector('[data-testid=graph-msg]')?.textContent?.includes('Hint'));
+    eq(await pipsUsed(p), '1', 'one guess used');
+    await q(p, 'graph-input').fill(gSpec.answer); await q(p, 'graph-submit').click(); await q(p, 'graph-final').waitFor();
+    ok((await text(p, 'graph-final')).includes('Solved'), 'solved'); eq(await q(p, 'ens-tab-0').getAttribute('data-state'), 'solved', 'tab');
+    await p.reload(); await q(p, 'ens-tab-0').waitFor(); eq(await q(p, 'ens-tab-0').getAttribute('data-state'), 'solved', 'saved');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('three wrong curves end the puzzle and show the answer', async () => {
+    const { ctx, page: p } = await openEn(b);
+    for (const guess of ['x', '2x', '3x']) { await q(p, 'graph-input').fill(guess); await q(p, 'graph-submit').click(); await p.waitForTimeout(150); }
+    await q(p, 'graph-final').waitFor(); ok((await text(p, 'graph-final')).includes('Out of guesses'), 'out'); ok((await text(p, 'graph-final')).includes(gSpec.answer.replace(/\s/g, '')) || (await text(p, 'graph-final')).includes(gSpec.answer), 'answer shown');
+    eq(await q(p, 'ens-tab-0').getAttribute('data-state'), 'failed', 'tab'); await ctx.close();
+  });
+  await t('lever: the wrong pivot tips it, the balance point holds it level', async () => {
+    const { ctx, page: p, errors } = await openEn(b); await q(p, 'ens-tab-1').click();
+    await q(p, 'lever-slider').fill(String(wrongPivot)); await q(p, 'lever-release').click();
+    await q(p, 'lever-msg').waitFor(); ok((await text(p, 'lever-msg')).includes('drops'), 'tipped'); eq(await pipsUsed(p), '1');
+    await p.waitForFunction(() => !(document.querySelector('[data-testid=lever-release]') as HTMLButtonElement | null)?.disabled, null, { timeout: 30_000 });
+    await solveLever(p); ok((await text(p, 'lever-final')).includes('Balanced'), 'balanced'); eq(await q(p, 'ens-tab-1').getAttribute('data-state'), 'solved');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('bridge: reinforcing the wrong members fails and flags what broke; the weak ones hold', async () => {
+    const { ctx, page: p, errors } = await openEn(b); await q(p, 'ens-tab-2').click();
+    const wrong = Array.from({ length: bSpec.areas.length }, (_, i) => i).filter((i) => !bSpec.weak.includes(i)).slice(0, bSpec.budget);
+    for (const i of wrong) await q(p, `bridge-m-${i}`).click();
+    eq(await text(p, 'bridge-count').then((x) => x.startsWith(`Reinforced ${bSpec.budget} of ${bSpec.budget}`)), true, 'count');
+    await q(p, 'bridge-test').click(); await q(p, 'bridge-msg').waitFor(); ok((await text(p, 'bridge-msg')).includes('came down'), 'collapsed');
+    eq(await pipsUsed(p), '1'); eq(await q(p, 'bridge-m-' + wrong[0]).getAttribute('data-hit'), 'false');
+    ok((await p.locator('[data-testid^=bridge-m-][data-hit=true]').count()) >= 1, 'a broken member is flagged');
+    await p.waitForFunction(() => !(document.querySelector('[data-testid=bridge-test]') as HTMLButtonElement | null)?.disabled, null, { timeout: 30_000 });
+    for (const i of wrong) await q(p, `bridge-m-${i}`).click();
+    await solveBridge(p); ok((await text(p, 'bridge-final')).includes('holds'), 'holds'); eq(await q(p, 'ens-tab-2').getAttribute('data-state'), 'solved');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('bridge: only as many members as the budget can be reinforced', async () => {
+    const { ctx, page: p } = await openEn(b); await q(p, 'ens-tab-2').click();
+    for (let i = 0; i <= bSpec.budget; i++) await q(p, `bridge-m-${i}`).click();
+    ok((await text(p, 'bridge-count')).startsWith(`Reinforced ${bSpec.budget} of ${bSpec.budget}`), 'capped'); await ctx.close();
+  });
+  await t('engine: all cranks in line shakes (and unlocks the couple polygon); the balanced setting runs smooth', async () => {
+    const { ctx, page: p, errors } = await openEn(b); await q(p, 'ens-tab-3').click();
+    eq(await q(p, 'poly-couple-locked').count(), 1, 'locked at first');
+    await q(p, 'engine-start').click(); await q(p, 'engine-msg').waitFor(); ok((await text(p, 'engine-msg')).includes('shakes'), 'shakes');
+    eq(await q(p, 'poly-couple').count(), 1, 'unlocked'); eq(await pipsUsed(p), '1');
+    await p.waitForFunction(() => !(document.querySelector('[data-testid=engine-start]') as HTMLButtonElement | null)?.disabled, null, { timeout: 30_000 });
+    await solveEngine(p); ok((await text(p, 'engine-final')).includes('Smooth'), 'smooth'); eq(await q(p, 'poly-force').getAttribute('data-closed'), 'true', 'force polygon closed');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('barge: an unballasted barge lists; the right ballast floats her level', async () => {
+    const { ctx, page: p, errors } = await openEn(b); await q(p, 'ens-tab-4').click();
+    await q(p, 'barge-flood').click(); await q(p, 'barge-msg').waitFor({ timeout: 30_000 }); ok((await text(p, 'barge-msg')).includes('floats'), 'listing'); eq(await pipsUsed(p), '1');
+    await p.waitForFunction(() => !(document.querySelector('[data-testid=barge-flood]') as HTMLButtonElement | null)?.disabled, null, { timeout: 40_000 });
+    await solveBarge(p); ok((await text(p, 'barge-final')).includes('level'), 'level'); eq(await q(p, 'ens-tab-4').getAttribute('data-state'), 'solved');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('barge: going over the pump limit is refused without using a guess', async () => {
+    const { ctx, page: p } = await openEn(b); await q(p, 'ens-tab-4').click();
+    for (let i = 0; i < 4; i++) await q(p, `barge-tank-${i}`).fill('110');
+    await q(p, 'barge-flood').click(); await q(p, 'barge-msg').waitFor(); ok((await text(p, 'barge-msg')).includes('pump limit'), 'refused'); eq(await pipsUsed(p), '0'); await ctx.close();
+  });
+  await t('solving all five shows the results, a share text, and survives a reload', async () => {
+    const { ctx, page: p, errors } = await openEn(b);
+    await q(p, 'graph-input').fill(gSpec.answer); await q(p, 'graph-submit').click(); await q(p, 'graph-final').waitFor(); await q(p, 'ens-next').click();
+    await solveLever(p); await q(p, 'ens-next').click();
+    await solveBridge(p); await q(p, 'ens-next').click();
+    await solveEngine(p); await q(p, 'ens-next').click();
+    await solveBarge(p); await q(p, 'ens-next').click();
+    await q(p, 'ens-summary').waitFor(); ok((await text(p, 'ens-points')).startsWith('500'), '500 points'); ok((await text(p, 'ens-squares')).includes('🟩🟩🟩🟩🟩') || (await text(p, 'ens-squares')).replace(/\s/g, '') === '🟩🟩🟩🟩🟩', 'all green');
+    await q(p, 'ens-share').click(); await p.waitForTimeout(300);
+    const clip = await p.evaluate(() => navigator.clipboard.readText()).catch(() => '');
+    ok(clip === '' || (clip.startsWith(`Engineerle #${en.number}  500/500`) && clip.includes('🟩🟩🟩🟩🟩')), `share text: ${clip}`);
+    await p.reload(); await q(p, 'ens-summary').waitFor(); ok((await text(p, 'ens-points')).startsWith('500'), 'kept after reload');
+    await q(p, 'ens-stats-btn').click(); await q(p, 'ens-stats-modal').waitFor(); ok((await text(p, 'ens-stats-modal')).includes('Perfect days'), 'stats');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('Engineerle follows the settings: light theme and Low CPU draw every puzzle without errors', async () => {
+    const { ctx, page: p, errors } = await openEn(b, { settings: { volume: 70, muted: true, theme: 'light', lowCpu: true, reduceMotion: true } });
+    eq(await p.evaluate(() => document.documentElement.dataset.theme), 'light', 'light');
+    for (let i = 1; i < 5; i++) { await q(p, `ens-tab-${i}`).click(); await p.locator('.ens-view canvas').waitFor(); await p.waitForTimeout(250); }
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('with no WebGL at all the puzzles still play', async () => {
+    const { ctx, page: p, errors } = await openEn(b, { noGL: true }); await q(p, 'ens-tab-1').click();
+    await q(p, 'lever-slider').waitFor(); await solveLever(p); eq(await q(p, 'ens-tab-1').getAttribute('data-state'), 'solved');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('Engineerle works on a phone-sized screen', async () => {
+    const { ctx, page: p } = await openEn(b, { mobile: true });
+    const w = await p.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]); ok(w[0] <= w[1] + 1, `no sideways scroll ${w}`);
+    await q(p, 'ens-tab-3').click(); await q(p, 'engine-start').waitFor();
+    const w2 = await p.evaluate(() => [document.querySelector('.ens')!.scrollWidth, window.innerWidth]); ok(w2[0] <= w2[1] + 1, `no sideways scroll on the engine ${w2}`); await ctx.close();
+  });
+
   await t('admin gallery flies the live world to any stage', async () => {
     const { ctx, page: p, errors } = await open(b, { world: true }); await q(p, 'admin-btn').click();
     await q(p, 'admin-tab-gallery').click();
