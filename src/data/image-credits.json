@@ -54,6 +54,20 @@
       "Cc-zero"
     ]
   },
+  "bell-rock": {
+    "file": "e73b711442960800.jpg",
+    "width": 1280,
+    "height": 845,
+    "title": "File:Joseph Mallord William Turner - Bell Rock Lighthouse - Google Art Project.jpg",
+    "author": "J. M. W. Turner",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Bell_Rock_Lighthouse_-_Google_Art_Project.jpg",
+    "templates": [
+      "PD-Art",
+      "PD-art-category",
+      "PD-old-100-expired"
+    ]
+  },
   "brunel": {
     "file": "67523ccb5d49c8a4.jpg",
     "width": 1051,
@@ -132,6 +146,18 @@
       "PD-self"
     ]
   },
+  "golden-gate": {
+    "file": "ca7656a94aac3dbb.jpg",
+    "width": 1280,
+    "height": 853,
+    "title": "File:Golden Gate Bridge, San Francisco, California LCCN2013633353.tif",
+    "author": "Carol M. Highsmith",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge,_San_Francisco,_California_LCCN2013633353.tif",
+    "templates": [
+      "PD-Highsmith"
+    ]
+  },
   "gramophone": {
     "file": "08ca69554fe7d261.jpg",
     "width": 898,
@@ -169,6 +195,18 @@
     "source": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_exterior_2007_006.jpg",
     "templates": [
       "PD-self"
+    ]
+  },
+  "hubble": {
+    "file": "34af8e1fcc4dea6b.jpg",
+    "width": 1280,
+    "height": 850,
+    "title": "File:Hubble 2009 close-up.jpg",
+    "author": "NASA",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Hubble_2009_close-up.jpg",
+    "templates": [
+      "PD-USGov-NASA"
     ]
   },
   "lincoln": {
@@ -222,6 +260,19 @@
       "PD-art",
       "PD-art-category",
       "PD-old-100-expired"
+    ]
+  },
+  "mont-saint-michel": {
+    "file": "a9be3451db25def7.jpg",
+    "width": 960,
+    "height": 1280,
+    "title": "File:Mont Saint-Michel, April 2024.jpg",
+    "author": "Dudva",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Mont_Saint-Michel,_April_2024.jpg",
+    "templates": [
+      "Cc-zero"
     ]
   },
   "mount-fuji": {
@@ -285,6 +336,18 @@
     "templates": [
       "PD-self",
       "Pd-self"
+    ]
+  },
+  "petra": {
+    "file": "0f78e45e90541c63.jpg",
+    "width": 1280,
+    "height": 900,
+    "title": "File:Petra Jordan BW 36.JPG",
+    "author": "Berthold Werner",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Petra_Jordan_BW_36.JPG",
+    "templates": [
+      "PD-self"
     ]
   },
   "pillars-of-creation": {
@@ -360,6 +423,19 @@
     "source": "https://commons.wikimedia.org/wiki/File:Stonehenge_2007.jpg",
     "templates": [
       "PD-self"
+    ]
+  },
+  "taj-mahal": {
+    "file": "8615a43487bb4311.jpg",
+    "width": 1280,
+    "height": 945,
+    "title": "File:Taj Mahal 2018.jpg",
+    "author": "Almbauer",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Taj_Mahal_2018.jpg",
+    "templates": [
+      "Cc-zero"
     ]
   },
   "venus-flytrap": {

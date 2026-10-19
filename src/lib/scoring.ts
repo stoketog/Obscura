@@ -18,7 +18,7 @@ export const TIERS: Tier[] = [
   { id: 'everyday', label: 'Everyday', min: 0, points: 10, color: '#5b5146', square: '⬛' },
   { id: 'uncommon', label: 'Uncommon', min: 18, points: 30, color: '#857660', square: '⬜' },
   { id: 'rare', label: 'Rare', min: 38, points: 55, color: '#b59a74', square: '🟫' },
-  { id: 'obscure', label: 'Mythic', min: 62, points: 80, color: '#d4904a', square: '🟧' },
+  { id: 'obscure', label: 'Mythic', min: 62, points: 80, color: '#dd9d55', square: '🟧' },
   { id: 'mythic', label: 'Obscure', min: 92, points: 100, color: '#f2c66d', square: '🟨' },
 ];
 
@@ -54,5 +54,6 @@ export function developedFor(points: number): number {
  */
 export function guessBonusFor(developed: number): number {
   const raw = 100 - 0.875 * Math.max(0, Math.min(100, developed));
-  return Math.max(10, Math.round(raw / 5) * 5);
+  // Halves round down, so 100% developed gives exactly the 10-point floor.
+  return Math.max(10, Math.ceil(raw / 5 - 0.5) * 5);
 }
