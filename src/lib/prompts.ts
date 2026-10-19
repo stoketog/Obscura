@@ -1,4 +1,4 @@
-import type { AnswerEntry, Prompt, PromptGroup, PromptSeed } from './types';
+import type { AnswerEntry, Prompt, PromptSeed } from './types';
 import { PROMPT_SEEDS } from '@/data/prompts';
 
 /** Parse the compact authoring strings (`Name|score|alias;alias`) into entries. */
@@ -15,24 +15,6 @@ export function parseAnswer(raw: string): AnswerEntry {
 
 export function parsePrompt(seed: PromptSeed): Prompt {
   return { id: seed.id, group: seed.group, text: seed.text, category: seed.category, entries: seed.answers.map(parseAnswer) };
-}
-
-const GENRE: Record<PromptGroup, string> = {
-  general: 'General knowledge',
-  geography: 'Geography',
-  history: 'History',
-  sport: 'Sport',
-  screen: 'Film and TV',
-  music: 'Music',
-  arts: 'Arts',
-  science: 'Science',
-  food: 'Food and drink',
-  nature: 'Nature',
-};
-
-/** The genre a prompt belongs to, as the player sees it ("Food and drink"). Shown before the prompt itself. */
-export function genreOf(prompt: Pick<Prompt, 'group'>): string {
-  return GENRE[prompt.group] ?? 'General knowledge';
 }
 
 let cache: Prompt[] | null = null;

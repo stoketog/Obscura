@@ -4,7 +4,6 @@ import type { RoundState } from '@/lib/types';
 import { currentRoundIndex, lastDoneIndex, remainingMs } from '@/lib/game';
 import { MAX_POINTS, ROUND_MS, ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, developedFor, tierById } from '@/lib/scoring';
 import { prettyDate } from '@/lib/dates';
-import { genreOf } from '@/lib/prompts';
 import { useCountUp } from '@/hooks/useCountUp';
 import { Chamber } from './Chamber';
 import { TierChip, TierDot } from './TierChip';
@@ -89,7 +88,7 @@ function Segment({ round, current }: { round: RoundState; current: boolean }) {
 const LEAVE_MS = 320;
 const reducedMotion = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
-/** Slide the current page out, then run `action` (which brings the next page in). Runs once. */
+/** Slide the current page out to the left, then run `action` (which brings the next page in from the right). Runs once. */
 function useLeave(action: () => void) {
   const [leaving, setLeaving] = useState(false);
   const fired = useRef(false);
@@ -105,7 +104,6 @@ function useLeave(action: () => void) {
 /* ───────────────────────── Before the first round ───────────────────────── */
 
 function Intro({ api }: { api: ObscuraApi }) {
-  const prompts = api.daily!.prompts;
   const { leaving, go } = useLeave(api.start);
   return (
     <section className={leaving ? 'page-leave' : 'page-enter'} data-testid="intro">
@@ -116,18 +114,7 @@ function Intro({ api }: { api: ObscuraApi }) {
       <p className="mt-3 text-[0.95rem] leading-relaxed text-mist-300">
         Name anything that fits, like <em>“a cheese”</em> or <em>“a bird”</em>. Every answer lets light into the chamber, and the rarer it is, the more light gets in. When all seven are done, you get one guess at the photograph.
       </p>
-      <div className="mt-5">
-        <p className="eyebrow">Today’s genres</p>
-        <ol className="mt-2 grid grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2" data-testid="lineup">
-          {prompts.map((p, i) => (
-            <li key={p.id} className="flex items-baseline gap-2.5 text-sm text-mist-300">
-              <span className="font-mono text-[0.7rem] text-mist-500">{String(i + 1).padStart(2, '0')}</span>
-              {genreOf(p)}
-            </li>
-          ))}
-        </ol>
-      </div>
-      <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2" aria-label="Rarity and points">
+      <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2" aria-label="Rarity and points">
         {TIERS.map((t) => (
           <li key={t.id} className="flex items-center gap-1.5 text-xs text-mist-300">
             <TierDot id={t.id} size={9} />
@@ -137,7 +124,7 @@ function Intro({ api }: { api: ObscuraApi }) {
         ))}
       </ul>
       <button className="btn-primary mt-6 w-full" onClick={go} data-testid="start-btn">
-        Start with {genreOf(prompts[0])}
+        Start round 1
         <IconArrow size={18} />
       </button>
     </section>
@@ -148,7 +135,6 @@ function Intro({ api }: { api: ObscuraApi }) {
 
 function ActivePrompt({ api, round, index, onFinished, compact }: { api: ObscuraApi; round: RoundState; index: number; onFinished: () => void; compact: boolean }) {
   const prompt = api.daily!.prompts[index];
-  const nextPrompt = api.daily!.prompts[index + 1];
   const [lead, subject] = splitPrompt(prompt.text);
   const [now, setNow] = useState(() => Date.now());
   const expired = useRef(false);
@@ -182,7 +168,7 @@ function ActivePrompt({ api, round, index, onFinished, compact }: { api: Obscura
     <section className="page-enter" data-testid="round">
       <div className="flex items-center justify-between gap-3">
         <p className="eyebrow" data-testid="round-label">
-          Prompt {index + 1} of {ROUNDS_PER_DAY} · {genreOf(prompt)}
+          Prompt {index + 1} of {ROUNDS_PER_DAY}
         </p>
         {compact && <Segments api={api} index={index} className="w-28" />}
       </div>
@@ -202,17 +188,18 @@ function ActivePrompt({ api, round, index, onFinished, compact }: { api: Obscura
         </p>
       </div>
 
-      <div className="mt-3 flex items-center justify-between gap-3 text-xs text-mist-500">
+      <div className="mt-3 flex items-center justify-between text-xs text-mist-500">
         <span className={compact ? 'hidden' : ''}>Unrecognised answers are free. Keep trying.</span>
-        <span className="ml-auto shrink-0" data-testid="up-next-hint">
-          {nextPrompt ? (
-            <>
-              Up next: <span className="text-mist-300">{genreOf(nextPrompt)}</span>
-            </>
-          ) : (
-            'Last prompt'
-          )}
-        </span>
+        <button
+          className="ml-auto rounded-md px-2 py-2 text-mist-300 transition hover:bg-white/5 hover:text-mist-100"
+          onClick={() => {
+            play('skip');
+            if (api.skip()) onFinished();
+          }}
+          data-testid="skip-btn"
+        >
+          Skip
+        </button>
       </div>
     </section>
   );
@@ -322,9 +309,6 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
 
 /* ───────────────────────── After a round ───────────────────────── */
 
-/** How long a result stays on screen before the next prompt slides in by itself. */
-const AUTO_ADVANCE_MS = 2800;
-
 const TIER_LINE: Record<string, string> = {
   everyday: 'Everyone reaches for this one. A sliver of light.',
   uncommon: 'Not everyone would think of that.',
@@ -341,21 +325,9 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
   const pts = useCountUp(round.points, 900, 250);
   const before = developedFor(game!.rounds.slice(0, index).reduce((s, r) => s + r.points, 0));
   const after = developedFor(game!.rounds.slice(0, index + 1).reduce((s, r) => s + r.points, 0));
-  const nextPrompt = done ? undefined : daily!.prompts[index + 1];
+  const next = index + 2;
   const { play } = useSettings();
   const { leaving, go } = useLeave(api.start);
-  // Counts only while the page is visible, so the next timer never starts while the player is away.
-  const [elapsed, setElapsed] = useState(0);
-  useEffect(() => {
-    if (!nextPrompt) return;
-    const id = window.setInterval(() => {
-      if (!document.hidden) setElapsed((e) => e + 100);
-    }, 100);
-    return () => window.clearInterval(id);
-  }, [nextPrompt]);
-  useEffect(() => {
-    if (nextPrompt && elapsed >= AUTO_ADVANCE_MS) go();
-  }, [elapsed, nextPrompt, go]);
   useEffect(() => {
     if (after <= before) return;
     const id = window.setTimeout(() => play('ascent'), 450);
@@ -387,38 +359,16 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
       ) : (
         <>
           <h2 className="mt-2 font-display text-[2.6rem] leading-none text-mist-100" data-testid="reveal-answer">
-            Time’s up
+            {round.end === 'timeout' ? 'Time’s up' : 'Skipped'}
           </h2>
           <p className="mt-3 text-sm text-mist-300">No light this round. Every possible answer is shown when the day is over.</p>
         </>
       )}
 
-      {nextPrompt ? (
-        <div className="panel mt-6 overflow-hidden" data-testid="up-next">
-          <div className="flex items-center justify-between gap-3 px-4 py-3">
-            <div className="min-w-0">
-              <p className="eyebrow">
-                Up next · Prompt {index + 2} of {ROUNDS_PER_DAY}
-              </p>
-              <p className="mt-1 truncate font-display text-2xl leading-tight text-mist-100" data-testid="up-next-genre">
-                {genreOf(nextPrompt)}
-              </p>
-            </div>
-            <button className="btn-primary shrink-0" onClick={go} data-testid="next-btn" autoFocus>
-              Go now
-              <IconArrow size={18} />
-            </button>
-          </div>
-          <div className="h-[3px] bg-white/5" aria-hidden>
-            <div className="h-full bg-bio-400" style={{ width: `${Math.min(100, (elapsed / AUTO_ADVANCE_MS) * 100)}%`, transition: 'width 100ms linear' }} />
-          </div>
-        </div>
-      ) : (
-        <button className="btn-primary mt-6 w-full" onClick={onContinue} data-testid="next-btn" autoFocus>
-          Guess the photograph
-          <IconArrow size={18} />
-        </button>
-      )}
+      <button className="btn-primary mt-6 w-full" onClick={done ? onContinue : go} data-testid="next-btn" autoFocus>
+        {done ? 'Guess the photograph' : `Start round ${next}`}
+        <IconArrow size={18} />
+      </button>
     </section>
   );
 }
