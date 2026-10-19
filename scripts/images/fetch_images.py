@@ -134,6 +134,8 @@ def main():
         credits[key] = {'file': name, 'width': img.width, 'height': img.height, 'title': title, 'author': info['author'],
                         'license': info['license'], **({'licenseUrl': info['licenseUrl']} if info['licenseUrl'] else {}),
                         'source': info['source'], 'templates': sorted({t[len('Template:'):].split('/')[0] for t in info['templates']})}
+        # Save after every photo, so an interrupted run keeps what it already approved.
+        json.dump(dict(sorted(credits.items())), open(CREDITS, 'w'), indent=2, ensure_ascii=False)
         print(f'  ✓ {key}: {title} [{info["license"]}; {", ".join(t[9:] for t in info["templates"])}]', flush=True)
         time.sleep(8)
     json.dump(dict(sorted(credits.items())), open(CREDITS, 'w'), indent=2, ensure_ascii=False)
