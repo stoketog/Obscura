@@ -1,64 +1,121 @@
-import { THREE, at, ball, capsule, cone, cyl, dome, eyes, glow, grp, lerp, lit, rbox, toy } from './kit';
+import { THREE, at, ball, capsule, cone, cyl, dome, glow, grp, lerp, lit, rbox, torus, toy } from './kit';
+import { flatXZ, lathe, tube } from './anatomy';
 import type { Hero } from './heroes-sea';
 
-/* ─────────────────────────────── 5 · human ─────────────────────────────── */
+/* ─────────────────────────────── 4 · human ─────────────────────────────── */
 
-export function human(): Hero {
+const HIP_Y = 0.15, THIGH = 0.78, SHIN = 0.68;
+/** Height of the lowest sole above the origin when standing: FEET_BELOW_ANCHOR below the anchor. */
+const STAND_FOOT_Y = HIP_Y - THIGH - SHIN;
+
+export interface HumanStyle { jacket?: string; jeans?: string; hair?: string; skin?: string; pack?: string | null; z?: number }
+
+/** The walker. Pass a style to make a passer-by (different clothes, hair and skin, no fixed place on the quay). */
+export function human(style: HumanStyle = {}): Hero {
   const root = new THREE.Group();
   const inner = new THREE.Group();
-  inner.position.z = -3; // walks along the quay
+  inner.position.z = style.z ?? -3; // walks along the quay
   root.add(inner);
-  const jacket = toy('#2a8fa8');
-  const pants = toy('#3d4a94');
-  const skin = toy('#e0b08a', { rough: 0.5 });
-  const hairM = toy('#5a3826');
-  const white = toy('#ffffff');
-  const orange = toy('#ff7a3d');
+  const body = new THREE.Group();
+  inner.add(body);
 
-  const torso = capsule(0.4, 0.45, jacket);
-  torso.position.y = 0.45;
-  torso.rotation.z = -0.06;
-  inner.add(torso);
-  inner.add(at(ball(0.37, skin, [1, 1.04, 1], 18), 0.04, 1.3, 0));
-  const hair = dome(0.405, hairM);
-  hair.position.set(-0.02, 1.33, 0);
-  hair.rotation.z = 0.2;
-  inner.add(hair);
-  inner.add(at(ball(0.25, hairM, [1, 1, 1.2]), -0.23, 1.25, 0));
-  inner.add(eyes(0.07, 0.17, 0.36, 1.33));
-  inner.add(at(ball(0.05, toy('#c98f74'), [1, 1, 1], 8), 0.39, 1.25, 0));
-  const pack = rbox(0.42, 0.72, 0.62, orange, 0.14);
-  pack.position.set(-0.5, 0.5, 0);
-  inner.add(pack);
-  inner.add(at(rbox(0.1, 0.5, 0.1, toy('#c9531f')), -0.1, 0.6, 0.36, 0, 0, 0));
-  inner.add(at(rbox(0.1, 0.5, 0.1, toy('#c9531f')), -0.1, 0.6, -0.36, 0, 0, 0));
+  const jacket = toy(style.jacket ?? '#2c7f93');
+  const jacketDark = toy(new THREE.Color(style.jacket ?? '#2c7f93').multiplyScalar(0.7));
+  const tee = toy('#eef1f4');
+  const jeans = toy(style.jeans ?? '#33466e');
+  const skin = toy(style.skin ?? '#d8a07a', { rough: 0.55, clear: 0 });
+  const lip = toy('#b9675e', { clear: 0 });
+  const hairM = toy(style.hair ?? '#4a3022', { rough: 0.6, clear: 0.2 });
+  const shoe = toy('#f1f3f5');
+  const sole = toy('#c3cad2');
+  const hasPack = style.pack !== null;
+  const pack = toy(style.pack ?? '#d9622b');
+  const packDark = toy(new THREE.Color(style.pack ?? '#d9622b').multiplyScalar(0.7));
 
-  const hips: THREE.Group[] = [];
-  const knees: THREE.Group[] = [];
-  const shoulders: THREE.Group[] = [];
-  const elbows: THREE.Group[] = [];
+  /* torso: a lathed jacket, wider than deep, with a tee at the hem and a collar */
+  const squash = (o: THREE.Object3D) => (o.scale.set(0.66, 1, 1.12), o);
+  body.add(squash(lathe([[0, -0.12], [0.26, -0.1], [0.31, 0.02], [0.3, 0.16], [0, 0.16]], jeans, 10)));
+  body.add(squash(lathe([[0, 0.05], [0.31, 0.07], [0.285, 0.42], [0.325, 0.78], [0.36, 1.02], [0.3, 1.13], [0.13, 1.2], [0, 1.2]], jacket, 10)));
+  const hem = grp(at(torus(0.31, 0.03, tee, 14), 0, 0, 0, Math.PI / 2));
+  squash(hem).position.y = 0.075;
+  body.add(hem);
+  body.add(at(rbox(0.02, 1.0, 0.035, jacketDark, 0.01), 0.232, 0.62, 0)); // zip
+  const collar = grp(at(torus(0.14, 0.05, jacketDark, 12), 0, 0, 0, Math.PI / 2));
+  collar.position.y = 1.2;
+  body.add(collar);
+  body.add(at(cyl(0.085, 0.1, 0.24, skin, 10), 0.01, 1.3, 0)); // neck
+
+  /* head */
+  const head = new THREE.Group();
+  head.position.set(0.03, 1.55, 0);
+  head.rotation.z = -0.03;
+  body.add(head);
+  head.add(ball(0.2, skin, [1, 1.1, 0.85], 28));
+  head.add(at(ball(0.13, skin, [1, 0.85, 0.85], 18), 0.07, -0.15, 0)); // jaw and chin
+  head.add(at(cone(0.042, 0.13, skin, 10), 0.215, -0.03, 0, 0, 0, -Math.PI / 2 - 0.25)); // nose
+  for (const s of [1, -1]) {
+    head.add(at(ball(0.048, skin, [0.55, 1, 0.55], 10), -0.01, -0.02, s * 0.172)); // ears
+    head.add(at(ball(0.036, tee, [0.5, 0.8, 1], 10), 0.185, 0.04, s * 0.078)); // eye white
+    head.add(at(ball(0.024, toy('#2a1c14', { rough: 0.1, smooth: true }), [0.5, 1, 1], 10), 0.196, 0.04, s * 0.078)); // iris
+    head.add(at(rbox(0.05, 0.016, 0.07, hairM, 0.006), 0.19, 0.1, s * 0.08, s * 0.12, 0, 0)); // brow
+  }
+  head.add(at(rbox(0.012, 0.014, 0.075, lip, 0.005), 0.2, -0.105, 0));
+  const hair = dome(0.235, hairM, 24);
+  hair.scale.set(1.04, 1, 0.98);
+  hair.position.set(-0.015, 0.02, 0);
+  hair.rotation.z = 0.34;
+  head.add(hair);
+  head.add(at(ball(0.13, hairM, [1.25, 0.6, 1.0], 12), 0.1, 0.235, 0, 0, 0, 0.2)); // a quiff
+  head.add(at(ball(0.16, hairM, [0.9, 1.0, 1.05], 12), -0.13, 0.0, 0)); // back of the head
+  head.add(at(ball(0.07, hairM, [0.8, 1.1, 0.6], 8), 0.02, 0.0, 0.18)); // sideburns
+  head.add(at(ball(0.07, hairM, [0.8, 1.1, 0.6], 8), 0.02, 0.0, -0.18));
+
+  /* backpack with straps */
+  if (hasPack) {
+    body.add(at(rbox(0.3, 0.64, 0.46, pack, 0.12), -0.34, 0.66, 0));
+    body.add(at(rbox(0.12, 0.24, 0.36, packDark, 0.05), -0.5, 0.52, 0));
+  }
+  for (const s of hasPack ? [1, -1] : []) {
+    body.add(at(rbox(0.04, 0.62, 0.06, packDark, 0.015), 0.225, 0.76, s * 0.2, 0, 0, 0.03));
+    body.add(at(rbox(0.5, 0.045, 0.06, packDark, 0.015), 0.0, 1.1, s * 0.2));
+  }
+
+  const hips: THREE.Group[] = [], knees: THREE.Group[] = [], feet: THREE.Group[] = [];
+  const shoulders: THREE.Group[] = [], elbows: THREE.Group[] = [];
   for (const s of [1, -1]) {
     const hip = new THREE.Group();
-    hip.position.set(0, -0.05, s * 0.2);
-    hip.add(at(capsule(0.17, 0.3, pants), 0, -0.26, 0));
+    hip.position.set(0, HIP_Y, s * 0.165);
+    hip.add(tube(THIGH, 0.175, 0.118, jeans));
     const knee = new THREE.Group();
-    knee.position.set(0, -0.55, 0);
-    knee.add(at(capsule(0.15, 0.28, pants), 0, -0.24, 0));
-    knee.add(at(ball(0.2, white, [1.7, 0.75, 1.05]), 0.12, -0.56, 0));
-    knee.add(at(ball(0.2, toy('#ff4d6d'), [1.0, 0.25, 1.07]), 0.1, -0.62, 0));
+    knee.position.y = -THIGH;
+    knee.add(tube(SHIN, 0.118, 0.085, jeans));
+    const foot = new THREE.Group();
+    foot.position.y = -SHIN;
+    foot.add(at(rbox(0.2, 0.12, 0.17, shoe, 0.05), 0.09, -0.035, 0)); // upper
+    foot.add(at(ball(0.1, shoe, [1.1, 0.7, 0.9], 12), 0.22, -0.065, 0)); // toe cap
+    foot.add(at(rbox(0.5, 0.05, 0.2, sole, 0.02), 0.12, -0.115, 0)); // sole
+    knee.add(foot);
     hip.add(knee);
-    inner.add(hip);
+    body.add(hip);
     hips.push(hip);
     knees.push(knee);
+    feet.push(foot);
+
     const sh = new THREE.Group();
-    sh.position.set(0, 0.78, s * 0.5);
-    sh.add(at(capsule(0.12, 0.28, jacket), 0, -0.22, 0));
+    sh.position.set(0, 1.07, s * 0.44);
+    sh.rotation.x = s * 0.07;
+    sh.add(tube(0.56, 0.115, 0.095, jacket));
     const el = new THREE.Group();
-    el.position.set(0, -0.45, 0);
-    el.add(at(capsule(0.105, 0.2, skin), 0, -0.18, 0));
-    el.add(at(ball(0.13, skin), 0, -0.36, 0));
+    el.position.y = -0.56;
+    el.add(tube(0.46, 0.088, 0.062, skin));
+    el.add(at(torus(0.092, 0.03, jacketDark, 10), 0, -0.02, 0, Math.PI / 2)); // cuff
+    const hand = new THREE.Group();
+    hand.position.y = -0.5;
+    hand.add(at(ball(0.07, skin, [0.8, 1.35, 0.55], 10), 0.0, -0.06, 0));
+    hand.add(at(ball(0.028, skin, [1, 1.4, 1], 8), 0.045, -0.05, 0));
+    el.add(hand);
     sh.add(el);
-    inner.add(sh);
+    body.add(sh);
     shoulders.push(sh);
     elbows.push(el);
   }
@@ -67,76 +124,128 @@ export function human(): Hero {
     sparkle: '#ffb347',
     yaw: -0.4,
     update(t) {
-      const ph = t * 6.2;
-      [1, -1].forEach((s, i) => {
-        const w = Math.sin(ph + (s > 0 ? 0 : Math.PI));
-        hips[i].rotation.z = w * 0.75;
-        knees[i].rotation.z = -Math.max(0, -Math.cos(ph + (s > 0 ? 0 : Math.PI))) * 0.9 - 0.08;
-        shoulders[i].rotation.z = -w * 0.6;
-        elbows[i].rotation.z = 0.35 + Math.max(0, -w) * 0.4;
-      });
-      inner.position.y = Math.abs(Math.sin(ph)) * 0.08;
-      inner.rotation.z = -0.04;
+      const ph = t * 5.6;
+      const A = 0.46;
+      const reach = (i: number) => {
+        const k = Math.sin(ph + (i ? Math.PI : 0));
+        const c = Math.cos(ph + (i ? Math.PI : 0));
+        return { k, c };
+      };
+      let low = Infinity;
+      for (let i = 0; i < 2; i++) {
+        const { k, c } = reach(i);
+        const th = A * k;
+        const kn = -(0.07 + Math.max(0, c) * 0.85);
+        hips[i].rotation.z = th;
+        knees[i].rotation.z = kn;
+        feet[i].rotation.z = -(th + kn) * 0.85 + Math.max(0, c) * 0.25;
+        shoulders[i].rotation.z = -k * 0.42;
+        elbows[i].rotation.z = 0.28 + Math.max(0, k) * 0.35;
+        const foot = HIP_Y - THIGH * Math.cos(th) - SHIN * Math.cos(th + kn);
+        low = Math.min(low, foot);
+      }
+      // keep the lowest sole on the ground: no floating, no sinking
+      body.position.y = STAND_FOOT_Y - low;
+      body.rotation.z = -0.045;
+      body.rotation.x = Math.sin(ph) * 0.02;
+      head.rotation.z = -0.03 + Math.sin(ph * 2) * 0.012;
     },
   };
 }
 
-/* ─────────────────────────────── 6 · bird ─────────────────────────────── */
+/* ─────────────────────────────── 5 · bird ─────────────────────────────── */
 
+/** A gull in flight: white body and tail, grey mantle, black wing tips, yellow bill. */
 export function bird(): Hero {
   const root = new THREE.Group();
   const inner = new THREE.Group();
   root.add(inner);
-  const blue = toy('#3b8cff');
-  const white = toy('#fffaf0');
-  const dark = toy('#2757c9');
-  inner.add(ball(1.0, blue, [1.25, 1, 0.95], 36));
-  inner.add(at(ball(0.9, white, [1.1, 0.85, 0.82], 32), 0.22, -0.3, 0));
-  inner.add(at(ball(0.66, blue, [1, 1, 1], 32), 1.05, 0.42, 0));
-  const beak = cone(0.2, 0.6, toy('#ffb02e'), 20);
-  beak.rotation.z = -Math.PI / 2;
-  beak.position.set(1.72, 0.34, 0);
-  inner.add(beak);
-  inner.add(eyes(0.17, 0.48, 1.38, 0.58));
-  for (const [r, c] of [[0.5, '#ff5a6e'], [0.25, '#ff5a6e'], [0.1, '#ffd23a']] as const) {
-    inner.add(at(cone(0.1, r, toy(c), 12), 0.9 - r * 0.2, 1.1 + r * 0.35, 0, 0, 0, -0.35));
+  const white = toy('#f6f7f4', { rough: 0.5 });
+  const mantle = toy('#8fa1b4', { rough: 0.55 });
+  const wingTop = toy('#a3b3c4', { rough: 0.55, side: THREE.DoubleSide });
+  const black = toy('#22262e', { rough: 0.6, side: THREE.DoubleSide });
+  const bill = toy('#f0b522', { rough: 0.35 });
+  const legs = toy('#e8a64a', { rough: 0.4 });
+  const dark = toy('#111318', { rough: 0.1, smooth: true });
+
+  /* fuselage: tapered along +x */
+  const trunk = lathe([[0, -1.35], [0.05, -1.25], [0.2, -0.9], [0.38, -0.4], [0.45, 0.05], [0.42, 0.45], [0.3, 0.8], [0.17, 1.0], [0, 1.05]], white, 10);
+  trunk.rotation.z = -Math.PI / 2;
+  trunk.scale.set(1, 1, 0.92); // lathe axis y becomes x; keep the belly full, the sides a touch slimmer
+  trunk.scale.z = 0.86;
+  inner.add(trunk);
+  inner.add(at(ball(0.4, mantle, [1.7, 0.32, 0.98], 18), -0.18, 0.26, 0, 0, 0, -0.04)); // grey back
+  // neck, head, bill
+  inner.add(at(cyl(0.15, 0.2, 0.5, white, 10), 0.98, 0.17, 0, 0, 0, -1.15));
+  inner.add(at(ball(0.235, white, [1.18, 0.96, 0.88], 20), 1.28, 0.3, 0));
+  const upper = cone(0.082, 0.56, bill, 10);
+  upper.rotation.z = -Math.PI / 2;
+  upper.scale.z = 0.8;
+  upper.position.set(1.7, 0.26, 0);
+  inner.add(upper);
+  inner.add(at(cone(0.05, 0.15, bill, 8), 1.93, 0.22, 0, 0, 0, Math.PI)); // the hooked tip
+  inner.add(at(ball(0.03, toy('#e23a2e', { glow: 0.2 }), [1, 1, 1], 8), 1.86, 0.2, 0.05));
+  inner.add(at(ball(0.03, toy('#e23a2e', { glow: 0.2 }), [1, 1, 1], 8), 1.86, 0.2, -0.05));
+  for (const s of [1, -1]) {
+    inner.add(at(ball(0.066, bill, [0.5, 1, 1], 10), 1.4, 0.35, s * 0.18));
+    inner.add(at(ball(0.044, dark, [0.5, 1, 1], 10), 1.415, 0.35, s * 0.19));
   }
-  const tail: THREE.Mesh[] = [];
-  for (const [rz, c] of [[0.3, '#2757c9'], [0, '#3b8cff'], [-0.3, '#2757c9']] as const) {
-    const f = cone(0.28, 1.2, toy(c), 16);
-    f.scale.z = 0.4;
-    f.position.set(-1.7, 0.05, 0);
-    f.rotation.z = Math.PI / 2 + rz;
-    inner.add(f);
-    tail.push(f);
+  // legs trail behind, tucked
+  for (const s of [1, -1]) {
+    inner.add(at(cyl(0.022, 0.018, 0.62, legs, 6), -0.5, -0.32, s * 0.12, 0, 0, Math.PI / 2 - 0.22));
+    inner.add(at(ball(0.07, legs, [1.6, 0.35, 1.0], 8), -0.84, -0.4, s * 0.12));
   }
+
+  /* tail fan */
+  const tail = new THREE.Group();
+  tail.position.set(-1.25, 0.02, 0);
+  tail.add(flatXZ([[0, 0.14], [-0.45, 0.31], [-0.78, 0.37], [-0.82, 0.14], [-0.84, -0.14], [-0.78, -0.37], [-0.45, -0.31], [0, -0.14]], 0.045, white));
+  inner.add(tail);
+
+  /* wings: arm segment + hand segment, both extruded outlines */
+  const arm: Array<[number, number]> = [[0.3, 0], [0.36, 0.55], [0.27, 1.1], [-0.2, 1.15], [-0.5, 1.0], [-0.68, 0.7], [-0.72, 0.35], [-0.6, 0]];
+  const hand: Array<[number, number]> = [[0.26, 0], [0.2, 0.5], [0.05, 1.0], [-0.12, 1.5], [-0.22, 1.42], [-0.28, 1.22], [-0.42, 1.2], [-0.46, 1.0], [-0.6, 0.96], [-0.62, 0.74], [-0.74, 0.7], [-0.72, 0.45], [-0.66, 0.2], [-0.6, 0]];
+  const tips: Array<[number, number]> = [[0.13, 0.78], [0.05, 1.0], [-0.12, 1.5], [-0.22, 1.42], [-0.28, 1.22], [-0.42, 1.2], [-0.46, 1.0], [-0.6, 0.96], [-0.62, 0.78]];
   const wings = [1, -1].map((s) => {
-    const pivot = new THREE.Group();
-    pivot.position.set(0.05, 0.4, s * 0.7);
-    const w = rbox(1.2, 0.14, 2.0, dark, 0.07);
-    w.position.set(-0.1, 0, s * 1.0);
-    const tip = rbox(0.8, 0.1, 1.2, toy('#5aa5ff'), 0.05);
-    tip.position.set(-0.45, 0.03, s * 1.1);
-    pivot.add(w, tip);
-    inner.add(pivot);
-    return pivot;
+    const shoulder = new THREE.Group();
+    shoulder.position.set(0.12, 0.3, s * 0.3);
+    shoulder.add(flatXZ(arm, 0.05, wingTop));
+    const wrist = new THREE.Group();
+    wrist.position.set(0, 0, 1.12);
+    wrist.add(flatXZ(hand, 0.045, wingTop));
+    wrist.add(flatXZ(tips, 0.07, black));
+    shoulder.add(wrist);
+    if (s < 0) {
+      shoulder.scale.z = -1;
+      shoulder.position.z = -0.3;
+    }
+    inner.add(shoulder);
+    return { shoulder, wrist };
   });
-  for (const s of [1, -1]) inner.add(at(cyl(0.05, 0.05, 0.4, toy('#ffb02e'), 8), 0.1, -1.1, s * 0.3));
   return {
     root,
-    sparkle: '#5aa5ff',
+    sparkle: '#9fc2e8',
     yaw: -0.5,
     update(t) {
-      const flap = Math.sin(t * 8.5);
-      wings.forEach((w, i) => (w.rotation.x = (i === 0 ? 1 : -1) * (flap * 0.75 + 0.15)));
-      inner.position.y = Math.sin(t * 8.5 - 0.6) * 0.14 + Math.sin(t * 1.2) * 0.2;
-      inner.rotation.z = Math.sin(t * 1.1) * 0.06 + 0.04;
-      tail.forEach((f, i) => (f.rotation.z = Math.PI / 2 + [0.3, 0, -0.3][i] + Math.sin(t * 3 + i) * 0.06));
+      const w = t * 5.2;
+      const flap = Math.sin(w);
+      const lag = Math.sin(w - 0.9);
+      for (const { shoulder, wrist } of wings) {
+        // the mirrored wing is scaled by -1 on z, so the same angle lifts both
+        shoulder.rotation.x = -(flap * 0.62 + 0.12);
+        wrist.rotation.x = -(lag * 0.5 - 0.05);
+        wrist.rotation.y = lag * 0.06;
+      }
+      inner.position.y = -flap * 0.2 + Math.sin(t * 1.1) * 0.15;
+      inner.rotation.z = Math.sin(t * 1.0) * 0.04 + 0.05 + flap * 0.03;
+      inner.rotation.x = Math.sin(t * 0.8) * 0.03;
+      tail.rotation.z = lag * 0.07;
+      tail.rotation.x = Math.sin(t * 1.9) * 0.05;
     },
   };
 }
 
-/* ───────────────────────────── 7 · helicopter ───────────────────────────── */
+/* ───────────────────────────── 6 · helicopter ───────────────────────────── */
 
 export function helicopter(): Hero {
   const root = new THREE.Group();
@@ -196,7 +305,7 @@ export function helicopter(): Hero {
   };
 }
 
-/* ─────────────────────────────── 8 · plane ─────────────────────────────── */
+/* ─────────────────────────────── 7 · plane ─────────────────────────────── */
 
 export function plane(): Hero {
   const root = new THREE.Group();

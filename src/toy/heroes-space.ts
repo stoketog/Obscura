@@ -1,4 +1,4 @@
-import { THREE, TAU, at, ball, canvasTex, capsule, cone, cyl, dome, glow, grp, lit, rbox, toy, torus } from './kit';
+import { THREE, TAU, at, ball, canvasTex, capsule, cone, cyl, dome, glow, grp, lit, rbox, rng, toy, torus } from './kit';
 import type { Hero } from './heroes-sea';
 import { makeEarth, makeMoon, makePlanet } from './planets';
 
@@ -288,12 +288,27 @@ export function solar(): Hero {
     tilt.add(pivot);
     movers.push({ pivot, speed: b.speed, self: body, moon });
   });
+  // the asteroid belt between Mars and Jupiter
+  const BELT = 120;
+  const belt = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 0), toy('#a89f94', { rough: 0.8, clear: 0 }), BELT);
+  const brand = rng(61);
+  for (let i = 0; i < BELT; i++) {
+    const a = brand() * TAU, r = 3.22 + (brand() - 0.5) * 0.2;
+    dummy.position.set(Math.cos(a) * r, (brand() - 0.5) * 0.08, Math.sin(a) * r);
+    dummy.rotation.set(brand() * 6, brand() * 6, 0);
+    dummy.scale.setScalar(0.012 + brand() * 0.022);
+    dummy.updateMatrix();
+    belt.setMatrixAt(i, dummy.matrix);
+  }
+  belt.frustumCulled = false;
+  tilt.add(belt);
   return {
     root,
     sparkle: '#ffd25a',
     yaw: 0,
     update(t) {
       sun.rotation.y = t * 0.3;
+      belt.rotation.y = t * 0.05;
       movers.forEach((m, i) => {
         m.pivot.rotation.y = i * 1.9 + t * m.speed * 0.35;
         m.self.rotation.y = t * 0.8;

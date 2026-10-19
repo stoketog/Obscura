@@ -1,20 +1,28 @@
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
-import { THREE, clamp, lerp, lit, smooth, toy } from './kit';
+import { THREE, clamp, disposeTree, lerp, lit, smooth, toy } from './kit';
 import { aFor, ambienceAt, PACE, RAMP, STAGE_Y, SURFACE_Y } from './layout';
 import { astronaut, rocket, satellite, solar } from './heroes-space';
 import { bird, helicopter, human, plane } from './heroes-air';
 import { fish, jellyfish, microbe, type Hero } from './heroes-sea';
 import { seaFloor, seaLife, sky, space, town, water, type Biome, type Ctx } from './biomes';
+import { airLife, deepLife, orbitLife, plankton, reefLife, seaside } from './companions';
 
 const HEROES: Array<() => Hero> = [microbe, jellyfish, fish, human, bird, helicopter, plane, rocket, satellite, astronaut, solar];
 
-const BIOMES: Array<{ build: () => Biome; range: [number, number] }> = [
+/** `extra` marks the supporting cast, which Low CPU mode leaves out. */
+const BIOMES: Array<{ build: () => Biome; range: [number, number]; extra?: boolean }> = [
   { build: space, range: [-60, 400] },
   { build: seaFloor, range: [-30, 15] },
   { build: seaLife, range: [-30, 30] },
   { build: water, range: [8, 62] },
   { build: town, range: [18, 60] },
   { build: sky, range: [28, 110] },
+  { build: plankton, range: [-30, 16], extra: true },
+  { build: reefLife, range: [8, 27], extra: true },
+  { build: seaside, range: [18, 60], extra: true },
+  { build: airLife, range: [28, 110], extra: true },
+  { build: orbitLife, range: [70, 200], extra: true },
+  { build: deepLife, range: [118, 400], extra: true },
 ];
 
 const LIGHT = {
@@ -81,6 +89,7 @@ export class ToyWorld {
   private tmp = new THREE.Color();
   private pending = 0;
   private soft = false;
+  private extras = true;
   /** Height the camera (and so the scenery) is centred on: it only changes when a new form takes over. */
   private fy = Number.NaN;
   private burstY = 0;
@@ -160,6 +169,20 @@ export class ToyWorld {
       this.heroes.forEach((h, i) => h && (h.root.visible = i === this.shown));
       this.scroll += 0;
     }
+  }
+
+  /** Show or hide the supporting cast (other creatures, vehicles, passers-by). Low CPU mode turns it off. */
+  setExtras(on: boolean) {
+    if (on === this.extras) return;
+    this.extras = on;
+    if (on) return;
+    BIOMES.forEach((def, i) => {
+      const b = this.biomes[i];
+      if (!def.extra || !b) return;
+      this.scene.remove(b.group);
+      disposeTree(b.group);
+      this.biomes[i] = null;
+    });
   }
 
   /** Where on screen (0–1) the player should appear. */
@@ -348,6 +371,7 @@ export class ToyWorld {
     BIOMES.forEach((def, i) => {
       const [lo, hi] = def.range;
       const near = camY > lo - 14 && camY < hi + 14;
+      if (def.extra && !this.extras) return;
       let b = this.biomes[i];
       if (!b && near) {
         b = def.build();

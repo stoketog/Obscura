@@ -2,6 +2,7 @@ import { THREE, TAU, at, ball, building, canvasTex, clamp, cloud, cone, cyl, glo
 import { jellyfish, miniFish } from './heroes-sea';
 import { makeEarth, makeMoon } from './planets';
 import { QUAY_TOP, QUAY_Z, SURFACE_Y, parallax } from './layout';
+import { lunarSite } from './companions';
 
 /** Per-frame facts every piece of scenery gets. */
 export interface Ctx {
@@ -166,7 +167,7 @@ export function seaLife(): Biome {
   const school = Array.from({ length: 18 }, (_, i) => {
     const f = miniFish(palette[i % palette.length], 0.55 + (i % 3) * 0.12);
     g.add(f);
-    return { f, p: i * 0.55, y: 16 + (i % 6) * 0.9, z: -4 + (i % 5) * 1.3 };
+    return { f, p: i * 0.55, y: 16 + (i % 6) * 0.9, z: -10 + (i % 5) * 1.3 };
   });
   const pos = new THREE.Vector3();
   return {
@@ -213,7 +214,7 @@ export function seaLife(): Biome {
       for (const s of school) {
         const x = (t: number) => Math.sin(t * 0.42 + s.p) * 8.5 + Math.sin(t * 0.17 + s.p * 2) * 2;
         const y = (t: number) => s.y + Math.sin(t * 0.7 + s.p * 1.3) * 0.8;
-        pos.set(x(t), y(t), s.z + Math.sin(t * 0.33 + s.p) * 2);
+        pos.set(x(t), y(t), s.z + Math.sin(t * 0.33 + s.p) * 1.2);
         s.f.position.copy(pos);
         const vx = x(t + 0.05) - x(t);
         s.f.rotation.y = vx >= 0 ? 0 : Math.PI;
@@ -444,6 +445,20 @@ export function space(): Biome {
   g.add(earth);
   const moon = makeMoon(1);
   g.add(moon);
+  // a lunar landing site that stays put on the moon (the moon itself slowly turns)
+  const site = lunarSite();
+  const { lander, rover, flag } = site.userData as { lander: THREE.Object3D; rover: THREE.Object3D; flag: THREE.Object3D };
+  const onMoon = (o: THREE.Object3D, theta: number, size: number, spin = 0) => {
+    const n = new THREE.Vector3(-Math.sin(theta), Math.cos(theta), 0.08).normalize();
+    o.position.copy(n);
+    o.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), n);
+    o.rotateY(spin);
+    o.scale.setScalar(size);
+  };
+  onMoon(lander, -0.98, 1 / 11 * 0.8, 0.6);
+  onMoon(rover, 0.32, 1 / 11 * 0.85, 2.2);
+  onMoon(flag, 0.06, 1 / 11 * 0.9, 0.3);
+  g.add(site);
   // streaks that make a climb feel fast
   const LINES = 46;
   const lines = new THREE.InstancedMesh(new THREE.BoxGeometry(0.035, 1, 0.035), lit('#ffffff', 0.5, true), LINES);
@@ -473,6 +488,9 @@ export function space(): Biome {
       moon.position.set(cam.x - 7, camY + lerp(-40, -12.5, p2), -5);
       moon.scale.setScalar(Math.max(0.001, 11 * (1 - p3)));
       moon.rotation.y = t * 0.02;
+      site.visible = moon.visible;
+      site.position.copy(moon.position);
+      site.scale.copy(moon.scale);
       const rocketW = c.a > 6.2 && c.a < 7.8 ? 0.55 : 0;
       const wk = clamp(Math.max(rocketW, clamp(Math.abs(c.climb) / 0.45) * 0.85));
       lines.visible = wk > 0.04;
