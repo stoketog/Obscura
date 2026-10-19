@@ -1,4 +1,31 @@
 {
+  "abacus": {
+    "file": "eadee988b91b0b9f.jpg",
+    "width": 1280,
+    "height": 960,
+    "title": "File:Abacus actually in use at kimono shop in Otaru.jpg",
+    "author": "Syced",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Abacus_actually_in_use_at_kimono_shop_in_Otaru.jpg",
+    "templates": [
+      "Cc-zero"
+    ]
+  },
+  "ada-lovelace": {
+    "file": "08c2cc39b032cd4e.jpg",
+    "width": 891,
+    "height": 1280,
+    "title": "File:Ada Lovelace portrait.jpg",
+    "author": "Alfred Edward Chalon",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Ada_Lovelace_portrait.jpg",
+    "templates": [
+      "PD-Art",
+      "PD-art-category",
+      "PD-old-auto-expired"
+    ]
+  },
   "aurora": {
     "file": "cddfaa09af0a50c0.jpg",
     "width": 1280,
@@ -14,6 +41,58 @@
       "Template:PD-USGov-Military-Air Force/layout"
     ]
   },
+  "axolotl": {
+    "file": "122d554f7ba67c3b.jpg",
+    "width": 1280,
+    "height": 1087,
+    "title": "File:Axolotl Ambystoma mexicanum Aquarium Liège 30012016 1.jpg",
+    "author": "Vassil",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Axolotl_Ambystoma_mexicanum_Aquarium_Li%C3%A8ge_30012016_1.jpg",
+    "templates": [
+      "Cc-zero"
+    ]
+  },
+  "brunel": {
+    "file": "67523ccb5d49c8a4.jpg",
+    "width": 1051,
+    "height": 1280,
+    "title": "File:Robert Howlett - Isambard Kingdom Brunel and the launching chains of the Great Eastern - Google Art Project.jpg",
+    "author": "Robert Howlett (1830 - 1858) – photographer Details on Google Art Project",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Robert_Howlett_-_Isambard_Kingdom_Brunel_and_the_launching_chains_of_the_Great_Eastern_-_Google_Art_Project.jpg",
+    "templates": [
+      "PD-Art",
+      "PD-art-category",
+      "PD-old-100-expired"
+    ]
+  },
+  "colosseum": {
+    "file": "e94f1be034548e1b.jpg",
+    "width": 1280,
+    "height": 806,
+    "title": "File:Colosseum of Rome, Italy.jpg",
+    "author": "Wilfredor",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Colosseum_of_Rome,_Italy.jpg",
+    "templates": [
+      "Cc-zero"
+    ]
+  },
+  "darwin": {
+    "file": "280fdfad347c0223.jpg",
+    "width": 1030,
+    "height": 1280,
+    "title": "File:Charles Darwin by Julia Margaret Cameron, c. 1868.jpg",
+    "author": "Julia Margaret Cameron / Adam Cuerden",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Charles_Darwin_by_Julia_Margaret_Cameron,_c._1868.jpg",
+    "templates": [
+      "PD-old-auto-expired"
+    ]
+  },
   "earthrise": {
     "file": "a4b180959d841be4.jpg",
     "width": 1280,
@@ -26,6 +105,58 @@
       "Template:PD-USGov-NASA",
       "Template:PD-USGov-NASA/en",
       "Template:PD-USGov-NASA/layout"
+    ]
+  },
+  "enigma": {
+    "file": "9220eef5a9885076.jpg",
+    "width": 960,
+    "height": 1280,
+    "title": "File:An Enigma machine.jpg",
+    "author": "Robert-brook",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:An_Enigma_machine.jpg",
+    "templates": [
+      "Cc-zero"
+    ]
+  },
+  "giants-causeway": {
+    "file": "3fe733224d350557.jpg",
+    "width": 1280,
+    "height": 960,
+    "title": "File:Giants Causeway 1b.JPG",
+    "author": "Unknown",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Giants_Causeway_1b.JPG",
+    "templates": [
+      "PD-self"
+    ]
+  },
+  "gramophone": {
+    "file": "08ca69554fe7d261.jpg",
+    "width": 898,
+    "height": 1280,
+    "title": "File:Graphophone - Bayernhof Museum - DSC06259.JPG",
+    "author": "Daderot",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Graphophone_-_Bayernhof_Museum_-_DSC06259.JPG",
+    "templates": [
+      "Cc-zero"
+    ]
+  },
+  "great-wave": {
+    "file": "fe004e7e0a7f38c7.jpg",
+    "width": 1280,
+    "height": 883,
+    "title": "File:The Great Wave off Kanagawa.jpg",
+    "author": "After Katsushika Hokusai",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Great_Wave_off_Kanagawa.jpg",
+    "templates": [
+      "PD-Art",
+      "PD-art-category",
+      "PD-old-100-expired"
     ]
   },
   "lincoln": {
