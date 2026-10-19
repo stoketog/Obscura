@@ -3,10 +3,10 @@ import { THREE, clamp, lerp, lit, smooth, toy } from './kit';
 import { aFor, ambienceAt, PACE, RAMP, STAGE_Y, SURFACE_Y } from './layout';
 import { astronaut, rocket, satellite, solar } from './heroes-space';
 import { bird, helicopter, human, plane } from './heroes-air';
-import { dolphin, fish, jellyfish, microbe, type Hero } from './heroes-sea';
+import { fish, jellyfish, microbe, type Hero } from './heroes-sea';
 import { seaFloor, seaLife, sky, space, town, water, type Biome, type Ctx } from './biomes';
 
-const HEROES: Array<() => Hero> = [microbe, jellyfish, fish, dolphin, human, bird, helicopter, plane, rocket, satellite, astronaut, solar];
+const HEROES: Array<() => Hero> = [microbe, jellyfish, fish, human, bird, helicopter, plane, rocket, satellite, astronaut, solar];
 
 const BIOMES: Array<{ build: () => Biome; range: [number, number] }> = [
   { build: space, range: [-60, 400] },

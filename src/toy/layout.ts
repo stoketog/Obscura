@@ -4,16 +4,15 @@ export const FEET_BELOW_ANCHOR = 1.4;
 
 /**
  * Where each form lives in the one shared world (world units, up is +y).
- * The sea surface is at y = 26: the dolphin leaps from it, the human walks on
- * the quay a step above it, and everything else is stacked above or below.
+ * The sea surface is at y = 26: the human walks on the quay a step above it, and everything else is stacked above or below.
  */
-export const STAGE_Y = [0, 9, 18, 26.4, 28.3, 38, 50, 64, 82, 104, 122, 144];
+export const STAGE_Y = [0, 9, 18, 28.3, 38, 50, 64, 82, 104, 122, 144];
 export const SURFACE_Y = 26;
-export const QUAY_TOP = STAGE_Y[4] - FEET_BELOW_ANCHOR;
+export const QUAY_TOP = STAGE_Y[3] - FEET_BELOW_ANCHOR;
 /** The quay's centre line (z). The sea is in front of it, the town behind. */
 export const QUAY_Z = -3;
 
-/** Continuous "stage index" for a points total: 3.0 is the dolphin, 3.5 is halfway to the human. */
+/** Continuous "stage index" for a points total: 3.0 is the human, 3.5 is halfway to the bird. */
 export function aFor(points: number): number {
   const p = Math.max(0, Math.min(STAGES[STAGES.length - 1].threshold, points));
   let i = 0;
@@ -24,7 +23,7 @@ export function aFor(points: number): number {
 }
 
 /** How fast the scenery slides past (world units / second) while each form is shown. */
-export const PACE = [0.5, 0.7, 3.4, 3.6, 2.8, 5.2, 4.6, 9, 0, 0, 0, 0];
+export const PACE = [0.5, 0.7, 3.4, 2.8, 5.2, 4.6, 9, 0, 0, 0, 0];
 
 /** Sky colour at a height; used for the backdrop gradient and fog. */
 export const RAMP: Array<[number, string]> = [

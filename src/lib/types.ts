@@ -41,7 +41,7 @@ export interface Prompt {
   entries: AnswerEntry[];
 }
 
-export type TierId = 'everyday' | 'familiar' | 'uncommon' | 'rare' | 'obscure' | 'mythic';
+export type TierId = 'everyday' | 'uncommon' | 'rare' | 'obscure' | 'mythic';
 
 export interface Tier {
   id: TierId;

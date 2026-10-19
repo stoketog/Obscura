@@ -9,7 +9,7 @@ export interface Ctx {
   dt: number;
   /** Camera height. */
   camY: number;
-  /** Stage index as a continuous number (3.5 = halfway from dolphin to human). */
+  /** Stage index as a continuous number (3.5 = halfway from the human to the bird). */
   a: number;
   /** Accumulated scenery slide (world units). */
   scroll: number;
@@ -473,7 +473,7 @@ export function space(): Biome {
       moon.position.set(cam.x - 7, camY + lerp(-40, -12.5, p2), -5);
       moon.scale.setScalar(Math.max(0.001, 11 * (1 - p3)));
       moon.rotation.y = t * 0.02;
-      const rocketW = c.a > 7.2 && c.a < 8.8 ? 0.55 : 0;
+      const rocketW = c.a > 6.2 && c.a < 7.8 ? 0.55 : 0;
       const wk = clamp(Math.max(rocketW, clamp(Math.abs(c.climb) / 0.45) * 0.85));
       lines.visible = wk > 0.04;
       (lines.material as THREE.MeshBasicMaterial).opacity = wk * 0.55;

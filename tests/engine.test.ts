@@ -72,18 +72,22 @@ test('parseAnswer parses aliases and rejects junk', () => {
 });
 test('stages are ordered with increasing thresholds', () => {
   for (let i = 1; i < STAGES.length; i++) assert.ok(STAGES[i].threshold > STAGES[i - 1].threshold, STAGES[i].id);
-  assert.equal(STAGES.length, 12);
+  assert.equal(STAGES.length, 11);
 });
 
 console.log('Scoring');
 test('tiers map scores to points steeply', () => {
   assert.equal(tierFor(1).id, 'everyday');
-  assert.equal(tierFor(14).id, 'everyday');
-  assert.equal(tierFor(15).id, 'familiar');
-  assert.equal(tierFor(32).id, 'uncommon');
-  assert.equal(tierFor(50).id, 'rare');
-  assert.equal(tierFor(72).id, 'obscure');
+  assert.equal(tierFor(17).id, 'everyday');
+  assert.equal(tierFor(18).id, 'uncommon');
+  assert.equal(tierFor(37).id, 'uncommon');
+  assert.equal(tierFor(38).id, 'rare');
+  assert.equal(tierFor(61).id, 'rare');
+  assert.equal(tierFor(62).id, 'obscure');
+  assert.equal(tierFor(91).id, 'obscure');
   assert.equal(tierFor(92).id, 'mythic');
+  assert.equal(TIERS.length, 5, 'Familiar is gone');
+  assert.equal(tierById('familiar' as never).id, 'uncommon', 'old saved games still resolve');
   // players see the top (100 pt) tier as "Obscure" and the one below it (80 pt) as "Mythic"
   assert.equal(tierFor(95).label, 'Obscure');
   assert.equal(tierFor(80).label, 'Mythic');
@@ -96,9 +100,9 @@ test('stage thresholds: microbe at 0, a form every 40–90 points, the solar sys
   assert.equal(stageIndexFor(0), 0);
   assert.equal(stageIndexFor(39), 0);
   assert.equal(stageIndexFor(40), 1);
-  assert.equal(stageIndexFor(199), 4);
-  assert.equal(stageIndexFor(200), 5); // bird at 200
-  assert.equal(stageIndexFor(300), 6); // helicopter at 300
+  assert.equal(stageIndexFor(189), 3); // human
+  assert.equal(stageIndexFor(190), 4); // bird at 190
+  assert.equal(stageIndexFor(280), 5); // helicopter at 280
   assert.equal(STAGES[stageIndexFor(699)].id, 'astronaut');
   assert.equal(stageIndexFor(700), STAGES.length - 1);
   assert.equal(STAGES[STAGES.length - 1].id, 'solar');
@@ -118,10 +122,10 @@ test('altitude climbs monotonically with points and reads sensibly', () => {
   assert.equal(formatAltitude(10700), '10.7 km');
   assert.ok(formatAltitude(altitudeFor(700)).endsWith('billion km'));
 });
-test('every rarity tier has its own colour and square (grey, green, yellow, blue, purple, orange)', () => {
+test('every rarity tier has its own colour and square (grey, yellow, blue, purple, orange)', () => {
   assert.equal(new Set(TIERS.map((t) => t.color)).size, TIERS.length);
   assert.equal(new Set(TIERS.map((t) => t.square)).size, TIERS.length);
-  assert.deepEqual(TIERS.map((t) => t.square), ['⬜', '🟩', '🟨', '🟦', '🟪', '🟧']);
+  assert.deepEqual(TIERS.map((t) => t.square), ['⬜', '🟨', '🟦', '🟪', '🟧']);
   for (const t of TIERS) assert.match(t.color, /^#[0-9a-f]{6}$/i, t.id);
   assert.equal(tierById('rare').square, '🟦');
 });

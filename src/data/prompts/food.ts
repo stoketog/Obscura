@@ -3,7 +3,7 @@ import type { PromptSeed } from '@/lib/types';
 /**
  * Answer format: 'Name|score' or 'Name|score|alias;alias'.
  * score = how rarely players would think of it, 1 (everyone) … 100 (almost nobody).
- * Tiers: <15 Everyday · 15–31 Familiar · 32–49 Uncommon · 50–71 Rare · 72–91 Mythic · 92+ Obscure (100 pts: exactly two answers per prompt).
+ * Tiers: <18 Everyday · 18–37 Uncommon · 38–61 Rare · 62–91 Mythic · 92+ Obscure (100 pts: exactly two answers per prompt).
  */
 export const FOOD: PromptSeed[] = [
   {

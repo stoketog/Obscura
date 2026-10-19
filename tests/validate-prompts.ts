@@ -38,13 +38,13 @@ async function main() {
       }
       const n = p.entries.length;
       const sc = p.entries.map((e) => e.score);
-      const lo = sc.filter((s) => s < 15).length, hi = sc.filter((s) => s >= 92).length;
-      const mid = sc.filter((s) => s >= 15 && s < 50).length, rare = sc.filter((s) => s >= 50 && s < 92).length;
+      const lo = sc.filter((s) => s < 18).length, hi = sc.filter((s) => s >= 92).length;
+      const mid = sc.filter((s) => s >= 18 && s < 38).length, rare = sc.filter((s) => s >= 38 && s < 92).length;
       if (n < 30) fail(id, `only ${n} answers (need 30+)`);
-      if (lo < 3) fail(id, `needs 3+ everyday answers (score < 15), has ${lo}`);
+      if (lo < 3) fail(id, `needs 3+ everyday answers (score < 18), has ${lo}`);
       if (hi < 1 || hi > 2) fail(id, `needs 1 or 2 top-tier (Obscure, 100 pts) answers (score >= 92), has ${hi}`);
-      if (mid < 5) fail(id, `needs 5+ answers scored 15-49, has ${mid}`);
-      if (rare < (n < 80 ? 2 : 4)) fail(id, `needs ${n < 80 ? 2 : 4}+ answers scored 50-91, has ${rare}`);
+      if (mid < 5) fail(id, `needs 5+ answers scored 18-37, has ${mid}`);
+      if (rare < (n < 80 ? 2 : 4)) fail(id, `needs ${n < 80 ? 2 : 4}+ answers scored 38-91, has ${rare}`);
       const seen = new Map<string, string>();
       for (const e of p.entries) {
         if (/[|;]/.test(e.name)) fail(id, `name contains | or ; : ${e.name}`);

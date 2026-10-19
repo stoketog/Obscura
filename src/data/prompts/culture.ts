@@ -109,7 +109,7 @@ export const CULTURE: PromptSeed[] = [
     category: 'Anatomy',
     answers: [
       'Skull|1', 'Femur|3', 'Rib|3|ribs;rib cage', 'Spine|3|backbone', 'Pelvis|6', 'Tibia|6', 'Humerus|8', 'Patella|10|kneecap', 'Vertebra|12|vertebrae', 'Clavicle|12|collarbone',
-      'Fibula|14', 'Radius|14', 'Ulna|34', 'Scapula|14|shoulder blade', 'Sternum|14|breastbone', 'Mandible|14|jawbone;jaw', 'Cranium|14', 'Coccyx|14|tailbone',
+      'Fibula|14', 'Radius|14', 'Ulna|34', 'Scapula|14|shoulder blade', 'Sternum|14|breastbone', 'Mandible|24|jawbone;jaw', 'Cranium|20', 'Coccyx|22|tailbone',
       'Sacrum|36', 'Carpals|40|carpal', 'Phalanges|52|phalanx', 'Stapes|30|stirrup', 'Incus|38|anvil', 'Malleus|38|hammer', 'Metacarpals|38|metacarpal', 'Metatarsals|38|metatarsal',
       'Tarsals|40|tarsal', 'Maxilla|40', 'Atlas|40', 'Nasal bone|46', 'Calcaneus|52|heel bone', 'Scaphoid|52', 'Talus|54', 'Ilium|54', 'Hyoid|56', 'Zygomatic|54|cheekbone',
       'Temporal bone|56', 'Parietal bone|56', 'Frontal bone|56', 'Axis|56', 'Occipital bone|60', 'Ischium|62', 'Pubis|62', 'Navicular|66', 'Cuboid|70', 'Manubrium|76',

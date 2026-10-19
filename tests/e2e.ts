@@ -237,7 +237,7 @@ async function main() {
       for (let i = 0; i < 40; i++) { const v = parseInt(await text(p, 'result-points'), 10); if (v > 0 && v === pts) break; pts = v; await p.waitForTimeout(500); }
       ok(pts > 450 && pts <= 700, `rarest answers score big (${pts})`);
       eq(await text(p, 'result-stage'), STAGES[stageIndexFor(pts)].name, 'form matches points');
-      ok(stageIndexFor(pts) >= 6, `a high climb (${await text(p, 'result-stage')})`);
+      ok(stageIndexFor(pts) >= 5, `a high climb (${await text(p, 'result-stage')})`);
       eq(await q(p, 'breakdown-row').count(), 7, 'breakdown');
       const rows = q(p, 'breakdown-row');
       for (let i = 0; i < 7; i++) {
@@ -409,10 +409,10 @@ async function main() {
     const { ctx, page: p, errors } = await open(b, { world: true }); await q(p, 'admin-btn').click();
     await q(p, 'admin-tab-gallery').click();
     await q(p, 'gallery-rocket').click();
-    eq(await q(p, 'world-canvas').getAttribute('data-points'), '470', 'world points follow the preview');
+    eq(await q(p, 'world-canvas').getAttribute('data-points'), '450', 'world points follow the preview');
     let stage = '';
-    for (let i = 0; i < 30; i++) { stage = (await q(p, 'world-canvas').getAttribute('data-stage')) ?? ''; if (stage === '8') break; await p.waitForTimeout(400); }
-    eq(stage, '8', 'the world reached the rocket');
+    for (let i = 0; i < 30; i++) { stage = (await q(p, 'world-canvas').getAttribute('data-stage')) ?? ''; if (stage === '7') break; await p.waitForTimeout(400); }
+    eq(stage, '7', 'the world reached the rocket');
     await p.keyboard.press('Escape'); await p.waitForTimeout(200);
     eq(await q(p, 'world-canvas').getAttribute('data-points'), '0', 'back to the real points on close');
     eq(errors.length, 0, errors.join('|')); await ctx.close();

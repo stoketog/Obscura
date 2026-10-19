@@ -8,16 +8,17 @@ import { STAGES } from '@/data/stages';
  * points, and the tiers are deliberately steep: an everyday answer is worth
  * 10, an Obscure one 100. Seven Obscure answers (700) is the theoretical ceiling.
  *
+ * Five tiers: Everyday, Uncommon, Rare, Mythic and Obscure (there used to be a sixth, "Familiar").
+ *
  * Naming: the top tier (100 pts, at most two answers per prompt) is called "Obscure" and the one below
  * it (80 pts) "Mythic". The ids stay as they were (`mythic` = 100, `obscure` = 80) so saved games
  * and stats keep their meaning; only the labels the player sees are swapped.
  */
 export const TIERS: Tier[] = [
   { id: 'everyday', label: 'Everyday', min: 0, points: 10, color: '#9aa7b5', square: '⬜' },
-  { id: 'familiar', label: 'Familiar', min: 15, points: 20, color: '#4ade80', square: '🟩' },
-  { id: 'uncommon', label: 'Uncommon', min: 32, points: 35, color: '#facc15', square: '🟨' },
-  { id: 'rare', label: 'Rare', min: 50, points: 55, color: '#3b82f6', square: '🟦' },
-  { id: 'obscure', label: 'Mythic', min: 72, points: 80, color: '#a855f7', square: '🟪' },
+  { id: 'uncommon', label: 'Uncommon', min: 18, points: 30, color: '#facc15', square: '🟨' },
+  { id: 'rare', label: 'Rare', min: 38, points: 55, color: '#3b82f6', square: '🟦' },
+  { id: 'obscure', label: 'Mythic', min: 62, points: 80, color: '#a855f7', square: '🟪' },
   { id: 'mythic', label: 'Obscure', min: 92, points: 100, color: '#fb923c', square: '🟧' },
 ];
 
@@ -32,8 +33,9 @@ export function tierFor(score: number): Tier {
   return t;
 }
 
-export function tierById(id: TierId): Tier {
-  return TIERS.find((t) => t.id === id)!;
+export function tierById(id: TierId | string): Tier {
+  // 'familiar' was retired; games saved with it count as Uncommon.
+  return TIERS.find((t) => t.id === id) ?? TIERS.find((t) => t.id === 'uncommon')!;
 }
 
 export function pointsFor(score: number): number {

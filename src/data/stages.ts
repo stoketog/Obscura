@@ -5,7 +5,7 @@
  * Thresholds are points scored in a single day (0–700). A perfect day (seven
  * 100-point answers) is the only way to reach the Solar System.
  */
-export type SceneId = 'microbe' | 'jellyfish' | 'fish' | 'dolphin' | 'human' | 'bird' | 'helicopter' | 'plane' | 'rocket' | 'satellite' | 'astronaut' | 'solar';
+export type SceneId = 'microbe' | 'jellyfish' | 'fish' | 'human' | 'bird' | 'helicopter' | 'plane' | 'rocket' | 'satellite' | 'astronaut' | 'solar';
 
 export interface Stage {
   id: SceneId;
@@ -27,14 +27,13 @@ export const STAGES: Stage[] = [
   { id: 'microbe', name: 'Microbe', emoji: '🦠', threshold: 0, place: 'The sea floor', hue: 175, altitude: -4000, blurb: 'A speck in the dark, four kilometres down.' },
   { id: 'jellyfish', name: 'Jellyfish', emoji: '🪼', threshold: 40, place: 'The deep ocean', hue: 300, altitude: -1500, blurb: 'Drifting upward on a pulse of light.' },
   { id: 'fish', name: 'Fish', emoji: '🐟', threshold: 80, place: 'Open water', hue: 195, altitude: -300, blurb: 'Fins, speed and a whole sea to cross.' },
-  { id: 'dolphin', name: 'Dolphin', emoji: '🐬', threshold: 120, place: 'The surface', hue: 205, altitude: -8, blurb: 'You break through and, for a moment, fly.' },
-  { id: 'human', name: 'Human', emoji: '🚶', threshold: 160, place: 'The city', hue: 35, altitude: 4, blurb: 'Two feet on solid ground and a street ahead.' },
-  { id: 'bird', name: 'Bird', emoji: '🐦', threshold: 200, place: 'Low sky', hue: 200, altitude: 150, blurb: 'The rooftops fall away beneath you.' },
-  { id: 'helicopter', name: 'Helicopter', emoji: '🚁', threshold: 300, place: 'Above the skyline', hue: 28, altitude: 1200, blurb: 'Rotors, noise and a view of everything.' },
-  { id: 'plane', name: 'Jet plane', emoji: '✈️', threshold: 390, place: 'Cruising altitude', hue: 215, altitude: 10700, blurb: 'Above the weather, faster than sound is quiet.' },
-  { id: 'rocket', name: 'Rocket', emoji: '🚀', threshold: 470, place: 'Leaving the atmosphere', hue: 18, altitude: 80000, blurb: 'The sky goes black and the curve of the Earth appears.' },
-  { id: 'satellite', name: 'Satellite', emoji: '🛰️', threshold: 550, place: 'Low Earth orbit', hue: 225, altitude: 400000, blurb: 'Silent, steady and circling the whole world.' },
-  { id: 'astronaut', name: 'Astronaut', emoji: '🧑‍🚀', threshold: 630, place: 'Deep space', hue: 250, altitude: 384000000, blurb: 'The Moon below, the Earth a small blue marble.' },
+  { id: 'human', name: 'Human', emoji: '🚶', threshold: 120, place: 'The city', hue: 35, altitude: 4, blurb: 'Two feet on solid ground and a street ahead.' },
+  { id: 'bird', name: 'Bird', emoji: '🐦', threshold: 190, place: 'Low sky', hue: 200, altitude: 150, blurb: 'The rooftops fall away beneath you.' },
+  { id: 'helicopter', name: 'Helicopter', emoji: '🚁', threshold: 280, place: 'Above the skyline', hue: 28, altitude: 1200, blurb: 'Rotors, noise and a view of everything.' },
+  { id: 'plane', name: 'Jet plane', emoji: '✈️', threshold: 370, place: 'Cruising altitude', hue: 215, altitude: 10700, blurb: 'Above the weather, faster than sound is quiet.' },
+  { id: 'rocket', name: 'Rocket', emoji: '🚀', threshold: 450, place: 'Leaving the atmosphere', hue: 18, altitude: 80000, blurb: 'The sky goes black and the curve of the Earth appears.' },
+  { id: 'satellite', name: 'Satellite', emoji: '🛰️', threshold: 540, place: 'Low Earth orbit', hue: 225, altitude: 400000, blurb: 'Silent, steady and circling the whole world.' },
+  { id: 'astronaut', name: 'Astronaut', emoji: '🧑‍🚀', threshold: 620, place: 'Deep space', hue: 250, altitude: 384000000, blurb: 'The Moon below, the Earth a small blue marble.' },
   { id: 'solar', name: 'Solar System', emoji: '🪐', threshold: 700, place: 'Beyond Neptune', hue: 45, altitude: 4500000000000, blurb: 'You are all of it. Eight worlds and a star.' },
 ];
 

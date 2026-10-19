@@ -183,7 +183,7 @@ export interface Stats {
 
 export function deriveStats(profile: PlayerProfile, todayKey: string): Stats {
   const all = Object.values(profile.history);
-  const tierCounts: Record<TierId, number> = { everyday: 0, familiar: 0, uncommon: 0, rare: 0, obscure: 0, mythic: 0 };
+  const tierCounts: Record<TierId, number> = { everyday: 0, uncommon: 0, rare: 0, obscure: 0, mythic: 0 };
   let rarest: Stats['rarest'] = null;
   for (const h of all) {
     h.tiers.forEach((t) => t && (tierCounts[t] += 1));

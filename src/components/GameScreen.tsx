@@ -316,7 +316,6 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
 
 const TIER_LINE: Record<string, string> = {
   everyday: 'Everyone reaches for this one.',
-  familiar: 'A familiar find.',
   uncommon: 'Not everyone would think of that.',
   rare: 'Rare. Few people would name it.',
   obscure: 'Mythic. A deep cut. Very few would name it.',
