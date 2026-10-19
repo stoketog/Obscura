@@ -11,7 +11,7 @@ export function rocket(): Hero {
   const inner = new THREE.Group();
   root.add(inner);
   const white = toy('#f7f9ff');
-  const red = toy('#ff3b4e');
+  const red = toy('#c2382f');
   const steel = toy('#8e97b5', { metal: 0.8, rough: 0.25 });
   inner.add(cyl(0.9, 0.9, 2.8, white, 40));
   const nose = dome(0.9, red, 40);

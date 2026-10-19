@@ -149,14 +149,14 @@ export function jellyfish(): Hero {
 
 /* ────────────────────────────── 3 · fish ────────────────────────────── */
 
-const FISH_ORANGE = '#ff8a2a';
+const FISH_BODY = '#5b87b0';
 
 export function fish(): Hero {
   const root = new THREE.Group();
   const inner = new THREE.Group();
   root.add(inner);
-  const skin = toy(FISH_ORANGE);
-  const white = toy('#ffffff');
+  const skin = toy(FISH_BODY);
+  const white = toy('#243f5e');
   inner.add(ball(1.2, skin, [1.4, 1, 0.78], 40));
   for (const x of [0.45, -0.55]) {
     const k = Math.sqrt(1 - (x / 1.68) ** 2);
@@ -170,14 +170,14 @@ export function fish(): Hero {
   inner.add(at(cone(0.4, 1.0, skin), -0.15, 1.15, 0, 0, 0, 0.35));
   const tailPivot = new THREE.Group();
   tailPivot.position.set(-1.6, 0, 0);
-  const fin = cone(0.85, 1.25, toy('#ff6a1a'));
+  const fin = cone(0.85, 1.25, toy('#c58a2e'));
   fin.rotation.z = -Math.PI / 2;
   fin.position.x = -0.55;
   fin.scale.z = 0.22;
   tailPivot.add(fin);
   inner.add(tailPivot);
   const flippers = [1, -1].map((s) => {
-    const f = ball(0.45, toy('#ff6a1a'), [1.0, 0.16, 0.6]);
+    const f = ball(0.45, toy('#c58a2e'), [1.0, 0.16, 0.6]);
     const pv = grp(f);
     f.position.x = -0.35;
     pv.position.set(0.35, -0.35, s * 0.88);
@@ -189,10 +189,10 @@ export function fish(): Hero {
   const mouth = new THREE.TorusGeometry(0.16, 0.04, 8, 20, Math.PI);
   mouth.rotateZ(Math.PI);
   mouth.rotateY(Math.PI / 2);
-  inner.add(at(new THREE.Mesh(mouth, toy('#7a2a08')), 1.67, -0.13, 0));
+  inner.add(at(new THREE.Mesh(mouth, toy('#22303f')), 1.67, -0.13, 0));
   return {
     root,
-    sparkle: '#ff8a2a',
+    sparkle: '#6aa6d8',
     yaw: -0.45,
     update(t) {
       const w = Math.sin(t * 7);
@@ -230,8 +230,8 @@ export function dolphin(): Hero {
   root.add(inner);
   const pose = new THREE.Group();
   inner.add(pose);
-  const skin = toy('#2f7fcf', { rough: 0.3 });
-  const belly = toy('#eaf7ff', { rough: 0.3 });
+  const skin = toy('#2c5f99', { rough: 0.3 });
+  const belly = toy('#d3e0ea', { rough: 0.3 });
   const body = capsule(0.85, 2.3, skin);
   body.rotation.z = Math.PI / 2;
   body.scale.set(1, 1, 0.92);

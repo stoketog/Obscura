@@ -53,8 +53,8 @@ function shuffledOrder(n: number, seed: number): number[] {
   return idx;
 }
 
-export function pickPrompts(dateKey: string, pool: Prompt[] = getPrompts(), count = ROUNDS_PER_DAY): Prompt[] {
-  const day = Math.max(0, puzzleNumberFor(dateKey) - 1);
+export function pickPrompts(dateKey: string, pool: Prompt[] = getPrompts(), count = ROUNDS_PER_DAY, dayOverride?: number): Prompt[] {
+  const day = dayOverride ?? Math.max(0, puzzleNumberFor(dateKey) - 1);
   const byGroup = new Map<PromptGroup, Prompt[]>();
   for (const p of pool) byGroup.set(p.group, [...(byGroup.get(p.group) ?? []), p]);
   const groups = [...byGroup.keys()];
@@ -123,4 +123,28 @@ export function getDaily(dateKey: string, overrides?: Record<string, string[]>, 
     if (picked.length === ROUNDS_PER_DAY) prompts = picked;
   }
   return { dateKey, number: puzzleNumberFor(dateKey), prompts };
+}
+
+/**
+ * ENDLESS MODE (early access)
+ * ---------------------------
+ * Extra dives that are not tied to a date. For now there are exactly two, each a fixed set of seven prompts
+ * dealt from far beyond the daily calendar (so they never repeat a real day's set). More will follow.
+ */
+export const ENDLESS_DIVES = 2;
+
+const dives = new Map<string, DailySet>();
+export function getEndlessDive(n: number, pool?: Prompt[]): DailySet {
+  const key = `endless-${n}`;
+  const cached = pool ? undefined : dives.get(key);
+  if (cached) return cached;
+  // A later dive never reuses a prompt from an earlier one.
+  let source = pool ?? getPrompts();
+  for (let k = 1; k < n; k++) {
+    const used = new Set(getEndlessDive(k, pool).prompts.map((p) => p.id));
+    source = source.filter((p) => !used.has(p.id));
+  }
+  const set: DailySet = { dateKey: key, number: 0, endless: n, prompts: pickPrompts(key, source, ROUNDS_PER_DAY, 4000 + n * 37) };
+  if (!pool) dives.set(key, set);
+  return set;
 }

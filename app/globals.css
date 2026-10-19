@@ -81,10 +81,10 @@ button { font: inherit; color: inherit; }
   -webkit-backdrop-filter: blur(18px) saturate(1.45);
 }
 /* A soft scrim over the world so white text always reads, whatever is behind it. */
-.world-shade { background: linear-gradient(180deg, rgb(2 8 16 / 0.42) 0%, rgb(2 8 16 / 0) 26%, rgb(2 8 16 / 0) 52%, rgb(2 8 16 / 0.34) 100%); transition: opacity 0.6s; }
+.world-shade { background: linear-gradient(180deg, color-mix(in srgb, var(--shade) 42%, transparent) 0%, transparent 26%, transparent 52%, rgb(2 8 16 / 0.34) 100%); transition: opacity 0.6s; }
 @media (min-width: 1024px) {
-  .world-shade[data-view="home"] { background: linear-gradient(90deg, rgb(2 8 16 / 0.62) 0%, rgb(2 8 16 / 0.3) 36%, rgb(2 8 16 / 0) 60%), linear-gradient(180deg, rgb(2 8 16 / 0.3), rgb(2 8 16 / 0) 30%); }
-  .world-shade[data-view="result"] { background: linear-gradient(270deg, rgb(2 8 16 / 0.55) 0%, rgb(2 8 16 / 0.25) 45%, rgb(2 8 16 / 0) 62%), linear-gradient(180deg, rgb(2 8 16 / 0.3), rgb(2 8 16 / 0) 30%); }
+  .world-shade[data-view="home"] { background: linear-gradient(90deg, color-mix(in srgb, var(--shade) 55%, transparent) 0%, color-mix(in srgb, var(--shade) 26%, transparent) 36%, transparent 60%), linear-gradient(180deg, color-mix(in srgb, var(--shade) 30%, transparent), transparent 30%); }
+  .world-shade[data-view="result"] { background: linear-gradient(270deg, rgb(2 8 16 / 0.55) 0%, rgb(2 8 16 / 0.25) 45%, transparent 62%), linear-gradient(180deg, color-mix(in srgb, var(--shade) 30%, transparent), transparent 30%); }
 }
 .hairline { border: 1px solid rgb(255 255 255 / 0.08); }
 
@@ -97,6 +97,36 @@ button { font: inherit; color: inherit; }
   font-family: var(--font-sans); font-weight: 200; letter-spacing: 0.38em; text-transform: uppercase;
   padding-left: 0.38em;
 }
+
+/* ───────────────────────── Ambient ink ─────────────────────────
+   The stage sets --amb (0 = dark scenery … 1 = bright scenery) as the world changes. Text that sits directly on
+   the scenery uses these colours, so it is pale on dark water and space and deep navy against a bright sky. */
+.ambient {
+  --amb: 0;
+  --ink: #f4f8ff;
+  --ink-soft: rgb(228 238 250 / 0.82);
+  --ink-glow: rgb(0 0 0 / 0.5);
+  --shade: #020810;
+}
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+  .ambient {
+    --mix: calc(var(--amb) * 100%);
+    --ink: color-mix(in srgb, #0a1428 var(--mix), #f4f8ff);
+    --ink-soft: color-mix(in srgb, #1e2d49 var(--mix), #d8e4f3);
+    --ink-glow: color-mix(in srgb, rgb(255 255 255 / 0.55) var(--mix), rgb(0 0 0 / 0.5));
+    --shade: color-mix(in srgb, #ffffff var(--mix), #020810);
+  }
+}
+.ink { color: var(--ink); transition: color 0.3s linear; }
+.ink-soft { color: var(--ink-soft); transition: color 0.3s linear; }
+.ink-shadow { text-shadow: 0 1px 14px var(--ink-glow); }
+
+.wordmark { display: inline-flex; flex-direction: column; align-items: stretch; gap: 0.32em; line-height: 1; }
+.wordmark-text {
+  font-family: var(--font-sans); font-weight: 300; letter-spacing: 0.4em; text-transform: uppercase;
+  margin-right: -0.4em; color: var(--ink); transition: color 0.3s linear; text-shadow: 0 1px 12px var(--ink-glow);
+}
+.wordmark-wave { width: 100%; height: 0.34em; display: block; overflow: visible; }
 
 /* Primary button */
 .btn-primary {

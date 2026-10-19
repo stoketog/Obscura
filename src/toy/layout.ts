@@ -1,5 +1,6 @@
 import { STAGES } from '@/data/stages';
-import { FEET_BELOW_ANCHOR } from './heroes-air';
+/** How far below a walker's hip anchor the soles sit. */
+export const FEET_BELOW_ANCHOR = 1.4;
 
 /**
  * Where each form lives in the one shared world (world units, up is +y).
@@ -22,21 +23,44 @@ export function aFor(points: number): number {
   return i + (p - a.threshold) / (b.threshold - a.threshold);
 }
 
-export function yFor(a: number): number {
-  const i = Math.max(0, Math.min(STAGE_Y.length - 2, Math.floor(a)));
-  const t = Math.max(0, Math.min(1, a - i));
-  return STAGE_Y[i] + (STAGE_Y[i + 1] - STAGE_Y[i]) * (a >= STAGE_Y.length - 1 ? 1 : t);
-}
-
 /** How fast the scenery slides past (world units / second) while each form is shown. */
 export const PACE = [0.5, 0.7, 3.4, 3.6, 2.8, 5.2, 4.6, 9, 0, 0, 0, 0];
 
 /** Sky colour at a height; used for the backdrop gradient and fog. */
 export const RAMP: Array<[number, string]> = [
-  [-8, '#00070b'], [-1, '#03232d'], [4, '#054050'], [8, '#241060'], [13, '#13307e'], [18, '#0c63a8'],
-  [24, '#1b9fdc'], [25.9, '#38c5f0'], [26.1, '#a9dffa'], [28, '#86cdf5'], [34, '#62b7f0'], [44, '#3f99e8'],
-  [56, '#2468cc'], [66, '#173f9a'], [74, '#0e2266'], [84, '#060d38'], [96, '#02041a'], [110, '#010210'], [160, '#010108'],
+  [-8, '#00070b'], [-1, '#02202a'], [4, '#04384a'], [8, '#1b1050'], [13, '#0f2c70'], [18, '#0a5496'],
+  [24, '#1478b4'], [25.9, '#2b97c6'], [26.1, '#f2c697'], [28, '#e8b98f'], [33, '#8fb5e6'], [44, '#5b92dc'],
+  [56, '#2d62c0'], [66, '#173a8e'], [74, '#0d1f5e'], [84, '#060c34'], [96, '#02041a'], [110, '#010210'], [160, '#010108'],
 ];
+
+const lin = (v: number) => (v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
+function relLuminance(hex: string): number {
+  const n = parseInt(hex.slice(1), 16);
+  return 0.2126 * lin((n >> 16 & 255) / 255) + 0.7152 * lin((n >> 8 & 255) / 255) + 0.0722 * lin((n & 255) / 255);
+}
+const rampLum = RAMP.map(([y, c]) => [y, relLuminance(c)] as const);
+
+/**
+ * How light the backdrop is behind the top of the screen when the camera is at `camY`:
+ * 0 = dark scenery (white ink reads best), 1 = light scenery (dark ink reads best), eased in between.
+ * The header wordmark follows it so it always matches the ambience.
+ */
+export function ambienceAt(camY: number): number {
+  // underwater the sky is never visible, so the backdrop stays sea-coloured up to the surface
+  const y = camY < SURFACE_Y - 0.5 ? Math.min(camY + 7, SURFACE_Y - 0.15) : camY + 7;
+  let L = rampLum[rampLum.length - 1][1];
+  if (y <= rampLum[0][0]) L = rampLum[0][1];
+  else
+    for (let i = 1; i < rampLum.length; i++) {
+      if (y <= rampLum[i][0]) {
+        const [y0, l0] = rampLum[i - 1], [y1, l1] = rampLum[i];
+        L = l0 + (l1 - l0) * ((y - y0) / (y1 - y0));
+        break;
+      }
+    }
+  const t = Math.min(1, Math.max(0, (L - 0.13) / (0.22 - 0.13)));
+  return t * t * (3 - 2 * t);
+}
 
 /** Pixels of parallax: nearer things slide faster. */
 export const parallax = (z: number) => 11 / Math.max(1.5, 11 - z);

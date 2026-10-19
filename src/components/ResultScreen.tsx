@@ -11,7 +11,7 @@ import { AscentOverlay } from './AscentOverlay';
 import { GrowthBar } from './GrowthBar';
 import { TierChip, TierDot } from './TierChip';
 import { useWorld } from './WorldContext';
-import { IconArrow, IconCheck, IconClock, IconCopy, IconFlame, IconShare } from './Icons';
+import { IconArrow, IconCheck, IconClock, IconCopy, IconFlame, IconInfinity, IconShare } from './Icons';
 
 function useNow(ms = 1000) {
   const [now, setNow] = useState(() => new Date());
@@ -89,12 +89,10 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-10 sm:px-5 lg:grid lg:grid-cols-[1fr_1.1fr] lg:gap-8" data-testid="result">
       {/* The hero stands in the open space between the title and the stage name. */}
       <section className="flex min-h-[44dvh] flex-col justify-between text-center text-soft-shadow hero-col">
-        <div>
-          <p className="eyebrow !text-white/80">
-            Obscura #{String(daily.number).padStart(3, '0')} · {prettyDate(daily.dateKey)}
-          </p>
-          <h1 className={`mt-2 font-display text-lg font-semibold uppercase tracking-[0.3em] text-bio-300 ${cls}`} style={d(0)} data-testid="result-headline">
-            Ascent complete
+        <div className="mx-auto rounded-2xl bg-black/35 px-4 py-2 backdrop-blur-md">
+          <p className="eyebrow !text-white/80">{daily.endless ? `Endless · Dive ${daily.endless}` : `Obscura #${String(daily.number).padStart(3, '0')} · ${prettyDate(daily.dateKey)}`}</p>
+          <h1 className={`mt-1 font-display text-lg font-semibold uppercase tracking-[0.3em] text-bio-300 ${cls}`} style={d(0)} data-testid="result-headline">
+            {daily.endless ? 'Dive complete' : 'Ascent complete'}
           </h1>
         </div>
         <div className="mx-auto mb-3 rounded-2xl bg-black/35 px-5 py-3 backdrop-blur-md">
@@ -111,7 +109,11 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
         <div className={`glass-dock rounded-3xl p-4 ${cls}`} style={d(700)}>
           <div className="grid grid-cols-2 gap-3 text-center">
             <Stat label="Points" value={`${Math.round(points)}`} sub={`of ${MAX_POINTS}`} testId="result-points" />
-            <Stat label="Streak" value={String(streak)} sub={streak === 1 ? 'day' : 'days'} icon={<IconFlame size={14} />} accent="text-amber-glow" testId="result-streak" />
+            {daily.endless ? (
+              <Stat label="Dive" value={String(daily.endless)} sub="of 2" testId="result-dive" />
+            ) : (
+              <Stat label="Streak" value={String(streak)} sub={streak === 1 ? 'day' : 'days'} icon={<IconFlame size={14} />} accent="text-amber-glow" testId="result-streak" />
+            )}
           </div>
           <div className="mt-4 text-left">
             <GrowthBar points={out.points} />
@@ -149,6 +151,7 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
           </ol>
         </div>
 
+        {!daily.endless && (
         <div className={`glass-dock rounded-3xl p-4 sm:p-5 ${cls}`} style={d(1200)}>
           <p className="eyebrow">Share · spoiler free</p>
           <pre className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-2xl border border-white/10 bg-black/30 p-4 text-center font-mono text-[0.92rem] leading-relaxed text-mist-100" data-testid="share-preview">
@@ -166,14 +169,28 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
             )}
           </div>
         </div>
+        )}
 
         <div className={`flex items-center justify-between gap-3 rounded-2xl bg-black/30 px-4 py-2 text-sm text-mist-300 backdrop-blur-md ${cls}`} style={d(1400)}>
-          <span className="flex items-center gap-2" data-testid="countdown">
-            <IconClock size={16} /> Next ascent in <span className="font-mono text-mist-100">{countdown}</span>
-          </span>
-          <button className="btn-ghost !min-h-10" onClick={onOpenStats} data-testid="result-stats">
-            Stats <IconArrow size={14} />
-          </button>
+          {daily.endless ? (
+            <>
+              <span className="flex items-center gap-2" data-testid="endless-note">
+                <IconInfinity size={16} /> More dives are in development
+              </span>
+              <button className="btn-ghost !min-h-10" onClick={() => api.setView('home')} data-testid="result-home">
+                Home <IconArrow size={14} />
+              </button>
+            </>
+          ) : (
+            <>
+              <span className="flex items-center gap-2" data-testid="countdown">
+                <IconClock size={16} /> Next ascent in <span className="font-mono text-mist-100">{countdown}</span>
+              </span>
+              <button className="btn-ghost !min-h-10" onClick={onOpenStats} data-testid="result-stats">
+                Stats <IconArrow size={14} />
+              </button>
+            </>
+          )}
         </div>
       </section>
 

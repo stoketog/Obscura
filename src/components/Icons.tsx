@@ -24,3 +24,5 @@ export const IconGear = mk(<><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1
 export const IconSearch = mk(<><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></>);
 export const IconBack = mk(<path d="M19 12H5M11 6l-6 6 6 6" />);
 export const IconExternal = mk(<><path d="M14 4h6v6M20 4l-9 9" /><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></>);
+export const IconInfinity = mk(<path d="M12 12c-1.8-2.6-3.4-4-5.2-4a4 4 0 0 0 0 8c1.8 0 3.4-1.4 5.2-4zm0 0c1.8 2.6 3.4 4 5.2 4a4 4 0 0 0 0-8c-1.8 0-3.4 1.4-5.2 4z" />);
+export const IconLock = mk(<><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></>);

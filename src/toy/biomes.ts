@@ -40,14 +40,14 @@ function sliders(list: Slider[], c: Ctx) {
 export function seaFloor(): Biome {
   const g = new THREE.Group();
   const FLOOR = -3.4;
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(260, 80), toy('#15596b', { rough: 0.75, clear: 0.2 }));
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(260, 80), toy('#0f4656', { rough: 0.85, clear: 0 }));
   floor.rotation.x = -Math.PI / 2;
   floor.position.set(0, FLOOR, -14);
   g.add(floor);
   const rand = rng(31);
   const list: Slider[] = [];
   const P = 80;
-  const rockCols = ['#2b8296', '#6d57a8', '#3a7ca3', '#1f6b7c', '#8a5fa0'];
+  const rockCols = ['#2a6f80', '#4d4388', '#2f6585', '#1c5a68', '#62487f'];
   for (let i = 0; i < 20; i++) {
     const r = 0.5 + rand() * 1.5;
     const z = -10 + rand() * 13;
@@ -56,7 +56,7 @@ export function seaFloor(): Biome {
     g.add(m);
     list.push({ obj: m, x0: rand() * P, z, period: P });
   }
-  const coralCols = ['#ff6fa3', '#ff9a52', '#b57bff', '#ffd23f'];
+  const coralCols = ['#d85c88', '#e08747', '#9a6fe0', '#d6b032'];
   for (let i = 0; i < 9; i++) {
     const c = new THREE.Group();
     const col = toy(coralCols[i % coralCols.length], { glow: 0.12 });
@@ -106,7 +106,7 @@ export function seaLife(): Biome {
   const g = new THREE.Group();
   // bubbles rise through the camera's neighbourhood
   const BUB = 56;
-  const bubbles = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 14, 10), toy('#dff7ff', { opacity: 0.38, rough: 0.02, glow: 0.2, emissive: '#bfeaff', depthWrite: false }), BUB);
+  const bubbles = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 14, 10), toy('#dff7ff', { opacity: 0.32, rough: 0.02, glow: 0.2, emissive: '#bfeaff', depthWrite: false, smooth: true }), BUB);
   bubbles.frustumCulled = false;
   g.add(bubbles);
   const rand = rng(77);
@@ -122,7 +122,7 @@ export function seaLife(): Biome {
   g.add(snow);
   // kelp
   const STRANDS = 12, LINKS = 16;
-  const kelp = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 10, 8), toy('#20a96c', { glow: 0.12, rough: 0.45 }), STRANDS * LINKS);
+  const kelp = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 10, 8), toy('#1f8f60', { glow: 0.1, rough: 0.5 }), STRANDS * LINKS);
   kelp.frustumCulled = false;
   g.add(kelp);
   const kelpSeed = Array.from({ length: STRANDS }, (_, i) => ({ x0: (i / STRANDS) * 80 + rand() * 4, z: -9 + rand() * 11, h: 9 + rand() * 9, p: rand() * TAU }));
@@ -162,7 +162,7 @@ export function seaLife(): Biome {
     return { ...f, j };
   });
   // a school of little fish
-  const palette = ['#5ec8ff', '#ffd23f', '#9b8cff', '#4fe3b5', '#ff7fa6'];
+  const palette = ['#5aa9d6', '#d6b23a', '#8a7fd6', '#47c7a0', '#d6728f'];
   const school = Array.from({ length: 18 }, (_, i) => {
     const f = miniFish(palette[i % palette.length], 0.55 + (i % 3) * 0.12);
     g.add(f);
@@ -229,7 +229,7 @@ export function water(): Biome {
   const g = new THREE.Group();
   const geo = new THREE.PlaneGeometry(260, 90, 90, 32);
   geo.rotateX(-Math.PI / 2);
-  const mat = toy('#1a8fdc', { rough: 0.2, clear: 0.35, glow: 0.7, emissive: '#0f6fc4', opacity: 0.94, side: THREE.DoubleSide, env: 0.35, depthWrite: true });
+  const mat = toy('#1873b4', { rough: 0.1, clear: 0.35, glow: 0.7, emissive: '#0c4f8c', opacity: 0.95, side: THREE.DoubleSide, env: 0.5, depthWrite: true });
   const mesh = new THREE.Mesh(geo, mat);
   mesh.position.set(0, SURFACE_Y, 20);
   mesh.receiveShadow = true;
@@ -262,22 +262,22 @@ export function water(): Biome {
 
 export function town(): Biome {
   const g = new THREE.Group();
-  const quayMat = toy('#f4dcae', { rough: 0.5, clear: 0.5 });
+  const quayMat = toy('#8d8a8f', { rough: 0.8, clear: 0 });
   const quay = rbox(260, 3.4, 6.2, quayMat, 0.3);
   quay.position.set(0, QUAY_TOP - 1.7, QUAY_Z);
   quay.receiveShadow = true;
   quay.castShadow = false;
   g.add(quay);
-  const behind = new THREE.Mesh(new THREE.PlaneGeometry(260, 44), toy('#ead3a6', { rough: 0.6, clear: 0.2 }));
+  const behind = new THREE.Mesh(new THREE.PlaneGeometry(260, 44), toy('#6f6c74', { rough: 0.9, clear: 0 }));
   behind.rotation.x = -Math.PI / 2;
   behind.position.set(0, QUAY_TOP - 0.02, QUAY_Z - 25);
   behind.receiveShadow = true;
   g.add(behind);
-  const kerb = rbox(260, 0.35, 0.5, toy('#ff6b7a'), 0.12);
+  const kerb = rbox(260, 0.35, 0.5, toy('#4a4f5e'), 0.08);
   kerb.position.set(0, QUAY_TOP + 0.05, QUAY_Z + 2.75);
   g.add(kerb);
   const rand = rng(404);
-  const PAL = ['#ff8fab', '#ffd166', '#7bdff2', '#b8f2e6', '#c3a6ff', '#ffb68a', '#9be564', '#ff9f9f'];
+  const PAL = ['#8590a6', '#6c7790', '#a8a09a', '#76857f', '#b5aa9c', '#5b6479', '#988d8a', '#7a849c'];
   const list: Slider[] = [];
   const P = 96;
   const rows: Array<{ n: number; z: number; hMin: number; hMax: number; wMin: number; wMax: number }> = [
@@ -292,17 +292,17 @@ export function town(): Biome {
       b.position.set(0, QUAY_TOP + h / 2 - 0.02, row.z);
       g.add(b);
       // a little roof cap
-      const cap = rbox(w + 0.5, 0.45, 5, toy('#ffffff'), 0.2);
+      const cap = rbox(w + 0.4, 0.4, 5, toy('#3a4152'), 0.08);
       cap.position.y = h / 2 + 0.2;
       b.add(cap);
       list.push({ obj: b, x0: (i / row.n) * P + rand() * 1.2, z: row.z, period: P });
     }
   });
   // pastel hills far away
-  const hillCols = ['#b6c9ff', '#c9b8ff', '#a9d8ff', '#d2c1ff'];
+  const hillCols = ['#6a7ba6', '#7d73a8', '#5f7399', '#76709f'];
   for (let i = 0; i < 7; i++) {
     const h = 9 + rand() * 7;
-    const hill = cone(h * 0.85, h, toy(hillCols[i % hillCols.length], { rough: 0.7, clear: 0.1 }), 5);
+    const hill = cone(h * 0.85, h, toy(hillCols[i % hillCols.length], { rough: 0.9, clear: 0 }), 5);
     hill.position.set(0, QUAY_TOP + h / 2 - 0.5, -52);
     g.add(hill);
     list.push({ obj: hill, x0: (i / 7) * 200, z: -52, period: 200 });
@@ -311,9 +311,9 @@ export function town(): Biome {
   const lamps: THREE.Sprite[] = [];
   for (let i = 0; i < 6; i++) {
     const lamp = new THREE.Group();
-    const pole = cyl(0.08, 0.12, 3.6, toy('#3d4470'), 12);
+    const pole = cyl(0.08, 0.12, 3.6, toy('#2d3345'), 12);
     pole.position.y = 1.8;
-    lamp.add(pole, at(rbox(0.7, 0.14, 0.3, toy('#3d4470'), 0.06), 0.3, 3.65, 0));
+    lamp.add(pole, at(rbox(0.7, 0.14, 0.3, toy('#2d3345'), 0.06), 0.3, 3.65, 0));
     lamp.add(at(ball(0.2, lit('#ffe7a8'), [1, 0.7, 1], 14), 0.55, 3.5, 0));
     const gl = glow('#ffd98a', 2.4, 0.55);
     gl.position.set(0.55, 3.5, 0);
@@ -325,28 +325,28 @@ export function town(): Biome {
   }
   for (let i = 0; i < 32; i++) {
     const post = new THREE.Group();
-    post.add(at(cyl(0.16, 0.2, 0.55, toy(i % 2 ? '#ffffff' : '#ff6b7a'), 14), 0, 0.3, 0), at(ball(0.2, toy(i % 2 ? '#ffffff' : '#ff6b7a')), 0, 0.62, 0));
+    post.add(at(cyl(0.16, 0.2, 0.55, toy('#3b4152'), 14), 0, 0.3, 0), at(ball(0.18, toy('#3b4152')), 0, 0.62, 0));
     post.position.y = QUAY_TOP;
     g.add(post);
     list.push({ obj: post, x0: i * 3, z: QUAY_Z + 2.55, period: 96 });
   }
   for (let i = 0; i < 6; i++) {
     const planter = new THREE.Group();
-    planter.add(at(rbox(1.5, 0.7, 1.1, toy('#7bdff2'), 0.2), 0, 0.35, 0), at(tree(2.6, i % 2 ? '#4cd37b' : '#7bdc5a'), 0, 0.5, 0));
+    planter.add(at(rbox(1.5, 0.7, 1.1, toy('#4c5568'), 0.1), 0, 0.35, 0), at(tree(2.6, i % 2 ? '#3d8658' : '#52934a'), 0, 0.5, 0));
     planter.position.y = QUAY_TOP;
     g.add(planter);
     list.push({ obj: planter, x0: i * 16 + 11, z: QUAY_Z - 1.9, period: 96 });
   }
   for (let i = 0; i < 4; i++) {
     const bench = new THREE.Group();
-    bench.add(at(rbox(1.9, 0.14, 0.62, toy('#ff9a52'), 0.06), 0, 0.55, 0), at(rbox(1.9, 0.55, 0.1, toy('#ff9a52'), 0.05), 0, 0.9, -0.3));
-    for (const x of [-0.8, 0.8]) bench.add(at(rbox(0.12, 0.5, 0.5, toy('#3d4470'), 0.04), x, 0.27, 0));
+    bench.add(at(rbox(1.9, 0.14, 0.62, toy('#7a5636'), 0.04), 0, 0.55, 0), at(rbox(1.9, 0.55, 0.1, toy('#7a5636'), 0.04), 0, 0.9, -0.3));
+    for (const x of [-0.8, 0.8]) bench.add(at(rbox(0.12, 0.5, 0.5, toy('#2d3345'), 0.04), x, 0.27, 0));
     bench.position.y = QUAY_TOP;
     g.add(bench);
     list.push({ obj: bench, x0: i * 24 + 20, z: QUAY_Z - 2.2, period: 96 });
   }
   // paving lines show the speed of the walk
-  const paving = new THREE.InstancedMesh(new THREE.BoxGeometry(0.07, 0.02, 5.6), toy('#d7b982', { rough: 0.8, clear: 0 }), 48);
+  const paving = new THREE.InstancedMesh(new THREE.BoxGeometry(0.07, 0.02, 5.6), toy('#6a676f', { rough: 0.9, clear: 0 }), 48);
   paving.frustumCulled = false;
   g.add(paving);
   return {
@@ -375,7 +375,7 @@ export function sky(): Biome {
   for (let i = 0; i < 34; i++) {
     const y = i < 6 ? 31 + rand() * 6 : 34 + rand() * 46;
     const z = -16 + rand() * 20;
-    const cl = cloud(0.9 + rand() * 1.5, i % 5 === 0 ? '#ffe9f2' : '#ffffff');
+    const cl = cloud(0.9 + rand() * 1.5, i % 5 === 0 ? '#ffe3cf' : '#f4f6fb');
     cl.position.y = y;
     g.add(cl);
     clouds.push(cl);
@@ -383,7 +383,7 @@ export function sky(): Biome {
   }
   // hot-air balloon
   const stripe = canvasTex(256, 64, (c, w, h) => {
-    const cols = ['#ff5d73', '#ffd23f', '#42d6a4', '#4da6ff'];
+    const cols = ['#b8404f', '#c99a2f', '#2f9478', '#3a6fb0'];
     for (let i = 0; i < 8; i++) {
       c.fillStyle = cols[i % cols.length];
       c.fillRect((i / 8) * w, 0, w / 8 + 1, h);
@@ -393,8 +393,8 @@ export function sky(): Biome {
   const envMat = toy('#ffffff', { rough: 0.35 });
   envMat.map = stripe;
   balloon.add(at(ball(1.9, envMat, [1, 1.15, 1], 40), 0, 2.9, 0));
-  balloon.add(at(cone(0.7, 1.0, toy('#ff5d73'), 24), 0, 0.85, 0, Math.PI));
-  balloon.add(at(rbox(0.9, 0.7, 0.9, toy('#c98a4b'), 0.15), 0, -0.45, 0));
+  balloon.add(at(cone(0.7, 1.0, toy('#b8404f'), 24), 0, 0.85, 0, Math.PI));
+  balloon.add(at(rbox(0.9, 0.7, 0.9, toy('#8a5f35'), 0.1), 0, -0.45, 0));
   for (const [x, z] of [[0.35, 0.35], [-0.35, 0.35], [0.35, -0.35], [-0.35, -0.35]]) balloon.add(at(cyl(0.025, 0.025, 1.4, toy('#6b4a2b'), 6), x * 0.8, 0.45, z * 0.8));
   balloon.position.y = 45.5;
   g.add(balloon);

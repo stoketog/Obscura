@@ -4,13 +4,21 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { DailySet, GameState, PlayerProfile } from '@/lib/types';
 import { playerRepository, emptyProfile } from '@/lib/storage';
 import { toDateKey } from '@/lib/dates';
-import { getDaily } from '@/lib/daily';
+import { ENDLESS_DIVES, getDaily, getEndlessDive } from '@/lib/daily';
 import { deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
 import { ADMIN_ENABLED } from '@/lib/config';
 import { logUnrecognised, loadForcedDate, loadOverrides, saveForcedDate, saveOverrides, type OverrideMap } from '@/lib/admin';
 import { rarestEntry } from '@/lib/prompts';
 
 export type View = 'home' | 'play';
+
+export interface EndlessDive {
+  dive: number;
+  status: 'new' | 'playing' | 'done';
+  /** Rounds finished so far. */
+  rounds: number;
+  points: number;
+}
 
 export interface SubmitResult {
   outcome: SubmitOutcome;
@@ -31,6 +39,11 @@ export interface ObscuraApi {
   streak: number;
   view: View;
   setView: (v: View) => void;
+  /** The endless dive being played (1, 2, …), or null when playing the daily. */
+  endless: number | null;
+  /** Open an endless dive: starts it, or shows its result if it is finished. */
+  openEndless: (dive: number) => void;
+  endlessDives: EndlessDive[];
   /** Start the timer on the next round. */
   start: () => void;
   submit: (raw: string) => SubmitResult;
@@ -55,7 +68,13 @@ export function useObscura(): ObscuraApi {
   const [ready, setReady] = useState(false);
   const [profile, setProfile] = useState<PlayerProfile>(emptyProfile);
   const [today, setToday] = useState(() => toDateKey(new Date()));
-  const [view, setView] = useState<View>('home');
+  const [view, setViewRaw] = useState<View>('home');
+  const [endless, setEndless] = useState<number | null>(null);
+  // Going home always returns to the daily.
+  const setView = useCallback((v: View) => {
+    if (v === 'home') setEndless(null);
+    setViewRaw(v);
+  }, []);
   const [overrides, setOverrides] = useState<OverrideMap>({});
   const [forcedDate, setForced] = useState<string | null>(null);
   const profileRef = useRef(profile);
@@ -99,7 +118,7 @@ export function useObscura(): ObscuraApi {
 
   const dateKey = ADMIN_ENABLED && forcedDate ? forcedDate : today;
 
-  const daily = useMemo<DailySet | null>(() => (ready ? getDaily(dateKey, ADMIN_ENABLED ? overrides : undefined) : null), [ready, dateKey, overrides]);
+  const daily = useMemo<DailySet | null>(() => (!ready ? null : endless ? getEndlessDive(endless) : getDaily(dateKey, ADMIN_ENABLED ? overrides : undefined)), [ready, dateKey, overrides, endless]);
   const dailyRef = useRef(daily);
   dailyRef.current = daily;
 
@@ -159,6 +178,24 @@ export function useObscura(): ObscuraApi {
     commit({ ...cur, games: { ...cur.games, [d.dateKey]: { ...g, celebrated: true } } });
   }, [commit]);
 
+  const openEndless = useCallback((dive: number) => {
+    if (dive < 1 || dive > ENDLESS_DIVES) return;
+    setEndless(dive);
+    setViewRaw('play');
+  }, []);
+
+  const endlessDives = useMemo<EndlessDive[]>(
+    () =>
+      !ready
+        ? []
+        : Array.from({ length: ENDLESS_DIVES }, (_, i) => {
+            const g = getGame(profile, getEndlessDive(i + 1));
+            const rounds = g.rounds.filter((r) => r.status === 'done').length;
+            return { dive: i + 1, status: g.status === 'done' ? 'done' : rounds > 0 || g.rounds.some((r) => r.status === 'active') ? 'playing' : 'new', rounds, points: g.points };
+          }),
+    [ready, profile],
+  );
+
   const dismissHelp = useCallback(() => {
     commit({ ...profileRef.current, seenHelp: true });
   }, [commit]);
@@ -215,5 +252,5 @@ export function useObscura(): ObscuraApi {
     [overrides, forcedDate, commit],
   );
 
-  return { ready, profile, today, dateKey, daily, game, stats, streak, view, setView, start, submit, skip, expire, markCelebrated, dismissHelp, admin };
+  return { ready, profile, today, dateKey, daily, game, stats, streak, view, setView, endless, openEndless, endlessDives, start, submit, skip, expire, markCelebrated, dismissHelp, admin };
 }

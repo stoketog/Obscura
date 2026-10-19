@@ -1,4 +1,4 @@
-import { THREE, ball, canvasTex, glow, rng, toy, TAU } from './kit';
+import { THREE, ball, globe, canvasTex, glow, rng, toy, TAU } from './kit';
 
 /** Soft blobby continents on an ocean, painted onto an equirectangular canvas. */
 export function earthTexture(): THREE.CanvasTexture {
@@ -72,9 +72,9 @@ export function bandTexture(colors: string[], seed = 3): THREE.CanvasTexture {
 
 export function makeEarth(r: number, withAtmosphere = true): THREE.Group {
   const g = new THREE.Group();
-  const m = toy('#ffffff', { rough: 0.35, clear: 0.8 });
+  const m = toy('#ffffff', { rough: 0.55, clear: 0, smooth: true });
   m.map = earthTexture();
-  g.add(ball(r, m, [1, 1, 1], 48));
+  g.add(globe(r, m, 48));
   if (withAtmosphere) {
     g.add(glow('#7cc4ff', r * 3.1, 0.55));
     const atm = ball(r * 1.04, new THREE.MeshBasicMaterial({ color: '#8fd0ff', transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.BackSide, fog: false }), [1, 1, 1], 32);
@@ -85,13 +85,13 @@ export function makeEarth(r: number, withAtmosphere = true): THREE.Group {
 }
 
 export function makeMoon(r: number): THREE.Mesh {
-  const m = toy('#9d9893', { rough: 0.85, clear: 0.1, env: 0.5 });
+  const m = toy('#9d9893', { rough: 0.9, clear: 0, env: 0.4, smooth: true });
   m.map = moonTexture();
-  return ball(r, m, [1, 1, 1], 40);
+  return globe(r, m, 40);
 }
 
 export function makePlanet(r: number, colors: string[], seed: number): THREE.Mesh {
-  const m = toy('#ffffff', { rough: 0.38, clear: 0.7 });
+  const m = toy('#ffffff', { rough: 0.5, clear: 0, smooth: true });
   m.map = bandTexture(colors, seed);
-  return ball(r, m, [1, 1, 1], 28);
+  return globe(r, m, 28);
 }

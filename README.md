@@ -1,6 +1,6 @@
 # Obscura — how obscure can you get?
 
-A daily game about the obscure. Seven shared prompts a day ("Name a cheese"), 30 seconds each. Type any answer that fits: the rarer it is, the more points it earns, and your points lift you on an ascent: a microbe on the sea floor, then a jellyfish, fish, dolphin, a human walking down a street, a bird (200 pts), a helicopter (300), a plane, a rocket, a satellite, an astronaut and, for a perfect 700, the whole solar system. The whole screen is one continuous soft-pastel world (Three.js): the sea floor, the surface, a seaside town, the sky and space are all the same place, and the camera climbs through it as you score.
+A daily game about the obscure. Seven shared prompts a day ("Name a cheese"), 30 seconds each. Type any answer that fits: the rarer it is, the more points it earns, and your points lift you on an ascent: a microbe on the sea floor, then a jellyfish, fish, dolphin, a human walking down a street, a bird (200 pts), a helicopter (300), a plane, a rocket, a satellite, an astronaut and, for a perfect 700, the whole solar system. The whole screen is one continuous low-poly world (Three.js, faceted flat-shaded shapes, muted colours, one strong key light): the sea floor, the surface, a seaside town, the sky and space are all the same place. Each form lives at its own fixed height and never floats above where it belongs; the camera only travels up when a new form takes over. There is also an **Endless** mode in early access: two fixed practice dives that never touch your streak or stats, with a visible "in development" block (see `ENDLESS_DIVES` in `src/lib/daily.ts`).
 
 ## Run it
 
@@ -32,7 +32,7 @@ npm run test:e2e              # Playwright suite (needs both builds, see tests/e
 | `src/lib/daily.ts` | Date → seven prompts (pure function; each day mixes topics, weighted to general knowledge, dealt from seeded per-topic shuffles) |
 | `src/lib/game.ts` | Pure rules: rounds, timer, finishing a day, streaks, stats |
 | `src/lib/storage.ts` | `PlayerRepository` interface + localStorage implementation (swap for an API later) |
-| `src/components/*` | UI. `WorldCanvas` is the full-screen 3D canvas behind every screen (loaded lazily); Home, Game and Result are overlays on it, with the answer box docked at the bottom. `AscentOverlay` is the card shown after a climb. `Emblem` is the logo |
+| `src/components/*` | UI. `WorldCanvas` is the full-screen 3D canvas behind every screen (loaded lazily); Home, Game and Result are overlays on it, with the answer box docked at the bottom. `AscentOverlay` is the card shown after a climb. `Emblem` is the logo (colour waves through an aperture) and `Wordmark` the name: its ink follows the scenery behind it (`ambienceAt` in `layout.ts` feeds the `--amb` CSS variable on the stage) |
 | `app/` | Next.js App Router entry (`layout.tsx`, `page.tsx`, `globals.css`) |
 
 ### How scoring works

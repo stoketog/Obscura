@@ -4,8 +4,9 @@ import { currentRoundIndex } from '@/lib/game';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { prettyDate } from '@/lib/dates';
 import { Emblem } from './Emblem';
+import { Wordmark } from './Wordmark';
 import { StageIcon } from './StageIcon';
-import { IconFlame, IconTrophy, IconArrow } from './Icons';
+import { IconFlame, IconTrophy, IconArrow, IconInfinity, IconLock } from './Icons';
 
 export function HomeScreen({ api }: { api: ObscuraApi }) {
   const { stats, streak, game, daily, dateKey } = api;
@@ -23,13 +24,13 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
     <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 safe-pb sm:px-5 lg:justify-center lg:pb-10" data-testid="home">
       <div className="flex flex-1 flex-col lg:max-w-[28rem] lg:flex-none">
         {/* The mark and the promise sit at the top; the hero lives in the space beneath. */}
-        <section className="flex flex-col items-center pt-1 text-center text-soft-shadow lg:items-start lg:text-left">
+        <section className="ink-shadow flex flex-col items-center pt-1 text-center lg:items-start lg:text-left">
           <Emblem size={84} className="animate-float lg:h-[104px] lg:w-[104px]" title="Obscura" />
-          <h1 className="logo mt-2 text-[2rem] leading-none text-white sm:text-4xl lg:mt-3 lg:text-6xl" data-testid="home-logo">
-            Obscura
+          <h1 className="mt-3 text-[1.9rem] leading-none sm:text-4xl lg:mt-4 lg:text-5xl" data-testid="home-logo">
+            <Wordmark />
           </h1>
-          <p className="mt-2 font-display text-xl italic text-white sm:text-2xl">How obscure can you get?</p>
-          <p className="mt-3 hidden max-w-sm text-sm leading-relaxed text-mist-100 lg:block">
+          <p className="ink mt-3 font-display text-xl italic sm:text-2xl">How obscure can you get?</p>
+          <p className="ink-soft mt-3 hidden max-w-sm text-sm leading-relaxed lg:block">
             {ROUNDS_PER_DAY} prompts a day, the same for everyone. Name anything that fits. The rarer your answer, the higher you rise: from a microbe on the sea floor to the solar system.
           </p>
         </section>
@@ -93,8 +94,53 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
             )}
           </p>
         </section>
+
+        <EndlessCard api={api} />
       </div>
     </main>
+  );
+}
+
+/** Endless mode, in early access: two practice dives, then a clear note that the rest is still being built. */
+function EndlessCard({ api }: { api: ObscuraApi }) {
+  const dives = api.endlessDives;
+  return (
+    <section className="glass-dock mb-2 mt-3 rounded-3xl p-4 lg:mb-0" data-testid="endless-card">
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-3">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white/10 text-violet-glow">
+            <IconInfinity size={26} />
+          </span>
+          <div className="min-w-0 text-left">
+            <h2 className="font-display text-xl font-semibold text-white">Endless</h2>
+            <p className="truncate text-xs text-mist-300">Extra dives. Your streak is safe.</p>
+          </div>
+        </div>
+        <span className="shrink-0 rounded-full border border-amber-glow/40 bg-amber-glow/10 px-2.5 py-1 text-[0.68rem] font-semibold text-amber-glow" data-testid="endless-badge">
+          Early access
+        </span>
+      </div>
+
+      <ul className="mt-3 grid grid-cols-2 gap-2">
+        {dives.map((d) => (
+          <li key={d.dive}>
+            <button className="btn-ghost !min-h-[3.4rem] w-full !flex-col !gap-0 !rounded-2xl !normal-case !tracking-normal" onClick={() => api.openEndless(d.dive)} data-testid={`endless-dive-${d.dive}`}>
+              <span className="text-sm font-semibold text-white">Dive {d.dive}</span>
+              <span className="text-[0.7rem] font-normal text-mist-300" data-testid={`endless-dive-${d.dive}-status`}>
+                {d.status === 'done' ? `Done · ${d.points} pts` : d.status === 'playing' ? `Round ${d.rounds + 1} of ${ROUNDS_PER_DAY}` : 'Not started'}
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-3 flex items-start gap-3 rounded-2xl border border-dashed border-white/20 bg-black/20 px-3.5 py-3 text-left" data-testid="endless-dev-block">
+        <IconLock size={16} className="mt-0.5 shrink-0 text-mist-300" />
+        <p className="text-xs leading-relaxed text-mist-300">
+          <span className="font-semibold text-white">More dives are in development.</span> Endless mode is limited to these two while we build the rest.
+        </p>
+      </div>
+    </section>
   );
 }
 

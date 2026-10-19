@@ -122,4 +122,6 @@ export interface DailySet {
   dateKey: string;
   number: number;
   prompts: Prompt[];
+  /** Set for an endless-mode dive (1, 2, …). Dives never touch streaks, history or stats. */
+  endless?: number;
 }

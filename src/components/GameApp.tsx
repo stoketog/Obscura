@@ -1,9 +1,10 @@
 'use client';
 
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useObscura } from '@/hooks/useObscura';
 import { useMedia, useVisualViewport } from '@/hooks/useViewport';
 import { stageIndexFor } from '@/lib/scoring';
+import { STAGE_Y, ambienceAt } from '@/toy/layout';
 import { Backdrop } from './Backdrop';
 import { WorldContext } from './WorldContext';
 import { HomeScreen } from './HomeScreen';
@@ -12,6 +13,7 @@ import { ResultScreen } from './ResultScreen';
 import { StatsModal } from './StatsModal';
 import { HelpModal } from './HelpModal';
 import { Emblem } from './Emblem';
+import { Wordmark } from './Wordmark';
 import { IconChart, IconHelp, IconGear, IconBack } from './Icons';
 
 // The flag is written out literally at each use (not via a shared const) so bundlers
@@ -43,6 +45,9 @@ export function GameApp() {
   const [mode, setMode] = useState<'pending' | '3d' | 'lite'>('pending');
   useEffect(() => setMode(/[?&]lite(=|&|$)/.test(window.location.search) ? 'lite' : '3d'), []);
   const failGL = useCallback(() => setMode('lite'), []);
+  // How light the scenery is behind the header (0–1). The 3D world reports it every frame; the plain backdrop derives it from the form.
+  const stageEl = useRef<HTMLDivElement>(null);
+  const setAmb = useCallback((v: number) => stageEl.current?.style.setProperty('--amb', v.toFixed(3)), []);
   const wide = useMedia('(min-width: 1024px)');
   const vp = useVisualViewport();
 
@@ -77,16 +82,19 @@ export function GameApp() {
   const view: ViewKind = !ready || api.view === 'home' ? 'home' : showGame ? 'play' : 'result';
   const focus = useMemo(() => focusFor(view, wide, !!vp?.squeezed), [view, wide, vp?.squeezed]);
   const world = useMemo(() => ({ override, setOverride }), [override]);
+  useEffect(() => {
+    if (mode !== '3d') setAmb(ambienceAt(STAGE_Y[stageIndexFor(points)] + 1.3));
+  }, [mode, points, setAmb]);
 
   return (
     <WorldContext.Provider value={world}>
       {/* A fixed stage the size of the visible screen: the world fills it, the screens scroll inside it. */}
-      <div className="fixed inset-x-0 overflow-hidden bg-abyss-950" style={vp ? { top: vp.top, height: vp.height } : { top: 0, bottom: 0 }} data-testid="stage">
+      <div ref={stageEl} className="ambient fixed inset-x-0 overflow-hidden bg-abyss-950" style={vp ? { top: vp.top, height: vp.height } : { top: 0, bottom: 0 }} data-testid="stage">
         {mode === 'lite' ? (
           <Backdrop stage={stageIndexFor(points)} />
         ) : mode === '3d' ? (
           <Suspense fallback={<div className="backdrop" aria-hidden />}>
-            <WorldCanvas points={points} focus={focus} onFail={failGL} />
+            <WorldCanvas points={points} focus={focus} onFail={failGL} onAmbience={setAmb} />
           </Suspense>
         ) : (
           <div className="backdrop" aria-hidden />
@@ -103,9 +111,9 @@ export function GameApp() {
               <span className="w-10" />
             )}
             {api.view === 'play' ? (
-              <span className="flex items-center gap-2 text-soft-shadow">
-                <Emblem size={22} />
-                <span className="logo text-sm text-white">Obscura</span>
+              <span className="flex items-center gap-2.5">
+                <Emblem size={26} />
+                <Wordmark className="text-[0.78rem]" />
               </span>
             ) : (
               <span />
@@ -129,7 +137,7 @@ export function GameApp() {
             <div className="grid flex-1 place-items-center" aria-busy>
               <div className="flex flex-col items-center gap-4">
                 <Emblem size={84} className="animate-float" />
-                <span className="logo animate-pulse text-xl text-white">Obscura</span>
+                <Wordmark className="animate-pulse text-xl" />
               </div>
             </div>
           ) : api.view === 'home' ? (

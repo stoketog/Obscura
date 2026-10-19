@@ -60,9 +60,9 @@ function Hud({ api, compact }: { api: ObscuraApi; compact: boolean }) {
       <div className="flex items-start justify-between gap-3">
         <div className="rounded-2xl bg-black/30 px-3 py-2 backdrop-blur-md">
           <p className="eyebrow !text-white/80" data-testid="puzzle-number">
-            Obscura #{String(daily!.number).padStart(3, '0')}
+            {daily!.endless ? `Endless · Dive ${daily!.endless}` : `Obscura #${String(daily!.number).padStart(3, '0')}`}
           </p>
-          {!compact && <p className="text-[0.7rem] text-white/60">{prettyDate(daily!.dateKey)}</p>}
+          {!compact && <p className="text-[0.7rem] text-white/60">{daily!.endless ? 'Practice dive' : prettyDate(daily!.dateKey)}</p>}
         </div>
         <div className="rounded-2xl bg-black/30 px-3 py-2 text-right backdrop-blur-md">
           <p className="font-display text-2xl font-semibold leading-none text-white" data-testid="day-points">

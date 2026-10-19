@@ -14,6 +14,8 @@ interface Props {
   focus: Focus;
   /** Called if WebGL isn't available (or the context is lost) so the app can show a plain backdrop instead. */
   onFail: () => void;
+  /** Reports how light the scenery behind the header is (0 dark … 1 light) as it changes, so the UI can match it. */
+  onAmbience?: (v: number) => void;
 }
 
 const FRAME_MS = 1000 / 42;
@@ -21,11 +23,11 @@ const FRAME_MS = 1000 / 42;
 const SOFT_FRAME_MS = 1000 / 8;
 
 /** The full-screen 3D world: a single canvas behind the whole game. */
-export default function WorldCanvas({ points, focus, onFail }: Props) {
+export default function WorldCanvas({ points, focus, onFail, onAmbience }: Props) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const world = useRef<ToyWorld | null>(null);
-  const latest = useRef({ points, focus });
-  latest.current = { points, focus };
+  const latest = useRef({ points, focus, onAmbience });
+  latest.current = { points, focus, onAmbience };
   const redraw = useRef<() => void>(() => {});
   const reduce = useRef(false);
 
@@ -54,12 +56,21 @@ export default function WorldCanvas({ points, focus, onFail }: Props) {
     let raf = 0;
     let last = 0;
     let stage = -1;
+    let amb = -1;
+    const report = () => {
+      const v = w.ambience;
+      if (Math.abs(v - amb) > 0.004) {
+        amb = v;
+        latest.current.onAmbience?.(v);
+      }
+    };
     const frameMs = w.software ? SOFT_FRAME_MS : FRAME_MS;
     const still = () => {
       w.setPoints(latest.current.points, true);
       w.setFocus(latest.current.focus.x, latest.current.focus.y, true);
       w.still(3.3);
       el.dataset.stage = String(w.stage);
+      report();
     };
     redraw.current = () => {
       if (reduce.current) still();
@@ -69,6 +80,7 @@ export default function WorldCanvas({ points, focus, onFail }: Props) {
       if (document.hidden || now - last < frameMs) return;
       last = now;
       w.render(now);
+      report();
       if (w.stage !== stage) {
         stage = w.stage;
         el.dataset.stage = String(stage);

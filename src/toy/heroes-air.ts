@@ -1,9 +1,6 @@
 import { THREE, at, ball, capsule, cone, cyl, dome, eyes, glow, grp, lerp, lit, rbox, toy } from './kit';
 import type { Hero } from './heroes-sea';
 
-/** How far below a walker's hip anchor the soles sit. */
-export const FEET_BELOW_ANCHOR = 1.4;
-
 /* ─────────────────────────────── 5 · human ─────────────────────────────── */
 
 export function human(): Hero {
@@ -11,9 +8,9 @@ export function human(): Hero {
   const inner = new THREE.Group();
   inner.position.z = -3; // walks along the quay
   root.add(inner);
-  const jacket = toy('#17b6cf');
+  const jacket = toy('#2a8fa8');
   const pants = toy('#3d4a94');
-  const skin = toy('#ffcea0', { rough: 0.4 });
+  const skin = toy('#e0b08a', { rough: 0.5 });
   const hairM = toy('#5a3826');
   const white = toy('#ffffff');
   const orange = toy('#ff7a3d');
@@ -22,18 +19,14 @@ export function human(): Hero {
   torso.position.y = 0.45;
   torso.rotation.z = -0.06;
   inner.add(torso);
-  inner.add(at(ball(0.44, skin, [1, 1.02, 1]), 0.04, 1.33, 0));
-  const hair = dome(0.475, hairM);
-  hair.position.set(-0.02, 1.36, 0);
+  inner.add(at(ball(0.37, skin, [1, 1.04, 1], 18), 0.04, 1.3, 0));
+  const hair = dome(0.405, hairM);
+  hair.position.set(-0.02, 1.33, 0);
   hair.rotation.z = 0.2;
   inner.add(hair);
-  inner.add(at(ball(0.3, hairM, [1, 1, 1.2]), -0.26, 1.28, 0));
-  inner.add(eyes(0.085, 0.2, 0.42, 1.36));
-  const smile = new THREE.TorusGeometry(0.1, 0.022, 8, 16, Math.PI);
-  smile.rotateZ(Math.PI);
-  smile.rotateY(Math.PI / 2);
-  inner.add(at(new THREE.Mesh(smile, toy('#7a2a2a')), 0.46, 1.19, 0));
-  inner.add(at(ball(0.07, toy('#ff9a86'), [1, 1, 1], 12), 0.46, 1.27, 0));
+  inner.add(at(ball(0.25, hairM, [1, 1, 1.2]), -0.23, 1.25, 0));
+  inner.add(eyes(0.07, 0.17, 0.36, 1.33));
+  inner.add(at(ball(0.05, toy('#c98f74'), [1, 1, 1], 8), 0.39, 1.25, 0));
   const pack = rbox(0.42, 0.72, 0.62, orange, 0.14);
   pack.position.set(-0.5, 0.5, 0);
   inner.add(pack);
@@ -149,7 +142,7 @@ export function helicopter(): Hero {
   const root = new THREE.Group();
   const inner = new THREE.Group();
   root.add(inner);
-  const red = toy('#ff4358');
+  const red = toy('#c43a4a');
   const dark = toy('#272d52');
   inner.add(ball(1.2, red, [1.4, 1, 0.98], 40));
   inner.add(at(ball(0.92, toy('#8fd6ff', { opacity: 0.62, rough: 0.02, env: 2, depthWrite: false }), [1.0, 0.86, 0.9]), 0.78, 0.2, 0));

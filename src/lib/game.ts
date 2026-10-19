@@ -80,7 +80,8 @@ function finishRound(profile: PlayerProfile, daily: DailySet, index: number, pat
   if (rounds.every((r) => r.status === 'done')) {
     const points = next.points;
     const finalPts = rounds[rounds.length - 1].points;
-    const streakAfter = nextStreak(profile, daily.dateKey);
+    // Endless dives are practice: they never move the streak or the daily history.
+    const streakAfter = daily.endless ? profile.currentStreak : nextStreak(profile, daily.dateKey);
     const tiers: Array<TierId | null> = rounds.map((r) => r.tier ?? null);
     const outcome: Outcome = {
       points,
@@ -92,13 +93,15 @@ function finishRound(profile: PlayerProfile, daily: DailySet, index: number, pat
     next = { ...next, status: 'done', outcome };
     const best = rounds.reduce<{ name: string; score: number } | null>((b, r) => (r.answer && r.score !== undefined && (!b || r.score > b.score) ? { name: r.answer, score: r.score } : b), null);
     const entry: HistoryEntry = { dateKey: daily.dateKey, puzzleNumber: daily.number, points, stage: outcome.stage, tiers, best };
-    nextProfile = {
-      ...profile,
-      currentStreak: streakAfter,
-      longestStreak: Math.max(profile.longestStreak, streakAfter),
-      lastCompletedDate: daily.dateKey,
-      history: { ...profile.history, [daily.dateKey]: entry },
-    };
+    if (!daily.endless) {
+      nextProfile = {
+        ...profile,
+        currentStreak: streakAfter,
+        longestStreak: Math.max(profile.longestStreak, streakAfter),
+        lastCompletedDate: daily.dateKey,
+        history: { ...profile.history, [daily.dateKey]: entry },
+      };
+    }
   }
   return withGame(nextProfile, next);
 }

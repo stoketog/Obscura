@@ -2,9 +2,10 @@ import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
 
 /**
- * A tiny toolkit for the "glossy toy" look: chunky rounded shapes, saturated
- * candy colours and a clear-coat on everything, lit by an environment map so
- * every surface picks up soft highlights.
+ * A tiny toolkit for the low-poly, cinematic look: faceted shapes with flat
+ * shading, muted graded colours and matte surfaces, lit by one strong key light
+ * with a little environment fill. Glowing things (lamps, jellyfish, windows)
+ * are the only bright, saturated elements, so they read like light sources.
  */
 export { THREE };
 export type Col = THREE.ColorRepresentation;
@@ -37,34 +38,36 @@ export interface MatOpts {
   emissive?: Col;
   opacity?: number;
   env?: number;
+  /** Smooth shading (eyes, bubbles, planets). Everything else is faceted. */
+  smooth?: boolean;
   side?: THREE.Side;
   depthWrite?: boolean;
 }
 
-/** Glossy plastic. */
 /**
- * The art direction in three numbers: soft, dusty pastels on satin (not candy-gloss) surfaces.
- * Glowing and translucent things (the jellyfish, water, lamps) keep their own colour.
+ * The colour grade in two numbers: slightly muted, slightly deeper than the raw
+ * hex. Glowing and translucent things keep their own colour.
  */
-const STYLE = { saturation: 0.74, pastel: 0.16, gloss: 0.3, satin: 0.2 };
+const STYLE = { saturation: 0.86, lightness: 0.93 };
 const hsl = { h: 0, s: 0, l: 0 };
 
-function pastel(color: Col): THREE.Color {
+function graded(color: Col): THREE.Color {
   const c = new THREE.Color(color);
   c.getHSL(hsl);
-  c.setHSL(hsl.h, hsl.s * STYLE.saturation, hsl.l + (0.8 - hsl.l) * STYLE.pastel * (hsl.l > 0.12 ? 1 : 0));
+  c.setHSL(hsl.h, hsl.s * STYLE.saturation, Math.min(0.9, hsl.l * STYLE.lightness));
   return c;
 }
 
 export function toy(color: Col, o: MatOpts = {}): THREE.MeshPhysicalMaterial {
   const keep = !!o.glow || (o.opacity !== undefined && o.opacity < 1);
   const m = new THREE.MeshPhysicalMaterial({
-    color: keep ? new THREE.Color(color) : pastel(color),
-    roughness: Math.min(1, (o.rough ?? 0.32) + (keep ? 0 : STYLE.satin)),
+    color: keep ? new THREE.Color(color) : graded(color),
+    roughness: Math.min(1, (o.rough ?? 0.45) + 0.25),
     metalness: o.metal ?? 0,
-    clearcoat: (o.clear ?? 1) * (keep ? 1 : STYLE.gloss),
-    clearcoatRoughness: o.coatRough ?? (keep ? 0.08 : 0.25),
-    envMapIntensity: o.env ?? 1,
+    clearcoat: (o.clear ?? 1) * 0.12,
+    clearcoatRoughness: o.coatRough ?? 0.4,
+    envMapIntensity: o.env ?? 0.7,
+    flatShading: !o.smooth,
   });
   if (o.glow) {
     m.emissive = new THREE.Color(o.emissive ?? color);
@@ -91,17 +94,22 @@ function shaped<T extends THREE.BufferGeometry>(g: T, m: THREE.Material, shadow 
   mesh.castShadow = shadow;
   return mesh;
 }
+/** Low segment counts on purpose: the facets are the look. `seg` is a quality hint from the caller. */
+const facets = (seg: number, lo = 6, hi = 12) => Math.max(lo, Math.min(hi, Math.round(seg / 3.2)));
 export const ball = (r: number, m: THREE.Material, s: Vec = [1, 1, 1], seg = 32): THREE.Mesh => {
-  const x = shaped(new THREE.SphereGeometry(r, seg, Math.max(12, seg * 0.6 | 0)), m);
+  const w = facets(seg, 7, 12);
+  const x = shaped(new THREE.SphereGeometry(r, w, Math.max(5, Math.round(w * 0.72))), m);
   x.scale.set(...s);
   return x;
 };
-export const capsule = (r: number, len: number, m: THREE.Material): THREE.Mesh => shaped(new THREE.CapsuleGeometry(r, len, 8, 20), m);
-export const rbox = (w: number, h: number, d: number, m: THREE.Material, rad = Math.min(w, h, d) * 0.28): THREE.Mesh => shaped(new RoundedBoxGeometry(w, h, d, 4, rad), m);
-export const cyl = (rt: number, rb: number, h: number, m: THREE.Material, seg = 28): THREE.Mesh => shaped(new THREE.CylinderGeometry(rt, rb, h, seg), m);
-export const cone = (r: number, h: number, m: THREE.Material, seg = 28): THREE.Mesh => shaped(new THREE.ConeGeometry(r, h, seg), m);
-export const torus = (R: number, r: number, m: THREE.Material, seg = 40): THREE.Mesh => shaped(new THREE.TorusGeometry(R, r, 14, seg), m);
-export const dome = (r: number, m: THREE.Material, seg = 32): THREE.Mesh => shaped(new THREE.SphereGeometry(r, seg, 16, 0, TAU, 0, Math.PI / 2), m);
+/** A smooth, finely tessellated sphere (planets and moons, which should not look faceted). */
+export const globe = (r: number, m: THREE.Material, seg = 40): THREE.Mesh => shaped(new THREE.SphereGeometry(r, seg, Math.round(seg * 0.6)), m);
+export const capsule = (r: number, len: number, m: THREE.Material): THREE.Mesh => shaped(new THREE.CapsuleGeometry(r, len, 2, 8), m);
+export const rbox = (w: number, h: number, d: number, m: THREE.Material, rad = Math.min(w, h, d) * 0.28): THREE.Mesh => shaped(new RoundedBoxGeometry(w, h, d, 1, Math.min(rad, Math.min(w, h, d) * 0.2)), m);
+export const cyl = (rt: number, rb: number, h: number, m: THREE.Material, seg = 28): THREE.Mesh => shaped(new THREE.CylinderGeometry(rt, rb, h, facets(seg, 6, 10)), m);
+export const cone = (r: number, h: number, m: THREE.Material, seg = 28): THREE.Mesh => shaped(new THREE.ConeGeometry(r, h, facets(seg, 5, 10)), m);
+export const torus = (R: number, r: number, m: THREE.Material, seg = 40): THREE.Mesh => shaped(new THREE.TorusGeometry(R, r, 5, Math.max(12, Math.round(seg / 2.5))), m);
+export const dome = (r: number, m: THREE.Material, seg = 32): THREE.Mesh => shaped(new THREE.SphereGeometry(r, facets(seg, 7, 12), 5, 0, TAU, 0, Math.PI / 2), m);
 
 export function grp(...kids: THREE.Object3D[]): THREE.Group {
   const g = new THREE.Group();
@@ -122,7 +130,7 @@ export function scaled<T extends THREE.Object3D>(o: T, x: number, y = x, z = x):
 /** A pair of big, shiny cartoon eyes looking along +x. */
 export function eyes(size: number, gap: number, x = 0, y = 0): THREE.Group {
   // small, dark and set in the face: a bead with a pinprick of light (no cartoon whites)
-  const pupil = toy('#0d1224', { rough: 0.12, clear: 1 });
+  const pupil = toy('#0d1224', { rough: 0.1, clear: 1, smooth: true });
   const glint = lit('#ffffff');
   const r = size * 0.62;
   const one = (z: number) => {
@@ -180,9 +188,9 @@ export function windowTextures() {
       for (let j = 0; j < cells; j++) {
         const x = i * cw + cw * 0.2, y = j * ch + ch * 0.18, ww = cw * 0.6, hh = ch * 0.5;
         const on = grid[(i + j * cells) % grid.length];
-        c.fillStyle = emit ? (on ? '#ffd58a' : '#000') : on ? '#fff3d6' : '#38406e';
+        c.fillStyle = emit ? (on ? '#ffc46b' : '#000') : on ? '#ffe9bf' : '#262c3f';
         c.beginPath();
-        c.roundRect(x, y, ww, hh, ww * 0.18);
+        c.rect(x, y, ww, hh);
         c.fill();
       }
   };
@@ -199,11 +207,11 @@ export function windowTextures() {
 /** A chunky toy building with lit windows. */
 export function building(w: number, h: number, d: number, color: Col): THREE.Mesh {
   const { map, emit } = windowTextures();
-  const g = new RoundedBoxGeometry(w, h, d, 3, 0.35);
+  const g = new RoundedBoxGeometry(w, h, d, 1, 0.16);
   const uv = g.attributes.uv as THREE.BufferAttribute;
   const su = (w + d) / 2 / 3.2, sv = h / 3.2;
   for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * su, uv.getY(i) * sv);
-  const m = new THREE.MeshPhysicalMaterial({ color, map, emissive: new THREE.Color('#ffffff'), emissiveMap: emit, emissiveIntensity: 0.9, roughness: 0.4, clearcoat: 0.8, clearcoatRoughness: 0.15 });
+  const m = new THREE.MeshPhysicalMaterial({ color, map, emissive: new THREE.Color('#ffffff'), emissiveMap: emit, emissiveIntensity: 1.1, roughness: 0.85, metalness: 0.0, flatShading: true });
   const mesh = new THREE.Mesh(g, m);
   mesh.castShadow = true;
   mesh.receiveShadow = true;
@@ -226,8 +234,8 @@ export function cloud(size = 1, tint: Col = '#ffffff'): THREE.Group {
   return g;
 }
 
-export function tree(h = 2, leaf: Col = '#4cd37b'): THREE.Group {
-  const t = grp(at(cyl(0.12 * h * 0.5, 0.17 * h * 0.5, h * 0.55, toy('#a0653a')), 0, h * 0.27, 0));
+export function tree(h = 2, leaf: Col = '#3f8f5b'): THREE.Group {
+  const t = grp(at(cyl(0.12 * h * 0.5, 0.17 * h * 0.5, h * 0.55, toy('#6b4a30')), 0, h * 0.27, 0));
   t.add(at(ball(h * 0.42, toy(leaf)), 0, h * 0.78, 0));
   t.add(at(ball(h * 0.3, toy(leaf)), h * 0.18, h * 0.55, 0.12));
   return t;
@@ -235,7 +243,7 @@ export function tree(h = 2, leaf: Col = '#4cd37b'): THREE.Group {
 
 /** Rounded rock. */
 export function rock(r: number, color: Col, squash = 0.7): THREE.Mesh {
-  const g = new THREE.IcosahedronGeometry(r, 2);
+  const g = new THREE.IcosahedronGeometry(r, 1);
   const p = g.attributes.position as THREE.BufferAttribute;
   const v = new THREE.Vector3();
   for (let i = 0; i < p.count; i++) {
@@ -244,7 +252,7 @@ export function rock(r: number, color: Col, squash = 0.7): THREE.Mesh {
     p.setXYZ(i, v.x * n, v.y * n * squash, v.z * n);
   }
   g.computeVertexNormals();
-  const m = shaped(g, toy(color, { rough: 0.5, clear: 0.5 }));
+  const m = shaped(g, toy(color, { rough: 0.5, clear: 0 }));
   m.receiveShadow = true;
   return m;
 }

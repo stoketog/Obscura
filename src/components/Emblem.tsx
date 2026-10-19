@@ -1,72 +1,66 @@
 import { useId } from 'react';
 
+/** The colour waves: cool at the surface, warming as they get rarer (the same road the rarity colours take). */
+export const WAVE_COLORS = ['#22d3ee', '#3b9cf5', '#5b7cf7', '#8b5cf6', '#d05ad0', '#fb923c'];
+
+/** One flowing ribbon, as an SVG path, between two sine curves `thick` apart. */
+function ribbon(base: number, amp: number, len: number, phase: number, thick: number): string {
+  const pts: Array<[number, number]> = [];
+  for (let x = -4; x <= 132; x += 4) pts.push([x, base + amp * Math.sin((x / len) * Math.PI * 2 + phase)]);
+  const f = (n: number) => n.toFixed(1);
+  const top = pts.map(([x, y], i) => `${i ? 'L' : 'M'}${f(x)} ${f(y)}`).join('');
+  const bottom = [...pts].reverse().map(([x, y]) => `L${f(x)} ${f(y + thick)}`).join('');
+  return `${top}${bottom}Z`;
+}
+
+const RIBBONS = WAVE_COLORS.map((_, i) => ribbon(40 + i * 13.5, 5 + i * 0.7, 78 + i * 7, 0.5 + i * 0.85, 11));
+
 /**
- * The Obscura emblem: a glossy orb rising out of layered waves, ringed by an
- * orbit. The sea, the climb and the solar system in one badge.
+ * The Obscura emblem: colour waves flowing through a round aperture, with a
+ * single pinhole of light above them (a camera obscura). Cool and calm at the
+ * top, warmer and rarer as the waves fall away.
  */
 export function Emblem({ size = 96, className = '', title }: { size?: number; className?: string; title?: string }) {
-  const id = useId().replace(/:/g, '');
+  const id = useId().replace(/[^a-zA-Z0-9_-]/g, '');
   return (
     <svg width={size} height={size} viewBox="0 0 128 128" className={className} role={title ? 'img' : undefined} aria-label={title} aria-hidden={title ? undefined : true}>
       <defs>
-        <linearGradient id={`${id}d`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#5ef2de" />
-          <stop offset="0.55" stopColor="#3b82f6" />
-          <stop offset="1" stopColor="#5b3df0" />
+        <linearGradient id={`${id}bg`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#101a3d" />
+          <stop offset="1" stopColor="#05070f" />
         </linearGradient>
-        <radialGradient id={`${id}o`} cx="0.34" cy="0.28" r="0.85">
-          <stop offset="0" stopColor="#fff7d6" />
-          <stop offset="0.35" stopColor="#ffc15e" />
-          <stop offset="1" stopColor="#fb7c3c" />
+        <linearGradient id={`${id}ring`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#22d3ee" />
+          <stop offset="0.5" stopColor="#8b5cf6" />
+          <stop offset="1" stopColor="#fb923c" />
+        </linearGradient>
+        {WAVE_COLORS.map((c, i) => (
+          <linearGradient key={c} id={`${id}w${i}`} x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor={c} />
+            <stop offset="1" stopColor={WAVE_COLORS[Math.min(WAVE_COLORS.length - 1, i + 1)]} />
+          </linearGradient>
+        ))}
+        <radialGradient id={`${id}pin`}>
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.95" />
+          <stop offset="0.35" stopColor="#cfe9ff" stopOpacity="0.4" />
+          <stop offset="1" stopColor="#cfe9ff" stopOpacity="0" />
         </radialGradient>
-        <linearGradient id={`${id}w1`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#7df9e8" />
-          <stop offset="1" stopColor="#1aa7c9" />
-        </linearGradient>
-        <linearGradient id={`${id}w2`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#3b9cf5" />
-          <stop offset="1" stopColor="#2447c9" />
-        </linearGradient>
-        <linearGradient id={`${id}w3`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#4f4be8" />
-          <stop offset="1" stopColor="#25177a" />
-        </linearGradient>
         <clipPath id={`${id}c`}>
-          <circle cx="64" cy="64" r="58" />
+          <circle cx="64" cy="64" r="56" />
         </clipPath>
       </defs>
 
-      {/* badge */}
-      <circle cx="64" cy="64" r="60" fill="#06121f" />
-      <circle cx="64" cy="64" r="58" fill={`url(#${id}d)`} opacity="0.2" />
-      <circle cx="64" cy="64" r="59" fill="none" stroke={`url(#${id}d)`} strokeWidth="2.5" />
-
+      <circle cx="64" cy="64" r="62" fill={`url(#${id}bg)`} />
       <g clipPath={`url(#${id}c)`}>
-        {/* stars */}
-        <g fill="#fff" opacity="0.85">
-          <circle cx="26" cy="30" r="1.4" />
-          <circle cx="100" cy="24" r="1.2" />
-          <circle cx="92" cy="46" r="1" />
-          <circle cx="38" cy="50" r="0.9" />
-          <circle cx="108" cy="62" r="1.1" />
-        </g>
-        {/* orbit, back half */}
-        <ellipse cx="64" cy="50" rx="50" ry="13" fill="none" stroke="#ffffff" strokeOpacity="0.35" strokeWidth="2.2" transform="rotate(-14 64 50)" />
-        {/* the orb */}
-        <circle cx="64" cy="50" r="22" fill={`url(#${id}o)`} />
-        <ellipse cx="56" cy="40" rx="8" ry="5" fill="#fff" opacity="0.7" transform="rotate(-30 56 40)" />
-        <circle cx="75" cy="62" r="3.2" fill="#fff" opacity="0.22" />
-        {/* orbit, front half (drawn over the orb) */}
-        <path d="M14 50 A50 13 0 0 0 114 50" fill="none" stroke="#ffffff" strokeWidth="2.6" strokeLinecap="round" transform="rotate(-14 64 50)" opacity="0.95" />
-        <circle cx="111" cy="40" r="4.2" fill="#e9f7ff" />
-        <circle cx="109.8" cy="38.8" r="1.4" fill="#fff" />
-
-        {/* waves */}
-        <path d="M-4 80 C 14 70, 30 70, 48 80 S 82 90, 100 80 S 124 72, 134 78 V140 H-4 Z" fill={`url(#${id}w1)`} />
-        <path d="M-4 92 C 16 83, 34 84, 52 93 S 86 102, 104 93 S 126 87, 134 91 V140 H-4 Z" fill={`url(#${id}w2)`} />
-        <path d="M-4 105 C 18 97, 36 98, 56 106 S 90 114, 108 106 S 128 100, 134 104 V140 H-4 Z" fill={`url(#${id}w3)`} />
-        <path d="M-4 80 C 14 70, 30 70, 48 80 S 82 90, 100 80 S 124 72, 134 78" fill="none" stroke="#fff" strokeOpacity="0.75" strokeWidth="1.6" />
+        {/* the pinhole: the only light that gets in */}
+        <circle cx="90" cy="27" r="20" fill={`url(#${id}pin)`} />
+        <circle cx="90" cy="27" r="3.2" fill="#ffffff" />
+        {RIBBONS.map((d, i) => (
+          <path key={i} d={d} fill={`url(#${id}w${i})`} opacity={0.5 + i * 0.1} />
+        ))}
       </g>
+      <circle cx="64" cy="64" r="59" fill="none" stroke={`url(#${id}ring)`} strokeWidth="2.6" />
+      <circle cx="64" cy="64" r="55.4" fill="none" stroke="#ffffff" strokeOpacity="0.14" strokeWidth="0.8" />
     </svg>
   );
 }

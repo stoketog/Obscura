@@ -1,6 +1,6 @@
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { THREE, clamp, lerp, lit, smooth, toy } from './kit';
-import { aFor, PACE, RAMP, yFor } from './layout';
+import { aFor, ambienceAt, PACE, RAMP, STAGE_Y, SURFACE_Y } from './layout';
 import { astronaut, rocket, satellite, solar } from './heroes-space';
 import { bird, helicopter, human, plane } from './heroes-air';
 import { dolphin, fish, jellyfish, microbe, type Hero } from './heroes-sea';
@@ -18,9 +18,9 @@ const BIOMES: Array<{ build: () => Biome; range: [number, number] }> = [
 ];
 
 const LIGHT = {
-  sea: { sky: new THREE.Color('#49b6ff'), ground: new THREE.Color('#062033'), hemi: 1.0, sun: new THREE.Color('#a8dcff'), sunI: 1.4, env: 0.6 },
-  land: { sky: new THREE.Color('#cfe8ff'), ground: new THREE.Color('#f3d9b0'), hemi: 1.2, sun: new THREE.Color('#fff0cf'), sunI: 3.0, env: 1.0 },
-  space: { sky: new THREE.Color('#3a4ca8'), ground: new THREE.Color('#07091a'), hemi: 0.7, sun: new THREE.Color('#fff8ee'), sunI: 3.6, env: 0.55 },
+  sea: { sky: new THREE.Color('#3f9fe0'), ground: new THREE.Color('#05182a'), hemi: 0.85, sun: new THREE.Color('#9fd4ff'), sunI: 1.7, env: 0.35 },
+  land: { sky: new THREE.Color('#b9d2f0'), ground: new THREE.Color('#4a3d4c'), hemi: 0.8, sun: new THREE.Color('#ffd2a0'), sunI: 3.4, env: 0.3 },
+  space: { sky: new THREE.Color('#33428f'), ground: new THREE.Color('#05071a'), hemi: 0.45, sun: new THREE.Color('#fff4e6'), sunI: 3.8, env: 0.25 },
 };
 
 const ramp = RAMP.map(([y, c]) => ({ y, c: new THREE.Color(c) }));
@@ -40,7 +40,7 @@ const backOut = (x: number) => 1 + 2.7 * (x - 1) ** 3 + 1.7 * (x - 1) ** 2;
 /**
  * One continuous world, from the sea floor to the solar system. The camera
  * climbs with the player's points and each form takes over as its height is
- * reached. Everything is glossy toy plastic.
+ * reached. Everything is faceted, flat-shaded low-poly.
  */
 export class ToyWorld {
   readonly renderer: THREE.WebGLRenderer;
@@ -81,13 +81,16 @@ export class ToyWorld {
   private tmp = new THREE.Color();
   private pending = 0;
   private soft = false;
+  /** Height the camera (and so the scenery) is centred on: it only changes when a new form takes over. */
+  private fy = Number.NaN;
+  private burstY = 0;
 
   constructor(canvas: HTMLCanvasElement, opts: { full?: boolean } = {}) {
     const r = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
     this.renderer = r;
     r.outputColorSpace = THREE.SRGBColorSpace;
     r.toneMapping = THREE.ACESFilmicToneMapping;
-    r.toneMappingExposure = 1.05;
+    r.toneMappingExposure = 1.0;
     // Software renderers (no GPU) can't afford shadows or full resolution; everything else gets the full look.
     const gl = r.getContext();
     const dbg = gl.getExtension('WEBGL_debug_renderer_info');
@@ -153,6 +156,7 @@ export class ToyWorld {
       this.swap = null;
       this.shown = Math.min(HEROES.length - 1, Math.floor(this.a + 1e-3));
       this.ensureHero(this.shown);
+      this.fy = STAGE_Y[this.shown];
       this.heroes.forEach((h, i) => h && (h.root.visible = i === this.shown));
       this.scroll += 0;
     }
@@ -184,6 +188,11 @@ export class ToyWorld {
 
   get stage() {
     return this.shown;
+  }
+
+  /** 0 (dark scenery) to 1 (bright scenery) behind the top of the screen right now. */
+  get ambience() {
+    return Number.isNaN(this.fy) ? 0 : ambienceAt(this.fy + 1.3);
   }
 
   private applySize() {
@@ -237,9 +246,15 @@ export class ToyWorld {
       this.ensureHero(idx);
       this.swap = { from: this.shown, to: idx, t0: t };
       this.burstT0 = t + 0.2;
+      this.burstY = STAGE_Y[idx];
       (this.burst.material as THREE.MeshBasicMaterial).color.set(this.heroes[idx]!.sparkle);
     }
-    const heroY = yFor(this.a);
+    // Every form lives at its own fixed height. Points never lift a form: the camera only travels
+    // (smoothly) to the next form's home when that form takes over.
+    const homeIdx = this.swap ? this.swap.to : this.shown;
+    if (Number.isNaN(this.fy)) this.fy = STAGE_Y[homeIdx];
+    this.fy += (STAGE_Y[homeIdx] - this.fy) * (freeze ? 1 : 1 - Math.exp(-dt * 2.1));
+    const heroY = this.fy;
 
     // hero swap pop
     let scaleFrom = 0, scaleTo = 1;
@@ -258,11 +273,11 @@ export class ToyWorld {
     for (const [i, sc] of active) {
       const h = this.heroes[i]!;
       h.root.visible = true;
+      h.root.position.y = STAGE_Y[i];
       h.root.scale.setScalar(sc);
       h.root.rotation.y = h.yaw ?? -0.4;
       h.update(t, dt);
     }
-    this.heroRoot.position.set(0, heroY, 0);
     // next form is built ahead of time, off the critical path
     if (!this.swap && this.pending-- <= 0) {
       this.pending = 90;
@@ -277,7 +292,7 @@ export class ToyWorld {
       const d = new THREE.Object3D();
       for (let i = 0; i < this.burstDirs.length; i++) {
         const v = this.burstDirs[i];
-        d.position.set(v.x * bu * 7, heroY + v.y * bu * 6, v.z * bu * 5);
+        d.position.set(v.x * bu * 7, this.burstY + v.y * bu * 6, v.z * bu * 5);
         d.scale.setScalar(0.22 * (1 - bu) * (0.6 + (i % 3) * 0.3));
         d.updateMatrix();
         this.burst.setMatrixAt(i, d.matrix);
@@ -319,10 +334,12 @@ export class ToyWorld {
     this.sun.position.set(8, heroY + 14, 11);
     this.sun.target.position.set(0, heroY, 0);
 
-    skyAt(camY + 7, this.bgTop);
-    skyAt(camY - 7, this.bgBot);
+    // underwater, the sky is never visible: the backdrop stays sea-coloured up to the surface
+    const cap = (y: number) => (camY < SURFACE_Y - 0.5 ? Math.min(y, SURFACE_Y - 0.15) : y);
+    skyAt(cap(camY + 7), this.bgTop);
+    skyAt(cap(camY - 7), this.bgBot);
     const fog = this.scene.fog as THREE.Fog;
-    fog.color.copy(skyAt(camY + 3.5, this.fogColor));
+    fog.color.copy(skyAt(cap(camY + 3.5), this.fogColor));
     fog.near = lerp(4, 55, landW);
     fog.far = lerp(lerp(26 + 36 * deep, 300, landW), 8000, spaceW);
 

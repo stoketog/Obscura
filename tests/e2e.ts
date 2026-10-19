@@ -9,7 +9,7 @@
 import { chromium, type Browser, type Page } from 'playwright';
 import { spawn, type ChildProcess } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { getDaily } from '@/lib/daily';
+import { getDaily, getEndlessDive } from '@/lib/daily';
 import { rarestEntry, bestEntries } from '@/lib/prompts';
 import { STAGES } from '@/data/stages';
 import { stageIndexFor } from '@/lib/scoring';
@@ -331,6 +331,59 @@ async function main() {
     await answer(p, rare(0).name); await q(p, 'reveal').waitFor(); await noHScroll(p, 'reveal');
     await q(p, 'stats-btn').click(); await noHScroll(p, 'stats'); await p.keyboard.press('Escape');
     await q(p, 'help-btn').click(); await noHScroll(p, 'help'); await ctx.close();
+  });
+
+  console.log('Endless mode');
+  await t('endless: two practice dives, a development block, no effect on streak or stats', async () => {
+    const { ctx, page: p, errors } = await open(b);
+    await q(p, 'endless-card').waitFor();
+    ok((await text(p, 'endless-badge')).toLowerCase().includes('early access'), 'early access badge');
+    ok((await text(p, 'endless-dev-block')).includes('in development'), 'development block');
+    eq(await p.locator('[data-testid^=endless-dive-]:not([data-testid$=status])').count(), 2, 'exactly two dives');
+    eq(await q(p, 'endless-dive-3').count(), 0, 'no third dive');
+    const dive = getEndlessDive(1);
+    await q(p, 'endless-dive-1').click();
+    ok((await text(p, 'puzzle-number')).includes('Dive 1'), 'HUD names the dive');
+    await q(p, 'start-btn').click(); await q(p, 'round').waitFor();
+    eq(await text(p, 'prompt-text'), dive.prompts[0].text, 'dive 1 prompts are fixed');
+    for (let i = 0; i < 7; i++) await playRound(p, i, rarestEntry(dive.prompts[i]).name);
+    await q(p, 'result').waitFor();
+    eq(await text(p, 'result-headline'), 'Dive complete');
+    eq(await q(p, 'copy-btn').count(), 0, 'no share card for practice dives');
+    ok((await text(p, 'endless-note')).includes('in development'), 'note on the result');
+    await skipEvo(p);
+    await q(p, 'result-home').click();
+    await q(p, 'home').waitFor();
+    ok((await text(p, 'endless-dive-1-status')).startsWith('Done'), 'dive 1 done');
+    eq(await text(p, 'endless-dive-2-status'), 'Not started');
+    ok((await text(p, 'home-streak')).startsWith('0'), 'streak untouched');
+    eq(await text(p, 'home-stage-name'), 'Microbe', 'the daily is untouched');
+    ok((await text(p, 'play-btn')).toLowerCase().includes('play today'), 'daily still unplayed');
+    await q(p, 'stats-btn').click();
+    eq(await text(p, 'stat-played'), '0', 'stats ignore dives');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('endless: a dive in progress survives a reload', async () => {
+    const { ctx, page: p } = await open(b);
+    await q(p, 'endless-dive-2').click(); await q(p, 'start-btn').click(); await q(p, 'round').waitFor();
+    const dive = getEndlessDive(2);
+    await playRound(p, 0, rarestEntry(dive.prompts[0]).name);
+    await p.reload(); await q(p, 'help-modal').waitFor().catch(() => {});
+    await q(p, 'help-close').click().catch(() => {});
+    eq(await text(p, 'endless-dive-2-status'), 'Round 2 of 7');
+    await ctx.close();
+  });
+
+  await t('the wordmark follows the scenery: pale ink over dark water, deep ink over a bright sky', async () => {
+    const { ctx, page: p } = await open(b);
+    const amb = async () => Number(await q(p, 'stage').evaluate((el) => (el as HTMLElement).style.getPropertyValue('--amb') || '0'));
+    ok((await amb()) < 0.1, 'microbe on the sea floor is dark');
+    await q(p, 'admin-btn').click(); await q(p, 'admin-tab-gallery').click(); await q(p, 'gallery-human').click();
+    await p.waitForTimeout(300);
+    ok((await amb()) > 0.9, `the human on the quay is in daylight (amb ${await amb()})`);
+    await q(p, 'gallery-rocket').click(); await p.waitForTimeout(300);
+    ok((await amb()) < 0.1, 'the rocket is in a dark sky again');
+    await ctx.close();
   });
 
   console.log('Admin tools');
