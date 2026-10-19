@@ -9,6 +9,7 @@ import { useCountUp, useTween } from '@/hooks/useCountUp';
 import { StageIcon } from './StageIcon';
 import { TierChip, TierDot } from './TierChip';
 import { IconArrow } from './Icons';
+import { useSettings } from '@/hooks/useSettings';
 
 interface Props {
   api: ObscuraApi;
@@ -157,6 +158,8 @@ function ActivePrompt({ api, round, index, onFinished, compact }: { api: Obscura
   const prompt = api.daily!.prompts[index];
   const [now, setNow] = useState(() => Date.now());
   const expired = useRef(false);
+  const { play } = useSettings();
+  useEffect(() => play('start'), [play]);
 
   useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 100);
@@ -167,12 +170,18 @@ function ActivePrompt({ api, round, index, onFinished, compact }: { api: Obscura
   useEffect(() => {
     if (left > 0 || expired.current) return;
     expired.current = true;
+    play('timeup');
     if (api.expire()) onFinished();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [left]);
 
   const frac = left / ROUND_MS;
   const secs = Math.ceil(left / 1000);
+  // the clock ticks softly at 10 seconds and every second for the last five
+  useEffect(() => {
+    if (secs === 10) play('tick');
+    else if (secs > 0 && secs <= 5) play('tickUrgent');
+  }, [secs, play]);
   const tone = left <= 8000 ? 'danger' : left <= 15000 ? 'warn' : 'ok';
 
   return (
@@ -204,6 +213,7 @@ function ActivePrompt({ api, round, index, onFinished, compact }: { api: Obscura
         <button
           className="ml-auto rounded-lg px-2 py-1 text-mist-300 transition hover:bg-white/8 hover:text-white"
           onClick={() => {
+            play('skip');
             if (api.skip()) onFinished();
           }}
           data-testid="skip-btn"
@@ -220,6 +230,7 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
   const [msg, setMsg] = useState<{ text: string; near?: string } | null>(null);
   const [shake, setShake] = useState(false);
   const ref = useRef<HTMLInputElement>(null);
+  const { play } = useSettings();
 
   useEffect(() => {
     ref.current?.focus({ preventScroll: true });
@@ -228,14 +239,17 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
   const send = (value: string) => {
     const { outcome, finished } = api.submit(value);
     if (outcome.kind === 'hit') {
+      play('hit', Math.max(0, TIERS.findIndex((t) => t.id === outcome.tier)));
       setText('');
       setMsg(null);
     } else if (outcome.kind === 'miss') {
+      play(outcome.expired ? 'timeup' : 'miss');
       setMsg({ text: outcome.expired ? 'Time’s up.' : 'Not on our list for this prompt. Try another.', near: outcome.near });
       setShake(true);
       window.setTimeout(() => setShake(false), 450);
       setText('');
     } else if (outcome.kind === 'repeat') {
+      play('repeat');
       setMsg({ text: 'You already tried that one.' });
       setShake(true);
       window.setTimeout(() => setShake(false), 450);
@@ -285,7 +299,7 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
       </div>
 
       {msg && (
-        <div className="mt-2 rounded-xl border border-coral-glow/30 bg-coral-glow/10 px-3 py-2 text-sm text-[#ffc3cb]" role="alert" data-testid="answer-error">
+        <div className="mt-2 rounded-xl border border-coral-glow/30 bg-coral-glow/10 px-3 py-2 text-sm err-text" role="alert" data-testid="answer-error">
           <p>{msg.text}</p>
           {msg.near && (
             <p className="mt-1 text-mist-100">
@@ -333,6 +347,13 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
   const pts = useCountUp(round.points, 900, 250);
   const next = index + 2;
   const tier = answered ? tierById(round.tier!) : null;
+  const { play } = useSettings();
+  useEffect(() => {
+    if (!evolved) return;
+    const id = window.setTimeout(() => play('ascent'), 500);
+    return () => window.clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className="animate-pop relative text-center" data-testid="reveal" style={tier ? ({ ['--tc' as string]: tier.color } as React.CSSProperties) : undefined}>

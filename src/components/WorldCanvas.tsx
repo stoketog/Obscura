@@ -16,25 +16,31 @@ interface Props {
   onFail: () => void;
   /** Reports how light the scenery behind the header is (0 dark … 1 light) as it changes, so the UI can match it. */
   onAmbience?: (v: number) => void;
+  /** Low CPU mode: fewer frames, no shadows, no supporting scenery, lower resolution. */
+  lowCpu?: boolean;
+  /** Freeze the world to a still picture and cut camera moves. */
+  reduceMotion?: boolean;
 }
 
 const FRAME_MS = 1000 / 42;
 /** Software rendering is slow, so it is drawn far less often to keep the page responsive. */
 const SOFT_FRAME_MS = 1000 / 8;
+const LOW_FRAME_MS = 1000 / 20;
 
 /** The full-screen 3D world: a single canvas behind the whole game. */
-export default function WorldCanvas({ points, focus, onFail, onAmbience }: Props) {
+export default function WorldCanvas({ points, focus, onFail, onAmbience, lowCpu = false, reduceMotion = false }: Props) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const world = useRef<ToyWorld | null>(null);
-  const latest = useRef({ points, focus, onAmbience });
-  latest.current = { points, focus, onAmbience };
+  const latest = useRef({ points, focus, onAmbience, lowCpu, reduceMotion });
+  latest.current = { points, focus, onAmbience, lowCpu, reduceMotion };
   const redraw = useRef<() => void>(() => {});
   const reduce = useRef(false);
+  const ctl = useRef<{ perf: () => void; motion: () => void }>({ perf: () => {}, motion: () => {} });
 
   useEffect(() => {
     const el = canvas.current;
     if (!el) return;
-    reduce.current = !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    reduce.current = latest.current.reduceMotion;
     let w: ToyWorld;
     try {
       w = new ToyWorld(el);
@@ -64,7 +70,13 @@ export default function WorldCanvas({ points, focus, onFail, onAmbience }: Props
         latest.current.onAmbience?.(v);
       }
     };
-    const frameMs = w.software ? SOFT_FRAME_MS : FRAME_MS;
+    let frameMs = FRAME_MS;
+    const perf = () => {
+      w.setLowCpu(latest.current.lowCpu);
+      frameMs = w.software ? SOFT_FRAME_MS : latest.current.lowCpu ? LOW_FRAME_MS : FRAME_MS;
+      w.resize(el.getBoundingClientRect().width, el.getBoundingClientRect().height, window.devicePixelRatio || 1);
+      if (reduce.current) still();
+    };
     const still = () => {
       w.setPoints(latest.current.points, true);
       w.setFocus(latest.current.focus.x, latest.current.focus.y, true);
@@ -86,6 +98,14 @@ export default function WorldCanvas({ points, focus, onFail, onAmbience }: Props
         el.dataset.stage = String(stage);
       }
     };
+    const motion = () => {
+      reduce.current = latest.current.reduceMotion;
+      cancelAnimationFrame(raf);
+      if (reduce.current) still();
+      else raf = requestAnimationFrame(loop);
+    };
+    ctl.current = { perf, motion };
+    perf();
     if (reduce.current) still();
     else raf = requestAnimationFrame(loop);
 
@@ -106,10 +126,14 @@ export default function WorldCanvas({ points, focus, onFail, onAmbience }: Props
       el.removeEventListener('webglcontextlost', lost);
       world.current = null;
       redraw.current = () => {};
+      ctl.current = { perf: () => {}, motion: () => {} };
       w.dispose();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => ctl.current.perf(), [lowCpu]);
+  useEffect(() => ctl.current.motion(), [reduceMotion]);
 
   useEffect(() => {
     world.current?.setPoints(points, reduce.current);

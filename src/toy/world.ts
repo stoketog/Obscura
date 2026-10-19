@@ -80,6 +80,7 @@ export class ToyWorld {
   private w = 1;
   private h = 1;
   private pr = 1;
+  private dpr = 1;
   private maxPr = 2;
   private ema = 0.016;
   private frames = 0;
@@ -90,6 +91,7 @@ export class ToyWorld {
   private pending = 0;
   private soft = false;
   private extras = true;
+  private low = false;
   /** Height the camera (and so the scenery) is centred on: it only changes when a new form takes over. */
   private fy = Number.NaN;
   private burstY = 0;
@@ -171,6 +173,23 @@ export class ToyWorld {
     }
   }
 
+  /** Low CPU mode: no shadows, no supporting cast, capped resolution. */
+  setLowCpu(on: boolean) {
+    if (on === this.low && this.frames > 0) return;
+    this.low = on;
+    const shadows = !this.soft && !on;
+    this.renderer.shadowMap.enabled = shadows;
+    this.sun.castShadow = shadows;
+    this.scene.traverse((o) => {
+      const m = (o as THREE.Mesh).material;
+      for (const mat of Array.isArray(m) ? m : m ? [m] : []) mat.needsUpdate = true;
+    });
+    this.setExtras(!on);
+    this.maxPr = this.soft ? 0.6 : Math.min(this.dpr, on ? 1 : 2);
+    this.pr = Math.min(this.pr, this.maxPr);
+    if (this.w > 2) this.applySize();
+  }
+
   /** Show or hide the supporting cast (other creatures, vehicles, passers-by). Low CPU mode turns it off. */
   setExtras(on: boolean) {
     if (on === this.extras) return;
@@ -198,7 +217,8 @@ export class ToyWorld {
   resize(w: number, h: number, dpr: number) {
     this.w = Math.max(2, w);
     this.h = Math.max(2, h);
-    this.maxPr = this.soft ? 0.6 : Math.min(dpr, 2);
+    this.dpr = dpr;
+    this.maxPr = this.soft ? 0.6 : Math.min(dpr, this.low ? 1 : 2);
     this.pr = Math.min(this.pr || this.maxPr, this.maxPr);
     if (this.frames === 0) this.pr = this.maxPr;
     this.applySize();

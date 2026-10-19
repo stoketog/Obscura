@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { STAGES, altitudeFor, formatAltitude } from '@/data/stages';
 import { useTween } from '@/hooks/useCountUp';
+import { useSettings } from '@/hooks/useSettings';
 
 /**
  * The card that appears once the world has finished climbing: where you are now and what you
@@ -11,6 +12,8 @@ export function AscentOverlay({ from, to, onDone }: { from: number; to: number; 
   const b = STAGES[to];
   const [target, setTarget] = useState(altitudeFor(a.threshold));
   const alt = useTween(target, 1600);
+  const { play } = useSettings();
+  useEffect(() => play('ascent'), [play]);
 
   useEffect(() => {
     const id = window.setTimeout(() => setTarget(altitudeFor(b.threshold)), 60);

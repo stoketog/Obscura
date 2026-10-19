@@ -14,7 +14,10 @@ import { StatsModal } from './StatsModal';
 import { HelpModal } from './HelpModal';
 import { Emblem } from './Emblem';
 import { Wordmark } from './Wordmark';
-import { IconChart, IconHelp, IconGear, IconBack } from './Icons';
+import { IconChart, IconHelp, IconGear, IconBack, IconMenu } from './Icons';
+import { SettingsModal } from './SettingsModal';
+import { Sidebar } from './Sidebar';
+import { SettingsProvider, useSettings } from '@/hooks/useSettings';
 
 // The flag is written out literally at each use (not via a shared const) so bundlers
 // (Next/SWC, esbuild) fold it and dead-code-eliminate the admin tools from production builds.
@@ -33,8 +36,18 @@ function focusFor(view: ViewKind, wide: boolean, squeezed: boolean) {
 }
 
 export function GameApp() {
+  return (
+    <SettingsProvider>
+      <GameAppInner />
+    </SettingsProvider>
+  );
+}
+
+function GameAppInner() {
   const api = useObscura();
-  const [modal, setModal] = useState<null | 'stats' | 'help' | 'admin'>(null);
+  const { settings } = useSettings();
+  const [menu, setMenu] = useState(false);
+  const [modal, setModal] = useState<null | 'stats' | 'help' | 'admin' | 'settings'>(null);
   // After the last round, keep its reveal on screen until the player chooses to see the results.
   const [hold, setHold] = useState(false);
   const onFinished = () => setHold(true);
@@ -94,7 +107,7 @@ export function GameApp() {
           <Backdrop stage={stageIndexFor(points)} />
         ) : mode === '3d' ? (
           <Suspense fallback={<div className="backdrop" aria-hidden />}>
-            <WorldCanvas points={points} focus={focus} onFail={failGL} onAmbience={setAmb} />
+            <WorldCanvas points={points} focus={focus} onFail={failGL} onAmbience={setAmb} lowCpu={settings.lowCpu} reduceMotion={settings.reduceMotion} />
           </Suspense>
         ) : (
           <div className="backdrop" aria-hidden />
@@ -124,6 +137,9 @@ export function GameApp() {
                   <IconGear size={17} />
                 </button>
               )}
+              <button className="icon-btn" aria-label="Menu" onClick={() => setMenu(true)} data-testid="menu-btn">
+                <IconMenu size={18} />
+              </button>
               <button className="icon-btn" aria-label="Statistics" onClick={() => setModal('stats')} data-testid="stats-btn">
                 <IconChart size={17} />
               </button>
@@ -150,6 +166,17 @@ export function GameApp() {
         </div>
       </div>
 
+      {menu && (
+        <Sidebar
+          mode="obscura"
+          onMode={() => api.setView('home')}
+          onStats={() => setModal('stats')}
+          onHelp={() => setModal('help')}
+          onSettings={() => setModal('settings')}
+          onClose={() => setMenu(false)}
+        />
+      )}
+      {modal === 'settings' && <SettingsModal onClose={() => setModal(null)} />}
       {modal === 'stats' && api.ready && <StatsModal api={api} onClose={() => setModal(null)} />}
       {modal === 'help' && <HelpModal onClose={closeHelp} />}
       {modal === 'admin' && AdminPanel && (

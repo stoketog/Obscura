@@ -8,6 +8,7 @@ import { buildShareText, copyText } from '@/lib/share';
 import { formatCountdown, msUntilNextDay, prettyDate } from '@/lib/dates';
 import { bestEntries } from '@/lib/prompts';
 import { AscentOverlay } from './AscentOverlay';
+import { useSettings } from '@/hooks/useSettings';
 import { GrowthBar } from './GrowthBar';
 import { TierChip, TierDot } from './TierChip';
 import { useWorld } from './WorldContext';
@@ -32,6 +33,7 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
   const [copied, setCopied] = useState<null | 'ok' | 'fail'>(null);
   const timers = useRef<number[]>([]);
   const now = useNow();
+  const { play } = useSettings();
 
   const clearTimers = () => {
     timers.current.forEach(clearTimeout);
@@ -40,12 +42,17 @@ export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStat
 
   useEffect(() => {
     if (!fresh) return;
+    const id = window.setTimeout(() => play('finish'), 500);
     // The world already climbed during the last reveal, so the finale is just the card.
     if (evolvedAtEnd) {
       const t = window.setTimeout(() => setShowEvo(true), 1400);
-      return () => window.clearTimeout(t);
+      return () => {
+        window.clearTimeout(t);
+        window.clearTimeout(id);
+      };
     }
     markCelebrated();
+    return () => window.clearTimeout(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

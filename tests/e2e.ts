@@ -386,6 +386,77 @@ async function main() {
     await ctx.close();
   });
 
+  console.log('Settings, menu and sound');
+  await t('side menu: games and tools; settings change the theme, volume and low CPU mode, and persist', async () => {
+    const { ctx, page: p, errors } = await open(b);
+    await q(p, 'menu-btn').click();
+    await q(p, 'sidebar').waitFor();
+    for (const id of ['side-obscura', 'side-stats', 'side-help', 'side-settings']) await q(p, id).waitFor();
+    await q(p, 'side-stats').click();
+    await q(p, 'stats-modal').waitFor();
+    await q(p, 'stats-modal').getByRole('button', { name: 'Close' }).click();
+    await q(p, 'menu-btn').click();
+    await q(p, 'side-settings').click();
+    await q(p, 'settings-modal').waitFor();
+    eq(await p.evaluate(() => document.documentElement.dataset.theme), 'dark', 'dark by default');
+    await q(p, 'set-theme-light').click();
+    eq(await p.evaluate(() => document.documentElement.dataset.theme), 'light', 'light theme applied');
+    const bg = await q(p, 'settings-modal').evaluate((el) => getComputedStyle(el).backgroundImage);
+    ok(/24[0-9]|2[345][0-9]/.test(bg), `the light sheet is light (${bg.slice(0, 60)})`);
+    await q(p, 'set-lowcpu').click();
+    eq(await p.evaluate(() => document.documentElement.dataset.perf), 'low', 'low CPU flag');
+    await q(p, 'set-volume').fill('30');
+    eq(await text(p, 'set-volume-label'), '30%');
+    await q(p, 'set-sound').click();
+    eq(await q(p, 'set-sound').getAttribute('aria-checked'), 'false', 'muted');
+    await p.reload();
+    await q(p, 'menu-btn').waitFor();
+    eq(await p.evaluate(() => document.documentElement.dataset.theme), 'light', 'theme survives a reload');
+    eq(await p.evaluate(() => document.documentElement.dataset.perf), 'low', 'low CPU survives a reload');
+    await q(p, 'menu-btn').click();
+    await q(p, 'side-settings').click();
+    eq(await text(p, 'set-volume-label'), '30%', 'volume survives');
+    eq(await q(p, 'set-sound').getAttribute('aria-checked'), 'false', 'mute survives');
+    await q(p, 'set-theme-auto').click();
+    ok(['dark', 'light'].includes((await p.evaluate(() => document.documentElement.dataset.theme)) ?? ''), 'auto resolves');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+  await t('sound: chimes on answers and a soft knock on misses; silent when muted', async () => {
+    const ctx = await b.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce', timezoneId: 'UTC' });
+    await ctx.addInitScript(() => {
+      const w = window as unknown as { __osc: number; AudioContext: typeof AudioContext };
+      w.__osc = 0;
+      const proto = w.AudioContext.prototype;
+      const orig = proto.createOscillator;
+      proto.createOscillator = function (this: AudioContext) { w.__osc++; return orig.call(this); };
+    });
+    const p = await ctx.newPage();
+    await p.clock.install({ time: new Date(CLOCK) });
+    await p.goto(ADMIN + '?lite');
+    await p.clock.resume();
+    await q(p, 'help-close').click();
+    await begin(p);
+    const osc = () => p.evaluate(() => (window as unknown as { __osc: number }).__osc);
+    const n0 = await osc();
+    await answer(p, 'definitely not real'); await q(p, 'answer-error').waitFor();
+    await p.waitForTimeout(300);
+    const n1 = await osc();
+    ok(n1 > n0, `a miss makes a sound (${n0} → ${n1})`);
+    await answer(p, rare(0).name); await q(p, 'reveal').waitFor();
+    await p.waitForTimeout(300);
+    const n2 = await osc();
+    ok(n2 > n1 + 1, `a hit chimes (${n1} → ${n2})`);
+    await q(p, 'menu-btn').click(); await q(p, 'side-settings').click();
+    await q(p, 'set-sound').click();
+    await q(p, 'settings-close').click();
+    const n3 = await osc();
+    await q(p, 'next-btn').click(); await q(p, 'round').waitFor();
+    await answer(p, 'still not real'); await q(p, 'answer-error').waitFor();
+    await p.waitForTimeout(300);
+    eq(await osc(), n3, 'muted: nothing plays');
+    await ctx.close();
+  });
+
   console.log('Admin tools');
   await t('admin: change date, swap a prompt, test answers, autoplay, reset', async () => {
     const { ctx, page: p } = await open(b); await q(p, 'admin-btn').click();

@@ -18,7 +18,7 @@ export function Modal({ title, onClose, children, testId, peek = false }: { titl
     <>
       <div className={`scrim ${peek ? 'peek' : ''}`} onClick={onClose} />
       <div ref={ref} tabIndex={-1} role="dialog" aria-modal="true" aria-label={title} data-testid={testId} className={`sheet outline-none ${peek ? 'peek' : ''}`}>
-        <div className="sticky top-0 z-10 flex items-center justify-between bg-[#0a1d31]/90 px-5 py-4 backdrop-blur">
+        <div className="sheet-head sticky top-0 z-10 flex items-center justify-between px-5 py-4 backdrop-blur">
           <h2 className="eyebrow !text-mist-300">{title}</h2>
           <button className="icon-btn" onClick={onClose} aria-label="Close">
             <IconClose size={16} />
