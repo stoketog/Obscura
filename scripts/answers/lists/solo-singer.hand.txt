@@ -1,0 +1,428 @@
+# Solo singers across pop, rock, soul, R&B, country, folk, jazz, rap and world music.
+Elvis Presley
+Frank Sinatra
+Dean Martin
+Bing Crosby
+Nat King Cole
+Tony Bennett
+Perry Como
+Andy Williams
+Johnny Mathis
+Bobby Darin
+Sammy Davis Jr.
+Ella Fitzgerald
+Billie Holiday
+Sarah Vaughan
+Nina Simone
+Etta James
+Dinah Washington
+Peggy Lee
+Doris Day
+Judy Garland
+Patsy Cline
+Connie Francis
+Brenda Lee
+Petula Clark
+Dusty Springfield
+Cilla Black
+Sandie Shaw
+Lulu
+Shirley Bassey
+Cliff Richard
+Tom Jones
+Engelbert Humperdinck
+Matt Monro
+Adam Faith
+Billy Fury
+Marty Wilde
+Lonnie Donegan
+Chuck Berry
+Little Richard
+Buddy Holly
+Jerry Lee Lewis
+Fats Domino
+Bo Diddley
+Roy Orbison
+Ricky Nelson
+Eddie Cochran
+Gene Vincent
+Del Shannon
+Neil Sedaka
+Paul Anka
+Ray Charles
+Sam Cooke
+Otis Redding
+Wilson Pickett
+James Brown
+Aretha Franklin
+Marvin Gaye
+Stevie Wonder
+Smokey Robinson
+Diana Ross
+Al Green
+Bill Withers
+Curtis Mayfield
+Isaac Hayes
+Barry White
+Lionel Richie
+Teddy Pendergrass
+Luther Vandross
+Donna Summer
+Gloria Gaynor
+Chaka Khan
+Whitney Houston
+Mariah Carey
+Janet Jackson
+Michael Jackson
+Prince
+Tina Turner
+Bob Dylan
+Joni Mitchell
+Leonard Cohen
+Neil Young
+Joan Baez
+Carole King
+James Taylor
+Cat Stevens|yusuf islam
+Van Morrison
+Nick Drake
+John Martyn
+Sandy Denny
+Linda Ronstadt
+Jackson Browne
+Tom Waits
+Randy Newman
+Harry Nilsson
+Billy Joel
+Elton John
+David Bowie
+Rod Stewart
+Freddie Mercury
+Mick Jagger
+John Lennon
+Paul McCartney
+George Harrison
+Ringo Starr
+Peter Gabriel
+Phil Collins
+Sting
+Kate Bush
+Annie Lennox
+Bryan Ferry
+Marc Bolan
+Gary Numan
+Morrissey
+Robert Smith
+George Michael
+Boy George
+Paul Young
+Rick Astley
+Kylie Minogue
+Jason Donovan
+Lisa Stansfield
+Sinéad O'Connor
+Enya
+Björk
+PJ Harvey
+Alanis Morissette
+Sheryl Crow
+Tori Amos
+Fiona Apple
+Shania Twain
+Celine Dion
+Gloria Estefan
+Madonna
+Cyndi Lauper
+Pat Benatar
+Joan Jett
+Debbie Harry
+Stevie Nicks
+Bonnie Tyler
+Cher
+Bette Midler
+Barbra Streisand
+Liza Minnelli
+Bruce Springsteen
+Bon Jovi (no)
+Bryan Adams
+Meat Loaf
+Billy Idol
+Ozzy Osbourne
+Alice Cooper
+Iggy Pop
+Lou Reed
+Patti Smith
+Tom Petty
+John Mellencamp
+Bob Seger
+Bruce Hornsby
+Huey Lewis
+Kenny Rogers
+Dolly Parton
+Willie Nelson
+Johnny Cash
+Waylon Jennings
+Merle Haggard
+Loretta Lynn
+Tammy Wynette
+Garth Brooks
+Reba McEntire
+Tim McGraw
+Faith Hill
+Carrie Underwood
+Kacey Musgraves
+Luke Combs
+Morgan Wallen
+Chris Stapleton
+Zach Bryan
+Keith Urban
+Blake Shelton
+Kane Brown
+Lainey Wilson
+Beyoncé|beyonce
+Rihanna
+Alicia Keys
+Usher
+Mary J. Blige
+Lauryn Hill
+Erykah Badu
+D'Angelo
+Maxwell
+Brandy
+Monica
+Aaliyah
+Ashanti
+Ciara
+Kelly Rowland
+Jennifer Hudson
+John Legend
+Ne-Yo
+Chris Brown
+The Weeknd
+Frank Ocean
+SZA
+H.E.R.
+Jhené Aiko
+Summer Walker
+Miguel
+Khalid
+Daniel Caesar
+Jill Scott
+India.Arie
+Anita Baker
+Toni Braxton
+Brian McKnight
+R. Kelly (no)
+Justin Timberlake
+Britney Spears
+Christina Aguilera
+Jessica Simpson
+Mandy Moore
+Avril Lavigne
+Pink|p!nk
+Kelly Clarkson
+Katy Perry
+Lady Gaga
+Taylor Swift
+Ariana Grande
+Selena Gomez
+Demi Lovato
+Miley Cyrus
+Billie Eilish
+Olivia Rodrigo
+Sabrina Carpenter
+Chappell Roan
+Dua Lipa
+Doja Cat
+Lizzo
+Halsey
+Lorde
+Sia
+Charli XCX
+Rita Ora
+Jessie J
+Ellie Goulding
+Adele
+Amy Winehouse
+Duffy
+Lily Allen
+Kate Nash
+Paloma Faith
+Emeli Sandé
+Leona Lewis
+Cheryl
+Robbie Williams
+Gary Barlow
+James Blunt
+James Morrison
+Paolo Nutini
+Lewis Capaldi
+Ed Sheeran
+George Ezra
+Tom Grennan
+Sam Smith
+Calvin Harris
+Craig David
+Mark Ronson
+Jamie Cullum
+Michael Bublé
+Harry Styles
+Niall Horan
+Louis Tomlinson
+Zayn Malik
+Liam Payne
+Olly Murs
+Rag'n'Bone Man
+Tom Odell
+Jake Bugg
+Rex Orange County
+Raye
+Mahalia
+Jorja Smith
+Celeste
+Arlo Parks
+Holly Humberstone
+Mabel
+Anne-Marie
+Becky Hill
+Jess Glynne
+Ella Henderson
+Alesha Dixon
+Sophie Ellis-Bextor
+Natalie Imbruglia
+Dido
+Joss Stone
+Corinne Bailey Rae
+Seal
+Shaggy
+Sean Paul
+Bob Marley
+Peter Tosh
+Jimmy Cliff
+Desmond Dekker
+Burning Spear
+Gregory Isaacs
+Dennis Brown
+Damian Marley
+Eminem
+Jay-Z
+Kanye West|ye
+Drake
+Kendrick Lamar
+Nicki Minaj
+Cardi B
+Megan Thee Stallion
+Travis Scott
+Post Malone
+Snoop Dogg
+Dr. Dre
+Ice Cube
+2Pac|tupac;tupac shakur
+The Notorious B.I.G.|biggie;biggie smalls
+Nas
+50 Cent
+Lil Wayne
+Missy Elliott
+Lil Nas X
+Tyler, the Creator
+J. Cole
+Childish Gambino
+Chance the Rapper
+Stormzy
+Dave
+Skepta
+Wiley
+Dizzee Rascal
+Lethal Bizzle
+Kano
+Little Simz
+Central Cee
+Aitch
+Bugzy Malone
+Shakira
+Ricky Martin
+Enrique Iglesias
+Julio Iglesias
+Marc Anthony
+Jennifer Lopez
+Bad Bunny
+J Balvin
+Daddy Yankee
+Karol G
+Rosalía
+Juanes
+Carlos Santana (no)
+Selena
+Celia Cruz
+Juan Gabriel
+Vicente Fernández
+Luis Miguel
+Alejandro Sanz
+Camilo Sesto
+Raphael
+Edith Piaf
+Charles Aznavour
+Jacques Brel
+Serge Gainsbourg
+Johnny Hallyday
+Françoise Hardy
+Stromae
+Zaz
+Christine and the Queens
+Mylène Farmer
+Andrea Bocelli
+Luciano Pavarotti
+Plácido Domingo
+José Carreras
+Maria Callas
+Montserrat Caballé
+Enrico Caruso
+Kiri Te Kanawa
+Katherine Jenkins
+Charlotte Church
+Russell Watson
+Josh Groban
+Sarah Brightman
+Michael Ball
+Elaine Paige
+Barbara Dickson
+Fela Kuti
+Youssou N'Dour
+Angélique Kidjo
+Miriam Makeba
+Salif Keita
+Cesária Évora
+Burna Boy
+Wizkid
+Davido
+Tems
+Ayra Starr
+Rema
+Asake
+Umm Kulthum
+Fairuz
+Amr Diab
+Nusrat Fateh Ali Khan
+Lata Mangeshkar
+Asha Bhosle
+Kishore Kumar
+Mohammed Rafi
+Arijit Singh
+A. R. Rahman
+Shreya Ghoshal
+Sonu Nigam
+Diljit Dosanjh
+Kyu Sakamoto
+Utada Hikaru
+Namie Amuro
+Ayumi Hamasaki
+IU
+Psy
+Rain
+BoA
+Jay Chou
+Teresa Teng
+Faye Wong
+Jacky Cheung
+Leslie Cheung
+Anita Mui

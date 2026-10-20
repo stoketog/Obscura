@@ -1,0 +1,313 @@
+# Classical composers from medieval to contemporary.
+Hildegard of Bingen
+Léonin
+Pérotin
+Guillaume de Machaut
+Guillaume Du Fay|dufay
+John Dunstable
+Johannes Ockeghem
+Josquin des Prez|josquin
+Jacob Obrecht
+Heinrich Isaac
+Thomas Tallis
+William Byrd
+John Taverner
+Christopher Tye
+Orlando Gibbons
+Thomas Weelkes
+Thomas Morley
+John Dowland
+Giovanni Pierluigi da Palestrina|palestrina
+Orlande de Lassus|lassus
+Tomás Luis de Victoria
+Carlo Gesualdo
+Claudio Monteverdi
+Giovanni Gabrieli
+Girolamo Frescobaldi
+Heinrich Schütz
+Jan Pieterszoon Sweelinck
+Dieterich Buxtehude
+Johann Pachelbel
+Jean-Baptiste Lully|lully
+Marc-Antoine Charpentier
+François Couperin|couperin
+Jean-Philippe Rameau|rameau
+Henry Purcell
+Arcangelo Corelli
+Alessandro Scarlatti
+Domenico Scarlatti
+Antonio Vivaldi
+Tomaso Albinoni
+Giuseppe Tartini
+Giovanni Battista Pergolesi
+Georg Philipp Telemann
+Johann Sebastian Bach
+George Frideric Handel
+Carl Philipp Emanuel Bach
+Johann Christian Bach
+Wilhelm Friedemann Bach
+Christoph Willibald Gluck
+Joseph Haydn
+Michael Haydn
+Wolfgang Amadeus Mozart
+Leopold Mozart
+Antonio Salieri
+Luigi Boccherini
+Muzio Clementi
+Carl Stamitz
+Carl Ditters von Dittersdorf
+Johann Nepomuk Hummel
+Ludwig van Beethoven
+Franz Schubert
+Carl Maria von Weber
+Gioachino Rossini
+Gaetano Donizetti
+Vincenzo Bellini
+Niccolò Paganini
+Hector Berlioz
+Felix Mendelssohn
+Fanny Mendelssohn
+Frédéric Chopin
+Robert Schumann
+Clara Schumann
+Franz Liszt
+Richard Wagner
+Giuseppe Verdi
+Charles Gounod
+Jacques Offenbach
+César Franck
+Anton Bruckner
+Johann Strauss II
+Johann Strauss I
+Johannes Brahms
+Camille Saint-Saëns
+Georges Bizet
+Léo Delibes
+Jules Massenet
+Modest Mussorgsky
+Alexander Borodin
+Nikolai Rimsky-Korsakov
+Mily Balakirev
+César Cui
+Pyotr Ilyich Tchaikovsky
+Antonín Dvořák
+Bedřich Smetana
+Leoš Janáček
+Edvard Grieg
+Jean Sibelius
+Carl Nielsen
+Gustav Mahler
+Richard Strauss
+Hugo Wolf
+Max Bruch
+Engelbert Humperdinck
+Edward Elgar
+Arthur Sullivan
+Hubert Parry
+Charles Villiers Stanford
+Frederick Delius
+Gustav Holst
+Ralph Vaughan Williams
+George Butterworth
+Gerald Finzi
+Edmund Rubbra
+William Walton
+Benjamin Britten
+Michael Tippett
+Malcolm Arnold
+Peter Maxwell Davies
+Harrison Birtwistle
+John Tavener
+Thomas Adès
+George Benjamin
+James MacMillan
+Judith Weir
+Michael Nyman
+Gavin Bryars
+Karl Jenkins
+John Rutter
+Howard Goodall
+Claude Debussy
+Maurice Ravel
+Gabriel Fauré
+Erik Satie
+Paul Dukas
+Albert Roussel
+Vincent d'Indy
+Ernest Chausson
+Darius Milhaud
+Francis Poulenc
+Arthur Honegger
+Germaine Tailleferre
+Lili Boulanger
+Nadia Boulanger
+Olivier Messiaen
+Pierre Boulez
+Henri Dutilleux
+Edgard Varèse
+Iannis Xenakis
+Arnold Schoenberg
+Alban Berg
+Anton Webern
+Paul Hindemith
+Kurt Weill
+Hanns Eisler
+Carl Orff
+Karlheinz Stockhausen
+Hans Werner Henze
+Wolfgang Rihm
+Igor Stravinsky
+Sergei Prokofiev
+Sergei Rachmaninoff
+Alexander Scriabin
+Dmitri Shostakovich
+Aram Khachaturian
+Alfred Schnittke
+Sofia Gubaidulina
+Arvo Pärt
+Giya Kancheli
+Béla Bartók
+Zoltán Kodály
+György Ligeti
+György Kurtág
+Karol Szymanowski
+Witold Lutosławski
+Krzysztof Penderecki
+Henryk Górecki
+Bohuslav Martinů
+Manuel de Falla
+Isaac Albéniz
+Enrique Granados
+Joaquín Rodrigo
+Heitor Villa-Lobos
+Alberto Ginastera
+Astor Piazzolla
+Carlos Chávez
+Silvestre Revueltas
+Charles Ives
+Aaron Copland
+George Gershwin
+Samuel Barber
+Leonard Bernstein
+John Cage
+Morton Feldman
+Elliott Carter
+Steve Reich
+Philip Glass
+John Adams
+Terry Riley
+La Monte Young
+Meredith Monk
+John Corigliano
+Jennifer Higdon
+Caroline Shaw
+Missy Mazzoli
+Scott Joplin
+Amy Beach
+Florence Price
+William Grant Still
+Duke Ellington (no)
+John Williams
+Hans Zimmer
+Ennio Morricone
+Howard Shore
+Bernard Herrmann
+Jerry Goldsmith
+James Horner
+Danny Elfman
+Alexandre Desplat
+Hildur Guðnadóttir
+Jóhann Jóhannsson
+Max Richter
+Ólafur Arnalds
+Ludovico Einaudi
+Yann Tiersen
+Joe Hisaishi
+Ryuichi Sakamoto
+Tōru Takemitsu
+Tan Dun
+Unsuk Chin
+Kaija Saariaho
+Esa-Pekka Salonen
+Magnus Lindberg
+Einojuhani Rautavaara
+Per Nørgård
+Hans Abrahamsen
+Anna Thorvaldsdottir
+Barbara Strozzi
+Francesca Caccini
+Élisabeth Jacquet de La Guerre
+Louise Farrenc
+Cécile Chaminade
+Ethel Smyth
+Rebecca Clarke
+Grace Williams
+Elizabeth Maconchy
+Thea Musgrave
+Errollyn Wallen
+Roxanna Panufnik
+Andrzej Panufnik
+Allegri|gregorio allegri
+Thomas Arne
+William Boyce
+John Field
+Johann Hummel (no)
+Ferdinand Ries
+Louis Spohr
+Giacomo Meyerbeer
+Daniel Auber
+Adolphe Adam
+Ambroise Thomas
+Édouard Lalo
+Emmanuel Chabrier
+Ernest Chausson (no)
+Ruggero Leoncavallo
+Pietro Mascagni
+Giacomo Puccini
+Umberto Giordano
+Francesco Cilea
+Ottorino Respighi
+Ermanno Wolf-Ferrari
+Luciano Berio
+Luigi Nono
+Bruno Maderna
+Giacinto Scelsi
+Salvatore Sciarrino
+Franz von Suppé
+Franz Lehár
+Emmerich Kálmán
+Oscar Straus
+Josef Strauss
+Carl Zeller
+Alexander Glazunov
+Anatoly Lyadov
+Anton Arensky
+Sergei Taneyev
+Reinhold Glière
+Nikolai Medtner
+Dmitry Kabalevsky
+Georgy Sviridov
+Mieczysław Weinberg
+Galina Ustvolskaya
+Valentin Silvestrov
+Zdeněk Fibich
+Josef Suk
+Vítězslav Novák
+Ernő Dohnányi
+Franz Schmidt
+Alexander Zemlinsky
+Erich Wolfgang Korngold
+Franz Schreker
+Ferruccio Busoni
+Max Reger
+Hans Pfitzner
+Emil von Sauer (no)
+Christian Sinding
+Johan Svendsen
+Hugo Alfvén
+Wilhelm Stenhammar
+Franz Berwald
+Niels Gade
+Rued Langgaard
+Leevi Madetoja
+Uuno Klami

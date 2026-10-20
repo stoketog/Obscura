@@ -1,0 +1,485 @@
+# Bands and groups across rock, pop, metal, punk, indie, soul, hip hop and electronic music.
+The Kinks
+The Who
+The Yardbirds
+The Animals
+The Hollies
+The Zombies
+The Small Faces
+The Faces
+The Move
+The Moody Blues
+Procol Harum
+Cream
+Traffic
+Free
+Bad Company
+Deep Purple
+Black Sabbath
+Uriah Heep
+Jethro Tull
+Yes
+Genesis
+King Crimson
+Emerson, Lake & Palmer
+Gentle Giant
+Camel
+Caravan
+Soft Machine
+Van der Graaf Generator
+Hawkwind
+Roxy Music
+T. Rex
+Slade
+Sweet
+Mud
+Wizzard
+Showaddywaddy
+The Bay City Rollers
+Mott the Hoople
+10cc
+Electric Light Orchestra|elo
+Supertramp
+Status Quo
+Thin Lizzy
+UFO
+Whitesnake
+Rainbow
+Motörhead|motorhead
+Iron Maiden
+Judas Priest
+Saxon
+Def Leppard
+Venom
+Diamond Head
+The Sex Pistols|sex pistols
+The Clash
+The Damned
+Buzzcocks
+The Jam
+The Stranglers
+Siouxsie and the Banshees
+The Undertones
+Stiff Little Fingers
+Sham 69
+UK Subs
+Crass
+Gang of Four
+Wire
+Joy Division
+Magazine
+The Fall
+Public Image Ltd
+The Specials
+Madness
+The Selecter
+The Beat
+Bad Manners
+UB40
+Dexys Midnight Runners
+The Police
+Dire Straits
+The Pretenders
+Squeeze
+XTC
+Elvis Costello and the Attractions
+Ian Dury and the Blockheads
+The Cure
+The Smiths
+New Order
+Depeche Mode
+The Human League
+Heaven 17
+Soft Cell
+Orchestral Manoeuvres in the Dark|omd
+Duran Duran
+Spandau Ballet
+Culture Club
+Wham!
+Tears for Fears
+Simple Minds
+Echo & the Bunnymen
+The Teardrop Explodes
+Ultravox
+Visage
+Japan
+ABC
+Eurythmics
+Bananarama
+Frankie Goes to Hollywood
+Bronski Beat
+The Communards
+Erasure
+Pet Shop Boys
+The Style Council
+Everything but the Girl
+The Housemartins
+The Beautiful South
+Deacon Blue
+Simply Red
+Level 42
+Talk Talk
+The Waterboys
+The Psychedelic Furs
+The Cult
+The Mission
+Sisters of Mercy
+Bauhaus
+The Jesus and Mary Chain
+Cocteau Twins
+My Bloody Valentine
+Ride
+Slowdive
+Lush
+The Stone Roses
+Happy Mondays
+Inspiral Carpets
+The Charlatans
+James
+The La's
+Primal Scream
+Blur
+Pulp
+Suede
+Elastica
+Supergrass
+Ocean Colour Scene
+Kula Shaker
+The Verve
+Manic Street Preachers
+Super Furry Animals
+Stereophonics
+Catatonia
+Travis
+Embrace
+Doves
+Elbow
+Coldplay
+Keane
+Snow Patrol
+Kaiser Chiefs
+Franz Ferdinand
+The Libertines
+Babyshambles
+Bloc Party
+Editors
+The Kooks
+Razorlight
+Hard-Fi
+Kasabian
+Arctic Monkeys
+The Fratellis
+Klaxons
+Foals
+Two Door Cinema Club
+The Maccabees
+Mumford & Sons
+Bombay Bicycle Club
+Florence and the Machine
+Alt-J
+Bastille
+The 1975
+Wolf Alice
+Royal Blood
+IDLES
+Fontaines D.C.
+Sleaford Mods
+Black Midi
+Squid
+Wet Leg
+Glass Animals
+Muse
+Radiohead
+Placebo
+Feeder
+Ash
+Idlewild
+Biffy Clyro
+Mogwai
+Belle and Sebastian
+Teenage Fanclub
+The Proclaimers
+Simple Minds (no)
+Del Amitri
+Texas
+Runrig
+Big Country
+The Waterboys (no)
+U2
+The Cranberries
+Thin Lizzy (no)
+The Pogues
+Boyzone
+Westlife
+The Corrs
+Snow Patrol (no)
+Take That
+East 17
+Boyz II Men
+Backstreet Boys
+NSYNC|n sync
+New Kids on the Block
+Spice Girls
+All Saints
+Girls Aloud
+Sugababes
+Atomic Kitten
+Steps
+S Club 7
+Five
+Blue
+Busted
+McFly
+The Wanted
+One Direction
+Little Mix
+JLS
+Bros
+Destiny's Child
+TLC
+En Vogue
+Salt-N-Pepa
+The Supremes
+The Temptations
+The Four Tops
+The Jackson 5
+The Miracles
+Martha and the Vandellas
+The Marvelettes
+The Isley Brothers
+Earth, Wind & Fire
+Kool & the Gang
+Chic
+Sister Sledge
+The Commodores
+Parliament
+Funkadelic
+Sly and the Family Stone
+The O'Jays
+The Stylistics
+The Three Degrees
+The Drifters
+The Platters
+The Ronettes
+The Shirelles
+The Shangri-Las
+The Crystals
+The Righteous Brothers
+The Everly Brothers
+The Beach Boys
+The Byrds
+The Mamas & the Papas
+Simon & Garfunkel
+The Doors
+Jefferson Airplane
+Grateful Dead
+Creedence Clearwater Revival|ccr
+The Band
+Buffalo Springfield
+Crosby, Stills, Nash & Young|csny
+The Velvet Underground
+The Stooges
+MC5
+The Monkees
+The Turtles
+The Lovin' Spoonful
+Love
+Steppenwolf
+Three Dog Night
+Chicago
+Blood, Sweat & Tears
+Eagles
+Fleetwood Mac
+Steely Dan
+Lynyrd Skynyrd
+The Allman Brothers Band
+ZZ Top
+Aerosmith
+Kiss
+Boston
+Journey
+Foreigner
+REO Speedwagon
+Styx
+Toto
+Heart
+Cheap Trick
+Kansas
+Van Halen
+Bon Jovi
+Mötley Crüe
+Poison
+Guns N' Roses
+Def Leppard (no)
+Metallica
+Megadeth
+Slayer
+Anthrax
+Pantera
+Sepultura
+Testament
+Exodus
+Iron Maiden (no)
+Ramones
+Television
+Blondie
+Talking Heads
+The B-52's
+Devo
+The Cars
+The Go-Go's
+R.E.M.
+The Replacements
+Hüsker Dü
+Sonic Youth
+Pixies
+Dinosaur Jr.
+The Smashing Pumpkins
+Nirvana
+Pearl Jam
+Soundgarden
+Alice in Chains
+Stone Temple Pilots
+Red Hot Chili Peppers
+Jane's Addiction
+Faith No More
+Rage Against the Machine
+Tool
+Nine Inch Nails
+Marilyn Manson
+Korn
+Limp Bizkit
+Linkin Park
+System of a Down
+Slipknot
+Deftones
+Foo Fighters
+Green Day
+The Offspring
+Blink-182
+Sum 41
+Weezer
+Fall Out Boy
+Paramore
+My Chemical Romance
+Panic! at the Disco
+Thirty Seconds to Mars
+The Killers
+The Strokes
+The White Stripes
+The Black Keys
+Kings of Leon
+Yeah Yeah Yeahs
+Interpol
+The Shins
+Modest Mouse
+Death Cab for Cutie
+Arcade Fire
+Vampire Weekend
+MGMT
+The National
+LCD Soundsystem
+Tame Impala
+Fleet Foxes
+Bon Iver
+The War on Drugs
+Imagine Dragons
+OneRepublic
+Maroon 5
+Train
+Matchbox Twenty
+Goo Goo Dolls
+Counting Crows
+Hootie & the Blowfish
+Third Eye Blind
+Creed
+Nickelback
+3 Doors Down
+Evanescence
+Twenty One Pilots
+Twenty One Pilots (no)
+Haim
+Paramore (no)
+The Lumineers
+Of Monsters and Men
+Kings of Convenience
+Sigur Rós
+The Sugarcubes
+Björk (no)
+ABBA
+Roxette
+Europe
+The Cardigans
+Ace of Base
+A-ha
+Kraftwerk
+Rammstein
+Scorpions
+Tokio Hotel
+Can
+Neu!
+Tangerine Dream
+Boney M.
+Modern Talking
+Daft Punk
+Air
+Phoenix
+Justice
+Gojira
+Måneskin
+AC/DC
+INXS
+Midnight Oil
+Crowded House
+Men at Work
+The Church
+The Go-Betweens
+The Saints
+Silverchair
+Powderfinger
+The Living End
+Jet
+Wolfmother
+Tame Impala (no)
+Crowded House (no)
+Split Enz
+The Chills
+Six60
+Massive Attack
+Portishead
+Tricky (no)
+The Prodigy
+The Chemical Brothers
+Underworld
+Orbital
+Leftfield
+Faithless
+Basement Jaxx
+Groove Armada
+Disclosure
+Chase & Status
+Rudimental
+Gorillaz
+Run-DMC
+Public Enemy
+N.W.A
+Beastie Boys
+A Tribe Called Quest
+De La Soul
+Wu-Tang Clan
+The Roots
+Outkast
+Fugees
+Cypress Hill
+Black Eyed Peas
+Migos
+BTS
+Blackpink
+EXO
+Twice
+Big Bang
+Stray Kids
+Seventeen
+NewJeans
+Girls' Generation
+Super Junior

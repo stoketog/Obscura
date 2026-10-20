@@ -1,0 +1,251 @@
+# Stage and film musicals.
+Oklahoma!|oklahoma
+Carousel
+South Pacific
+The King and I
+The Sound of Music
+Flower Drum Song
+Cinderella (Rodgers and Hammerstein)
+Show Boat
+Porgy and Bess
+Anything Goes
+Kiss Me, Kate
+Guys and Dolls
+Annie Get Your Gun
+Brigadoon
+Paint Your Wagon
+My Fair Lady
+Camelot
+Gigi
+West Side Story
+Gypsy
+Bells Are Ringing
+The Music Man
+Hello, Dolly!
+Funny Girl
+Fiddler on the Roof
+Man of La Mancha
+Cabaret
+Chicago
+Sweet Charity
+Mame
+Hair
+Godspell
+Pippin
+Company
+Follies
+A Little Night Music
+Sweeney Todd
+Sunday in the Park with George
+Into the Woods
+Assassins
+Passion
+Merrily We Roll Along
+A Funny Thing Happened on the Way to the Forum
+Jesus Christ Superstar
+Evita
+Cats
+Starlight Express
+The Phantom of the Opera|phantom of the opera
+Aspects of Love
+Sunset Boulevard
+Whistle Down the Wind
+The Woman in White
+Love Never Dies
+School of Rock
+Les Misérables|les mis;les miserables
+Miss Saigon
+Martin Guerre
+Oliver!|oliver
+Blood Brothers
+Me and My Girl
+Half a Sixpence
+Billy Elliot
+Matilda (no)
+Mamma Mia!|mamma mia
+We Will Rock You
+Jersey Boys
+Rock of Ages
+Tina
+& Juliet
+Six
+Hamilton
+In the Heights
+Dear Evan Hansen
+Come From Away
+The Book of Mormon
+Avenue Q
+Spamalot
+The Producers
+Hairspray
+Legally Blonde
+Wicked
+Rent
+Next to Normal
+Spring Awakening
+Fun Home
+Waitress
+Kinky Boots
+Everybody's Talking About Jamie
+Hadestown
+Moulin Rouge!
+The Lion King (musical)
+Aladdin (musical)
+Frozen (musical)
+Mary Poppins (musical)
+Beauty and the Beast (musical)
+The Little Mermaid (musical)
+Newsies
+Tarzan (musical)
+Shrek the Musical
+Charlie and the Chocolate Factory (musical)
+Chitty Chitty Bang Bang
+The Wizard of Oz
+The Wiz
+Annie
+Grease
+Little Shop of Horrors
+The Rocky Horror Show|rocky horror
+Dreamgirls
+A Chorus Line
+42nd Street
+La Cage aux Folles
+Nine
+Sweet Smell of Success
+City of Angels
+Grand Hotel
+Kiss of the Spider Woman
+Ragtime
+Parade
+The Color Purple
+Memphis
+Once
+The Last Five Years
+Little Women (musical)
+Mean Girls (musical)
+Beetlejuice (musical)
+Back to the Future (musical)
+Heathers
+Be More Chill
+The Prom
+Shucked
+& Juliet (no)
+Kimberly Akimbo
+A Strange Loop
+Suffs
+Hell's Kitchen
+The Outsiders (musical)
+Maybe Happy Ending
+Operation Mincemeat
+Standing at the Sky's Edge
+Fisherman's Friends
+Bat Out of Hell
+Sunny Afternoon
+Thriller Live
+Motown the Musical
+Beautiful
+Mrs Doubtfire
+Frozen II (no)
+Singin' in the Rain
+An American in Paris
+The Wizard of Oz (film)
+Mary Poppins
+The Sound of Music (film)
+My Fair Lady (film)
+Meet Me in St. Louis
+Top Hat
+Swing Time
+Easter Parade
+On the Town
+Gentlemen Prefer Blondes
+Seven Brides for Seven Brothers
+High Society
+Calamity Jane
+White Christmas
+Holiday Inn
+Funny Face
+Gigi (film)
+The Band Wagon
+Kiss Me Kate (film)
+Thoroughly Modern Millie
+Bedknobs and Broomsticks
+Chitty Chitty Bang Bang (film)
+Scrooge
+Bugsy Malone
+Fame
+Footloose
+Flashdance
+Dirty Dancing
+Saturday Night Fever
+Xanadu
+Grease 2
+Hairspray (film)
+Moulin Rouge! (film)
+Chicago (film)
+Dreamgirls (film)
+La La Land
+The Greatest Showman
+Rocketman
+Bohemian Rhapsody (no)
+Sing Street
+Pitch Perfect
+High School Musical
+Camp Rock
+Enchanted
+Into the Woods (film)
+Les Misérables (film)
+Cats (film)
+West Side Story (2021)
+Tick, Tick... Boom!
+Wonka
+Wicked (film)
+Annette
+Emilia Pérez
+The Sound of Music Live (no)
+Godspell (film)
+Tommy
+Quadrophenia (no)
+Pink Floyd – The Wall
+Yellow Submarine
+Hard Day's Night (no)
+Purple Rain
+8 Mile (no)
+Blues Brothers (no)
+Little Voice
+Billy Elliot (film)
+Pennies from Heaven
+Cabaret (film)
+All That Jazz
+Sweet Charity (film)
+Hello, Dolly! (film)
+Oliver! (film)
+Fiddler on the Roof (film)
+Jesus Christ Superstar (film)
+Evita (film)
+Mamma Mia! Here We Go Again
+Rock of Ages (film)
+Joseph and the Amazing Technicolor Dreamcoat (no)
+Starlight Express (no)
+Daddy Long Legs
+By Jeeves
+The Beautiful Game
+Stephen Ward
+Bombay Dreams
+Cinderella (Lloyd Webber)
+Jeeves (no)
+Tell Me on a Sunday
+Song and Dance
+Variety (no)
+Lend Me a Tenor
+Crazy for You
+Girl from the North Country
+Mrs Henderson Presents
+Calendar Girls
+The Girls
+Made in Dagenham
+Groundhog Day (musical)
+Dear England (no)
+Pretty Woman (musical)
+Moulin Rouge (no)
+Paddington (musical)
+Hercules (musical)

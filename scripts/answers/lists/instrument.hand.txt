@@ -1,0 +1,327 @@
+# Musical instruments from around the world.
+Piano
+Grand piano
+Upright piano
+Keyboard
+Synthesizer|synth
+Organ
+Pipe organ
+Hammond organ
+Harmonium
+Accordion
+Concertina
+Bandoneon
+Melodica
+Harmonica|mouth organ
+Harpsichord
+Clavichord
+Celesta
+Glockenspiel
+Xylophone
+Marimba
+Vibraphone
+Tubular bells
+Steel drum|steelpan
+Hang drum|handpan
+Kalimba|mbira;thumb piano
+Guitar
+Acoustic guitar
+Electric guitar
+Bass guitar|bass
+Classical guitar
+Twelve-string guitar
+Lap steel guitar
+Pedal steel guitar
+Dobro|resonator guitar
+Ukulele
+Banjo
+Mandolin
+Bouzouki
+Balalaika
+Lute
+Oud
+Sitar
+Sarod
+Veena
+Tanpura
+Santoor
+Shamisen
+Koto
+Guzheng
+Pipa
+Erhu
+Yangqin
+Gayageum
+Kora
+Ngoni
+Charango
+Cuatro
+Tres
+Cavaquinho
+Bandurria
+Domra
+Kantele
+Zither
+Autoharp
+Dulcimer
+Hammered dulcimer
+Hurdy-gurdy
+Nyckelharpa
+Harp
+Lyre
+Celtic harp
+Violin|fiddle
+Viola
+Cello|violoncello
+Double bass|upright bass;contrabass
+Viola da gamba
+Viol
+Rebec
+Sarangi
+Morin khuur
+Kamancheh
+Hardanger fiddle
+Flute
+Piccolo
+Recorder
+Tin whistle|penny whistle
+Fife
+Pan pipes|panpipes;pan flute
+Ocarina
+Shakuhachi
+Bansuri
+Dizi
+Ney
+Quena
+Clarinet
+Bass clarinet
+Oboe
+Cor anglais|english horn
+Bassoon
+Contrabassoon
+Saxophone|sax
+Alto saxophone
+Tenor saxophone
+Soprano saxophone
+Baritone saxophone
+Bagpipes
+Uilleann pipes
+Duduk
+Shawm
+Crumhorn
+Zurna
+Shehnai
+Sheng
+Trumpet
+Cornet
+Flugelhorn
+Bugle
+Piccolo trumpet
+French horn|horn
+Trombone
+Bass trombone
+Euphonium
+Baritone horn
+Tuba
+Sousaphone
+Alphorn
+Didgeridoo
+Conch
+Shofar
+Vuvuzela
+Kazoo
+Jew's harp|jaw harp
+Drum
+Drum kit|drums
+Snare drum
+Bass drum
+Tom-tom
+Timpani|kettledrums
+Bongos
+Congas
+Djembe
+Tabla
+Dhol
+Mridangam
+Cajón|cajon
+Tambourine
+Bodhrán|bodhran
+Taiko
+Darbuka|doumbek
+Frame drum
+Talking drum
+Tom drum
+Cymbals
+Hi-hat
+Crash cymbal
+Ride cymbal
+Gong
+Triangle
+Cowbell
+Woodblock
+Castanets
+Maracas
+Claves
+Guiro
+Cabasa
+Shaker
+Rainstick
+Washboard
+Spoons
+Bones
+Sleigh bells
+Wind chimes
+Handbells
+Singing bowl
+Theremin
+Ondes Martenot
+Mellotron
+Moog synthesizer
+Drum machine
+Sampler
+Turntables
+Theorbo
+Cittern
+Gittern
+Vihuela
+Psaltery
+Kanun|qanun
+Tar
+Setar
+Dutar
+Saz|baglama
+Rubab
+Dombra
+Komuz
+Biwa
+Sanxian
+Ruan
+Liuqin
+Hulusi
+Suona
+Bawu
+Xun
+Sho
+Hichiriki
+Ryuteki
+Daegeum
+Piri
+Haegeum
+Janggu
+Buk
+Kkwaenggwari
+Gamelan
+Gender
+Bonang
+Angklung
+Kulintang
+Sasando
+Ranat ek
+Khim
+Khene
+Saw duang
+Morsing
+Ghatam
+Kanjira
+Pakhawaj
+Nadaswaram
+Ektara
+Esraj
+Dilruba
+Harmonium (Indian)
+Rebab
+Kemenche
+Lavta
+Mey
+Kaval
+Gaida
+Tupan
+Tambura
+Cimbalom
+Tárogató
+Fujara
+Koncovka
+Trembita
+Bayan
+Gusli
+Zhaleika
+Vargan
+Valiha
+Marovany
+Akonting
+Xalam
+Balafon
+Mbira dzavadzimu
+Udu
+Shekere
+Agogô|agogo
+Berimbau
+Cuíca|cuica
+Surdo
+Pandeiro
+Repinique
+Timbales
+Güira
+Steel guitar
+Bajo sexto
+Vihuela (mexican)
+Guitarrón
+Arpa jarocha
+Jarana
+Requinto
+Tiple
+Bombo
+Siku
+Zampoña
+Tarka
+Pinkillo
+Erke
+Kultrun
+Trutruka
+Native American flute
+Water drum
+Powwow drum
+Rattle
+Bullroarer
+Clapsticks
+Lagerphone
+Gumleaf
+Nose flute
+Pūtōrino
+Kōauau
+Pahu
+Ipu
+Ukulele bass
+Baritone ukulele
+Tenor guitar
+Archtop guitar
+Harp guitar
+Chapman Stick
+Keytar
+Electric violin
+Electric piano
+Rhodes piano|fender rhodes
+Wurlitzer
+Clavinet
+Celesta (keyboard)
+Carillon
+Calliope
+Barrel organ
+Music box
+Player piano|pianola
+Orchestrion
+Glass harmonica
+Waterphone
+Musical saw
+Stylophone
+Otamatone
+Kazoo (comb and paper)
+Slide whistle
+Swanee whistle
+Boatswain's call
+Duck call
+Vibraslap
+Flexatone
+Thunder sheet
+Wind machine
+Anvil

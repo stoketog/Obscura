@@ -132,7 +132,8 @@ def main():
             sys.exit(f'{f}: no prompt with id "{pid}"')
         for line in open(os.path.join(LISTS, f), encoding='utf-8'):
             line = line.strip()
-            if not line or line.startswith('#'):
+            # '(no)' marks a line kept only as a note that something was deliberately left out.
+            if not line or line.startswith('#') or '(no)' in line:
                 continue
             name, _, aliases = line.partition('|')
             name = name.strip()

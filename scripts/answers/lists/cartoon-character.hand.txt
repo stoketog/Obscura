@@ -1,0 +1,429 @@
+# Cartoon and animated characters from TV, film and comic strips.
+Mickey Mouse
+Minnie Mouse
+Donald Duck
+Daisy Duck
+Goofy
+Pluto
+Chip and Dale|chip;dale
+Scrooge McDuck
+Huey, Dewey and Louie
+Launchpad McQuack
+Gyro Gearloose
+Ludwig Von Drake
+Clarabelle Cow
+Horace Horsecollar
+Oswald the Lucky Rabbit
+Bugs Bunny
+Daffy Duck
+Porky Pig
+Elmer Fudd
+Yosemite Sam
+Tweety
+Sylvester
+Foghorn Leghorn
+Pepé Le Pew|pepe le pew
+Speedy Gonzales
+Marvin the Martian
+Taz|tasmanian devil
+Wile E. Coyote
+Road Runner
+Michigan J. Frog
+Gossamer
+Lola Bunny
+Tyke
+Droopy
+Screwy Squirrel
+Woody Woodpecker
+Chilly Willy
+Andy Panda
+Mighty Mouse
+Heckle and Jeckle
+Felix the Cat
+Betty Boop
+Popeye
+Olive Oyl
+Bluto|brutus
+Wimpy
+Swee'Pea
+Casper
+Richie Rich
+Little Audrey
+Baby Huey
+Fred Flintstone
+Wilma Flintstone
+Barney Rubble
+Betty Rubble
+Bamm-Bamm
+The Great Gazoo
+George Jetson
+Jane Jetson
+Judy Jetson
+Elroy Jetson
+Rosie the Robot
+Yogi Bear
+Boo-Boo
+Ranger Smith
+Huckleberry Hound
+Quick Draw McGraw
+Snagglepuss
+Top Cat
+Officer Dibble
+Hong Kong Phooey
+Penelope Pitstop
+Dick Dastardly
+Muttley
+Peter Perfect
+Scooby-Doo|scooby doo
+Shaggy
+Fred Jones
+Daphne Blake
+Velma Dinkley
+Scrappy-Doo
+Captain Caveman
+Jabberjaw
+Blue Falcon
+Dynomutt
+Space Ghost
+Birdman
+Papa Smurf
+Smurfette
+Brainy Smurf
+Gargamel
+Azrael
+He-Man
+Skeletor
+She-Ra
+Battle Cat
+Orko
+Optimus Prime
+Megatron
+Bumblebee
+Starscream
+Lion-O
+Mumm-Ra
+Snarf
+Cheetara
+Splinter
+Shredder
+April O'Neil
+Krang
+Bebop
+Rocksteady
+Sonic the Hedgehog
+Tails
+Knuckles
+Dr. Robotnik
+Garfield
+Odie
+Jon Arbuckle
+Nermal
+Arlene
+Snoopy
+Charlie Brown
+Linus van Pelt
+Lucy van Pelt
+Peppermint Patty
+Marcie
+Schroeder
+Pig-Pen
+Woodstock
+Sally Brown
+Dennis the Menace
+Gnasher
+Minnie the Minx
+The Bash Street Kids
+Desperate Dan
+Korky the Cat
+Roger the Dodger
+Andy Capp
+Dilbert
+Dogbert
+Asterix
+Obelix
+Dogmatix
+Getafix
+Vitalstatistix
+Cacofonix
+Tintin
+Captain Haddock
+Professor Calculus
+Thomson and Thompson
+Lucky Luke
+Spirou
+Marsupilami
+Gaston Lagaffe
+Barbapapa
+Moomin
+Moomintroll
+Little My
+Snufkin
+Pingu
+Noddy
+Big Ears
+Mr. Plod
+Postman Pat
+Fireman Sam
+Bob the Builder
+Thomas the Tank Engine
+The Fat Controller|sir topham hatt
+Peppa Pig
+George Pig
+Daddy Pig
+Mummy Pig
+Suzy Sheep
+Bluey
+Bingo
+Bandit Heeler
+Chilli Heeler
+Paddington
+Rupert Bear
+Wallace
+Gromit
+Shaun the Sheep
+Morph
+Bagpuss
+Ivor the Engine
+Clangers
+The Wombles
+Orinoco
+Great Uncle Bulgaria
+Mr Benn
+Dangermouse
+Penfold
+Count Duckula
+Willo the Wisp
+Roobarb
+SuperTed
+Spotty
+Bananaman
+Henry's Cat
+Charlie and Lola
+Timmy Time
+Hey Duggee
+Duggee
+Ben and Holly
+SpongeBob SquarePants|spongebob
+Patrick Star
+Squidward Tentacles|squidward
+Mr. Krabs
+Sandy Cheeks
+Gary the Snail
+Pearl Krabs
+Mrs. Puff
+Jimmy Neutron
+Timmy Turner
+Cosmo
+Wanda
+Danny Phantom
+Tommy Pickles
+Chuckie Finster
+Angelica Pickles
+Phil and Lil
+Helga Pataki
+Doug Funnie
+Rocko
+Stimpy
+CatDog
+Ickis
+Dexter
+Dee Dee
+Mandark
+Johnny Bravo
+Courage the Cowardly Dog
+Ed, Edd n Eddy
+Mojo Jojo
+Samurai Jack
+Aku
+Finn the Human
+Jake the Dog
+Princess Bubblegum
+Marceline
+Ice King
+BMO
+Steven Universe
+Mordecai
+Rigby
+Gumball Watterson
+Darwin Watterson
+Dipper Pines
+Mabel Pines
+Grunkle Stan
+Bill Cipher
+Phineas
+Ferb
+Perry the Platypus
+Dr. Doofenshmirtz
+Kim Possible
+Ron Stoppable
+Aang
+Katara
+Sokka
+Zuko
+Toph
+Korra
+Ben Tennyson|ben 10
+Stewie Griffin
+Brian Griffin
+Peter Griffin
+Lois Griffin
+Meg Griffin
+Chris Griffin
+Quagmire
+Cleveland Brown
+Roger the Alien
+Stan Smith
+Hank Hill
+Bobby Hill
+Leela
+Bender
+Professor Farnsworth
+Zoidberg
+Amy Wong
+Hermes Conrad
+Nibbler
+Eric Cartman|cartman
+Kenny McCormick|kenny
+Kyle Broflovski|kyle
+Stan Marsh
+Butters
+Randy Marsh
+Mr. Hankey
+Rick Sanchez
+Morty Smith
+BoJack Horseman
+Princess Carolyn
+Mr. Peanutbutter
+Beavis
+Butt-Head
+Daria Morgendorffer
+Archer
+Bob Belcher
+Tina Belcher
+Louise Belcher
+Gene Belcher
+Linda Belcher
+Pikachu
+Ash Ketchum
+Doraemon
+Nobita
+Hello Kitty
+Totoro
+Astro Boy
+Goku
+Vegeta
+Naruto
+Sailor Moon
+Speed Racer
+Heidi
+Maya the Bee
+Pinocchio
+Jiminy Cricket
+Dumbo
+Bambi
+Thumper
+Simba
+Mufasa
+Scar
+Timon
+Pumbaa
+Rafiki
+Zazu
+Nala
+Sebastian
+Flounder
+Ursula
+Lumière
+Gaston
+Aladdin
+Jasmine
+Jafar
+Mushu
+Pocahontas
+Meeko
+Hercules
+Megara
+Quasimodo
+Esmeralda
+Tarzan
+Kuzco
+Kronk
+Olaf
+Kristoff
+Rapunzel
+Flynn Rider
+Merida
+Mirabel
+Bruno Madrigal
+Judy Hopps
+Nick Wilde
+Baymax
+Wreck-It Ralph
+Vanellope
+Woody
+Buzz Lightyear
+Jessie
+Mr. Potato Head
+Hamm
+Slinky Dog
+Lotso
+Sulley
+Mike Wazowski
+Nemo
+Marlin
+Dory
+Lightning McQueen
+Mater
+Remy
+WALL-E
+EVE
+Carl Fredricksen
+Miguel Rivera
+Héctor
+Shrek
+Puss in Boots
+Lord Farquaad
+Gingerbread Man|gingy
+Master Shifu
+Tigress
+Alex the Lion
+Marty the Zebra
+King Julien
+Gru
+Scrat
+Hiccup
+Toothless
+Megamind
+Tom (Tom and Jerry)
+Jerry (Tom and Jerry)
+Percy the Small Engine
+Gordon the Big Engine
+Spike (Tom and Jerry)
+Bubbles (Powerpuff Girls)
+Blossom (Powerpuff Girls)
+Buttercup (Powerpuff Girls)
+Calvin (Calvin and Hobbes)
+Hobbes (Calvin and Hobbes)
+Sid the Sloth
+Manny the Mammoth
+Diego the Sabre-tooth
+Po (Kung Fu Panda)
+Donkey (Shrek)
+Princess Fiona|fiona
+The Beast|beast
+The Genie|genie
+Elsa (Frozen)|elsa
+Anna (Frozen)|anna
+Princess Belle|belle
+Ariel (The Little Mermaid)|ariel
+Stitch (Lilo & Stitch)|stitch
+Princess Tiana|tiana
+Mulan (character)|fa mulan
+Moana (character)
+Maui (Moana)
+Hades (Hercules)
+Joy (Inside Out)
+Sadness (Inside Out)
+Anger (Inside Out)
+Kevin the Minion
+The Minions|minion
