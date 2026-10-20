@@ -1,0 +1,419 @@
+# More fruits from around the world. Written by hand.
+Abiu
+Açaí
+Acerola|Barbados cherry
+Ackee
+African cherry orange
+Akebi
+Amanatsu
+Ambarella
+American persimmon
+Apricot
+Araza
+Atemoya
+Avocado
+Babaco
+Bael|Bael fruit
+Banana
+Bearberry
+Bignay
+Bilberry
+Bilimbi
+Bitter orange
+Black sapote
+Blackberry
+Blackcurrant
+Blood orange
+Blueberry
+Boysenberry
+Breadfruit
+Buddha's hand
+Buffaloberry
+Burdekin plum
+Cacao
+Calamansi|Calamondin
+Camu camu
+Canistel
+Cantaloupe
+Cape gooseberry|Uchuva
+Cashew apple|Marañón
+Cempedak
+Charichuelo
+Chayote
+Cherimoya|Chirimoya
+Cherry
+Chokeberry
+Citron|Etrog
+Clementine
+Cloudberry
+Coconut
+Cranberry
+Crowberry
+Cupuaçu
+Custard apple
+Damson
+Date
+Davidson's plum
+Dewberry
+Dragon fruit|Pitaya;Pitahaya
+Durian
+Elderberry
+Feijoa|Feijoa sellowiana
+Fig
+Finger lime
+Gac
+Galia melon
+Gooseberry
+Grape
+Grapefruit
+Greengage
+Guava
+Hackberry
+Hala fruit
+Honeydew melon
+Horned melon|Kiwano
+Huckleberry
+Ice cream bean
+Ilama
+Imbe
+Jabuticaba
+Jackfruit
+Jambolan|Java plum;Jamun
+Japanese plum
+Jostaberry
+Jujube
+Kaffir lime|Kaffir
+Kei apple
+Key lime
+Kiwifruit
+Kumquat
+Langsat
+Lemon
+Lime
+Lingonberry
+Loganberry
+Longan
+Loquat
+Lucuma|Lúcuma
+Lychee
+Mabolo
+Malay apple
+Mamey sapote|Mamey
+Mamoncillo
+Mandarin|Mandarin orange
+Mango
+Mangosteen
+Marang
+Marionberry
+Medlar
+Melon
+Miracle fruit
+Monstera deliciosa
+Mulberry
+Muscadine
+Nance
+Naranjilla|Lulo
+Nectarine
+Noni|Morinda
+Olive
+Orange
+Otaheite apple
+Papaya
+Passion fruit|Maracuyá
+Pawpaw
+Peach
+Pear
+Pepino
+Persimmon
+Pineapple
+Pitanga|Surinam cherry
+Plantain
+Plum
+Pluot
+Pomegranate
+Pomelo|Pummelo
+Prickly pear|Tuna
+Pulasan
+Quince
+Rambutan
+Raspberry
+Redcurrant
+Rose apple
+Rowan
+Safou
+Salak|Snake fruit;Zalacca
+Salmonberry
+Santol
+Sapodilla|Chico;Chiku
+Satsuma
+Sea buckthorn
+Sloe|Sloe plum
+Soursop|Guanabana;Guanábana;Lakshmanphal
+Star apple
+Star fruit|Carambola;Kamrakh
+Strawberry
+Strawberry guava
+Sugar apple|Sitaphal
+Tamarillo|Tomate de árbol
+Tamarind
+Tangelo
+Tangerine
+Tayberry
+Thimbleberry
+Ugli fruit
+Watermelon
+White currant
+White sapote
+Wineberry
+Goji berry|Wolfberry
+Yuzu
+Aronia
+Barberry
+Bayberry
+Haskap|Honeyberry;Blue honeysuckle
+Cornelian cherry
+Goumi
+Saskatoon berry|Juneberry;Serviceberry
+Huckleberry
+Muntries
+Quandong
+Riberry
+Lilly pilly
+Kakadu plum
+Desert lime
+Bush tomato
+Illawarra plum
+Lemon aspen
+Midyim
+Wild orange
+Kutjera
+Ponkan
+Dekopon
+Sumo citrus
+Iyokan
+Hassaku
+Sudachi
+Kabosu
+Shikuwasa
+Hyuganatsu
+Natsumikan
+Bergamot orange
+Chinotto
+Seville orange
+Cara cara orange
+Navel orange
+Valencia orange
+Jaffa orange
+Meyer lemon
+Rough lemon
+Sweet lemon
+Limequat
+Mandarinquat
+Orangequat
+Rangpur
+Oroblanco
+Minneola
+Tangor
+Ortanique
+Kiyomi
+Shiranui
+Ambrosia
+Bramley
+Braeburn
+Cox's Orange Pippin
+Fuji apple
+Gala apple
+Golden Delicious
+Granny Smith
+Honeycrisp
+Jazz apple
+Jonagold
+McIntosh
+Pink Lady
+Red Delicious
+Russet apple
+Crab apple
+Bartlett pear|Williams pear
+Conference pear
+Comice pear
+Bosc pear
+Anjou pear
+Nashi pear|Asian pear
+Perry pear
+Morello cherry
+Bing cherry
+Rainier cherry
+Sour cherry
+Sweet cherry
+Victoria plum
+Mirabelle
+Bullace
+Cherry plum
+Elephant apple
+Wood apple
+Indian gooseberry|Amla
+Karonda
+Phalsa
+Ber
+Mahua
+Kokum
+Jangli jalebi
+Ice apple|Tadgola;Nungu;Palmyra palm fruit
+Duku
+Kepel apple
+Mangaba
+Pequi
+Bacuri
+Cajá
+Umbu
+Murici
+Pitomba
+Buriti
+Tucumã
+Peach palm|Pupunha
+Jatobá
+Uvaia
+Grumichama
+Cambuci
+Cabeludinha
+Guabiroba
+Jelly palm|Pindo palm
+Chilean guava
+Maqui
+Calafate
+Pacay
+Sweet granadilla|Granadilla
+Banana passionfruit
+Curuba
+Tumbo
+Mortiño
+Caimito
+Jocote
+Nanche
+Xoconostle
+Garambullo
+Capulin cherry
+Tejocote
+Huito
+Genipap
+
+Wax apple
+Water apple
+Mountain apple
+Velvet apple
+Bignay
+Mangaba
+Kandis
+Rambai
+Tampoi
+Keranji
+Velvet tamarind
+Pulasan
+Matoa
+Kweni
+Bachang
+Binjai
+Kuini
+Horse mango
+Sweet sop
+Rollinia
+Biribá
+Soncoya
+Mountain soursop
+Pond apple
+Bullock's heart
+Ilama
+Sapote negro
+Green sapote
+Canistel
+Abiu
+Caimito
+Sapote
+Black mulberry
+White mulberry
+Red mulberry
+Arctic raspberry
+Nagoonberry
+Cloudberry
+Wild strawberry
+Alpine strawberry
+Musk strawberry
+Beach strawberry
+Mock strawberry
+Japanese wineberry
+Himalayan blackberry
+Dewberry
+Olallieberry
+Youngberry
+Silvanberry
+Tummelberry
+Hildaberry
+Sunberry
+Wonderberry
+Huckleberry
+Ohelo berry
+Pilo
+Mountain ash berry
+Sea grape
+Coco plum
+Bacupari
+Araçá
+Cagaita
+Hog plum
+Spanish lime
+Marula
+Baobab fruit
+Monkey orange
+Jackalberry
+Natal plum
+Sour fig
+Mobola plum
+Shea fruit
+Desert date
+Doum palm fruit
+Argan fruit
+Carob
+Sycamore fig
+Strawberry tree fruit
+Myrtle berry
+Service tree fruit
+Azarole
+Sorb apple
+Rowanberry
+Hawthorn berry
+Rose hip
+Date plum
+Hardy kiwi
+Kiwiberry
+Che fruit
+Chinese bayberry
+Wampee
+Longkong
+Lanzones
+Mamey apple
+Achacha
+Button mangosteen
+Otaheite gooseberry
+Ceylon gooseberry
+Governor's plum
+Indian jujube
+Sweet tamarind
+Bush banana
+Lady finger banana
+Cavendish banana
+Red banana
+Blue Java banana
+Manzano banana
+Burro banana
+Apple banana
+Pink banana
+Musk melon
+Charentais melon
+Piel de sapo
+Canary melon
+Casaba melon
+Crenshaw melon
+Santa Claus melon
+Bitter melon
+Winter melon
+Ogen melon

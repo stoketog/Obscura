@@ -1,0 +1,207 @@
+# Pasta shapes. Written by hand.
+Agnolotti
+Alfabeto|Alphabet pasta
+Anelli
+Anellini
+Bavette
+Bigoli
+Bucatini
+Busiate
+Calamarata|Calamari pasta
+Campanelle
+Cannelloni
+Capellini|Angel hair
+Cappelletti
+Casarecce
+Cavatappi
+Cavatelli
+Conchiglie|Shells;Pasta shells
+Conchiglioni
+Corzetti
+Culurgiones
+Ditali
+Ditalini
+Farfalle|Bow ties;Bow-tie pasta
+Farfalline
+Fettuccine
+Fileja
+Fregola
+Fusilli
+Fusilli bucati
+Garganelli
+Gemelli
+Gigli
+Gnocchetti sardi
+Gnocchi
+Gramigna
+Lasagne
+Linguine
+Lumache
+Lumaconi
+Maccheroni
+Mafaldine
+Malloreddus
+Maltagliati
+Manicotti
+Mezze maniche
+Mezzi rigatoni
+Orecchiette
+Orzo
+Paccheri
+Pappardelle
+Passatelli
+Pastina
+Penne
+Penne lisce
+Penne rigate
+Pennette
+Pici
+Pipe rigate
+Pizzoccheri
+Quadrefiore
+Quadretti
+Radiatori
+Ravioli
+Reginette
+Rigatoni
+Risoni
+Rotelle
+Ruote|Wheels;Wagon wheels
+Sagnarelli
+Scialatielli
+Sedanini
+Spaghetti
+Spaghettini
+Spaghettoni
+Stelline
+Stringozzi
+Strozzapreti
+Tagliatelle
+Tagliolini
+Tajarin
+Tortellini
+Tortelloni
+Tortiglioni
+Trenette
+Trofie
+Tubetti
+Vermicelli
+Ziti
+Zitoni
+Acini di pepe
+Anelletti
+Bucatoni
+Cappellacci
+Caserecce
+Cencioni
+Chitarra
+Spaghetti alla chitarra
+Ciriole
+Creste di gallo
+Fazzoletti
+Fettuccelle
+Fidei
+Fideo
+Fiori
+Foglie d'ulivo
+Funghetti
+Gnocchi sardi
+Lagane
+Lanterne
+Linguettine
+Lorighittas
+Lumachine
+Mafalde
+Maccheroncini
+Mezzelune
+Occhi di lupo
+Orecchiette pugliesi
+Paccheri lisci
+Pansotti
+Pappardelle all'uovo
+Pastine
+Pennoni
+Perciatelli
+Pici senesi
+Pillus
+Puntalette
+Quadrucci
+Raviolini
+Riccioli
+Rigatoni corti
+Sacchetti
+Sacchettoni
+Sorprese
+Spirali
+Stortini
+Tagliarini
+Testaroli
+Tondelli
+Torchio
+Tortelli
+Trecce
+Tripolini
+Troccoli
+Umbricelli
+Vesuvio
+Zita
+Lasagnette
+Mafaldine corte
+Sedani
+Elicoidali
+Chifferi
+Gomiti|Elbow macaroni;Elbows
+Macaroni
+Egg noodles
+Spätzle
+Knöpfle
+Kluski
+Halušky
+Tarhana
+Erişte
+Couscous
+Ptitim|Israeli couscous;Pearl couscous
+Mograbieh
+Kesme
+Lokshen
+Farfel
+Strangozzi
+Cecamariti
+Ciciones
+Cjarsons
+Mostaccioli
+Penne zita
+Sagne
+Sagne 'ncannulate
+Lasagnotte
+Ricciolini
+Stracci
+Tacconelli
+Tortellacci
+Cappellacci dei briganti
+Gnudi
+Andarinos
+Su filindeu
+Malfatti
+Strichetti
+Balanzoni
+Fagottini
+Caramelle
+Triangoli
+Cappelli del prete
+Marubini
+Casoncelli
+Anolini
+Ravioli del plin
+Scarpinocc
+Turtei
+Fusilli lunghi
+Maccheroni al ferretto
+Cavatelli
+Scorzette
+Sciviotti
+Lumachelle
+Fusilloni
+Candele
+Ziti tagliati
+Mezzi paccheri

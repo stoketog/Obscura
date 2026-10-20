@@ -1,0 +1,425 @@
+# More herbs, spices and spice blends. Written by hand.
+Ajwain
+Allspice
+Amchur
+Anise
+Annatto|Achiote
+Asafoetida|Hing
+Baharat|Baharat blend
+Basil
+Bay leaf
+Berbere
+Black cardamom
+Black cumin
+Black lime|Loomi;Dried lime
+Black pepper
+Borage
+Cajun seasoning
+Caraway
+Cardamom|Elaichi
+Cassia
+Cayenne pepper
+Celery seed
+Chaat masala
+Chervil
+Chilli flakes|Red pepper flakes
+Chilli powder
+Chinese five-spice
+Chipotle
+Chives
+Cinnamon|Dalchini
+Cloves|Laung
+Coriander
+Cubeb
+Cumin
+Curry leaf
+Curry powder
+Dill
+Dukkah
+Epazote
+Fennel
+Fenugreek|Methi
+Fines herbes
+Galangal
+Garam masala
+Garlic powder
+Ginger
+Grains of paradise|Alligator pepper
+Harissa
+Herbes de Provence
+Horseradish
+Hyssop
+Juniper berries
+Kaffir lime leaf|Kaffir lime
+Lavender
+Lemon balm
+Lemon myrtle
+Lemongrass|Lemon grass
+Lemon verbena
+Liquorice root
+Long pepper|Pippali
+Lovage
+Mace|Javitri;Mace blade
+Mahlab
+Marjoram
+Mint
+Mustard seed
+Nigella|Kalonji;Nigella seed;Onion seed
+Nutmeg|Jaiphal
+Onion powder
+Oregano
+Panch phoron
+Paprika
+Parsley
+Pink peppercorn
+Pimentón
+Ras el hanout
+Rosemary
+Saffron|Kesar;Saffron threads
+Sage
+Salad burnet
+Sansho|Sansho pepper
+Sassafras
+Savory
+Sesame seed
+Shichimi togarashi|Togarashi
+Smoked paprika
+Sorrel
+Star anise
+Sumac
+Summer savory
+Sweet cicely
+Szechuan pepper|Sichuan peppercorn
+Tarragon
+Thyme
+Turmeric|Haldi
+Vanilla
+Wasabi
+White pepper
+Winter savory
+Za'atar
+Zedoary
+Aleppo pepper
+Urfa biber
+Marash pepper
+Espelette pepper
+Gochugaru
+Kashmiri chilli
+Ancho chilli
+Guajillo
+Pasilla
+Mulato
+Chile de árbol
+Ghost pepper
+Piri piri
+Bird's eye chilli
+Scotch bonnet
+Jalapeño
+Green peppercorn
+Tellicherry pepper
+Kampot pepper
+Voatsiperifery
+Tasmanian pepperberry
+Mountain pepper
+Grains of Selim|Selim pepper;Uda
+Korarima|Ethiopian cardamom
+Ashanti pepper
+Calabash nutmeg|Ehuru
+Uziza
+Dawadawa|Iru
+Suya spice
+Yaji
+Mitmita
+Niter kibbeh spice
+Shito
+Pilpelchuma
+Hawaij
+Zhoug
+Advieh
+Kabsa spice
+Bzar
+Shabath
+Dried rose petals
+Rose buds
+Barberries
+Kokum
+Tamarind
+Anardana
+Kasuri methi
+Stone flower
+Kalpasi
+Marathi moggu
+Indian bay leaf|Tej patta
+Kebab chini
+Sambar powder
+Rasam powder
+Goda masala
+Kitchen king masala
+Tandoori masala
+Chana masala
+Pav bhaji masala
+Biryani masala
+Vadouvan
+Colombo powder
+Madras curry powder
+Jerk seasoning
+Adobo seasoning
+Sazón
+Recado rojo
+Tajín
+Old Bay seasoning
+Lemon pepper
+Steak seasoning
+Poultry seasoning
+Pumpkin spice
+Apple pie spice
+Mixed spice
+Pickling spice
+Mulling spices
+Quatre épices
+Bouquet garni
+Gremolata
+Persillade
+Chimichurri herbs
+Italian seasoning
+Mixed herbs
+Provençal herbs
+Tuscan herbs
+Furikake
+Gomasio
+Yuzu kosho
+Shiso|Perilla
+Mitsuba
+Myoga
+Kinome
+Thai basil
+Holy basil
+Lemon basil
+Purple basil
+Greek basil
+Sweet basil
+Vietnamese coriander|Rau răm
+Culantro|Sawtooth coriander
+Fish mint
+Rice paddy herb
+Pandan
+Torch ginger
+Fingerroot|Temu kunci
+Lesser galangal
+Kencur
+Candlenut
+Asam gelugur
+Laksa leaf
+Indonesian bay leaf|Daun salam
+Lemon thyme
+Caraway thyme
+Wild thyme
+Creeping thyme
+Pineapple sage
+Clary sage
+White sage
+Spanish sage
+Applemint
+Spearmint
+Peppermint
+Pennyroyal
+Water mint
+Catnip
+Lemon catmint
+Bee balm|Bergamot herb
+Calamint
+Mugwort
+Wormwood
+Tansy
+Rue
+Costmary
+Angelica
+Elecampane
+Meadowsweet
+Sweet woodruff|Woodruff
+Lady's bedstraw
+Yarrow
+Chamomile
+Sweet violet
+Nasturtium
+Marigold petals
+Calendula
+Safflower
+Mustard powder
+English mustard powder
+Yellow mustard seed
+Brown mustard seed
+Black mustard seed
+White poppy seed
+Blue poppy seed
+Poppy seed
+Dill seed
+Coriander seed
+Fennel seed
+Cumin seed
+Celery leaf
+Parsley root
+Chervil root
+Lovage seed
+Smallage
+Wild garlic|Ramsons
+Garlic chives|Chinese chives
+
+Cascabel chilli
+Aji amarillo
+Aji panca
+Rocoto
+Pequin chilli
+Tepin chilli
+Bhut jolokia
+Carolina Reaper
+Fresno chilli
+Serrano
+Poblano
+Morita chilli
+New Mexico chilli
+Kashmiri mirch
+Byadgi chilli
+Guntur chilli
+Mexican oregano
+Greek oregano
+Syrian oregano
+Cuban oregano
+Mexican tarragon
+French tarragon
+Russian tarragon
+Bush basil
+Cinnamon basil
+Licorice basil
+Lime basil
+Genovese basil
+Lemon thyme
+Orange thyme
+Mastic
+Orris root
+Angelica root
+Calamus
+Saigon cinnamon
+Ceylon cinnamon
+Cassia bark
+Vanilla pod
+Tonka bean
+Wattleseed
+Anise myrtle
+Strawberry gum
+Native thyme
+Saltbush
+Akudjura
+Agrimony
+Alfalfa
+Arnica
+Ashwagandha
+Astragalus
+Betony
+Blessed thistle
+Burdock
+Butterbur
+Celandine
+Centaury
+Chickweed
+Cleavers
+Coltsfoot
+Comfrey
+Cowslip
+Dandelion
+Echinacea
+Elderflower
+Eyebright
+Feverfew
+Ginkgo
+Ginseng
+Goldenrod
+Goldenseal
+Ground ivy
+Gotu kola
+Hops
+Horehound
+Horsetail
+Lady's mantle
+Linden
+Lungwort
+Marshmallow root
+Milk thistle
+Motherwort
+Mullein
+Nettle
+Passionflower
+Purslane
+Red clover
+Sea fennel
+Self-heal
+Skullcap
+Soapwort
+St John's wort
+Sweet flag
+Valerian
+Vervain
+Watercress
+Wild bergamot
+Wintergreen
+Yerba santa
+Yerba buena
+Shepherd's purse
+Samphire
+Good King Henry
+Fat hen
+Ground elder
+Alexanders
+Pot marjoram
+Chenpi
+Fennel pollen
+Black caraway
+Bush basil
+Rooibos
+Moringa
+Curry plant
+Mexican mint marigold
+Papalo
+Pipicha
+Chipilín
+Quelites
+Huacatay
+Peruvian black mint
+Muña
+Paico
+Hoja santa
+Ajwain|Ajowan;Carom seeds
+Bay leaf|Sweet bay;Bay laurel
+Wood sorrel
+Sheep sorrel
+French sorrel
+Anise hyssop
+Korean mint
+Mountain mint
+Corsican mint
+Ginger mint
+Chocolate mint
+Pineapple mint
+Water pepper
+African blue basil
+Clove basil
+Betel leaf
+Lolot
+Turmeric leaf
+Myrtle
+Bog myrtle
+Sweet gale
+Labrador tea
+Spruce tips
+Black sesame
+White sesame
+Spikenard
+Costus
+Green cardamom
+Cassumunar ginger
+Amomum
+Fennel flower
+Salvia
+Wild marjoram
+Wild fennel
+Dill weed

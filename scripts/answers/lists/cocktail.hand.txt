@@ -1,0 +1,376 @@
+# More cocktails. Written by hand.
+Alabama Slammer
+Amaretto sour
+Americano
+Angel Face
+Aperol spritz
+Apple martini
+Appletini
+Aviation
+B-52
+Bahama Mama
+Bay Breeze
+Bee's Knees
+Bellini
+Between the Sheets
+Black Russian
+Blood and Sand
+Bloody Mary
+Blue Hawaiian
+Blue Lagoon
+Bramble
+Brandy Alexander
+Brandy sour
+Bronx
+Caipirinha
+Caipiroska
+Cape Codder
+Casino
+Champagne cocktail
+Chocolate martini
+Clover Club
+Corpse Reviver
+Corpse Reviver No. 2
+Cosmopolitan|Cosmo
+Cuba Libre
+Daiquiri
+Dark 'n' Stormy
+Death in the Afternoon
+Dirty martini
+Dry martini
+El Diablo
+El Presidente
+Espresso martini
+Fish House Punch
+Flirtini
+French 75
+French Connection
+French martini
+Fuzzy navel
+Gibson
+Gimlet
+Gin and tonic
+Gin fizz
+Gin rickey
+Godfather
+Godmother
+Golden Cadillac
+Grasshopper
+Greyhound
+Hanky Panky
+Harvey Wallbanger
+Hemingway Special
+Horse's Neck
+Hot toddy
+Hugo
+Hurricane
+Irish coffee
+Jack Rose
+Japanese Slipper
+John Collins
+Kamikaze
+Kir
+Kir royal
+Last Word
+Lemon drop
+Long Island Iced Tea
+Lynchburg Lemonade
+Mai Tai
+Manhattan
+Margarita
+Martinez
+Martini
+Mimosa
+Mind Eraser
+Mint julep
+Mojito
+Monkey Gland
+Moscow Mule
+Mudslide
+Negroni
+Negroni sbagliato
+New York Sour
+Old Fashioned
+Painkiller
+Paloma
+Paradise
+Paper Plane
+Pegu Club
+Penicillin
+Piña colada
+Pink Gin
+Pink Lady
+Pisco sour
+Planter's Punch
+Porn star martini
+Ramos gin fizz
+Rob Roy
+Rusty Nail
+Salty dog
+Sazerac
+Screwdriver
+Sea Breeze
+Sex on the Beach
+Sidecar
+Singapore Sling
+Sloe gin fizz
+Southside
+Spritz
+Stinger
+Strawberry daiquiri
+Tequila Sunrise
+Tom Collins
+Tommy's Margarita
+Tuxedo
+Vesper
+Vieux Carré
+Ward 8
+Whiskey sour
+White Lady
+White Russian
+Woo Woo
+Yellow Bird
+Zombie
+Absinthe frappé
+Air Mail
+Alexander
+Bamboo
+Bijou
+Black Velvet
+Blackthorn
+Blue Blazer
+Bobby Burns
+Boulevardier
+Brooklyn
+Buck's Fizz
+Caesar
+Bloody Caesar
+Charlie Chaplin
+Chartreuse swizzle
+Sherry cobbler
+Derby
+Diamond Fizz
+Dubonnet cocktail
+Fallen Leaves
+Fog Cutter
+Fourth Degree
+Gin Basil Smash
+Gold Rush
+Hemingway Daiquiri
+Improved Whiskey Cocktail
+Jungle Bird
+Kingston Negroni
+Lion's Tail
+Mezcal Negroni
+Naked and Famous
+Navy Grog
+Oaxaca Old Fashioned
+Old Cuban
+Pisco Punch
+Queen's Park Swizzle
+Remember the Maine
+Rattlesnake
+Saturn
+Scofflaw
+Seelbach cocktail
+Sherry flip
+Silver Fizz
+Snowball
+Suffering Bastard
+Three Dots and a Dash
+Toronto
+Trinidad Sour
+Turf
+Twentieth Century
+Vieux Mot
+Widow's Kiss
+Zaza
+Batida
+Rabo de galo
+Rum punch
+Ti' Punch
+Canchánchara
+Chilcano
+Michelada
+Carajillo
+Charro Negro
+Vampiro
+Sangrita
+Tinto de verano
+Kalimotxo|Calimocho
+Rebujito
+Sangria
+Snakebite
+Black and tan
+Boilermaker
+Shandy
+Radler
+Slippery Nipple
+Baby Guinness
+Jägerbomb
+Flaming Sambuca
+Tequila slammer
+Brain Haemorrhage
+Cement Mixer
+Pickleback
+Prairie Oyster
+Red Snapper
+Bull Shot
+Bloody Bull
+Corn 'n' Oil
+Pink Squirrel
+Golden Dream
+Alaska
+Clover Leaf
+Floradora
+Knickerbocker
+Mamie Taylor
+Morning Glory Fizz
+Pan American
+Peach Blow Fizz
+Rum Runner
+Scorpion
+Tiki Puka Puka
+Missionary's Downfall
+Port Light
+Test Pilot
+Shark's Tooth
+Bushwacker
+Miami Vice
+Lava Flow
+Blue Margarita
+Frozen margarita
+Spicy margarita
+Mezcalita
+Ranch Water
+Tequila Sour
+La Paloma
+Batanga
+Tequila Mockingbird
+Hot buttered rum
+Eggnog
+Tom and Jerry
+Mulled wine
+Glühwein
+Wassail
+Bishop
+Negus
+Spritzer
+White wine spritzer
+Rossini
+Tintoretto
+Puccini
+Valencia
+Agua de Valencia
+Kir Breton
+Kir Normand
+Communard
+Cardinal
+Monaco
+Picon bière
+Mauresque
+Perroquet
+Tomate
+Spritz Veneziano
+Garibaldi
+Milano-Torino
+Bicicletta
+Sgroppino
+Bombardino
+
+Mary Pickford
+Algonquin
+Ampersand
+Archbishop
+Army and Navy
+Aunt Roberta
+Bacardi cocktail
+Barbary Coast
+Bentley
+Bermuda Rum Swizzle
+Berry Wall
+Bitter Giuseppe
+Black Manhattan
+Blinker
+Bloodhound
+Bobby Burns cocktail
+Brandy Crusta
+Cameron's Kick
+Champs-Élysées
+Chrysanthemum
+Cooper Union
+Coronation
+Dempsey
+Diplomat
+East India
+Eastside
+El Floridita
+Fancy Free
+Final Ward
+Gin Daisy
+Ginger Rogers
+Greenpoint
+Gunshop Fizz
+Hotel Nacional
+Income Tax
+Japanese cocktail
+Jasmine
+Journalist
+Kentucky Buck
+Little Italy
+Lucien Gaudin
+Martinique Swizzle
+Mexican Firing Squad
+Monte Carlo
+Morning Glory
+Nuclear Daiquiri
+Oriental
+Periodista
+Pimm's Cup
+Presbyterian
+Red Hook
+Revolver
+Rum Old Fashioned
+Satan's Whiskers
+Seventh Heaven
+Siesta
+Sloe Gin Sour
+Sorrel punch
+Stone Fence
+Tipperary
+Trident
+Vodka martini
+Vodka tonic
+Whiskey Smash
+Yale cocktail
+Whisky Mac
+Midori sour
+Gin sour
+Vodka sour
+Rum sour
+Bourbon sour
+Milk punch
+Brandy Milk Punch
+Bourbon Smash
+Elderflower Collins
+Tequila Old Fashioned
+Bensonhurst
+Red Lion
+Royal Hawaiian
+Mexican Mule
+Kentucky Mule
+London Mule
+Pisco Mule
+Applejack Rabbit
+Gin Gin Mule
+Jack and Coke
+Rum and Coke
+Vodka Red Bull
+Gin and juice
+Paloma Negra
+Smoky Margarita
+Cucumber Collins
+Raspberry Collins
+Rhubarb gin fizz
+Lychee martini
+Passion fruit martini
