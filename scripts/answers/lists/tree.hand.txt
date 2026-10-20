@@ -1,0 +1,391 @@
+# Trees of the world.
+Oak
+English oak|pedunculate oak
+Sessile oak
+Holm oak
+Cork oak
+Red oak
+White oak
+Live oak
+Turkey oak
+Pin oak
+Scarlet oak
+Bur oak
+Ash
+Mountain ash|rowan
+Beech
+Copper beech
+Birch
+Silver birch
+Downy birch
+Paper birch
+River birch
+Elm
+English elm
+Wych elm
+Dutch elm
+Maple
+Sugar maple
+Red maple
+Silver maple
+Japanese maple
+Norway maple
+Field maple
+Sycamore
+London plane
+Plane tree
+Horse chestnut|conker tree
+Sweet chestnut
+Chestnut
+Walnut
+Black walnut
+Butternut
+Hickory
+Shagbark hickory
+Pecan
+Hazel
+Hornbeam
+Lime|linden
+Small-leaved lime
+Large-leaved lime
+Basswood
+Willow
+Weeping willow
+White willow
+Crack willow
+Goat willow|pussy willow
+Osier
+Poplar
+Black poplar
+Lombardy poplar
+Aspen
+Cottonwood
+Alder
+Grey alder
+Hawthorn|may tree
+Blackthorn|sloe
+Holly
+Yew
+Juniper
+Box|boxwood
+Dogwood
+Elder
+Whitebeam
+Wild service tree
+Crab apple
+Wild cherry
+Bird cherry
+Cherry
+Plum
+Damson
+Pear
+Apple
+Quince
+Medlar
+Mulberry
+Fig
+Olive
+Almond
+Peach
+Apricot
+Orange tree
+Lemon tree
+Pomegranate
+Persimmon
+Loquat
+Avocado
+Mango
+Coconut palm
+Date palm
+Oil palm
+Palm
+Fan palm
+Royal palm
+Sago palm
+Cabbage palm
+Chusan palm
+Pine
+Scots pine
+Stone pine|umbrella pine
+Corsican pine
+Austrian pine
+Monterey pine
+Lodgepole pine
+Ponderosa pine
+Bristlecone pine
+Sugar pine
+White pine
+Eastern white pine
+Loblolly pine
+Longleaf pine
+Maritime pine
+Aleppo pine
+Swiss pine
+Mountain pine
+Jack pine
+Red pine
+Spruce
+Norway spruce
+Sitka spruce
+Blue spruce
+Black spruce
+White spruce
+Serbian spruce
+Fir
+Douglas fir
+Silver fir
+Noble fir
+Nordmann fir
+Balsam fir
+Grand fir
+Fraser fir
+Larch
+European larch
+Japanese larch
+Tamarack
+Cedar
+Cedar of Lebanon
+Atlas cedar
+Deodar
+Western red cedar
+Eastern red cedar
+Incense cedar
+Japanese cedar|sugi
+Cypress
+Leyland cypress|leylandii
+Monterey cypress
+Italian cypress
+Bald cypress
+Lawson cypress
+Swamp cypress
+Redwood
+Coast redwood
+Giant sequoia|sequoia;wellingtonia
+Dawn redwood
+Hemlock
+Western hemlock
+Eastern hemlock
+Monkey puzzle|chile pine
+Norfolk Island pine
+Kauri
+Wollemi pine
+Ginkgo|maidenhair tree
+Eucalyptus|gum tree
+Blue gum
+River red gum
+Ghost gum
+Snow gum
+Jarrah
+Karri
+Ironbark
+Stringybark
+Wattle|acacia
+Golden wattle
+Silk tree
+Jacaranda
+Flame tree
+Bottle tree
+Baobab
+Kapok|ceiba
+Silk cotton tree
+Teak
+Mahogany
+Rosewood
+Ebony
+Sandalwood
+Sal
+Neem
+Banyan
+Peepal|bodhi tree;sacred fig
+Rubber tree
+Gulmohar|flamboyant;royal poinciana
+Ashoka tree
+Tamarind
+Jackfruit tree
+Breadfruit tree
+Durian tree
+Cinnamon tree
+Clove tree
+Nutmeg tree
+Cacao tree
+Coffee tree
+Tea tree
+Paperbark
+Mangrove
+Red mangrove
+Balsa
+Brazil nut tree
+Cashew tree
+Kapok tree
+Strangler fig
+Monkeypod
+Rain tree
+Lignum vitae
+Sapele
+Iroko
+Wenge
+Zebrano
+Purpleheart
+Padauk
+Bubinga
+Greenheart
+Ipe
+Quebracho
+Ombu
+Araucaria
+Pehuén
+Alerce
+Lenga
+Coigue
+Arrayán
+Ceibo
+Jabuticaba tree
+Pau-brasil|brazilwood
+Pink trumpet tree|tabebuia
+Yellow trumpet tree
+Mesquite
+Palo verde
+Joshua tree
+Manzanita
+Madrone
+Arbutus|strawberry tree
+California buckeye
+Ohio buckeye
+Tulip tree|tulip poplar
+Magnolia
+Southern magnolia
+Sweetgum|liquidambar
+Black gum|tupelo
+Sassafras
+Catalpa
+Redbud
+Black locust
+Honey locust
+Kentucky coffeetree
+Osage orange
+Sourwood
+Pawpaw tree
+Bigtooth aspen
+Quaking aspen
+Box elder
+Hackberry
+Sugarberry
+Mimosa tree
+Tree of heaven
+Paulownia|empress tree;foxglove tree
+Indian bean tree
+Handkerchief tree|dove tree
+Katsura
+Zelkova
+Japanese cherry|sakura
+Weeping cherry
+Japanese red pine
+Japanese black pine
+Hinoki
+Camphor tree
+Chinese tallow
+Dragon tree
+Dragon's blood tree
+Frankincense tree
+Myrrh tree
+Argan tree
+Carob
+Sycamore fig
+Acacia tortilis|umbrella thorn
+Fever tree
+Marula tree
+Mopane
+Sausage tree
+Wild fig
+Yellowwood
+Stinkwood
+Silver tree
+Quiver tree
+Shepherd's tree
+Leadwood
+Tamboti
+Pohutukawa
+Rimu
+Totara
+Kahikatea
+Matai
+Kowhai
+Puriri
+Southern beech
+Huon pine
+Celery-top pine
+King Billy pine
+Myrtle beech
+Blackwood
+Bunya pine
+Hoop pine
+Moreton Bay fig
+Port Jackson fig
+Lilly pilly
+Illawarra flame tree
+Kurrajong
+Boab
+Desert oak
+Coolibah
+She-oak|casuarina
+Banksia
+Grevillea
+Areca palm
+Betel nut palm
+Sugar palm
+Toddy palm
+Doum palm
+Raffia palm
+Ivory palm
+Canary Island date palm
+Washingtonia|california fan palm
+Bismarck palm
+Bottle palm
+Traveller's palm
+Talipot palm
+Coco de mer
+Elder tree
+Rowan tree
+Bay tree|bay laurel
+Laurel
+Cherry laurel
+Portuguese laurel
+Strawberry tree
+Judas tree
+Tamarisk
+Sea buckthorn
+Olive tree
+Carob tree
+Pistachio tree
+Terebinth
+Mastic tree
+Cork tree
+Umbrella pine
+Wingnut
+Turkish hazel
+Black mulberry
+White mulberry
+Medlar tree
+Service tree
+Buckthorn
+Alder buckthorn
+Snakebark maple
+Paperbark maple
+Amur maple
+Black cherry
+Chokecherry
+Pin cherry
+Serviceberry|juneberry
+Mountain hemlock
+Yellow birch
+Sweet birch
+Gray birch
+American beech
+American elm
+American chestnut
+American sycamore
+American holly
+American hornbeam
+Hop hornbeam
+Ironwood
+Blue beech

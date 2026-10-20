@@ -1,0 +1,404 @@
+# Flowers: garden, wild and exotic flowering plants.
+Rose
+Tulip
+Daisy
+Sunflower
+Lily
+Orchid
+Daffodil|narcissus
+Carnation
+Chrysanthemum|mum
+Poppy
+Lavender
+Violet
+Pansy
+Peony
+Iris
+Marigold
+Hydrangea
+Bluebell
+Buttercup
+Dandelion
+Snowdrop
+Crocus
+Hyacinth
+Lilac
+Jasmine
+Lotus
+Magnolia
+Camellia
+Gardenia
+Azalea
+Rhododendron
+Begonia
+Geranium|pelargonium
+Petunia
+Dahlia
+Zinnia
+Cosmos
+Aster
+Gerbera
+Freesia
+Gladiolus|gladioli
+Sweet pea
+Snapdragon|antirrhinum
+Foxglove|digitalis
+Hollyhock
+Delphinium|larkspur
+Lupin|lupine
+Primrose
+Cowslip
+Forget-me-not
+Lily of the valley
+Anemone
+Ranunculus
+Clematis
+Wisteria
+Honeysuckle
+Bougainvillea
+Hibiscus
+Frangipani|plumeria
+Bird of paradise|strelitzia
+Protea
+Anthurium
+Calla lily|arum lily
+Amaryllis
+Tiger lily
+Stargazer lily
+Easter lily
+Water lily
+Edelweiss
+Gentian
+Heather
+Thistle
+Cornflower
+Clover
+Speedwell
+Campion
+Red campion
+Ragged robin
+Meadowsweet
+Yarrow
+Ox-eye daisy
+Harebell
+Cuckooflower|lady's smock
+Wood anemone
+Lesser celandine|celandine
+Marsh marigold
+Kingcup
+Bird's-foot trefoil
+Herb Robert
+Scarlet pimpernel
+Ragwort
+Tansy
+Teasel
+Knapweed
+Scabious
+Vetch
+Sea pink|thrift
+Sea holly
+Valerian
+Rosebay willowherb|fireweed
+Foxtail lily
+Agapanthus
+Alstroemeria|peruvian lily
+Allium
+Astilbe
+Bergenia
+Bleeding heart
+Calendula|pot marigold
+Candytuft
+Canterbury bells
+Catmint
+Celosia
+Columbine|aquilegia
+Coneflower|echinacea
+Coreopsis
+Cyclamen
+Daphne
+Dianthus|pinks
+Fuchsia
+Gaillardia|blanket flower
+Gaura
+Gazania
+Geum
+Globe thistle
+Godetia
+Hellebore|christmas rose
+Impatiens|busy lizzie
+Jacob's ladder
+Kniphofia|red hot poker
+Lantana
+Lavatera
+Liatris
+Lobelia
+Love-in-a-mist|nigella
+Lysimachia
+Mallow
+Morning glory
+Nasturtium
+Nemesia
+Nicotiana|tobacco plant
+Oleander
+Osteospermum
+Penstemon
+Periwinkle|vinca
+Phlox
+Physostegia
+Pieris
+Potentilla
+Rudbeckia|black-eyed susan
+Salvia
+Saxifrage
+Scabiosa
+Sedum
+Snow-in-summer
+Statice|sea lavender
+Stock
+Sweet William
+Tagetes
+Thrift
+Verbena
+Veronica
+Viola
+Wallflower
+Zantedeschia
+Acacia
+Alyssum
+Arum
+Astrantia
+Bellflower|campanula
+Bluebonnet
+Borage
+Bottlebrush
+Broom
+Buddleia|butterfly bush
+Camassia
+Cardinal flower
+Carnation (Dianthus)
+Chicory
+Chinese lantern
+Chionodoxa|glory of the snow
+Clarkia
+Cockscomb
+Crown imperial
+Daylily
+Dog rose
+Elderflower
+Erica
+Eryngium
+Evening primrose
+Feverfew
+Flax
+Fritillary|snake's head fritillary
+Gentiana
+Gorse
+Grape hyacinth|muscari
+Gypsophila|baby's breath
+Hawthorn blossom
+Hebe
+Helenium
+Heliotrope
+Hepatica
+Ixia
+Jonquil
+Kalanchoe
+Kangaroo paw
+Lady's mantle
+Leucojum|snowflake
+Lily of the Incas
+Lisianthus|eustoma
+Lotus flower
+Love-lies-bleeding|amaranthus
+Mimosa
+Monkshood|aconite
+Moss rose
+Mountain laurel
+Myrtle
+Orange blossom
+Passion flower
+Pasque flower
+Peace lily
+Pelargonium
+Plumbago
+Poinsettia
+Portulaca
+Primula
+Pyracantha
+Queen Anne's lace
+Rock rose
+Scilla
+Sea thrift
+Shasta daisy
+Silene
+Snowflake
+Solomon's seal
+Spider lily
+Spiraea
+Star of Bethlehem
+Stephanotis
+Strawflower
+Sweet rocket
+Tickseed
+Toadflax
+Trillium
+Tuberose
+Verbascum|mullein
+Waratah
+Wax flower
+Winter aconite
+Witch hazel
+Wolfsbane
+Yellow rattle
+Zephyranthes
+Corpse flower|rafflesia;titan arum
+Rafflesia
+Titan arum
+Bee orchid
+Lady's slipper orchid
+Moth orchid|phalaenopsis
+Dendrobium
+Cattleya
+Cymbidium
+Vanilla orchid
+Ghost orchid
+Monkey face orchid
+Jade vine
+Bat flower
+Chocolate cosmos
+Black dahlia
+Blue poppy
+Middlemist red
+Kadupul flower
+Juliet rose
+Night-blooming cereus
+Queen of the night
+Saffron crocus
+Cherry blossom|sakura
+Plum blossom
+Apple blossom
+Almond blossom
+Peach blossom
+Jacaranda
+Moonflower
+Four o'clock flower|marvel of peru
+Gloriosa lily|flame lily
+Calla
+Bromeliad
+Heliconia|lobster claw
+Torch ginger
+Ginger lily
+Plumeria
+Ixora
+Hoya
+Allamanda
+Mandevilla
+Desert rose
+Lotus (Nelumbo)
+Waterlily
+Blue lotus
+Marsh orchid
+Early purple orchid
+Pyramidal orchid
+Common spotted orchid
+Fly orchid
+Lizard orchid
+Lady orchid
+Monkey orchid
+Military orchid
+Man orchid
+Burnt orchid
+Frog orchid
+Ghost orchid (European)
+Bog asphodel
+Bogbean
+Grass of Parnassus
+Lesser spearwort
+Water avens
+Wood sorrel
+Dog violet
+Wild pansy|heartsease
+Primrose (wild)
+Oxlip
+Wild garlic|ramsons
+Greater stitchwort
+Lesser stitchwort
+White dead-nettle
+Red dead-nettle
+Self-heal
+Ground ivy
+Bugle
+Betony
+Hedge woundwort
+Yellow archangel
+Common mallow
+Musk mallow
+Marsh mallow
+Viper's bugloss
+Comfrey
+Lungwort
+Green alkanet
+Hound's tongue
+Bindweed
+Field bindweed
+Deadly nightshade
+Bittersweet
+Henbane
+Thorn apple|datura
+Angel's trumpet|brugmansia
+Toadflax (common)
+Eyebright
+Lousewort
+Cow-wheat
+Agrimony
+Silverweed
+Tormentil
+Meadow cranesbill
+Bloody cranesbill
+Wood cranesbill
+Dove's-foot cranesbill
+Sainfoin
+Kidney vetch
+Restharrow
+Meadow vetchling
+Tufted vetch
+Bush vetch
+Black medick
+Hop trefoil
+Red clover
+White clover
+Purple loosestrife
+Yellow loosestrife
+Great willowherb
+Enchanter's nightshade
+Cow parsley
+Hogweed
+Wild carrot
+Sweet cicely
+Alexanders
+Sea kale
+Sea campion
+Bladder campion
+White campion
+Night-scented catchfly
+Corncockle
+Corn marigold
+Scentless mayweed
+Pineapple weed
+Sneezewort
+Common fleabane
+Goldenrod
+Michaelmas daisy
+Sea aster
+Coltsfoot
+Butterbur
+Hawkweed
+Cat's-ear
+Sow thistle
+Spear thistle
+Musk thistle
+Carline thistle
+Greater knapweed
+Devil's-bit scabious
+Field scabious
+Small scabious
