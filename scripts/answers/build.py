@@ -63,6 +63,25 @@ def variants_of(name):
     return [o for o in out if o and o != name]
 
 
+CHARACTER_PROMPTS = {'star-wars-character', 'simpsons-character', 'harry-potter-character', 'superhero', 'cartoon-character'}
+TITLE = re.compile(r'^(grand admiral|vice admiral|grand moff|supreme leader|allegiant general|general|admiral|captain|commander|'
+                   r'moff|count|master|doctor|dr\.?|professor|prof\.?|mr\.?|mrs\.?|ms\.?|miss|madam|madame|lord|lady|sir|'
+                   r'uncle|aunt|agent|emperor|king|queen|prince|princess|chief|principal|reverend|father|sister|brother|nurse|'
+                   r'officer|detective|sergeant|lieutenant|major|colonel|grandpa|grandma|baby|little|old|the)\s+', re.I)
+
+
+def character_forms(name):
+    """'Grand Admiral Rae Sloane' → 'Rae Sloane'; 'Professor Sprout' → 'Sprout'."""
+    out, cur = [], name
+    while True:
+        nxt = TITLE.sub('', cur, count=1)
+        if nxt == cur or not nxt.strip():
+            break
+        cur = nxt.strip()
+        out.append(cur)
+    return out
+
+
 def zipf(s):
     return zipf_frequency(re.sub(r'[^\w\s\'-]', ' ', s), 'en')
 
@@ -119,6 +138,8 @@ def main():
             name = name.strip()
             al = [a.strip() for a in aliases.split(';') if a.strip()] if aliases else []
             al += variants_of(name)
+            if pid in CHARACTER_PROMPTS:
+                al += character_forms(name)
             if name:
                 by_prompt.setdefault(pid, []).append((name, al))
     out = {}

@@ -30,6 +30,7 @@ export const TIER_SCORE = { u: 28, r: 50, m: 74 } as const;
 const PEOPLE = new Set([
   'footballer', 'actor', 'actress', 'solo-singer', 'novelist', 'painter', 'poet', 'composer', 'scientist', 'inventor',
   'philosopher', 'explorer', 'film-director', 'golfer', 'tennis-player', 'f1-driver', 'us-president', 'uk-prime-minister',
+  'harry-potter-character', 'star-wars-character', 'simpsons-character', 'british-monarch', 'roman-emperor',
 ]);
 const PARTICLES = new Set(['de', 'da', 'di', 'van', 'von', 'der', 'den', 'del', 'la', 'le', 'du', 'dos', 'das', 'jr', 'sr', 'ii', 'iii']);
 

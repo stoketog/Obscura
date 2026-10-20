@@ -1,0 +1,218 @@
+# Star Wars characters across the films, series, games and books.
+Luke Skywalker
+Leia Organa|princess leia
+Han Solo
+Darth Vader|anakin skywalker
+Obi-Wan Kenobi|obi wan;ben kenobi
+Yoda
+Chewbacca|chewie
+R2-D2|r2d2
+C-3PO|c3po
+Emperor Palpatine|darth sidious;palpatine
+Lando Calrissian
+Boba Fett
+Jango Fett
+Jabba the Hutt
+Padmé Amidala|padme
+Qui-Gon Jinn
+Mace Windu
+Count Dooku|darth tyranus
+Darth Maul
+General Grievous
+Kylo Ren|ben solo
+Rey
+Finn
+Poe Dameron
+BB-8
+Supreme Leader Snoke|snoke
+General Hux
+Captain Phasma
+Rose Tico
+Maz Kanata
+Grogu|baby yoda
+The Mandalorian|din djarin;mando
+Ahsoka Tano
+Captain Rex
+Cad Bane
+Asajj Ventress
+Hera Syndulla
+Kanan Jarrus
+Ezra Bridger
+Sabine Wren
+Zeb Orrelios
+Chopper
+Grand Admiral Thrawn|thrawn
+Cassian Andor|andor
+Jyn Erso
+K-2SO
+Chirrut Îmwe
+Baze Malbus
+Bodhi Rook
+Orson Krennic
+Saw Gerrera
+Grand Moff Tarkin|tarkin
+Wedge Antilles
+Biggs Darklighter
+Admiral Ackbar
+Mon Mothma
+Bail Organa
+Nien Nunb
+Wicket
+Bossk
+IG-88
+Dengar
+Greedo
+Max Rebo
+Salacious Crumb
+Bib Fortuna
+Admiral Piett
+Moff Jerjerrod
+Owen Lars
+Beru Lars
+Shmi Skywalker
+Watto
+Sebulba
+Jar Jar Binks
+Boss Nass
+Captain Panaka
+Nute Gunray
+Plo Koon
+Ki-Adi-Mundi
+Kit Fisto
+Aayla Secura
+Luminara Unduli
+Barriss Offee
+Shaak Ti
+Saesee Tiin
+Eeth Koth
+Even Piell
+Adi Gallia
+Yaddle
+Depa Billaba
+Cin Drallig
+Jocasta Nu
+Dexter Jettster
+Zam Wesell
+Wat Tambor
+San Hill
+Poggle the Lesser
+Sly Moore
+Mas Amedda
+Commander Cody
+Commander Wolffe
+Fives
+Wrecker
+Crosshair
+Omega
+Hondo Ohnaka
+Savage Opress
+Mother Talzin
+Pre Vizsla
+Bo-Katan Kryze|bo katan
+Satine Kryze
+Almec
+Gar Saxon
+Fennec Shand
+Cara Dune
+Greef Karga
+Moff Gideon
+Kuiil
+IG-11
+The Armorer
+Paz Vizsla
+Migs Mayfeld
+Peli Motto
+Cobb Vanth
+Black Krrsantan
+Luthen Rael
+Dedra Meero
+Syril Karn
+Vel Sartha
+Cinta Kaz
+Bix Caleen
+Kino Loy
+Baylan Skoll
+Shin Hati
+Marrok
+Morgan Elsbeth
+Sol (Acolyte)|master sol
+Osha Aniseya
+Mae Aniseya
+Qimir|the stranger
+Vernestra Rwoh
+Cal Kestis
+BD-1
+Cere Junda
+Greez Dritus
+Merrin
+Second Sister|trilla suduri
+Bode Akuna
+Starkiller|galen marek
+Darth Revan|revan
+Darth Malak
+Bastila Shan
+Darth Nihilus
+Darth Sion
+Kreia|darth traya
+HK-47
+Kyle Katarn
+Mara Jade
+Jaina Solo
+Jacen Solo
+Anakin Solo
+Ben Skywalker
+Talon Karrde
+Dash Rendar
+Prince Xizor
+Darth Bane
+Darth Plagueis
+Darth Malgus
+Darth Vitiate
+Ajunta Pall
+Exar Kun
+Ulic Qel-Droma
+Nomi Sunrider
+Grand Inquisitor
+Fifth Brother
+Seventh Sister
+Reva|third sister
+Ninth Sister
+Agent Kallus
+Grand Admiral Rae Sloane
+Lyra Erso
+Galen Erso
+Vice Admiral Holdo|holdo
+Admiral Raddus
+General Draven
+General Rieekan
+General Veers
+Captain Needa
+Admiral Ozzel
+Lobot
+Porkins
+Dak Ralter
+Zev Senesca
+Hobbie Klivian
+Wes Janson
+Tycho Celchu
+Hammerhead
+Snaggletooth
+Ponda Baba
+Dr. Evazan
+Figrin D'an
+Garindan
+Wuher
+Babu Frik
+Zorii Bliss
+Jannah
+Allegiant General Pryde
+Lor San Tekka
+Unkar Plutt
+Teedo
+Tobias Beckett
+Qi'ra
+Enfys Nest
+Dryden Vos
+L3-37
+Rio Durant
+Lady Proxima
