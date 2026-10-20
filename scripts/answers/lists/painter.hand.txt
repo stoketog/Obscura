@@ -1,0 +1,476 @@
+# Painters, all eras and places. Written by hand.
+Leonardo da Vinci
+Michelangelo
+Raphael
+Titian
+Tintoretto
+Paolo Veronese
+Giotto
+Cimabue
+Duccio
+Masaccio
+Fra Angelico
+Piero della Francesca
+Paolo Uccello
+Sandro Botticelli
+Filippo Lippi
+Andrea Mantegna
+Giovanni Bellini
+Antonello da Messina
+Vittore Carpaccio
+Giorgione
+Correggio
+Parmigianino
+Pontormo
+Bronzino
+Andrea del Sarto
+Domenico Ghirlandaio
+Perugino
+Luca Signorelli
+Caravaggio
+Artemisia Gentileschi
+Orazio Gentileschi
+Annibale Carracci
+Guido Reni
+Guercino
+Canaletto
+Giovanni Battista Tiepolo
+Francesco Guardi
+Bernardo Bellotto
+Rosalba Carriera
+Sofonisba Anguissola
+Lavinia Fontana
+Giorgio de Chirico
+Amedeo Modigliani
+Giorgio Morandi
+Umberto Boccioni
+Giacomo Balla
+Gino Severini
+Carlo Carrà
+Lucio Fontana
+Alberto Burri
+Jan van Eyck
+Rogier van der Weyden
+Hans Memling
+Hieronymus Bosch
+Pieter Bruegel the Elder
+Pieter Bruegel the Younger
+Jan Brueghel the Elder
+Peter Paul Rubens
+Anthony van Dyck
+Jacob Jordaens
+Rembrandt
+Johannes Vermeer
+Frans Hals
+Jan Steen
+Pieter de Hooch
+Gerard ter Borch
+Jacob van Ruisdael
+Meindert Hobbema
+Aelbert Cuyp
+Judith Leyster
+Rachel Ruysch
+Carel Fabritius
+Gerrit Dou
+Hendrick Avercamp
+Vincent van Gogh
+Piet Mondrian
+Kees van Dongen
+Karel Appel
+M. C. Escher
+Willem de Kooning
+Albrecht Dürer
+Hans Holbein the Younger
+Lucas Cranach the Elder
+Matthias Grünewald
+Albrecht Altdorfer
+Caspar David Friedrich
+Adolph Menzel
+Max Liebermann
+Lovis Corinth
+Franz Marc
+August Macke
+Ernst Ludwig Kirchner
+Emil Nolde
+Otto Dix
+George Grosz
+Max Beckmann
+Paula Modersohn-Becker
+Käthe Kollwitz
+Gerhard Richter
+Anselm Kiefer
+Georg Baselitz
+Sigmar Polke
+Neo Rauch
+Gustav Klimt
+Egon Schiele
+Oskar Kokoschka
+Friedensreich Hundertwasser
+Paul Klee
+Wassily Kandinsky
+Kazimir Malevich
+Marc Chagall
+Ilya Repin
+Ivan Aivazovsky
+Ivan Shishkin
+Isaac Levitan
+Valentin Serov
+Mikhail Vrubel
+Natalia Goncharova
+Alexej von Jawlensky
+El Lissitzky
+Alexander Rodchenko
+Andrei Rublev
+Diego Velázquez
+Francisco Goya
+El Greco
+Bartolomé Esteban Murillo
+Francisco de Zurbarán
+Jusepe de Ribera
+Joaquín Sorolla
+Pablo Picasso
+Joan Miró
+Salvador Dalí
+Juan Gris
+Antoni Tàpies
+Jean Fouquet
+Nicolas Poussin
+Claude Lorrain
+Georges de La Tour
+Antoine Watteau
+Jean-Honoré Fragonard
+François Boucher
+Jean-Baptiste-Siméon Chardin
+Élisabeth Vigée Le Brun
+Jacques-Louis David
+Jean-Auguste-Dominique Ingres
+Théodore Géricault
+Eugène Delacroix
+Jean-François Millet
+Gustave Courbet
+Camille Corot
+Honoré Daumier
+Édouard Manet
+Claude Monet
+Pierre-Auguste Renoir
+Edgar Degas
+Camille Pissarro
+Alfred Sisley
+Berthe Morisot
+Mary Cassatt
+Gustave Caillebotte
+Frédéric Bazille
+Paul Cézanne
+Paul Gauguin
+Georges Seurat
+Paul Signac
+Henri de Toulouse-Lautrec
+Henri Rousseau
+Odilon Redon
+Gustave Moreau
+Pierre Puvis de Chavannes
+Pierre Bonnard
+Édouard Vuillard
+Maurice Denis
+Henri Matisse
+André Derain
+Maurice de Vlaminck
+Raoul Dufy
+Georges Braque
+Fernand Léger
+Robert Delaunay
+Sonia Delaunay
+Francis Picabia
+Marcel Duchamp
+Yves Tanguy
+René Magritte
+Paul Delvaux
+James Ensor
+Jean Dubuffet
+Yves Klein
+Nicolas de Staël
+Pierre Soulages
+Balthus
+Chaim Soutine
+Tamara de Lempicka
+Suzanne Valadon
+Maurice Utrillo
+Bernard Buffet
+J. M. W. Turner
+John Constable
+Thomas Gainsborough
+Joshua Reynolds
+George Stubbs
+William Hogarth
+Joseph Wright of Derby
+Thomas Lawrence
+Henry Raeburn
+Allan Ramsay
+William Blake
+Samuel Palmer
+John Martin
+Dante Gabriel Rossetti
+John Everett Millais
+William Holman Hunt
+Edward Burne-Jones
+Ford Madox Brown
+John William Waterhouse
+Lawrence Alma-Tadema
+Frederic Leighton
+George Frederic Watts
+James McNeill Whistler
+John Singer Sargent
+Walter Sickert
+Stanley Spencer
+Paul Nash
+Vanessa Bell
+Duncan Grant
+Gwen John
+Augustus John
+L. S. Lowry
+Ben Nicholson
+Francis Bacon
+Lucian Freud
+David Hockney
+Frank Auerbach
+Leon Kossoff
+Bridget Riley
+Howard Hodgkin
+Peter Blake
+Richard Hamilton
+Patrick Heron
+Paula Rego
+Jenny Saville
+Chris Ofili
+Peter Doig
+Lubaina Himid
+Beryl Cook
+Jack Vettriano
+Winslow Homer
+Thomas Eakins
+Albert Bierstadt
+Thomas Cole
+Frederic Edwin Church
+Gilbert Stuart
+John Singleton Copley
+Benjamin West
+George Caleb Bingham
+Edward Hopper
+Georgia O'Keeffe
+Grant Wood
+Thomas Hart Benton
+Norman Rockwell
+Andrew Wyeth
+N. C. Wyeth
+Jackson Pollock
+Mark Rothko
+Barnett Newman
+Clyfford Still
+Franz Kline
+Robert Motherwell
+Helen Frankenthaler
+Lee Krasner
+Joan Mitchell
+Elaine de Kooning
+Cy Twombly
+Jasper Johns
+Robert Rauschenberg
+Andy Warhol
+Roy Lichtenstein
+James Rosenquist
+Tom Wesselmann
+Ellsworth Kelly
+Frank Stella
+Agnes Martin
+Alex Katz
+Chuck Close
+Philip Guston
+Jean-Michel Basquiat
+Keith Haring
+Kehinde Wiley
+Kerry James Marshall
+Amy Sherald
+Jacob Lawrence
+Romare Bearden
+Alice Neel
+Mary Blair
+Bob Ross
+Thomas Kinkade
+Frida Kahlo
+Diego Rivera
+José Clemente Orozco
+David Alfaro Siqueiros
+Rufino Tamayo
+Fernando Botero
+Remedios Varo
+Leonora Carrington
+Wifredo Lam
+Roberto Matta
+Tarsila do Amaral
+Candido Portinari
+Joaquín Torres García
+Katsushika Hokusai
+Utagawa Hiroshige
+Kitagawa Utamaro
+Itō Jakuchū
+Ogata Kōrin
+Sesshū Tōyō
+Yayoi Kusama
+Takashi Murakami
+Tsuguharu Foujita
+Gu Kaizhi
+Wang Wei
+Fan Kuan
+Guo Xi
+Zhang Zeduan
+Zhao Mengfu
+Ni Zan
+Shen Zhou
+Tang Yin
+Bada Shanren
+Shitao
+Qi Baishi
+Xu Beihong
+Zhang Daqian
+Wu Guanzhong
+Zao Wou-Ki
+Raja Ravi Varma
+Amrita Sher-Gil
+M. F. Husain
+S. H. Raza
+Tyeb Mehta
+Jamini Roy
+Abanindranath Tagore
+Rabindranath Tagore
+Albert Namatjira
+Sidney Nolan
+Arthur Streeton
+Tom Roberts
+Frederick McCubbin
+Brett Whiteley
+Emily Kame Kngwarreye
+Colin McCahon
+Edvard Munch
+Akseli Gallen-Kallela
+Helene Schjerfbeck
+Carl Larsson
+Anders Zorn
+Hilma af Klint
+Peder Severin Krøyer
+Vilhelm Hammershøi
+Christen Købke
+Alphonse Mucha
+František Kupka
+Jan Matejko
+Józef Chełmoński
+Tadeusz Makowski
+Mihály Munkácsy
+Paja Jovanović
+Nicolae Grigorescu
+Jack B. Yeats
+William Orpen
+John Lavery
+Paul Henry
+Sean Scully
+Louis le Brocquy
+Henry Fuseli
+Angelica Kauffman
+Ferdinand Hodler
+Arnold Böcklin
+Félix Vallotton
+Alberto Giacometti
+Jean Arp
+Sophie Taeuber-Arp
+Max Ernst
+Kurt Schwitters
+Hannah Höch
+Lyonel Feininger
+Josef Albers
+László Moholy-Nagy
+Oskar Schlemmer
+Johannes Itten
+Banksy
+Shepard Fairey
+Yoshitomo Nara
+Julie Mehretu
+Cecily Brown
+Marlene Dumas
+William Kentridge
+Irma Stern
+Gerard Sekoto
+Ben Enwonwu
+Mahmoud Said
+Osman Hamdi Bey
+Hossein Zenderoudi
+Ivan Generalić
+Nikolai Roerich
+Kuzma Petrov-Vodkin
+Boris Kustodiev
+Arkhip Kuindzhi
+Vasily Surikov
+Viktor Vasnetsov
+Wilhelm Leibl
+Carl Spitzweg
+Franz von Stuck
+Anton Raphael Mengs
+Pompeo Batoni
+Giovanni Paolo Panini
+Salvator Rosa
+Luca Giordano
+Bernardo Strozzi
+Domenichino
+Federico Barocci
+Giuseppe Arcimboldo
+Lorenzo Lotto
+Jacopo Bassano
+Sebastiano del Piombo
+Benozzo Gozzoli
+Gentile da Fabriano
+Pisanello
+Simone Martini
+Ambrogio Lorenzetti
+Pietro Lorenzetti
+Fra Bartolomeo
+Rosso Fiorentino
+Giulio Romano
+Giorgio Vasari
+Federico Zuccari
+Dosso Dossi
+Ivan Kramskoi
+Vasily Perov
+Alexei Savrasov
+Wilhelm Hammershøi
+Akseli Gallen-Kallela
+Hugo Simberg
+Albert Edelfelt
+Eero Järnefelt
+Nikolai Ge
+Isaak Brodsky
+Aristarkh Lentulov
+Pavel Filonov
+Lyubov Popova
+Olga Rozanova
+Aleksandra Ekster
+Mikhail Larionov
+Ilya Mashkov
+Pyotr Konchalovsky
+Robert Falk
+Alexander Deineka
+Frans Post
+Jan van Goyen
+Salomon van Ruysdael
+Adriaen van Ostade
+Gabriel Metsu
+Nicolaes Maes
+Willem Kalf
+Willem Claesz. Heda
+Pieter Claesz
+Clara Peeters
+Joachim Patinir
+Quentin Matsys
+Dieric Bouts
+Hugo van der Goes
+Robert Campin
+Petrus Christus
+Gerard David
+Jan Gossaert

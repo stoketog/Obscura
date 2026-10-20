@@ -1,0 +1,462 @@
+# Poets, all eras and places. Written by hand.
+Homer
+Hesiod
+Sappho
+Pindar
+Alcaeus
+Anacreon
+Theocritus
+Callimachus
+Virgil
+Horace
+Ovid
+Catullus
+Lucretius
+Propertius
+Tibullus
+Juvenal
+Martial
+Statius
+Lucan
+Dante Alighieri
+Petrarch
+Giovanni Boccaccio
+Ludovico Ariosto
+Torquato Tasso
+Michelangelo Buonarroti
+Giacomo Leopardi
+Ugo Foscolo
+Gabriele D'Annunzio
+Giuseppe Ungaretti
+Eugenio Montale
+Salvatore Quasimodo
+Pier Paolo Pasolini
+Geoffrey Chaucer
+William Langland
+John Gower
+Edmund Spenser
+Philip Sidney
+Christopher Marlowe
+William Shakespeare
+Ben Jonson
+John Donne
+George Herbert
+Andrew Marvell
+Robert Herrick
+Richard Lovelace
+John Milton
+John Dryden
+Alexander Pope
+Jonathan Swift
+Thomas Gray
+Oliver Goldsmith
+William Cowper
+Robert Burns
+William Blake
+William Wordsworth
+Samuel Taylor Coleridge
+Lord Byron
+Percy Bysshe Shelley
+John Keats
+John Clare
+Walter Scott
+Thomas Hood
+Elizabeth Barrett Browning
+Robert Browning
+Alfred, Lord Tennyson
+Matthew Arnold
+Christina Rossetti
+Dante Gabriel Rossetti
+Algernon Charles Swinburne
+Gerard Manley Hopkins
+Thomas Hardy
+A. E. Housman
+Rudyard Kipling
+W. B. Yeats
+Edward Lear
+Lewis Carroll
+Wilfred Owen
+Siegfried Sassoon
+Rupert Brooke
+Isaac Rosenberg
+Edward Thomas
+Ivor Gurney
+John McCrae
+Robert Graves
+T. S. Eliot
+Ezra Pound
+W. H. Auden
+Louis MacNeice
+Stephen Spender
+Cecil Day-Lewis
+Dylan Thomas
+R. S. Thomas
+John Betjeman
+Philip Larkin
+Ted Hughes
+Sylvia Plath
+Stevie Smith
+Edith Sitwell
+Hugh MacDiarmid
+Norman MacCaig
+Sorley MacLean
+Edwin Morgan
+Liz Lochhead
+Jackie Kay
+Kathleen Jamie
+Don Paterson
+Carol Ann Duffy
+Simon Armitage
+Andrew Motion
+Roger McGough
+Brian Patten
+Adrian Henri
+Benjamin Zephaniah
+John Agard
+Grace Nichols
+Linton Kwesi Johnson
+Wendy Cope
+Pam Ayres
+John Cooper Clarke
+Kae Tempest|Kate Tempest
+Seamus Heaney
+Patrick Kavanagh
+Paul Muldoon
+Derek Mahon
+Michael Longley
+Eavan Boland
+Louis MacNeice
+Geoffrey Hill
+Tony Harrison
+Craig Raine
+Alice Oswald
+Jo Shapcott
+Glyn Maxwell
+Walt Whitman
+Emily Dickinson
+Edgar Allan Poe
+Henry Wadsworth Longfellow
+Ralph Waldo Emerson
+John Greenleaf Whittier
+Oliver Wendell Holmes
+James Russell Lowell
+Paul Laurence Dunbar
+Robert Frost
+Carl Sandburg
+Wallace Stevens
+William Carlos Williams
+Marianne Moore
+E. E. Cummings
+Hart Crane
+Edna St. Vincent Millay
+Langston Hughes
+Countee Cullen
+Claude McKay
+Gwendolyn Brooks
+Robert Lowell
+Elizabeth Bishop
+John Berryman
+Theodore Roethke
+Anne Sexton
+Allen Ginsberg
+Lawrence Ferlinghetti
+Gregory Corso
+Gary Snyder
+Frank O'Hara
+John Ashbery
+James Merrill
+Richard Wilbur
+W. S. Merwin
+Mary Oliver
+Adrienne Rich
+Audre Lorde
+Maya Angelou
+Nikki Giovanni
+Amiri Baraka
+Sonia Sanchez
+Rita Dove
+Louise Glück
+Sharon Olds
+Billy Collins
+Charles Bukowski
+Sylvia Plath
+Jorie Graham
+Tracy K. Smith
+Joy Harjo
+Ocean Vuong
+Amanda Gorman
+Rupi Kaur
+Charles Baudelaire
+Arthur Rimbaud
+Paul Verlaine
+Stéphane Mallarmé
+Victor Hugo
+Alfred de Musset
+Alphonse de Lamartine
+Gérard de Nerval
+Théophile Gautier
+Paul Valéry
+Guillaume Apollinaire
+Jacques Prévert
+Paul Éluard
+Louis Aragon
+André Breton
+Saint-John Perse
+Yves Bonnefoy
+Aimé Césaire
+Léopold Sédar Senghor
+François Villon
+Pierre de Ronsard
+Joachim du Bellay
+Jean de La Fontaine
+Johann Wolfgang von Goethe
+Friedrich Schiller
+Friedrich Hölderlin
+Novalis
+Heinrich Heine
+Rainer Maria Rilke
+Stefan George
+Georg Trakl
+Gottfried Benn
+Bertolt Brecht
+Paul Celan
+Hans Magnus Enzensberger
+Ingeborg Bachmann
+Nelly Sachs
+Joseph von Eichendorff
+Eduard Mörike
+Alexander Pushkin
+Mikhail Lermontov
+Fyodor Tyutchev
+Afanasy Fet
+Alexander Blok
+Anna Akhmatova
+Marina Tsvetaeva
+Osip Mandelstam
+Boris Pasternak
+Vladimir Mayakovsky
+Sergei Yesenin
+Joseph Brodsky
+Yevgeny Yevtushenko
+Andrei Voznesensky
+Bella Akhmadulina
+Adam Mickiewicz
+Juliusz Słowacki
+Czesław Miłosz
+Wisława Szymborska
+Zbigniew Herbert
+Tadeusz Różewicz
+Sándor Petőfi
+Attila József
+Miroslav Holub
+Jaroslav Seifert
+Vasko Popa
+Tomas Tranströmer
+Edith Södergran
+Gunnar Ekelöf
+Henrik Wergeland
+Federico García Lorca
+Antonio Machado
+Juan Ramón Jiménez
+Rafael Alberti
+Luis Cernuda
+Miguel Hernández
+Gustavo Adolfo Bécquer
+Rosalía de Castro
+San Juan de la Cruz
+Luis de Góngora
+Francisco de Quevedo
+Garcilaso de la Vega
+Pablo Neruda
+Gabriela Mistral
+Vicente Huidobro
+Nicanor Parra
+César Vallejo
+Rubén Darío
+Octavio Paz
+Sor Juana Inés de la Cruz
+Jorge Luis Borges
+Alejandra Pizarnik
+José Martí
+Nicolás Guillén
+Ernesto Cardenal
+Roque Dalton
+Mario Benedetti
+Fernando Pessoa
+Luís de Camões
+Carlos Drummond de Andrade
+Manuel Bandeira
+Cecília Meireles
+Vinicius de Moraes
+Derek Walcott
+Kamau Brathwaite|Edward Kamau Brathwaite
+Wole Soyinka
+Christopher Okigbo
+Ben Okri
+Lenrie Peters
+Kofi Awoonor
+Mazisi Kunene
+Dennis Brutus
+Rumi|Jalal al-Din Rumi
+Hafez
+Saadi
+Omar Khayyam
+Ferdowsi
+Attar of Nishapur
+Nizami Ganjavi
+Forough Farrokhzad
+Ahmad Shamlou
+Mahmoud Darwish
+Adunis
+Nizar Qabbani
+Al-Mutanabbi
+Abu Nuwas
+Khalil Gibran
+Yehuda Amichai
+Nazım Hikmet
+Yunus Emre
+Kabir
+Mirabai
+Tulsidas
+Kalidasa
+Rabindranath Tagore
+Sarojini Naidu
+Muhammad Iqbal
+Faiz Ahmad Faiz
+Mirza Ghalib
+Subramania Bharati
+Kamala Das
+Nissim Ezekiel
+A. K. Ramanujan
+Li Bai
+Du Fu
+Wang Wei
+Bai Juyi
+Su Shi
+Li Qingzhao
+Tao Yuanming
+Qu Yuan
+Bei Dao
+Gu Cheng
+Hai Zi
+Matsuo Bashō
+Yosa Buson
+Kobayashi Issa
+Masaoka Shiki
+Ono no Komachi
+Kakinomoto no Hitomaro
+Akiko Yosano
+Shuntarō Tanikawa
+Kim Sowol
+Ko Un
+Banjo Paterson
+Henry Lawson
+Judith Wright
+Les Murray
+A. D. Hope
+Oodgeroo Noonuccal
+Dorothea Mackellar
+James K. Baxter
+Allen Curnow
+Hone Tuwhare
+Margaret Atwood
+Leonard Cohen
+Anne Carson
+Robert Service
+E. J. Pratt
+Al Purdy
+Michael Ondaatje
+Rumi|Jalal al-Din Rumi
+Anne Bradstreet
+Phillis Wheatley
+Lady Mary Wroth
+Aphra Behn
+Katherine Philips
+Anne Finch
+Felicia Hemans
+Letitia Elizabeth Landon
+Charlotte Smith
+Anna Laetitia Barbauld
+Mary Robinson
+Emily Brontë
+Amy Lowell
+Hilda Doolittle|H.D.
+Mina Loy
+Elinor Wylie
+Sara Teasdale
+Dorothy Parker
+Ogden Nash
+Shel Silverstein
+Dr. Seuss
+Hilaire Belloc
+Walter de la Mare
+John Masefield
+Laurence Binyon
+G. K. Chesterton
+Charlotte Mew
+Alice Meynell
+Christina Rossetti
+Ella Wheeler Wilcox
+Joyce Kilmer
+Vachel Lindsay
+Edgar Lee Masters
+Edwin Arlington Robinson
+Robinson Jeffers
+Archibald MacLeish
+Stephen Vincent Benét
+Delmore Schwartz
+Randall Jarrell
+Muriel Rukeyser
+Denise Levertov
+Robert Creeley
+Charles Olson
+Robert Duncan
+Kenneth Rexroth
+James Wright
+Robert Bly
+Galway Kinnell
+Philip Levine
+Mark Strand
+Charles Simic
+Robert Pinsky
+Robert Hass
+Jane Kenyon
+Donald Hall
+Lucille Clifton
+Yusef Komunyakaa
+Natasha Trethewey
+Terrance Hayes
+Claudia Rankine
+Danez Smith
+Seamus Heaney
+Patience Agbabi
+Hollie McNish
+Imtiaz Dharker
+Moniza Alvi
+Daljit Nagra
+Raymond Antrobus
+Warsan Shire
+Caleb Femi
+Lemn Sissay
+Benjamin Zephaniah
+Valerie Bloom
+Jean Binta Breeze
+Michael Rosen
+Spike Milligan
+Roald Dahl
+Charles Causley
+U. A. Fanthorpe
+Elizabeth Jennings
+Kathleen Raine
+Vernon Scannell
+Keith Douglas
+Alun Lewis
+Gillian Clarke
+Menna Elfyn
+Owen Sheers
+Gwyneth Lewis
+Dafydd ap Gwilym
+Taliesin
+Aneirin
+Ossian
+Fiona Benson
