@@ -31,6 +31,21 @@ export function HelpModal({ onClose }: { onClose: () => void }) {
           </div>
         ))}
       </div>
+      <p className="mt-5 text-[0.7rem] leading-relaxed text-mist-500" data-testid="answer-credits">
+        Answer lists draw on{' '}
+        <a href="https://wordnet.princeton.edu" target="_blank" rel="noopener noreferrer" className="underline decoration-mist-700 underline-offset-2 hover:text-mist-300">
+          Princeton WordNet
+        </a>
+        ,{' '}
+        <a href="https://github.com/f1db/f1db" target="_blank" rel="noopener noreferrer" className="underline decoration-mist-700 underline-offset-2 hover:text-mist-300">
+          F1DB
+        </a>{' '}
+        (
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="underline decoration-mist-700 underline-offset-2 hover:text-mist-300">
+          CC BY 4.0
+        </a>
+        ), openfootball and dariusk/corpora. Photographs are public domain or CC0; each is credited when it’s revealed.
+      </p>
       <button className="btn-primary mt-6 w-full" onClick={onClose} data-testid="help-close">
         Got it
       </button>
