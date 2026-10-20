@@ -1,0 +1,472 @@
+# More famous battles. Written by hand.
+Battle of Marathon
+Battle of Thermopylae
+Battle of Salamis
+Battle of Plataea
+Battle of Gaugamela
+Battle of Issus
+Battle of the Granicus
+Battle of the Hydaspes
+Battle of Cannae
+Battle of Zama
+Battle of Lake Trasimene
+Battle of the Trebia
+Battle of Pharsalus
+Battle of Alesia
+Battle of Actium
+Battle of the Teutoburg Forest
+Battle of Adrianople
+Battle of the Catalaunian Plains|Battle of Chalons
+Battle of the Milvian Bridge
+Battle of Tours
+Battle of Poitiers
+Battle of Roncevaux Pass
+Battle of Hastings
+Battle of Stamford Bridge
+Battle of Manzikert
+Battle of Hattin
+Battle of Arsuf
+Battle of Bouvines
+Battle of Legnano
+Battle of Las Navas de Tolosa
+Battle of Ain Jalut
+Battle of Mohi
+Battle of Legnica
+Battle of the Ice|Battle on the Ice
+Battle of Stirling Bridge
+Battle of Falkirk
+Battle of Bannockburn
+Battle of Crécy
+Battle of Agincourt
+Siege of Orléans|Battle of Orléans
+Battle of Kosovo
+Battle of Nicopolis
+Battle of Ankara
+Battle of Grunwald|Battle of Tannenberg
+Fall of Constantinople|Siege of Constantinople
+Battle of Varna
+Battle of Bosworth Field|Battle of Bosworth
+Battle of Towton
+Battle of Tewkesbury
+Battle of Barnet
+Battle of St Albans
+Battle of Flodden
+Battle of Pavia
+Battle of Mohács
+Battle of Vienna
+Battle of Lepanto
+Spanish Armada
+Battle of Gravelines
+Battle of Sekigahara
+Battle of Nagashino
+Battle of Okehazama
+Battle of Dan-no-ura
+Battle of Hansan Island
+Battle of Myeongnyang
+Battle of Talas
+Battle of Red Cliffs|Battle of Chibi
+First Battle of Panipat|Battle of Panipat
+Third Battle of Panipat
+Battle of Plassey
+Battle of Buxar
+Battle of Haldighati
+Battle of Talikota
+Battle of Breitenfeld
+Battle of Lützen
+Battle of White Mountain
+Battle of Rocroi
+Battle of Edgehill
+Battle of Marston Moor
+Battle of Naseby
+Battle of Dunbar
+Battle of Worcester
+Battle of the Boyne
+Battle of Killiecrankie
+Battle of Culloden
+Battle of Sedgemoor
+Battle of Blenheim
+Battle of Ramillies
+Battle of Oudenarde
+Battle of Malplaquet
+Battle of Poltava
+Battle of Fontenoy
+Battle of Dettingen
+Battle of Rossbach
+Battle of Leuthen
+Battle of Kunersdorf
+Battle of Minden
+Battle of the Plains of Abraham|Battle of Quebec
+Battle of Quiberon Bay
+Battles of Lexington and Concord|Battle of Lexington
+Battle of Bunker Hill
+Battle of Trenton
+Battle of Saratoga
+Siege of Yorktown|Battle of Yorktown
+Battle of the Saintes
+Battle of the Nile
+Battle of Trafalgar
+Battle of Copenhagen
+Battle of Austerlitz
+Battle of Jena
+Battle of Eylau
+Battle of Friedland
+Battle of Wagram
+Battle of Borodino
+Battle of Leipzig|Battle of the Nations
+Battle of Waterloo
+Battle of Quatre Bras
+Battle of Ligny
+Battle of Talavera
+Battle of Salamanca
+Battle of Vitoria
+Battle of Bussaco
+Battle of New Orleans
+Battle of Lake Erie
+Battle of the Thames
+Battle of Navarino
+Battle of the Alamo
+Battle of San Jacinto
+Battle of Ayacucho
+Battle of Boyacá
+Battle of Carabobo
+Battle of Pichincha
+Battle of Chacabuco
+Battle of Maipú
+Battle of Balaclava
+Charge of the Light Brigade
+Battle of Inkerman
+Battle of the Alma
+Siege of Sevastopol
+Siege of Lucknow
+Siege of Cawnpore
+Battle of Solferino
+Battle of Magenta
+Battle of Königgrätz|Battle of Sadowa
+Battle of Sedan
+Battle of Gravelotte
+Siege of Paris
+Battle of Fort Sumter
+First Battle of Bull Run
+Battle of Shiloh
+Battle of Antietam
+Battle of Fredericksburg
+Battle of Chancellorsville
+Battle of Gettysburg
+Siege of Vicksburg
+Battle of Chickamauga
+Battle of Chattanooga
+Battle of the Wilderness
+Battle of Spotsylvania
+Battle of Cold Harbor
+Siege of Petersburg
+Battle of Appomattox Court House
+Battle of Little Bighorn
+Battle of Wounded Knee
+Battle of Isandlwana
+Battle of Rorke's Drift
+Battle of Ulundi
+Battle of Majuba Hill
+Battle of Spion Kop
+Siege of Mafeking
+Siege of Ladysmith
+Battle of Omdurman
+Battle of Adwa
+Battle of Tsushima
+Battle of Mukden
+Siege of Port Arthur
+Battle of the Frontiers
+First Battle of the Marne
+Battle of Mons
+Battle of Ypres
+First Battle of Ypres
+Second Battle of Ypres
+Battle of Passchendaele
+Gallipoli campaign|Battle of Gallipoli
+Battle of Verdun
+Battle of the Somme
+Battle of Jutland
+Brusilov offensive
+Battle of Vimy Ridge
+Battle of Arras
+Battle of Cambrai
+Battle of Caporetto
+Battle of Messines
+Battle of Amiens
+Battle of Belleau Wood
+Meuse-Argonne offensive
+Hundred Days Offensive
+Battle of Megiddo
+Battle of Beersheba
+Siege of Kut
+Battle of Warsaw
+Battle of the Ebro
+Battle of Guadalajara
+Siege of the Alcázar
+Battle of Teruel
+Battle of Madrid
+Invasion of Poland
+Battle of Westerplatte
+Battle of France
+Dunkirk evacuation|Battle of Dunkirk
+Battle of Britain
+The Blitz
+Battle of the Atlantic
+Battle of Taranto
+Battle of Cape Matapan
+Battle of Crete
+Siege of Tobruk
+First Battle of El Alamein
+Second Battle of El Alamein
+Battle of Kasserine Pass
+Operation Barbarossa
+Battle of Moscow
+Siege of Leningrad
+Battle of Stalingrad
+Battle of Kursk
+Battle of Prokhorovka
+Attack on Pearl Harbor
+Battle of the Coral Sea
+Battle of Midway
+Battle of Guadalcanal
+Battle of Leyte Gulf
+Battle of the Philippine Sea
+Battle of Tarawa
+Battle of Saipan
+Battle of Peleliu
+Battle of Iwo Jima
+Battle of Okinawa
+Fall of Singapore|Battle of Singapore
+Battle of Hong Kong
+Battle of Kohima
+Battle of Imphal
+Battle of Monte Cassino
+Battle of Anzio
+Operation Husky
+Normandy landings|D-Day;Operation Overlord;Battle of Normandy
+Battle of Arnhem|Operation Market Garden
+Battle of the Bulge
+Battle of Hürtgen Forest
+Battle of Berlin
+Warsaw Uprising
+Battle of Inchon
+Battle of Chosin Reservoir
+Battle of Pusan Perimeter
+Battle of Dien Bien Phu
+Battle of Ia Drang
+Tet Offensive
+Battle of Hue
+Battle of Khe Sanh
+Battle of Hamburger Hill
+Battle of the Golan Heights
+Battle of Goose Green
+Battle of Mount Tumbledown
+Battle of Mogadishu
+Battle of Fallujah
+Battle of Mosul
+Battle of Aleppo
+Siege of Sarajevo
+Battle of Vukovar
+Battle of Grozny
+Battle of Debaltseve
+Battle of Bakhmut
+Siege of Mariupol
+Battle of Kyiv
+Siege of Malta
+Siege of Rhodes
+Siege of Candia
+Siege of Acre
+Siege of Jerusalem
+Siege of Masada
+Siege of Syracuse
+Siege of Tyre
+Siege of Carthage
+Siege of Numantia
+Siege of Leiden
+Siege of Breda
+Siege of Gibraltar
+Great Siege of Gibraltar
+Siege of Badajoz
+Siege of Zaragoza
+Siege of Antwerp
+Siege of Harfleur
+Siege of Calais
+Siege of Rouen
+Siege of Kenilworth
+Siege of Rochester Castle
+Siege of Drogheda
+Siege of Derry
+Siege of Limerick
+Siege of Belgrade
+Siege of Buda
+Siege of Szigetvár
+Siege of Eger
+Siege of Kazan
+Siege of Pskov
+Siege of Azov
+Siege of Ochakov
+Siege of Izmail
+Siege of Plevna
+Siege of Baghdad
+Siege of Kaifeng
+Siege of Xiangyang
+Battle of Yamen
+Battle of Fei River
+Battle of Guandu
+Battle of Changping
+Battle of Muye
+Battle of Gaixia
+Battle of Julu
+Battle of Baekgang
+Battle of Salsu
+Battle of Hakata Bay
+Battle of Kawanakajima
+Battle of Mikatagahara
+Battle of Osaka
+Siege of Osaka
+Battle of Toba–Fushimi
+Battle of Hakodate
+Battle of Shiroyama
+Battle of the Yalu River
+Battle of Weihaiwei
+Battle of Nanking
+Battle of Shanghai
+Battle of Wuhan
+Battle of Taierzhuang
+Hundred Regiments Offensive
+Huaihai Campaign
+Battle of Kunlun Pass
+Battle of Rezang La
+Battle of Longewala
+Battle of Asal Uttar
+Battle of Kargil
+Battle of Saragarhi
+Battle of Koregaon
+Battle of Assaye
+Battle of Seringapatam
+Battle of Polilur
+Battle of Wandiwash
+Battle of Colachel
+Battle of Kalinga
+Battle of Tarain
+Battle of Khanwa
+Battle of Karnal
+Battle of Chamkaur
+Battle of Jamrud
+Battle of Gujrat
+Battle of Chillianwala
+Battle of Maiwand
+Battle of Kandahar
+Siege of Herat
+Battle of Chaldiran
+Battle of Marj Dabiq
+Battle of Ridaniya
+Battle of Yarmouk
+Battle of al-Qadisiyyah
+Battle of Nahavand
+Battle of Badr
+Battle of Uhud
+Battle of the Trench
+Battle of Karbala
+Battle of the Camel
+Battle of Siffin
+Battle of the Zab
+Battle of Guadalete
+Battle of Covadonga
+Battle of Sagrajas
+Battle of Alarcos
+Battle of Higueruela
+Siege of Granada
+Battle of Toro
+Battle of Aljubarrota
+Battle of Ourique
+Battle of Alcácer Quibir
+Battle of Diu
+Battle of Preveza
+Battle of Kadesh
+Battle of Qarqar
+Battle of Halule
+Battle of Carchemish
+Battle of Opis
+Battle of Pelusium
+Battle of Raphia
+Battle of Mantinea
+Battle of Leuctra
+Battle of Chaeronea
+Battle of Aegospotami
+Battle of Arginusae
+Battle of Sphacteria
+Battle of Delium
+Battle of Cynoscephalae
+Battle of Pydna
+Battle of Magnesia
+Battle of Carrhae
+Battle of Philippi
+Battle of Munda
+Battle of Thapsus
+Battle of Watling Street
+Battle of Mons Graupius
+Battle of Edessa
+Battle of Ctesiphon
+Battle of Strasbourg
+Battle of Vouillé
+Battle of Tolbiac
+Battle of Lechfeld
+Battle of Brunanburh
+Battle of Maldon
+Battle of Clontarf
+Battle of Svolder
+Battle of Fulford
+Battle of Lewes
+Battle of Evesham
+Battle of Shrewsbury
+Battle of Otterburn
+Battle of Neville's Cross
+Battle of Halidon Hill
+Battle of Sluys
+Battle of the Golden Spurs|Battle of Courtrai
+Battle of Morgarten
+Battle of Sempach
+Battle of Laupen
+Battle of Grandson
+Battle of Morat|Battle of Murten
+Battle of Nancy
+Battle of Marignano
+Battle of Ravenna
+Battle of Fornovo
+Battle of Cerignola
+Battle of Garigliano
+Battle of Ceresole
+Battle of St. Quentin
+Battle of Mookerheyde
+Battle of Nieuwpoort
+Battle of the Downs
+Battle of Lowestoft
+Battle of Solebay
+Battle of Texel
+Raid on the Medway
+Battle of Beachy Head
+Battle of Barfleur
+Battle of La Hogue
+Battle of Vigo Bay
+Battle of Cape Passaro
+Battle of Finisterre
+Battle of Lagos
+Battle of the Chesapeake
+Battle of Cape St Vincent
+Battle of Camperdown
+Glorious First of June
+Battle of the Basque Roads
+Battle of Lissa
+Battle of Heligoland Bight
+Battle of Coronel
+Battle of the Falkland Islands
+Battle of Dogger Bank
+Battle of the River Plate
+Sinking of the Bismarck
+Battle of the Denmark Strait
+Battle of the North Cape
+Battle of Savo Island
+Battle of Surigao Strait
+Battle off Samar
+Operation Ten-Go
+

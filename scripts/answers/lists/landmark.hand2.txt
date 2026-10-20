@@ -1,0 +1,445 @@
+# More famous landmarks and monuments. Written by hand.
+Abu Simbel
+Acropolis of Athens
+Alcatraz
+Alhambra
+Angel of the North
+Angkor Thom
+Arc de Triomphe
+Arch of Constantine
+Atomium
+Ayutthaya
+Bagan
+Banaue Rice Terraces
+Big Ben
+Blue Mosque|Sultan Ahmed Mosque
+Borobudur
+Brandenburg Gate
+Buckingham Palace
+Burj Al Arab|Burj Al Arab Jumeirah
+Burj Khalifa
+Chartres Cathedral
+Château de Chambord
+Chichen Itza|Chichén Itzá
+Christ the Redeemer|Corcovado
+Chrysler Building
+CN Tower
+Cologne Cathedral|Kölner Dom
+Dome of the Rock
+Edinburgh Castle
+Eiffel Tower
+Empire State Building
+Forbidden City
+Fushimi Inari
+Golden Temple
+Great Pyramid of Giza
+Great Wall of China
+Hadrian's Wall
+Himeji Castle
+Hollywood Sign
+Hoover Dam
+Houses of Parliament|Palace of Westminster
+Kremlin
+Kinkaku-ji|Kinkakuji;Golden Pavilion
+La Sagrada Família|Sagrada Família
+Leaning Tower of Pisa
+Lincoln Memorial
+London Eye
+Louvre Pyramid
+Machu Picchu
+Marina Bay Sands
+Matterhorn
+Milan Cathedral
+Moai|Moai of Easter Island
+Mount Rushmore|Mount Rushmore National Memorial
+Neuschwanstein Castle|Neuschwanstein
+Notre-Dame de Paris|Notre Dame
+One World Trade Center
+Pantheon
+Parthenon
+Petra
+Petronas Towers
+Potala Palace
+Prague Castle
+Pyramids of Teotihuacan|Teotihuacan
+Red Square
+Rialto Bridge
+Saint Basil's Cathedral
+Shwedagon Pagoda
+Sistine Chapel
+Space Needle
+St. Peter's Basilica
+Statue of Liberty|Statue of Liberty National Monument
+Stonehenge
+Sydney Harbour Bridge|Harbour Bridge
+Sydney Opera House
+Taj Mahal
+Terracotta Army
+The Shard
+Tower Bridge
+Tower of London
+Trevi Fountain
+Versailles
+Washington Monument
+Westminster Abbey
+White House
+Windsor Castle
+Al-Masjid an-Nabawi
+Alcázar of Seville
+Amalienborg
+Bran Castle
+Charles Bridge
+Château de Chenonceau
+Christ of the Abyss
+Colossus of Rhodes
+Cristo Rei
+Dancing House
+Florence Cathedral|Duomo di Firenze
+Galata Tower
+Gateway Arch
+Gateway of India
+Giant's Causeway
+Golden Gate Bridge|Golden Gate
+Great Sphinx of Giza
+Hagia Sophia
+Hallgrímskirkja
+Hampton Court Palace
+Hermitage Museum
+Hungarian Parliament Building
+Independence Hall
+India Gate
+Jantar Mantar
+Jefferson Memorial
+Kaaba
+Kailasa Temple
+Karnak Temple
+Konark Sun Temple
+Lotus Temple
+Luxor Temple
+Meenakshi Temple
+Mont-Saint-Michel|Mont Saint-Michel Abbey
+Montserrat
+Mosque of Córdoba|Mezquita
+Nazca Lines
+Oriental Pearl Tower
+Palace of the Parliament
+Peterhof Palace
+Plaza de España
+Ponte Vecchio
+Qutb Minar
+Red Fort
+Rijksmuseum
+Royal Albert Hall
+Royal Palace of Madrid
+Sacré-Cœur|Sacre Coeur
+Saint Mark's Basilica
+Schönbrunn Palace
+Sheikh Zayed Grand Mosque
+Shibuya Crossing
+Skara Brae
+Spanish Steps
+St Paul's Cathedral
+Stari Most|Mostar Bridge
+Summer Palace
+Table Mountain
+Temple of Heaven
+Temple of Artemis
+Tiananmen Square
+Tikal
+Times Square
+Tokyo Skytree
+Tokyo Tower
+Topkapı Palace
+Uluru
+Valley of the Kings
+Victoria Falls
+Wat Arun
+Wat Phra Kaew
+Western Wall
+Winter Palace
+Zócalo
+Lighthouse of Alexandria
+Hanging Gardens of Babylon
+Statue of Zeus at Olympia
+Mausoleum at Halicarnassus
+Ishtar Gate
+Ziggurat of Ur
+Persepolis
+Pasargadae
+Baalbek
+Palmyra
+Jerash
+Leptis Magna
+Carthage
+Timgad
+Ephesus
+Troy
+Pergamon
+Knossos
+Delphi
+Olympia
+Epidaurus
+Mycenae
+Pompeii
+Herculaneum
+Colosseum
+Roman Forum
+Circus Maximus
+Baths of Caracalla
+Castel Sant'Angelo
+Pont du Gard
+Segovia Aqueduct
+Nîmes Arena
+Maison Carrée
+Carcassonne
+Rocamadour
+Château de Chillon
+Kapellbrücke
+Hohenzollern Castle
+Eltz Castle
+Heidelberg Castle
+Wartburg
+Sanssouci
+Reichstag Building
+Berlin Wall
+Checkpoint Charlie
+Holocaust Memorial
+Frauenkirche
+Zwinger
+Miniatur Wunderland
+Little Mermaid statue
+Nyhavn
+Tivoli Gardens
+Kronborg Castle
+Vasa Museum
+Stockholm City Hall
+Bryggen
+Preikestolen|Pulpit Rock
+Geirangerfjord
+Atlantic Ocean Road
+Northern Lights Cathedral
+Temppeliaukio Church
+Suomenlinna
+Tallinn Old Town
+House of the Blackheads
+Gediminas Tower
+Hill of Crosses
+Wawel Castle
+Wieliczka Salt Mine
+Malbork Castle
+Palace of Culture and Science
+St. Vitus Cathedral
+Český Krumlov
+Bled Castle
+Plitvice Lakes
+Diocletian's Palace
+Walls of Dubrovnik
+Rila Monastery
+Meteora
+Delos
+Monastery of Saint Catherine
+Church of the Holy Sepulchre
+Masada
+Hagia Irene
+Basilica Cistern
+Göbekli Tepe
+Cappadocia
+Pamukkale
+Nemrut Dağ
+Sumela Monastery
+Ani
+Garni Temple
+Geghard
+Tbilisi Old Town
+Mtskheta
+Registan
+Bibi-Khanym Mosque
+Ark of Bukhara
+Shah Mosque
+Naqsh-e Jahan Square
+Azadi Tower
+Milad Tower
+Jameh Mosque of Isfahan
+Kingdom Centre
+Masjid al-Haram
+Palm Jumeirah
+Museum of the Future
+Louvre Abu Dhabi
+Qasr al-Watan
+Mutrah Fort
+Bahla Fort
+Great Mosque of Kairouan
+Hassan II Mosque
+Koutoubia Mosque
+Jemaa el-Fnaa
+Ait Benhaddou
+Chefchaouen
+Great Mosque of Djenné
+Timbuktu
+Lalibela|Rock-hewn churches of Lalibela
+Aksum obelisks
+Great Zimbabwe
+Robben Island
+Cape Point
+Kilimanjaro
+Ngorongoro Crater
+Serengeti
+Stone Town
+Island of Gorée
+Elmina Castle
+Cape Coast Castle
+Avenue of the Baobabs
+Taj Lake Palace
+Hawa Mahal
+Amber Fort
+Mehrangarh
+Victoria Memorial
+Charminar
+Mysore Palace
+Ajanta Caves
+Ellora Caves
+Sanchi Stupa
+Mahabodhi Temple
+Khajuraho
+Hampi
+Brihadeeswara Temple
+Golden Rock
+Sigiriya
+Temple of the Tooth
+Boudhanath
+Swayambhunath
+Tiger's Nest|Paro Taktsang
+Badshahi Mosque
+Faisal Mosque
+Minar-e-Pakistan
+Lahore Fort
+Mohenjo-daro
+Bamiyan Buddhas
+Ha Long Bay
+Hoi An
+Imperial City of Huế
+My Son
+Angkor Wat
+Bayon
+Ta Prohm
+Prambanan
+Tanah Lot
+Uluwatu Temple
+Merlion
+Gardens by the Bay
+Batu Caves
+Kuala Lumpur Tower
+Chocolate Hills
+Intramuros
+Taipei 101
+Chiang Kai-shek Memorial Hall
+Gyeongbokgung
+Bulguksa
+N Seoul Tower
+Lotte World Tower
+Itsukushima Shrine
+Todai-ji
+Kiyomizu-dera
+Senso-ji
+Meiji Shrine
+Osaka Castle
+Nijo Castle
+Ginkaku-ji
+Ryoan-ji
+Great Buddha of Kamakura
+Hiroshima Peace Memorial
+Leshan Giant Buddha
+Mogao Caves
+Longmen Grottoes
+Yungang Grottoes
+Jiuzhaigou
+Zhangjiajie
+Li River
+West Lake
+The Bund
+Shanghai Tower
+Canton Tower
+Bird's Nest
+Ming tombs
+Temple of Confucius
+Brooklyn Bridge
+Central Park
+Rockefeller Center
+Flatiron Building
+Grand Central Terminal
+Ellis Island
+Liberty Bell
+Alamo
+Graceland
+Hollywood Walk of Fame
+Griffith Observatory
+Las Vegas Strip
+Fremont Street
+Willis Tower
+Cloud Gate
+Wrigley Field
+Fenway Park
+Pike Place Market
+Golden Gate Park
+Painted Ladies
+Lombard Street
+Hearst Castle
+Biltmore Estate
+Monticello
+Mount Vernon
+Arlington National Cemetery
+Pentagon
+United States Capitol|Capitol Building
+Smithsonian Institution
+Vietnam Veterans Memorial
+Martin Luther King Jr. Memorial
+Kennedy Space Center
+Niagara Falls
+Grand Canyon
+Old Faithful
+Yosemite Valley
+Mesa Verde
+Chaco Canyon
+Taos Pueblo
+Cahokia Mounds
+Serpent Mound
+Château Frontenac
+Parliament Hill
+Notre-Dame Basilica of Montreal
+Habitat 67
+Palenque
+Tulum
+Uxmal
+Monte Albán
+Palacio de Bellas Artes
+Metropolitan Cathedral
+Angel of Independence
+Copán
+Panama Canal
+Iguazu Falls
+Angel Falls
+Sugarloaf Mountain
+Selarón Steps
+Maracanã
+Brasília Cathedral
+Teatro Colón
+Casa Rosada
+Obelisco de Buenos Aires
+Perito Moreno Glacier
+Sacsayhuamán
+Ollantaytambo
+Lake Titicaca
+Uyuni salt flat
+Tiwanaku
+Galápagos Islands
+Ciudad Perdida
+Castillo San Felipe de Barajas
+Sydney Tower
+Federation Square
+Twelve Apostles
+Great Barrier Reef
+Port Arthur
+Sky Tower
+Hobbiton
+Milford Sound
+

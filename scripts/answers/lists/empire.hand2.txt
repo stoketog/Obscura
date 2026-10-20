@@ -1,0 +1,246 @@
+# More empires. Written by hand.
+Achaemenid Empire|Persian Empire
+Akkadian Empire
+Neo-Assyrian Empire|Assyrian Empire
+Neo-Babylonian Empire|Babylonian Empire
+Hittite Empire
+New Kingdom of Egypt|Egyptian Empire
+Median Empire
+Seleucid Empire
+Ptolemaic Kingdom
+Parthian Empire
+Sasanian Empire
+Macedonian Empire|Empire of Alexander the Great
+Athenian Empire
+Carthaginian Empire
+Roman Empire
+Western Roman Empire
+Byzantine Empire|Eastern Roman Empire
+Holy Roman Empire
+Carolingian Empire
+Frankish Empire
+Hunnic Empire
+Gallic Empire
+Palmyrene Empire
+Kushan Empire
+Maurya Empire
+Gupta Empire
+Mughal Empire
+Maratha Empire
+Sikh Empire
+Vijayanagara Empire
+Chola Empire
+Pala Empire
+Delhi Sultanate|Sultanate of Delhi
+Rashtrakuta Empire
+Chalukya Empire
+Satavahana Empire
+Durrani Empire
+Ghaznavid Empire
+Ghurid Empire
+Timurid Empire
+Safavid Empire
+Afsharid Empire
+Qajar Empire
+Seljuk Empire
+Great Seljuk Empire
+Sultanate of Rum
+Ottoman Empire
+Mamluk Sultanate
+Ayyubid Empire
+Fatimid Caliphate
+Abbasid Caliphate
+Umayyad Caliphate
+Rashidun Caliphate
+Almohad Caliphate
+Almoravid Empire
+Khwarazmian Empire
+Mongol Empire
+Golden Horde
+Ilkhanate|Ilkhanid Empire
+Chagatai Khanate
+Yuan dynasty
+Göktürk Khaganate
+Uyghur Khaganate
+Xiongnu Empire
+Rouran Khaganate
+Khazar Khaganate
+Avar Khaganate
+Tibetan Empire
+Qin dynasty
+Han dynasty
+Tang dynasty
+Song dynasty
+Ming dynasty
+Qing dynasty
+Khmer Empire
+Srivijaya
+Majapahit Empire
+Pagan Empire|Bagan Empire
+Toungoo Empire
+Konbaung dynasty
+Ayutthaya Kingdom
+Đại Việt
+Empire of Japan|Japanese Empire
+Korean Empire
+Goguryeo
+Silla
+Empire of Vietnam
+Mali Empire
+Songhai Empire
+Ghana Empire
+Kanem-Bornu Empire
+Kanem Empire
+Bornu Empire
+Oyo Empire
+Benin Empire
+Ashanti Empire
+Kingdom of Kongo
+Zulu Empire
+Ethiopian Empire
+Aksumite Empire|Kingdom of Aksum
+Kushite Empire|Kingdom of Kush
+Sokoto Caliphate
+Wassoulou Empire
+Toucouleur Empire
+Mutapa Empire
+Rozvi Empire
+Luba Empire
+Lunda Empire
+Kuba Kingdom
+Merina Kingdom
+Aztec Empire|Aztec Triple Alliance
+Inca Empire
+Toltec Empire
+Tarascan Empire|Purépecha Empire
+Wari Empire
+Tiwanaku Empire
+Chimú Empire
+Empire of Brazil
+First Mexican Empire
+Second Mexican Empire
+Haitian Empire
+Spanish Empire
+Portuguese Empire
+British Empire
+French colonial empire
+First French Empire|Napoleonic Empire
+Second French Empire
+Dutch Empire
+Danish colonial empire
+Swedish Empire
+Belgian colonial empire
+Italian Empire
+German Empire
+German colonial empire
+Austrian Empire
+Austro-Hungarian Empire
+Habsburg Empire
+Russian Empire
+Tsardom of Russia
+Angevin Empire
+North Sea Empire
+Empire of Trebizond
+Latin Empire
+Bulgarian Empire
+First Bulgarian Empire
+Second Bulgarian Empire
+Serbian Empire
+Empire of Nicaea
+Despotate of Epirus
+Venetian Empire|Republic of Venice
+Genoese Empire
+Aragonese Empire|Crown of Aragon
+Comanche Empire
+Hawaiian Kingdom
+Tu'i Tonga Empire
+Manchukuo|Empire of Manchukuo
+Central African Empire
+Omani Empire|Sultanate of Oman
+Sultanate of Zanzibar
+Sultanate of Malacca
+Johor Sultanate
+Brunei Sultanate
+Sultanate of Aceh
+Mataram Sultanate
+Bengal Sultanate
+Bahmani Sultanate
+Deccan Sultanates
+Kingdom of Mysore
+Empire of Harsha
+Kanva dynasty
+Shunga Empire
+Nanda Empire
+Indo-Greek Kingdom
+Greco-Bactrian Kingdom
+Western Satraps
+Kingdom of Armenia|Armenian Empire
+Kingdom of Pontus
+Elamite Empire
+Mitanni
+Urartu
+Phoenician empire
+Hephthalite Empire
+Kara-Khanid Khanate
+Qara Khitai|Western Liao
+Liao dynasty
+Jin dynasty
+Western Xia
+Northern Wei
+Sui dynasty
+Zhou dynasty
+Shang dynasty
+Xia dynasty
+Kingdom of Champa
+Funan
+Lan Xang
+Lan Na
+Sukhothai Kingdom
+Rattanakosin Kingdom
+Ahom Kingdom
+Zirid dynasty
+Hafsid dynasty
+Marinid Sultanate
+Saadi Sultanate
+Alaouite dynasty
+Idrisid dynasty
+Rustamid dynasty
+Aghlabid dynasty
+Tulunid dynasty
+Ikhshidid dynasty
+Buyid dynasty
+Samanid Empire
+Tahirid dynasty
+Saffarid dynasty
+Ziyarid dynasty
+Kakuyid dynasty
+Jalayirid Sultanate
+Kara Koyunlu
+Ak Koyunlu
+Zand dynasty
+Hotak dynasty
+
+Neo-Sumerian Empire|Third Dynasty of Ur;Ur III
+Old Assyrian Empire
+Middle Assyrian Empire
+Jolof Empire
+Kong Empire
+Kaabu Empire
+Bamana Empire
+Massina Empire
+Kingdom of Dahomey
+Ajuran Sultanate
+Adal Sultanate
+Kingdom of Buganda
+Kitara Empire
+Kingdom of Mapungubwe
+Singhasari
+Medang Kingdom
+Ryukyu Kingdom
+Balhae
+Gojoseon
+Kievan Rus'
+Grand Duchy of Lithuania
+Kingdom of Great Zimbabwe
+Ottoman Caliphate
+Jaunpur Sultanate
