@@ -1,0 +1,464 @@
+# More video games. Written by hand.
+Alan Wake
+Alan Wake 2
+Alien: Isolation
+Alone in the Dark
+Alto's Adventure
+Animal Crossing
+Animal Crossing: New Horizons
+Anthem
+Apex Legends
+Assassin's Creed II
+Assassin's Creed Valhalla
+Assassin's Creed Odyssey
+Assassin's Creed Origins
+Astro Bot
+Astro's Playroom
+Baldur's Gate 3
+Banjo-Kazooie
+Banjo-Tooie
+Batman: Arkham Asylum
+Batman: Arkham City
+Batman: Arkham Knight
+Battlefield 1942
+Battlefield 3
+Battlefield 4
+Bayonetta
+Bejeweled
+BioShock
+BioShock Infinite
+Black & White
+Blasphemous
+Bloodborne
+Borderlands
+Borderlands 2
+Braid
+Brütal Legend
+Bully
+Burnout Paradise
+Call of Duty: Modern Warfare
+Call of Duty: Black Ops
+Call of Duty: Warzone
+Candy Crush Saga
+Castlevania: Symphony of the Night
+Celeste
+Chrono Trigger
+Cities: Skylines
+Civilization VI
+Clash of Clans
+Clash Royale
+Command & Conquer
+Conker's Bad Fur Day
+Contra
+Control
+Counter-Strike
+Crash Team Racing
+Crysis
+Cuphead
+Cyberpunk 2077
+Dark Souls
+Dark Souls III
+Dave the Diver
+Day of the Tentacle
+DayZ
+Dead Cells
+Dead Space
+Death Stranding
+Deus Ex
+Destiny
+Destiny 2
+Devil May Cry
+Diablo
+Diablo II
+Diablo IV
+Dishonored
+Disco Elysium
+Divinity: Original Sin 2
+Donkey Kong Country
+Doom Eternal
+Dota 2
+Dragon Age: Origins
+Dragon Quest
+Dwarf Fortress
+Earthbound
+Elden Ring
+Elite Dangerous
+Ender Lilies
+Euro Truck Simulator 2
+Fable
+Factorio
+Fallout 3
+Fallout 4
+Fallout: New Vegas
+Far Cry
+Far Cry 3
+FIFA 23
+Final Fantasy VII
+Final Fantasy X
+Final Fantasy XIV
+Fire Emblem: Three Houses
+Firewatch
+Five Nights at Freddy's
+Football Manager
+Forza Horizon
+Forza Horizon 5
+Frogger
+F-Zero
+Gears of War
+Genshin Impact
+Ghost of Tsushima
+God of War Ragnarök
+GoldenEye 007
+Gran Turismo
+Grand Theft Auto V
+Grand Theft Auto: San Andreas
+Grand Theft Auto: Vice City
+Gris
+Guitar Hero
+Hades
+Hades II
+Half-Life
+Half-Life 2
+Half-Life: Alyx
+Halo 3
+Halo: Combat Evolved
+Hearthstone
+Heavy Rain
+Hellblade: Senua's Sacrifice
+Helldivers 2
+Hitman
+Hogwarts Legacy
+Hollow Knight
+Horizon Zero Dawn
+Horizon Forbidden West
+Hotline Miami
+Inside
+Into the Breach
+It Takes Two
+Jak and Daxter
+Jet Set Radio
+Journey
+Just Dance
+Katamari Damacy
+Kerbal Space Program
+Kingdom Hearts
+Kirby's Dream Land
+L.A. Noire
+Left 4 Dead
+Lemmings
+Life Is Strange
+Limbo
+Little Big Planet
+Lost Ark
+Luigi's Mansion
+Mafia
+Manic Miner
+Mario Kart 8
+Mario Kart 64
+Mass Effect 2
+Max Payne
+Mega Man
+Metal Gear Solid
+Metroid Prime
+Microsoft Flight Simulator
+Missile Command
+Monkey Island
+Monster Hunter: World
+Monument Valley
+Mortal Kombat
+Ms. Pac-Man
+Myst
+NBA 2K
+Need for Speed
+NieR: Automata
+No Man's Sky
+Okami
+Ori and the Blind Forest
+Outer Wilds
+Overcooked
+Overwatch
+Papers, Please
+Paperboy
+Persona 5
+Phoenix Wright: Ace Attorney
+Pikmin
+Plants vs. Zombies
+PlayerUnknown's Battlegrounds
+Pokémon Red
+Pokémon Go
+Populous
+Portal
+Portal 2
+Prince of Persia
+Psychonauts
+Quake
+Ratchet & Clank
+Rayman
+Red Dead Redemption
+Red Dead Redemption 2
+Resident Evil 4
+Resident Evil Village
+Return of the Obra Dinn
+Rez
+Rise of the Tomb Raider
+Rocket League
+RollerCoaster Tycoon
+Rome: Total War
+RuneScape
+Sea of Thieves
+Sekiro: Shadows Die Twice
+Shadow of the Colossus
+Shenmue
+Silent Hill
+Silent Hill 2
+SimCity
+Skyrim
+Slay the Spire
+Sonic the Hedgehog 2
+Spelunky
+Spyro the Dragon
+Star Fox
+Stardew Valley
+StarCraft
+StarCraft II
+Starfield
+Street Fighter II
+Streets of Rage
+Subnautica
+Super Mario 64
+Super Mario Bros. 3
+Super Mario Galaxy
+Super Mario Odyssey
+Super Mario World
+Super Meat Boy
+Super Metroid
+Super Smash Bros.
+Syberia
+Team Fortress 2
+Tekken
+Terraria
+Tetris
+The Elder Scrolls IV: Oblivion
+The Last of Us Part II
+The Legend of Zelda: Breath of the Wild
+The Legend of Zelda: Ocarina of Time
+The Legend of Zelda: Tears of the Kingdom
+The Legend of Zelda: A Link to the Past
+The Witcher 3
+Thief
+Titanfall 2
+Tom Clancy's Rainbow Six Siege
+Tomb Raider
+Tony Hawk's Pro Skater
+Total War: Warhammer
+Tropico
+Uncharted 2
+Undertale
+Unpacking
+Valorant
+Vampire Survivors
+Viewtiful Joe
+Warcraft III
+Wii Sports
+Wipeout
+Wolfenstein 3D
+World of Goo
+World of Warcraft
+Worms
+XCOM
+Xenoblade Chronicles
+Yakuza 0
+Yoshi's Island
+Zork
+Lethal Company
+Among Us
+Fall Guys
+Palworld
+Balatro
+Black Myth: Wukong
+Clair Obscur: Expedition 33
+Split Fiction
+Animal Well
+Pentiment
+Tunic
+Sifu
+Stray
+Returnal
+Ghostrunner
+Pizza Tower
+Hi-Fi Rush
+Lies of P
+Dredge
+Cocoon
+Chants of Sennaar
+Inscryption
+Hades
+Outer Worlds
+Psychonauts 2
+Ratchet & Clank: Rift Apart
+Marvel's Spider-Man
+Marvel's Spider-Man 2
+Ghost of Yōtei
+Kingdom Come: Deliverance
+Mount & Blade
+Rimworld
+Oxygen Not Included
+Frostpunk
+This War of Mine
+Banished
+Anno 1800
+Age of Empires II
+Age of Mythology
+Company of Heroes
+Homeworld
+Supreme Commander
+Heroes of Might and Magic III
+Master of Orion
+Crusader Kings III
+Europa Universalis IV
+Hearts of Iron IV
+Stellaris
+Sid Meier's Pirates!
+Railroad Tycoon
+Theme Hospital
+Theme Park
+Dungeon Keeper
+Startopia
+Prison Architect
+Two Point Hospital
+Planet Coaster
+The Sims 2
+The Sims 4
+Spore
+Black Mesa
+System Shock
+System Shock 2
+Prey
+Dishonored 2
+Deathloop
+Hitman 3
+Splinter Cell
+Ghost Recon
+The Division
+Far Cry 5
+Watch Dogs
+Saints Row
+Just Cause 2
+Sleeping Dogs
+Mafia II
+Crackdown
+Dead Rising
+Lollipop Chainsaw
+No More Heroes
+Okami HD
+Vanquish
+Metal Gear Rising: Revengeance
+Ninja Gaiden
+Nioh
+Dragon's Dogma
+Monster Hunter Rise
+Final Fantasy XVI
+Final Fantasy VII Remake
+Final Fantasy VI
+Final Fantasy IX
+Dragon Quest XI
+Persona 4 Golden
+Persona 3
+Tales of Arise
+Ni no Kuni
+Octopath Traveler
+Xenoblade Chronicles 3
+Fire Emblem: Awakening
+Advance Wars
+Golden Sun
+Paper Mario
+Mario & Luigi: Superstar Saga
+Kirby and the Forgotten Land
+Metroid Dread
+Splatoon
+Splatoon 3
+Pikmin 4
+Donkey Kong Country Returns
+Super Mario Wonder
+Bayonetta 3
+Xenogears
+Suikoden II
+Vagrant Story
+Parasite Eve
+Legend of Dragoon
+Crash Bandicoot
+Medievil
+Ape Escape
+Gran Turismo 7
+Twisted Metal
+Sly Cooper
+Ico
+The Last Guardian
+Killzone
+Resistance: Fall of Man
+Infamous
+Until Dawn
+Detroit: Become Human
+Beyond: Two Souls
+Days Gone
+Death Stranding 2
+Uncharted 4
+The Order: 1886
+Sackboy: A Big Adventure
+Gravity Rush
+LittleBigPlanet 2
+Dreams
+Halo Infinite
+Halo 2
+Gears 5
+Fable II
+Perfect Dark
+Banjo-Kazooie: Nuts & Bolts
+Viva Piñata
+Kameo
+Blue Dragon
+Lost Odyssey
+Alan Wake's American Nightmare
+Quantum Break
+State of Decay
+Grounded
+Ori and the Will of the Wisps
+Forza Motorsport
+Microsoft Solitaire
+Minesweeper
+Space Cadet
+SkiFree
+Doom II
+Heretic
+Hexen
+Duke Nukem 3D
+Unreal Tournament
+Serious Sam
+Painkiller
+F.E.A.R.
+Half-Life 2: Episode Two
+Counter-Strike 2
+Day of Defeat
+Medal of Honor
+Call of Duty 4: Modern Warfare
+Battlefield: Bad Company 2
+Rainbow Six
+Arma 3
+Escape from Tarkov
+Rust
+Ark: Survival Evolved
+Valheim
+Don't Starve
+The Forest
+Raft
+Grounded
+Phasmophobia
+Dead by Daylight
+Left 4 Dead 2
+Back 4 Blood
+Deep Rock Galactic
+Payday 2
+GTA Online
+Fortnite
+Roblox
+Minecraft

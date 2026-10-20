@@ -1,0 +1,375 @@
+# More stage and film musicals. Written by hand.
+A Chorus Line
+A Little Night Music
+Aladdin
+Allegiance
+All Shook Up
+Amélie
+American Idiot
+An American in Paris
+Annie
+Annie Get Your Gun
+Anastasia
+Anything Goes
+Aspects of Love
+Avenue Q
+Back to the Future
+Bandstand
+Barnum
+Beautiful: The Carole King Musical
+Bat Out of Hell
+Be More Chill
+Bells Are Ringing
+Big
+Big Fish
+Billy Elliot
+Blood Brothers
+Bonnie & Clyde
+Book of Mormon
+Brigadoon
+Bring It On
+Bugsy Malone
+Bye Bye Birdie
+Cabaret
+Calamity Jane
+Camelot
+Can-Can
+Carmen Jones
+Carrie
+Catch Me If You Can
+Cats
+Chess
+Chicago
+Chitty Chitty Bang Bang
+City of Angels
+Come From Away
+Company
+Crazy for You
+Damn Yankees
+Dear Evan Hansen
+Dirty Dancing
+Dreamgirls
+Elf
+Evita
+Fame
+Falsettos
+Finding Neverland
+Flashdance
+Follies
+Footloose
+Frozen
+Frankenstein
+Fun Home
+Funny Girl
+Ghost
+Godspell
+Grand Hotel
+Grease
+Guys and Dolls
+Gypsy
+Hadestown
+Hair
+Hairspray
+Half a Sixpence
+Hamilton
+Heathers
+Hedwig and the Angry Inch
+Hello, Dolly!
+High School Musical
+How to Succeed in Business Without Really Trying
+In the Heights
+Into the Woods
+Jersey Boys
+Jesus Christ Superstar
+Joseph and the Amazing Technicolor Dreamcoat
+Kinky Boots
+Kiss Me, Kate
+La Cage aux Folles
+Legally Blonde
+Les Misérables
+Little Shop of Horrors
+Mamma Mia!
+Mary Poppins
+Matilda
+Me and My Girl
+Mean Girls
+Memphis
+Merrily We Roll Along
+Miss Saigon
+Moulin Rouge!
+Next to Normal
+Newsies
+Oklahoma!
+Oliver!
+On the Town
+Once on This Island
+Paint Your Wagon
+Pal Joey
+Passion
+Phantom of the Opera
+Pippin
+Porgy and Bess
+Priscilla, Queen of the Desert
+Rent
+Rock of Ages
+School of Rock
+Scrooge
+Seussical
+Shrek the Musical
+Show Boat
+Singin' in the Rain
+Six
+Something Rotten!
+Sound of Music
+South Pacific
+Spamalot
+Spring Awakening
+Starlight Express
+Sunday in the Park with George
+Sunset Boulevard
+Sweeney Todd
+Sweet Charity
+Tarzan
+The Boy from Oz
+The Drowsy Chaperone
+The Full Monty
+The Lion King
+The Music Man
+The Producers
+The Rocky Horror Show
+The Secret Garden
+The Wiz
+The Woman in White
+Thoroughly Modern Millie
+Tommy
+Top Hat
+Waitress
+West Side Story
+Wicked
+Wonderful Town
+Xanadu
+Young Frankenstein
+& Juliet
+9 to 5
+Aida
+Ain't Misbehavin'
+Ain't Too Proud
+Beetlejuice
+Bright Star
+Charlie and the Chocolate Factory
+Children of Eden
+Cinderella
+Cyrano
+Dogfight
+Fiddler on the Roof
+Fiorello!
+Flower Drum Song
+42nd Street
+Gigi
+Girl from the North Country
+Hamilton
+Jagged Little Pill
+Kimberly Akimbo
+King Kong
+Kiss of the Spider Woman
+Lady in the Dark
+Light in the Piazza
+Little Women
+Love Never Dies
+MJ the Musical
+Mack and Mabel
+Man of La Mancha
+Million Dollar Quartet
+Mame
+Mrs Doubtfire
+Natasha, Pierre & The Great Comet of 1812
+Oh, Kay!
+On Your Feet!
+Once
+Parade
+Pacific Overtures
+Peter Pan
+Pirates of Penzance
+Pretty Woman
+Purlie
+Ragtime
+Shuffle Along
+She Loves Me
+Shrek
+Side Show
+Sister Act
+Some Like It Hot
+Stephen Ward
+Strictly Ballroom
+Suffs
+Sunny Afternoon
+Sweet Smell of Success
+Tina
+The Bodyguard
+The Color Purple
+The King and I
+The Last Five Years
+The Light in the Piazza
+The Mystery of Edwin Drood
+The Pajama Game
+The Scottsboro Boys
+The Unsinkable Molly Brown
+Thrill Me
+Titanic
+Urinetown
+We Will Rock You
+Whistle Down the Wind
+White Christmas
+Wonka
+Zorro
+Back to the Future: The Musical
+Everybody's Talking About Jamie
+Operation Mincemeat
+Standing at the Sky's Edge
+Kathy and Stella Solve a Murder!
+The Great Gatsby
+Hercules
+Moulin Rouge
+Top Hat
+Fisherman's Friends
+Bonnie and Clyde
+Frozen the Musical
+Mary Poppins Returns
+The Greatest Showman
+La La Land
+Les Misérables (film)
+Into the Woods (film)
+Annie (1982)
+Grease 2
+Saturday Night Fever
+Footloose (film)
+Fame (film)
+The Blues Brothers
+Rocketman
+Purple Rain
+Yentl
+Funny Lady
+Hello Dolly
+The Sound of Music
+My Fair Lady
+Mary Poppins
+Chitty Chitty Bang Bang
+Bedknobs and Broomsticks
+Thoroughly Modern Millie
+Doctor Dolittle
+Scrooge (1970)
+Oliver
+Half a Sixpence
+Finian's Rainbow
+Paint Your Wagon
+Sweet Charity
+Cabaret
+Fiddler on the Roof
+Jesus Christ Superstar
+Godspell
+Tommy
+The Wiz
+Hair
+Xanadu
+Annie
+Little Shop of Horrors
+A Star Is Born
+Dreamgirls
+Hairspray
+Mamma Mia! Here We Go Again
+Nine
+Burlesque
+Pitch Perfect
+Sing Street
+The Greatest Showman
+Encanto
+Moana
+Coco
+The Little Mermaid
+Beauty and the Beast
+Tangled
+Aladdin
+Pocahontas
+Mulan
+The Jungle Book
+The Muppet Movie
+The Muppets
+Enchanted
+Wicked (film)
+Emilia Pérez
+Tick, Tick... Boom!
+In the Heights (film)
+West Side Story (2021)
+Dear Evan Hansen (film)
+The Prom
+Cats (film)
+Rent (film)
+The Phantom of the Opera (film)
+Evita (film)
+Chicago (film)
+Moulin Rouge! (film)
+Everyone Says I Love You
+Dancer in the Dark
+Hedwig and the Angry Inch (film)
+Mamma Mia! (film)
+Meet Me in St. Louis
+The Wizard of Oz
+Singin' in the Rain
+An American in Paris (film)
+Gigi (film)
+Kiss Me Kate (film)
+Seven Brides for Seven Brothers
+Oklahoma! (film)
+Carousel (film)
+The King and I (film)
+South Pacific (film)
+Guys and Dolls (film)
+High Society
+Funny Face
+Easter Parade
+The Band Wagon
+Top Hat (film)
+Swing Time
+Shall We Dance
+42nd Street (film)
+Gold Diggers of 1933
+Footlight Parade
+The Jazz Singer
+Show Boat (film)
+Holiday Inn
+Yankee Doodle Dandy
+On the Town (film)
+Calamity Jane (film)
+Gentlemen Prefer Blondes
+There's No Business Like Show Business
+White Christmas (film)
+Damn Yankees (film)
+Pal Joey (film)
+Bye Bye Birdie (film)
+The Music Man (film)
+Gypsy (film)
+Camelot (film)
+How to Succeed in Business (film)
+Hello, Dolly! (film)
+Paint Your Wagon (film)
+Victor/Victoria
+The Little Prince
+Willy Wonka & the Chocolate Factory
+Grease (film)
+Hair (film)
+The Rocky Horror Picture Show
+Pink Floyd – The Wall
+Absolute Beginners
+Labyrinth
+The Nightmare Before Christmas
+Corpse Bride
+Sweeney Todd: The Demon Barber of Fleet Street
+Across the Universe
+Bend It Like Beckham
+Les Parapluies de Cherbourg
+The Umbrellas of Cherbourg
+The Young Girls of Rochefort
+Lagaan
+Dilwale Dulhania Le Jayenge
+Kabhi Khushi Kabhie Gham
+Devdas
