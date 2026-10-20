@@ -50,6 +50,17 @@ export function fromTiers(tiered: TieredExtras): ExtraAnswers {
   return out;
 }
 
+/** The forms answer matching treats as one (spacing and simple plurals), so two answers never share a spelling. */
+function keys(spelling: string): string[] {
+  const t = normalize(spelling).replace(/ /g, '');
+  if (!t) return [];
+  const out = new Set([t]);
+  if (t.endsWith('ies') && t.length > 4) out.add(t.slice(0, -3) + 'y');
+  if (t.endsWith('es') && t.length > 4) out.add(t.slice(0, -2));
+  if (t.endsWith('s') && t.length > 3) out.add(t.slice(0, -1));
+  return [...out];
+}
+
 function spellings(raw: string): string[] {
   const [name, , aliases] = raw.split('|');
   return [name, ...(aliases ? aliases.split(';') : [])].map((s) => normalize(s)).filter(Boolean);
@@ -79,18 +90,21 @@ export function withExtras(seeds: PromptSeed[], extras: ExtraAnswers): PromptSee
     const more = extras[seed.id];
     if (!more?.length) return seed;
     const taken = new Set<string>();
-    for (const a of seed.answers) for (const s of spellings(a)) taken.add(s);
+    for (const a of seed.answers) for (const s of spellings(a)) for (const k of keys(s)) taken.add(k);
+    const isTaken = (spelling: string) => keys(spelling).some((k) => taken.has(k));
+    const take = (spelling: string) => keys(spelling).forEach((k) => taken.add(k));
     const added: string[][] = [];
     for (const raw of more) {
       const names = spellings(raw);
-      if (!names.length || taken.has(names[0])) continue;
+      if (!names.length || isTaken(names[0])) continue;
       // Drop aliases another answer already owns, so a spelling never points at two answers.
       const [name, score, aliases] = clampScore(raw).split('|');
       const ownAliases = (aliases ? aliases.split(';') : []).map((a) => a.trim()).filter((a) => {
-        const k = normalize(a);
-        return k && !taken.has(k);
+        if (!normalize(a) || isTaken(a)) return false;
+        take(a);
+        return true;
       });
-      for (const s of [normalize(name), ...ownAliases.map((a) => normalize(a))]) taken.add(s);
+      take(name);
       added.push([name, score, ...ownAliases]);
     }
     if (PEOPLE.has(seed.id)) {
@@ -102,9 +116,9 @@ export function withExtras(seeds: PromptSeed[], extras: ExtraAnswers): PromptSee
       }
       for (const entry of added) {
         const s = surnameOf(entry[0]);
-        if (s && count.get(s) === 1 && !taken.has(s)) {
+        if (s && count.get(s) === 1 && !isTaken(s)) {
           entry.push(s);
-          taken.add(s);
+          take(s);
         }
       }
     }
