@@ -56,6 +56,7 @@ Beyond the hand-written core in `src/data/prompts/`, extra answers are plain lis
 
 - `*.hand.txt`: written by hand.
 - `*.data.txt`: open datasets via `scripts/answers/fetch_sources.py` (dariusk/corpora, CC0; GeoNames; PokeAPI).
+- `*.corpora.txt`: dariusk/corpora (CC0) via `scripts/answers/from_corpora.py`: the Wikipedia lists of colours, cheeses and programming languages, IBA cocktails, herbs and spices, gods and monsters.
 - `*.wordnet.txt`: Princeton WordNet 3.0 via `scripts/answers/from_wordnet.py`, which takes every kind of thing (or named person or place) WordNet files under a category and filters out group labels, Latin names, vulgar words and off-topic senses.
 
 WordNet licence notice: *WordNet 3.0 Copyright 2006 by Princeton University. All rights reserved. THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND PRINCETON UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. BY WAY OF EXAMPLE, BUT NOT LIMITATION, PRINCETON UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES OF MERCHANT- ABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE, DATABASE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. The name of Princeton University or Princeton may not be used in advertising or publicity pertaining to distribution of the software and/or database.* (Full licence: https://wordnet.princeton.edu/license-and-commercial-use; commercial use is permitted.)
