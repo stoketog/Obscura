@@ -1,0 +1,326 @@
+# More philosophers. Written by hand.
+Thales
+Anaximander
+Anaximenes
+Pythagoras
+Heraclitus
+Parmenides
+Zeno of Elea
+Empedocles
+Anaxagoras
+Democritus
+Leucippus
+Protagoras
+Gorgias
+Socrates
+Plato
+Aristotle
+Diogenes
+Antisthenes
+Epicurus
+Zeno of Citium
+Chrysippus
+Cleanthes
+Pyrrho
+Sextus Empiricus
+Plotinus
+Porphyry
+Proclus
+Hypatia
+Seneca
+Epictetus
+Marcus Aurelius
+Cicero
+Lucretius
+Boethius
+Augustine of Hippo
+Anselm of Canterbury
+Peter Abelard
+Thomas Aquinas
+Duns Scotus
+William of Ockham
+Roger Bacon
+Albertus Magnus
+Bonaventure
+Meister Eckhart
+Nicholas of Cusa
+Avicenna|Ibn Sina
+Averroes|Ibn Rushd
+Al-Farabi
+Al-Kindi
+Al-Ghazali
+Ibn Khaldun
+Maimonides
+Confucius
+Mencius
+Laozi
+Zhuangzi
+Mozi
+Xunzi
+Han Feizi
+Zhu Xi
+Wang Yangming
+Nagarjuna
+Adi Shankara
+Ramanuja
+Chanakya
+Dōgen
+Nishida Kitarō
+Niccolò Machiavelli
+Erasmus
+Thomas More
+Michel de Montaigne
+Francis Bacon
+Thomas Hobbes
+René Descartes
+Blaise Pascal
+Baruch Spinoza
+John Locke
+Gottfried Wilhelm Leibniz
+Nicolas Malebranche
+George Berkeley
+David Hume
+Adam Smith
+Voltaire
+Jean-Jacques Rousseau
+Montesquieu
+Denis Diderot
+Immanuel Kant
+Johann Gottlieb Fichte
+Friedrich Schelling
+Georg Wilhelm Friedrich Hegel
+Arthur Schopenhauer
+Søren Kierkegaard
+Ludwig Feuerbach
+Karl Marx
+Friedrich Engels
+John Stuart Mill
+Jeremy Bentham
+Auguste Comte
+Herbert Spencer
+Friedrich Nietzsche
+Charles Sanders Peirce
+William James
+John Dewey
+Josiah Royce
+George Santayana
+Henri Bergson
+Edmund Husserl
+Gottlob Frege
+Bertrand Russell
+G. E. Moore
+Alfred North Whitehead
+Ludwig Wittgenstein
+Martin Heidegger
+Karl Jaspers
+Jean-Paul Sartre
+Simone de Beauvoir
+Albert Camus
+Maurice Merleau-Ponty
+Emmanuel Levinas
+Hannah Arendt
+Simone Weil
+Edith Stein
+Max Scheler
+Ernst Cassirer
+Walter Benjamin
+Theodor Adorno
+Max Horkheimer
+Herbert Marcuse
+Jürgen Habermas
+Antonio Gramsci
+Georg Lukács
+Louis Althusser
+Michel Foucault
+Jacques Derrida
+Gilles Deleuze
+Félix Guattari
+Jean Baudrillard
+Jean-François Lyotard
+Roland Barthes
+Julia Kristeva
+Luce Irigaray
+Hélène Cixous
+Paul Ricœur
+Hans-Georg Gadamer
+Karl Popper
+Thomas Kuhn
+Paul Feyerabend
+Imre Lakatos
+Rudolf Carnap
+Moritz Schlick
+A. J. Ayer
+Gilbert Ryle
+J. L. Austin
+P. F. Strawson
+W. V. O. Quine
+Donald Davidson
+Hilary Putnam
+Saul Kripke
+David Lewis
+John Rawls
+Robert Nozick
+Isaiah Berlin
+Elizabeth Anscombe
+Philippa Foot
+Iris Murdoch
+Mary Midgley
+Bernard Williams
+Derek Parfit
+Peter Singer
+Martha Nussbaum
+Judith Butler
+Thomas Nagel
+John Searle
+Daniel Dennett
+David Chalmers
+Noam Chomsky
+Richard Rorty
+Alasdair MacIntyre
+Charles Taylor
+Michael Sandel
+Slavoj Žižek
+Alain Badiou
+Giorgio Agamben
+Byung-Chul Han
+Kwame Anthony Appiah
+Cornel West
+Frantz Fanon
+W. E. B. Du Bois
+Angela Davis
+bell hooks
+Mary Wollstonecraft
+Margaret Cavendish
+Anne Conway
+Damaris Masham
+Harriet Taylor Mill
+Edmund Burke
+Thomas Paine
+Thomas Reid
+Francis Hutcheson
+Joseph Butler
+Shaftesbury
+Giambattista Vico
+Johann Gottfried Herder
+Moses Mendelssohn
+Friedrich Schleiermacher
+Franz Brentano
+Wilhelm Dilthey
+Ernst Mach
+Henri Poincaré
+Pierre Duhem
+Gaston Bachelard
+Alexandre Kojève
+Jean Hyppolite
+Georges Bataille
+Emil Cioran
+Miguel de Unamuno
+José Ortega y Gasset
+Benedetto Croce
+Giovanni Gentile
+Vladimir Solovyov
+Nikolai Berdyaev
+Mikhail Bakhtin
+Alexander Herzen
+Ayn Rand
+Rabindranath Tagore
+Sri Aurobindo
+Jiddu Krishnamurti
+Swami Vivekananda
+Sarvepalli Radhakrishnan
+B. R. Ambedkar
+Al-Razi
+Mulla Sadra
+Suhrawardi
+Ibn Arabi
+Ibn Tufail
+Ibn Bajjah
+Hasdai Crescas
+Judah Halevi
+Martin Buber
+Franz Rosenzweig
+Leo Strauss
+Eric Voegelin
+Karl Löwith
+Hans Jonas
+Günther Anders
+Ernst Bloch
+Erich Fromm
+Axel Honneth
+Peter Sloterdijk
+Markus Gabriel
+Bruno Latour
+Michel Serres
+Jacques Rancière
+Étienne Balibar
+Catherine Malabou
+Quentin Meillassoux
+Graham Harman
+Timothy Morton
+Donna Haraway
+Rosi Braidotti
+Nancy Fraser
+Iris Marion Young
+Susan Haack
+Ruth Millikan
+Patricia Churchland
+Paul Churchland
+Jerry Fodor
+Ned Block
+Frank Jackson
+David Armstrong
+J. J. C. Smart
+Bernard Bosanquet
+F. H. Bradley
+T. H. Green
+J. M. E. McTaggart
+Henry Sidgwick
+William Whewell
+John Henry Newman
+Ralph Waldo Emerson
+Henry David Thoreau
+Mary Astell
+Hugo Grotius
+Samuel von Pufendorf
+Jean Bodin
+Pierre Bayle
+Pierre Gassendi
+Marin Mersenne
+Antoine Arnauld
+Bernard de Mandeville
+Anthony Collins
+John Toland
+Julien Offray de La Mettrie
+Baron d'Holbach
+Claude Adrien Helvétius
+Condorcet
+Étienne Bonnot de Condillac
+Jean le Rond d'Alembert
+Joseph de Maistre
+Alexis de Tocqueville
+Benjamin Constant
+Max Stirner
+Pierre-Joseph Proudhon
+Mikhail Bakunin
+Peter Kropotkin
+Emma Goldman
+Rosa Luxemburg
+Zhang Zai
+Cheng Yi
+Cheng Hao
+Dong Zhongshu
+Wang Chong
+Gongsun Long
+Hui Shi
+Yang Zhu
+Huineng
+Bodhidharma
+Linji
+Kūkai
+Shinran
+Hakuin
+Ogyū Sorai
+Motoori Norinaga
+Watsuji Tetsurō
+Tanabe Hajime
+Nishitani Keiji

@@ -1,0 +1,421 @@
+# More explorers, navigators, mountaineers and astronauts. Written by hand.
+Christopher Columbus
+Ferdinand Magellan
+Vasco da Gama
+Bartolomeu Dias
+Amerigo Vespucci
+John Cabot
+Sebastian Cabot
+Jacques Cartier
+Samuel de Champlain
+Henry Hudson
+Giovanni da Verrazzano
+Hernán Cortés
+Francisco Pizarro
+Francisco de Orellana
+Vasco Núñez de Balboa
+Juan Ponce de León
+Hernando de Soto
+Francisco Vázquez de Coronado
+Álvar Núñez Cabeza de Vaca
+Juan Sebastián Elcano
+Pedro Álvares Cabral
+Prince Henry the Navigator
+Diogo Cão
+Gil Eanes
+Abel Tasman
+Willem Janszoon
+Dirk Hartog
+Willem Barentsz
+James Cook
+William Bligh
+George Vancouver
+Matthew Flinders
+George Bass
+William Dampier
+Francis Drake
+Walter Raleigh
+Martin Frobisher
+John Davis
+William Baffin
+Thomas Button
+John Franklin
+James Clark Ross
+John Ross
+William Edward Parry
+Robert McClure
+Francis Leopold McClintock
+John Rae
+Robert Falcon Scott
+Ernest Shackleton
+Roald Amundsen
+Fridtjof Nansen
+Otto Sverdrup
+Robert Peary
+Matthew Henson
+Frederick Cook
+Richard E. Byrd
+Douglas Mawson
+Edward Wilson
+Lawrence Oates
+Tom Crean
+Frank Wild
+Frank Worsley
+Apsley Cherry-Garrard
+Carsten Borchgrevink
+Adrien de Gerlache
+Jean-Baptiste Charcot
+Jules Dumont d'Urville
+Louis Antoine de Bougainville
+Jean-François de La Pérouse
+Nicolas Baudin
+Vitus Bering
+Semyon Dezhnev
+Yerofey Khabarov
+Fabian Gottlieb von Bellingshausen
+Mikhail Lazarev
+Adam Johann von Krusenstern
+Nikolai Przhevalsky
+Pyotr Semyonov-Tyan-Shansky
+Marco Polo
+Ibn Battuta
+Zheng He
+Xuanzang
+Faxian
+Zhang Qian
+Leif Erikson
+Erik the Red
+Bjarni Herjólfsson
+Thorfinn Karlsefni
+Gudríd Thorbjarnardóttir
+Pytheas
+Hanno the Navigator
+Himilco
+Nearchus
+Saint Brendan
+William of Rubruck
+Giovanni da Pian del Carpine
+Odoric of Pordenone
+Afanasy Nikitin
+Ahmad ibn Fadlan
+Al-Idrisi
+Ibn Jubayr
+David Livingstone
+Henry Morton Stanley
+Richard Francis Burton
+John Hanning Speke
+James Augustus Grant
+Samuel Baker
+Florence Baker
+Mungo Park
+Hugh Clapperton
+Richard Lander
+Heinrich Barth
+Gustav Nachtigal
+Gerhard Rohlfs
+René Caillié
+Alexandrine Tinné
+Mary Kingsley
+Isabella Bird
+Gertrude Bell
+Freya Stark
+Isabelle Eberhardt
+Alexandra David-Néel
+Ida Pfeiffer
+Jeanne Baret
+Nellie Bly
+Amelia Earhart
+Charles Lindbergh
+Bessie Coleman
+Amy Johnson
+Beryl Markham
+Wilfred Thesiger
+T. E. Lawrence|Lawrence of Arabia
+Johann Ludwig Burckhardt
+Charles Doughty
+Bertram Thomas
+St John Philby
+Sven Hedin
+Aurel Stein
+Francis Younghusband
+Nain Singh
+Ippolito Desideri
+Alexander von Humboldt
+Aimé Bonpland
+Charles Darwin
+Alfred Russel Wallace
+Henry Walter Bates
+Richard Spruce
+Joseph Banks
+Daniel Solander
+Charles Marie de La Condamine
+Percy Fawcett
+Hiram Bingham
+Cândido Rondon
+Theodore Roosevelt
+Meriwether Lewis
+William Clark
+Sacagawea
+Zebulon Pike
+John C. Frémont
+Jedediah Smith
+Daniel Boone
+Kit Carson
+John Wesley Powell
+Alexander Mackenzie
+Simon Fraser
+David Thompson
+Samuel Hearne
+Pierre-Esprit Radisson
+René-Robert Cavelier de La Salle
+Jacques Marquette
+Louis Jolliet
+Étienne Brûlé
+Robert O'Hara Burke
+William John Wills
+John McDouall Stuart
+Ludwig Leichhardt
+Edward John Eyre
+Charles Sturt
+Hamilton Hume
+William Hovell
+Gregory Blaxland
+John Oxley
+Thomas Mitchell
+Edmund Hillary
+Tenzing Norgay
+George Mallory
+Andrew Irvine
+Reinhold Messner
+Junko Tabei
+Chris Bonington
+Doug Scott
+Ed Viesturs
+Jerzy Kukuczka
+Wanda Rutkiewicz
+Kurt Diemberger
+Hermann Buhl
+Walter Bonatti
+Maurice Herzog
+Lionel Terray
+Edward Whymper
+Albert Mummery
+Nirmal Purja
+Ranulph Fiennes
+Robert Swan
+Børge Ousland
+Liv Arnesen
+Ann Bancroft
+Ben Saunders
+Felicity Aston
+Thor Heyerdahl
+Jacques Cousteau
+Jacques Piccard
+Don Walsh
+James Cameron
+Sylvia Earle
+Robert Ballard
+William Beebe
+Auguste Piccard
+Bertrand Piccard
+Steve Fossett
+Yuri Gagarin
+Valentina Tereshkova
+Alexei Leonov
+John Glenn
+Alan Shepard
+Neil Armstrong
+Buzz Aldrin
+Michael Collins
+Pete Conrad
+Alan Bean
+Jim Lovell
+Gene Cernan
+Harrison Schmitt
+John Young
+Charles Duke
+David Scott
+James Irwin
+Edgar Mitchell
+Stuart Roosa
+Al Worden
+Ken Mattingly
+Jack Swigert
+Fred Haise
+Frank Borman
+William Anders
+Gus Grissom
+Ed White
+Roger Chaffee
+Sally Ride
+Mae Jemison
+Eileen Collins
+Christa McAuliffe
+Helen Sharman
+Tim Peake
+Chris Hadfield
+Peggy Whitson
+Scott Kelly
+Christina Koch
+Jessica Meir
+Samantha Cristoforetti
+Thomas Pesquet
+Sergei Krikalev
+Valeri Polyakov
+Svetlana Savitskaya
+Yang Liwei
+Wang Yaping
+Kalpana Chawla
+Rakesh Sharma
+Ilan Ramon
+Koichi Wakata
+Andreas Mogensen
+Ernst Messerschmid
+Ulf Merbold
+Jean-Loup Chrétien
+Vladimir Komarov
+Gherman Titov
+Pavel Belyayev
+Mike Massimino
+Jean Malaurie
+Knud Rasmussen
+Peter Freuchen
+Lauge Koch
+Ejnar Mikkelsen
+Salomon August Andrée
+Umberto Nobile
+Lincoln Ellsworth
+Hubert Wilkins
+Vivian Fuchs
+Wally Herbert
+Paul Siple
+Finn Ronne
+Edith Ronne
+Jennie Darlington
+Nobu Shirase
+Erich von Drygalski
+Wilhelm Filchner
+Otto Nordenskjöld
+Adolf Erik Nordenskiöld
+Eric Shipton
+Bill Tilman
+Frank Smythe
+Edward Norton
+Noel Odell
+Henry Morshead
+Pierre Savorgnan de Brazza
+Hermenegildo Capelo
+Roberto Ivens
+Serpa Pinto
+Joseph Thomson
+Verney Lovett Cameron
+Count Teleki
+Ludwig von Höhnel
+Vittorio Bottego
+Pellegrino Matteucci
+Giovanni Battista Belzoni
+James Bruce
+Johann Ludwig Krapf
+Johannes Rebmann
+Juan Rodríguez Cabrillo
+Sebastián Vizcaíno
+Juan de Fuca
+Álvaro de Mendaña
+Pedro Fernandes de Queirós
+Luis Váez de Torres
+Jacob Le Maire
+Willem Schouten
+Jacob Roggeveen
+Samuel Wallis
+Philip Carteret
+John Byron
+Tobias Furneaux
+Charles Clerke
+James King
+Otto von Kotzebue
+Yuri Lisyansky
+Gennady Nevelskoy
+Ferdinand von Wrangel
+Eduard Toll
+Georgy Sedov
+Valerian Albanov
+Alexander Kolchak
+Ivan Papanin
+Nikolai Miklukho-Maklai
+Vladimir Arsenyev
+Pyotr Kozlov
+Grigory Potanin
+Ella Maillart
+Peter Fleming
+Annie Smith Peck
+Fanny Bullock Workman
+Delia Akeley
+Osa Johnson
+Martin Johnson
+Carl Akeley
+Roy Chapman Andrews
+Henri Lhote
+Théodore Monod
+Ahmed Hassanein
+Rosita Forbes
+Paul du Chaillu
+Jean-Baptiste Marchand
+Louis-Gustave Binger
+Fernand Foureau
+Hugh Ruttledge
+Ralph Bagnold
+László Almásy
+Wilfred Thesiger
+Ibn Hawqal
+Al-Masudi
+Leo Africanus
+Evliya Çelebi
+Benjamin of Tudela
+Rabban Bar Sauma
+Jordan Catalani
+John de Marignolli
+Niccolò de' Conti
+Pêro da Covilhã
+Bento de Góis
+Antonio de Andrade
+Matteo Ricci
+Johann Grueber
+Albert d'Orville
+Jean-Baptiste Tavernier
+François Bernier
+Engelbert Kaempfer
+Carl Peter Thunberg
+Philipp Franz von Siebold
+Ernest Satow
+Marianne North
+Margaret Fountaine
+Kate Marsden
+Lady Hester Stanhope
+Jane Digby
+Lady Anne Blunt
+Wilfrid Scawen Blunt
+William Gifford Palgrave
+Carsten Niebuhr
+Ulrich Jasper Seetzen
+Austen Henry Layard
+Henry Rawlinson
+Gertrude Bell
+Pánfilo de Narváez
+Hernando de Alarcón
+Juan de Oñate
+Juan Bautista de Anza
+Junípero Serra
+Gaspar de Portolá
+Eusebio Kino
+Francisco Garcés
+Silvestre Vélez de Escalante
+Jean Nicolet
+Pierre Gaultier de La Vérendrye
+Henry Kelsey
+Anthony Henday
+Peter Pond
+John Palliser
+Henry Youle Hind
+Joseph Burr Tyrrell
+Vilhjalmur Stefansson
+Knud Rasmussen

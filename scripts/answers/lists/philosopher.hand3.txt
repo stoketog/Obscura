@@ -1,0 +1,182 @@
+# More philosophers. Written by hand.
+Xenophanes
+Melissus of Samos
+Archytas
+Philolaus
+Prodicus
+Hippias
+Thrasymachus
+Critias
+Aristippus
+Euclid of Megara
+Diodorus Cronus
+Stilpo
+Crates of Thebes
+Hipparchia of Maroneia
+Menippus
+Theophrastus
+Strato of Lampsacus
+Speusippus
+Xenocrates
+Arcesilaus
+Carneades
+Panaetius
+Posidonius
+Musonius Rufus
+Philo of Alexandria
+Plutarch
+Alexander of Aphrodisias
+Iamblichus
+Damascius
+Simplicius
+John Philoponus
+Pseudo-Dionysius
+John Scotus Eriugena
+Boethius of Dacia
+Siger of Brabant
+Robert Grosseteste
+Peter Lombard
+Hugh of Saint Victor
+Bernard of Clairvaux
+Hildegard of Bingen
+Marsilius of Padua
+Jean Buridan
+Nicole Oresme
+Ramon Llull
+Marsilio Ficino
+Pico della Mirandola
+Giordano Bruno
+Tommaso Campanella
+Pietro Pomponazzi
+Francisco Suárez
+Bartolomé de las Casas
+Francisco de Vitoria
+Juan Luis Vives
+Hugo Grotius
+Christian Wolff
+Alexander Baumgarten
+Johann Georg Hamann
+Friedrich Heinrich Jacobi
+Karl Leonhard Reinhold
+Salomon Maimon
+Friedrich Schlegel
+Wilhelm von Humboldt
+Johann Friedrich Herbart
+Hermann Lotze
+Gustav Fechner
+Eduard von Hartmann
+Friedrich Albert Lange
+Hermann Cohen
+Paul Natorp
+Wilhelm Windelband
+Heinrich Rickert
+Georg Simmel
+Max Weber
+Ferdinand Tönnies
+Alexius Meinong
+Kazimierz Twardowski
+Alfred Tarski
+Jan Łukasiewicz
+Stanisław Leśniewski
+Roman Ingarden
+Leszek Kołakowski
+Jan Patočka
+Karel Kosík
+Ágnes Heller
+Otto Neurath
+Hans Reichenbach
+Carl Hempel
+Herbert Feigl
+Friedrich Waismann
+Kurt Gödel
+Frank Ramsey
+C. D. Broad
+R. G. Collingwood
+Michael Oakeshott
+Michael Polanyi
+Stephen Toulmin
+R. M. Hare
+Peter Geach
+Michael Dummett
+Gareth Evans
+John McDowell
+Crispin Wright
+Timothy Williamson
+Simon Blackburn
+Onora O'Neill
+Mary Warnock
+Bernard Lonergan
+Jacques Maritain
+Étienne Gilson
+Gabriel Marcel
+Emmanuel Mounier
+Teilhard de Chardin
+Maurice Blondel
+Simone Weil
+Jean Wahl
+Vladimir Jankélévitch
+Georges Canguilhem
+Jean Cavaillès
+Michel Henry
+Jean-Luc Marion
+Jean-Luc Nancy
+Bernard Stiegler
+Paul Virilio
+Cornelius Castoriadis
+Claude Lefort
+Pierre Bourdieu
+Raymond Aron
+Henri Lefebvre
+Guy Debord
+Gianni Vattimo
+Umberto Eco
+Antonio Negri
+Norberto Bobbio
+Massimo Cacciari
+Enrique Dussel
+Paulo Freire
+José Vasconcelos
+Leopoldo Zea
+Kitaro Nishida
+Hajime Nakamura
+Kwasi Wiredu
+Paulin Hountondji
+Valentin-Yves Mudimbe
+Henry Odera Oruka
+Achille Mbembe
+Sophie Bosede Oluwole
+Ali Shariati
+Muhammad Abduh
+Jamal al-Din al-Afghani
+Mohammed Arkoun
+Seyyed Hossein Nasr
+Fazlur Rahman
+Hu Shih
+Feng Youlan
+Liang Shuming
+Mou Zongsan
+Tang Junyi
+Xiong Shili
+Li Zehou
+Kang Youwei
+Liang Qichao
+Yan Fu
+Abhinavagupta
+Gautama
+Kanada
+Kapila
+Patanjali
+Vasubandhu
+Asanga
+Dignaga
+Dharmakirti
+Chandrakirti
+Shantideva
+Madhvacharya
+Vallabha
+Nimbarka
+Bhartrhari
+Jayarashi
+Daya Krishna
+Bimal Krishna Matilal
+Amartya Sen
