@@ -1,0 +1,437 @@
+# Video games (titles and long-running series).
+Pong
+Space Invaders
+Pac-Man
+Ms. Pac-Man
+Galaga
+Galaxian
+Asteroids
+Centipede
+Defender
+Donkey Kong
+Frogger
+Q*bert
+Dig Dug
+Joust
+Missile Command
+Tempest
+Robotron: 2084
+Dragon's Lair
+Paperboy
+Gauntlet
+Rampage
+Out Run
+After Burner
+Space Harrier
+Street Fighter II
+Mortal Kombat
+Tekken
+Virtua Fighter
+Soulcalibur
+Super Smash Bros.|smash bros
+Super Mario Bros.|super mario
+Super Mario World
+Super Mario 64
+Super Mario Galaxy
+Super Mario Odyssey
+Super Mario Kart|mario kart
+Mario Kart 8
+Mario Party
+Paper Mario
+Luigi's Mansion
+Yoshi's Island
+Donkey Kong Country
+The Legend of Zelda|zelda
+Ocarina of Time
+Majora's Mask
+The Wind Waker
+Twilight Princess
+Breath of the Wild
+Tears of the Kingdom
+A Link to the Past
+Link's Awakening
+Metroid
+Super Metroid
+Metroid Prime
+Kirby's Dream Land
+Star Fox
+F-Zero
+Pikmin
+Animal Crossing
+Splatoon
+Fire Emblem
+Xenoblade Chronicles
+Kid Icarus
+Punch-Out!!
+Duck Hunt
+Excitebike
+Ice Climber
+Balloon Fight
+Wii Sports
+Wii Fit
+Brain Training
+Nintendogs
+GoldenEye 007|goldeneye
+Perfect Dark
+Banjo-Kazooie
+Conker's Bad Fur Day
+Diddy Kong Racing
+Pokémon Red and Blue|pokemon red
+Pokémon Go|pokemon go
+Pokémon Yellow
+Pokémon Gold and Silver
+Sonic the Hedgehog|sonic
+Sonic 2
+Sonic Adventure
+Streets of Rage
+Golden Axe
+Altered Beast
+Shinobi
+Phantasy Star
+Shenmue
+Crazy Taxi
+Jet Set Radio
+Yakuza|like a dragon
+Final Fantasy
+Final Fantasy VII
+Final Fantasy X
+Chrono Trigger
+Dragon Quest
+Kingdom Hearts
+Secret of Mana
+EarthBound
+Mother 3
+Persona 5
+Shin Megami Tensei
+Metal Gear Solid
+Metal Gear
+Castlevania
+Symphony of the Night
+Contra
+Silent Hill
+Resident Evil
+Devil May Cry
+Bayonetta
+Okami
+Mega Man
+Street Fighter
+Monster Hunter
+Dark Souls
+Demon's Souls
+Bloodborne
+Sekiro
+Elden Ring
+Armored Core
+Tetris
+Minecraft
+Fortnite
+Roblox
+Among Us
+Fall Guys
+Rocket League
+League of Legends
+Dota 2
+StarCraft
+Warcraft
+World of Warcraft
+Diablo
+Overwatch
+Hearthstone
+Counter-Strike
+Half-Life
+Half-Life 2
+Portal
+Portal 2
+Team Fortress 2
+Left 4 Dead
+Doom
+Quake
+Wolfenstein 3D
+Duke Nukem 3D
+Unreal Tournament
+Halo
+Gears of War
+Fable
+Forza Horizon
+Microsoft Flight Simulator
+Age of Empires
+Civilization|sid meier's civilization
+SimCity
+The Sims
+Spore
+Command & Conquer
+Red Alert
+Total War
+Crusader Kings
+Europa Universalis
+Stellaris
+XCOM
+Heroes of Might and Magic
+Baldur's Gate
+Baldur's Gate 3
+Planescape: Torment
+Neverwinter Nights
+Fallout
+Fallout: New Vegas
+The Elder Scrolls V: Skyrim|skyrim
+Oblivion
+Morrowind
+Starfield
+Mass Effect
+Dragon Age
+Knights of the Old Republic
+BioShock
+System Shock
+Deus Ex
+Dishonored
+Grand Theft Auto|gta
+Grand Theft Auto V|gta 5
+Grand Theft Auto: San Andreas|san andreas
+Grand Theft Auto: Vice City|vice city
+Red Dead Redemption
+Red Dead Redemption 2
+Max Payne
+L.A. Noire
+Bully
+Uncharted
+The Last of Us
+God of War
+Ghost of Tsushima
+Horizon Zero Dawn
+Spider-Man (PS4)|marvel's spider-man
+Ratchet & Clank
+Jak and Daxter
+Crash Bandicoot
+Spyro the Dragon|spyro
+Gran Turismo
+Tomb Raider
+Assassin's Creed
+Far Cry
+Prince of Persia
+Rayman
+Splinter Cell
+Rainbow Six Siege
+The Division
+Watch Dogs
+Just Dance
+Call of Duty
+Battlefield
+Medal of Honor
+Need for Speed
+Burnout
+FIFA|ea sports fc
+Pro Evolution Soccer|pes
+Football Manager
+Championship Manager
+Madden NFL
+NBA 2K
+Tony Hawk's Pro Skater
+SSX
+Mirror's Edge
+Dead Space
+The Witcher 3|the witcher
+Cyberpunk 2077
+Hollow Knight
+Celeste
+Hades
+Stardew Valley
+Terraria
+Undertale
+Cuphead
+Shovel Knight
+Braid
+Limbo
+Fez
+Super Meat Boy
+The Binding of Isaac
+Spelunky
+Dead Cells
+Slay the Spire
+Disco Elysium
+Outer Wilds
+Return of the Obra Dinn
+Papers, Please
+Firewatch
+Gone Home
+What Remains of Edith Finch
+Life Is Strange
+Heavy Rain
+Detroit: Become Human
+Until Dawn
+Alan Wake
+Death Stranding
+It Takes Two
+A Way Out
+Overcooked
+Cities: Skylines
+Factorio
+RimWorld
+Kerbal Space Program
+Satisfactory
+No Man's Sky
+Subnautica
+Valheim
+Rust
+DayZ
+ARK: Survival Evolved
+PUBG|playerunknown's battlegrounds
+Apex Legends
+Valorant
+Destiny
+Destiny 2
+Borderlands
+Titanfall
+Warframe
+Genshin Impact
+Honkai: Star Rail
+Clash of Clans
+Clash Royale
+Candy Crush Saga|candy crush
+Angry Birds
+Temple Run
+Subway Surfers
+Flappy Bird
+Fruit Ninja
+Plants vs. Zombies
+Cut the Rope
+Doodle Jump
+Words with Friends
+2048
+Monument Valley
+Alto's Adventure
+Lemmings
+Worms
+Sensible Soccer
+Cannon Fodder
+Jet Set Willy
+Manic Miner
+Chuckie Egg
+Dizzy
+Head Over Heels
+Knight Lore
+The Secret of Monkey Island|monkey island
+Day of the Tentacle
+Grim Fandango
+Full Throttle
+King's Quest
+Space Quest
+Leisure Suit Larry
+Myst
+Riven
+The 7th Guest
+Broken Sword
+Lemmings 2
+Theme Park
+Theme Hospital
+Dungeon Keeper
+Populous
+Black & White
+RollerCoaster Tycoon
+Zoo Tycoon
+Railroad Tycoon
+Transport Tycoon
+Frontier: Elite II
+Wing Commander
+X-Wing
+TIE Fighter
+Star Wars: Battlefront
+Jedi Knight
+Star Wars Jedi: Fallen Order
+Lego Star Wars
+Lego Batman
+Batman: Arkham Asylum
+Batman: Arkham City
+Middle-earth: Shadow of Mordor
+Hogwarts Legacy
+Pac-Man Championship Edition
+Katamari Damacy
+Shadow of the Colossus
+Ico
+The Last Guardian
+Nier: Automata
+Final Fantasy XIV
+EverQuest
+RuneScape
+Old School RuneScape
+Guild Wars
+Lord of the Rings Online
+Star Wars: The Old Republic
+Second Life
+Club Penguin
+Habbo Hotel
+Neopets
+Moshi Monsters
+FarmVille
+Bejeweled
+Peggle
+Zuma
+SkiFree
+3D Pinball: Space Cadet|space cadet pinball
+Oregon Trail|the oregon trail
+Carmen Sandiego
+Lemonade Stand
+Zork
+NetHack
+Dwarf Fortress
+Animal Crossing: New Horizons
+Mario Kart Wii
+Super Smash Bros. Ultimate
+Luigi's Mansion 3
+Astro Bot
+Ratchet & Clank: Rift Apart
+Returnal
+Sackboy
+LittleBigPlanet
+Ghost of Yōtei
+Black Myth: Wukong
+Palworld
+Helldivers 2
+Balatro
+Vampire Survivors
+Lethal Company
+Phasmophobia
+Five Nights at Freddy's
+Poppy Playtime
+Bendy and the Ink Machine
+Doki Doki Literature Club
+Omori
+Hotline Miami
+Katana Zero
+Hyper Light Drifter
+Ori and the Blind Forest
+Tunic
+Death's Door
+Sea of Thieves
+Titanfall 2
+Sunset Overdrive
+Crackdown
+Saints Row
+Sleeping Dogs
+Just Cause
+Days Gone
+Killzone
+MotorStorm
+Wipeout
+Ridge Racer
+Tekken 3
+Gran Turismo 7
+Forza Motorsport
+Project Gotham Racing
+Colin McRae Rally
+Micro Machines
+Road Rash
+Twisted Metal
+Destruction Derby
+Carmageddon
+Elite (1984)|elite dangerous
+Control (game)
+Inside (Playdead)
+Journey (thatgamecompany)
+Prey (2017)
+Thief: The Dark Project
+Mafia (series)
+Infamous (series)
+Minesweeper
+Solitaire
+Snake (Nokia)
+Wordle

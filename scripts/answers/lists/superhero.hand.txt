@@ -1,0 +1,256 @@
+# Superheroes and costumed heroes (Marvel, DC, Image, Dark Horse, manga and more).
+Superman
+Batman
+Wonder Woman
+The Flash|flash
+Green Lantern
+Aquaman
+Cyborg
+Martian Manhunter
+Green Arrow
+Black Canary
+Hawkman
+Hawkgirl
+The Atom
+Firestorm
+Zatanna
+Captain Marvel (DC)|shazam
+Shazam
+Supergirl
+Superboy
+Power Girl
+Batgirl
+Robin
+Nightwing
+Red Hood
+Red Robin
+Batwoman
+Huntress
+Oracle
+Booster Gold
+Blue Beetle
+Plastic Man
+Elongated Man
+Swamp Thing
+John Constantine|constantine
+Doctor Fate
+Spectre
+Hourman
+Wildcat
+Starman
+Stargirl
+Mister Terrific
+Doctor Mid-Nite
+Sandman
+Jay Garrick
+Wally West
+Barry Allen
+Hal Jordan
+John Stewart
+Guy Gardner
+Kyle Rayner
+Jessica Cruz
+Simon Baz
+Raven
+Starfire
+Beast Boy
+Kid Flash
+Wonder Girl
+Aqualad
+Static
+Vixen
+Steel
+Mister Miracle
+Big Barda
+Orion
+Metamorpho
+Black Lightning
+Katana
+Robotman
+Negative Man
+Crazy Jane
+Animal Man
+The Question
+Rorschach
+Nite Owl
+Silk Spectre
+Doctor Manhattan
+Spider-Man|spiderman;peter parker
+Iron Man|tony stark
+Captain America|steve rogers
+Thor
+Hulk|bruce banner;the incredible hulk
+Black Widow|natasha romanoff
+Hawkeye|clint barton
+Black Panther|t'challa
+Doctor Strange|stephen strange
+Captain Marvel|carol danvers
+Ant-Man|scott lang
+Wasp
+Scarlet Witch|wanda maximoff
+Vision
+Falcon|sam wilson
+Winter Soldier|bucky barnes
+War Machine
+Star-Lord|star lord
+Gamora
+Drax
+Rocket Raccoon|rocket
+Groot
+Mantis
+Nebula
+Shang-Chi
+Ms. Marvel|kamala khan
+She-Hulk
+Moon Knight
+Daredevil
+Jessica Jones
+Luke Cage
+Iron Fist
+Punisher
+Elektra
+Blade
+Ghost Rider
+Deadpool
+Wolverine|logan
+Cyclops
+Jean Grey|phoenix
+Storm
+Rogue
+Gambit
+Beast
+Iceman
+Angel
+Archangel
+Nightcrawler
+Colossus
+Kitty Pryde|shadowcat
+Jubilee
+Psylocke
+Bishop
+Cable
+Domino
+Professor X|charles xavier
+Emma Frost
+Havok
+Polaris
+Banshee
+Sunfire
+Forge
+Dazzler
+Magik
+Mirage
+Wolfsbane
+Cannonball
+Sunspot
+X-23|laura kinney
+Mister Fantastic|reed richards
+Invisible Woman|sue storm
+Human Torch|johnny storm
+The Thing|ben grimm
+Silver Surfer
+Nova
+Quasar
+Adam Warlock
+Captain Britain
+Black Knight
+Hercules
+Wonder Man
+Hellcat
+Tigra
+Squirrel Girl
+Spider-Woman
+Spider-Gwen|ghost-spider
+Miles Morales
+Silk
+Spider-Man 2099
+Moon Girl
+Ironheart
+America Chavez
+Kate Bishop
+Yelena Belova
+US Agent
+Sentry
+Hyperion
+Namor
+Medusa
+Black Bolt
+Crystal
+Karnak
+Quicksilver
+Northstar
+Aurora
+Shaman
+Snowbird
+Puck
+Sasquatch
+Guardian
+Captain Universe
+Power Man
+Cloak
+Dagger
+Firestar
+Speedball
+Darkhawk
+Sleepwalker
+Nighthawk
+Valkyrie
+Hellstorm
+Brother Voodoo
+Man-Thing
+Howard the Duck
+Spawn
+Invincible
+Atom Eve
+Savage Dragon
+Witchblade
+The Maxx
+Hellboy
+Abe Sapien
+The Mask
+Rocketeer
+The Phantom
+The Shadow
+Green Hornet
+Mandrake the Magician
+The Tick
+Captain Planet
+Leonardo
+Raphael
+Donatello
+Michelangelo
+He-Man
+She-Ra
+Inspector Gadget
+Danger Mouse
+Bananaman
+Super Ted
+Underdog
+Mighty Mouse
+Darkwing Duck
+Kim Possible
+Ben 10
+Mr. Incredible
+Elastigirl
+Frozone
+Violet Parr
+Dash Parr
+Megamind
+Hancock
+Kick-Ass
+Hit-Girl
+Starlight
+Queen Maeve
+Butcher|billy butcher
+Omni-Man
+All Might
+Deku|izuku midoriya
+Saitama|one punch man
+Sailor Moon
+Astro Boy
+Ultraman
+Kamen Rider
+Krrish
+Shaktimaan
+Minnal Murali
+Captain Canuck
