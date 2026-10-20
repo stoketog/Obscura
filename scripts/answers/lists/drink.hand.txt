@@ -1,0 +1,499 @@
+# Non-alcoholic drinks: soft drinks and brands, juices, teas, coffees, milk drinks and traditional drinks worldwide.
+Diet Coke|coke zero;coca cola zero
+Pepsi Max
+Cherry Coke
+Vanilla Coke
+Tab
+RC Cola|royal crown cola
+Dr Pepper Zero
+Mr Pibb|pibb xtra
+Sunkist
+Crush
+Mug Root Beer
+A&W Root Beer|a&w
+Barq's|barqs
+Big Red
+Cheerwine
+Faygo
+Shasta
+Vernors
+Canada Dry
+Schweppes
+Fever-Tree|fever tree
+Fentimans
+Belvoir
+Rubicon
+Um Bongo
+Five Alive
+Sunny D
+Tropicana
+Minute Maid
+Del Monte
+Innocent smoothie
+Ocean Spray
+Snapple
+Arizona Iced Tea|arizona
+Lipton Iced Tea
+Nestea
+Brisk
+Fuze Tea
+Honest Tea
+Vitaminwater|vitamin water
+Powerade
+Prime
+Lucozade Sport
+Relentless
+Rockstar
+Monster Energy
+Celsius
+Bang
+Reign
+Boost energy
+Emerge
+Tango Ice Blast
+Slush Puppie|slushie;slush
+Slurpee
+ICEE
+Frozen lemonade
+Pink lemonade
+Cloudy lemonade
+Traditional lemonade
+Limeade
+Cherryade
+Orangeade
+Dandelion & Burdock
+Ginger ale
+Bitter lemon
+Club soda
+Seltzer
+Sparkling water
+Mineral water
+Spring water
+Volvic
+Buxton
+Highland Spring
+Fiji Water
+Smartwater
+Voss
+Badoit
+Vichy Catalan
+Gerolsteiner
+Apollinaris
+Ferrarelle
+Acqua Panna
+LaCroix
+Bubly
+Spindrift
+Polar seltzer
+Topo Chico
+Peñafiel
+Sidral Mundet
+Sangría Señorial
+Squirt
+Fresca
+Mirinda
+Pepsi Twist
+Mountain Dew Code Red
+Mello Yello
+Surge
+Sun Drop
+Ale-8-One
+Moxie
+Dad's Root Beer
+IBC Root Beer
+Hires Root Beer
+Birch beer
+Sarsaparilla
+Kola Champagne
+Cola Champagne
+Malta
+Malta Goya
+Ironbeer
+Materva
+Jupiña
+Inca Kola
+Guaraná|guarana antarctica;guarana
+Guaraná Jesus
+Kuat
+Pony Malta
+Colombiana
+Postobón
+Bon Aire
+Chicha morada
+Chicha
+Emoliente
+Mate de coca
+Tereré|terere
+Chimarrão
+Cocada drink
+Agua de jamaica|jamaica
+Agua de horchata
+Tejuino
+Champurrado
+Atole
+Tascalate
+Pozol
+Tepache
+Licuado
+Batido
+Morir soñando
+Jugo de caña|sugarcane juice
+Sugarcane juice
+Coconut milk
+Tiger nut milk
+Horchata de chufa
+Rice milk
+Oat milk
+Hemp milk
+Cashew milk
+Hazelnut milk
+Pea milk
+Goat's milk
+Buttermilk
+Chocolate milk
+Strawberry milk
+Banana milk
+Yakult
+Ayran
+Doogh
+Tan
+Chaas|chhaas
+Mattha
+Sweet lassi
+Salted lassi
+Falooda
+Badam milk
+Rose milk
+Masala chai
+Kashmiri chai|noon chai;pink tea
+Cutting chai
+Irani chai
+Sulaimani
+Teh tarik
+Teh halia
+Milo dinosaur
+Thai iced tea|cha yen
+Thai iced coffee
+Vietnamese iced coffee|ca phe sua da
+Egg coffee|ca phe trung
+Kopi
+Kopi luwak
+Kopi O
+Yuanyang
+Hong Kong milk tea
+Dalgona coffee
+Barley tea|mugicha
+Corn tea
+Genmaicha
+Hojicha
+Sencha
+Gyokuro
+Bancha
+Kukicha
+Sakura tea
+Kombu tea
+Oolong
+Pu-erh|puer
+Tieguanyin
+Longjing|dragon well
+Jasmine tea
+Chrysanthemum tea
+White tea
+Silver needle
+Lapsang souchong
+Keemun
+Assam
+Darjeeling
+Ceylon tea
+English breakfast tea|english breakfast
+Builder's tea
+Lady Grey
+Russian Caravan
+Yellow tea
+Butter tea|po cha
+Salty tea
+Sweet tea
+Arnold Palmer
+Half and half
+Ginger tea
+Lemon and ginger tea
+Rosehip tea
+Nettle tea
+Fennel tea
+Liquorice tea
+Valerian tea
+Lemon balm tea
+Lemon verbena tea
+Hibiscus tea|karkade
+Moroccan mint tea|atay
+Turkish tea|cay
+Sahlab|salep
+Qahwa|arabic coffee
+Turkish coffee
+Greek coffee
+Cuban coffee|cafecito
+Café de olla
+Café con leche
+Café au lait
+Cortadito
+Café bombón
+Vienna coffee|einspanner
+Wiener melange|melange
+Red eye
+Breve
+Long black
+Lungo
+Doppio
+Piccolo
+Gibraltar
+Galão
+Mazagran
+Frappé|greek frappe
+Freddo espresso
+Freddo cappuccino
+Café glacé
+Bulletproof coffee
+Mushroom coffee
+Chicory coffee
+Dandelion coffee
+Barley coffee|caffe d'orzo
+Postum
+Camp Coffee
+Nescafé|nescafe
+Instant coffee
+Filter coffee
+Drip coffee
+French press coffee|cafetiere coffee
+Pour-over|pour over
+Nitro cold brew
+Pumpkin spice latte
+Chai latte
+Dirty chai
+Matcha latte
+Golden milk|turmeric latte
+Beetroot latte
+Hojicha latte
+London Fog
+Steamer
+Babyccino
+Malted milk
+Frosty
+Egg cream soda
+Float|ice cream float
+Coke float
+Root beer float
+Brown cow
+Thickshake
+Cabinet
+Slimfast
+Complan
+Bournvita
+Nesquik
+Yoo-hoo
+Ribena Light
+Robinsons
+Kia-Ora squash
+Elderflower cordial
+Blackcurrant cordial
+Rose's lime cordial
+Lime juice cordial
+Rose syrup
+Grenadine
+Jallab
+Tamarind juice
+Qamar al-Din
+Sobia
+Sugarcane
+Lemon squash
+Barley lemon
+Lime soda
+Nimbu pani|shikanji
+Jaljeera
+Aam panna
+Kokum sherbet
+Sol kadhi
+Thandai
+Bel sharbat
+Rooh Afza
+Sattu sharbat
+Neer mor
+Panakam
+Kombucha tea
+Water kefir
+Boza
+Kompot
+Uzvar
+Mors
+Kissel
+Sbiten
+Tarhun
+Baikal
+Duchess
+Buratino
+Borjomi
+Narzan
+Essentuki
+Shubat
+Sikhye
+Sujeonggwa
+Misugaru
+Yuja tea|yuzu tea
+Omija tea
+Ginseng tea
+Daechu tea
+Bori cha
+Oksusu cha
+Ramune
+Calpis|calpico
+Pocari Sweat
+Aquarius
+C.C. Lemon
+Mitsuya Cider
+Oronamin C
+Lipovitan D
+Vita 500
+Bacchus
+Krating Daeng
+Lychee juice
+Soursop juice
+Guava juice
+Mango juice
+Passion fruit juice
+Papaya juice
+Watermelon juice
+Pomegranate juice
+Carrot juice
+Beetroot juice
+Celery juice
+Wheatgrass shot
+Aloe vera drink
+Noni juice
+Acai juice
+Prune juice
+Grapefruit juice
+Blood orange juice
+Lemon juice
+Lime juice
+Clementine juice
+Peach nectar
+Apricot nectar
+Pear juice
+Cherry juice
+Blackcurrant juice
+Blueberry juice
+Cloudy apple juice
+Apple cider (non-alcoholic)
+Sparkling apple juice
+Sparkling grape juice
+Shloer Rosé
+Mulled apple juice
+Hot Ribena
+Hot lemon
+Warm milk
+Beef tea
+Club-Mate
+Fritz-kola
+Afri-Cola
+Bionade
+Spezi
+Apfelschorle
+Rhabarberschorle
+Almdudler
+Sinalco
+Rivella
+Ovomaltine
+Kaba
+Kinder Milk
+Fanta Exotic
+Orangina Rouge
+Pschitt
+Oasis
+Teisseire
+Monin
+Diabolo menthe
+Lait-grenadine
+Citron pressé
+Orange pressée
+Chinotto
+San Pellegrino Limonata|limonata
+Aranciata
+Crodino
+Sanbittèr
+Lemonsoda
+Gazosa
+Spuma
+Kas
+La Casera
+Trina
+Leite com chocolate
+Sumol
+Compal
+Frisco
+Kas Naranja
+Cockta
+Cedevita
+Jupi
+Pago
+Hohes C
+Capri-Sonne
+Caprisun Pacific
+Frobisher's
+Tropicana Trop50
+Simply Orange
+Naked juice
+Odwalla
+Jamba Juice
+Boost Juice
+Tiger milk
+Thai pink milk
+Nom yen
+Soy milk tea
+Taro milk tea
+Brown sugar milk tea
+Cheese tea
+Fruit tea
+Lemon tea
+Hong Kong lemon tea
+Iced lemon tea
+Grass jelly drink
+Bird's nest drink
+Winter melon tea
+Luo han guo tea
+Herbal jelly drink
+Wong Lo Kat|wanglaoji
+Vitasoy
+Yeo's
+F&N
+100Plus
+Sarsi
+Tamarind soda
+Coco Rico
+Kola Shaler
+Champagne Cola
+Ting
+D&G
+Sorrel drink
+Mauby
+Sea moss drink|irish moss
+Peanut punch
+Carrot punch
+Soursop punch
+Bissap
+Zobo
+Kunu
+Fura da nono
+Chapman
+Malta Guinness
+Supermalt
+Krest
+Stoney
+Sparletta
+Mageu
+Rooibos iced tea
+Honeybush tea
+Buchu tea
+
+Mango lassi
+Eggnog
+Spruce beer
+Protein shake

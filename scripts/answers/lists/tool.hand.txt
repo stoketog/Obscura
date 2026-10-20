@@ -1,0 +1,327 @@
+# Hand tools, power tools and toolbox items.
+Hammer
+Claw hammer
+Ball-peen hammer|ball pein hammer
+Sledgehammer
+Club hammer|lump hammer
+Mallet
+Rubber mallet
+Dead blow hammer
+Tack hammer
+Framing hammer
+Brick hammer
+Geologist's hammer
+Upholstery hammer
+Screwdriver
+Flathead screwdriver|flat head;slotted screwdriver
+Phillips screwdriver|phillips
+Pozidriv
+Torx driver|torx
+Stubby screwdriver
+Jeweller's screwdrivers|precision screwdrivers
+Ratchet screwdriver
+Impact driver
+Electric screwdriver
+Allen key|hex key;allen wrench
+Spanner|wrench
+Adjustable spanner|adjustable wrench;shifter
+Monkey wrench
+Pipe wrench|stillson
+Torque wrench
+Socket set|sockets
+Ratchet
+Breaker bar
+Combination spanner
+Ring spanner
+Open-ended spanner
+Box spanner
+Crowfoot wrench
+Basin wrench
+Strap wrench
+Oil filter wrench
+Lug wrench|wheel brace
+Tyre lever
+Pliers
+Needle-nose pliers|long nose pliers
+Combination pliers
+Slip-joint pliers
+Locking pliers|mole grips;vise-grips
+Water pump pliers|channel locks;groove joint pliers
+Lineman's pliers
+Circlip pliers
+Fencing pliers
+Crimping tool|crimpers
+Wire strippers
+Wire cutters|side cutters;snips
+Bolt cutters
+Cable cutters
+Tin snips|aviation snips
+Pincers
+End nippers
+Nail puller
+Crowbar|pry bar
+Wrecking bar
+Cat's paw
+Flat bar
+Saw
+Handsaw
+Panel saw
+Tenon saw|back saw
+Dovetail saw
+Coping saw
+Fret saw
+Hacksaw
+Junior hacksaw
+Keyhole saw|pad saw
+Jab saw|drywall saw
+Bow saw
+Pruning saw
+Folding saw
+Pull saw|japanese saw;ryoba;dozuki
+Flush-cut saw
+Mitre saw|miter saw;chop saw
+Mitre box
+Circular saw
+Table saw
+Jigsaw
+Reciprocating saw|recip saw;sabre saw
+Band saw
+Scroll saw
+Chainsaw
+Tile saw
+Multi-tool|oscillating tool
+Drill
+Cordless drill
+Hammer drill
+SDS drill
+Pillar drill|drill press
+Hand drill|eggbeater drill
+Brace and bit|brace
+Gimlet
+Bradawl
+Awl
+Drill bit
+Spade bit|flat bit
+Auger bit
+Forstner bit
+Hole saw
+Countersink
+Step drill bit
+Masonry bit
+Chisel
+Wood chisel
+Bevel-edge chisel
+Mortise chisel
+Cold chisel
+Bolster chisel|brick bolster
+Gouge
+Plane
+Block plane
+Jack plane
+Smoothing plane
+Jointer plane
+Rebate plane|rabbet plane
+Shoulder plane
+Router plane
+Spokeshave
+Drawknife|draw knife
+Scraper
+Card scraper
+Paint scraper
+Putty knife|filling knife
+Stanley knife|utility knife;box cutter;craft knife
+Snap-off knife
+Scalpel
+Rasp
+File
+Flat file
+Round file
+Half-round file
+Needle files
+Rat-tail file
+Sanding block
+Orbital sander
+Belt sander
+Detail sander|mouse sander
+Random orbit sander
+Angle grinder|grinder
+Bench grinder
+Die grinder
+Rotary tool|dremel
+Router
+Biscuit joiner
+Planer
+Thicknesser
+Lathe
+Heat gun
+Hot glue gun|glue gun
+Soldering iron
+Blowtorch|blow lamp
+Welding torch|welder
+MIG welder
+Stick welder
+Riveter|rivet gun;pop riveter
+Staple gun
+Nail gun
+Brad nailer
+Clamp
+G-clamp|c-clamp
+F-clamp
+Quick-release clamp|bar clamp
+Sash clamp
+Spring clamp
+Corner clamp
+Vice|vise
+Bench vice
+Workbench
+Sawhorse|trestle
+Tape measure|measuring tape
+Folding rule
+Steel rule|ruler
+Try square
+Combination square
+Speed square
+Set square
+Sliding bevel
+Marking gauge
+Mortise gauge
+Scribe
+Spirit level|level;bubble level
+Laser level
+Line level
+Plumb bob|plumb line
+Chalk line
+Stud finder|stud detector
+Callipers|calipers;vernier calliper
+Micrometer
+Feeler gauge
+Thread gauge
+Multimeter
+Voltage tester|test screwdriver
+Circuit tester
+Cable detector
+Magnetic pickup tool
+Inspection mirror
+Carpenter's pencil
+Centre punch|center punch
+Nail punch|nail set
+Pin punch
+Letter punches
+Tap and die
+Tap wrench
+Screw extractor|easy out
+Stud extractor
+Pipe cutter
+Tube bender|pipe bender
+Pipe threader
+Plunger
+Drain snake|plumber's snake;auger
+Plumber's tape|ptfe tape
+Blowlamp
+Trowel
+Pointing trowel
+Float
+Hawk
+Jointer
+Brick jointer
+Tile cutter
+Tile nippers
+Grout float
+Grout rake
+Notched trowel
+Caulking gun|sealant gun;mastic gun
+Paintbrush
+Paint roller
+Paint tray
+Wallpaper scraper
+Wallpaper steamer
+Seam roller
+Pasting brush
+Shovel
+Spade
+Pickaxe|pick
+Mattock
+Axe|ax
+Hatchet
+Splitting maul|maul
+Adze
+Froe
+Billhook
+Machete
+Sickle
+Scythe
+Pruners|secateurs
+Loppers
+Shears
+Hedge trimmer
+Rake
+Hoe
+Fork|garden fork
+Dibber|dibble
+Wheelbarrow
+Jack|car jack
+Trolley jack
+Axle stands|jack stands
+Bottle jack
+Tyre inflator
+Pressure gauge
+Grease gun
+Oil can
+Funnel
+Spark plug socket
+Wire brush
+Whetstone|sharpening stone;oilstone
+Honing guide
+Strop
+Bevel gauge
+Dovetail jig
+Pocket hole jig
+Dowel jig
+Glue spreader
+Pulley
+Block and tackle
+Winch
+Come-along
+Tamper
+Post-hole digger
+Fence plier
+Spud bar
+Digging bar
+Sledge
+Bush hook
+Draw shave
+Spud
+Peavey
+Cant hook
+Timber jack
+Log splitter
+Splitting wedge
+Felling wedge
+Chainsaw file
+Leatherman|multitool
+Swiss Army knife
+Pocket knife|penknife
+Sharpening steel
+Stapler
+Hole punch
+Letter opener
+Glass cutter
+Bottle cutter
+Hammer tacker
+Upholstery stapler
+Grommet tool|eyelet punch
+Leather punch
+Edge beveller
+Stitching awl
+Swivel knife
+Burnisher
+Cobbler's last
+Shoe stretcher
+Anvil
+Tongs
+Swage block
+Fuller
+Hardy
+Flatter
+Set hammer
+Bellows

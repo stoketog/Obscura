@@ -1,0 +1,452 @@
+# Technology companies: hardware, software, internet, semiconductors, telecoms and games, current and historic.
+Apple
+Microsoft
+Google|alphabet
+Amazon
+Meta|facebook
+Netflix
+Nvidia
+Intel
+AMD
+IBM
+Oracle
+Cisco
+Dell
+HP|hewlett-packard;hewlett packard
+Lenovo
+Asus
+Acer
+MSI
+Samsung
+LG
+Sony
+Panasonic
+Toshiba
+Hitachi
+Fujitsu
+NEC
+Sharp
+Canon
+Nikon
+Epson
+Brother
+Ricoh
+Xerox
+Kodak
+Polaroid
+Motorola
+Nokia
+Ericsson
+BlackBerry|rim;research in motion
+Palm
+HTC
+Huawei
+Xiaomi
+Oppo
+Vivo
+OnePlus
+Realme
+ZTE
+Tencent
+Alibaba
+Baidu
+ByteDance
+JD.com
+Pinduoduo|temu
+Meituan
+NetEase
+Didi
+TSMC
+Qualcomm
+Broadcom
+Texas Instruments
+Micron
+SK Hynix
+ARM|arm holdings
+ASML
+Applied Materials
+Lam Research
+KLA
+Analog Devices
+NXP
+Infineon
+STMicroelectronics
+Renesas
+Marvell
+MediaTek
+Western Digital
+Seagate
+SanDisk
+Kingston
+Corsair
+Logitech
+Razer
+SteelSeries
+Bose
+Sonos
+Dyson
+GoPro
+DJI
+Garmin
+Fitbit
+Peloton
+Tesla
+SpaceX
+Salesforce
+Adobe
+SAP
+VMware
+ServiceNow
+Workday
+Atlassian
+Autodesk
+Intuit
+Shopify
+Square|block
+PayPal
+Stripe
+Uber
+Lyft
+Airbnb
+Booking.com
+Expedia
+eBay
+Etsy
+Spotify
+Snap|snapchat
+Pinterest
+Reddit
+Twitter|x
+LinkedIn
+TikTok
+WhatsApp
+Instagram
+YouTube
+Zoom
+Slack
+Dropbox
+Box
+Twilio
+Okta
+Cloudflare
+Akamai
+Fastly
+Datadog
+Snowflake
+Palantir
+Databricks
+MongoDB
+Elastic
+Red Hat
+Canonical
+GitHub
+GitLab
+OpenAI
+Anthropic
+DeepMind
+Mistral
+Hugging Face
+Cohere
+xAI
+Perplexity
+Scale AI
+Nintendo
+Sega
+Atari
+Activision Blizzard|activision;blizzard
+Electronic Arts|ea
+Ubisoft
+Take-Two
+Rockstar Games
+Valve
+Epic Games
+Roblox
+Unity
+Bandai Namco
+Square Enix
+Capcom
+Konami
+Commodore
+Sinclair
+Amstrad
+Acorn Computers|acorn
+Psion
+ICL
+Ferranti
+Olivetti
+Siemens
+Philips
+Bosch
+Thales
+Dassault Systèmes
+Capgemini
+Atos
+Sopra Steria
+Accenture
+Infosys
+Tata Consultancy Services|tcs
+Wipro
+HCL
+Cognizant
+DXC
+Unisys
+Compaq
+Gateway
+Sun Microsystems|sun
+Silicon Graphics|sgi
+Digital Equipment Corporation|dec
+Wang Laboratories|wang
+Novell
+Borland
+Lotus
+Netscape
+AOL
+Yahoo
+AltaVista
+Lycos
+Ask Jeeves
+MySpace
+Bebo
+Friendster
+Vine
+Napster
+LimeWire
+Kazaa
+Skype
+Alcatel-Lucent
+Nortel
+Juniper Networks
+Arista
+Ubiquiti
+Netgear
+TP-Link
+Linksys
+D-Link
+Belkin
+Anker
+Wise|transferwise
+Revolut
+Monzo
+Klarna
+Adyen
+Affirm
+Robinhood
+Coinbase
+Binance
+Kraken
+Deliveroo
+DoorDash
+Instacart
+Grubhub
+Just Eat
+Uber Eats
+Grab
+Gojek
+Sea Limited|shopee
+Rakuten
+SoftBank
+Line
+Kakao
+Naver
+Yandex
+Kaspersky
+Mail.ru
+VKontakte|vk
+Telegram
+Signal
+Discord
+Twitch
+Duolingo
+Canva
+Figma
+Notion
+Miro
+Asana
+Trello
+Monday.com
+HubSpot
+Zendesk
+Mailchimp
+Squarespace
+Wix
+WordPress|automattic
+GoDaddy
+Namecheap
+DigitalOcean
+Rackspace
+Equinix
+Palo Alto Networks
+CrowdStrike
+Fortinet
+Check Point
+McAfee
+Norton|nortonlifelock;gen digital
+Symantec
+Sophos
+Avast
+Darktrace
+Zscaler
+SentinelOne
+Splunk
+Teradata
+Informatica
+Tableau
+Qlik
+Alteryx
+UiPath
+Nutanix
+NetApp
+Pure Storage
+Hewlett Packard Enterprise|hpe
+Super Micro|supermicro
+Foxconn|hon hai
+Pegatron
+Quanta
+Wistron
+Flex
+Jabil
+BenQ
+ViewSonic
+Alienware
+Raspberry Pi
+Arduino
+Nothing
+Fairphone
+Pebble
+Jawbone
+Magic Leap
+Oculus
+Waymo
+Cruise
+Zoox
+Mobileye
+Aurora
+Nuro
+Boston Dynamics
+iRobot
+Ocado
+Hikvision
+Dahua
+Haier
+Midea
+Gree
+TCL
+Hisense
+Skyworth
+Konka
+Changhong
+BOE
+CATL
+Luxshare
+Goertek
+SMIC
+Hua Hong
+Unisoc
+HiSilicon
+Cambricon
+SenseTime
+iFlytek
+Megvii
+Zhipu
+Moonshot AI
+DeepSeek
+Kuaishou
+Bilibili
+Weibo
+Xiaohongshu
+Ctrip|trip.com
+Lazada
+Tokopedia
+Flipkart
+Paytm
+Zomato
+Swiggy
+Ola
+Byju's
+Reliance Jio|jio
+Bharti Airtel|airtel
+Vodafone
+BT|british telecom
+Sky
+Virgin Media
+EE
+O2
+Three
+Verizon
+AT&T
+T-Mobile
+Sprint
+Comcast
+Charter
+Orange
+Deutsche Telekom
+Telefónica|telefonica
+NTT
+KDDI
+SK Telecom
+China Mobile
+Fairchild Semiconductor
+Shockley Semiconductor
+Zilog
+MOS Technology
+Cyrix
+VIA
+S3
+3dfx
+Matrox
+ATI
+Creative Labs|creative
+Iomega
+Hayes
+US Robotics
+3Com
+Bay Networks
+Lucent
+Packard Bell
+Tandy|radioshack
+Casio
+Seiko
+Citizen
+Handspring
+General Magic
+Be Inc
+NeXT
+Pixar
+Lucasfilm Games|lucasarts
+Id Software|id
+Bungie
+Mojang
+Rovio
+King
+Supercell
+Zynga
+Niantic
+Riot Games
+CD Projekt
+Paradox Interactive
+FromSoftware
+Nexon
+NCSoft
+Krafton
+miHoYo|hoyoverse
+Garena
+Sage Group|sage
+Autonomy
+Micro Focus
+Logica
+Misys
+Imagination Technologies
+CSR
+Wolfson
+Dialog Semiconductor
+Graphcore
+Improbable
+Babylon Health
+Skyscanner
+Rightmove
+Zoopla
+Auto Trader
+Moneysupermarket
+Trainline
+Funding Circle
+Starling Bank

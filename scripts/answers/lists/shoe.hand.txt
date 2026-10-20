@@ -1,0 +1,218 @@
+# Footwear types, styles and well-known models.
+Trainers|sneakers
+Sneakers
+Boots
+Sandals
+Flip-flops|thongs;flip flops
+Slippers
+High heels|heels
+Stilettos
+Wedges
+Platform shoes|platforms
+Kitten heels
+Court shoes|pumps
+Pumps
+Mary Janes
+Ballet flats|ballet pumps;flats
+Loafers
+Penny loafers
+Tassel loafers
+Horsebit loafers
+Driving shoes|drivers
+Moccasins
+Boat shoes|deck shoes;top-siders
+Oxfords
+Derby shoes|derbies
+Brogues
+Wingtips
+Monk straps
+Double monks
+Chelsea boots
+Chukka boots
+Desert boots
+Jodhpur boots
+Dealer boots
+Cowboy boots
+Riding boots
+Wellington boots|wellies;rain boots;gumboots
+Galoshes|overshoes
+Hiking boots
+Walking boots
+Combat boots
+Jungle boots
+Work boots
+Steel-toe boots|steel toe caps
+Rigger boots
+Logger boots
+Engineer boots
+Biker boots
+Doc Martens|dr martens;docs;dms
+Timberlands|timbs
+Ugg boots|uggs
+Snow boots
+Moon boots
+Après-ski boots
+Ski boots
+Snowboard boots
+Hunting boots
+Waders
+Thigh-high boots|over the knee boots
+Knee-high boots
+Ankle boots
+Booties
+Go-go boots
+Kinky boots
+Gladiator sandals
+Espadrilles
+Clogs
+Sabots
+Crocs
+Birkenstocks
+Mules
+Slides|sliders
+Sliders
+Jelly shoes|jellies
+Toe shoes
+Barefoot shoes
+Vibram FiveFingers
+Running shoes|runners
+Spikes|running spikes
+Football boots|cleats;soccer cleats
+Rugby boots
+Golf shoes
+Bowling shoes
+Tennis shoes
+Basketball shoes
+Skate shoes
+Climbing shoes
+Cycling shoes
+Ballet shoes
+Pointe shoes
+Tap shoes
+Jazz shoes
+Dance sneakers
+Character shoes
+Ghillies
+Plimsolls|pumps;sandshoes
+Canvas shoes
+Converse|chucks;all stars
+Vans
+Air Force 1|af1
+Air Jordans|jordans
+Air Max
+Stan Smiths
+Superstars
+Gazelles
+Sambas
+Yeezys
+New Balance
+Asics
+Hokas
+Onitsuka Tigers
+Veja
+Keds
+Dunks
+Cortez
+Blazers
+Creepers|brothel creepers
+Winklepickers
+Spats
+Gaiters
+Puttees
+Pattens
+Chopines
+Poulaines|crakows
+Geta
+Zori
+Waraji
+Jika-tabi|tabi
+Okobo
+Paduka
+Kolhapuri chappals|kolhapuris
+Jutti|mojari
+Chappals
+Huaraches
+Alpargatas
+Abarka
+Opanci
+Peshtemal sandals
+Babouches
+Balghas
+Valenki
+Lapti
+Mukluks
+Kamiks
+Klompen
+Pampooties
+Brogans
+Wooden shoes
+Ice skates
+Roller skates
+Rollerblades|inline skates
+Heelys
+Orthopaedic shoes
+Diabetic shoes
+Nurse shoes
+Chef shoes
+Safety shoes
+Slip-ons|slip on shoes
+Lace-ups
+Velcro shoes
+Sock shoes
+Sock boots
+Peep-toes
+Slingbacks
+D'Orsay pumps
+T-bar shoes
+Ankle-strap heels
+Block heels
+Cone heels
+Spool heels
+Cuban heels
+Louboutins
+Manolos|manolo blahniks
+Jimmy Choos
+Saddle shoes
+Spectator shoes|co-respondent shoes
+Bluchers
+Balmorals
+Whole-cut shoes
+Opera pumps
+Patent leather shoes
+Dress shoes
+School shoes
+Hush Puppies
+Clarks Wallabees|wallabees
+Sperrys
+Tod's
+Gucci loafers
+Hessian boots
+Jackboots
+Hobnail boots
+Trench boots
+Field boots
+Paddock boots
+Hip boots
+Muck boots
+Moon shoes
+Platform trainers
+Wedge sneakers
+Flatforms
+Pool slides
+Shower shoes
+Bath slippers
+Hotel slippers
+Bootee slippers
+Moccasin slippers
+Carpet slippers
+Ballet slippers
+Aqua shoes|water shoes
+Reef shoes
+Cothurnus|buskins
+Caligae
+Crepida
+Calceus
+Pigache
+Duckbill shoes
+Buckle shoes
+Lotus shoes

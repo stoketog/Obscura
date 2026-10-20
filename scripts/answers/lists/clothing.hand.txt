@@ -1,0 +1,330 @@
+# Items of clothing: everyday, formal, historical and traditional dress from around the world.
+T-shirt|tee
+Polo shirt
+Shirt
+Blouse
+Tunic
+Tank top|vest top
+Camisole|cami
+Crop top
+Halterneck
+Tube top|boob tube
+Bodysuit
+Leotard
+Unitard
+Jumpsuit
+Playsuit|romper
+Dungarees|overalls
+Boiler suit
+Onesie
+Jumper|sweater;pullover
+Cardigan
+Hoodie|hooded sweatshirt
+Sweatshirt
+Fleece
+Gilet|body warmer;vest
+Waistcoat
+Blazer
+Suit
+Tuxedo|dinner jacket
+Tailcoat
+Morning suit
+Frock coat
+Overcoat
+Trench coat
+Raincoat|mac;mackintosh
+Anorak
+Parka
+Puffer jacket|puffa jacket
+Bomber jacket
+Biker jacket|leather jacket
+Denim jacket|jean jacket
+Harrington jacket
+Donkey jacket
+Pea coat|reefer jacket
+Duffel coat
+Cagoule|kagool
+Windbreaker|windcheater
+Shacket
+Poncho
+Cape
+Cloak
+Shawl
+Stole
+Wrap
+Pashmina
+Scarf
+Snood
+Neck warmer
+Tie|necktie
+Bow tie
+Cravat
+Ascot
+Bolo tie
+Neckerchief
+Kerchief
+Trousers|pants
+Jeans
+Chinos
+Cargo trousers|cargo pants
+Joggers|jogging bottoms;sweatpants;trackies
+Tracksuit
+Leggings
+Jeggings
+Yoga pants
+Culottes
+Palazzo pants
+Capri pants|capris
+Pedal pushers
+Flares|bell-bottoms
+Corduroys|cords
+Slacks
+Harem pants
+Shorts
+Bermuda shorts
+Hot pants
+Cycling shorts
+Board shorts
+Swimming trunks
+Skirt
+Miniskirt
+Midi skirt
+Maxi skirt
+Pencil skirt
+A-line skirt
+Pleated skirt
+Kilt
+Tutu
+Sarong
+Dress
+Maxi dress
+Wrap dress
+Shift dress
+Shirt dress
+Sundress
+Slip dress
+Little black dress
+Ball gown
+Evening gown
+Cocktail dress
+Wedding dress
+Pinafore
+Kaftan|caftan
+Muumuu
+Nightdress|nightie
+Nightgown
+Pyjamas|pajamas;pjs
+Dressing gown|bathrobe;robe
+Kimono
+Yukata
+Hakama
+Haori
+Happi
+Cheongsam|qipao
+Hanfu
+Hanbok
+Áo dài|ao dai
+Sari|saree
+Salwar kameez
+Lehenga
+Kurta
+Sherwani
+Dhoti
+Lungi
+Achkan
+Nehru jacket
+Jodhpurs
+Jilbab
+Abaya
+Thobe|dishdasha;kandura
+Djellaba
+Burnous
+Kandura
+Agbada
+Dashiki
+Boubou
+Kanga
+Kikoi
+Shuka
+Lavalava
+Pareo
+Hula skirt
+Guayabera
+Pollera
+Huipil
+Serape
+Charro suit
+Lederhosen
+Dirndl
+Tracht
+Gákti
+Bunad
+Sporran
+Trews
+Plaid
+Breeks
+Plus fours
+Knickerbockers
+Breeches
+Doublet
+Jerkin
+Codpiece
+Hose
+Ruff
+Farthingale
+Bustle
+Corset
+Crinoline
+Petticoat
+Chemise
+Shift
+Smock
+Pinafore dress
+Toga
+Stola
+Chiton
+Peplos
+Himation
+Surcoat
+Tabard
+Cassock
+Chasuble
+Surplice
+Alb
+Habit
+Robe
+Gown
+Academic gown
+Judge's robes
+Lab coat
+Scrubs
+Chef's whites
+Overalls
+Coveralls
+Hi-vis vest|high visibility jacket
+Wetsuit
+Drysuit
+Rash vest|rash guard
+Swimsuit|swimming costume;bathing suit
+Bikini
+Tankini
+Monokini
+Burkini
+Speedos
+Board shorts
+Sports bra
+Bra
+Bralette
+Knickers|panties
+Briefs
+Boxers|boxer shorts
+Boxer briefs
+Thong
+Y-fronts
+Long johns
+Thermals
+Vest (undershirt)|undershirt;singlet
+Slip
+Garter
+Suspenders|braces
+Stockings
+Tights|pantyhose
+Socks
+Knee socks
+Ankle socks
+Leg warmers
+Gloves
+Mittens
+Fingerless gloves
+Gauntlets
+Belt
+Cummerbund
+Sash
+Bonnet
+Balaclava
+Earmuffs
+Bandana
+Veil
+Hijab
+Niqab
+Burqa
+Chador
+Turban
+Headscarf
+Hairnet
+Apron
+Smock frock
+Gaberdine
+Ulster coat
+Inverness cape
+Chesterfield coat
+Covert coat
+Crombie
+Car coat
+Mackinaw
+Lumberjack shirt|flannel shirt
+Henley
+Rugby shirt
+Football shirt|jersey;kit
+Baseball jersey
+Basketball vest
+Tennis whites
+Cricket whites
+Riding jacket
+Hacking jacket
+Norfolk jacket
+Shooting jacket
+Field jacket
+Safari jacket
+Mao suit
+Zoot suit
+Leisure suit
+Safari suit
+Shell suit
+Catsuit
+Sweater vest|tank top (jumper)
+Twinset
+Polo neck|turtleneck;roll neck
+Mock neck
+Cowl neck
+Off-the-shoulder top
+Peplum top
+Gymslip
+Bodywarmer
+Snowsuit
+Ski suit
+Salopettes
+Babygrow|sleepsuit
+Bib
+Nappy|diaper
+Romper suit
+Christening gown
+Kittel
+Tallit
+Bekishe
+Rekel
+Sherwal
+Shalwar
+Ghagra choli
+Mundu
+Veshti
+Pheran
+Phiran
+Gho
+Kira
+Deel
+Chuba
+Sampot
+Barong Tagalog|barong
+Baro't saya
+Kebaya
+Baju Melayu
+Batik shirt
+Longyi
+Chut thai
+Sinh
+Furisode
+Uchikake
+Jinbei
+Tabi
+Obi

@@ -1,0 +1,434 @@
+# Mythical and legendary creatures from world folklore and mythology.
+Dragon
+Unicorn
+Phoenix
+Griffin|gryphon;griffon
+Mermaid
+Merman
+Centaur
+Minotaur
+Pegasus
+Hydra
+Cyclops
+Medusa
+Gorgon
+Siren
+Harpy
+Sphinx
+Chimera
+Cerberus
+Kraken
+Leviathan
+Behemoth
+Basilisk
+Cockatrice
+Wyvern
+Manticore
+Hippogriff
+Satyr
+Faun
+Nymph
+Dryad
+Naiad
+Nereid
+Oread
+Titan
+Giant
+Ogre
+Troll
+Goblin
+Hobgoblin
+Gnome
+Dwarf
+Elf
+Fairy|faerie
+Pixie
+Sprite
+Brownie
+Leprechaun
+Banshee
+Pooka|puca
+Selkie
+Kelpie
+Each-uisge
+Nuckelavee
+Redcap
+Boggart
+Bogeyman|boogeyman
+Changeling
+Will-o'-the-wisp
+Black Shuck
+Barghest
+Grim
+Hellhound
+Werewolf
+Vampire
+Zombie
+Ghoul
+Wraith
+Ghost
+Poltergeist
+Spectre
+Lich
+Mummy
+Golem
+Gargoyle
+Imp
+Demon
+Succubus
+Incubus
+Djinn|genie;jinn
+Ifrit
+Marid
+Roc
+Simurgh
+Huma
+Bennu
+Ziz
+Lamassu
+Shedu
+Anzu
+Tiamat
+Humbaba
+Pazuzu
+Lamia
+Empusa
+Echidna
+Typhon
+Scylla
+Charybdis
+Ladon
+Python
+Argus Panoptes|argus
+Talos
+Geryon
+Orthrus
+Nemean lion
+Erymanthian boar
+Stymphalian birds
+Ceryneian hind
+Cretan bull
+Mares of Diomedes
+Calydonian boar
+Teumessian fox
+Laelaps
+Ichthyocentaur
+Hippocampus
+Ketos
+Triton
+Furies|erinyes
+Graeae
+Fenrir
+Jörmungandr|jormungandr;midgard serpent
+Sleipnir
+Níðhöggr|nidhogg
+Ratatoskr
+Valkyrie
+Draugr
+Jötunn|jotunn;frost giant
+Fafnir
+Hræsvelgr
+Huginn and Muninn|huginn;muninn
+Garmr
+Sköll and Hati|skoll;hati
+Nisse|tomte
+Huldra
+Nøkken|nix;neck
+Lindworm
+Kraken (Norse)
+Fossegrim
+Mare
+Valravn
+Wendigo
+Thunderbird
+Skinwalker
+Bigfoot|sasquatch
+Yeti|abominable snowman
+Loch Ness Monster|nessie
+Chupacabra
+Mothman
+Jersey Devil
+Jackalope
+Bunyip
+Yowie
+Drop bear
+Rainbow Serpent
+Taniwha
+Patupaiarehe
+Ponaturi
+Menehune
+Moʻo
+Nightmarchers
+Kappa
+Kitsune
+Tanuki
+Tengu
+Oni
+Yokai
+Yūrei|yurei
+Rokurokubi
+Nue
+Baku
+Kirin|qilin
+Fenghuang|chinese phoenix
+Chinese dragon|lung;long
+Pixiu
+Nian
+Jiangshi
+Huli jing
+Bai Ze
+Hundun
+Taotie
+Haetae|haechi
+Gumiho
+Dokkaebi
+Bulgae
+Naga
+Garuda
+Makara
+Yali
+Rakshasa
+Vetala|vetal
+Gandharva
+Apsara
+Kinnara
+Airavata
+Kamadhenu
+Shesha
+Vasuki
+Navagunjara
+Sharabha
+Gajasimha
+Manananggal
+Aswang
+Tikbalang
+Kapre
+Nuno sa punso
+Diwata
+Bakunawa
+Sarimanok
+Pontianak
+Penanggalan
+Toyol
+Orang bunian
+Krasue
+Garuda (Thai)
+Leshy
+Rusalka
+Domovoi
+Kikimora
+Baba Yaga
+Koschei
+Zmey Gorynych|zmey
+Firebird
+Alkonost
+Sirin
+Gamayun
+Vila
+Strzyga
+Upir
+Bannik
+Vodyanoy
+Polevik
+Ovinnik
+Likho
+Basilisk (Polish)
+Wawel Dragon
+Tatzelwurm
+Wolpertinger
+Krampus
+Perchta
+Nachzehrer
+Alp
+Lorelei
+Nixie
+Kobold
+Heinzelmännchen
+Erlking
+Black dog
+Questing Beast
+Afanc
+Ceffyl Dŵr
+Gwyllgi
+Tylwyth Teg
+Cù Sìth|cu sith
+Cat sìth|cat sith
+Blue men of the Minch
+Wulver
+Ghillie Dhu
+Fachan
+Fear gorta
+Dullahan
+Leanan sídhe
+Fomorians
+Merrow
+Caoránach
+Ellén Trechend
+Sluagh
+Kelpie (Scottish)
+Basajaun
+Lamiak
+Herensuge
+Cuélebre
+Trasgu
+Nuberu
+Santa Compaña
+Ojáncanu
+Encantada
+Coco|el coco
+La Llorona
+El Cadejo
+Nahual|nagual
+Quetzalcoatl
+Ahuizotl
+Cipactli
+Camazotz
+Alux
+Tunche
+Curupira
+Boitatá
+Saci|saci-pererê
+Mapinguari
+Iara
+Boto encantado
+Mula sem cabeça
+Lobisomem
+Encantado
+Pombero
+Luison
+Teju Jagua
+Mboi Tu'i
+Moñai
+Kurupi
+Ao Ao
+Anansi
+Mami Wata
+Tokoloshe
+Impundulu|lightning bird
+Grootslang
+Mokele-mbembe
+Ninki Nanka
+Adze
+Obayifo
+Sasabonsam
+Abatwa
+Ammit
+Apep|apophis
+Serpopard
+Medjed
+Werehyena
+Bouda
+Kishi
+Popobawa
+Emela-ntouka
+Kongamato
+Sea serpent
+Hydra (Lernaean)|lernaean hydra
+Amphisbaena
+Catoblepas
+Bonnacon
+Yale
+Peryton
+Questing beast
+Salamander
+Sylph
+Undine
+Wyrm
+Drake
+Amphiptere
+Lindwurm
+Knucker
+Lambton Worm
+Sockburn Worm
+Stoor worm
+Mermecolion
+Blemmyes
+Sciapod|monopod
+Cynocephalus|dog-headed men
+Panotii
+Astomi
+Troglodyte
+Wodwo|woodwose
+Black Annis
+Jenny Greenteeth
+Peg Powler
+Nelly Longarms
+Grindylow
+Spriggan
+Knocker
+Piskie
+Bucca
+Hob
+Lob
+Hinkypunk
+Púca
+Glaistig
+Bean nighe
+Cailleach
+Each uisge
+Shellycoat
+Brollachan
+Bunyip (Aboriginal)
+Mimi
+Quinkan
+Muldjewangk
+Tiddalik
+Wawilak
+Moehau
+Te Wheke
+Ngārara
+Tipua
+Hākuturi
+Kurangaituku
+Abaia
+Adaro
+Dakuwaqa
+Ratu-mai-mbulu
+Nanaue
+Kanaloa
+Nightmare
+Doppelgänger|doppelganger
+Fetch
+Revenant
+Ghast
+Shade
+Tulpa
+Homunculus
+Elemental
+Chupacabras
+Ogopogo
+Champ
+Bessie
+Caddy
+Morgawr
+Beast of Bodmin
+Beast of Gévaudan
+Owlman
+Spring-heeled Jack
+Grey Man of Ben MacDhui
+Thunderbird (cryptid)
+Flatwoods monster
+Dover Demon
+Lizard Man
+Skunk ape
+Fresno nightcrawler
+Hodag
+Snallygaster
+Jackalope (Wyoming)
+Fur-bearing trout
+Squonk
+Hidebehind
+Rougarou
+Wampus cat
+Goatman
+Pukwudgie
+Teakettler
+Bigfoot (Pacific Northwest)
+Almas
+Orang pendek
+Yeren
+Mapinguari (Amazon)
+Mngwa
+Nandi bear
+Chemosit
+Agogwe

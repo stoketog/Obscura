@@ -1,0 +1,288 @@
+# Furniture: seating, tables, beds, storage, and named styles and pieces.
+Armchair
+Recliner
+Rocking chair
+Wingback chair|wing chair
+Club chair
+Barrel chair
+Slipper chair
+Tub chair
+Bergère|bergere
+Fauteuil
+Chaise longue|chaise lounge
+Daybed
+Chesterfield
+Loveseat
+Settee
+Sofa bed
+Futon
+Corner sofa|sectional
+Sectional sofa
+Camelback sofa
+Lawson sofa
+Tuxedo sofa
+Divan
+Ottoman
+Pouffe|pouf
+Footstool
+Hassock
+Beanbag|bean bag
+Floor cushion
+Stool
+Bar stool
+Step stool
+Milking stool
+Folding chair
+Deckchair|deck chair
+Director's chair
+Adirondack chair
+Garden bench
+Park bench
+Picnic table
+Bench
+Pew
+Settle
+Window seat
+Swivel chair
+Office chair
+Desk chair
+Gaming chair
+Kneeling chair
+Highchair|high chair
+Booster seat
+Dining chair
+Ladder-back chair
+Windsor chair
+Spindle-back chair
+Chiavari chair
+Bentwood chair|thonet chair
+Ghost chair
+Tulip chair
+Egg chair
+Swan chair
+Barcelona chair
+Eames lounge chair|eames chair
+Wassily chair
+Panton chair
+Butterfly chair
+Papasan chair
+Hanging chair
+Hammock
+Throne
+Sedan chair
+Pouf ottoman
+Coffee table
+Side table|end table
+Console table
+Sofa table
+Nest of tables|nesting tables
+Occasional table
+Drinks trolley|bar cart
+Tea trolley
+Dining table
+Kitchen table
+Refectory table
+Trestle table
+Gateleg table
+Drop-leaf table
+Extending table
+Pedestal table
+Pembroke table
+Butterfly table
+Card table
+Games table
+Pool table
+Billiard table
+Dressing table|vanity
+Bedside table|nightstand
+Writing desk
+Desk
+Standing desk
+Computer desk
+Corner desk
+Roll-top desk|rolltop
+Bureau
+Secretary desk|secretaire
+Davenport
+Partners desk
+Pedestal desk
+Kneehole desk
+Lectern
+Escritoire
+Bed
+Single bed
+Double bed
+King-size bed
+Four-poster bed|four poster
+Canopy bed
+Bunk beds|bunk bed
+Cabin bed
+Loft bed
+Trundle bed
+Sleigh bed
+Divan bed
+Murphy bed|wall bed
+Camp bed
+Cot|crib
+Bassinet
+Moses basket
+Cradle
+Wardrobe
+Armoire
+Chest of drawers|dresser
+Tallboy|highboy
+Lowboy
+Commode
+Chiffonier
+Chest
+Blanket box|ottoman chest
+Trunk
+Hope chest|cedar chest
+Toy box
+Bookcase
+Bookshelf|shelf;shelves
+Shelving unit
+Ladder shelf
+Floating shelf
+Étagère|etagere
+Whatnot
+Display cabinet
+Curio cabinet
+Vitrine
+China cabinet
+Welsh dresser
+Sideboard
+Buffet
+Credenza
+Hutch
+Cupboard
+Linen press
+Butcher's block
+Wine rack
+Drinks cabinet|cocktail cabinet
+TV stand|tv unit
+Media console
+Entertainment centre
+Filing cabinet
+Pedestal drawers
+Cabinet
+Medicine cabinet
+Bathroom cabinet
+Vanity unit
+Shoe rack
+Shoe cabinet
+Coat stand|hat stand;coat rack
+Hall stand
+Umbrella stand
+Hall table
+Telephone table|gossip bench
+Cheval mirror|cheval glass
+Pier glass
+Room divider
+Screen|folding screen
+Shoji screen
+Fire screen
+Plant stand
+Pedestal
+Jardinière
+Magazine rack
+Canterbury
+Clothes horse
+Valet stand
+Jewellery box
+Blanket ladder
+Lamp table
+Futon frame
+Platform bed
+Waterbed
+Ottoman bed
+Truckle bed
+Tester bed
+Half-tester bed
+Box bed
+Press bed
+Campaign chest
+Military chest
+Bachelor's chest
+Coffer
+Cassone
+Kist
+Dower chest
+Settle bed
+Hall tree
+Bonnetière
+Buffet à deux corps
+Tansu
+Kotatsu
+Zaisu
+Chabudai
+Charpai
+Diwan
+Récamier|recamier
+Méridienne|meridienne
+Canapé|canape
+Marquise
+Causeuse
+Tête-à-tête
+Confidante
+Indiscreet
+Knole sofa
+Cabriole sofa
+Chippendale chair
+Queen Anne chair
+Hepplewhite chair
+Sheraton chair
+Louis XV chair
+Louis XVI chair
+Klismos chair
+Savonarola chair
+Glastonbury chair
+Morris chair
+Shaker chair
+Rietveld chair|red and blue chair
+Zig-zag chair
+Wishbone chair
+Ant chair
+Series 7 chair
+Womb chair
+Diamond chair
+Bubble chair
+Ball chair
+Peacock chair
+Emmanuelle chair
+Cesca chair
+Bertoia chair
+Acapulco chair
+Muskoka chair
+Rocker
+Glider
+Lift chair
+Massage chair
+Credence
+Prie-dieu
+Music stand
+Piano stool
+Piano bench
+Drafting table|drawing board
+Light table
+Workbench
+Potting bench
+Garden chair
+Sun lounger|lounger
+Swing seat
+Porch swing
+Glider bench
+Bistro set
+Patio set
+Outdoor sofa
+Day lounger
+Pod chair
+Cocoon chair
+Gaming desk
+Bean bag chair
+Hammock chair
+Stacking chairs
+Folding table
+Wallpaper table
+Camping table
+Camping chair

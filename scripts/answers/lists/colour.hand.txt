@@ -1,0 +1,357 @@
+# Colour names in common use in English: basic terms, shades, pigments and traditional colour names.
+Red
+Scarlet
+Crimson
+Vermilion|vermillion
+Carmine
+Cardinal
+Cerise
+Cherry
+Ruby
+Garnet
+Burgundy
+Maroon
+Claret
+Oxblood
+Merlot
+Raspberry
+Strawberry
+Rose
+Rose red
+Blush
+Coral
+Salmon
+Tomato
+Brick red
+Rust
+Terracotta
+Venetian red
+Indian red
+Candy apple red
+Alizarin
+Madder
+Cadmium red
+Pink
+Hot pink
+Shocking pink
+Fuchsia
+Magenta
+Baby pink
+Pale pink
+Rose pink
+Dusty pink
+Dusky pink
+Old rose
+Ballet pink
+Bubblegum pink
+Flamingo
+Peach
+Apricot
+Melon
+Watermelon
+Orange
+Tangerine
+Mandarin
+Amber
+Pumpkin
+Burnt orange
+Marigold
+Saffron
+Ochre|ocher
+Yellow ochre
+Mustard
+Yellow
+Lemon
+Canary yellow
+Butter yellow
+Primrose
+Daffodil
+Sunflower
+Gold
+Golden
+Honey
+Maize
+Straw
+Wheat
+Flaxen
+Buff
+Jasmine
+Citrine
+Chartreuse
+Lime
+Lime green
+Green
+Grass green
+Emerald
+Jade
+Kelly green
+Forest green
+Bottle green
+Hunter green
+British racing green
+Racing green
+Olive
+Olive green
+Khaki
+Sage
+Moss green
+Pistachio
+Mint
+Mint green
+Pea green
+Apple green
+Avocado
+Fern
+Shamrock
+Pine green
+Spruce
+Viridian
+Malachite
+Celadon
+Seafoam
+Sea green
+Teal
+Turquoise
+Aquamarine
+Aqua
+Cyan
+Duck egg blue
+Eau de nil
+Verdigris
+Blue
+Sky blue
+Baby blue
+Powder blue
+Pale blue
+Light blue
+Dark blue
+Navy|navy blue
+Midnight blue
+Royal blue
+Cobalt
+Cobalt blue
+Ultramarine
+Lapis lazuli
+Sapphire
+Azure
+Cerulean
+Cornflower blue
+Periwinkle
+Denim
+Steel blue
+Slate blue
+Prussian blue
+Oxford blue
+Cambridge blue
+Electric blue
+Ice blue
+Petrol blue
+Air Force blue
+Indigo
+Violet
+Purple
+Lilac
+Lavender
+Mauve
+Heliotrope
+Amethyst
+Plum
+Aubergine|eggplant
+Mulberry
+Orchid
+Thistle
+Wisteria
+Puce
+Tyrian purple
+Byzantium
+Royal purple
+Brown
+Chocolate
+Cocoa
+Coffee
+Mocha
+Espresso
+Caramel
+Toffee
+Tan
+Beige
+Fawn
+Camel
+Taupe
+Sand
+Sandy brown
+Khaki brown
+Chestnut
+Auburn
+Mahogany
+Walnut
+Hazel
+Russet
+Sienna
+Burnt sienna
+Raw sienna
+Umber
+Burnt umber
+Raw umber
+Sepia
+Bronze
+Copper
+Brass
+Cinnamon
+Ginger
+Black
+Jet black
+Ebony
+Onyx
+Charcoal
+Licorice|liquorice
+Grey|gray
+Silver
+Slate grey|slate
+Gunmetal
+Pewter
+Ash grey|ash
+Dove grey
+Battleship grey
+Graphite
+Platinum
+White
+Off-white
+Ivory
+Cream
+Eggshell
+Alabaster
+Snow white
+Pearl
+Linen
+Magnolia
+Vanilla
+Champagne
+Ecru
+Oyster
+Porcelain
+Parchment
+Antique white
+Ghost white
+Seashell
+Mint cream
+Honeydew
+Lemon chiffon
+Papaya whip
+Blanched almond
+Bisque
+Navajo white
+Peach puff
+Misty rose
+Lavender blush
+Old lace
+Floral white
+Cornsilk
+Gainsboro
+Burlywood
+Rosy brown
+Saddle brown
+Goldenrod
+Dark goldenrod
+Lawn green
+Spring green
+Medium spring green
+Yellow-green
+Olive drab
+Dark olive green
+Dark sea green
+Light sea green
+Medium aquamarine
+Pale turquoise
+Dark turquoise
+Cadet blue
+Deep sky blue
+Dodger blue
+Light steel blue
+Medium slate blue
+Rebecca purple
+Medium orchid
+Dark orchid
+Blue violet
+Dark violet
+Medium violet red
+Pale violet red
+Deep pink
+Light coral
+Dark salmon
+Light salmon
+Orange red
+Firebrick
+Dark red
+Pastel blue
+Pastel pink
+Pastel green
+Pastel yellow
+Neon green
+Neon pink
+Neon yellow
+Fluorescent orange
+International orange
+Tiffany blue
+Klein blue|international klein blue
+Duck blue
+Peacock blue
+Teal blue
+Kingfisher blue
+Bondi blue
+Caribbean blue
+Egyptian blue
+Han purple
+Han blue
+Phthalo blue
+Phthalo green
+Hooker's green
+Sap green
+Chrome yellow
+Cadmium yellow
+Naples yellow
+Indian yellow
+Gamboge
+Orpiment
+Lead white
+Titanium white
+Zinc white
+Lamp black
+Ivory black
+Bone black
+Payne's grey
+Davy's grey
+Vandyke brown
+Caput mortuum
+Mummy brown
+Dragon's blood
+Cochineal
+Rose madder
+Smalt
+Verditer
+Azurite
+Woad
+Lincoln green
+Drab
+Greige
+Sage green
+Nude
+Rose gold
+Old gold
+Salmon pink
+Chartreuse yellow
+Acid green
+Adobe
+Ash blonde
+Strawberry blonde
+Platinum blonde
+Honey blonde
+Dirty blonde
+Mousy brown
+Jet
+Charcoal grey
+Anthracite
+Heather
+Heather grey
+Space grey
+Taupe grey

@@ -1,0 +1,276 @@
+# Types of vehicle on land, water, air and space.
+Hatchback
+Saloon|sedan
+Estate car|station wagon;estate
+Coupé|coupe
+Convertible|cabriolet
+Roadster
+Sports car
+Supercar
+Hypercar
+Muscle car
+Pony car
+Hot hatch
+SUV|sport utility vehicle
+Crossover
+4x4|four by four
+Pickup truck|pickup;ute
+Minivan|people carrier;mpv
+Campervan|camper van;camper
+Motorhome|rv
+Caravan|trailer
+Limousine|limo
+Stretch limo
+Taxi|cab
+Black cab|hackney carriage
+Tuk-tuk|auto rickshaw
+Rickshaw
+Pedicab
+Cycle rickshaw
+Kei car
+Microcar
+Bubble car
+Three-wheeler
+Electric car|ev
+Hybrid car
+Hearse
+Ambulance
+Fire engine|fire truck
+Police car
+Panda car
+Paddy wagon|police van
+Armoured car
+Tank
+Armoured personnel carrier|apc
+Humvee
+Half-track
+Bus
+Double-decker bus|double decker
+Single-decker
+Minibus
+Coach
+School bus
+Trolleybus
+Articulated bus|bendy bus
+Shuttle bus
+Open-top bus
+Lorry|truck
+Articulated lorry|artic;semi;big rig;18-wheeler
+Tipper truck|dump truck
+Flatbed truck
+Box truck
+Van
+Panel van
+Ice cream van
+Milk float
+Dustcart|bin lorry;garbage truck
+Tow truck|breakdown truck
+Car transporter
+Tanker
+Concrete mixer|cement mixer
+Road sweeper
+Gritter
+Snowplough|snowplow
+Snowmobile|skidoo
+Snowcat
+Piste basher
+Tractor
+Combine harvester
+Forklift
+Digger|excavator
+Bulldozer
+Steamroller|road roller
+Grader
+Crane
+Cherry picker
+Scissor lift
+Telehandler
+Quad bike|atv
+Dune buggy|beach buggy
+Go-kart|kart
+Golf cart|golf buggy
+Mobility scooter
+Segway
+Hoverboard
+Electric scooter|e-scooter
+Kick scooter|scooter
+Skateboard
+Longboard
+Roller skates
+Bicycle|bike;push bike
+Mountain bike
+Road bike
+BMX
+Tandem
+Tricycle|trike
+Unicycle
+Penny-farthing
+Recumbent bicycle
+Cargo bike
+Electric bike|e-bike
+Folding bike
+Fixie
+Motorcycle|motorbike
+Moped
+Dirt bike
+Chopper
+Sidecar
+Superbike
+Train
+Steam train|steam locomotive
+Diesel train
+Electric train
+High-speed train
+Bullet train|shinkansen
+Maglev
+Monorail
+Tram|streetcar;trolley
+Light rail
+Underground|tube;subway;metro
+Funicular
+Cable car
+Gondola lift
+Chairlift
+Rack railway
+Freight train|goods train
+Sleeper train
+Locomotive
+Boat
+Ship
+Rowing boat|rowboat
+Canoe
+Kayak
+Dinghy
+Sailing boat|sailboat
+Yacht
+Catamaran
+Trimaran
+Speedboat
+Jet ski|personal watercraft
+Motorboat
+Narrowboat|canal boat
+Barge
+Houseboat
+Ferry
+Hovercraft
+Hydrofoil
+Cruise ship|cruise liner
+Ocean liner
+Container ship
+Tanker ship|oil tanker
+Bulk carrier
+Tugboat|tug
+Trawler
+Fishing boat
+Lifeboat
+Coracle
+Punt
+Gondola
+Raft
+Pedalo|pedal boat
+Paddle steamer
+Steamboat
+Clipper
+Galleon
+Galley
+Longship
+Junk
+Dhow
+Sampan
+Felucca
+Outrigger canoe
+Dugout canoe
+Umiak
+Submarine
+Submersible
+Aircraft carrier
+Battleship
+Destroyer
+Frigate
+Corvette
+Cruiser
+Minesweeper
+Icebreaker
+Landing craft
+Aeroplane|airplane;plane
+Jet|jet plane
+Jumbo jet
+Airliner
+Seaplane
+Floatplane
+Biplane
+Triplane
+Monoplane
+Glider
+Hang glider
+Microlight
+Paraglider
+Helicopter|chopper
+Autogyro|gyrocopter
+Tiltrotor
+Drone
+Airship|blimp;zeppelin
+Hot air balloon
+Gas balloon
+Fighter jet
+Bomber
+Spy plane
+Cargo plane
+Space Shuttle
+Rocket
+Space capsule
+Lunar module
+Lunar rover|moon buggy
+Mars rover
+Spaceplane
+Horse and cart|cart
+Wagon
+Carriage
+Stagecoach
+Hansom cab
+Chariot
+Sleigh
+Sled|sledge
+Toboggan
+Bobsleigh|bobsled
+Luge
+Dog sled
+Covered wagon
+Gypsy caravan|vardo
+Trap
+Gig
+Buggy
+Landau
+Phaeton
+Brougham
+Barouche
+Wheelbarrow
+Handcart
+Lunar lander
+Amphibious vehicle|duck boat
+Snow bike
+Fat bike
+Velomobile
+Hovercar
+Flying car
+Jetpack
+Monster truck
+Dragster
+Formula One car|f1 car
+Stock car
+Rally car
+Banger
+Hot rod
+Lowrider
+Kit car
+Vintage car
+Veteran car
+Classic car
+Taxi boat|water taxi
+Vaporetto
+Water bus
+Riverboat
+Sternwheeler
+Paddle boat
+Rib|rigid inflatable boat
+Inflatable boat

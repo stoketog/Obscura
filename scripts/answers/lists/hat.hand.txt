@@ -1,0 +1,258 @@
+# Hats and headwear.
+Baseball cap|cap
+Beanie
+Bobble hat|pom pom hat
+Woolly hat
+Fedora
+Trilby
+Bowler hat|derby
+Top hat
+Cowboy hat|stetson
+Stetson
+Panama hat|panama
+Boater|straw boater
+Flat cap
+Newsboy cap|baker boy cap
+Deerstalker
+Beret
+Bucket hat
+Fisherman's hat
+Sun hat
+Straw hat
+Sombrero
+Fez|tarboosh
+Turban
+Pagri
+Dastar
+Keffiyeh|kufiya;shemagh
+Taqiyah
+Kufi
+Kippah|yarmulke
+Shtreimel
+Spodik
+Fur hat
+Ushanka|trapper hat
+Trapper hat
+Papakha
+Kalpak
+Tubeteika
+Busby
+Bearskin
+Shako
+Kepi
+Pith helmet|sola topi
+Slouch hat
+Akubra
+Glengarry
+Balmoral
+Tam o' shanter|tam;tammy
+Tam
+Bonnet
+Poke bonnet
+Sunbonnet
+Mob cap
+Coif
+Wimple
+Hennin
+Snood
+Fascinator
+Pillbox hat
+Cloche
+Picture hat
+Cartwheel hat
+Garden party hat
+Wedding hat
+Halo hat
+Tilt hat
+Toque
+Chef's hat|toque blanche
+Mortarboard|graduation cap
+Square academic cap
+Tudor bonnet
+Bishop's mitre|mitre;miter
+Zucchetto|skullcap
+Biretta
+Galero
+Camauro
+Papal tiara|tiara
+Crown
+Coronet
+Circlet
+Diadem
+Tiara
+Bandana
+Durag
+Wave cap
+Babushka
+Visor|sun visor
+Golf visor
+Trucker hat|trucker cap
+Snapback
+Fitted cap
+Dad hat
+Five-panel cap
+Camp cap
+Bicycle cap|cycling cap
+Jockey cap
+Riding hat|riding helmet
+Hard hat|safety helmet
+Bump cap
+Welding helmet
+Crash helmet|motorcycle helmet
+Bike helmet|cycle helmet
+Football helmet
+Batting helmet
+Hockey helmet
+Skullcap
+Swimming cap|swim cap;bathing cap
+Shower cap
+Nightcap
+Sleeping cap
+Smoking cap
+Ear flap hat
+Aviator hat
+Flying helmet
+Deerstalker cap
+Gatsby cap
+Ivy cap
+Driving cap
+Peaked cap
+Officer's cap
+Garrison cap|side cap;forage cap
+Field cap
+Patrol cap
+Boonie hat
+Jungle hat
+Combat helmet
+Kevlar helmet
+Brodie helmet
+Stahlhelm
+Pickelhaube
+Morion
+Kettle hat
+Bascinet
+Great helm
+Sallet
+Barbute
+Armet
+Close helmet
+Spangenhelm
+Nasal helmet
+Corinthian helmet
+Galea
+Phrygian cap|liberty cap
+Petasos
+Pileus
+Pilos
+Tricorn|tricorne
+Bicorne|bicorn
+Cocked hat
+Capotain
+Pilgrim hat
+Puritan hat
+Witch's hat|witch hat
+Wizard hat
+Dunce cap
+Jester's hat|fool's cap
+Santa hat
+Elf hat
+Sailor hat|gob hat
+Sailor cap
+Admiral hat
+Captain's hat|skipper cap
+Conductor's cap
+Bellhop hat
+Policeman's helmet|custodian helmet;bobby helmet
+Campaign hat|drill sergeant hat;smokey bear hat
+Mountie hat
+Gaucho hat
+Bolero hat
+Charro hat
+Montera
+Cordobés
+Canotier
+Homburg
+Porkpie|pork pie hat
+Stingy brim
+Wide-brim hat
+Floppy hat
+Sou'wester
+Rain hat
+Tilley hat
+Safari hat
+Explorer hat
+Fishing hat
+Booney hat
+Gambler hat
+Outback hat
+Coolie hat|conical hat;non la;asian conical hat
+Non la
+Salakot
+Sugegasa
+Jingasa
+Kasa
+Eboshi
+Kanmuri
+Gat
+Jokduri
+Astrakhan hat
+Karakul hat|karakul
+Jinnah cap
+Gandhi cap
+Topi
+Dhaka topi
+Pakol|chitrali cap
+Rumal
+Songkok|peci
+Kopiah
+Tengkolok
+Blangkon
+Udeng
+Fula hat
+Kente cap
+Gele
+Fila
+Chechia
+Shashia
+Tagelmust
+Juliet cap
+Barretina
+Txapela
+Gorro
+Montera picona
+Chullo
+Lluchu
+Bombín|bombin;bowler (bolivian)
+Sombrero vueltiao
+Jipijapa
+Boss of the Plains
+Ten-gallon hat
+Cattleman hat
+Telescope crown hat
+Coonskin cap|davy crockett hat
+Raccoon hat
+Beanie with propeller|propeller beanie
+Tuque
+Toboggan
+Watch cap
+Docker hat
+Fisherman beanie
+Slouchy beanie
+Cuffed beanie
+Baby bonnet
+Christening bonnet
+Easter bonnet
+Feathered hat
+Plumed hat
+Cavalier hat
+Musketeer hat
+Pirate hat
+Captain hat
+Napoleon hat
+Kokoshnik
+Povoinik
+Kika
+Bonnet rouge
+Liberty bonnet
+Bush hat
+Digger hat

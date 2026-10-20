@@ -1,0 +1,245 @@
+# Currencies, current and historic, by their usual English names.
+Pound sterling|pound;sterling;gbp
+US dollar|dollar;usd
+Euro
+Japanese yen|yen
+Chinese yuan|yuan;renminbi;rmb
+Swiss franc|franc
+Canadian dollar
+Australian dollar
+New Zealand dollar
+Hong Kong dollar
+Singapore dollar
+Indian rupee|rupee
+Pakistani rupee
+Sri Lankan rupee
+Nepalese rupee
+Mauritian rupee
+Seychellois rupee
+Indonesian rupiah|rupiah
+Russian ruble|rouble;ruble
+Belarusian ruble
+South African rand|rand
+Brazilian real|real
+Mexican peso|peso
+Argentine peso
+Chilean peso
+Colombian peso
+Cuban peso
+Dominican peso
+Philippine peso
+Uruguayan peso
+South Korean won|won
+North Korean won
+Thai baht|baht
+Vietnamese dong|dong
+Malaysian ringgit|ringgit
+Turkish lira|lira
+Israeli new shekel|shekel
+Egyptian pound
+Lebanese pound
+Syrian pound
+Sudanese pound
+South Sudanese pound
+Saudi riyal|riyal
+Qatari riyal
+Omani rial
+Iranian rial|rial
+Yemeni rial
+UAE dirham|dirham
+Moroccan dirham
+Kuwaiti dinar|dinar
+Bahraini dinar
+Jordanian dinar
+Iraqi dinar
+Libyan dinar
+Tunisian dinar
+Algerian dinar
+Serbian dinar
+Macedonian denar|denar
+Nigerian naira|naira
+Ghanaian cedi|cedi
+Kenyan shilling|shilling
+Ugandan shilling
+Tanzanian shilling
+Somali shilling
+Ethiopian birr|birr
+Eritrean nakfa|nakfa
+Rwandan franc
+Burundian franc
+Congolese franc
+Djiboutian franc
+Guinean franc
+Comorian franc
+CFA franc|west african cfa franc;central african cfa franc
+CFP franc
+Malagasy ariary|ariary
+Mauritanian ouguiya|ouguiya
+Zambian kwacha|kwacha
+Malawian kwacha
+Mozambican metical|metical
+Angolan kwanza|kwanza
+Botswana pula|pula
+Namibian dollar
+Lesotho loti|loti
+Swazi lilangeni|lilangeni
+Zimbabwean dollar
+Zimbabwe Gold|zig
+Gambian dalasi|dalasi
+Sierra Leonean leone|leone
+Liberian dollar
+Cape Verdean escudo|escudo
+São Tomé dobra|dobra
+Polish złoty|zloty;złoty
+Czech koruna|koruna;crown
+Hungarian forint|forint
+Romanian leu|leu
+Moldovan leu
+Bulgarian lev|lev
+Croatian kuna|kuna
+Danish krone|krone
+Norwegian krone
+Swedish krona|krona
+Icelandic króna
+Ukrainian hryvnia|hryvnia
+Georgian lari|lari
+Armenian dram|dram
+Azerbaijani manat|manat
+Turkmenistan manat
+Kazakhstani tenge|tenge
+Uzbekistani som|som
+Kyrgyzstani som
+Tajikistani somoni|somoni
+Mongolian tögrög|tugrik;togrog
+Afghan afghani|afghani
+Bangladeshi taka|taka
+Bhutanese ngultrum|ngultrum
+Maldivian rufiyaa|rufiyaa
+Myanmar kyat|kyat
+Cambodian riel|riel
+Lao kip|kip
+Brunei dollar
+Taiwan dollar|new taiwan dollar
+Macanese pataca|pataca
+Papua New Guinean kina|kina
+Solomon Islands dollar
+Fijian dollar
+Samoan tālā|tala
+Tongan paʻanga|paanga;pa'anga
+Vanuatu vatu|vatu
+East Caribbean dollar
+Jamaican dollar
+Bahamian dollar
+Barbadian dollar
+Belize dollar
+Bermudian dollar
+Cayman Islands dollar
+Trinidad and Tobago dollar
+Guyanese dollar
+Surinamese dollar
+Haitian gourde|gourde
+Honduran lempira|lempira
+Guatemalan quetzal|quetzal
+Nicaraguan córdoba|cordoba
+Costa Rican colón|colon
+Salvadoran colón
+Panamanian balboa|balboa
+Venezuelan bolívar|bolivar
+Bolivian boliviano|boliviano
+Peruvian sol|sol;nuevo sol
+Paraguayan guaraní|guarani
+Aruban florin
+Netherlands Antillean guilder|guilder
+Caribbean guilder
+Falkland Islands pound
+Gibraltar pound
+Saint Helena pound
+Manx pound
+Jersey pound
+Guernsey pound
+Albanian lek|lek
+Bosnian convertible mark|convertible mark
+Deutsche Mark|mark;deutschmark
+French franc
+Italian lira
+Spanish peseta|peseta
+Portuguese escudo
+Greek drachma|drachma
+Dutch guilder
+Belgian franc
+Luxembourg franc
+Austrian schilling|schilling
+Finnish markka|markka
+Irish pound|punt
+Slovak koruna
+Slovenian tolar|tolar
+Estonian kroon|kroon
+Latvian lats|lats
+Lithuanian litas|litas
+Maltese lira
+Cypriot pound
+Yugoslav dinar
+Soviet ruble
+East German mark|ostmark
+Reichsmark
+Papiermark
+Rentenmark
+Czechoslovak koruna
+Spanish dollar|piece of eight;pieces of eight
+Thaler|taler
+Ducat
+Florin
+Guinea
+Farthing
+Groat
+Sovereign
+Noble
+Penny
+Pfennig
+Kreuzer
+Gulden
+Zecchino
+Scudo
+Doubloon
+Louis d'or
+Écu|ecu
+Livre
+Denier
+Sou
+Solidus
+Denarius
+Aureus
+Sestertius
+Drachm
+Obol
+Tetradrachm
+Talent
+Daric
+Mohur
+Pagoda
+Tael
+Mon
+Ryō|ryo
+Sen
+Hwan
+Piastre
+Para
+Akçe
+Kuruş|kurus
+Bitcoin
+Ethereum|ether
+Dogecoin
+Litecoin
+Tether
+Solana
+Cardano
+XRP|ripple
+Monero
+Special drawing rights|sdr
+Rai stones|rai;stone money
+Cowrie shells|cowries
+Wampum
+Manilla
+
+Krugerrand
+Half crown

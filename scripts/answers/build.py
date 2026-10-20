@@ -105,6 +105,10 @@ def main():
             k = keys(name)
             if not k or k & taken:
                 continue
+            # 'Kraken (Norse)' when Kraken is already accepted: the bracket only names a variant, so skip it.
+            outer = re.sub(r'\s*\([^)]*\)\s*', ' ', name).strip()
+            if outer != name and keys(outer) & taken:
+                continue
             taken |= k
             al = [a for a in al if keys(a) and not (keys(a) & taken)]
             for a in al: taken |= keys(a)

@@ -1,0 +1,367 @@
+# Things found in a kitchen: appliances, utensils, cookware, tableware, gadgets and fittings.
+Fridge|refrigerator
+Freezer
+Fridge-freezer
+Oven
+Hob|cooktop;stove
+Cooker|range
+Range cooker
+Aga
+Microwave
+Toaster
+Kettle
+Dishwasher
+Washing machine
+Tumble dryer
+Extractor fan|cooker hood
+Sink
+Tap|faucet
+Plughole strainer
+Draining board
+Dish rack|drying rack
+Worktop|countertop
+Cupboard
+Drawer
+Pantry
+Larder
+Spice rack
+Wine fridge
+Ice maker
+Water filter
+Water filter jug|brita
+Coffee machine|coffee maker
+Espresso machine
+Bean-to-cup machine
+Pod coffee machine|nespresso
+Cafetière|french press;cafetiere
+Moka pot|stovetop espresso maker
+Percolator
+Aeropress
+Pour-over cone|v60
+Coffee grinder
+Burr grinder
+Milk frother
+Teapot
+Tea strainer
+Tea infuser
+Tea cosy|tea cozy
+Teacup
+Saucer
+Mug
+Travel mug
+Flask|thermos
+Glass
+Tumbler
+Wine glass
+Champagne flute
+Pint glass
+Shot glass
+Jug|pitcher
+Milk jug
+Carafe
+Decanter
+Plate
+Side plate
+Dinner plate
+Bowl
+Soup bowl
+Cereal bowl
+Ramekin
+Platter
+Serving dish
+Tureen
+Gravy boat
+Butter dish
+Cheese board
+Cake stand
+Egg cup
+Toast rack
+Salt shaker|salt cellar
+Pepper grinder|pepper mill
+Condiment set|cruet
+Sugar bowl
+Napkin holder
+Placemat
+Coaster
+Tablecloth
+Napkin|serviette
+Cutlery|silverware
+Knife
+Fork
+Spoon
+Teaspoon
+Tablespoon
+Dessert spoon
+Soup spoon
+Steak knife
+Butter knife
+Fish knife
+Chopsticks
+Spork
+Cutlery drawer
+Chef's knife|cook's knife
+Bread knife
+Paring knife
+Carving knife
+Carving fork
+Cleaver|meat cleaver
+Santoku
+Boning knife
+Filleting knife
+Utility knife
+Vegetable knife
+Knife block
+Magnetic knife strip
+Knife sharpener
+Sharpening steel|honing steel
+Whetstone
+Chopping board|cutting board
+Peeler|vegetable peeler
+Grater|box grater
+Microplane|zester
+Mandoline
+Spiralizer
+Garlic press
+Garlic crusher
+Pestle and mortar|mortar and pestle
+Rolling pin
+Pastry brush
+Pastry cutter
+Cookie cutter
+Biscuit cutter
+Piping bag
+Piping nozzle
+Icing smoother
+Turntable
+Palette knife
+Spatula
+Fish slice|turner
+Wooden spoon
+Slotted spoon
+Ladle
+Whisk|balloon whisk
+Tongs
+Masher|potato masher
+Ricer
+Colander
+Sieve
+Strainer
+Salad spinner
+Funnel
+Measuring jug
+Measuring cups
+Measuring spoons
+Kitchen scales|scales
+Timer|kitchen timer;egg timer
+Meat thermometer|food thermometer
+Sugar thermometer
+Oven thermometer
+Oven gloves|oven mitts
+Tea towel|dish towel
+Apron
+Pot holder
+Trivet
+Splatter guard
+Saucepan
+Frying pan|skillet
+Non-stick pan
+Cast iron pan
+Griddle pan
+Wok
+Sauté pan|saute pan
+Stockpot
+Casserole dish|dutch oven;cocotte
+Le Creuset
+Tagine
+Paella pan
+Crêpe pan
+Omelette pan
+Milk pan
+Steamer
+Bamboo steamer
+Double boiler|bain-marie
+Pressure cooker
+Slow cooker|crockpot
+Instant Pot|multicooker
+Rice cooker
+Air fryer
+Deep fat fryer
+Sous vide
+Bread maker|breadmaker
+Stand mixer|kitchenaid
+Hand mixer|electric whisk
+Food processor
+Blender
+Stick blender|hand blender;immersion blender
+Smoothie maker|nutribullet
+Juicer
+Citrus press|lemon squeezer
+Lemon reamer
+Mincer|meat grinder
+Pasta machine
+Ravioli cutter
+Gnocchi board
+Pizza stone
+Pizza peel
+Pizza cutter|pizza wheel
+Baking tray|baking sheet
+Roasting tin
+Roasting rack
+Cake tin
+Loaf tin
+Springform tin
+Bundt tin
+Muffin tin
+Cupcake cases
+Flan dish
+Pie dish
+Tart tin
+Gratin dish
+Lasagne dish
+Ovenproof dish
+Wire rack|cooling rack
+Baking paper|parchment
+Greaseproof paper
+Tin foil|aluminium foil
+Cling film|plastic wrap
+Food bags|freezer bags
+Tupperware|food container
+Lunchbox
+Bread bin
+Biscuit tin
+Cookie jar
+Storage jar
+Kilner jar|mason jar
+Spice jar
+Oil bottle
+Oil sprayer
+Vinegar bottle
+Salad bowl
+Salad servers
+Mixing bowl
+Pudding basin
+Measuring scoop
+Ice cream scoop
+Melon baller
+Apple corer
+Cherry pitter
+Egg separator
+Egg slicer
+Egg poacher
+Waffle iron|waffle maker
+Sandwich toaster|toastie maker
+Panini press
+Grill
+Toastie iron
+Popcorn maker
+Candy floss machine
+Chocolate fountain
+Fondue set
+Raclette grill
+Hot plate
+Warming drawer
+Plate warmer
+Ice cube tray
+Ice bucket
+Cocktail shaker
+Bottle opener
+Corkscrew
+Wine stopper
+Can opener|tin opener
+Jar opener
+Kitchen roll|paper towel
+Kitchen roll holder
+Washing-up liquid
+Washing-up bowl
+Sponge
+Scourer
+Dish brush|washing-up brush
+Bottle brush
+Rubber gloves|marigolds
+Bin|trash can
+Compost caddy
+Recycling bin
+Pedal bin
+Mop
+Broom
+Dustpan and brush
+Fire blanket
+Fire extinguisher
+Smoke alarm
+Kitchen clock
+Radio
+Calendar
+Fridge magnet
+Shopping list
+Cookbook|recipe book
+Recipe stand
+Kitchen island
+Breakfast bar
+Kitchen table
+Stool
+High chair
+Pet bowl
+Water bowl
+Lazy Susan
+Bread board
+Butter curler
+Cheese slicer
+Cheese grater
+Cheese knife
+Mezzaluna
+Herb scissors
+Kitchen scissors|kitchen shears
+Poultry shears
+Meat tenderiser|meat mallet
+Baster
+Injector
+Skewers
+Kebab skewers
+Cocktail sticks|toothpicks
+Lolly sticks
+Rice paddle
+Sushi mat
+Tortilla press
+Comal
+Molcajete
+Metate
+Tandoor
+Tawa
+Kadai|karahi
+Pressure fryer
+Dosa tawa
+Idli steamer
+Chapati maker
+Belan
+Chakla
+Tiffin box
+Clay pot
+Donabe
+Tamagoyaki pan
+Takoyaki pan
+Cast-iron skillet
+Crepe spreader
+Doughnut maker
+Ice cream maker
+Yoghurt maker
+Dehydrator
+Smoker
+Blowtorch
+Vacuum sealer
+Soda maker|sodastream
+Water cooler
+Hot water dispenser|boiling water tap
+Quooker
+Samovar
+Teasmade
+Pan rack
+Pot rack
+Utensil holder|utensil pot
+Spoon rest
+Paper towel holder
+Plate rack
+Mug tree
+Cup hooks
+Tray
+Serving tray
+Trolley
