@@ -1,0 +1,568 @@
+# Footballers, men's and women's, past and present. Written by hand.
+Pelé
+Diego Maradona
+Johan Cruyff
+Franz Beckenbauer
+Alfredo Di Stéfano
+Ferenc Puskás
+Eusébio
+Bobby Charlton
+Bobby Moore
+George Best
+Garrincha
+Zico
+Sócrates
+Rivellino
+Jairzinho
+Tostão
+Carlos Alberto
+Gerd Müller
+Sepp Maier
+Karl-Heinz Rummenigge
+Lothar Matthäus
+Jürgen Klinsmann
+Rudi Völler
+Andreas Brehme
+Michel Platini
+Just Fontaine
+Raymond Kopa
+Jean-Pierre Papin
+Eric Cantona
+Zinedine Zidane
+Thierry Henry
+Patrick Vieira
+Marcel Desailly
+Lilian Thuram
+Fabien Barthez
+Didier Deschamps
+Laurent Blanc
+Robert Pires
+David Trezeguet
+Franck Ribéry
+Karim Benzema
+Antoine Griezmann
+Kylian Mbappé
+N'Golo Kanté
+Paul Pogba
+Hugo Lloris
+Raphaël Varane
+Olivier Giroud
+Ousmane Dembélé
+Aurélien Tchouaméni
+Eduardo Camavinga
+William Saliba
+Marco van Basten
+Ruud Gullit
+Frank Rijkaard
+Dennis Bergkamp
+Patrick Kluivert
+Edgar Davids
+Clarence Seedorf
+Marc Overmars
+Edwin van der Sar
+Jaap Stam
+Ruud van Nistelrooy
+Arjen Robben
+Robin van Persie
+Wesley Sneijder
+Rafael van der Vaart
+Virgil van Dijk
+Frenkie de Jong
+Matthijs de Ligt
+Memphis Depay
+Johan Neeskens
+Ruud Krol
+Rob Rensenbrink
+Paolo Maldini
+Franco Baresi
+Alessandro Nesta
+Fabio Cannavaro
+Gianluigi Buffon
+Dino Zoff
+Roberto Baggio
+Alessandro Del Piero
+Francesco Totti
+Andrea Pirlo
+Gennaro Gattuso
+Filippo Inzaghi
+Christian Vieri
+Paolo Rossi
+Giuseppe Meazza
+Gianni Rivera
+Giacinto Facchetti
+Luigi Riva
+Marco Tardelli
+Giorgio Chiellini
+Leonardo Bonucci
+Daniele De Rossi
+Mario Balotelli
+Ciro Immobile
+Federico Chiesa
+Gianluigi Donnarumma
+Nicolò Barella
+Sandro Mazzola
+Gianfranco Zola
+Roberto Mancini
+Gianluca Vialli
+Iker Casillas
+Xavi
+Andrés Iniesta
+Carles Puyol
+Sergio Ramos
+Gerard Piqué
+Sergio Busquets
+Xabi Alonso
+David Villa
+Fernando Torres
+Raúl
+Fernando Hierro
+Cesc Fàbregas
+David Silva
+Juan Mata
+Jordi Alba
+Pedri
+Gavi
+Rodri
+Lamine Yamal
+Emilio Butragueño
+Luis Suárez Miramontes
+Lionel Messi
+Gabriel Batistuta
+Juan Román Riquelme
+Javier Zanetti
+Hernán Crespo
+Carlos Tevez
+Sergio Agüero
+Ángel Di María
+Javier Mascherano
+Gonzalo Higuaín
+Paulo Dybala
+Lautaro Martínez
+Julián Álvarez
+Emiliano Martínez
+Enzo Fernández
+Alexis Mac Allister
+Mario Kempes
+Daniel Passarella
+Ariel Ortega
+Juan Sebastián Verón
+Pablo Aimar
+Claudio Caniggia
+Ronaldo
+Ronaldinho
+Rivaldo
+Romário
+Bebeto
+Kaká
+Roberto Carlos
+Cafu
+Dunga
+Taffarel
+Neymar
+Thiago Silva
+Marcelo
+Dani Alves
+Casemiro
+Fabinho
+Alisson Becker
+Ederson
+Vinícius Júnior
+Rodrygo
+Gabriel Jesus
+Roberto Firmino
+Philippe Coutinho
+Adriano
+Robinho
+Lúcio
+Juninho Pernambucano
+Leônidas
+Didi
+Nílton Santos
+Falcão
+Cristiano Ronaldo
+Luís Figo
+Rui Costa
+Deco
+Pepe
+Ricardo Carvalho
+Nani
+João Félix
+Bruno Fernandes
+Bernardo Silva
+Rúben Dias
+Rafael Leão
+Diogo Jota
+Paulo Futre
+Luis Suárez
+Diego Forlán
+Edinson Cavani
+Enzo Francescoli
+Federico Valverde
+Darwin Núñez
+Diego Godín
+Alexis Sánchez
+Arturo Vidal
+Iván Zamorano
+Marcelo Salas
+Radamel Falcao
+Carlos Valderrama
+James Rodríguez
+René Higuita
+Luis Díaz
+Hugo Sánchez
+Rafael Márquez
+Javier Hernández
+Cuauhtémoc Blanco
+Guillermo Ochoa
+Hirving Lozano
+Teófilo Cubillas
+Paolo Guerrero
+Jim Baxter
+Kenny Dalglish
+Denis Law
+Graeme Souness
+Alan Hansen
+Ally McCoist
+Andy Robertson
+Scott McTominay
+John McGinn
+Billy McNeill
+Jimmy Johnstone
+Ian Rush
+Ryan Giggs
+Gareth Bale
+Mark Hughes
+Neville Southall
+John Charles
+Aaron Ramsey
+George Weah
+Samuel Eto'o
+Didier Drogba
+Yaya Touré
+Kolo Touré
+Michael Essien
+Abedi Pelé
+Jay-Jay Okocha
+Nwankwo Kanu
+Roger Milla
+Mohamed Salah
+Sadio Mané
+Riyad Mahrez
+Achraf Hakimi
+Hakim Ziyech
+Victor Osimhen
+Mohamed Aboutrika
+Rabah Madjer
+Lucas Radebe
+Benni McCarthy
+Emmanuel Adebayor
+Frédéric Kanouté
+Seydou Keita
+El Hadji Diouf
+Kalidou Koulibaly
+Pierre-Emerick Aubameyang
+Asamoah Gyan
+André Onana
+Bryan Mbeumo
+Yassine Bounou
+Heung-min Son
+Ji-sung Park
+Hidetoshi Nakata
+Shinji Kagawa
+Keisuke Honda
+Kaoru Mitoma
+Takefusa Kubo
+Ali Daei
+Mehdi Taremi
+Tim Cahill
+Harry Kewell
+Mark Viduka
+Mile Jedinak
+Mat Ryan
+Clint Dempsey
+Landon Donovan
+Christian Pulisic
+Tim Howard
+Brad Friedel
+Kasey Keller
+Weston McKennie
+Alphonso Davies
+Jonathan David
+Dwight Yorke
+Andriy Shevchenko
+Oleg Blokhin
+Lev Yashin
+Igor Belanov
+Hristo Stoichkov
+Dimitar Berbatov
+Gheorghe Hagi
+Davor Šuker
+Zvonimir Boban
+Robert Prosinečki
+Luka Modrić
+Ivan Rakitić
+Mario Mandžukić
+Ivan Perišić
+Joško Gvardiol
+Dejan Stanković
+Siniša Mihajlović
+Nemanja Vidić
+Dragan Stojković
+Pavel Nedvěd
+Petr Čech
+Tomáš Rosický
+Jan Koller
+Josef Masopust
+Marek Hamšík
+Zlatan Ibrahimović
+Henrik Larsson
+Fredrik Ljungberg
+Tomas Brolin
+Gunnar Nordahl
+Ole Gunnar Solskjær
+Erling Haaland
+Martin Ødegaard
+John Arne Riise
+Peter Schmeichel
+Kasper Schmeichel
+Michael Laudrup
+Brian Laudrup
+Christian Eriksen
+Allan Simonsen
+Jari Litmanen
+Sami Hyypiä
+Teemu Pukki
+Roy Keane
+Damien Duff
+Robbie Keane
+Paul McGrath
+Denis Irwin
+Shay Given
+Liam Brady
+Pat Jennings
+Norman Whiteside
+Jonny Evans
+Gordon Banks
+Peter Shilton
+David Seaman
+Joe Hart
+Jordan Pickford
+Stanley Matthews
+Tom Finney
+Jimmy Greaves
+Geoff Hurst
+Martin Peters
+Nobby Stiles
+Jack Charlton
+Alan Ball
+Kevin Keegan
+Trevor Francis
+Bryan Robson
+Glenn Hoddle
+Chris Waddle
+John Barnes
+Gary Lineker
+Peter Beardsley
+Paul Gascoigne
+Stuart Pearce
+Tony Adams
+Alan Shearer
+Teddy Sheringham
+Les Ferdinand
+Ian Wright
+Robbie Fowler
+Michael Owen
+Steve McManaman
+David Beckham
+Paul Scholes
+Gary Neville
+Phil Neville
+Nicky Butt
+Rio Ferdinand
+John Terry
+Ashley Cole
+Sol Campbell
+Frank Lampard
+Steven Gerrard
+Wayne Rooney
+Jamie Carragher
+Emile Heskey
+Peter Crouch
+Jermain Defoe
+Joe Cole
+Theo Walcott
+Raheem Sterling
+Harry Kane
+Jamie Vardy
+Marcus Rashford
+Jack Grealish
+Phil Foden
+Bukayo Saka
+Declan Rice
+Jude Bellingham
+Cole Palmer
+Trent Alexander-Arnold
+Jordan Henderson
+John Stones
+Kyle Walker
+Harry Maguire
+Mason Mount
+Kieran Trippier
+Ollie Watkins
+Ivan Toney
+Dixie Dean
+Duncan Edwards
+Nat Lofthouse
+Billy Wright
+Jimmy Armfield
+Ray Wilson
+Emlyn Hughes
+Phil Thompson
+Ray Clemence
+Viv Anderson
+Cyrille Regis
+Laurie Cunningham
+Mark Hateley
+Matt Le Tissier
+Andy Cole
+Dwight Yorke
+Jaap Stam
+Patrice Evra
+Nemanja Matić
+Michael Carrick
+Edwin van der Sar
+Anthony Martial
+Mesut Özil
+Thomas Müller
+Manuel Neuer
+Philipp Lahm
+Bastian Schweinsteiger
+Miroslav Klose
+Michael Ballack
+Oliver Kahn
+Toni Kroos
+Mats Hummels
+Jérôme Boateng
+Marco Reus
+Mario Götze
+İlkay Gündoğan
+Joshua Kimmich
+Leon Goretzka
+Kai Havertz
+Jamal Musiala
+Florian Wirtz
+Leroy Sané
+Serge Gnabry
+Per Mertesacker
+Lukas Podolski
+Matthias Sammer
+Uwe Seeler
+Helmut Rahn
+Fritz Walter
+Paul Breitner
+Berti Vogts
+Günter Netzer
+Wolfgang Overath
+Jürgen Kohler
+Thomas Häßler
+Oliver Bierhoff
+Eden Hazard
+Kevin De Bruyne
+Romelu Lukaku
+Vincent Kompany
+Thibaut Courtois
+Jan Vertonghen
+Toby Alderweireld
+Dries Mertens
+Axel Witsel
+Enzo Scifo
+Jean-Marie Pfaff
+Jan Ceulemans
+Paul Van Himst
+Jérémy Doku
+Robert Lewandowski
+Zbigniew Boniek
+Grzegorz Lato
+Kazimierz Deyna
+Wojciech Szczęsny
+Jakub Błaszczykowski
+Hakan Şükür
+Rüştü Reçber
+Arda Turan
+Hakan Çalhanoğlu
+Arda Güler
+Georgios Karagounis
+Theodoros Zagorakis
+Angelos Charisteas
+Khvicha Kvaratskhelia
+Henrikh Mkhitaryan
+Dominik Szoboszlai
+Florian Albert
+Sándor Kocsis
+Nándor Hidegkuti
+Martin Škrtel
+Jan Oblak
+Josip Iličić
+Granit Xhaka
+Xherdan Shaqiri
+Stéphane Chapuisat
+Yann Sommer
+David Alaba
+Marko Arnautović
+Hans Krankl
+Toni Polster
+Rio Ferdinand
+Marta
+Mia Hamm
+Abby Wambach
+Megan Rapinoe
+Alex Morgan
+Carli Lloyd
+Christine Sinclair
+Birgit Prinz
+Homare Sawa
+Ada Hegerberg
+Sam Kerr
+Alexia Putellas
+Aitana Bonmatí
+Lucy Bronze
+Leah Williamson
+Beth Mead
+Alessia Russo
+Chloe Kelly
+Mary Earps
+Millie Bright
+Ellen White
+Kelly Smith
+Fara Williams
+Steph Houghton
+Jill Scott
+Lauren James
+Vivianne Miedema
+Lieke Martens
+Pernille Harder
+Wendie Renard
+Eugénie Le Sommer
+Dzsenifer Marozsán
+Caroline Graham Hansen
+Kadeisha Buchanan
+Hope Solo
+Julie Foudy
+Kristine Lilly
+Michelle Akers
+Brandi Chastain
+Trinity Rodman
+Sophia Smith
+Rose Lavelle
+Lindsey Horan
+Asisat Oshoala
+Linda Caicedo
+Salma Paralluelo
+Khadija Shaw
+Mapi León
+Irene Paredes
+Fridolina Rolfö
+Stina Blackstenius
+Lena Oberdorf
+Alexandra Popp
+Kosovare Asllani
