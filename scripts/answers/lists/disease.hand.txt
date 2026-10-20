@@ -1,0 +1,343 @@
+# Diseases and medical conditions.
+Influenza|flu
+Common cold|cold
+COVID-19|covid;coronavirus
+Measles
+Mumps
+Rubella|german measles
+Chickenpox|varicella
+Shingles|herpes zoster
+Smallpox
+Polio|poliomyelitis
+Diphtheria
+Tetanus|lockjaw
+Whooping cough|pertussis
+Tuberculosis|tb;consumption
+Pneumonia
+Bronchitis
+Asthma
+Emphysema
+COPD
+Cystic fibrosis
+Lung cancer
+Malaria
+Dengue fever|dengue
+Yellow fever
+Zika
+Chikungunya
+West Nile virus
+Ebola
+Marburg virus disease
+Lassa fever
+Cholera
+Typhoid
+Typhus
+Plague|bubonic plague;black death
+Leprosy|hansen's disease
+Syphilis
+Gonorrhoea|gonorrhea
+Chlamydia
+HIV
+AIDS
+Hepatitis
+Hepatitis A
+Hepatitis B
+Hepatitis C
+Rabies
+Anthrax
+Botulism
+Lyme disease
+Rocky Mountain spotted fever
+Leptospirosis
+Legionnaires' disease
+Listeriosis
+Salmonella|salmonellosis
+E. coli infection
+Norovirus
+Rotavirus
+Giardiasis
+Dysentery
+Amoebiasis
+Schistosomiasis|bilharzia
+Sleeping sickness|african trypanosomiasis
+Chagas disease
+Leishmaniasis
+River blindness|onchocerciasis
+Elephantiasis|lymphatic filariasis
+Guinea worm disease
+Hookworm
+Tapeworm
+Scabies
+Head lice
+Ringworm
+Athlete's foot
+Thrush|candidiasis
+Impetigo
+Cellulitis
+MRSA
+Sepsis
+Meningitis
+Encephalitis
+Glandular fever|mononucleosis;mono
+Scarlet fever
+Strep throat
+Tonsillitis
+Laryngitis
+Sinusitis
+Conjunctivitis|pink eye
+Otitis media|ear infection
+Croup
+Hand, foot and mouth disease
+Fifth disease
+Kawasaki disease
+Diabetes
+Type 1 diabetes
+Type 2 diabetes
+Hypertension|high blood pressure
+Hypotension|low blood pressure
+Heart attack|myocardial infarction
+Heart failure
+Angina
+Arrhythmia
+Atrial fibrillation|afib
+Coronary artery disease
+Atherosclerosis
+Stroke
+Aneurysm
+Deep vein thrombosis|dvt
+Pulmonary embolism
+Varicose veins
+Anaemia|anemia
+Sickle cell disease|sickle cell anaemia
+Thalassaemia|thalassemia
+Haemophilia|hemophilia
+Leukaemia|leukemia
+Lymphoma
+Hodgkin lymphoma
+Myeloma
+Breast cancer
+Prostate cancer
+Bowel cancer|colorectal cancer
+Skin cancer
+Melanoma
+Pancreatic cancer
+Ovarian cancer
+Cervical cancer
+Testicular cancer
+Brain tumour|brain tumor
+Glioblastoma
+Mesothelioma
+Sarcoma
+Osteoporosis
+Osteoarthritis
+Rheumatoid arthritis
+Arthritis
+Gout
+Lupus
+Fibromyalgia
+Multiple sclerosis
+Parkinson's disease|parkinson's
+Alzheimer's disease|alzheimer's
+Dementia
+Motor neurone disease|als;lou gehrig's disease
+Huntington's disease
+Epilepsy
+Migraine
+Cerebral palsy
+Muscular dystrophy
+Spina bifida
+Down syndrome
+Autism
+ADHD
+Dyslexia
+Tourette syndrome
+Depression
+Anxiety
+Bipolar disorder
+Schizophrenia
+OCD|obsessive-compulsive disorder
+PTSD
+Insomnia
+Narcolepsy
+Sleep apnoea|sleep apnea
+Coeliac disease|celiac disease
+Crohn's disease
+Ulcerative colitis
+Irritable bowel syndrome|ibs
+Appendicitis
+Gallstones
+Kidney stones
+Cirrhosis
+Pancreatitis
+Gastritis
+Stomach ulcer|peptic ulcer
+Acid reflux|gerd;heartburn
+Haemorrhoids|piles;hemorrhoids
+Hernia
+Diverticulitis
+Kidney disease
+Kidney failure
+Urinary tract infection|uti
+Cystitis
+Prostatitis
+Endometriosis
+Polycystic ovary syndrome|pcos
+Hypothyroidism
+Hyperthyroidism
+Graves' disease
+Hashimoto's disease
+Addison's disease
+Cushing's syndrome
+Acromegaly
+Gigantism
+Dwarfism
+Eczema
+Psoriasis
+Acne
+Rosacea
+Vitiligo
+Alopecia
+Hives|urticaria
+Warts
+Cold sores
+Cataracts
+Glaucoma
+Macular degeneration
+Colour blindness|color blindness
+Myopia|short-sightedness
+Hyperopia|long-sightedness
+Astigmatism
+Tinnitus
+Deafness
+Vertigo
+Ménière's disease
+Hay fever
+Anaphylaxis
+Scurvy
+Rickets
+Beriberi
+Pellagra
+Kwashiorkor
+Goitre|goiter
+Gangrene
+Frostbite
+Hypothermia
+Heatstroke
+Altitude sickness
+Decompression sickness|the bends
+Motion sickness
+Jaundice
+Tetralogy of Fallot
+Marfan syndrome
+Ehlers-Danlos syndrome
+Turner syndrome
+Klinefelter syndrome
+Fragile X syndrome
+Prader-Willi syndrome
+Angelman syndrome
+Williams syndrome
+Rett syndrome
+Tay-Sachs disease
+Gaucher disease
+Fabry disease
+Phenylketonuria|pku
+Porphyria
+Progeria
+Sarcoidosis
+Scleroderma
+Sjögren's syndrome
+Myasthenia gravis
+Guillain-Barré syndrome
+Bell's palsy
+Trigeminal neuralgia
+Sciatica
+Carpal tunnel syndrome
+Tennis elbow
+Plantar fasciitis
+Bunion
+Scoliosis
+Kyphosis
+Slipped disc
+Whiplash
+Concussion
+Shin splints
+Restless legs syndrome
+Chronic fatigue syndrome|myalgic encephalomyelitis;cfs
+Long COVID
+Creutzfeldt-Jakob disease|cjd;mad cow disease
+Kuru
+Fatal familial insomnia
+Toxoplasmosis
+Cat scratch disease
+Psittacosis
+Q fever
+Brucellosis
+Tularaemia
+Glanders
+Melioidosis
+Hantavirus
+Nipah virus
+Hendra virus
+MERS
+SARS
+Mpox|monkeypox
+Bird flu|avian influenza
+Swine flu
+Spanish flu
+Yaws
+Trachoma
+Buruli ulcer
+Rheumatic fever
+Endocarditis
+Myocarditis
+Pericarditis
+Raynaud's disease
+Buerger's disease
+Peripheral artery disease
+Aortic stenosis
+Mitral valve prolapse
+Hole in the heart
+Pulmonary fibrosis
+Pleurisy
+Pneumothorax|collapsed lung
+Silicosis
+Asbestosis
+Black lung
+Farmer's lung
+Diphyllobothriasis
+Trichinosis
+Ascariasis
+Pinworm|threadworm
+Toxocariasis
+Cysticercosis
+Hydatid disease
+Fascioliasis
+Bed sores|pressure ulcers
+Osteomyelitis
+Septic arthritis
+Paget's disease
+Brittle bone disease|osteogenesis imperfecta
+Achondroplasia
+Hydrocephalus
+Microcephaly
+Anencephaly
+Cleft palate
+Club foot
+Hip dysplasia
+Perthes disease
+Osgood-Schlatter disease
+Stye
+Blepharitis
+Keratoconus
+Retinitis pigmentosa
+Retinal detachment
+Uveitis
+Strabismus|squint
+Amblyopia|lazy eye
+Night blindness
+Snow blindness
+Mastitis
+Pre-eclampsia
+Gestational diabetes
+Ectopic pregnancy
+Fibroids

@@ -1,0 +1,90 @@
+# Bones of the human body (individual bones and named groups).
+Frontal bone|frontal
+Parietal bone|parietal
+Temporal bone|temporal
+Occipital bone|occipital
+Sphenoid|sphenoid bone
+Ethmoid|ethmoid bone
+Nasal bone
+Lacrimal bone
+Zygomatic bone|cheekbone;zygoma
+Maxilla|upper jaw
+Mandible|jawbone;lower jaw
+Palatine bone
+Vomer
+Inferior nasal concha|turbinate
+Hyoid
+Malleus|hammer
+Incus|anvil
+Stapes|stirrup
+Ossicles|auditory ossicles
+Cranium|skull
+Atlas|c1
+Axis|c2
+Cervical vertebrae
+Thoracic vertebrae
+Lumbar vertebrae
+Sacrum
+Coccyx|tailbone
+Vertebra|vertebrae
+Spine|spinal column;backbone
+Sternum|breastbone
+Manubrium
+Rib|ribs
+True ribs
+False ribs
+Floating ribs
+Clavicle|collarbone
+Scapula|shoulder blade
+Humerus
+Radius
+Ulna
+Carpals|carpal bones
+Scaphoid
+Lunate
+Triquetrum
+Pisiform
+Trapezium
+Trapezoid
+Capitate
+Hamate
+Metacarpals
+Phalanges|phalanx
+Proximal phalanx
+Middle phalanx
+Distal phalanx
+Pelvis
+Hip bone|innominate bone;coxal bone
+Ilium
+Ischium
+Pubis
+Femur|thigh bone
+Patella|kneecap
+Tibia|shin bone;shinbone
+Fibula
+Tarsals|tarsal bones
+Talus|ankle bone;astragalus
+Calcaneus|heel bone
+Navicular
+Cuboid
+Medial cuneiform
+Intermediate cuneiform
+Lateral cuneiform
+Cuneiforms|cuneiform bones
+Metatarsals
+Sesamoid bones|sesamoid
+Fabella
+Wormian bones|sutural bones
+Os coxae
+Malar bone
+Hallux|big toe bone
+Pollex|thumb bone
+First metacarpal
+Fifth metatarsal
+Cervical rib
+Accessory navicular
+Os trigonum
+Os peroneum
+Os acromiale
+Inca bone
+Funny bone|olecranon

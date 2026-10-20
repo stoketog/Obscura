@@ -1,0 +1,250 @@
+# Programming, scripting, query and markup-adjacent languages.
+Python
+JavaScript|js
+TypeScript|ts
+Java
+C
+C++|cpp
+C#|c sharp
+Go|golang
+Rust
+Swift
+Kotlin
+Ruby
+PHP
+Perl
+Raku
+R
+Julia
+MATLAB
+Scala
+Haskell
+Erlang
+Elixir
+Clojure
+Lisp
+Common Lisp
+Scheme
+Racket
+Emacs Lisp
+F#|f sharp
+OCaml
+Standard ML|sml
+Elm
+PureScript
+Idris
+Agda
+Coq
+Isabelle
+Prolog
+Datalog
+SQL
+PL/SQL
+T-SQL
+GraphQL
+Cypher
+SPARQL
+XQuery
+XSLT
+Fortran
+COBOL
+BASIC
+Visual Basic|vb
+VB.NET
+QBasic
+BBC BASIC
+Pascal
+Delphi|object pascal
+Modula-2
+Oberon
+Ada
+ALGOL
+Simula
+Smalltalk
+Objective-C
+APL
+Forth
+Logo
+Scratch
+Blockly
+Assembly|assembler;asm
+WebAssembly|wasm
+Bash
+Zsh
+PowerShell
+AppleScript
+AutoHotkey
+Awk
+Tcl
+Lua
+Dart
+Zig
+Nim
+Carbon
+Mojo
+Groovy
+Ceylon
+Fantom
+Gosu
+Xtend
+Solidity
+Vyper
+Michelson
+Verilog
+VHDL
+SystemVerilog
+Chisel
+Bluespec
+CUDA
+OpenCL
+GLSL
+HLSL
+Metal Shading Language
+Halide
+Futhark
+Chapel
+X10
+Fortress
+Cilk
+Occam
+Gleam
+LFE
+Squirrel
+AngelScript
+GDScript
+UnrealScript
+Papyrus
+Lingo
+ActionScript
+HyperTalk
+LiveCode
+Xojo
+REALbasic
+PureBasic
+FreeBASIC
+Small Basic
+Visual FoxPro
+dBase
+Clipper
+Clarion
+PowerBuilder
+ABAP
+RPG
+JCL
+REXX
+PL/I
+MUMPS|m
+Progress 4GL|openedge abl
+SAS
+SPSS
+Stata
+Mathematica|wolfram language
+Maple
+Maxima
+Octave
+Scilab
+LabVIEW
+Simulink
+Modelica
+Ladder logic
+Structured Text
+G-code
+PostScript
+TeX
+LaTeX
+Brainfuck
+Whitespace
+Befunge
+Malbolge
+INTERCAL
+LOLCODE
+Piet
+Unlambda
+ArnoldC
+Emojicode
+Befunge-98
+Newspeak
+Pharo
+Squeak
+Rebol
+Unicon
+SNOBOL
+SETL
+ABC
+Vala
+Haxe
+ReScript
+CoffeeScript
+LiveScript
+Imba
+Objective-J
+Euphoria
+Kodu
+Hopscotch
+Karel
+Ballerina
+Pkl
+Nix
+Dhall
+Jsonnet
+CUE
+HCL|terraform
+Starlark
+CMake
+Q#
+Silq
+OpenQASM
+Quipu
+Jai
+C3
+Idris 2
+F*
+Dafny
+TLA+
+Alloy
+Z notation
+B-Method
+Promela
+SPARK
+Embedded C
+MicroPython
+CircuitPython
+Cython
+Jython
+IronPython
+Stackless Python
+RPython
+ML
+Miranda
+Lazy ML
+SASL
+KRC
+Orwell
+Gofer
+Frege
+Eta
+Q (kdb+)
+K (APL dialect)
+J (APL dialect)
+V (Vlang)|vlang
+D (dlang)|dlang
+Rockstar (language)
+Hack (PHP dialect)|hacklang
+ReasonML
+Move (Diem)
+Cairo (StarkNet)
+Mercury (logic language)
+Lean (theorem prover)|lean 4
+Eiffel
+Crystal
+Factor
+Pony
+Wren
+Janet
+Fennel
+Hy
+Unison
+Koka
+Roc
+Odin
+Hare

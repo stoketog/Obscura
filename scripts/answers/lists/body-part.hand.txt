@@ -1,0 +1,227 @@
+# Organs and parts of the human body.
+Head
+Face
+Forehead
+Scalp
+Eyebrow
+Eyelash
+Eyelid
+Eye socket
+Iris
+Pupil
+Retina
+Cornea
+Lens
+Sclera
+Optic nerve
+Tear duct
+Nose
+Nostril
+Septum
+Sinus
+Cheek
+Cheekbone
+Jaw
+Chin
+Mouth
+Lip
+Tongue
+Tooth|teeth
+Molar
+Incisor
+Canine tooth
+Premolar
+Wisdom tooth
+Gum
+Palate
+Soft palate
+Uvula
+Tonsil
+Adenoids
+Throat
+Pharynx
+Larynx|voice box
+Vocal cords
+Epiglottis
+Oesophagus|esophagus;gullet
+Trachea|windpipe
+Adam's apple
+Ear
+Earlobe
+Eardrum
+Cochlea
+Ear canal
+Inner ear
+Middle ear
+Semicircular canals
+Eustachian tube
+Neck
+Nape
+Shoulder
+Armpit
+Arm
+Upper arm
+Bicep|biceps
+Tricep|triceps
+Elbow
+Forearm
+Wrist
+Hand
+Palm
+Knuckle
+Finger
+Thumb
+Index finger
+Middle finger
+Ring finger
+Little finger|pinky
+Fingernail|nail
+Cuticle
+Chest
+Breast
+Nipple
+Rib cage
+Diaphragm
+Abdomen|belly;tummy
+Navel|belly button
+Waist
+Hip
+Groin
+Back
+Lower back
+Spine
+Shoulder blade
+Buttocks|bum;bottom
+Leg
+Thigh
+Hamstring
+Quadriceps|quads
+Knee
+Kneecap
+Shin
+Calf
+Ankle
+Achilles tendon
+Heel
+Foot
+Sole
+Instep
+Toe
+Big toe
+Toenail
+Skin
+Hair
+Brain
+Cerebrum
+Cerebellum
+Brainstem
+Hypothalamus
+Thalamus
+Hippocampus
+Amygdala
+Pituitary gland
+Pineal gland
+Frontal lobe
+Temporal lobe
+Parietal lobe
+Occipital lobe
+Spinal cord
+Nerve
+Heart
+Aorta
+Artery
+Vein
+Capillary
+Ventricle
+Atrium
+Heart valve
+Lung
+Bronchus|bronchi
+Bronchiole
+Alveoli
+Stomach
+Liver
+Gallbladder
+Pancreas
+Spleen
+Kidney
+Bladder
+Ureter
+Urethra
+Small intestine
+Large intestine
+Colon
+Rectum
+Anus
+Appendix
+Duodenum
+Jejunum
+Ileum
+Caecum
+Thyroid
+Parathyroid glands
+Adrenal glands
+Thymus
+Lymph node
+Tonsils
+Ovary
+Uterus|womb
+Fallopian tube
+Cervix
+Vagina
+Placenta
+Testicle|testis
+Prostate
+Penis
+Scrotum
+Muscle
+Tendon
+Ligament
+Cartilage
+Bone
+Bone marrow
+Joint
+Gluteus maximus|glutes
+Pectorals|pecs
+Abdominals|abs
+Deltoid
+Latissimus dorsi|lats
+Trapezius|traps
+Oblique
+Sartorius
+Masseter
+Sternocleidomastoid
+Rotator cuff
+Pelvic floor
+Perineum
+Sweat gland
+Sebaceous gland
+Salivary gland
+Mammary gland
+Hair follicle
+Pore
+Philtrum
+Pericardium
+Pleura
+Peritoneum
+Mesentery
+Omentum
+Meninges
+Dura mater
+Corpus callosum
+Medulla oblongata
+Pons
+Basal ganglia
+Vagus nerve
+Sciatic nerve
+Ulnar nerve
+Carotid artery
+Jugular vein
+Femoral artery
+Vena cava
+Pulmonary artery
+Coronary artery
+Sinoatrial node
+Bile duct
+Islets of Langerhans
+Nephron

@@ -1,0 +1,352 @@
+# Units of measurement: SI, imperial, US customary, historical, scientific and specialist.
+Metre|meter;m
+Kilometre|kilometer;km
+Centimetre|centimeter;cm
+Millimetre|millimeter;mm
+Micrometre|micron;micrometer
+Nanometre|nanometer;nm
+Picometre
+Femtometre|fermi
+Ångström|angstrom
+Decimetre
+Hectometre
+Megametre
+Inch|inches
+Foot|feet
+Yard
+Mile
+Nautical mile
+League
+Furlong
+Chain
+Rod|pole;perch
+Link
+Fathom
+Cable
+Hand
+Span
+Cubit
+Ell
+Digit
+Barleycorn
+Pica
+Point (typography)|point
+Twip
+Mil|thou
+Light year
+Light-second
+Astronomical unit|au
+Parsec
+Kiloparsec
+Megaparsec
+Gram|gramme;g
+Kilogram|kg;kilo
+Milligram|mg
+Microgram
+Tonne|metric ton
+Ounce|oz
+Pound|lb
+Stone
+Hundredweight
+Ton
+Short ton
+Long ton
+Grain
+Dram
+Troy ounce
+Pennyweight
+Carat
+Scruple
+Slug
+Dalton|atomic mass unit
+Solar mass
+Earth mass
+Jupiter mass
+Second|sec
+Minute
+Hour
+Day
+Week
+Fortnight
+Month
+Year
+Decade
+Century
+Millennium
+Millisecond
+Microsecond
+Nanosecond
+Picosecond
+Femtosecond
+Attosecond
+Jiffy
+Shake
+Planck time
+Sidereal day
+Leap second
+Litre|liter;l
+Millilitre|milliliter;ml
+Centilitre
+Decilitre
+Hectolitre
+Cubic metre
+Cubic centimetre|cc
+Pint
+Quart
+Gallon
+Fluid ounce
+Gill
+Tablespoon
+Teaspoon
+Dessertspoon
+Bushel
+Peck
+Barrel
+Hogshead
+Firkin
+Kilderkin
+Tun
+Puncheon
+Pottle
+Minim
+Jigger
+Acre-foot
+Cord
+Board foot
+Square metre
+Square kilometre
+Square mile
+Square foot
+Acre
+Hectare
+Are
+Rood
+Carucate
+Virgate
+Oxgang
+Dunam
+Tsubo
+Bigha
+Kanal
+Marla
+Newton
+Dyne
+Pound-force
+Kilogram-force
+Poundal
+Joule
+Kilojoule
+Calorie
+Kilocalorie|kcal
+Electronvolt|ev
+Erg
+British thermal unit|btu
+Therm
+Kilowatt-hour|kwh
+Foot-pound
+Watt
+Kilowatt
+Megawatt
+Gigawatt
+Horsepower|hp
+Metric horsepower
+Pascal|pa
+Kilopascal
+Bar
+Millibar
+Atmosphere|atm
+Torr
+Millimetre of mercury|mmhg
+Pounds per square inch|psi
+Hectopascal
+Kelvin
+Celsius|centigrade;degree celsius
+Fahrenheit
+Rankine
+Réaumur
+Degree
+Radian
+Steradian
+Gradian|grad
+Arcminute
+Arcsecond
+Turn|revolution
+Ampere|amp
+Milliampere
+Volt
+Kilovolt
+Ohm
+Siemens
+Mho
+Farad
+Microfarad
+Henry
+Coulomb
+Ampere-hour
+Weber
+Tesla
+Gauss
+Maxwell
+Oersted
+Hertz|hz
+Kilohertz
+Megahertz
+Gigahertz
+Revolutions per minute|rpm
+Becquerel
+Curie
+Rutherford
+Gray
+Rad
+Sievert
+Rem
+Röntgen|roentgen
+Mole
+Candela
+Lumen
+Lux
+Foot-candle
+Nit
+Phot
+Stilb
+Lambert
+Decibel|db
+Bel
+Neper
+Phon
+Sone
+Bit
+Byte
+Kilobyte
+Megabyte
+Gigabyte
+Terabyte
+Petabyte
+Exabyte
+Zettabyte
+Yottabyte
+Nibble
+Kibibyte
+Mebibyte
+Gibibyte
+Baud
+Bits per second
+FLOPS
+Pixel
+Dots per inch|dpi
+Knot
+Mach
+Kilometres per hour|kph;km/h
+Miles per hour|mph
+Metres per second
+G-force|g
+Gal
+Kilogram per cubic metre
+Pascal-second
+Poise
+Stokes
+Katal
+Diopter|dioptre
+Shannon
+Hartley
+Erlang
+Darcy
+Barn
+Jansky
+Solar luminosity
+Solar radius
+Hubble time
+Planck length
+Planck mass
+Bohr radius
+Hartree
+Rydberg
+Debye
+Svedberg
+Kayser
+Denier
+Tex
+Wire gauge
+Brix
+Proof
+ABV|alcohol by volume
+Scoville|scoville heat unit;shu
+IBU
+Lovibond
+Baumé
+Twaddell
+Mohs|mohs scale
+Richter|richter scale
+Beaufort|beaufort scale
+Fujita|fujita scale
+pH
+International unit|iu
+Dobson unit
+Hounsfield unit
+Siemens per metre
+Watt-hour
+Joule per kelvin
+Kilowatt peak
+Ton of TNT|megaton;kiloton
+Ton of refrigeration
+Tonne of oil equivalent
+Barrel of oil equivalent
+Cubic foot
+Cubic inch
+Cubic yard
+Imperial gallon
+US gallon
+Litre per 100 km
+Miles per gallon|mpg
+Ream
+Quire
+Bale
+Hank
+Skein
+TEU
+Talent
+Mina
+Shekel
+Obol
+Drachma
+Uncia
+Passus
+Mille passus
+Stadion|stadium
+Parasang
+Cun
+Liang
+Tael
+Catty
+Picul
+Shaku
+Koku
+Sho
+Momme
+Arpent
+Toise
+Pied
+Pouce
+Ligne
+Aune
+Livre
+Verst
+Arshin
+Sazhen
+Vershok
+Pood
+Zolotnik
+Vara
+Legua
+Braça
+Palmo
+Tola
+Seer
+Maund
+Ratti
+Masha
+Gaz
+Kos
+Yojana
+Hath
+Angula

@@ -144,7 +144,7 @@ def main():
             if outer != name and keys(outer) & taken:
                 continue
             taken |= k
-            al = [a for a in dict.fromkeys(al) if keys(a) and not (keys(a) & taken) and not (keys(a) & k)]
+            al = [a for a in dict.fromkeys(al) if len(normalize(a).replace(' ', '')) >= 2 and keys(a) and not (keys(a) & taken) and not (keys(a) & k)]
             for a in al: taken |= keys(a)
             fresh.append((name, al, max([zipf(name)] + [zipf(a) for a in al])))
         fresh.sort(key=lambda x: (-x[2], x[0].lower()))
