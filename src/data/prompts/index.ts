@@ -10,6 +10,8 @@ import { FOOD } from './food';
 import { ANIMALS } from './animals';
 import { NATURE } from './nature';
 import { CULTURE } from './culture';
+import { EXTRA_ANSWERS } from './extra';
+import { withExtras } from './extra/merge';
 
 /**
  * The prompt library. To add a category, add a `PromptSeed` to any file here
@@ -19,7 +21,7 @@ import { CULTURE } from './culture';
  * Every prompt belongs to a `group`; each day's seven prompts are dealt from
  * different groups (see `src/lib/daily.ts`) so the mix stays varied.
  */
-export const PROMPT_SEEDS: PromptSeed[] = [
+export const PROMPT_SEEDS: PromptSeed[] = withExtras([
   ...GENERAL,
   ...GEOGRAPHY,
   ...HISTORY,
@@ -31,4 +33,4 @@ export const PROMPT_SEEDS: PromptSeed[] = [
   ...ANIMALS,
   ...NATURE,
   ...CULTURE,
-];
+], EXTRA_ANSWERS);

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import type { RoundState } from '@/lib/types';
 import { currentRoundIndex, lastDoneIndex, remainingMs } from '@/lib/game';
@@ -51,7 +51,7 @@ export function GameScreen({ api, holding, onFinished, onContinue, compact = fal
         <Segments api={api} index={active ? idx : -1} className="mt-2" />
       </section>
 
-      <section className="mx-auto mt-5 w-full max-w-xl overflow-x-clip lg:mt-0">
+      <section className="mx-auto mt-5 w-full max-w-xl lg:mt-0">
         {active ? (
           <ActivePrompt key={active.promptId} api={api} round={active} index={idx} onFinished={onFinished} compact={compact} />
         ) : lastIdx >= 0 ? (
@@ -83,30 +83,11 @@ function Segment({ round, current }: { round: RoundState; current: boolean }) {
   return <span className="segment" style={t ? { background: t.color } : undefined} data-state={done ? (t ? t.id : round.end) : current ? 'current' : 'pending'} />;
 }
 
-/* ───────────────────────── Page transitions ───────────────────────── */
-
-const LEAVE_MS = 320;
-const reducedMotion = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-
-/** Slide the current page out to the left, then run `action` (which brings the next page in from the right). Runs once. */
-function useLeave(action: () => void) {
-  const [leaving, setLeaving] = useState(false);
-  const fired = useRef(false);
-  const go = useCallback(() => {
-    if (fired.current) return;
-    fired.current = true;
-    setLeaving(true);
-    window.setTimeout(action, reducedMotion() ? 0 : LEAVE_MS);
-  }, [action]);
-  return { leaving, go };
-}
-
 /* ───────────────────────── Before the first round ───────────────────────── */
 
 function Intro({ api }: { api: ObscuraApi }) {
-  const { leaving, go } = useLeave(api.start);
   return (
-    <section className={leaving ? 'page-leave' : 'page-enter'} data-testid="intro">
+    <section className="animate-rise" data-testid="intro">
       <p className="eyebrow">Today’s chamber is dark</p>
       <h1 className="mt-2 font-display text-[2.4rem] leading-[1.02] text-mist-100 sm:text-5xl">
         {ROUNDS_PER_DAY} prompts. {ROUND_SECONDS} seconds each.
@@ -123,7 +104,7 @@ function Intro({ api }: { api: ObscuraApi }) {
           </li>
         ))}
       </ul>
-      <button className="btn-primary mt-6 w-full" onClick={go} data-testid="start-btn">
+      <button className="btn-primary mt-6 w-full" onClick={api.start} data-testid="start-btn">
         Start round 1
         <IconArrow size={18} />
       </button>
@@ -165,7 +146,7 @@ function ActivePrompt({ api, round, index, onFinished, compact }: { api: Obscura
   const tone = left <= 8000 ? 'danger' : left <= 15000 ? 'warn' : 'ok';
 
   return (
-    <section className="page-enter" data-testid="round">
+    <section className="animate-rise" data-testid="round">
       <div className="flex items-center justify-between gap-3">
         <p className="eyebrow" data-testid="round-label">
           Prompt {index + 1} of {ROUNDS_PER_DAY}
@@ -327,7 +308,6 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
   const after = developedFor(game!.rounds.slice(0, index + 1).reduce((s, r) => s + r.points, 0));
   const next = index + 2;
   const { play } = useSettings();
-  const { leaving, go } = useLeave(api.start);
   useEffect(() => {
     if (after <= before) return;
     const id = window.setTimeout(() => play('ascent'), 450);
@@ -336,7 +316,7 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
   }, []);
 
   return (
-    <section className={leaving ? 'page-leave' : 'page-enter'} data-testid="reveal">
+    <section className="animate-pop" data-testid="reveal">
       <p className="eyebrow">{prompt.text}</p>
       {answered ? (
         <>
@@ -365,7 +345,7 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
         </>
       )}
 
-      <button className="btn-primary mt-6 w-full" onClick={done ? onContinue : go} data-testid="next-btn" autoFocus>
+      <button className="btn-primary mt-6 w-full" onClick={done ? onContinue : api.start} data-testid="next-btn" autoFocus>
         {done ? 'Guess the photograph' : `Start round ${next}`}
         <IconArrow size={18} />
       </button>

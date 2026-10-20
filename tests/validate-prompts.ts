@@ -1,6 +1,7 @@
 /**
  * Validate one or more prompt files:  npx tsx tests/validate-prompts.ts src/data/prompts/sport.ts [...]
  * Every exported PromptSeed[] in each file is checked. Exit code 1 if anything is wrong.
+ * `--all` checks the whole library as the game sees it, with the extra answers merged in.
  */
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -12,12 +13,12 @@ import { normalize } from '@/lib/text';
 
 async function main() {
   const files = process.argv.slice(2);
-  if (!files.length) { console.error('usage: validate-prompts <file> [...]'); process.exit(2); }
+  if (!files.length) { console.error('usage: validate-prompts <file> [...] | --all'); process.exit(2); }
   let bad = 0;
   const seenIds = new Set<string>();
   const fail = (id: string, msg: string) => { bad++; console.error(`  ✗ ${id}: ${msg}`); };
   for (const f of files) {
-    const mod = await import(pathToFileURL(resolve(f)).href);
+    const mod = f === '--all' ? { PROMPT_SEEDS: (await import('@/data/prompts')).PROMPT_SEEDS } : await import(pathToFileURL(resolve(f)).href);
     const seeds: PromptSeed[] = Object.values(mod).flat() as PromptSeed[];
     console.log(`${f}: ${seeds.length} prompts`);
     for (const seed of seeds) {
