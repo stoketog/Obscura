@@ -1,0 +1,273 @@
+# Philosophers, ancient to modern, from every tradition.
+Thales
+Anaximander
+Anaximenes
+Pythagoras
+Heraclitus
+Parmenides
+Zeno of Elea
+Empedocles
+Anaxagoras
+Democritus
+Leucippus
+Protagoras
+Gorgias
+Socrates
+Plato
+Aristotle
+Diogenes|diogenes of sinope
+Antisthenes
+Aristippus
+Epicurus
+Zeno of Citium
+Cleanthes
+Chrysippus
+Pyrrho
+Sextus Empiricus
+Carneades
+Theophrastus
+Hypatia
+Plotinus
+Porphyry
+Proclus
+Iamblichus
+Lucretius
+Cicero
+Seneca
+Epictetus
+Marcus Aurelius
+Philo of Alexandria
+Augustine|saint augustine;augustine of hippo
+Boethius
+Pseudo-Dionysius
+John Scotus Eriugena
+Anselm|anselm of canterbury
+Peter Abelard|abelard
+Hildegard of Bingen
+Thomas Aquinas|aquinas
+Bonaventure
+Albertus Magnus
+Duns Scotus
+William of Ockham|ockham
+Meister Eckhart
+Nicholas of Cusa
+Al-Kindi
+Al-Farabi
+Avicenna|ibn sina
+Al-Ghazali
+Averroes|ibn rushd
+Ibn Khaldun
+Ibn Arabi
+Maimonides
+Mulla Sadra
+Suhrawardi
+Confucius
+Mencius
+Laozi|lao tzu
+Zhuangzi|chuang tzu
+Mozi
+Xunzi
+Han Feizi
+Zhu Xi
+Wang Yangming
+Nagarjuna
+Shankara|adi shankara
+Ramanuja
+Madhva
+Vasubandhu
+Dignaga
+Dharmakirti
+Dogen
+Nishida Kitaro
+Machiavelli|niccolo machiavelli
+Erasmus
+Thomas More
+Michel de Montaigne|montaigne
+Francis Bacon
+Thomas Hobbes|hobbes
+René Descartes|descartes
+Blaise Pascal|pascal
+Baruch Spinoza|spinoza
+John Locke|locke
+Gottfried Wilhelm Leibniz|leibniz
+George Berkeley|berkeley
+David Hume|hume
+Voltaire
+Jean-Jacques Rousseau|rousseau
+Montesquieu
+Denis Diderot|diderot
+Condorcet
+Immanuel Kant|kant
+Johann Gottfried Herder|herder
+Johann Gottlieb Fichte|fichte
+Friedrich Schelling|schelling
+Georg Wilhelm Friedrich Hegel|hegel
+Arthur Schopenhauer|schopenhauer
+Søren Kierkegaard|kierkegaard
+Ludwig Feuerbach
+Karl Marx|marx
+John Stuart Mill
+Jeremy Bentham|bentham
+Edmund Burke
+Mary Wollstonecraft
+Ralph Waldo Emerson|emerson
+Henry David Thoreau|thoreau
+Friedrich Nietzsche|nietzsche
+Charles Sanders Peirce|peirce
+William James
+John Dewey|dewey
+Henri Bergson|bergson
+Edmund Husserl|husserl
+Gottlob Frege|frege
+Bertrand Russell|russell
+G. E. Moore|ge moore
+Ludwig Wittgenstein|wittgenstein
+Alfred North Whitehead|whitehead
+Martin Heidegger|heidegger
+Jean-Paul Sartre|sartre
+Simone de Beauvoir|de beauvoir
+Albert Camus|camus
+Maurice Merleau-Ponty|merleau-ponty
+Karl Jaspers
+Hannah Arendt|arendt
+Theodor Adorno|adorno
+Max Horkheimer
+Herbert Marcuse
+Walter Benjamin
+Jürgen Habermas|habermas
+Antonio Gramsci|gramsci
+Georg Lukács
+Louis Althusser
+Michel Foucault|foucault
+Jacques Derrida|derrida
+Gilles Deleuze|deleuze
+Félix Guattari
+Roland Barthes
+Jean Baudrillard|baudrillard
+Jean-François Lyotard
+Emmanuel Levinas|levinas
+Paul Ricoeur
+Julia Kristeva
+Luce Irigaray
+Hélène Cixous
+Alain Badiou
+Jacques Rancière
+Slavoj Žižek|zizek
+Judith Butler
+Martha Nussbaum
+Peter Singer
+John Rawls|rawls
+Robert Nozick|nozick
+Isaiah Berlin
+Karl Popper|popper
+Thomas Kuhn
+Imre Lakatos
+Paul Feyerabend
+Rudolf Carnap
+Moritz Schlick
+A. J. Ayer|ayer
+Gilbert Ryle
+J. L. Austin
+P. F. Strawson
+W. V. O. Quine|quine
+Donald Davidson
+Hilary Putnam
+Saul Kripke|kripke
+David Lewis
+Daniel Dennett|dennett
+John Searle
+Thomas Nagel
+Derek Parfit
+Bernard Williams
+Alasdair MacIntyre
+Charles Taylor
+Richard Rorty
+Jerry Fodor
+David Chalmers
+Philippa Foot
+Elizabeth Anscombe
+Iris Murdoch
+Mary Midgley
+Onora O'Neill
+Christine Korsgaard
+Kwame Anthony Appiah
+Cornel West
+Frantz Fanon
+Gayatri Spivak
+Amartya Sen
+Ayn Rand
+Simone Weil
+Edith Stein
+Mikhail Bakunin
+Pierre-Joseph Proudhon
+Peter Kropotkin
+Max Stirner
+Auguste Comte|comte
+Ferdinand de Saussure
+Ernst Cassirer
+Leo Strauss
+Carl Schmitt
+Eric Voegelin
+Friedrich Hayek|hayek
+Michael Oakeshott
+Roger Scruton
+John Gray
+Giorgio Agamben
+Byung-Chul Han
+Peter Sloterdijk
+Bernard Stiegler
+Catherine Malabou
+Quentin Meillassoux
+Graham Harman
+Nick Bostrom
+Toby Ord
+William MacAskill
+Thomas Reid
+Francis Hutcheson
+Adam Ferguson
+Joseph Butler
+Anthony Ashley-Cooper, 3rd Earl of Shaftesbury|shaftesbury
+Bernard Mandeville
+Nicolas Malebranche|malebranche
+Pierre Bayle
+Pierre Gassendi
+Marin Mersenne
+Giordano Bruno
+Tommaso Campanella
+Pico della Mirandola
+Marsilio Ficino
+Francisco Suárez
+Hugo Grotius
+Samuel von Pufendorf
+Christian Wolff
+Moses Mendelssohn
+Friedrich Schleiermacher
+Wilhelm Dilthey
+Franz Brentano
+Alexius Meinong
+Giambattista Vico
+Benedetto Croce
+Giovanni Gentile
+Miguel de Unamuno
+José Ortega y Gasset
+George Santayana
+Josiah Royce
+Alain Locke
+Sarvepalli Radhakrishnan
+Keiji Nishitani
+Tetsuro Watsuji
+Fung Yu-lan
+Mou Zongsan
+Gautama Buddha|buddha;siddhartha gautama
+Sun Tzu
+Chanakya|kautilya
+Adam Smith
+Rumi
+Swami Vivekananda|vivekananda
+Noam Chomsky|chomsky
+Friedrich Engels|engels
+Thomas Paine|paine
+Patanjali
+Roger Bacon
+W. E. B. Du Bois|du bois
+B. R. Ambedkar|ambedkar

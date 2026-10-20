@@ -1,0 +1,289 @@
+# Inventors and engineers.
+Thomas Edison
+Alexander Graham Bell
+Nikola Tesla
+James Watt
+Johannes Gutenberg
+Benjamin Franklin
+Orville Wright
+Wilbur Wright
+Guglielmo Marconi
+John Logie Baird
+Tim Berners-Lee
+Leonardo da Vinci
+Archimedes
+Karl Benz
+Gottlieb Daimler
+Rudolf Diesel
+Henry Ford
+George Stephenson
+Robert Stephenson
+Richard Trevithick
+Isambard Kingdom Brunel
+Thomas Newcomen
+Thomas Savery
+Eli Whitney
+Samuel Morse
+Charles Babbage
+Ada Lovelace
+Alan Turing
+John von Neumann
+Grace Hopper
+Hedy Lamarr
+Steve Wozniak
+Dennis Ritchie
+Ken Thompson
+Linus Torvalds
+Vint Cerf
+Bob Kahn
+Douglas Engelbart
+Jack Kilby
+Robert Noyce
+William Shockley
+John Bardeen
+Walter Brattain
+Gordon Moore
+Federico Faggin
+Ted Hoff
+Martin Cooper
+Philo Farnsworth
+Vladimir Zworykin
+Lee de Forest
+John Ambrose Fleming
+Reginald Fessenden
+Edwin Armstrong
+Heinrich Hertz
+Michael Faraday
+Alessandro Volta
+André-Marie Ampère
+Georg Ohm
+Joseph Henry
+William Sturgeon
+Charles Wheatstone
+William Fothergill Cooke
+Werner von Siemens
+George Westinghouse
+Elihu Thomson
+Joseph Swan
+Hiram Maxim
+Richard Gatling
+Samuel Colt
+John Browning
+Mikhail Kalashnikov
+Alfred Nobel
+Wernher von Braun
+Robert Goddard
+Konstantin Tsiolkovsky
+Hermann Oberth
+Frank Whittle
+Hans von Ohain
+Igor Sikorsky
+Louis Blériot
+Otto Lilienthal
+George Cayley
+Joseph-Michel Montgolfier
+Jacques-Étienne Montgolfier
+Ferdinand von Zeppelin|zeppelin
+Christopher Cockerell
+Barnes Wallis
+Robert Watson-Watt
+Percy Shaw
+Trevor Baylis
+James Dyson
+Clive Sinclair
+Frank Hornby
+Harry Brearley
+Henry Bessemer
+Abraham Darby
+John Kay
+James Hargreaves
+Richard Arkwright
+Samuel Crompton
+Edmund Cartwright
+Joseph Marie Jacquard
+Elias Howe
+Isaac Singer
+Walter Hunt
+Whitcomb Judson
+Gideon Sundback
+King Camp Gillette
+Earle Dickson
+Garrett Morgan
+George Washington Carver
+Madam C. J. Walker
+Lewis Latimer
+Granville Woods
+Elijah McCoy
+Charles Goodyear
+John Boyd Dunlop
+Robert William Thomson
+Charles Macintosh
+Thomas Crapper
+Alexander Cumming
+Joseph Bramah
+John Harrison
+Christiaan Huygens
+Hans Lippershey
+Zacharias Janssen
+Antonie van Leeuwenhoek
+Robert Hooke
+Evangelista Torricelli
+Daniel Gabriel Fahrenheit
+Anders Celsius
+Blaise Pascal
+Gottfried Wilhelm Leibniz
+Hero of Alexandria
+Ctesibius
+Al-Jazari
+Zhang Heng
+Cai Lun
+Bi Sheng
+Su Song
+Shen Kuo
+Abbas ibn Firnas
+Ibn al-Haytham
+Louis Braille
+Louis Daguerre
+Joseph Nicéphore Niépce
+William Henry Fox Talbot
+George Eastman
+Edwin Land
+Auguste and Louis Lumière|lumiere brothers
+Louis Le Prince
+Eadweard Muybridge
+Thomas Armat
+Emile Berliner
+Valdemar Poulsen
+Oberlin Smith
+Fritz Pfleumer
+Ray Dolby
+Les Paul
+Leo Fender
+Robert Moog
+Laurens Hammond
+Adolphe Sax
+Bartolomeo Cristofori
+Theobald Böhm
+Christopher Latham Sholes
+Herman Hollerith
+William Seward Burroughs
+James Ritty
+Joseph Glidden
+Cyrus McCormick
+John Deere
+Andrew Meikle
+Edwin Budding
+Elisha Otis
+Willis Carrier
+Clarence Birdseye
+Percy Spencer
+Earl Tupper
+Ruth Wakefield
+John Pemberton
+Caleb Bradham
+Josephine Cochrane
+Margaret Knight
+Mary Anderson
+Stephanie Kwolek
+Patsy Sherman
+Marie Van Brittan Brown
+Ann Tsukamoto
+Bette Nesmith Graham
+Ruth Handler
+Ole Kirk Christiansen
+Ernő Rubik|rubik
+Frank Zamboni
+Spencer Silver
+Art Fry
+Wilson Greatbatch
+Willem Einthoven
+Wilhelm Röntgen
+Godfrey Hounsfield
+Raymond Damadian
+Paul Lauterbur
+Peter Mansfield
+René Laennec
+Ian Donald
+John Charnley
+Harold Ridley
+Willem Kolff
+Forrest Bird
+Robert Jarvik
+Shuji Nakamura
+Nick Holonyak
+Charles Kao
+Theodore Maiman
+Gordon Gould
+Arthur Schawlow
+Charles Townes
+Willard Boyle
+George Smith
+Steven Sasson
+Akio Morita
+Masaru Ibuka
+Soichiro Honda
+Kiichiro Toyoda
+Sakichi Toyoda
+Momofuku Ando
+Nolan Bushnell
+Ralph Baer
+Gunpei Yokoi
+Alexey Pajitnov
+Marc Andreessen
+Ray Tomlinson
+Ward Cunningham
+Bram Cohen
+Satoshi Nakamoto
+Hiram Codd
+Joseph Priestley
+Jacob Schweppe
+Nicolas Appert
+Peter Durand
+Ezra Warner
+Clarence Saunders
+Sylvan Goldman
+Walter Diemer
+Frank Epperson
+Charles Strite
+Earl Bakken
+Dean Kamen
+Nicolas-Joseph Cugnot
+Siegfried Marcus
+Étienne Lenoir
+Nikolaus Otto
+Wilhelm Maybach
+Felix Wankel
+Ferdinand Porsche
+André Citroën
+Alec Issigonis
+Harry Ferguson
+Benjamin Holt
+Joseph Bamford
+Kirkpatrick Macmillan
+Pierre Michaux
+John Kemp Starley
+James Starley
+Karl Drais
+Edward Butler
+Mary Walton
+Mary Kies
+Sybilla Masters
+Tabitha Babbitt
+Amanda Theodosia Jones
+Martha Coston
+Beulah Louise Henry
+Lillian Gilbreth
+Katharine Blodgett
+Maria Telkes
+Ida Forbes
+Florence Parpart
+Alice Parker
+Sarah Boone
+Lyda Newman
+Valerie Thomas
+Patricia Bath
+Marion Donovan
+Margaret Wilcox
+Frances Gabe
+Leon Theremin
+Jethro Tull (agriculturist)

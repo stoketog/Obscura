@@ -62,7 +62,7 @@ export const HISTORY: PromptSeed[] = [
       'Galerius|74', 'Constantius Chlorus|78|constantius i', 'Licinius|74', 'Constantine II|76', 'Constans|78', 'Constantius II|72', 'Jovian|80', 'Valentinian I|76|valentinian', 'Valens|72', 'Gratian|78', 'Honorius|68', 'Arcadius|72', 'Romulus Augustulus|36|romulus augustus',
       'Lucius Verus|62', 'Pertinax|70', 'Didius Julianus|78', 'Pupienus|90', 'Balbinus|90', 'Trebonianus Gallus|91', 'Claudius Gothicus|82|claudius ii', 'Tacitus|82', 'Florian|91|florianus', 'Magnus Maximus|82', 'Majorian|88', 'Anthemius|90', 'Julius Nepos|90',
       'Olybrius|91', 'Avitus|91', 'Libius Severus|91', 'Petronius Maximus|91', 'Glycerius|91', 'Valentinian III|88', 'Priscus Attalus|99', 'Quintillus|91', 'Hostilian|99', 'Aemilianus|91', 'Postumus|90', 'Tetricus|91', 'Zeno|66', 'Leo the Great|78|leo i',
-      'Heraclius|70', 'Basil II|62', 'Michael VIII Palaiologos|90|michael viii', 'Constantine XI|58|constantine xi palaiologos', 'Nicephorus Phocas|90', 'Alexios I Komnenos|82|alexios komnenos', 'Maurice|80', 'Phocas|88', 'Justin I|91', 'Anastasius I|90', 'Marcian|91', 'Tiberius II|91',
+      'Heraclius|70', 'Basil II|62', 'Michael VIII Palaiologos|90|michael viii', 'Constantine XI|58|constantine xi palaiologos', 'Nicephorus Phocas|90|nikephoros ii phokas;nikephoros phokas;nicephorus ii', 'Alexios I Komnenos|82|alexios komnenos', 'Maurice|80', 'Phocas|88', 'Justin I|91', 'Anastasius I|90', 'Marcian|91', 'Tiberius II|91',
     ],
   },
   {

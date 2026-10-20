@@ -131,6 +131,10 @@ def main():
         for name, al in items:
             if keys(base_of(pid, name)) & taken:
                 continue
+            # An alternative name that already belongs to an answer means this is that answer again ("Attack on
+            # Pearl Harbor|pearl harbor" when "Pearl Harbor" is accepted), so the whole entry is skipped.
+            if any(keys(a) & taken for a in al):
+                continue
             name, al = feature_forms(pid, name, al)
             k = keys(name)
             if not k or k & taken:

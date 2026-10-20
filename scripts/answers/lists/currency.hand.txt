@@ -1,27 +1,27 @@
 # Currencies, current and historic, by their usual English names.
-Pound sterling|pound;sterling;gbp
-US dollar|dollar;usd
+Pound sterling|gbp
+US dollar|usd
 Euro
-Japanese yen|yen
-Chinese yuan|yuan;renminbi;rmb
-Swiss franc|franc
+Japanese yen
+Chinese yuan|renminbi;rmb
+Swiss franc
 Canadian dollar
 Australian dollar
 New Zealand dollar
 Hong Kong dollar
 Singapore dollar
-Indian rupee|rupee
+Indian rupee
 Pakistani rupee
 Sri Lankan rupee
 Nepalese rupee
 Mauritian rupee
 Seychellois rupee
-Indonesian rupiah|rupiah
-Russian ruble|rouble;ruble
+Indonesian rupiah
+Russian ruble|rouble
 Belarusian ruble
-South African rand|rand
-Brazilian real|real
-Mexican peso|peso
+South African rand
+Brazilian real
+Mexican peso
 Argentine peso
 Chilean peso
 Colombian peso
@@ -29,26 +29,26 @@ Cuban peso
 Dominican peso
 Philippine peso
 Uruguayan peso
-South Korean won|won
+South Korean won
 North Korean won
-Thai baht|baht
-Vietnamese dong|dong
-Malaysian ringgit|ringgit
-Turkish lira|lira
-Israeli new shekel|shekel
+Thai baht
+Vietnamese dong
+Malaysian ringgit
+Turkish lira
+Israeli new shekel
 Egyptian pound
 Lebanese pound
 Syrian pound
 Sudanese pound
 South Sudanese pound
-Saudi riyal|riyal
+Saudi riyal
 Qatari riyal
 Omani rial
-Iranian rial|rial
+Iranian rial
 Yemeni rial
-UAE dirham|dirham
+UAE dirham
 Moroccan dirham
-Kuwaiti dinar|dinar
+Kuwaiti dinar
 Bahraini dinar
 Jordanian dinar
 Iraqi dinar
@@ -56,15 +56,15 @@ Libyan dinar
 Tunisian dinar
 Algerian dinar
 Serbian dinar
-Macedonian denar|denar
-Nigerian naira|naira
-Ghanaian cedi|cedi
-Kenyan shilling|shilling
+Macedonian denar
+Nigerian naira
+Ghanaian cedi
+Kenyan shilling
 Ugandan shilling
 Tanzanian shilling
 Somali shilling
-Ethiopian birr|birr
-Eritrean nakfa|nakfa
+Ethiopian birr
+Eritrean nakfa
 Rwandan franc
 Burundian franc
 Congolese franc
@@ -73,60 +73,60 @@ Guinean franc
 Comorian franc
 CFA franc|west african cfa franc;central african cfa franc
 CFP franc
-Malagasy ariary|ariary
-Mauritanian ouguiya|ouguiya
-Zambian kwacha|kwacha
+Malagasy ariary
+Mauritanian ouguiya
+Zambian kwacha
 Malawian kwacha
-Mozambican metical|metical
-Angolan kwanza|kwanza
-Botswana pula|pula
+Mozambican metical
+Angolan kwanza
+Botswana pula
 Namibian dollar
-Lesotho loti|loti
-Swazi lilangeni|lilangeni
+Lesotho loti
+Swazi lilangeni
 Zimbabwean dollar
 Zimbabwe Gold|zig
-Gambian dalasi|dalasi
-Sierra Leonean leone|leone
+Gambian dalasi
+Sierra Leonean leone
 Liberian dollar
-Cape Verdean escudo|escudo
-São Tomé dobra|dobra
-Polish złoty|zloty;złoty
-Czech koruna|koruna;crown
-Hungarian forint|forint
-Romanian leu|leu
+Cape Verdean escudo
+São Tomé dobra
+Polish złoty|zloty
+Czech koruna|crown
+Hungarian forint
+Romanian leu
 Moldovan leu
-Bulgarian lev|lev
-Croatian kuna|kuna
-Danish krone|krone
+Bulgarian lev
+Croatian kuna
+Danish krone
 Norwegian krone
-Swedish krona|krona
+Swedish krona
 Icelandic króna
-Ukrainian hryvnia|hryvnia
-Georgian lari|lari
-Armenian dram|dram
-Azerbaijani manat|manat
+Ukrainian hryvnia
+Georgian lari
+Armenian dram
+Azerbaijani manat
 Turkmenistan manat
-Kazakhstani tenge|tenge
-Uzbekistani som|som
+Kazakhstani tenge
+Uzbekistani som
 Kyrgyzstani som
-Tajikistani somoni|somoni
+Tajikistani somoni
 Mongolian tögrög|tugrik;togrog
-Afghan afghani|afghani
-Bangladeshi taka|taka
-Bhutanese ngultrum|ngultrum
-Maldivian rufiyaa|rufiyaa
-Myanmar kyat|kyat
-Cambodian riel|riel
-Lao kip|kip
+Afghan afghani
+Bangladeshi taka
+Bhutanese ngultrum
+Maldivian rufiyaa
+Myanmar kyat
+Cambodian riel
+Lao kip
 Brunei dollar
 Taiwan dollar|new taiwan dollar
-Macanese pataca|pataca
-Papua New Guinean kina|kina
+Macanese pataca
+Papua New Guinean kina
 Solomon Islands dollar
 Fijian dollar
 Samoan tālā|tala
 Tongan paʻanga|paanga;pa'anga
-Vanuatu vatu|vatu
+Vanuatu vatu
 East Caribbean dollar
 Jamaican dollar
 Bahamian dollar
@@ -137,19 +137,19 @@ Cayman Islands dollar
 Trinidad and Tobago dollar
 Guyanese dollar
 Surinamese dollar
-Haitian gourde|gourde
-Honduran lempira|lempira
-Guatemalan quetzal|quetzal
+Haitian gourde
+Honduran lempira
+Guatemalan quetzal
 Nicaraguan córdoba|cordoba
 Costa Rican colón|colon
 Salvadoran colón
-Panamanian balboa|balboa
+Panamanian balboa
 Venezuelan bolívar|bolivar
-Bolivian boliviano|boliviano
-Peruvian sol|sol;nuevo sol
+Bolivian boliviano
+Peruvian sol|nuevo sol
 Paraguayan guaraní|guarani
 Aruban florin
-Netherlands Antillean guilder|guilder
+Netherlands Antillean guilder
 Caribbean guilder
 Falkland Islands pound
 Gibraltar pound
@@ -157,25 +157,25 @@ Saint Helena pound
 Manx pound
 Jersey pound
 Guernsey pound
-Albanian lek|lek
+Albanian lek
 Bosnian convertible mark|convertible mark
-Deutsche Mark|mark;deutschmark
+Deutsche Mark|deutschmark
 French franc
 Italian lira
-Spanish peseta|peseta
+Spanish peseta
 Portuguese escudo
-Greek drachma|drachma
+Greek drachma
 Dutch guilder
 Belgian franc
 Luxembourg franc
-Austrian schilling|schilling
-Finnish markka|markka
+Austrian schilling
+Finnish markka
 Irish pound|punt
 Slovak koruna
-Slovenian tolar|tolar
-Estonian kroon|kroon
-Latvian lats|lats
-Lithuanian litas|litas
+Slovenian tolar
+Estonian kroon
+Latvian lats
+Lithuanian litas
 Maltese lira
 Cypriot pound
 Yugoslav dinar
@@ -236,7 +236,7 @@ Cardano
 XRP|ripple
 Monero
 Special drawing rights|sdr
-Rai stones|rai;stone money
+Rai stones|stone money
 Cowrie shells|cowries
 Wampum
 Manilla

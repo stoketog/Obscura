@@ -75,7 +75,7 @@ function clampScore(raw: string): string {
 
 /** "Erling Haaland" → "haaland"; "Vincent van Gogh" → "van gogh". Null when the name is a single word. */
 function surnameOf(name: string): string | null {
-  const words = normalize(name).split(' ').filter(Boolean);
+  const words = normalize(name.replace(/\([^)]*\)/g, ' ')).split(' ').filter(Boolean);
   if (words.length < 2) return null;
   let i = words.length - 1;
   while (i > 0 && PARTICLES.has(words[i])) i--;

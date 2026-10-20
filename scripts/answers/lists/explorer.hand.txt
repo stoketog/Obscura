@@ -1,0 +1,288 @@
+# Explorers, navigators, mountaineers, polar and space explorers.
+Christopher Columbus
+Ferdinand Magellan
+Vasco da Gama
+Marco Polo
+James Cook|captain cook
+Amerigo Vespucci
+John Cabot
+Sebastian Cabot
+Hernán Cortés|hernan cortes;cortez
+Francisco Pizarro
+Francis Drake
+Walter Raleigh
+Henry Hudson
+Jacques Cartier
+Samuel de Champlain
+Bartolomeu Dias
+Pedro Álvares Cabral|cabral
+Juan Ponce de León|ponce de leon
+Hernando de Soto
+Francisco Vázquez de Coronado|coronado
+Vasco Núñez de Balboa|balboa
+Juan Sebastián Elcano|elcano
+Abel Tasman
+Willem Janszoon
+Dirk Hartog
+Louis Antoine de Bougainville|bougainville
+Jean-François de La Pérouse|la perouse
+Jules Dumont d'Urville
+William Dampier
+George Vancouver
+Matthew Flinders
+George Bass
+Alexander Mackenzie
+Simon Fraser
+David Thompson
+Meriwether Lewis
+William Clark
+Sacagawea
+Zebulon Pike
+John C. Frémont|fremont
+Daniel Boone
+Kit Carson
+Jedediah Smith
+Robert Cavelier de La Salle|la salle
+Jacques Marquette
+Louis Jolliet
+Étienne Brûlé
+Pierre-Esprit Radisson
+Médard des Groseilliers
+Vitus Bering
+Semyon Dezhnev
+Yermak
+Afanasy Nikitin
+Ibn Battuta
+Zheng He
+Xuanzang
+Faxian
+Zhang Qian
+Ahmad ibn Fadlan|ibn fadlan
+Al-Idrisi
+Leif Erikson|leif ericson
+Erik the Red
+Bjarni Herjólfsson
+Thorfinn Karlsefni
+Brendan the Navigator|saint brendan
+Pytheas
+Hanno the Navigator
+Himilco
+Scylax of Caryanda
+Nearchus
+Henry the Navigator|prince henry
+Gil Eanes
+Diogo Cão
+Pêro da Covilhã
+João Rodrigues Cabrilho|cabrillo
+Álvar Núñez Cabeza de Vaca|cabeza de vaca
+Francisco de Orellana|orellana
+Pedro de Valdivia
+Diego de Almagro
+Gonzalo Pizarro
+Juan de la Cosa
+Vicente Yáñez Pinzón
+Alonso de Ojeda
+Martin Frobisher
+John Davis
+William Baffin
+Thomas Button
+Luke Foxe
+Jens Munk
+John Franklin
+John Ross
+James Clark Ross
+William Edward Parry
+Robert McClure
+Francis McClintock
+John Rae
+Elisha Kent Kane
+Charles Francis Hall
+Adolphus Greely
+Robert Peary
+Matthew Henson
+Frederick Cook
+Fridtjof Nansen
+Roald Amundsen
+Otto Sverdrup
+Knud Rasmussen
+Vilhjalmur Stefansson
+Umberto Nobile
+Richard Byrd
+Robert Falcon Scott|captain scott
+Ernest Shackleton
+Douglas Mawson
+Lawrence Oates|captain oates
+Edward Wilson
+Henry Bowers
+Edgar Evans
+Tom Crean
+Frank Wild
+Frank Worsley
+Carsten Borchgrevink
+Adrien de Gerlache
+Jean-Baptiste Charcot
+Wilhelm Filchner
+Erich von Drygalski
+Nobu Shirase
+Vivian Fuchs
+Edmund Hillary
+Tenzing Norgay
+Ranulph Fiennes
+Børge Ousland
+Ann Bancroft
+Liv Arnesen
+Felicity Aston
+David Livingstone
+Henry Morton Stanley
+Richard Francis Burton
+John Hanning Speke
+James Augustus Grant
+Samuel Baker
+Florence Baker
+Mungo Park
+Hugh Clapperton
+Richard Lander
+Heinrich Barth
+René Caillié
+Gerhard Rohlfs
+Gustav Nachtigal
+Pierre Savorgnan de Brazza|de brazza
+Mary Kingsley
+Isabella Bird
+Gertrude Bell
+Freya Stark
+Alexandra David-Néel
+Ida Pfeiffer
+Isabelle Eberhardt
+Lady Hester Stanhope
+Jane Digby
+Wilfred Thesiger
+T. E. Lawrence|lawrence of arabia
+Bertram Thomas
+Harry St John Philby
+Charles Doughty
+Johann Ludwig Burckhardt|burckhardt
+Alexander von Humboldt|humboldt
+Aimé Bonpland
+Charles Marie de La Condamine
+Henry Walter Bates
+Alfred Russel Wallace
+Percy Fawcett
+Hiram Bingham
+Cândido Rondon|rondon
+Robert O'Hara Burke|burke
+William John Wills|wills
+John McDouall Stuart
+Edward John Eyre
+Ludwig Leichhardt
+Charles Sturt
+John Oxley
+Hamilton Hume
+William Hovell
+Gregory Blaxland
+Thomas Mitchell
+Ernest Giles
+John Forrest
+Augustus Gregory
+Ernest Favenc
+Nikolai Przhevalsky|przhevalsky
+Pyotr Semyonov-Tyan-Shansky
+Sven Hedin
+Aurel Stein
+Francis Younghusband
+Nain Singh
+Kinthup
+George Mallory
+Andrew Irvine
+Reinhold Messner
+Junko Tabei
+Chris Bonington
+Doug Scott
+Edward Whymper
+Albert Mummery
+Annie Smith Peck
+Fanny Bullock Workman
+Jacques Cousteau
+William Beebe
+Otis Barton
+Jacques Piccard
+Don Walsh
+Auguste Piccard
+Robert Ballard
+Sylvia Earle
+Victor Vescovo
+Thor Heyerdahl
+Tim Severin
+Bertrand Piccard
+Steve Fossett
+Amelia Earhart
+Charles Lindbergh
+Louis Blériot
+Yuri Gagarin
+Valentina Tereshkova
+Alexei Leonov
+Neil Armstrong
+Buzz Aldrin
+Michael Collins
+John Glenn
+Alan Shepard
+Sally Ride
+Eugene Cernan
+Jim Lovell
+Pete Conrad
+Chris Hadfield
+Tim Peake
+Helen Sharman
+Dervla Murphy
+Robyn Davidson
+Jason Lewis
+Bear Grylls
+Levison Wood
+Benedict Allen
+Robin Hanbury-Tenison
+Pen Hadow
+Mike Horn
+Alain Hubert
+Erling Kagge
+Will Steger
+Sir Hubert Wilkins|hubert wilkins
+Lincoln Ellsworth
+Salomon August Andrée
+Umberto Cagni
+Duke of the Abruzzi
+Giovanni da Verrazzano|verrazzano
+Antonio Pigafetta
+Ludovico di Varthema
+Odoric of Pordenone
+William of Rubruck
+Giovanni da Pian del Carpine
+Niccolò de' Conti
+Rabban Bar Sauma
+Benjamin of Tudela
+Jean de Béthencourt
+Fernão Mendes Pinto
+Ippolito Desideri
+Antonio de Andrade
+Jean-Baptiste Tavernier
+François Bernier
+Engelbert Kaempfer
+Carl Peter Thunberg
+Philipp Franz von Siebold
+Joseph Banks
+Daniel Solander
+Johann Reinhold Forster
+Georg Forster
+Joseph Dalton Hooker
+Robert FitzRoy
+Marianne North
+Margaret Mee
+Robert Fortune
+Frank Kingdon-Ward
+Ernest Wilson
+George Forrest
+David Douglas
+John Muir
+John Wesley Powell
+Ferdinand Hayden
+Clarence King
+Stephen Long
