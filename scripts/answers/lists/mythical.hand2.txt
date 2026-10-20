@@ -1,0 +1,400 @@
+# More mythical and legendary creatures. Written by hand.
+Abaia
+Adlet
+Ahuizotl|Ahuitzotl
+Akkorokamui
+Alicanto
+Alkonost
+Amarok
+Ammit|Ammut
+Amphisbaena
+Anzû
+Apkallu
+Aswang
+Ayakashi
+Baku
+Bakeneko
+Banshee
+Barghest
+Basilisk
+Behemoth
+Bennu
+Bigfoot
+Black Shuck
+Bogeyman
+Boggart
+Bunyip
+Cadejo
+Caladrius
+Camazotz
+Catoblepas
+Centaur
+Cerberus
+Charybdis
+Chimera|Chimaera
+Chupacabra
+Cockatrice
+Cyclops
+Dahu
+Domovoi
+Draugr
+Dryad
+Dullahan
+Echidna
+Encantado
+Ent
+Erinyes
+Fenrir
+Firebird
+Fomorian
+Gamayun
+Gargoyle
+Garuda
+Genie
+Ghoul
+Gorgon
+Grendel
+Griffin|Gryphon
+Gumiho|Kumiho
+Harpy
+Hippogriff
+Hydra
+Ifrit
+Jabberwock
+Jackalope
+Jersey Devil
+Jiangshi
+Jinn
+Jörmungandr
+Kappa
+Kelpie
+Kirin
+Kitsune
+Kraken
+Krampus
+La Llorona
+Lamia
+Leprechaun
+Leviathan
+Loch Ness Monster
+Manticore
+Mapinguari
+Medusa
+Mermaid
+Merman
+Minotaur
+Mokele-mbembe
+Mothman
+Nāga|Naga
+Nandi bear
+Nemean lion
+Nian
+Nisse
+Nixie
+Nuckelavee
+Nue
+Oni
+Pegasus
+Peryton
+Phoenix
+Pixie
+Qilin
+Rakshasa
+Roc
+Rusalka
+Salamander
+Satyr
+Scylla
+Selkie
+Simurgh
+Siren
+Sleipnir
+Sphinx
+Squonk
+Succubus
+Tanuki
+Tengu
+Thunderbird
+Tikbalang
+Tokoloshe|Tikoloshe
+Troll
+Typhon
+Unicorn
+Valkyrie
+Vampire
+Vritra
+Wendigo
+Werewolf
+Will-o'-the-wisp
+Wyvern
+Yeti
+Yōkai
+Yowie
+Ziz
+Zmey
+Zombie
+Ahool
+Almas
+Bake-kujira
+Bannik
+Baba Yaga
+Bies
+Bukavac
+Bolla
+Brownie
+Bugbear
+Bunyip
+Cailleach
+Cat sìth
+Cù-sìth
+Changeling
+Cluricaune
+Each-uisge
+Fachan
+Fear dearg
+Ghillie Dhu
+Glaistig
+Gwyllgi
+Hag
+Hobgoblin
+Imp
+Kobold
+Lindworm
+Mare
+Nightmare
+Púca
+Redcap
+Sluagh
+Tylwyth Teg
+Ceffyl Dŵr
+Afanc
+Y Ddraig Goch
+Wyrm
+Knucker
+Lambton Worm
+Questing Beast
+Blatant Beast
+Black dog
+Gytrash
+Padfoot
+Hellhound
+Church grim
+Spriggan
+Knocker
+Piskie
+Morgen
+Jenny Greenteeth
+Peg Powler
+Nuggle
+Shellycoat
+Blue men of the Minch
+Finfolk
+Trow
+Huldra|Hulder
+Nøkken
+Fossegrim
+Draugen
+Mylingar
+Tomte
+Lyktgubbe
+Myling
+Gnome
+Dwarf
+Elf
+Dark elf
+Light elf
+Jötunn
+Frost giant
+Fire giant
+Níðhöggr
+Ratatoskr
+Hræsvelgr
+Audumbla
+Garmr
+Sköll
+Hati
+Huginn
+Muninn
+Gullinbursti
+Tanngrisnir
+Svaðilfari
+Hippocampus
+Ichthyocentaur
+Ketos|Cetus
+Python
+Ladon
+Orthrus
+Stymphalian birds
+Cretan Bull
+Erymanthian boar
+Calydonian boar
+Ceryneian Hind
+Teumessian fox
+Laelaps
+Talos
+Empusa
+Lamia
+Mormo
+Gello
+Keres
+Graeae
+Hecatoncheires
+Gigantes
+Cyclopes
+Argus Panoptes
+Echidna
+Silenus
+Faun
+Nymph
+Naiad
+Nereid
+Oceanid
+Oread
+Hamadryad
+Maenad
+Alseid
+Lampad
+Telchines
+Spartoi
+Automaton
+Golem
+Homunculus
+Dybbuk
+Lilith
+Shedim
+Bahamut
+Buraq
+Huma
+Shahmaran
+Al-mi'raj
+Peri
+Div
+Makara
+Yali
+Gandaberunda
+Kinnara
+Apsara
+Gandharva
+Yaksha
+Vetala
+Pishacha
+Bhoot
+Churel
+Shesha
+Airavata
+Kamadhenu
+Uchchaihshravas
+Jatayu
+Baihu
+Xuanwu
+Zhuque
+Qinglong
+Pixiu
+Fenghuang
+Taotie
+Bixi
+Hundun
+Jiaolong
+Chiwen
+Yaoguai
+Huli jing|Nine-tailed fox
+Dokkaebi
+Haetae
+Bulgasari
+Gwishin
+Inugami
+Jorōgumo
+Kamaitachi
+Kasa-obake
+Nekomata
+Nurikabe
+Rokurokubi
+Tsuchinoko
+Umibōzu
+Yuki-onna
+Zashiki-warashi
+Hitotsume-kozō
+Kuchisake-onna
+Jinmenken
+Aka Manto
+Tsukumogami
+Manananggal|Mananangal
+Kapre
+Duwende
+Diwata
+Sigbin
+Bakunawa
+Barong
+Rangda
+Leyak
+Pontianak
+Penanggalan
+Orang Pendek
+Toyol
+Hantu
+Taniwha
+Patupaiarehe
+Ponaturi
+Rainbow Serpent
+Muldjewangk
+Drop bear
+Yara-ma-yha-who
+Mimi
+Wandjina
+Impundulu
+Grootslang
+Inkanyamba
+Ninki Nanka
+Popobawa
+Adze
+Asanbosam|Sasabonsam
+Kongamato
+Emela-ntouka
+Chipekwe
+Lukwata
+Kishi
+Ogbanje
+Abiku
+Apep
+Serpopard
+Sha
+Uraeus
+Cipactli
+Nahual|Nagual
+Tzitzimitl
+Cihuateteo
+Mušḫuššu|Sirrush
+Lamassu|Shedu
+Pazuzu
+Lamashtu
+Humbaba
+Gugalanna
+Ogopogo
+Champ
+Bessie
+Caddy
+Cadborosaurus
+Thunderbird
+Wampus cat
+Hodag
+Fresno nightcrawler
+Snallygaster
+Skunk ape
+Dover Demon
+Beast of Bodmin Moor
+Beast of Gévaudan
+Tatzelwurm
+Wolpertinger
+Elwetritsch
+Rasselbock
+Skvader
+Hidebehind
+Splintercat
+Teakettler
+Hoop snake
+Joint snake
+Gumberoo
+Agropelter
+Rubberado
+Axehandle hound
+

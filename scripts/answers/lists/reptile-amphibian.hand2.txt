@@ -1,0 +1,275 @@
+# More reptiles and amphibians. Written by hand.
+Komodo dragon
+Gila monster
+Beaded lizard
+Thorny devil
+Frilled lizard
+Bearded dragon
+Blue-tongued skink
+Shingleback
+Leopard gecko
+Crested gecko
+Tokay gecko
+Day gecko
+Leaf-tailed gecko
+Flying gecko
+Chuckwalla
+Green iguana
+Marine iguana
+Rhinoceros iguana
+Desert iguana
+Basilisk
+Plumed basilisk
+Jesus lizard
+Anole
+Green anole
+Brown anole
+Knight anole
+Panther chameleon
+Veiled chameleon
+Jackson's chameleon
+Parson's chameleon
+Pygmy chameleon
+Water monitor
+Nile monitor
+Perentie
+Lace monitor
+Savannah monitor
+Ackie monitor
+Tegu
+Argentine black and white tegu
+Caiman lizard
+Slow worm
+Glass lizard
+Legless lizard
+Worm lizard
+Amphisbaena
+Tuatara
+Sand lizard
+Viviparous lizard
+Wall lizard
+Ocellated lizard
+Green lizard
+Racerunner
+Whiptail
+Horned lizard
+Fence lizard
+Collared lizard
+Uromastyx
+Spiny-tailed iguana
+Galápagos land iguana
+Saltwater crocodile
+Nile crocodile
+American crocodile
+Mugger crocodile
+Siamese crocodile
+Cuban crocodile
+Orinoco crocodile
+Dwarf crocodile
+Gharial
+False gharial
+American alligator
+Chinese alligator
+Spectacled caiman
+Black caiman
+Yacare caiman
+Dwarf caiman
+Leatherback turtle
+Green sea turtle
+Loggerhead turtle
+Hawksbill turtle
+Olive ridley
+Kemp's ridley
+Flatback turtle
+Snapping turtle
+Alligator snapping turtle
+Softshell turtle
+Box turtle
+Painted turtle
+Red-eared slider
+Musk turtle
+Mud turtle
+Map turtle
+Wood turtle
+Spotted turtle
+Bog turtle
+Blanding's turtle
+Mata mata
+Pig-nosed turtle
+Galápagos tortoise
+Aldabra giant tortoise
+Leopard tortoise
+Sulcata tortoise
+African spurred tortoise
+Hermann's tortoise
+Greek tortoise
+Russian tortoise
+Radiated tortoise
+Pancake tortoise
+Gopher tortoise
+Desert tortoise
+Star tortoise
+Red-footed tortoise
+King cobra
+Indian cobra
+Spitting cobra
+Black mamba
+Green mamba
+Taipan
+Inland taipan
+Coastal taipan
+Eastern brown snake
+Tiger snake
+Death adder
+Copperhead
+Cottonmouth|Water moccasin
+Diamondback rattlesnake
+Sidewinder
+Timber rattlesnake
+Bushmaster
+Fer-de-lance
+Gaboon viper
+Puff adder
+Rhinoceros viper
+Saw-scaled viper
+Russell's viper
+Common krait
+Banded krait
+Coral snake
+Boomslang
+Twig snake
+Vine snake
+Mangrove snake
+Paradise flying snake
+Grass snake
+Smooth snake
+Adder
+Asp
+Garter snake
+Rat snake
+Corn snake
+King snake
+Milk snake
+Hognose snake
+Bull snake
+Gopher snake
+Pine snake
+Indigo snake
+Racer
+Coachwhip
+Whip snake
+Cat snake
+Egg-eating snake
+Wolf snake
+Water snake
+Reticulated python
+Burmese python
+Ball python|Royal python
+Carpet python
+Green tree python
+Rock python
+Blood python
+Woma
+Black-headed python
+Children's python
+Anaconda
+Green anaconda
+Yellow anaconda
+Boa constrictor
+Emerald tree boa
+Rubber boa
+Rosy boa
+Sand boa
+Rainbow boa
+Dumeril's boa
+Blind snake
+Thread snake
+Sea snake
+Sea krait
+Olive sea snake
+Yellow-bellied sea snake
+Axolotl
+Hellbender
+Mudpuppy
+Olm
+Siren
+Amphiuma
+Fire salamander
+Tiger salamander
+Spotted salamander
+Marbled salamander
+Chinese giant salamander
+Japanese giant salamander
+Cave salamander
+Lungless salamander
+Great crested newt
+Smooth newt
+Palmate newt
+Alpine newt
+Eastern newt
+Red eft
+California newt
+Rough-skinned newt
+Iberian ribbed newt
+Caecilian
+Common frog
+Common toad
+Natterjack toad
+Cane toad
+American toad
+Fowler's toad
+Golden toad
+Midwife toad
+Fire-bellied toad
+Spadefoot toad
+Surinam toad
+African clawed frog
+Bullfrog
+American bullfrog
+African bullfrog
+Goliath frog
+Green frog
+Leopard frog
+Wood frog
+Pool frog
+Marsh frog
+Edible frog
+Tree frog
+Red-eyed tree frog
+White's tree frog
+Gray tree frog
+Spring peeper
+Glass frog
+Poison dart frog
+Golden poison frog
+Strawberry poison frog
+Blue poison dart frog
+Tomato frog
+Pacman frog
+Horned frog
+Budgett's frog
+Hairy frog
+Darwin's frog
+Gastric-brooding frog
+Corroboree frog
+Wallace's flying frog
+Coqui
+Rain frog
+Desert rain frog
+Purple frog
+Mantella
+Reed frog
+Painted reed frog
+Ornate horned frog
+Chorus frog
+Cricket frog
+Pickerel frog
+Northern leopard frog
+Tailed frog
+Leiopelma
+Hamilton's frog
+Archey's frog
+Paradoxical frog
+Turtle frog
+Water-holding frog
+Sandhill frog

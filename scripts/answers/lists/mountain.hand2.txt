@@ -1,0 +1,307 @@
+# More mountains and volcanoes. Written by hand.
+Aconcagua
+Ojos del Salado
+Monte Pissis
+Huascarán
+Chimborazo
+Cotopaxi
+Illimani
+Sajama
+Alpamayo
+Yerupajá
+Fitz Roy
+Cerro Torre
+Torres del Paine
+Ama Dablam
+Annapurna
+Cho Oyu
+Dhaulagiri
+Gasherbrum I
+Gasherbrum II
+Broad Peak
+Nanga Parbat
+Makalu
+Manaslu
+Lhotse
+Kangchenjunga
+Shishapangma
+Nuptse
+Pumori
+Island Peak
+Mera Peak
+Machapuchare
+Mount Kailash|Kailash
+Nanda Devi
+Kamet
+Trisul
+Rakaposhi
+Tirich Mir
+Noshaq
+Ismoil Somoni Peak
+Lenin Peak
+Pik Pobeda
+Khan Tengri
+Muztagh Ata
+Kongur Tagh
+Minya Konka|Gongga Shan
+Namcha Barwa
+Mount Kinabalu
+Puncak Jaya|Carstensz Pyramid
+Mount Wilhelm
+Mount Kosciuszko
+Aoraki|Mount Cook;Aoraki / Mount Cook
+Mount Aspiring
+Mount Taranaki
+Mount Ruapehu|Ruapehu
+Mount Tongariro
+Mount Ngauruhoe
+Mount Ontake
+Mount Aso
+Sakurajima
+Mount Unzen
+Hallasan|Mount Halla
+Baekdu Mountain|Changbai Mountain;Paektu
+Mount Tai
+Huangshan
+Mount Hua
+Mount Emei
+Wutai Shan
+Mount Wuyi
+Mount Apo
+Mount Pinatubo
+Mayon Volcano
+Taal Volcano
+Mount Kanlaon
+Mount Merapi
+Mount Bromo
+Mount Semeru
+Mount Rinjani
+Mount Agung
+Krakatoa
+Tambora
+Mount Kerinci
+Mount Elbrus
+Kazbek
+Mount Ararat
+Mount Damavand
+Mount Sinai
+Mount Hermon
+Mount Lebanon
+Mount Olympus
+Mount Athos
+Mount Parnassus
+Mount Etna|Etna
+Stromboli
+Mont Blanc
+Monte Rosa
+Dufourspitze
+Dom
+Weisshorn
+Matterhorn
+Dent Blanche
+Grand Combin
+Finsteraarhorn
+Aletschhorn
+Jungfrau
+Mönch
+Eiger
+Schreckhorn
+Piz Bernina
+Piz Palü
+Ortler
+Großglockner
+Wildspitze
+Zugspitze
+Watzmann
+Triglav
+Grossvenediger
+Dachstein
+Gran Paradiso
+Monte Viso
+Marmolada
+Tre Cime di Lavaredo
+Monte Cristallo
+Sassolungo
+Barre des Écrins
+Meije
+Aiguille du Midi
+Grandes Jorasses
+Mont Ventoux
+Puy de Dôme
+Pic du Midi
+Aneto
+Monte Perdido
+Mulhacén
+Teide
+Pico de Orizaba
+Popocatépetl
+Iztaccíhuatl
+Nevado de Toluca
+Paricutin
+Volcán de Fuego
+Tajumulco
+Arenal
+Irazú
+Chirripó
+Pico Duarte
+Mount Pelée
+Soufrière Hills
+La Soufrière
+Pico da Neblina
+Pico Bolívar
+Mount Roraima|Roraima
+Auyán-tepui
+Kilimanjaro
+Mount Kenya
+Mount Stanley
+Mount Meru
+Mount Elgon
+Ol Doinyo Lengai
+Nyiragongo
+Nyamuragira
+Mount Cameroon
+Ras Dashen
+Toubkal|Jebel Toubkal
+Thabana Ntlenyana
+Mafadi
+Table Mountain
+Lion's Head
+Mount Kirkpatrick
+Vinson Massif
+Mount Erebus
+Mount Terror
+Denali|Mount McKinley
+Mount Logan
+Mount Saint Elias
+Mount Foraker
+Mount Lucania
+Mount Rainier
+Mount St. Helens
+Mount Hood
+Mount Shasta
+Mount Baker
+Mount Adams
+Mount Jefferson
+Mount Whitney
+Mount Elbert
+Pikes Peak
+Longs Peak
+Grand Teton
+Mount Mitchell
+Mount Washington
+Mount Katahdin
+Mount Marcy
+Mauna Kea
+Mauna Loa
+Kīlauea
+Haleakalā
+Mount Robson
+Mount Assiniboine
+Mount Waddington
+Mount Edziza
+Half Dome
+El Capitan
+Devils Tower
+Stone Mountain
+Ben Nevis
+Ben Macdui
+Braeriach
+Cairn Toul
+Ben Lomond
+Buachaille Etive Mòr
+Schiehallion
+Suilven
+Stac Pollaidh
+An Teallach
+Liathach
+Sgùrr Alasdair
+Sgùrr nan Gillean
+The Cobbler
+Lochnagar
+Cairn Gorm
+Snowdon|Yr Wyddfa
+Tryfan
+Cadair Idris
+Pen y Fan
+Scafell Pike
+Helvellyn
+Skiddaw
+Great Gable
+Blencathra
+Catbells
+Pen-y-ghent
+Ingleborough
+Whernside
+Kinder Scout
+Cross Fell
+Slieve Donard
+Carrauntoohil
+Croagh Patrick
+Errigal
+Galdhøpiggen
+Glittertind
+Kebnekaise
+Halti
+Snøhetta
+Hvannadalshnúkur
+Eyjafjallajökull
+Hekla
+Katla
+Askja
+Mount Sinabung
+Mount Erciyes
+Uludağ
+Musala
+Gerlachovský štít|Gerlach
+Rysy
+Lomnický štít
+Kriváň
+Moldoveanu
+Mount Korab
+Durmitor
+Prokletije
+Mount Lovćen
+
+Mount Vesuvius|Vesuvius
+Mount Townsend
+Mount Ossa
+Cradle Mountain
+Mount Feathertop
+Mount Bogong
+Uluru
+Kata Tjuta
+Mount Augustus
+Mount Meharry
+Bartle Frere
+Mount Tarawera
+Mount Taranaki|Mount Egmont
+Mount Tasman
+Mount Sefton
+Mount Tutoko
+Mount Earnslaw
+Mount Hutt
+Mount Rainier
+Glacier Peak
+Mount Mazama
+Lassen Peak
+Mount Tamalpais
+Mount Diablo
+Mount San Jacinto
+Mount Baldy
+Humphreys Peak
+Wheeler Peak
+Kings Peak
+Gannett Peak
+Borah Peak
+Mount Hood
+Mount Marcy
+Clingmans Dome
+Black Elk Peak
+Guadalupe Peak
+Mount Mitchell
+Spruce Knob
+Mount Rogers
+Mount Greylock
+Mount Mansfield
+Mount Monadnock
+Mount Kosciuszko

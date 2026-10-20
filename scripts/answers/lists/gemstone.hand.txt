@@ -1,0 +1,345 @@
+# More gemstones and minerals. Written by hand.
+Agate
+Alexandrite
+Almandine
+Amazonite
+Amber
+Amethyst
+Ametrine
+Andalusite
+Apatite
+Aquamarine
+Aventurine
+Azurite
+Benitoite
+Beryl
+Bloodstone
+Carnelian
+Cat's eye
+Chalcedony
+Charoite
+Chrysoberyl
+Chrysocolla
+Chrysoprase
+Citrine
+Coral
+Cordierite
+Danburite
+Demantoid
+Diamond
+Diopside
+Dumortierite
+Emerald
+Fire opal
+Fluorite
+Garnet
+Goshenite
+Grossular
+Hackmanite
+Heliodor
+Hematite
+Hessonite
+Hiddenite
+Howlite
+Iolite
+Jade
+Jadeite
+Jasper
+Jet
+Kunzite
+Kyanite
+Labradorite
+Lapis lazuli
+Larimar
+Lepidolite
+Malachite
+Moldavite
+Moonstone
+Morganite
+Moss agate
+Nephrite
+Obsidian
+Onyx
+Opal
+Painite
+Pearl
+Peridot
+Pietersite
+Prehnite
+Pyrite
+Pyrope
+Quartz
+Rhodochrosite
+Rhodolite
+Rhodonite
+Rose quartz
+Ruby
+Rutilated quartz
+Sapphire
+Sardonyx
+Scapolite
+Serpentine
+Smoky quartz
+Sodalite
+Spessartine
+Sphene
+Spinel
+Sugilite
+Sunstone
+Taaffeite
+Tanzanite
+Tiger's eye
+Topaz
+Tourmaline
+Tsavorite
+Turquoise
+Unakite
+Uvarovite
+Variscite
+Watermelon tourmaline
+Zircon
+Zoisite
+Paraíba tourmaline
+Padparadscha
+Star sapphire
+Star ruby
+Black opal
+Boulder opal
+Blue topaz
+Imperial topaz
+Mystic topaz
+Pink sapphire
+Yellow sapphire
+Green sapphire
+Red beryl
+Bixbite
+Grandidierite
+Musgravite
+Jeremejevite
+Poudretteite
+Serendibite
+Red diamond
+Blue diamond
+Pink diamond
+Black diamond
+Canary diamond
+Rubellite
+Indicolite
+Verdelite
+Dravite
+Schorl
+Elbaite
+Liddicoatite
+Ammolite
+Mother of pearl
+Nacre
+Abalone shell
+Conch pearl
+Melo pearl
+Akoya pearl
+Tahitian pearl
+South Sea pearl
+Freshwater pearl
+Baroque pearl
+Keshi pearl
+Seed pearl
+Chiastolite
+Staurolite
+Fairy stone
+Thulite
+Tanzanite
+Tremolite
+Actinolite
+Andradite
+Melanite
+Topazolite
+Mali garnet
+Color-change garnet
+Kornerupine
+Sinhalite
+Ekanite
+Petalite
+Pollucite
+Brazilianite
+Euclase
+Phenakite
+Bertrandite
+Herderite
+Beryllonite
+Hambergite
+Datolite
+Axinite
+Vesuvianite
+Idocrase
+Epidote
+Clinozoisite
+Enstatite
+Hypersthene
+Bronzite
+Spodumene
+Imperial jade
+Lavender jade
+Maw sit sit
+Chloromelanite
+Calcite
+Aragonite
+Dolomite
+Magnesite
+Siderite
+Smithsonite
+Cerussite
+Witherite
+Strontianite
+Gypsum
+Selenite
+Desert rose
+Alabaster
+Anhydrite
+Barite
+Celestine
+Celestite
+Anglesite
+Apophyllite
+Stilbite
+Heulandite
+Natrolite
+Mesolite
+Scolecite
+Thomsonite
+Analcime
+Chabazite
+Okenite
+Cavansite
+Pentagonite
+Gyrolite
+Rock crystal
+Herkimer diamond
+Prasiolite
+Green amethyst
+Chalcedony rose
+Blue lace agate
+Fire agate
+Crazy lace agate
+Botswana agate
+Dendritic agate
+Plume agate
+Iris agate
+Thunder egg
+Geode
+Petrified wood
+Picture jasper
+Ocean jasper
+Red jasper
+Mookaite
+Dalmatian jasper
+Zebra jasper
+Leopardskin jasper
+Bumblebee jasper
+Poppy jasper
+Kambaba jasper
+Tektite
+Libyan desert glass
+Darwin glass
+Apache tears
+Snowflake obsidian
+Rainbow obsidian
+Mahogany obsidian
+Fulgurite
+Meteorite
+Pallasite
+Moissanite
+Cubic zirconia
+Synthetic diamond
+Lab-grown diamond
+Marcasite
+Galena
+Sphalerite
+Chalcopyrite
+Bornite
+Cuprite
+Native copper
+Native silver
+Native gold
+Cinnabar
+Realgar
+Orpiment
+Stibnite
+Wulfenite
+Vanadinite
+Pyromorphite
+Mimetite
+Crocoite
+Dioptase
+Adamite
+Legrandite
+Hemimorphite
+Smithsonite
+Rhodochrosite
+Erythrite
+Annabergite
+Torbernite
+Autunite
+Uraninite
+Carnotite
+Mica
+Muscovite
+Biotite
+Fuchsite
+Talc
+Pyrophyllite
+Chlorite
+Chrysotile
+Kaolinite
+Halite
+Sylvite
+Borax
+Ulexite
+Colemanite
+Kernite
+Sulphur
+Graphite
+Corundum
+Emery
+Bauxite
+Magnetite
+Lodestone
+Ilmenite
+Rutile
+Anatase
+Brookite
+Cassiterite
+Wolframite
+Scheelite
+Molybdenite
+Chromite
+Columbite
+Tantalite
+Coltan
+Monazite
+Xenotime
+Baddeleyite
+Perovskite
+Pyrochlore
+Ilvaite
+Neptunite
+Joaquinite
+Sapphirine
+Hauyne
+Lazurite
+Afghanite
+Nosean
+Cancrinite
+Nepheline
+Leucite
+Feldspar
+Orthoclase
+Microcline
+Albite
+Oligoclase
+Andesine
+Bytownite
+Anorthite
+Sanidine
+Adularia
+Peristerite
+Spectrolite

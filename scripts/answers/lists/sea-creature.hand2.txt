@@ -1,0 +1,314 @@
+# More sea creatures that aren't fish. Written by hand.
+Blue whale
+Fin whale
+Sei whale
+Bryde's whale
+Minke whale
+Humpback whale
+Grey whale
+Bowhead whale
+North Atlantic right whale
+Southern right whale
+Sperm whale
+Pygmy sperm whale
+Dwarf sperm whale
+Beluga
+Narwhal
+Orca|Killer whale
+False killer whale
+Pilot whale
+Melon-headed whale
+Cuvier's beaked whale
+Baird's beaked whale
+Sowerby's beaked whale
+Northern bottlenose whale
+Bottlenose dolphin
+Common dolphin
+Spinner dolphin
+Spotted dolphin
+Striped dolphin
+Risso's dolphin
+Dusky dolphin
+Hourglass dolphin
+Commerson's dolphin
+Hector's dolphin
+Māui dolphin
+Irrawaddy dolphin
+Humpback dolphin
+White-beaked dolphin
+Atlantic white-sided dolphin
+Pacific white-sided dolphin
+Rough-toothed dolphin
+Fraser's dolphin
+Northern right whale dolphin
+Harbour porpoise
+Dall's porpoise
+Vaquita
+Finless porpoise
+Burmeister's porpoise
+Spectacled porpoise
+Harbour seal|Common seal
+Grey seal
+Harp seal
+Hooded seal
+Ringed seal
+Bearded seal
+Ribbon seal
+Spotted seal
+Weddell seal
+Leopard seal
+Crabeater seal
+Ross seal
+Elephant seal
+Monk seal
+Hawaiian monk seal
+Mediterranean monk seal
+Fur seal
+Northern fur seal
+Antarctic fur seal
+Sea lion
+Californian sea lion
+Steller sea lion
+Australian sea lion
+South American sea lion
+New Zealand sea lion
+Walrus
+Dugong
+Manatee
+West Indian manatee
+Sea otter
+Marine otter
+Polar bear
+Octopus
+Giant Pacific octopus
+Blue-ringed octopus
+Mimic octopus
+Dumbo octopus
+Coconut octopus
+Blanket octopus
+Paper nautilus|Argonaut
+Nautilus
+Squid
+Giant squid
+Colossal squid
+Humboldt squid
+Vampire squid
+Firefly squid
+Bobtail squid
+Cuttlefish
+Flamboyant cuttlefish
+Giant cuttlefish
+Sea slug
+Nudibranch
+Sea hare
+Spanish dancer
+Sea butterfly
+Cone snail
+Conch
+Queen conch
+Whelk
+Periwinkle
+Limpet
+Abalone
+Cowrie
+Murex
+Triton
+Moon snail
+Top shell
+Turban shell
+Oyster
+Pearl oyster
+Mussel
+Green-lipped mussel
+Clam
+Giant clam
+Geoduck
+Razor clam
+Cockle
+Scallop
+Quahog
+Shipworm
+Chiton
+Lobster
+Spiny lobster
+Rock lobster
+Slipper lobster
+Squat lobster
+Norway lobster|Langoustine;Dublin Bay prawn
+Crayfish
+Crab
+King crab
+Snow crab
+Dungeness crab
+Blue crab
+Edible crab
+Spider crab
+Japanese spider crab
+Coconut crab
+Hermit crab
+Fiddler crab
+Ghost crab
+Horseshoe crab
+Decorator crab
+Pea crab
+Velvet crab
+Shore crab
+Stone crab
+Mitten crab
+Shrimp
+Prawn
+Mantis shrimp
+Pistol shrimp
+Cleaner shrimp
+Brine shrimp
+Krill
+Copepod
+Barnacle
+Goose barnacle
+Amphipod
+Isopod
+Giant isopod
+Sea spider
+Jellyfish
+Box jellyfish
+Moon jellyfish
+Lion's mane jellyfish
+Compass jellyfish
+Barrel jellyfish
+Fried egg jellyfish
+Upside-down jellyfish
+Immortal jellyfish
+Irukandji jellyfish
+Sea nettle
+Portuguese man o' war
+Siphonophore
+Comb jelly
+Sea anemone
+Coral
+Brain coral
+Staghorn coral
+Elkhorn coral
+Fire coral
+Soft coral
+Sea fan
+Sea pen
+Sea whip
+Hydroid
+Sponge
+Glass sponge
+Barrel sponge
+Venus's flower basket
+Starfish|Sea star
+Crown-of-thorns starfish
+Brittle star
+Basket star
+Feather star
+Sea lily
+Sea urchin
+Sand dollar
+Heart urchin
+Sea cucumber
+Sea pig
+Sea squirt
+Salp
+Lancelet
+Bristle worm
+Fireworm
+Christmas tree worm
+Feather duster worm
+Lugworm
+Ragworm
+Bobbit worm
+Peanut worm
+Spoon worm
+Flatworm
+Ribbon worm
+Arrow worm
+Tube worm
+Giant tube worm
+Pompeii worm
+Bryozoan
+Lamp shell
+Sea turtle
+Marine iguana
+Sea snake
+Saltwater crocodile
+Plankton
+Zooplankton
+Foraminifera
+Radiolarian
+Sea angel
+Pteropod
+Comb jelly
+Sea gooseberry
+Venus's girdle
+Sea walnut
+Blue button
+Sea gooseberry
+
+Velella|By-the-wind sailor
+Glaucus|Blue dragon;Blue sea slug
+Giant siphonophore
+Yeti crab
+Scaly-foot snail
+Zombie worm
+Pyrosome
+Sea sapphire
+Larvacean
+Sea mouse
+Sea biscuit
+Pencil urchin
+Fire urchin
+Long-spined sea urchin
+Collector urchin
+Sunflower sea star
+Cushion star
+Bat star
+Blue sea star
+Chocolate chip sea star
+Leather star
+Sea apple
+Sea lemon
+Lettuce sea slug
+Opalescent nudibranch
+Swimming anemone
+Tube anemone
+Zoanthid
+Gorgonian
+Black coral
+Organ pipe coral
+Mushroom coral
+Sea louse
+Skeleton shrimp
+Ghost shrimp
+Harlequin shrimp
+Peacock mantis shrimp
+Sally Lightfoot crab
+Porcelain crab
+Boxer crab
+Red king crab
+Tasmanian giant crab
+Southern elephant seal
+Northern elephant seal
+Galápagos fur seal
+Caspian seal
+Bloody-belly comb jelly
+Antarctic krill
+Coral polyp
+Sea fir
+Basket sponge
+Tube sponge
+Elephant ear sponge
+Bath sponge
+Boring sponge
+Purple sea urchin
+Green sea urchin
+Slate pencil urchin
+Sea mussel
+Date mussel
+Pen shell
+Fan mussel
+Angel wing clam
+Jewel box
+Thorny oyster
+Christmas Island red crab
