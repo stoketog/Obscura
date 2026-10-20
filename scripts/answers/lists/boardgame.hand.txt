@@ -1,0 +1,369 @@
+# Board games and card games. Written by hand.
+Agricola
+Arkham Horror
+Articulate!
+Azul
+Backgammon
+Balderdash
+Blokus
+Boggle
+Bridge|Contract bridge
+Brass: Birmingham
+Buckaroo!|Buckaroo
+Canasta
+Candy Land
+Carcassonne
+Cards Against Humanity
+Catan|Settlers of Catan;The Settlers of Catan
+Chess
+Chinese checkers
+Cluedo|Clue
+Codenames
+Connect Four
+Cranium
+Cribbage
+Dixit
+Dominion
+Dominoes
+Downfall
+Draughts|Checkers
+Dungeons & Dragons
+Exploding Kittens
+Forbidden Island
+Frustration
+Game of Life
+Gloomhaven
+Go
+Guess Who?
+Hungry Hungry Hippos
+Jenga
+Kerplunk|Ker-Plunk
+King of Tokyo
+Ludo
+Mahjong
+Mancala
+Mastermind
+Monopoly
+Mouse Trap
+Mysterium
+Nine men's morris
+Operation
+Othello|Reversi
+Pandemic
+Parcheesi
+Pictionary
+Pokémon Trading Card Game
+Magic: The Gathering
+Yu-Gi-Oh!
+Risk
+Rummikub
+Scattergories
+Scotland Yard
+Scrabble
+Shogi|Japanese chess
+Sequence
+Snakes and Ladders|Chutes and Ladders;Snakes & Ladders
+Sorry!|Sorry
+Splendor
+Stratego
+Taboo
+Terraforming Mars
+Ticket to Ride
+Trivial Pursuit
+Twister
+Uno
+Wingspan
+Xiangqi|Chinese chess
+Yahtzee
+7 Wonders
+Ark Nova
+Betrayal at House on the Hill
+Blood on the Clocktower
+Camel Up
+Cascadia
+Castles of Burgundy
+Caverna
+Concordia
+Coup
+Cosmic Encounter
+Dead of Winter
+Diplomacy
+Dune
+Eldritch Horror
+Everdell
+Five Tribes
+Galaxy Trucker
+Great Western Trail
+Hanabi
+Heat: Pedal to the Metal
+HeroQuest
+Kingdomino
+Love Letter
+Machi Koro
+Mansions of Madness
+Patchwork
+Power Grid
+Puerto Rico
+Quacks of Quedlinburg
+Root
+Sagrada
+Santorini
+Scythe
+Secret Hitler
+Small World
+Spirit Island
+Star Wars: X-Wing
+Sushi Go!
+Takenoko
+Telestrations
+The Crew
+The Resistance
+Avalon
+Terra Mystica
+Through the Ages
+Tigris and Euphrates
+Twilight Imperium
+Twilight Struggle
+Viticulture
+Wavelength
+Werewolf|Mafia
+Warhammer 40,000
+Axis & Allies
+Hive
+Onitama
+Quarto
+Quoridor
+Abalone
+Pente
+Gomoku
+Connect 6
+Hex
+Halma
+Fox and Geese
+Hnefatafl
+Senet
+Royal Game of Ur
+Pachisi
+Chaupar
+Carrom
+Crokinole
+Tiddlywinks
+Shut the Box
+Bagatelle
+Poker
+Texas hold 'em
+Omaha
+Seven-card stud
+Blackjack
+Pontoon
+Baccarat
+Gin rummy
+Rummy
+Whist
+Solo whist
+Spades
+Hearts
+Euchre
+Pinochle
+Bezique
+Piquet
+Skat
+Schafkopf
+Doppelkopf
+Jass
+Belote
+Tarot
+Briscola
+Scopa
+Sueca
+Truco
+Mus
+Tute
+Klaverjassen
+Bridge whist
+Auction bridge
+Oh Hell
+Knockout whist
+Crazy Eights
+Old Maid
+Go Fish
+Snap
+Happy Families
+Beggar My Neighbour
+War
+Slapjack
+Cheat|I Doubt It;Bullshit
+Spit
+Speed
+Racing Demon
+Nertz
+Solitaire|Patience
+Klondike
+FreeCell
+Spider Solitaire
+Pyramid
+Clock patience
+Cribbage
+Newmarket
+Pope Joan
+Michigan
+Rummy 500
+Canasta
+Samba
+Bolivia
+Hand and Foot
+Phase 10
+Skip-Bo
+Dutch Blitz
+Mille Bornes
+Top Trumps
+Fluxx
+Munchkin
+Bang!
+Citadels
+Dobble|Spot It!
+Set
+Bananagrams
+Upwords
+Quiddler
+Qwirkle
+Sagaland
+Labyrinth
+Kalah
+Oware
+Bao
+Congkak
+Fanorona
+Konane
+Mu Torere
+Alquerque
+Tafl
+Ard Ri
+Brandubh
+Morabaraba
+Achi
+Tic-tac-toe|Noughts and crosses
+Dots and boxes
+Game of the Goose
+Mensch ärgere dich nicht
+Trouble
+Aggravation
+Kings in the Corner
+President
+Durak
+Hanafuda
+Koi-Koi
+Karuta
+Uta-garuta
+Sugoroku
+Janggi|Korean chess
+Makruk
+Sittuyin
+Chaturanga
+Shatranj
+Fischer random chess
+Bughouse
+Four-player chess
+Three-dimensional chess
+Dou dizhu
+Big Two
+Tiến lên
+Pusoy dos
+Teen Patti
+Rummikub
+Kemps
+Sevens
+Fan Tan
+Spoons
+Pig
+Donkey
+Egyptian Ratscrew
+Ninety-nine
+Kingmaker
+Escape from Colditz
+Fortress America
+Shogun
+Dark Tower
+Ghost Castle
+Crossbows and Catapults
+Downfall
+Hotels
+Perfection
+Battling Tops
+Rock 'Em Sock 'Em Robots
+Cootie
+Don't Wake Daddy
+Pop-Up Pirate
+Crocodile Dentist
+Pie Face
+Atmosfear
+Nightmare
+Heroscape
+Space Crusade
+Advanced HeroQuest
+Talisman
+Blood Bowl
+Necromunda
+Mordheim
+Warhammer Underworlds
+Kill Team
+Warmachine
+Infinity
+Frostgrave
+Descent
+Imperial Assault
+Star Wars: Legion
+Marvel Champions
+Arkham Horror: The Card Game
+Lord of the Rings: The Card Game
+Android: Netrunner|Netrunner
+Keyforge
+Flesh and Blood
+Lorcana
+One Piece Card Game
+Digimon Card Game
+Vampire: The Eternal Struggle
+Legend of the Five Rings
+Shadowfist
+
+Battleship|Battleships
+Lost Cities
+Jaipur
+Kingsburg
+El Grande
+Tikal
+Ra
+Modern Art
+Alhambra
+Thurn and Taxis
+Stone Age
+Lords of Waterdeep
+Tzolk'in
+Le Havre
+Orléans
+Pandemic Legacy
+Nemesis
+Clank!
+Flamme Rouge
+Cartographers
+Lost Ruins of Arnak
+Dune: Imperium
+Just One
+The Mind
+Skull
+No Thanks!
+6 Nimmt!
+Bohnanza
+Coloretto
+Hey, That's My Fish!
+Ingenious
+Tsuro
+Survive: Escape from Atlantis!
+Fireball Island
+Star Realms
+Race for the Galaxy
+Roll for the Galaxy
+Glory to Rome
+Lords of Xidit
+Ghost Stories
+Mascarade

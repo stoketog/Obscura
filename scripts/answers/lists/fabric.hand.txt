@@ -1,0 +1,305 @@
+# More fabrics and materials for clothes. Written by hand.
+Acetate
+Acrylic
+Aertex
+Alcantara
+Alpaca
+Angora
+Armure
+Baize
+Ballistic nylon
+Bamboo fabric
+Barathea
+Batik
+Batiste
+Bengaline
+Boiled wool
+Bombazine
+Bouclé
+Broadcloth
+Brocade
+Brushed cotton
+Buckram
+Bunting
+Burlap
+Calico
+Cambric
+Camel hair
+Canvas
+Cashmere
+Cavalry twill
+Challis
+Chambray
+Chamois
+Charmeuse
+Cheesecloth
+Chenille
+Cheviot
+Chiffon
+Chino
+Chintz
+Ciré
+Cloqué
+Coolmax
+Corduroy
+Cotton
+Cotton lawn
+Crêpe
+Crêpe de Chine
+Crepe georgette
+Cretonne
+Crinkle cotton
+Crushed velvet
+Damask
+Denim
+Dimity
+Doeskin
+Donegal tweed
+Double knit
+Drill
+Duchess satin
+Duck
+Dupion
+Elastane
+Eyelet
+Faille
+Faux fur
+Faux leather
+Felt
+Fishnet
+Flannel
+Flannelette
+Fleece
+Foulard
+Fustian
+Gabardine
+Gauze
+Georgette
+Gingham
+Glazed cotton
+Gore-Tex
+Grosgrain
+Habotai
+Haircloth
+Harris Tweed
+Hemp
+Hessian
+Holland
+Homespun
+Hopsack
+Ikat
+Interlock
+Jacquard
+Jersey
+Jute
+Kersey
+Khadi
+Khaki
+Lace
+Lamé
+Lawn
+Leather
+Linen
+Linsey-woolsey
+Lisle
+Loden
+Lurex
+Lycra
+Lyocell
+Madras
+Marocain
+Marl
+Matelassé
+Melton
+Merino
+Mesh
+Microfibre
+Mohair
+Moiré
+Moleskin
+Muslin
+Nainsook
+Nankeen
+Neoprene
+Ninon
+Nylon
+Oilcloth
+Oilskin
+Organdie
+Organza
+Ottoman
+Oxford cloth
+Panne velvet
+Peau de soie
+Percale
+Piqué
+Plush
+Pointelle
+Polar fleece
+Polyester
+Pongee
+Ponte
+Poplin
+PVC
+Rayon
+Rib knit
+Ripstop
+Rubber
+Sailcloth
+Sateen
+Satin
+Saxony
+Scrim
+Seersucker
+Serge
+Shantung
+Sharkskin
+Shearling
+Sheepskin
+Silk
+Spandex
+Sprigged muslin
+Stockinette
+Suede
+Surah
+Taffeta
+Tartan
+Tencel
+Terry cloth
+Ticking
+Toile
+Toile de Jouy
+Tulle
+Tussah
+Tweed
+Twill
+Ultrasuede
+Velour
+Velvet
+Velveteen
+Vicuña
+Vinyl
+Viscose
+Voile
+Waffle cloth
+Wax cloth
+Whipcord
+Wool
+Worsted
+Zibeline
+Aida cloth
+Alençon lace
+Bobbin lace
+Chantilly lace
+Guipure
+Honiton lace
+Nottingham lace
+Battenberg lace
+Broderie anglaise
+Bark cloth
+Kente
+Kanga
+Kitenge
+Mudcloth
+Bogolan
+Adire
+Aso oke
+Shweshwe
+Raffia
+Piña
+Abacá
+Sinamay
+Ramie
+Nettle fabric
+Soy fabric
+Modal
+Cupro
+Bemberg
+Qiana
+Tyvek
+Kevlar
+Nomex
+Dyneema
+Cordura
+Thinsulate
+Primaloft
+Polartec
+Windstopper
+Sympatex
+eVent
+Bonded jersey
+Scuba
+Crepe back satin
+Silk dupioni
+Raw silk
+Noil
+Tussar silk
+Muga silk
+Eri silk
+Mulberry silk
+Spun silk
+Charmeuse satin
+Velvet devoré
+Devoré
+Flock
+Brushed nylon
+Peached cotton
+Cotton drill
+Cotton twill
+Bull denim
+Selvedge denim
+Raw denim
+Stretch denim
+Chambray shirting
+End-on-end
+Bedford cord
+Pinwale corduroy
+Needlecord
+Jumbo cord
+Moleskin cloth
+Fustian cloth
+Velour knit
+French terry
+Loopback
+Sweatshirt fleece
+Sherpa fleece
+Teddy fleece
+Minky
+Cuddle fleece
+Faux shearling
+Astrakhan
+Karakul
+Persian lamb
+Mink
+Sable
+Fox fur
+Rabbit fur
+Chinchilla
+Ermine
+Musquash
+Pony skin
+Nubuck
+Patent leather
+Napa leather
+Calfskin
+Kidskin
+Lambskin
+Pigskin
+Goatskin
+Deerskin
+Buckskin
+Cordovan
+Shagreen
+Ostrich leather
+Crocodile leather
+Snakeskin
+Vegan leather
+Pleather
+Leatherette
+Bonded leather
+Waxed cotton
+Ventile
+Grenfell cloth
+Tropical wool
+Fresco
+Mohair suiting

@@ -1,0 +1,411 @@
+# More dances from around the world. Written by hand.
+Allemande
+Argentine tango
+Bachata
+Ballet
+Ballroom tango
+Bandari
+Barn dance
+Baroque dance
+Basse danse
+Belly dance
+Bhangra
+Bharatanatyam
+Black Bottom
+Bolero
+Bomba
+Boogaloo
+Boogie-woogie
+Bossa nova
+Bourrée
+Break dance
+Bugg
+Bunny hop
+Butoh
+Cachucha
+Cakewalk
+Calypso
+Can-can
+Capoeira
+Carioca
+Ceilidh
+Cha-cha-cha
+Charleston
+Chicken dance
+Clogging
+Conga
+Contra dance
+Cossack dance
+Country dance
+Courante
+Csárdás
+Cumbia
+Dabke
+Disco
+Electric slide
+Fandango
+Farandole
+Flamenco
+Fling
+Folk dance
+Forró
+Foxtrot
+Galliard
+Galop
+Gavotte
+Gigue
+Haka
+Hand jive
+Highland fling
+Hip-hop dance
+Hokey cokey
+Hora
+Hornpipe
+Hula
+Hustle
+Irish stepdance
+Jazz dance
+Jig
+Jitterbug
+Jive
+Jota
+Kathak
+Kathakali
+Kizomba
+Krumping
+Kuchipudi
+Kuduro
+Lambada
+Lancers
+Landler
+Limbo
+Lindy hop
+Line dancing
+Locking
+Macarena
+Malambo
+Mambo
+Manipuri
+Mashed potato
+Mazurka
+Merengue
+Minuet
+Mohiniyattam
+Moonwalk
+Morris dance
+Odissi
+Paso doble
+Pavane
+Polka
+Polonaise
+Popping
+Quadrille
+Quickstep
+Reel
+Rigaudon
+Robot
+Rock and roll
+Rumba
+Salsa
+Saltarello
+Samba
+Sardana
+Schottische
+Shag
+Shimmy
+Shuffle
+Siki
+Sirtaki
+Ska dance
+Skank
+Square dance
+Step dance
+Stomp
+Strathspey
+Swing
+Sword dance
+Tango
+Tap dance
+Tarantella
+Tinikling
+Twist
+Two-step
+Vogue
+Waltz
+Viennese waltz
+Watusi
+West Coast Swing
+Zapateado
+Zouk
+Zumba
+Ballet folklórico
+Jarabe tapatío
+Danzón
+Son jarocho
+Huapango
+Marinera
+Cueca
+Chacarera
+Zamba
+Huayno
+Joropo
+Sanjuanito
+Plena
+Punta
+Garifuna dance
+Kompa dance
+Bèlè
+Gwoka
+Sega
+Maloya
+Moutya
+Ndombolo
+Soukous
+Azonto
+Gwara gwara
+Pantsula
+Gumboot dance
+Indlamu
+Kpanlogo
+Adowa
+Agbadza
+Atilogwu
+Bata dance
+Eskista
+Guerewol
+Ahidous
+Ahwash
+Raqs sharqi
+Khaleeji
+Saidi
+Tanoura
+Sufi whirling
+Zar
+Horon
+Halay
+Zeybek
+Kalamatianos
+Tsamiko
+Hasapiko
+Syrtos
+Pentozali
+Kolo
+Oro
+Hopak
+Kozachok
+Trepak
+Barynya
+Khorovod
+Lezginka
+Kartuli
+Khorumi
+Krakowiak
+Oberek
+Kujawiak
+Verbunkos
+Ländler
+Schuhplattler
+Zwiefacher
+Dutch clog dance
+Halling
+Springar
+Polska
+Hambo
+Riverdance
+Sean-nós dance
+Set dance
+Céilí dance
+Scottish country dance
+Highland dance
+Seann triubhas
+Clog dance
+Appalachian clogging
+Flatfooting
+Buck dance
+Ring shout
+Juba dance
+Stepping
+Cha-cha slide
+Cupid shuffle
+Wobble
+Dougie
+Floss
+Dab
+Whip
+Nae nae
+Harlem shake
+Gangnam style
+YMCA
+Time Warp
+Jerk
+Loco-Motion
+Madison
+Stroll
+Pony
+Frug
+Swim
+Monkey
+Hitch hike
+Funky chicken
+Bump
+Roller disco
+Balboa
+Collegiate shag
+Carolina shag
+St. Louis shag
+Big Apple
+Suzie Q
+Truckin'
+Peabody
+Castle walk
+Turkey trot
+Grizzly bear
+Bunny hug
+Maxixe
+Milonga
+Vals
+Candombe
+Ballroom dance
+Latin dance
+Contemporary dance
+Modern dance
+Lyrical dance
+Street dance
+House dance
+Waacking
+Jookin
+Tutting
+Turfing
+Flexing
+Litefeet
+Memphis jookin
+Chicago footwork
+Jumpstyle
+Tecktonik
+Melbourne shuffle
+Liquid dance
+Pole dance
+Burlesque
+Cabaret
+Go-go dancing
+Taxi dance
+Ice dance
+Kabuki dance
+Noh dance
+Bon Odori
+Awa Odori
+Yosakoi
+Para Para
+Buyō
+Eisa
+Fan dance
+Buchaechum
+Talchum
+Salpuri
+Ganggangsullae
+Lion dance
+Dragon dance
+Yangge
+Ribbon dance
+Apsara dance
+Ramvong
+Legong
+Kecak
+Barong dance
+Saman
+Pendet
+Jaipongan
+Tor-tor
+Cham dance
+Bihu
+Garba
+Dandiya
+Ghoomar
+Kalbelia
+Lavani
+Chhau
+Yakshagana
+Sattriya
+Giddha
+Luddi
+Fire dance
+Siva
+Otea
+Tamure
+Meke
+Corroboree
+
+Volta
+Branle
+Estampie
+Carole
+Sarabande
+Chaconne
+Passacaglia
+Passepied
+Musette
+Siciliana
+Forlana
+Loure
+Canary
+Tourdion
+Moresca
+Matachines
+Seguidilla
+Sevillanas
+Bulerías
+Alegrías
+Soleá
+Farruca
+Jota aragonesa
+Muiñeira
+Verdiales
+Pericón
+Vira
+Corridinho
+Pizzica
+Trescone
+Monferrina
+Bourrée auvergnate
+Rondeau
+An dro
+Hanter dro
+Plinn
+Laride
+Gavotte de Bretagne
+Polka piquée
+Bransle
+Coranto
+Reel
+Dashing White Sergeant
+Gay Gordons
+Strip the Willow
+Eightsome reel
+Military two-step
+St Bernard's Waltz
+Canadian barn dance
+Virginia reel
+Sir Roger de Coverley
+Haymakers' jig
+Siege of Ennis
+Walls of Limerick
+Cotillion
+Gallopede
+Varsovienne
+Redowa
+Cracovienne
+Bolero
+Jarabe
+Seguiriyas
+Tientos
+Tangos flamencos
+Reel of Tulloch
+Flowers of Edinburgh
+Duke of Perth
+Petronella
+Shiftin' Bobbins
+Hamilton House
+Cumberland Square Eight
+Circassian Circle
+Nottingham Swing
+Fairy dance

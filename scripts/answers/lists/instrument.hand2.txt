@@ -1,0 +1,386 @@
+# More musical instruments from around the world. Written by hand.
+Accordion
+Agogô
+Alphorn
+Appalachian dulcimer
+Autoharp
+Bagpipes
+Balafon
+Balalaika
+Bandoneon
+Bandura
+Banjo
+Baritone horn
+Baritone saxophone
+Bass clarinet
+Bass drum
+Bass guitar
+Bassoon
+Bell
+Berimbau
+Bodhrán
+Bombard
+Bongo drums
+Bouzouki
+Cabasa
+Cajón
+Carillon
+Castanets
+Celesta
+Cello
+Charango
+Chimes
+Cimbalom
+Cittern
+Clarinet
+Clavichord
+Claves
+Concertina
+Conga
+Contrabassoon
+Cor anglais
+Cornet
+Cowbell
+Crwth
+Cymbals
+Darbuka
+Didgeridoo
+Djembe
+Dobro
+Double bass
+Duduk
+Dulcimer
+Dutar
+Electric guitar
+Erhu
+Euphonium
+Fiddle
+Flugelhorn
+Flute
+French horn
+Gamelan
+Glass harmonica
+Glockenspiel
+Gong
+Guiro
+Guitar
+Guqin
+Guzheng
+Hammered dulcimer
+Handbells
+Hang
+Harmonica
+Harmonium
+Harp
+Harpsichord
+Hurdy-gurdy
+Jaw harp
+Kalimba
+Kantele
+Kazoo
+Kettledrum
+Keyboard
+Kora
+Koto
+Lute
+Lyre
+Mandolin
+Maracas
+Marimba
+Mbira
+Mellotron
+Melodica
+Mouth organ
+Nyckelharpa
+Oboe
+Ocarina
+Organ
+Oud
+Pan flute
+Piano
+Piccolo
+Pipa
+Recorder
+Rainstick
+Sackbut
+Santoor
+Sarangi
+Sarod
+Saxophone
+Shakuhachi
+Shamisen
+Shawm
+Sheng
+Shofar
+Sitar
+Snare drum
+Sousaphone
+Spoons
+Steel drum
+Synthesizer
+Tabla
+Tambourine
+Tambura
+Tenor drum
+Theremin
+Timbales
+Timpani
+Tin whistle
+Tom-tom
+Triangle
+Trombone
+Trumpet
+Tuba
+Tubular bells
+Ukulele
+Uilleann pipes
+Vibraphone
+Vihuela
+Viol
+Viola
+Viola d'amore
+Viola da gamba
+Violin
+Washboard
+Whistle
+Wood block
+Xylophone
+Zither
+Zurna
+Bawu
+Bianzhong
+Daegeum
+Gayageum
+Haegeum
+Janggu
+Piri
+Taegum
+Biwa
+Hichiriki
+Ryuteki
+Shō
+Taiko
+Kotsuzumi
+Tsuzumi
+Sanshin
+Đàn bầu
+Đàn tranh
+Khene
+Ranat ek
+Khong wong
+Saung
+Angklung
+Kulintang
+Kendang
+Gendèr
+Bonang
+Saron
+Suling
+Sasando
+Tongkungon
+Veena
+Mridangam
+Ghatam
+Kanjira
+Nadaswaram
+Shehnai
+Bansuri
+Harmonium
+Esraj
+Dilruba
+Santur
+Rubab
+Dombra
+Komuz
+Morin khuur
+Tovshuur
+Igil
+Doshpuluur
+Tar
+Kamancheh
+Setar
+Tanbur
+Daf
+Tombak
+Ney
+Kaval
+Gaida
+Gusle
+Tamburica
+Tapan
+Davul
+Bağlama
+Saz
+Kemençe
+Lavta
+Kanun
+Qanun
+Riq
+Bendir
+Tbilat
+Guembri
+Ngoni
+Akonting
+Adungu
+Endongo
+Bougarabou
+Sabar
+Talking drum
+Dundun
+Udu
+Shekere
+Kalimba
+Valiha
+Marovany
+Krar
+Masenqo
+Begena
+Washint
+Bolon
+Kamale ngoni
+Charango
+Cuatro
+Tiple
+Bandola
+Requinto
+Guitarrón
+Jarana
+Vihuela mexicana
+Marímbula
+Quijada
+Güira
+Tambora
+Bombo
+Caja
+Quena
+Siku
+Zampoña
+Pinkillu
+Cavaquinho
+Pandeiro
+Surdo
+Repinique
+Cuíca
+Tamborim
+Afoxé
+Ganzá
+Steelpan
+Bata drum
+Bomba drum
+Pandereta
+Washtub bass
+Jug
+Musical saw
+Stylophone
+Keytar
+Clavinet
+Rhodes piano
+Wurlitzer
+Hammond organ
+Ondes Martenot
+Moog synthesizer
+Drum machine
+Sampler
+Electric violin
+Pedal steel guitar
+Lap steel guitar
+Resonator guitar
+Twelve-string guitar
+Baritone guitar
+Classical guitar
+Acoustic guitar
+Bass ukulele
+Banjolele
+Mandola
+Mandocello
+Octave mandolin
+Cittern
+Tenor banjo
+Plectrum banjo
+Psaltery
+Bowed psaltery
+Kithara
+Barbiton
+Aulos
+Salpinx
+Lituus
+Cornu
+Carnyx
+Serpent
+Ophicleide
+Cornett
+Natural trumpet
+Natural horn
+Post horn
+Hunting horn
+Bugle
+Alto horn
+Tenor horn
+Wagner tuba
+Mellophone
+Helicon
+Flugabone
+Valve trombone
+Bass trombone
+Contrabass trombone
+Cimbasso
+Soprano saxophone
+Alto saxophone
+Tenor saxophone
+Sopranino saxophone
+Bass saxophone
+E-flat clarinet
+Basset horn
+Alto clarinet
+Contrabass clarinet
+Heckelphone
+Oboe d'amore
+Sarrusophone
+Rauschpfeife
+Crumhorn
+Dulcian
+Racket
+Gemshorn
+Flageolet
+Fife
+Alto flute
+Bass flute
+Contrabass flute
+Nose flute
+Slide whistle
+Swanee whistle
+Bird whistle
+Vuvuzela
+Conch
+Bullroarer
+Wind chimes
+Thunder sheet
+Wind machine
+Flexatone
+Ratchet
+Slapstick
+Whip
+Anvil
+Brake drum
+Spoons
+Bones
+Mouth bow
+Musical bow
+Tumbi
+Algoza
+Chimta
+Dhol
+Dholak
+Pakhavaj
+Khol
+Ektara
+Gopichand
+Sursingar
+Rudra veena
+Saraswati veena
+Vichitra veena
+Thavil
+Chenda
+Edakka
+Maddalam
+Kombu
