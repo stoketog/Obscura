@@ -1,0 +1,134 @@
+#!/usr/bin/env python3
+"""
+Build src/data/prompts/extra/generated.ts from the plain answer lists in scripts/answers/lists.
+
+    npx tsx --tsconfig tsconfig.json scripts/answers/dump-core.ts   # what each prompt already accepts
+    python3 scripts/answers/build.py                                 # score the lists and write generated.ts
+
+LISTS
+  lists/<prompt-id>.<anything>.txt, one answer per line:  Name   or   Name|alias;alias
+  Blank lines and lines starting with # are ignored. A prompt may have several list files.
+
+SCORING
+  Nothing in a list says how rare it is. Each prompt's new answers are ranked by how often the name turns up in
+  everyday English (wordfreq's Zipf scale, the best of the name and its aliases), then spread over the tiers by rank:
+  the best-known 30% are Uncommon, the next 35% Rare, the rest Mythic. Answers a prompt already has are skipped, so
+  the ranking is only among the new ones. Everyday (at most 8 a prompt) and Obscure (1–2 a prompt) stay hand-picked.
+"""
+import json, os, re, sys, unicodedata
+from wordfreq import zipf_frequency
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
+LISTS = os.path.join(HERE, 'lists')
+CORE = os.path.join(HERE, '.core.json')
+OUT = os.path.join(ROOT, 'src', 'data', 'prompts', 'extra', 'generated.ts')
+
+
+def normalize(s):
+    """Same idea as src/lib/text.ts normalize: lower case, no accents or punctuation, no leading article."""
+    s = unicodedata.normalize('NFD', s.lower())
+    s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
+    s = s.replace('&', ' and ')
+    s = re.sub(r"[^a-z0-9 ]+", ' ', s)
+    s = re.sub(r'\s+', ' ', s).strip()
+    s = re.sub(r'^(the|a|an) ', '', s)
+    return s
+
+
+def keys(s):
+    t = normalize(s).replace(' ', '')
+    if not t:
+        return set()
+    out = {t}
+    if t.endswith('ies') and len(t) > 4: out.add(t[:-3] + 'y')
+    if t.endswith('es') and len(t) > 4: out.add(t[:-2])
+    if t.endswith('s') and len(t) > 3: out.add(t[:-1])
+    return out
+
+
+def variants_of(name):
+    """Extra ways to type a listed name: 'Gasteiz / Vitoria' → both halves; 'Belgian Shepherd Dog (Malinois)' →
+    'Malinois' and the name without brackets; 'Michael E. Brown' → 'Michael Brown'."""
+    out = []
+    if ' / ' in name:
+        out += [p.strip() for p in name.split(' / ') if p.strip()]
+    m = re.match(r'^(.*?)\s*\(([^)]+)\)\s*(.*)$', name)
+    if m:
+        outer = (m.group(1) + ' ' + m.group(3)).strip()
+        if outer: out.append(outer)
+        if len(m.group(2)) > 3 and not re.search(r'\d', m.group(2)): out.append(m.group(2).strip())
+    no_initials = re.sub(r'\s+[A-Z]\.(?=\s)', '', name)
+    if no_initials != name: out.append(no_initials)
+    return [o for o in out if o and o != name]
+
+
+def zipf(s):
+    return zipf_frequency(re.sub(r'[^\w\s\'-]', ' ', s), 'en')
+
+
+def score_for(rank, n):
+    p = rank / max(1, n - 1)
+    if p < 0.30: return round(22 + (p / 0.30) * 14)
+    if p < 0.65: return round(40 + ((p - 0.30) / 0.35) * 20)
+    return round(64 + ((p - 0.65) / 0.35) * 24)
+
+
+def main():
+    if not os.path.exists(CORE):
+        sys.exit('Run scripts/answers/dump-core.ts first.')
+    core = json.load(open(CORE))
+    files = sorted(f for f in os.listdir(LISTS) if f.endswith('.txt'))
+    by_prompt = {}
+    for f in files:
+        pid = f.split('.')[0]
+        if pid not in core:
+            sys.exit(f'{f}: no prompt with id "{pid}"')
+        for line in open(os.path.join(LISTS, f), encoding='utf-8'):
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            name, _, aliases = line.partition('|')
+            name = name.strip()
+            al = [a.strip() for a in aliases.split(';') if a.strip()] if aliases else []
+            al += variants_of(name)
+            if name:
+                by_prompt.setdefault(pid, []).append((name, al))
+    out = {}
+    report = []
+    for pid, items in sorted(by_prompt.items()):
+        taken = set()
+        for s in core[pid]['spellings']:
+            taken |= keys(s)
+        fresh = []
+        for name, al in items:
+            k = keys(name)
+            if not k or k & taken:
+                continue
+            taken |= k
+            al = [a for a in al if keys(a) and not (keys(a) & taken)]
+            for a in al: taken |= keys(a)
+            fresh.append((name, al, max([zipf(name)] + [zipf(a) for a in al])))
+        fresh.sort(key=lambda x: (-x[2], x[0].lower()))
+        lines = []
+        for i, (name, al, z) in enumerate(fresh):
+            sc = score_for(i, len(fresh))
+            clean = lambda s: s.replace('|', ' ').replace(';', ',')
+            lines.append(f"{clean(name)}|{sc}" + (f"|{';'.join(clean(a) for a in al)}" if al else ''))
+        out[pid] = lines
+        report.append(f'{pid}: +{len(lines)} (of {len(items)} listed)')
+    with open(OUT, 'w', encoding='utf-8') as fh:
+        fh.write("import type { ExtraAnswers } from './merge';\n\n")
+        fh.write('/** GENERATED by scripts/answers/build.py from scripts/answers/lists. Do not edit by hand. */\n')
+        fh.write('export const GENERATED_EXTRA: ExtraAnswers = {\n')
+        for pid, lines in out.items():
+            fh.write(f'  {json.dumps(pid)}: [\n')
+            for i in range(0, len(lines), 8):
+                fh.write('    ' + ', '.join(json.dumps(x, ensure_ascii=False) for x in lines[i:i + 8]) + ',\n')
+            fh.write('  ],\n')
+        fh.write('};\n')
+    print('\n'.join(report))
+
+
+if __name__ == '__main__':
+    main()

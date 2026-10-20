@@ -6,3 +6,4 @@ dist-admin
 next-env.d.ts
 *.tsbuildinfo
 test-results
+scripts/answers/.core.json

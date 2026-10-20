@@ -21,7 +21,8 @@ import { withExtras } from './extra/merge';
  * Every prompt belongs to a `group`; each day's seven prompts are dealt from
  * different groups (see `src/lib/daily.ts`) so the mix stays varied.
  */
-export const PROMPT_SEEDS: PromptSeed[] = withExtras([
+/** The hand-tuned core of every prompt, before extras are added. */
+export const CORE_SEEDS: PromptSeed[] = [
   ...GENERAL,
   ...GEOGRAPHY,
   ...HISTORY,
@@ -33,4 +34,6 @@ export const PROMPT_SEEDS: PromptSeed[] = withExtras([
   ...ANIMALS,
   ...NATURE,
   ...CULTURE,
-], EXTRA_ANSWERS);
+];
+
+export const PROMPT_SEEDS: PromptSeed[] = withExtras(CORE_SEEDS, EXTRA_ANSWERS);
