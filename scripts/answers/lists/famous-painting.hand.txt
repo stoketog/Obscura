@@ -1,0 +1,518 @@
+# Famous paintings. Written by hand. Bracketed painter names are only notes and are dropped from the answer.
+Mona Lisa|La Gioconda;La Joconde
+The Last Supper
+The Starry Night|Starry Night
+The Scream
+Girl with a Pearl Earring
+The Birth of Venus
+The Creation of Adam
+The School of Athens
+Guernica
+The Persistence of Memory
+The Night Watch
+Las Meninas
+The Garden of Earthly Delights
+American Gothic
+Nighthawks
+Sunflowers
+The Kiss
+The Great Wave off Kanagawa|The Great Wave
+Water Lilies
+Impression, Sunrise
+Liberty Leading the People
+The Raft of the Medusa
+The Third of May 1808
+Saturn Devouring His Son
+The Arnolfini Portrait
+The Hay Wain
+The Fighting Temeraire
+Rain, Steam and Speed
+Ophelia
+The Lady of Shalott
+Whistler's Mother|Arrangement in Grey and Black No. 1
+Wanderer above the Sea of Fog
+Primavera
+The Annunciation
+The Tower of Babel
+The Hunters in the Snow
+Netherlandish Proverbs
+Landscape with the Fall of Icarus
+The Peasant Wedding
+The Ambassadors
+Venus of Urbino
+Bacchus and Ariadne
+The Assumption of the Virgin
+Sleeping Venus
+The Tempest
+The Calling of Saint Matthew
+Judith Slaying Holofernes
+The Conversion of Saint Paul
+Supper at Emmaus
+Medusa
+Bacchus
+The Entombment of Christ
+The Death of Marat
+Oath of the Horatii
+Napoleon Crossing the Alps
+The Coronation of Napoleon
+La Grande Odalisque
+The Turkish Bath
+The Gleaners
+The Angelus
+A Burial at Ornans
+The Origin of the World
+The Desperate Man
+Olympia
+Le Déjeuner sur l'herbe|Luncheon on the Grass
+A Bar at the Folies-Bergère
+Bal du moulin de la Galette|Le Moulin de la Galette
+Luncheon of the Boating Party
+The Dance Class
+L'Absinthe
+The Card Players
+Mont Sainte-Victoire
+The Large Bathers
+A Sunday Afternoon on the Island of La Grande Jatte
+Bathers at Asnières
+Where Do We Come From? What Are We? Where Are We Going?
+The Yellow Christ
+Vision After the Sermon
+Café Terrace at Night
+The Night Café
+Bedroom in Arles|The Bedroom
+Wheatfield with Crows
+The Potato Eaters
+Irises
+Almond Blossoms
+The Sleeping Gypsy
+The Dream
+Tiger in a Tropical Storm|Surprised!
+The Dance
+The Red Studio
+Woman with a Hat
+Les Demoiselles d'Avignon
+The Old Guitarist
+The Weeping Woman
+Three Musicians
+The Son of Man
+The Treachery of Images|This Is Not a Pipe
+Golconda|Golconde
+The Lovers
+The Elephants
+Swans Reflecting Elephants
+The Burning Giraffe
+Christ of Saint John of the Cross
+Composition with Red, Blue and Yellow
+Broadway Boogie Woogie
+Black Square
+Composition VIII
+Yellow-Red-Blue
+Twittering Machine
+Senecio
+The Two Fridas|Las Dos Fridas
+Self-Portrait with Thorn Necklace and Hummingbird
+Christina's World
+No. 5, 1948
+Convergence
+Autumn Rhythm
+Lavender Mist
+Blue Poles
+Woman I
+Campbell's Soup Cans
+Marilyn Diptych
+Whaam!
+Drowning Girl
+Flag
+A Bigger Splash
+Portrait of an Artist (Pool with Two Figures)
+Mr and Mrs Clark and Percy
+Three Studies for Figures at the Base of a Crucifixion
+Study after Velázquez's Portrait of Pope Innocent X
+Benefits Supervisor Sleeping
+Girl with Balloon
+The Blue Boy
+Mr and Mrs Andrews
+Pinkie
+Whistlejacket
+The Laughing Cavalier
+The Milkmaid
+View of Delft
+The Little Street
+The Art of Painting
+The Anatomy Lesson of Dr. Nicolaes Tulp
+The Return of the Prodigal Son
+The Jewish Bride
+Self-Portrait with Two Circles
+The Syndics of the Drapers' Guild
+Belshazzar's Feast
+The Storm on the Sea of Galilee
+The Goldfinch
+The Garden of Love
+Massacre of the Innocents
+The Descent from the Cross
+The Elevation of the Cross
+The Three Graces
+Charles I at the Hunt
+The Rokeby Venus
+Portrait of Innocent X
+The Surrender of Breda
+The Spinners
+The Burial of the Count of Orgaz
+View of Toledo
+The Disrobing of Christ
+Lady with an Ermine
+Ginevra de' Benci
+Salvator Mundi
+Virgin of the Rocks
+The Baptism of Christ
+Adoration of the Magi
+The Sistine Madonna
+The Transfiguration
+Portrait of Baldassare Castiglione
+Doni Tondo
+The Last Judgment
+The Ghent Altarpiece|Adoration of the Mystic Lamb
+The Portinari Altarpiece
+The Isenheim Altarpiece
+The Descent from the Cross (van der Weyden)
+The Wilton Diptych
+The Battle of San Romano
+The Flagellation of Christ
+The Tribute Money
+The Holy Trinity
+The Maestà
+The Lamentation of Christ
+The Dead Christ
+Saint George and the Dragon
+The Allegory of Good and Bad Government
+The Feast of the Gods
+Sacred and Profane Love
+Venus and Mars
+Madonna of the Magnificat
+Calumny of Apelles
+The Battle of Alexander at Issus
+The Wedding at Cana
+The Feast in the House of Levi
+Pilgrimage to Cythera|The Embarkation for Cythera
+The Swing
+The Bolt
+Madame de Pompadour
+Madame Récamier
+Portrait of Madame X|Madame X
+Carnation, Lily, Lily, Rose
+The Daughters of Edward Darley Boit
+Gassed
+Washington Crossing the Delaware
+The Death of General Wolfe
+Watson and the Shark
+The Peaceable Kingdom
+Freedom from Want
+The Problem We All Live With
+Breezing Up
+The Gulf Stream
+The Gross Clinic
+Max Schmitt in a Single Scull
+The Oxbow
+The Heart of the Andes
+Among the Sierra Nevada Mountains
+Early Sunday Morning
+Automat
+Chop Suey
+Gas
+Morning Sun
+Black Iris
+Cow's Skull: Red, White, and Blue
+Jimson Weed
+Sky Above Clouds IV
+Flaming June
+The Light of the World
+The Scapegoat
+The Awakening Conscience
+Beata Beatrix
+Proserpine
+The Blind Girl
+Isabella and the Pot of Basil
+The Last of England
+Hope
+The Lady of Shalott (Waterhouse)
+Hylas and the Nymphs
+The Monarch of the Glen
+The Skating Minister
+The Boyhood of Raleigh
+Bubbles
+And When Did You Last See Your Father?
+The Derby Day
+The Railway Station
+The Doctor
+Snow Storm: Hannibal and His Army Crossing the Alps
+The Slave Ship
+Dido Building Carthage
+Flatford Mill
+The Cornfield
+Salisbury Cathedral from the Bishop's Grounds
+Wivenhoe Park
+The White Horse
+Dedham Vale
+An Experiment on a Bird in the Air Pump
+A Philosopher Lecturing on the Orrery
+Marriage A-la-Mode
+A Rake's Progress
+Gin Lane
+The Ancient of Days
+Newton
+The Great Red Dragon
+The Nightmare
+Ophelia (Millais)
+Cupid and Psyche
+The Fourth Estate
+Isle of the Dead
+The Cliff Walk at Pourville
+Rouen Cathedral
+Haystacks
+The Japanese Footbridge
+Woman with a Parasol
+The Magpie
+Boulevard Montmartre at Night
+Paris Street; Rainy Day
+The Floor Scrapers
+Young Man at His Window
+The Child's Bath
+The Cradle
+Summer's Day
+Dance at Bougival
+Two Sisters (On the Terrace)
+The Umbrellas
+At the Moulin Rouge
+Le Chahut
+The Circus
+The Boating Party
+The Snail
+Icarus
+Harmony in Red
+Blue Nude
+The Joy of Life
+Composition with Large Red Plane
+Victory Boogie Woogie
+Red Balloon
+Fish Magic
+Ad Parnassum
+Several Circles
+Composition VII
+On White II
+Blue Rider
+The Large Blue Horses
+The Tower of Blue Horses
+Fate of the Animals
+Berlin Street Scene
+Metropolis
+The Skat Players
+Portrait of the Journalist Sylvia von Harden
+Self-Portrait with Physalis
+Portrait of Wally
+Death and the Maiden
+Judith and the Head of Holofernes
+Portrait of Adele Bloch-Bauer I
+The Tree of Life
+Danaë
+The Beethoven Frieze
+Hope II
+The Bride of the Wind
+The Tempest (Kokoschka)
+Madonna
+The Sick Child
+Vampire
+The Dance of Life
+I and the Village
+The Birthday
+Over the Town
+White Crucifixion
+Ninth Wave
+Barge Haulers on the Volga
+Ivan the Terrible and His Son Ivan
+Reply of the Zaporozhian Cossacks
+Morning in a Pine Forest
+The Rooks Have Come Back
+Bogatyrs
+Boyarynya Morozova
+Girl with Peaches
+The Demon Seated
+Suprematist Composition: White on White
+Red Square
+Proun
+The Fifer
+The Execution of Emperor Maximilian
+The Railway
+Gare Saint-Lazare
+The Water Lily Pond
+Poppies
+Women in the Garden
+The Bridge at Argenteuil
+Impression: Sunrise
+Dancers in Blue
+L'Étoile|The Star
+Ballet Rehearsal
+Self-Portrait with Bandaged Ear
+Portrait of Dr. Gachet
+The Red Vineyard
+Starry Night Over the Rhône
+Sorrowing Old Man
+The Yellow House
+Vase with Fifteen Sunflowers
+The Sower
+Skull of a Skeleton with Burning Cigarette
+Arearea
+Spirit of the Dead Watching
+Nevermore
+Two Tahitian Women
+Ta Matete
+Still Life with Apples
+The Bathers
+Pyramid of Skulls
+Boy with a Pipe|Garçon à la pipe
+Family of Saltimbanques
+Girl Before a Mirror
+Dora Maar au Chat
+Le Rêve
+Massacre in Korea
+The Charnel House
+Les Femmes d'Alger
+Harlequin's Carnival
+The Farm
+Dog Barking at the Moon
+Constellations
+The Persistence of Memory (Dalí)
+The Temptation of Saint Anthony
+Soft Construction with Boiled Beans
+Metamorphosis of Narcissus
+Sleep
+The Hallucinogenic Toreador
+Galatea of the Spheres
+The Sacrament of the Last Supper
+The Empire of Light
+Time Transfixed
+The Human Condition
+Not to Be Reproduced
+The Listening Room
+The False Mirror
+Nude Descending a Staircase, No. 2
+The Disquieting Muses
+The Song of Love
+Mystery and Melancholy of a Street
+Gold Marilyn Monroe
+Shot Sage Blue Marilyn
+Orange Prince
+Eight Elvises
+Silver Car Crash
+Look Mickey
+Masterpiece
+Hopeless
+Oh, Jeff... I Love You, Too... But...
+In the Car
+Interchange
+Excavation
+Number 1A, 1948
+Mural
+White Center
+Orange, Red, Yellow
+No. 61 (Rust and Blue)
+Black on Maroon
+Vir Heroicus Sublimis
+Onement I
+Who's Afraid of Red, Yellow and Blue
+Mountains and Sea
+Leda and the Swan
+Three Flags
+White Flag
+Target with Four Faces
+Map
+Retroactive I
+Big Electric Chair
+Black Fire I
+Dustheads
+Irony of a Negro Policeman
+Hollywood Africans
+In This Case
+Self-Portrait as a Heel
+Riding with Death
+Past Times
+School of Beauty, School of Culture
+Portrait of Michelle Obama
+Portrait of Barack Obama
+Napoleon Leading the Army over the Alps
+Crack Is Wack
+Tuttomondo
+Rosie the Riveter (Rockwell)
+Saying Grace
+Triple Self-Portrait
+The Runaway
+Girl at Mirror
+Self-Portrait with Monkey
+The Broken Column
+Diego and I
+Detroit Industry Murals
+Man at the Crossroads
+Man, Controller of the Universe
+Flower Carrier
+Zapatista Landscape
+Mona Lisa (Botero)
+Abaporu
+Operários
+The Jungle
+Woman in Blue Reading a Letter
+Fine Wind, Clear Morning|Red Fuji
+Plum Park in Kameido
+Sudden Shower over Shin-Ōhashi Bridge
+Fifty-three Stations of the Tōkaidō
+Thirty-six Views of Mount Fuji
+The Dream of the Fisherman's Wife
+Three Beauties of the Present Day
+Along the River During the Qingming Festival
+Dwelling in the Fuchun Mountains
+Travelers Among Mountains and Streams
+Early Spring
+Emperor Taizong Receiving the Tibetan Envoy
+Night-Shining White
+Five Oxen
+Han Xizai Giving a Night Banquet
+Shakuntala
+Lady in the Moonlight
+Three Girls
+Bride's Toilet
+Shearing the Rams
+Golden Summer, Eaglemont
+Fire's On
+Ned Kelly
+The Pioneer
+Down on His Luck
+The Blue Rigi
+The Lovers (Magritte)
+The Sea of Ice
+Monk by the Sea
+Chalk Cliffs on Rügen
+The Abbey in the Oakwood
+Two Men Contemplating the Moon
+The Valley of the Shadow of Death
+The Course of Empire
+The Voyage of Life
+Fur Traders Descending the Missouri
+Snap the Whip
+The Champion Single Sculls
+Arrangement in Grey and Black
+Nocturne in Black and Gold – The Falling Rocket
+Symphony in White, No. 1
+The Fallen Angel
+Lady Godiva
+The Roses of Heliogabalus
+The Death of Chatterton
+The Hireling Shepherd
+Claudio and Isabella
+The Mill
+Diana and Actaeon
+The Rape of Europa
+Venus and Adonis
+The Penitent Magdalene
+Boy Bitten by a Lizard
+Basket of Fruit
+The Cardsharps
+The Fortune Teller
+David with the Head of Goliath

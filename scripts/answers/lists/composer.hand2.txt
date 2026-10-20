@@ -1,0 +1,262 @@
+# More classical composers. Written by hand.
+Hildegard of Bingen
+Guillaume de Machaut
+Guillaume Du Fay
+Josquin des Prez
+Thomas Tallis
+William Byrd
+John Dowland
+Thomas Weelkes
+Carlo Gesualdo
+Tomás Luis de Victoria
+Giovanni Pierluigi da Palestrina
+Orlande de Lassus
+Barbara Strozzi
+Francesca Caccini
+Marc-Antoine Charpentier
+François Couperin
+Jean-Philippe Rameau
+Dieterich Buxtehude
+Johann Pachelbel
+Georg Philipp Telemann
+Tomaso Albinoni
+Arcangelo Corelli
+Alessandro Scarlatti
+Domenico Scarlatti
+Giovanni Battista Pergolesi
+Carl Philipp Emanuel Bach
+Johann Christian Bach
+Christoph Willibald Gluck
+Luigi Boccherini
+Muzio Clementi
+Antonio Salieri
+Carl Maria von Weber
+Louis Spohr
+Johann Nepomuk Hummel
+Fanny Mendelssohn
+Clara Schumann
+Gaetano Donizetti
+Vincenzo Bellini
+Hector Berlioz
+Franz Liszt
+Charles Gounod
+Jacques Offenbach
+César Franck
+Bedřich Smetana
+Antonín Dvořák
+Leoš Janáček
+Bohuslav Martinů
+Zoltán Kodály
+Béla Bartók
+György Ligeti
+Karol Szymanowski
+Witold Lutosławski
+Krzysztof Penderecki
+Henryk Górecki
+Arvo Pärt
+Jean Sibelius
+Carl Nielsen
+Edvard Grieg
+Modest Mussorgsky
+Mily Balakirev
+César Cui
+Alexander Glazunov
+Anatoly Lyadov
+Alexander Scriabin
+Sergei Rachmaninoff
+Sergei Prokofiev
+Dmitri Shostakovich
+Aram Khachaturian
+Igor Stravinsky
+Alfred Schnittke
+Sofia Gubaidulina
+Gabriel Fauré
+Camille Saint-Saëns
+Georges Bizet
+Jules Massenet
+Emmanuel Chabrier
+Ernest Chausson
+Vincent d'Indy
+Erik Satie
+Claude Debussy
+Maurice Ravel
+Darius Milhaud
+Francis Poulenc
+Arthur Honegger
+Lili Boulanger
+Nadia Boulanger
+Olivier Messiaen
+Pierre Boulez
+Henri Dutilleux
+Edward Elgar
+Ralph Vaughan Williams
+Gustav Holst
+Frederick Delius
+Arthur Sullivan
+Hubert Parry
+Charles Villiers Stanford
+Benjamin Britten
+Michael Tippett
+William Walton
+Malcolm Arnold
+Peter Maxwell Davies
+Harrison Birtwistle
+John Tavener
+John Rutter
+Karl Jenkins
+Thomas Adès
+Judith Weir
+Ethel Smyth
+Rebecca Clarke
+George Gershwin
+Aaron Copland
+Leonard Bernstein
+Samuel Barber
+Charles Ives
+John Cage
+Philip Glass
+Steve Reich
+John Adams
+Terry Riley
+Morton Feldman
+Elliott Carter
+Amy Beach
+Florence Price
+Scott Joplin
+Gian Carlo Menotti
+Arnold Schoenberg
+Alban Berg
+Anton Webern
+Gustav Mahler
+Anton Bruckner
+Richard Strauss
+Hugo Wolf
+Max Bruch
+Engelbert Humperdinck
+Paul Hindemith
+Kurt Weill
+Carl Orff
+Hans Werner Henze
+Karlheinz Stockhausen
+Luciano Berio
+Luigi Nono
+Ottorino Respighi
+Giacomo Puccini
+Pietro Mascagni
+Ruggero Leoncavallo
+Gioachino Rossini
+Isaac Albéniz
+Enrique Granados
+Manuel de Falla
+Joaquín Rodrigo
+Heitor Villa-Lobos
+Alberto Ginastera
+Astor Piazzolla
+Carlos Chávez
+Silvestre Revueltas
+Toru Takemitsu
+Tan Dun
+Ennio Morricone
+John Williams
+Ludovico Einaudi
+Max Richter
+Michael Nyman
+Gavin Bryars
+Eric Whitacre
+Ola Gjeilo
+Hildur Guðnadóttir
+Jóhann Jóhannsson
+Kaija Saariaho
+Esa-Pekka Salonen
+Einojuhani Rautavaara
+Magnus Lindberg
+Unsuk Chin
+Isang Yun
+Ryuichi Sakamoto
+Joe Hisaishi
+Johann Joseph Fux
+Jan Dismas Zelenka
+Johann Adolph Hasse
+Francesco Geminiani
+Pietro Locatelli
+Giuseppe Tartini
+Baldassare Galuppi
+Niccolò Jommelli
+Johann Stamitz
+Carl Stamitz
+Karl Ditters von Dittersdorf
+Leopold Mozart
+Joseph Bologne, Chevalier de Saint-Georges
+Johann Baptist Wanhal
+Ignaz Pleyel
+Jan Ladislav Dussek
+John Field
+Ferdinand Ries
+Carl Czerny
+Friedrich Kuhlau
+Franz Berwald
+Niels Gade
+Johan Svendsen
+Christian Sinding
+Wilhelm Stenhammar
+Hugo Alfvén
+Kurt Atterberg
+Allan Pettersson
+Fartein Valen
+Geirr Tveitt
+Vagn Holmboe
+Per Nørgård
+Leevi Madetoja
+Toivo Kuula
+Uuno Klami
+Aulis Sallinen
+Eduard Tubin
+Veljo Tormis
+Mikalojus Konstantinas Čiurlionis
+Pēteris Vasks
+Josef Suk
+Vítězslav Novák
+Zdeněk Fibich
+Erwin Schulhoff
+Pavel Haas
+Hans Krása
+Gideon Klein
+Viktor Ullmann
+Alexander von Zemlinsky
+Franz Schreker
+Erich Wolfgang Korngold
+Ernst Krenek
+Hanns Eisler
+Stefan Wolpe
+Ernst Toch
+Max Reger
+Hans Pfitzner
+Ferruccio Busoni
+Alfredo Casella
+Gian Francesco Malipiero
+Luigi Dallapiccola
+Goffredo Petrassi
+Bruno Maderna
+Giacinto Scelsi
+Salvatore Sciarrino
+Sylvano Bussotti
+Franco Donatoni
+Iannis Xenakis
+Nikos Skalkottas
+Mikis Theodorakis
+George Enescu
+Ciprian Porumbescu
+Pancho Vladigerov
+Stevan Mokranjac
+Josip Štolcer-Slavenski
+Ernő Dohnányi
+Leó Weiner
+Karl Goldmark
+Franz Lehár
+Emmerich Kálmán
+Johann Strauss II
+Johann Strauss I
+Josef Strauss
+Franz von Suppé
+Carl Zeller
+Carl Millöcker

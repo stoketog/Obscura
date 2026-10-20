@@ -1,0 +1,267 @@
+# More music genres. Written by hand.
+Afrobeats
+Amapiano
+Gqom
+Kwaito
+Highlife
+Juju
+Soukous
+Mbalax
+Benga
+Taarab
+Chimurenga
+Bongo Flava
+Rai
+Gnawa
+Chaabi
+Dabke
+Mahraganat
+Qawwali
+Bhangra
+Filmi
+Carnatic music
+Hindustani classical music
+Ghazal
+Baul
+Gamelan
+Dangdut
+Kroncong
+Enka
+Kayōkyoku
+City pop
+J-pop
+K-pop
+Trot
+C-pop
+Mandopop
+Cantopop
+Luk thung
+Mor lam
+Opm
+Fado
+Flamenco
+Rebetiko
+Klezmer
+Polka
+Schlager
+Chanson
+Musette
+Krautrock
+Neue Deutsche Welle
+Italo disco
+Eurobeat
+Eurodance
+Hi-NRG
+Nu-disco
+French house
+Tech house
+Deep house
+Acid house
+Chicago house
+Detroit techno
+Minimal techno
+Hardstyle
+Gabber
+Happy hardcore
+UK garage
+2-step
+Grime
+UK drill
+Drill
+Bassline
+Dubstep
+Brostep
+Drum and bass
+Jungle
+Liquid funk
+Breakbeat
+Big beat
+Trip hop
+Chillwave
+Vaporwave
+Synthwave
+Hyperpop
+Glitch
+IDM
+Ambient
+Dark ambient
+Drone
+Noise
+Industrial
+EBM
+Darkwave
+Coldwave
+Post-punk
+Gothic rock
+Shoegaze
+Dream pop
+Slowcore
+Sadcore
+Math rock
+Post-rock
+Emo
+Screamo
+Pop-punk
+Skate punk
+Hardcore punk
+Crust punk
+Grindcore
+Death metal
+Black metal
+Doom metal
+Sludge metal
+Stoner rock
+Thrash metal
+Speed metal
+Power metal
+Symphonic metal
+Folk metal
+Viking metal
+Nu metal
+Metalcore
+Deathcore
+Djent
+Progressive metal
+Progressive rock
+Psychedelic rock
+Space rock
+Garage rock
+Surf rock
+Rockabilly
+Psychobilly
+Glam rock
+Hair metal
+Grunge
+Britpop
+Madchester
+Baggy
+Indie rock
+Lo-fi
+Jangle pop
+Power pop
+Yacht rock
+Soft rock
+Arena rock
+Heartland rock
+Southern rock
+Blues rock
+Roots rock
+Americana
+Alt-country
+Outlaw country
+Bluegrass
+Western swing
+Honky-tonk
+Zydeco
+Cajun
+Tejano
+Norteño
+Banda
+Mariachi
+Ranchera
+Corrido
+Corridos tumbados
+Cumbia
+Vallenato
+Salsa
+Merengue
+Bachata
+Reggaeton
+Dembow
+Son cubano
+Bolero
+Mambo
+Cha-cha-chá
+Bossa nova
+Samba
+MPB
+Forró
+Axé
+Funk carioca
+Tango
+Milonga
+Calypso
+Soca
+Dancehall
+Ska
+Rocksteady
+Dub
+Lovers rock
+Mento
+Zouk
+Kompa
+Gospel
+Spirituals
+Doo-wop
+Motown
+Northern soul
+Neo soul
+Quiet storm
+New jack swing
+Contemporary R&B
+Funk
+P-Funk
+Go-go
+Boogie
+Disco
+Electro
+Miami bass
+Crunk
+Trap
+Boom bap
+Gangsta rap
+G-funk
+Horrorcore
+Conscious hip hop
+Cloud rap
+Emo rap
+Phonk
+Lo-fi hip hop
+Bebop
+Hard bop
+Cool jazz
+Free jazz
+Modal jazz
+Swing
+Big band
+Dixieland
+Ragtime
+Stride
+Jazz fusion
+Smooth jazz
+Acid jazz
+Latin jazz
+Gypsy jazz
+Delta blues
+Chicago blues
+Piedmont blues
+Electric blues
+Boogie-woogie
+Barbershop
+A cappella
+Gregorian chant
+Plainchant
+Baroque music
+Opera
+Operetta
+Oratorio
+Minimalism
+Serialism
+Musique concrète
+Sea shanty
+Celtic music
+Sean-nós
+Bothy ballad
+Morris music
+Skiffle
+Music hall
+Easy listening
+Exotica
+Lounge
+Muzak
+Christmas music
+Children's music
+Show tunes
+Film score
+Video game music
+Chiptune
