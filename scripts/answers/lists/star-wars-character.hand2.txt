@@ -1,0 +1,353 @@
+# More Star Wars characters (films, series, games and books). Written by hand.
+Luke Skywalker
+Leia Organa
+Han Solo
+Chewbacca
+Darth Vader
+Anakin Skywalker
+Obi-Wan Kenobi
+Yoda
+Palpatine
+Darth Sidious
+R2-D2
+C-3PO
+Lando Calrissian
+Boba Fett
+Jango Fett
+Jabba the Hutt
+Padmé Amidala
+Qui-Gon Jinn
+Mace Windu
+Count Dooku
+Darth Maul
+General Grievous
+Jar Jar Binks
+Rey
+Finn
+Poe Dameron
+Kylo Ren
+Ben Solo
+BB-8
+Supreme Leader Snoke
+General Hux
+Captain Phasma
+Rose Tico
+Maz Kanata
+Vice Admiral Holdo
+DJ
+Lor San Tekka
+Zorii Bliss
+Babu Frik
+Jannah
+Allegiant General Pryde
+Snap Wexley
+Jessika Pava
+Kaydel Ko Connix
+Ahsoka Tano
+Captain Rex
+Commander Cody
+Asajj Ventress
+Savage Opress
+Mother Talzin
+Cad Bane
+Hondo Ohnaka
+Aurra Sing
+Bo-Katan Kryze
+Satine Kryze
+Pre Vizsla
+Almec
+Plo Koon
+Kit Fisto
+Ki-Adi-Mundi
+Aayla Secura
+Shaak Ti
+Luminara Unduli
+Barriss Offee
+Adi Gallia
+Saesee Tiin
+Agen Kolar
+Eeth Koth
+Even Piell
+Yaddle
+Oppo Rancisis
+Depa Billaba
+Stass Allie
+Coleman Trebor
+Quinlan Vos
+Bultar Swan
+Pong Krell
+Sifo-Dyas
+Jocasta Nu
+Cin Drallig
+Nute Gunray
+Rune Haako
+Wat Tambor
+San Hill
+Poggle the Lesser
+Shu Mai
+Passel Argente
+Lott Dod
+Orn Free Taa
+Mas Amedda
+Sio Bibble
+Captain Panaka
+Captain Typho
+Rabé
+Sabé
+Dormé
+Cordé
+Boss Nass
+Captain Tarpals
+Watto
+Sebulba
+Shmi Skywalker
+Cliegg Lars
+Owen Lars
+Beru Lars
+Biggs Darklighter
+Wedge Antilles
+Jek Porkins
+Garven Dreis
+Dutch Vander
+Wes Janson
+Hobbie Klivian
+Zev Senesca
+Dak Ralter
+Admiral Ackbar
+Mon Mothma
+Bail Organa
+Breha Organa
+Grand Moff Tarkin
+Admiral Piett
+Admiral Ozzel
+General Veers
+Captain Needa
+Moff Jerjerrod
+General Motti
+General Tagge
+Commander Praji
+Bib Fortuna
+Salacious Crumb
+Max Rebo
+Sy Snootles
+Oola
+Malakili
+Greedo
+Dengar
+Bossk
+IG-88
+Zuckuss
+4-LOM
+Wicket
+Chief Chirpa
+Logray
+Teebo
+Paploo
+Nien Nunb
+Crix Madine
+Jyn Erso
+Cassian Andor
+K-2SO
+Chirrut Îmwe
+Baze Malbus
+Bodhi Rook
+Saw Gerrera
+Orson Krennic
+Galen Erso
+Lyra Erso
+Bistan
+Ruescott Melshi
+Qi'ra
+Tobias Beckett
+Val
+Rio Durant
+Enfys Nest
+Dryden Vos
+L3-37
+Lady Proxima
+Din Djarin
+Grogu
+The Armorer
+Greef Karga
+Cara Dune
+Kuiil
+IG-11
+Moff Gideon
+Fennec Shand
+Migs Mayfeld
+Peli Motto
+Cobb Vanth
+Paz Vizsla
+Koska Reeves
+Axe Woves
+Dr. Pershing
+Elia Kane
+Hera Syndulla
+Kanan Jarrus
+Ezra Bridger
+Sabine Wren
+Garazeb Orrelios
+Chopper
+Grand Admiral Thrawn
+Agent Kallus
+The Grand Inquisitor
+Fifth Brother
+Seventh Sister
+Eighth Brother
+Second Sister
+Ninth Sister
+Reva
+Third Sister
+Fourth Sister
+Marrok
+Baylan Skoll
+Shin Hati
+Morgan Elsbeth
+Huyang
+Jacen Syndulla
+Cal Kestis
+BD-1
+Cere Junda
+Greez Dritus
+Merrin
+Trilla Suduri
+Bode Akuna
+Dagan Gera
+Taron Malicos
+Luthen Rael
+Mon Mothma
+Syril Karn
+Dedra Meero
+Bix Caleen
+Maarva Andor
+Kino Loy
+Vel Sartha
+Cinta Kaz
+Brasso
+Major Partagaz
+Lieutenant Supervisor Blevin
+Tay Kolma
+Perrin Fertha
+Kleya Marki
+Nemik
+Arvel Skeen
+Saw Gerrera
+Omega
+Hunter
+Wrecker
+Tech
+Crosshair
+Echo
+Fives
+Hardcase
+Jesse
+Kix
+Tup
+Dogma
+Wolffe
+Gregor
+Bly
+Commander Fox
+Commander Gree
+Commander Bacara
+Commander Neyo
+Waxer
+Boil
+Hevy
+Cutup
+Droidbait
+99
+Captain Howzer
+Admiral Rampart
+Doctor Hemlock
+Nala Se
+Lama Su
+Taun We
+Mayor Tuggs
+Cid
+Sol
+Mae
+Osha Aniseya
+Qimir
+The Stranger
+Jecki Lon
+Yord Fandar
+Vernestra Rwoh
+Kelnacca
+Torbin
+Indara
+Bazil
+Mother Aniseya
+Mother Koril
+Jod Na Nawood
+Wim
+Neel
+Fern
+KB
+SM-33
+Kh'ymm
+Rafe
+Darth Plagueis
+Darth Bane
+Darth Revan
+Darth Malak
+Darth Nihilus
+Darth Sion
+Darth Traya
+Kreia
+Bastila Shan
+Carth Onasi
+Mission Vao
+Canderous Ordo
+Juhani
+Jolee Bindo
+HK-47
+T3-M4
+Zaalbar
+Exar Kun
+Ulic Qel-Droma
+Nomi Sunrider
+Marka Ragnos
+Naga Sadow
+Freedon Nadd
+Kyle Katarn
+Jan Ors
+Mara Jade
+Talon Karrde
+Jacen Solo
+Jaina Solo
+Anakin Solo
+Ben Skywalker
+Kyp Durron
+Corran Horn
+Tenel Ka
+Darth Caedus
+Starkiller
+Galen Marek
+Juno Eclipse
+PROXY
+Rahm Kota
+Iden Versio
+Del Meeko
+Gideon Hask
+Garrick Versio
+Rae Sloane
+Gallius Rax
+Norra Wexley
+Temmin Wexley
+Jas Emari
+Sinjir Rath Velus
+Mr. Bones
+Doctor Aphra
+Triple-Zero
+BT-1
+Sana Starros
+Lourna Dee
+Marchion Ro
+Avar Kriss
+Elzar Mann
+Keeve Trennis
+Bell Zettifar
+Loden Greatstorm
+Stellan Gios
+Porter Engle

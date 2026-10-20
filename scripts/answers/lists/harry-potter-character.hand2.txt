@@ -1,0 +1,368 @@
+# More Harry Potter characters (books, films, Fantastic Beasts, Cursed Child). Written by hand.
+Harry Potter
+Hermione Granger
+Ron Weasley
+Albus Dumbledore
+Severus Snape
+Rubeus Hagrid
+Lord Voldemort
+Tom Riddle
+Draco Malfoy
+Lucius Malfoy
+Narcissa Malfoy
+Scorpius Malfoy
+Ginny Weasley
+Fred Weasley
+George Weasley
+Percy Weasley
+Bill Weasley
+Charlie Weasley
+Molly Weasley
+Arthur Weasley
+Rose Granger-Weasley
+Hugo Granger-Weasley
+Albus Severus Potter
+James Sirius Potter
+Lily Luna Potter
+James Potter
+Lily Potter
+Sirius Black
+Remus Lupin
+Peter Pettigrew
+Nymphadora Tonks
+Teddy Lupin
+Ted Tonks
+Andromeda Tonks
+Bellatrix Lestrange
+Rodolphus Lestrange
+Rabastan Lestrange
+Barty Crouch Jr.
+Barty Crouch Sr.
+Winky
+Dobby
+Kreacher
+Hokey
+Minerva McGonagall
+Filius Flitwick
+Pomona Sprout
+Horace Slughorn
+Sybill Trelawney
+Firenze
+Bane
+Ronan
+Magorian
+Gilderoy Lockhart
+Quirinus Quirrell
+Dolores Umbridge
+Alastor Moody
+Kingsley Shacklebolt
+Rufus Scrimgeour
+Cornelius Fudge
+Pius Thicknesse
+Amelia Bones
+Susan Bones
+Hannah Abbott
+Ernie Macmillan
+Justin Finch-Fletchley
+Zacharias Smith
+Cedric Diggory
+Amos Diggory
+Cho Chang
+Marietta Edgecombe
+Luna Lovegood
+Xenophilius Lovegood
+Neville Longbottom
+Augusta Longbottom
+Frank Longbottom
+Alice Longbottom
+Dean Thomas
+Seamus Finnigan
+Lavender Brown
+Parvati Patil
+Padma Patil
+Oliver Wood
+Katie Bell
+Angelina Johnson
+Alicia Spinnet
+Lee Jordan
+Colin Creevey
+Dennis Creevey
+Romilda Vane
+Cormac McLaggen
+Vincent Crabbe
+Gregory Goyle
+Pansy Parkinson
+Blaise Zabini
+Theodore Nott
+Millicent Bulstrode
+Marcus Flint
+Terry Boot
+Michael Corner
+Anthony Goldstein
+Roger Davies
+Penelope Clearwater
+Moaning Myrtle
+Nearly Headless Nick
+The Fat Friar
+The Grey Lady
+The Bloody Baron
+Helena Ravenclaw
+Peeves
+Argus Filch
+Mrs Norris
+Poppy Pomfrey
+Rolanda Hooch
+Irma Pince
+Wilhelmina Grubbly-Plank
+Charity Burbage
+Cuthbert Binns
+Aurora Sinistra
+Septima Vector
+Bathsheda Babbling
+Silvanus Kettleburn
+Gellert Grindelwald
+Aberforth Dumbledore
+Ariana Dumbledore
+Kendra Dumbledore
+Percival Dumbledore
+Bathilda Bagshot
+Rita Skeeter
+Ludo Bagman
+Bertha Jorkins
+Griphook
+Ragnok
+Bogrod
+Ollivander
+Garrick Ollivander
+Florean Fortescue
+Madam Malkin
+Tom the barman
+Stan Shunpike
+Ernie Prang
+Mundungus Fletcher
+Arabella Figg
+Elphias Doge
+Dedalus Diggle
+Hestia Jones
+Emmeline Vance
+Sturgis Podmore
+Fleur Delacour
+Gabrielle Delacour
+Viktor Krum
+Igor Karkaroff
+Olympe Maxime
+Fenrir Greyback
+Antonin Dolohov
+Augustus Rookwood
+Walden Macnair
+Thorfinn Rowle
+Yaxley
+Corban Yaxley
+Alecto Carrow
+Amycus Carrow
+Travers
+Avery
+Mulciber
+Selwyn
+Gibbon
+Jugson
+Scabior
+Regulus Black
+Phineas Nigellus Black
+Walburga Black
+Orion Black
+Marius Black
+Cedrella Black
+Vernon Dursley
+Petunia Dursley
+Dudley Dursley
+Marge Dursley
+Piers Polkiss
+Hedwig
+Crookshanks
+Scabbers
+Errol
+Pigwidgeon
+Hermes
+Fang
+Fluffy
+Norbert
+Norberta
+Buckbeak
+Witherwings
+Aragog
+Mosag
+Grawp
+Fawkes
+Nagini
+Trevor
+Arnold
+The Sorting Hat
+The Fat Lady
+Sir Cadogan
+Violet
+Godric Gryffindor
+Helga Hufflepuff
+Rowena Ravenclaw
+Salazar Slytherin
+Merope Gaunt
+Marvolo Gaunt
+Morfin Gaunt
+Tom Riddle Sr.
+Hepzibah Smith
+Caractacus Burke
+Borgin
+Ignotus Peverell
+Antioch Peverell
+Cadmus Peverell
+Newt Scamander
+Theseus Scamander
+Tina Goldstein
+Queenie Goldstein
+Jacob Kowalski
+Credence Barebone
+Aurelius Dumbledore
+Leta Lestrange
+Yusuf Kama
+Vinda Rosier
+Seraphina Picquery
+Percival Graves
+Mary Lou Barebone
+Gnarlack
+Bunty
+Pickett
+Niffler
+Frank the Thunderbird
+Lally Hicks
+Henrietta Fischer
+Anton Vogel
+Vicência Santos
+Liu Tao
+Delphi Diggory
+Craig Bowker Jr.
+Polly Chapman
+Yann Fredericks
+Karl Jenkins
+Mafalda Hopkirk
+Reginald Cattermole
+Mary Cattermole
+Albert Runcorn
+Dirk Cresswell
+Bob Ogden
+Bertha Jorkins
+Mr Roberts
+Archie
+Basil
+Mrs Cole
+Wilkie Twycross
+Hokey
+Ernie Prang
+Bozo
+Dennis Bishop
+Gordon
+Malcolm
+Mr Mason
+Mrs Mason
+Herbert Chorley
+Elfric the Eager
+Uric the Oddball
+Emeric the Evil
+Bowman Wright
+Nicolas Flamel
+Perenelle Flamel
+Madam Rosmerta
+Ambrosius Flume
+Kennilworthy Whisp
+Ivanova
+Ali Bashir
+Dragomir Despard
+Auntie Muriel
+Gideon Prewett
+Fabian Prewett
+Benjy Fenwick
+Caradoc Dearborn
+Dorcas Meadowes
+Marlene McKinnon
+Edgar Bones
+Frank Bryce
+Mafalda Prewett
+Cuthbert Mockridge
+Gilbert Wimple
+Arnold Peasegood
+Augustus Pye
+Hippocrates Smethwyck
+Miriam Strout
+Broderick Bode
+Eric Munch
+Willy Widdershins
+Mr Prentice
+Hokey
+Kirley Duke
+Myron Wagtail
+Celestina Warbeck
+Gwenog Jones
+Ludo Bagman
+Aidan Lynch
+Barry Ryan
+Ivan Volkov
+Clara Ivanova
+Hassan Mostafa
+Basil Horton
+Madam Puddifoot
+Ambrose Swott
+Gladys Gudgeon
+Veronica Smethley
+Wilbert Slinkhard
+Dilys Derwent
+Everard
+Armando Dippet
+Dexter Fortescue
+Gregorovitch
+Mykew Gregorovitch
+Rosier
+Mulciber Sr.
+Nott Sr.
+Avery Sr.
+Bertie Bott
+Elphias Doge
+Bogrod
+Stubby Boardman
+Doris Purkiss
+Mr Tofty
+Griselda Marchbanks
+Cassius Warrington
+Graham Montague
+Adrian Pucey
+Miles Bletchley
+Terence Higgs
+Derrick
+Bole
+Lucian Bole
+Urquhart
+Harper
+Vaisey
+Ritchie Coote
+Jimmy Peakes
+Demelza Robins
+Geoffrey Hooper
+Kenneth Towler
+Leanne
+Eloise Midgen
+Stewart Ackerley
+Owen Cauldwell
+Eleanor Branstone
+Malcolm Baddock
+Graham Pritchard
+Orla Quirke
+Kevin Whitby
+Laura Madley
+Rose Zeller
+Euan Abercrombie
+Natalie McDonald
+Sally-Anne Perks
+Mandy Brocklehurst
+Lisa Turpin
+Morag MacDougal
+Su Li
+Wayne Hopkins
+Megan Jones

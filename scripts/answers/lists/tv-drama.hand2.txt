@@ -1,0 +1,492 @@
+# More TV drama series, UK, US and elsewhere. Written by hand.
+24
+Andor
+Arcane
+Babylon Berlin
+Babylon 5
+Band of Brothers
+Battlestar Galactica
+Better Call Saul
+Big Little Lies
+Billions
+Black Mirror
+Bloodline
+Boardwalk Empire
+Bodyguard
+Boss
+Breaking Bad
+Bridgerton
+Broadchurch
+Call the Midwife
+Casualty
+Chernobyl
+Cold Feet
+Cracker
+Criminal Minds
+CSI: Crime Scene Investigation
+Damages
+Dark
+Deadwood
+Dexter
+Doctor Foster
+Doctor Who
+Downton Abbey
+Dynasty
+Dallas
+EastEnders
+Coronation Street
+Emmerdale
+Hollyoaks
+Neighbours
+Home and Away
+Brookside
+Peak Practice
+Heartbeat
+Holby City
+ER
+Euphoria
+Fargo
+Firefly
+Foyle's War
+Friday Night Lights
+Fringe
+Game of Thrones
+Gilmore Girls
+Gomorrah
+Gossip Girl
+Grey's Anatomy
+Happy Valley
+Hill Street Blues
+His Dark Materials
+Homeland
+House
+House of Cards
+House of the Dragon
+Industry
+Inspector Morse
+Killing Eve
+Law & Order
+Life on Mars
+Line of Duty
+Lost
+Luther
+Mad Men
+Mare of Easttown
+Midsomer Murders
+Mindhunter
+Money Heist
+Mr Robot
+Narcos
+Normal People
+NYPD Blue
+Orange Is the New Black
+Ozark
+Peaky Blinders
+Poldark
+Prime Suspect
+Prison Break
+Queer as Folk
+Rome
+Shetland
+Silent Witness
+Six Feet Under
+Skins
+Sons of Anarchy
+Spooks
+Squid Game
+St. Elsewhere
+Star Trek
+Stranger Things
+Succession
+Suits
+Taboo
+The Americans
+The Bill
+The Blacklist
+The Boys
+The Bridge
+The Crown
+The Expanse
+The Fall
+The Good Wife
+The Handmaid's Tale
+The Killing
+The Last of Us
+The Leftovers
+The Mandalorian
+The Night Manager
+The Night Of
+The O.C.
+The Shield
+The Sopranos
+The Walking Dead
+The West Wing
+The Wire
+The X-Files
+This Is Us
+Top Boy
+Tracker
+True Blood
+True Detective
+Twin Peaks
+Upstairs, Downstairs
+Utopia
+Vera
+Waking the Dead
+Westworld
+Wolf Hall
+Yellowstone
+Yellowjackets
+Severance
+Slow Horses
+Shōgun
+The Morning Show
+Silo
+Foundation
+For All Mankind
+Bad Sisters
+Blue Lights
+Baby Reindeer
+Adolescence
+Mr Bates vs The Post Office
+The Gentlemen
+Sherlock
+Bodies
+Unforgotten
+Grace
+Ridley
+Van der Valk
+Endeavour
+Lewis
+A Touch of Frost
+Taggart
+Rebus
+Wycliffe
+Dalziel and Pascoe
+Bergerac
+Lovejoy
+Shoestring
+The Sweeney
+The Professionals
+Minder
+Z-Cars
+Dixon of Dock Green
+Juliet Bravo
+The Avengers
+The Prisoner
+Danger Man
+The Saint
+Callan
+Tenko
+Secret Army
+Howards' Way
+Bergerac
+All Creatures Great and Small
+Doc Martin
+Monarch of the Glen
+Ballykissangel
+Hamish Macbeth
+Born and Bred
+Where the Heart Is
+Wild at Heart
+The Royal
+Lark Rise to Candleford
+Cranford
+Mr Selfridge
+Victoria
+Indian Summers
+Ripper Street
+Whitechapel
+Jonathan Creek
+Hustle
+Life on Mars
+Ashes to Ashes
+Waterloo Road
+Grange Hill
+Byker Grove
+Teachers
+Shameless
+This Is England '86
+Misfits
+Being Human
+Torchwood
+Merlin
+Robin Hood
+Primeval
+Survivors
+Blake's 7
+Sapphire & Steel
+The Tripods
+Quatermass
+Tinker Tailor Soldier Spy
+Smiley's People
+Brideshead Revisited
+The Jewel in the Crown
+Edge of Darkness
+Our Friends in the North
+State of Play
+The Singing Detective
+Pennies from Heaven
+Boys from the Blackstuff
+Auf Wiedersehen, Pet
+Bleak House
+Little Dorrit
+Pride and Prejudice
+North and South
+Middlemarch
+The Forsyte Saga
+War and Peace
+Les Misérables
+The Pursuit of Love
+Gentleman Jack
+The Tudors
+The Borgias
+Vikings
+The Last Kingdom
+Outlander
+Versailles
+Medici
+The White Queen
+Spartacus
+Banshee
+Justified
+Hell on Wheels
+Halt and Catch Fire
+Mr. Mercedes
+Hannibal
+Bates Motel
+The Following
+Person of Interest
+Elementary
+Castle
+Bones
+The Mentalist
+Burn Notice
+Monk
+Psych
+White Collar
+NCIS
+JAG
+Blue Bloods
+Chicago Fire
+Chicago P.D.
+Chicago Med
+The Rookie
+9-1-1
+Station 19
+New Amsterdam
+The Resident
+The Good Doctor
+Chicago Hope
+Nip/Tuck
+Private Practice
+Scandal
+How to Get Away with Murder
+Revenge
+Desperate Housewives
+Melrose Place
+Beverly Hills, 90210
+Dawson's Creek
+One Tree Hill
+Veronica Mars
+Buffy the Vampire Slayer
+Angel
+Charmed
+Smallville
+Supernatural
+Heroes
+Alias
+The 4400
+Jericho
+Revolution
+Fringe
+The Strain
+American Horror Story
+Penny Dreadful
+The Haunting of Hill House
+Midnight Mass
+Dark Matter
+Severance
+Station Eleven
+The Leftovers
+The Young Pope
+Borgen
+The Killing
+Wallander
+The Bridge
+Trapped
+Deutschland 83
+Babylon Berlin
+Dark
+Lupin
+Call My Agent!
+Spiral
+Le Bureau des Légendes
+Les Revenants
+Gomorrah
+My Brilliant Friend
+Elite
+Money Heist
+Narcos: Mexico
+Sacred Games
+Delhi Crime
+Kingdom
+Crash Landing on You
+The Glory
+Alice in Borderland
+Fauda
+Shtisel
+Prisoners of War
+Hatufim
+Tehran
+Rake
+Wentworth
+Prisoner: Cell Block H
+Underbelly
+Mystery Road
+The Slap
+Packed to the Rafters
+McLeod's Daughters
+A Country Practice
+The Sullivans
+Shortland Street
+Outrageous Fortune
+Top of the Lake
+The Tourist
+The Responder
+Time
+Help
+Three Girls
+This Is Going to Hurt
+It's a Sin
+I May Destroy You
+Small Axe
+Des
+The Salisbury Poisonings
+Life
+Years and Years
+Black Doves
+Slow Horses
+The Diplomat
+The Lincoln Lawyer
+Bosch
+Reacher
+Jack Ryan
+The Terminal List
+Tulsa King
+Mayor of Kingstown
+Landman
+1883
+1923
+The Gilded Age
+The Pitt
+Paradise
+The Old Man
+The Diplomat
+Beef
+The Crown
+Feud
+Pose
+Glee
+Nashville
+Empire
+Power
+Snowfall
+Ozark
+Animal Kingdom
+Queen of the South
+Sons of Anarchy
+Mayans M.C.
+Rescue Me
+The Unit
+Generation Kill
+The Pacific
+Masters of the Air
+Treme
+Show Me a Hero
+The Deuce
+Oz
+Carnivàle
+Big Love
+The Newsroom
+Studio 60 on the Sunset Strip
+Sports Night
+Thirtysomething
+L.A. Law
+Picket Fences
+Chicago Hope
+Northern Exposure
+Quantum Leap
+Miami Vice
+Magnum, P.I.
+The A-Team
+Knight Rider
+Airwolf
+The Fall Guy
+Starsky & Hutch
+Kojak
+Columbo
+Murder, She Wrote
+The Rockford Files
+Hawaii Five-O
+Cagney & Lacey
+Moonlighting
+Dynasty
+Knots Landing
+Falcon Crest
+Peyton Place
+The Waltons
+Little House on the Prairie
+Bonanza
+Gunsmoke
+Rawhide
+The Virginian
+Dr. Kildare
+Perry Mason
+The Fugitive
+The Twilight Zone
+Star Trek: The Next Generation
+Star Trek: Deep Space Nine
+Star Trek: Voyager
+Star Trek: Discovery
+Stargate SG-1
+Farscape
+Andromeda
+Dark Angel
+Roswell
+Lost in Space
+The Outer Limits
+V
+Blackpool
+Cardiac Arrest
+Bad Girls
+Footballers' Wives
+Hustle
+New Tricks
+Silk
+Garrow's Law
+The Crown Court
+Kavanagh QC
+Rumpole of the Bailey
+Judge John Deed
+Hetty Wainthropp Investigates
+Pie in the Sky
+Soldier Soldier
+London's Burning
+The Darling Buds of May
+The Onedin Line
+When the Boat Comes In
+I, Claudius
+The Six Wives of Henry VIII
+Elizabeth R
+Tutti Frutti
+Taggart
+River City
+Shetland
+Guilt
+Karen Pirie
+Annika
+Traces
+The Victim
+Vigil
+Crime

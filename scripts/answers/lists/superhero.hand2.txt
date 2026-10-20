@@ -1,0 +1,460 @@
+# More superheroes from Marvel, DC and elsewhere. Written by hand.
+Adam Strange
+Agent Venom
+Ajak
+America Chavez
+American Eagle
+Amethyst
+Ant-Man
+Apollo
+Aqualad
+Arachne
+Araña
+Arsenal
+Atom
+Atom Smasher
+Aurora
+Avalanche
+Azrael
+Banshee
+Batgirl
+Batwing
+Batwoman
+Beast
+Beast Boy
+Beta Ray Bill
+Big Barda
+Bishop
+Black Bolt
+Black Cat
+Black Canary
+Black Knight
+Black Lightning
+Black Panther
+Black Widow
+Blade
+Blink
+Blue Beetle
+Blue Marvel
+Booster Gold
+Bronze Tiger
+Bucky Barnes
+Bumblebee
+Cable
+Captain Atom
+Captain Britain
+Captain Carrot
+Captain Marvel
+Cassie Lang
+Catwoman
+Cannonball
+Cloak
+Dagger
+Colossus
+Cyborg
+Cyclops
+Daredevil
+Dazzler
+Deadman
+Deadpool
+Deathlok
+Domino
+Doctor Fate
+Doctor Light
+Doctor Mid-Nite
+Doctor Strange
+Doctor Voodoo
+Elongated Man
+Elektra
+Emma Frost
+Echo
+Falcon
+Fire
+Firestar
+Firestorm
+Forge
+Gambit
+Gamora
+Ghost Rider
+Ghost-Spider
+Golden Age Flash
+Green Arrow
+Green Lantern
+Groot
+Guardian
+Guy Gardner
+Hal Jordan
+Havok
+Hawkeye
+Hawkgirl
+Hawkman
+Hellboy
+Hercules
+Hourman
+Hulkling
+Huntress
+Iceman
+Ice
+Impulse
+Invisible Woman
+Iron Fist
+Iron Man
+Ironheart
+Jean Grey
+Jessica Jones
+Jessica Cruz
+John Stewart
+Jubilee
+Kamala Khan
+Kid Flash
+Kitty Pryde
+Kyle Rayner
+Lady Shiva
+Liberty Belle
+Lobo
+Longshot
+Luke Cage
+Magik
+Manhunter
+Mantis
+Martian Manhunter
+Marvel Girl
+Mary Marvel
+Medusa
+Mera
+Metamorpho
+Mister Fantastic
+Mister Miracle
+Mister Terrific
+Misty Knight
+Mockingbird
+Moon Knight
+Moondragon
+Moon Girl
+Multiple Man
+Namor
+Namora
+Nightcrawler
+Nightwing
+Nova
+Northstar
+Nubia
+Orion
+Plastic Man
+Polaris
+Power Girl
+Power Man
+Psylocke
+Quasar
+Quicksilver
+Rocket Raccoon
+Rogue
+Ronin
+Scarlet Witch
+Sentry
+Shang-Chi
+Shazam
+She-Hulk
+Shining Knight
+Silk
+Silver Surfer
+Spectre
+Speedball
+Spider-Gwen
+Spider-Man
+Spider-Woman
+Spoiler
+Squirrel Girl
+Star-Lord
+Stargirl
+Starfire
+Static
+Steel
+Storm
+Sunfire
+Sunspot
+Supergirl
+Superboy
+Superman
+Swamp Thing
+Thing
+Thor
+Tigra
+Toro
+U.S. Agent
+Valkyrie
+Vibe
+Vision
+Vixen
+War Machine
+Warlock
+Wasp
+White Tiger
+Wiccan
+Wolfsbane
+Wonder Man
+Wonder Woman
+Wolverine
+X-23
+Zatanna
+Zatara
+Jonah Hex
+The Question
+Blue Devil
+Captain Cold
+Jason Todd
+Red Hood
+Red Robin
+Tim Drake
+Damian Wayne
+Dick Grayson
+Barbara Gordon
+Cassandra Cain
+Stephanie Brown
+Wally West
+Barry Allen
+Jay Garrick
+Bart Allen
+Jaime Reyes
+Ted Kord
+Ray Palmer
+Ryan Choi
+Kara Zor-El
+Conner Kent
+Jon Kent
+Billy Batson
+Freddy Freeman
+Raven
+Terra
+Kid Eternity
+Ragman
+Obsidian
+Jade
+Wildcat
+Sandman (Wesley Dodds)
+Doctor Occult
+The Phantom Stranger
+Etrigan
+Animal Man
+Dr. Manhattan
+Nite Owl
+Silk Spectre
+Rorschach
+The Comedian
+Captain Planet
+Invincible
+Atom Eve
+Omni-Man
+Savage Dragon
+Spawn
+The Tick
+Hit-Girl
+Kick-Ass
+The Rocketeer
+The Phantom
+The Shadow
+The Green Hornet
+Captain Britain
+Union Jack
+Spitfire
+Black Knight (Dane Whitman)
+Captain Canuck
+Zan
+Jayna
+Krypto
+Ambush Bug
+Booster Gold
+Starman
+Jack Knight
+Mister America
+Uncle Sam
+The Ray
+Phantom Lady
+Black Condor
+Doll Man
+Human Bomb
+Human Torch
+Jim Hammond
+Johnny Storm
+Sue Storm
+Reed Richards
+Ben Grimm
+Franklin Richards
+Valeria Richards
+Peter Parker
+Miles Morales
+Gwen Stacy
+Miguel O'Hara
+Ben Reilly
+Kaine
+Cindy Moon
+Jessica Drew
+Julia Carpenter
+Mattie Franklin
+Anya Corazon
+Carol Danvers
+Monica Rambeau
+Genis-Vell
+Mar-Vell
+Phyla-Vell
+Sam Wilson
+Steve Rogers
+Peggy Carter
+Clint Barton
+Kate Bishop
+Natasha Romanoff
+Yelena Belova
+Wanda Maximoff
+Pietro Maximoff
+Tony Stark
+Riri Williams
+James Rhodes
+Bruce Banner
+Jennifer Walters
+Amadeus Cho
+T'Challa
+Shuri
+Okoye
+Matt Murdock
+Danny Rand
+Frank Castle
+The Punisher
+Venom
+Morbius
+Quake
+Daisy Johnson
+Yo-Yo Rodriguez
+Mockingbird
+Moon Knight
+Marc Spector
+Layla El-Faouly
+Scarlet Scarab
+Ms. Marvel
+Captain America
+Iron Patriot
+Rescue
+Hope van Dyne
+Janet van Dyne
+Hank Pym
+Scott Lang
+Bill Foster
+Goliath
+Yellowjacket
+Giant-Man
+Stature
+Nadia van Dyne
+Gilgamesh
+Thena
+Ikaris
+Sersi
+Kingo
+Druig
+Makkari
+Phastos
+Sprite
+Eros
+Starfox
+Adam Warlock
+Drax the Destroyer
+Nebula
+Yondu
+Cosmo the Spacedog
+Bug
+Hercules
+Sif
+Lady Sif
+Thunderstrike
+Jane Foster
+Beta Ray Bill
+Angela
+Kid Loki
+Wolverine (Laura Kinney)
+Logan
+Charles Xavier
+Professor X
+Scott Summers
+Alex Summers
+Rachel Summers
+Hope Summers
+Nathan Summers
+Ororo Munroe
+Kurt Wagner
+Piotr Rasputin
+Illyana Rasputina
+Kitty Pryde
+Bobby Drake
+Hank McCoy
+Warren Worthington
+Angel
+Archangel
+Lorna Dane
+Rahne Sinclair
+Danielle Moonstar
+Mirage
+Karma
+Magma
+Sunspot
+Wolfsbane
+Warpath
+Thunderbird
+Armor
+Pixie
+Mercury
+Dust
+Rockslide
+Anole
+Glob Herman
+Quentin Quire
+Fantomex
+Bishop
+Cable
+Domino
+Shatterstar
+Boom-Boom
+Feral
+Siryn
+Strong Guy
+Husk
+Chamber
+Synch
+Skin
+Penance
+Marrow
+Maggott
+Joseph
+Captain Carter
+Black Knight
+Night Thrasher
+Speedball
+Rage
+Justice
+Firestar
+Nova (Richard Rider)
+Sam Alexander
+Darkhawk
+Sleepwalker
+Paladin
+Prowler
+Spider-Punk
+Spider-Ham|Peter Porker
+Spider-Man 2099
+Silk Spectre II
+Hitman
+Midnighter
+Apollo (WildStorm)
+Jenny Sparks
+Grifter
+Zealot
+Void
+Deathblow
+Witchblade
+Darkness
+Ninjak
+X-O Manowar
+Bloodshot
+Shadowman
+Faith Herbert
+Archer
+Armstrong
+Harbinger
+Livewire
