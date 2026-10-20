@@ -1,0 +1,561 @@
+# Rivers of the world.
+Nile
+Amazon
+Yangtze|chang jiang
+Mississippi
+Missouri
+Yenisei
+Yellow River|huang he
+Ob
+Paraná|parana
+Congo|zaire
+Amur
+Lena
+Mekong
+Mackenzie
+Niger
+Murray
+Volga
+Danube
+Ganges|ganga
+Indus
+Brahmaputra
+Euphrates
+Tigris
+Jordan
+Rhine
+Rhône|rhone
+Seine
+Loire
+Garonne
+Dordogne
+Thames
+Severn
+River Trent
+River Tyne
+River Tees
+River Wear
+River Mersey
+River Ouse
+Humber
+River Avon
+River Wye
+River Tay
+River Tweed
+River Clyde
+River Dee
+River Don
+River Spey
+River Forth
+Shannon
+Liffey
+River Lagan
+River Bann
+River Boyne
+Elbe
+Oder
+Vistula
+Weser
+Main
+Moselle|mosel
+Neckar
+Ems
+Ruhr
+Saar
+Inn
+Isar
+Lech
+Meuse|maas
+Scheldt|schelde;escaut
+Marne
+Somme
+Saône|saone
+Durance
+Lot
+Tarn
+Charente
+Adour
+Ebro
+Tagus|tajo;tejo
+Douro|duero
+Guadalquivir
+Guadiana
+Minho|miño
+Po
+Tiber
+Arno
+Adige
+Piave
+Brenta
+Ticino
+Dnieper
+Dniester
+Kama
+Oka
+Ural
+Pechora
+Northern Dvina
+Neva
+Daugava|western dvina
+Neman|nemunas
+Narva
+Bug River
+San River
+Warta
+Tisza
+Drava
+Sava
+Morava
+Vltava|moldau
+Olt
+Mureș|mures
+Prut
+Siret
+Maritsa|evros
+Struma
+Vardar
+Aliakmon
+Drina
+Neretva
+Una
+Kupa
+Mur River
+Raab
+Salzach
+Traun
+Enns
+Aare
+Reuss
+Limmat
+Glomma
+Tana
+Torne|tornio
+Kemijoki
+Göta älv
+Dalälven
+Klarälven
+Lule
+Ume
+Kymijoki
+Gudenå
+Thjórsá
+Jökulsá á Fjöllum
+Ölfusá
+Saint Lawrence|st lawrence
+Colorado
+Columbia River
+Snake River
+Rio Grande
+Ohio
+Tennessee
+Arkansas
+Red River
+Platte River
+Yellowstone
+Hudson River
+Delaware
+Potomac River
+Susquehanna
+Connecticut
+Savannah River
+Alabama
+Tombigbee
+Brazos
+Pecos River
+Sacramento
+San Joaquin
+Klamath
+Willamette
+Yukon
+Fraser River
+Nelson River
+Churchill River
+Saskatchewan
+Athabasca River
+Peace River
+Liard River
+Ottawa River
+Saguenay River
+Usumacinta
+Grijalva
+Lerma
+Balsas
+Orinoco
+Magdalena
+Cauca
+São Francisco|sao francisco
+Tocantins
+Araguaia
+Xingu
+Tapajós|tapajos
+Madeira
+Purus
+Juruá
+Negro|rio negro
+Japurá
+Putumayo
+Napo
+Marañón|maranon
+Ucayali
+Huallaga
+Paraguay
+Pilcomayo
+Uruguay
+Iguazu|iguacu
+Salado
+Biobío|biobio
+Loa River
+Mapocho
+Essequibo
+Courantyne
+Maroni
+Oyapock
+Atrato
+Zambezi
+Limpopo
+Orange River
+Vaal
+Okavango
+Kunene
+Cuanza
+Kasai
+Ubangi
+Sangha
+Lualaba
+Luapula
+Chambeshi
+Kafue
+Luangwa
+Shire
+Rufiji
+Ruvuma
+Juba River
+Shebelle
+Awash
+Omo
+Blue Nile
+White Nile
+Atbara
+Sobat
+Senegal
+Gambia
+Volta
+Benue
+Ogooué|ogowe
+Sanaga
+Cross River
+Ouémé
+Comoé
+Bandama
+Sassandra
+Kagera
+Mara River
+Sabi|save
+Tugela
+Great Fish
+Sundays
+Breede
+Chobe
+Linyanti
+Shashe
+Moulouya
+Sebou
+Draa
+Chelif
+Medjerda
+Wadi Hadramawt
+Karun
+Helmand
+Amu Darya|oxus
+Syr Darya|jaxartes
+Irtysh
+Ishim
+Tobol
+Chu River
+Ili River
+Tarim
+Zeravshan
+Kura
+Aras|araxes
+Rioni
+Terek
+Sulak
+Kuban
+Zab
+Khabur
+Orontes
+Litani
+Barada
+Yarmouk
+Kızılırmak
+Sakarya
+Seyhan
+Ceyhan
+Menderes|maeander
+Godavari
+Krishna
+Kaveri|cauvery
+Narmada
+Tapti
+Mahanadi
+Yamuna|jumna
+Sutlej
+Beas
+Ravi
+Chenab
+Jhelum
+Gomti
+Ghaghara
+Kosi
+Gandaki
+Son River
+Chambal
+Betwa
+Damodar
+Hooghly
+Teesta
+Padma
+Meghna
+Jamuna
+Karnaphuli
+Irrawaddy|ayeyarwady
+Salween
+Chindwin
+Sittaung
+Chao Phraya
+Ping River
+Nan River
+Mun River
+Tonle Sap
+Perfume River
+Pearl River|zhujiang
+Xi River
+Huai River
+Han River
+Min River
+Gan River
+Xiang River
+Jialing River
+Wei River
+Fen River
+Liao River
+Songhua River
+Nen River
+Ussuri River
+Argun River
+Yalu River
+Tumen River
+Taedong River
+Nakdong River
+Geum River
+Shinano River
+Tone River
+Ishikari River
+Kiso River
+Kitakami River
+Mogami River
+Tenryū
+Kamo River
+Sumida River
+Arakawa River
+Yodo River
+Shimanto River
+Pasig River
+Cagayan River
+Mindanao River
+Agusan River
+Kapuas River
+Mahakam River
+Barito River
+Musi River
+Batang Hari
+Sepik River
+Fly River
+Purari River
+Waikato River
+Clutha River
+Whanganui River
+Rakaia River
+Waitaki River
+Darling
+Murrumbidgee River
+Lachlan River
+Snowy River
+Yarra River
+Brisbane River
+Hawkesbury River
+Swan River
+Fitzroy River
+Burdekin River
+Diamantina River
+Cooper Creek
+Gascoyne River
+Ord River
+Victoria River
+Daly River
+Derwent River
+Tamar
+Kolyma
+Indigirka
+Yana
+Olenek
+Anabar
+Khatanga
+Taymyra
+Pyasina
+Angara
+Lower Tunguska
+Podkamennaya Tunguska
+Vilyuy
+Aldan
+Vitim
+Olyokma
+Selenga
+Zeya
+Bureya
+Shilka
+Onon
+Kerulen
+Orkhon
+Tuul
+Khovd
+Anadyr
+Kuskokwim
+Copper River
+Tanana
+Porcupine
+Coppermine River
+Back River
+Thelon River
+Kazan River
+Albany River
+Moose River
+Rupert River
+Eastmain River
+La Grande River
+Koksoak River
+Miramichi River
+Saint John River
+Restigouche River
+Penobscot River
+Kennebec River
+Merrimack River
+Charles River
+Mohawk River
+Genesee River
+Allegheny
+Monongahela
+Wabash River
+Illinois River
+Wisconsin River
+Minnesota River
+Des Moines River
+Iowa River
+Kansas River
+Osage River
+Cimarron River
+Canadian River
+Sabine River
+Trinity River
+Neches River
+Guadalupe River
+Nueces River
+San Antonio River
+Gila River
+Salt River
+Verde River
+Little Colorado
+Green River
+Gunnison
+San Juan
+Humboldt River
+Truckee River
+Owens River
+Kern River
+Russian River
+Eel River
+Rogue River
+Umpqua River
+Deschutes River
+Spokane River
+Kootenai River
+Flathead River
+Clark Fork
+Bitterroot River
+Big Horn River
+Powder River
+Musselshell River
+Milk River
+Souris River
+Assiniboine River
+Qu'Appelle
+Bow River
+Elbow River
+Oldman River
+Red Deer River
+North Saskatchewan
+South Saskatchewan
+Grand River
+Niagara
+Detroit River
+St. Clair
+Rideau River
+Richelieu
+Chaudière River
+River Hamble
+River Itchen
+River Test
+River Exe
+Tamar
+River Fowey
+River Camel
+River Dart
+River Taw
+River Torridge
+River Teign
+River Stour
+River Medway
+River Arun
+River Adur
+River Cuckmere
+River Colne
+River Lea
+River Cam
+River Great Ouse
+River Nene
+River Welland
+River Witham
+River Aire
+River Calder
+River Wharfe
+River Nidd
+River Swale
+River Ure
+River Ribble
+River Lune
+River Eden
+River Irwell
+River Usk
+River Taff
+River Towy
+River Teifi
+River Conwy
+River Clwyd
+River Findhorn
+River Ness
+River Beauly
+River Nith
+River Annan
+River Esk
+River Lochy
+River Etive
+River Foyle
+River Erne
+River Barrow
+River Suir
+River Nore
+River Slaney
+River Blackwater
+River Lee
+River Corrib
+River Moy

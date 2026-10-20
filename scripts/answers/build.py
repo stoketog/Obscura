@@ -67,6 +67,33 @@ def zipf(s):
     return zipf_frequency(re.sub(r'[^\w\s\'-]', ' ', s), 'en')
 
 
+# Geographic prompts whose answers are often typed with or without the feature word ("Tay", "River Tay").
+FEATURE = {
+    'river': (r'^(river|rio|río) |\s+(river|rio)$', ['River {}', '{} River']),
+    'lake': (r'^(lake|loch|lough|lac|lago) |\s+(lake|loch)$', ['Lake {}', '{} Lake']),
+    'mountain': (r'^(mount|mt|mont|monte) |\s+(mountain|volcano)$', ['Mount {}', 'Mt {}']),
+}
+COMMON_WORD = 3.2
+
+
+def base_of(pid, name):
+    if pid not in FEATURE:
+        return name
+    return re.sub(FEATURE[pid][0], '', name.strip(), flags=re.I).strip() or name
+
+
+def feature_forms(pid, name, al):
+    """For river, lake and mountain prompts: accept the base name and the usual 'River X' / 'X River' forms. The base
+    name on its own is only accepted when it is not an everyday English word ('Green River' needs the 'River')."""
+    if pid not in FEATURE:
+        return name, al
+    base = base_of(pid, name)
+    forms = [t.format(base) for t in FEATURE[pid][1]] + al
+    if base.lower() != name.lower() and zipf(base) >= COMMON_WORD and ' ' not in base:
+        return name, [f for f in forms if f.lower() != name.lower()]
+    return base, [f for f in forms + [name] if f.lower() != base.lower()]
+
+
 def score_for(rank, n):
     p = rank / max(1, n - 1)
     if p < 0.30: return round(22 + (p / 0.30) * 14)
@@ -99,9 +126,12 @@ def main():
     for pid, items in sorted(by_prompt.items()):
         taken = set()
         for s in core[pid]['spellings']:
-            taken |= keys(s)
+            taken |= keys(s) | keys(base_of(pid, s))
         fresh = []
         for name, al in items:
+            if keys(base_of(pid, name)) & taken:
+                continue
+            name, al = feature_forms(pid, name, al)
             k = keys(name)
             if not k or k & taken:
                 continue
@@ -110,7 +140,7 @@ def main():
             if outer != name and keys(outer) & taken:
                 continue
             taken |= k
-            al = [a for a in al if keys(a) and not (keys(a) & taken)]
+            al = [a for a in dict.fromkeys(al) if keys(a) and not (keys(a) & taken) and not (keys(a) & k)]
             for a in al: taken |= keys(a)
             fresh.append((name, al, max([zipf(name)] + [zipf(a) for a in al])))
         fresh.sort(key=lambda x: (-x[2], x[0].lower()))

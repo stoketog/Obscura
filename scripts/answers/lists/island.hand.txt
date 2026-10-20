@@ -1,0 +1,615 @@
+# Islands of the world.
+Greenland
+New Guinea
+Borneo
+Madagascar
+Baffin Island
+Sumatra
+Honshu
+Victoria Island
+Great Britain
+Ellesmere Island
+Sulawesi|celebes
+South Island
+Java
+North Island
+Luzon
+Newfoundland
+Cuba
+Iceland
+Mindanao
+Ireland
+Hokkaido
+Hispaniola
+Sakhalin
+Banks Island
+Sri Lanka
+Tasmania
+Devon Island
+Alexander Island
+Tierra del Fuego
+Severny Island
+Berkner Island
+Axel Heiberg Island
+Melville Island
+Southampton Island
+Marajó
+Spitsbergen
+Kyushu
+Taiwan|formosa
+New Britain
+Prince of Wales Island
+Yuzhny Island
+Hainan
+Vancouver Island
+Timor
+Sicily
+Somerset Island
+Kotelny Island
+Sardinia
+Bananal Island
+Halmahera
+Shikoku
+Seram
+New Caledonia
+Bathurst Island
+Prince Patrick Island
+King William Island
+Viti Levu
+Ellef Ringnes Island
+Hawaii|big island
+Flores
+Samar
+Negros
+Palawan
+Panay
+Jamaica
+Long Island
+Manhattan
+Staten Island
+Martha's Vineyard
+Nantucket
+Mount Desert Island
+Prince Edward Island
+Cape Breton Island
+Anticosti
+Kodiak
+Unalaska
+Attu
+Saint Lawrence Island
+Nunivak
+Oahu
+Maui
+Kauai
+Molokai
+Lanai
+Niihau
+Kahoolawe
+Puerto Rico
+Trinidad
+Tobago
+Barbados
+Grenada
+Saint Lucia
+Saint Vincent
+Dominica
+Martinique
+Guadeloupe
+Montserrat
+Antigua
+Barbuda
+Saint Kitts
+Nevis
+Anguilla
+Saint Martin|sint maarten
+Saint Barthélemy|st barts
+Aruba
+Curaçao|curacao
+Bonaire
+Tortola
+Virgin Gorda
+Saint Thomas
+Saint Croix
+Saint John
+Grand Cayman
+Cayman Brac
+Little Cayman
+Andros
+Grand Bahama
+New Providence
+Eleuthera
+Exuma
+Abaco
+Bermuda
+Turks and Caicos
+Isla Margarita|margarita
+Isla Mujeres
+Cozumel
+Roatán
+Chiloé
+Easter Island|rapa nui
+Robinson Crusoe Island
+Galápagos|galapagos islands
+Isabela
+Santa Cruz
+San Cristóbal
+Fernandina
+Falkland Islands|falklands;malvinas
+South Georgia
+Ascension Island
+Saint Helena
+Tristan da Cunha
+Bouvet Island
+Fernando de Noronha
+Ilha Grande
+Florianópolis|santa catarina island
+Marajó Island
+Isle of Wight
+Isle of Man
+Anglesey|ynys mon
+Holy Island|lindisfarne
+Lundy
+Isles of Scilly|scilly
+Jersey
+Guernsey
+Alderney
+Sark
+Herm
+Skye|isle of skye
+Islay
+Jura
+Arran
+Iona
+Lewis
+Harris
+North Uist
+South Uist
+Barra
+Benbecula
+St Kilda
+Orkney|mainland orkney
+Shetland
+Fair Isle
+Staffa
+Eigg
+Canna
+Coll
+Tiree
+Colonsay
+Bute
+Great Cumbrae
+Ailsa Craig
+Bass Rock
+Achill Island
+Aran Islands|inishmore
+Valentia Island
+Skellig Michael
+Rathlin Island
+Tory Island
+Clare Island
+Inishbofin
+Bardsey Island
+Caldey Island
+Ramsey Island
+Skomer
+Brownsea Island
+Hayling Island
+Canvey Island
+Mersea Island
+Sheppey|isle of sheppey
+Portsea Island
+Lindisfarne
+Farne Islands
+Walney Island
+Hilbre Island
+St Michael's Mount
+Burgh Island
+Corsica
+Crete
+Cyprus
+Malta
+Gozo
+Comino
+Majorca|mallorca
+Minorca|menorca
+Ibiza
+Formentera
+Tenerife
+Gran Canaria
+Lanzarote
+Fuerteventura
+La Palma
+La Gomera
+El Hierro
+Madeira
+Porto Santo
+Azores
+São Miguel
+Terceira
+Faial
+Pico Island
+Flores (Azores)
+Elba
+Capri
+Ischia
+Procida
+Lampedusa
+Pantelleria
+Stromboli
+Lipari
+Vulcano
+Salina
+Giglio
+Murano
+Burano
+Torcello
+Lido
+Corfu
+Kefalonia|cephalonia
+Zakynthos|zante
+Ithaca
+Lefkada
+Rhodes
+Kos
+Santorini|thira
+Mykonos
+Naxos
+Paros
+Milos
+Ios
+Syros
+Tinos
+Andros (Greece)
+Lesbos|lesvos
+Chios
+Samos
+Patmos
+Lemnos
+Thasos
+Skiathos
+Skopelos
+Alonissos
+Euboea|evia
+Aegina
+Hydra
+Poros
+Spetses
+Karpathos
+Symi
+Kalymnos
+Leros
+Ikaria
+Delos
+Kythira
+Gavdos
+Hvar
+Brač
+Korčula
+Krk
+Cres
+Rab
+Pag
+Vis
+Mljet
+Lastovo
+Bornholm
+Funen|fyn
+Zealand|sjaelland
+Lolland
+Falster
+Møn
+Ærø
+Samsø
+Læsø
+Gotland
+Öland
+Saaremaa
+Hiiumaa
+Åland|aland
+Lofoten
+Senja
+Hinnøya
+Svalbard
+Jan Mayen
+Faroe Islands|faroes
+Streymoy
+Heimaey
+Grímsey
+Surtsey
+Sylt
+Föhr
+Amrum
+Helgoland|heligoland
+Rügen
+Usedom
+Fehmarn
+Texel
+Vlieland
+Terschelling
+Ameland
+Schiermonnikoog
+Île de Ré|ile de re
+Île d'Oléron
+Belle-Île
+Noirmoutier
+Île d'Yeu
+Ouessant|ushant
+Mont-Saint-Michel
+Île de la Cité
+Île Saint-Louis
+Porquerolles
+Port-Cros
+Hyères Islands
+Lérins Islands
+Zanzibar
+Pemba
+Mafia Island
+Lamu
+Socotra
+Bioko
+São Tomé
+Príncipe
+Cape Verde
+Santiago (Cape Verde)
+Sal
+Boa Vista
+Gorée|goree
+Bijagós Islands
+Mauritius
+Réunion|reunion
+Rodrigues
+Seychelles
+Mahé
+Praslin
+La Digue
+Comoros
+Mayotte
+Nosy Be
+Robben Island
+Elephantine
+Philae
+Djerba
+Kerkennah
+Bahrain
+Kish
+Qeshm
+Hormuz
+Failaka
+Masirah
+Abu Dhabi Island
+Sir Bani Yas
+Maldives
+Malé
+Lakshadweep
+Andaman Islands
+Nicobar Islands
+Havelock Island|swaraj dweep
+Elephanta
+Salsette
+Rameswaram
+Majuli
+Bhola
+Sentosa
+Singapore
+Penang
+Langkawi
+Tioman
+Phuket
+Koh Samui|ko samui
+Koh Phangan
+Koh Tao
+Koh Phi Phi|phi phi islands
+Koh Lanta
+Koh Chang
+Phu Quoc
+Con Dao
+Cat Ba
+Bali
+Lombok
+Komodo
+Sumba
+Sumbawa
+Bangka
+Belitung
+Nias
+Mentawai Islands
+Batam
+Bintan
+Ambon
+Ternate
+Tidore
+Banda Islands
+Raja Ampat
+Biak
+Bohol
+Cebu
+Leyte
+Mindoro
+Boracay
+Siargao
+Coron
+Camiguin
+Siquijor
+Okinawa
+Ishigaki
+Miyako
+Iriomote
+Yakushima
+Tanegashima
+Sado
+Awaji
+Miyajima|itsukushima
+Naoshima
+Oshima
+Iwo Jima
+Chichijima
+Jeju|jeju island
+Ulleungdo
+Ganghwa
+Dokdo|liancourt rocks
+Hong Kong Island
+Lantau
+Lamma
+Cheung Chau
+Macau
+Kinmen
+Matsu
+Penghu
+Chongming
+Zhoushan
+Putuo Shan
+Gulangyu
+Hainan Island
+Kunashir
+Iturup
+Shikotan
+Wrangel Island
+New Siberian Islands
+Novaya Zemlya
+Franz Josef Land
+Kolguyev
+Solovetsky Islands
+Kizhi
+Valaam
+Kotlin
+Fiji
+Vanua Levu
+Tahiti
+Moorea
+Bora Bora
+Raiatea
+Huahine
+Nuku Hiva
+Hiva Oa
+Rarotonga
+Aitutaki
+Samoa
+Upolu
+Savai'i
+Tutuila
+Tonga
+Tongatapu
+Vava'u
+Guam
+Saipan
+Tinian
+Palau
+Yap
+Chuuk
+Pohnpei
+Kosrae
+Nauru
+Kiribati
+Tarawa
+Kiritimati|christmas island (kiribati)
+Tuvalu
+Funafuti
+Wallis
+Futuna
+Niue
+Tokelau
+Pitcairn Island
+Henderson Island
+Norfolk Island
+Lord Howe Island
+Christmas Island
+Cocos Islands|keeling islands
+Kangaroo Island
+Fraser Island|k'gari
+Rottnest Island
+Magnetic Island
+Whitsunday Island
+Hamilton Island
+Phillip Island
+King Island
+Flinders Island
+Bruny Island
+Stewart Island|rakiura
+Waiheke Island
+Great Barrier Island
+Rangitoto
+Chatham Islands
+Bougainville
+Guadalcanal
+Malaita
+New Ireland
+Manus
+Espiritu Santo
+Efate
+Tanna
+Lifou
+Isle of Pines
+Kerguelen
+Heard Island
+Macquarie Island
+Campbell Island
+Auckland Islands
+Antipodes Islands
+South Orkney Islands
+South Shetland Islands
+King George Island
+Deception Island
+Ross Island
+Peter I Island
+Thurston Island
+Clipperton Island
+Cocos Island
+Isla del Coco
+Coiba
+Ometepe
+Corn Islands
+Utila
+Ambergris Caye
+Caye Caulker
+Holbox
+Isla Contoy
+Revillagigedo
+Guadalupe Island
+Cedros Island
+Catalina Island|santa catalina
+Alcatraz
+Angel Island
+Santa Rosa Island
+San Miguel Island
+Orcas Island
+San Juan Island
+Whidbey Island
+Bainbridge Island
+Mackinac Island
+Isle Royale
+Kelleys Island
+Thousand Islands
+Wolfe Island
+Manitoulin Island
+Grand Manan
+Campobello
+Sable Island
+Magdalen Islands
+Bell Island
+Fogo Island
+Akimiski Island
+Haida Gwaii|queen charlotte islands
+Saltspring Island
+Hilton Head
+Kiawah Island
+Jekyll Island
+St. Simons Island
+Amelia Island
+Key West
+Key Largo
+Sanibel
+Marco Island
+Padre Island
+Galveston Island
+Ellis Island
+Liberty Island
+Roosevelt Island
+Governors Island
+Fire Island
+Block Island
+Shelter Island
+Aquidneck Island
+Isle of Rum|rum island
+Isle of Muck
+Isle of Mull|mull
+The Snares|snares islands

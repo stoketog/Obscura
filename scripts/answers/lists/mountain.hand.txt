@@ -1,0 +1,424 @@
+# Mountains and volcanoes of the world.
+Everest
+K2
+Kangchenjunga
+Lhotse
+Makalu
+Cho Oyu
+Dhaulagiri
+Manaslu
+Nanga Parbat
+Annapurna
+Gasherbrum I
+Broad Peak
+Gasherbrum II
+Shishapangma
+Gyachung Kang
+Annapurna II
+Gasherbrum IV
+Himalchuli
+Distaghil Sar
+Ngadi Chuli
+Nuptse
+Khunyang Chhish
+Masherbrum
+Nanda Devi
+Chomo Lonzo
+Batura Sar
+Rakaposhi
+Namcha Barwa
+Kanjut Sar
+Kamet
+Saltoro Kangri
+Ulugh Muztagh
+Jannu
+Tirich Mir
+Gurla Mandhata
+Kongur Tagh
+Muztagh Ata
+Ama Dablam
+Pumori
+Baruntse
+Island Peak|imja tse
+Mera Peak
+Lobuche
+Kala Patthar
+Machapuchare|fishtail
+Shivling
+Meru Peak
+Changabang
+Trisul
+Kedarnath
+Bandarpunch
+Kailash|mount kailash
+Gongga Shan|minya konka
+Amne Machin
+Khan Tengri
+Pik Pobedy|jengish chokusu
+Ismoil Somoni Peak|peak communism
+Lenin Peak|ibn sina peak
+Korzhenevskaya
+Noshaq
+Damavand|demavend
+Alam-Kuh
+Sabalan
+Ararat|agri dagi
+Elbrus
+Kazbek
+Shkhara
+Dykh-Tau
+Ushba
+Aragats
+Erciyes
+Süphan
+Nemrut
+Uludağ
+Olympus|mount olympus
+Parnassus
+Ida
+Athos
+Taygetus
+Musala
+Vihren
+Triglav
+Grossglockner
+Zugspitze
+Watzmann
+Großvenediger
+Wildspitze
+Ortler
+Piz Bernina
+Matterhorn|cervino
+Monte Rosa|dufourspitze
+Dom
+Weisshorn
+Eiger
+Mönch
+Jungfrau
+Finsteraarhorn
+Aletschhorn
+Pilatus
+Rigi
+Säntis
+Titlis
+Mont Blanc|monte bianco
+Grandes Jorasses
+Aiguille du Midi
+Barre des Écrins
+Gran Paradiso
+Monte Viso|monviso
+Marmolada
+Tre Cime di Lavaredo
+Cervino
+Etna
+Vesuvius
+Stromboli
+Vulcano
+Gran Sasso
+Corno Grande
+Aneto
+Mulhacén|mulhacen
+Teide
+Montserrat
+Monte Perdido
+Vignemale
+Pic du Midi
+Puy de Dôme
+Mont Ventoux
+Galdhøpiggen
+Glittertind
+Kebnekaise
+Halti
+Hvannadalshnúkur
+Hekla
+Eyjafjallajökull
+Katla
+Snæfellsjökull
+Askja
+Grímsvötn
+Ben Nevis
+Ben Macdui
+Braeriach
+Cairn Toul
+Cairn Gorm
+Lochnagar
+Ben Lomond
+Ben More
+Schiehallion
+Buachaille Etive Mòr
+Bidean nam Bian
+Suilven
+An Teallach
+Liathach
+Sgurr Alasdair
+Goatfell
+Snowdon|yr wyddfa
+Tryfan
+Glyder Fawr
+Cadair Idris
+Pen y Fan
+Scafell Pike
+Scafell
+Helvellyn
+Skiddaw
+Great Gable
+Blencathra
+Pen-y-ghent
+Ingleborough
+Whernside
+Kinder Scout
+Cross Fell
+Slieve Donard
+Carrauntoohil
+Croagh Patrick
+Errigal
+Lugnaquilla
+Kilimanjaro
+Mount Kenya
+Margherita Peak
+Mount Stanley
+Meru
+Elgon
+Ras Dashen
+Toubkal
+Mount Cameroon
+Nyiragongo
+Nyamuragira
+Ol Doinyo Lengai
+Thabana Ntlenyana
+Mafadi
+Pico Basilé
+Emi Koussi
+Tahat
+Jebel Musa|mount sinai
+Mount Sinai
+Jebel Shams
+Jebel Toubkal
+Denali|mckinley
+Mount Logan
+Pico de Orizaba|citlaltepetl
+Mount Saint Elias
+Popocatépetl|popocatepetl
+Iztaccíhuatl|iztaccihuatl
+Mount Foraker
+Mount Lucania
+Mount Whitney
+Mount Elbert
+Mount Rainier
+Mount Shasta
+Mount Hood
+Mount St. Helens|mount st helens
+Mount Baker
+Mount Adams
+Mount Jefferson
+Mount Washington
+Mount Mitchell
+Mount Marcy
+Pikes Peak
+Longs Peak
+Grand Teton
+Half Dome
+El Capitan
+Mount Rushmore
+Stone Mountain
+Mount Robson
+Mount Assiniboine
+Mount Waddington
+Mount Edziza
+Mount Fairweather
+Mount Hubbard
+Mount Vancouver
+Mount Blackburn
+Mount Sanford
+Mount Spurr
+Mount Redoubt
+Mount Katmai
+Novarupta
+Mount Pinatubo|pinatubo
+Mayon
+Taal
+Kanlaon
+Apo
+Krakatoa|krakatau
+Tambora
+Merapi
+Bromo
+Semeru
+Rinjani
+Agung
+Kerinci
+Puncak Jaya|carstensz pyramid
+Kinabalu
+Fuji|mount fuji
+Mount Aso
+Sakurajima
+Mount Ontake
+Mount Tate
+Kita-dake
+Yari-ga-take
+Hotaka
+Mount Unzen
+Asahi-dake
+Hallasan
+Baekdu|paektu;changbai
+Jade Mountain|yushan
+Mount Tai|taishan
+Huangshan
+Emei Shan|mount emei
+Hua Shan
+Wutai Shan
+Song Shan
+Heng Shan
+Wudang Shan
+Lushan
+Jade Dragon Snow Mountain
+Mount Kosciuszko|kosciuszko
+Mount Townsend
+Uluru|ayers rock
+Kata Tjuta|the olgas
+Mount Ossa
+Cradle Mountain
+Mount Wellington
+Mount Buller
+Mount Feathertop
+Mount Bogong
+Mount Cook|aoraki
+Mount Aspiring
+Mount Ruapehu
+Mount Tongariro
+Mount Ngauruhoe|mount doom
+Mount Taranaki|mount egmont
+Mount Tasman
+Mount Wilhelm
+Mauna Kea
+Mauna Loa
+Kīlauea|kilauea
+Haleakalā|haleakala
+Mount Erebus
+Vinson Massif|mount vinson
+Mount Terror
+Mount Kirkpatrick
+Aconcagua
+Ojos del Salado
+Monte Pissis
+Huascarán|huascaran
+Chimborazo
+Cotopaxi
+Illimani
+Sajama
+Licancabur
+Llullaillaco
+Tupungato
+Mercedario
+Fitz Roy|cerro chalten
+Cerro Torre
+Torres del Paine
+Pico Bolívar
+Pico Cristóbal Colón
+Roraima
+Pico da Neblina
+Pico da Bandeira
+Sugarloaf Mountain|pao de acucar
+Corcovado
+Misti|el misti
+Ampato
+Sabancaya
+Villarrica
+Osorno
+Lanín
+Tronador
+Nevado del Ruiz
+Galeras
+Tungurahua
+Sangay
+Cayambe
+Antisana
+Pichincha
+Alpamayo
+Siula Grande
+Yerupajá
+Salcantay
+Ausangate
+Huayna Potosí
+Ancohuma
+Paricutín|paricutin
+Colima
+Nevado de Toluca
+La Malinche
+Tajumulco
+Santa María
+Fuego
+Pacaya
+Acatenango
+Arenal
+Irazú
+Poás
+Momotombo
+Masaya
+Chirripó
+Pico Duarte
+Blue Mountain Peak
+Mont Pelée|pelee
+La Soufrière|soufriere
+Montserrat Soufrière Hills|soufriere hills
+Pico del Teide
+Mount Etna
+Mount Vesuvius
+Mount Olympus (Cyprus)
+Mount Hermon
+Mount Carmel
+Mount Tabor
+Mount Zion
+Mount of Olives
+Mount Nebo
+Mount Ararat
+Mount Athos
+Mount Pelion
+Mount Parnassus
+Mount Ida
+Mount Helicon
+Mount Ossa (Greece)
+Mount Dikti
+Mount Lebanon
+Qurnat as Sawda'
+Jebel Akhdar
+Jabal an Nabi Shu'ayb
+Mount Meru
+Mount Abu
+Anamudi
+Doddabetta
+Saser Kangri
+Stok Kangri
+Mamostong Kangri
+Sia Kangri
+Chogolisa
+Laila Peak
+Spantik
+Diran
+Ultar Sar
+Shispare
+Passu Cones|passu sar
+Malubiting
+Haramosh
+Trango Towers|great trango
+Uli Biaho
+Latok
+Mount Kailash
+Gauri Shankar
+Melungtse
+Langtang Lirung
+Himlung
+Nemjung
+Tukuche
+Hiunchuli
+Gangapurna
+Tilicho Peak
+Pisang Peak
+Chulu
+Mardi Himal
+Dhampus Peak
+Thamserku
+Kangtega
+Cholatse
+Taboche
+Table Mountain

@@ -1,0 +1,155 @@
+# Deserts of the world, including regional and named sand seas.
+Sahara
+Arabian Desert
+Gobi
+Kalahari
+Namib
+Atacama
+Mojave
+Sonoran
+Chihuahuan
+Great Basin Desert
+Great Victoria Desert
+Great Sandy Desert
+Gibson Desert
+Simpson Desert
+Tanami Desert
+Strzelecki Desert
+Sturt Stony Desert
+Little Sandy Desert
+Tirari Desert
+Pedirka Desert
+Painted Desert
+Black Rock Desert
+Colorado Desert
+Yuma Desert
+Red Desert
+Great Salt Lake Desert
+Alvord Desert
+Owyhee Desert
+Carcross Desert
+Thar|great indian desert
+Cholistan
+Thal Desert
+Kharan Desert
+Dasht-e Kavir|great salt desert
+Dasht-e Lut|lut desert
+Dasht-e Margo
+Registan Desert
+Karakum|kara kum
+Kyzylkum|kyzyl kum
+Taklamakan|taklimakan
+Badain Jaran
+Tengger Desert
+Mu Us Desert
+Kumtag Desert
+Ordos Desert
+Gurbantünggüt Desert
+Lop Desert
+Ulan Buh Desert
+Hobq Desert
+Cold Desert of Ladakh
+Rub' al Khali|empty quarter
+Nafud|an nafud
+Dahna
+Wahiba Sands|sharqiya sands
+Syrian Desert
+Negev
+Judaean Desert
+Sinai Desert
+Wadi Rum
+Eastern Desert|arabian desert (egypt)
+Western Desert|libyan desert
+Nubian Desert
+Bayuda Desert
+White Desert
+Black Desert
+Great Sand Sea
+Grand Erg Oriental
+Grand Erg Occidental
+Erg Chebbi
+Erg Chigaga
+Ténéré|tenere
+Tanezrouft
+Libyan Desert
+Danakil Desert
+Chalbi Desert
+Karoo
+Richtersveld
+Skeleton Coast
+Namaqualand
+Lençóis Maranhenses|lencois maranhenses
+Sechura Desert
+La Guajira Desert
+Monte Desert
+Patagonian Desert
+Tatacoa Desert
+Paraguaná Peninsula Desert
+Antarctic Desert|antarctica
+Arctic Desert
+McMurdo Dry Valleys
+Great Western Erg
+Erg Ubari
+Idehan Murzuq
+Calanscio Sand Sea
+Rebiana Sand Sea
+Selima Sand Sheet
+Maranjab Desert
+Deliblato Sands
+Oleshky Sands
+Accona Desert
+Bardenas Reales
+Tabernas Desert
+Monegros
+Błędów Desert
+Jornada del Muerto
+Vizcaíno Desert
+Gran Desierto de Altar
+Lechuguilla Desert
+Death Valley
+Amargosa Desert
+Escalante Desert
+Smoke Creek Desert
+Forty Mile Desert
+Carson Desert
+White Sands
+Kelso Dunes
+Algodones Dunes
+Tule Desert
+Sevier Desert
+San Rafael Desert
+Navajo Desert
+Pinacate Desert
+Baja California Desert
+Pampa del Tamarugal
+Little Karoo
+Great Karoo
+Barsakelmes
+Ustyurt Plateau
+Betpak-Dala
+Moyunkum
+Saryesik-Atyrau
+Aralkum
+Mangyshlak
+Rann of Kutch
+Syrian Steppe
+Black Desert (Jordan)|harrat ash shaam
+Arava
+Paran Desert
+Zin Desert
+Djurab Desert
+Bilma Erg
+Grand Erg de Bilma
+Erg Iguidi
+Erg Chech
+Majabat al-Koubra
+El Djouf
+Namib-Naukluft
+Ogaden Desert
+Guban
+Dzungarian Gobi
+Trans-Altai Gobi
+Alashan Gobi
+Khongoryn Els
+Elsen Tasarkhai
+Mongol Els

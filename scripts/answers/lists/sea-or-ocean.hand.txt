@@ -1,0 +1,133 @@
+# Oceans and named seas (marginal, inland and historical names).
+Southern Ocean|antarctic ocean
+Arctic Ocean
+Mediterranean Sea|mediterranean
+Caribbean Sea|caribbean
+South China Sea
+East China Sea
+Yellow Sea
+Sea of Japan|east sea
+Philippine Sea
+Coral Sea
+Tasman Sea
+Arafura Sea
+Timor Sea
+Banda Sea
+Java Sea
+Celebes Sea|sulawesi sea
+Sulu Sea
+Molucca Sea
+Ceram Sea|seram sea
+Flores Sea
+Savu Sea
+Bali Sea
+Halmahera Sea
+Bismarck Sea
+Solomon Sea
+Coral Sea
+Sibuyan Sea
+Visayan Sea
+Camotes Sea
+Bohol Sea|mindanao sea
+Samar Sea
+Andaman Sea
+Laccadive Sea
+Arabian Sea
+Red Sea
+Black Sea
+Sea of Azov
+Caspian Sea
+Aral Sea
+Dead Sea
+Sea of Galilee
+Sea of Marmara
+Aegean Sea
+Ionian Sea
+Adriatic Sea
+Tyrrhenian Sea
+Ligurian Sea
+Balearic Sea
+Alboran Sea
+Sea of Sardinia
+Sea of Sicily
+Libyan Sea
+Levantine Sea
+Sea of Crete|cretan sea
+Myrtoan Sea
+Thracian Sea
+Icarian Sea
+Argolic Sea
+North Sea
+Baltic Sea
+Norwegian Sea
+Barents Sea
+White Sea
+Kara Sea
+Laptev Sea
+East Siberian Sea
+Chukchi Sea
+Beaufort Sea
+Lincoln Sea
+Wandel Sea
+Greenland Sea
+Pechora Sea
+Irish Sea
+Celtic Sea
+Sea of the Hebrides
+Wadden Sea
+Bothnian Sea
+Archipelago Sea
+Sea of Åland
+Labrador Sea
+Sargasso Sea
+Bering Sea
+Sea of Okhotsk
+Salish Sea
+Sea of Cortez|gulf of california
+Seto Inland Sea
+Bohai Sea
+Sea of Chiloé
+Argentine Sea
+Scotia Sea
+Weddell Sea
+Ross Sea
+Amundsen Sea
+Bellingshausen Sea
+Davis Sea
+Mawson Sea
+D'Urville Sea
+Somov Sea
+Cosmonauts Sea
+Riiser-Larsen Sea
+Lazarev Sea
+King Haakon VII Sea
+Cooperation Sea
+Mare Nostrum
+Sea of Crises|mare crisium
+Sea of Tranquility|mare tranquillitatis
+Sea of Serenity
+Ocean of Storms
+Sea of Rains|mare imbrium
+Sea of Clouds
+Sea of Nectar
+Sea of Vapours
+Sea of Fertility
+Sea of Moisture
+Sea of Islands
+Mar Menor
+Salton Sea
+Zuiderzee
+Sea of Zanj
+Erythraean Sea
+Pontus Euxinus
+Mare Germanicum
+German Ocean
+Western Ocean
+Ocean Sea
+Tethys Ocean
+Panthalassa
+Iapetus Ocean
+Rheic Ocean
+Paratethys
+Western Interior Seaway
+Champlain Sea
