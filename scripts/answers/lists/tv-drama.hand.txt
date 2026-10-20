@@ -1,0 +1,289 @@
+# TV drama series.
+Breaking Bad
+Better Call Saul
+The Sopranos
+The Wire
+Mad Men
+Game of Thrones
+House of the Dragon
+The Crown
+Downton Abbey
+Line of Duty
+Peaky Blinders
+Sherlock
+Doctor Who
+Luther
+Happy Valley
+Broadchurch
+Bodyguard
+Killing Eve
+The Night Manager
+Wolf Hall
+Poldark
+Call the Midwife
+Casualty
+Holby City
+EastEnders
+Coronation Street
+Emmerdale
+Hollyoaks
+Brookside
+The Bill
+Waking the Dead
+Silent Witness
+Midsomer Murders
+Inspector Morse
+Lewis
+Endeavour
+A Touch of Frost
+Taggart
+Rebus
+Shetland
+Vera
+Prime Suspect
+Cracker
+Spooks
+Life on Mars
+Ashes to Ashes
+Hustle
+Skins
+Misfits
+This Is England '86
+Shameless
+Cold Feet
+Our Friends in the North
+State of Play
+House of Cards
+The West Wing
+ER
+Grey's Anatomy
+House|house md
+Chicago Fire
+Chicago Med
+Chicago P.D.
+NYPD Blue
+Hill Street Blues
+Law & Order
+Law & Order: SVU
+CSI: Crime Scene Investigation|csi
+NCIS
+Criminal Minds
+Bones
+Castle
+The Mentalist
+Homeland
+Lost
+Prison Break
+Heroes
+Alias
+The X-Files
+Twin Peaks
+Buffy the Vampire Slayer
+Angel
+Supernatural
+Smallville
+The Vampire Diaries
+True Blood
+Dexter
+Six Feet Under
+Oz
+Deadwood
+Boardwalk Empire
+The Shield
+Sons of Anarchy
+Justified
+The Walking Dead
+Fear the Walking Dead
+Stranger Things
+Westworld
+The Leftovers
+Succession
+Euphoria
+Yellowstone
+1883
+Ozark
+Mindhunter
+Narcos
+Orange Is the New Black
+The Handmaid's Tale
+This Is Us
+Friday Night Lights
+The O.C.
+Gossip Girl
+One Tree Hill
+Dawson's Creek
+Beverly Hills, 90210|90210
+Melrose Place
+Dallas
+Dynasty
+Falcon Crest
+Knots Landing
+The Waltons
+Little House on the Prairie
+Dr. Quinn, Medicine Woman
+Murder, She Wrote
+Columbo
+Kojak
+Magnum, P.I.
+Miami Vice
+The A-Team
+Knight Rider
+Airwolf
+MacGyver
+Baywatch
+Quantum Leap
+Star Trek
+Star Trek: The Next Generation
+Star Trek: Deep Space Nine
+Battlestar Galactica
+Babylon 5
+Firefly
+The Expanse
+Fringe
+Person of Interest
+Black Mirror
+The Mandalorian
+Andor
+The Boys
+Severance
+The Last of Us
+The White Lotus
+Mare of Easttown
+Big Little Lies
+True Detective
+Fargo
+Chernobyl
+Band of Brothers
+The Pacific
+Rome
+The Tudors
+Vikings
+Outlander
+The Witcher
+The Wheel of Time
+The Rings of Power
+His Dark Materials
+Shōgun|shogun
+Slow Horses
+Bad Sisters
+Normal People
+Baby Reindeer
+Adolescence
+The Responder
+Sherwood
+It's a Sin
+I May Destroy You
+Top Boy
+Gangs of London
+The Fall
+Unforgotten
+Grantchester
+Father Brown
+Death in Paradise
+Doc Martin
+Heartbeat
+All Creatures Great and Small
+Bergerac
+Lovejoy
+Minder
+The Sweeney
+The Professionals
+The Avengers
+The Prisoner
+Upstairs, Downstairs
+Brideshead Revisited
+Bleak House
+Cranford
+Lark Rise to Candleford
+Mr Selfridge
+The Paradise
+Victoria
+Gentleman Jack
+Sanditon
+Bridgerton
+Queen Charlotte
+The Gilded Age
+Babylon Berlin
+Money Heist|la casa de papel
+Elite
+Squid Game
+Borgen
+The Killing|forbrydelsen
+The Bridge|bron
+Wallander
+Lupin
+Call My Agent!
+Gomorrah
+My Brilliant Friend
+Fauda
+Unorthodox
+Deutschland 83
+The Good Wife
+The Good Fight
+Suits
+Billions
+Damages
+Boston Legal
+Ally McBeal
+LA Law
+Chicago Hope
+St. Elsewhere
+Thirtysomething
+Northern Exposure
+Picket Fences
+Twin Peaks: The Return
+Desperate Housewives
+Ugly Betty
+Nip/Tuck
+Pretty Little Liars
+Riverdale
+Scandal
+How to Get Away with Murder
+Snowfall
+Jack Ryan
+Reacher
+Bosch
+Jessica Jones
+Daredevil
+The Umbrella Academy
+Wednesday
+Blue Bloods
+Hawaii Five-0
+The Rookie
+9-1-1
+Station 19
+New Amsterdam
+The Resident
+The Good Doctor
+Manifest
+The Blacklist
+Ozark
+Mr. Robot
+Halt and Catch Fire
+The Americans
+Hannibal
+Penny Dreadful
+The Strain
+Under the Dome
+Revolution
+Jericho
+The 100
+Orphan Black
+Sense8
+The OA
+Altered Carbon
+Lovecraft Country
+Watchmen
+Foundation
+For All Mankind
+Silo
+Fallout
+Masters of the Air
+The Penguin
+Agatha All Along
+Daisy Jones & the Six
+Yellowjackets
+The Morning Show
+Time (BBC drama)
+Dark (German series)
+24 (TV series)|twenty four
