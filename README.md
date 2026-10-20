@@ -50,6 +50,16 @@ Every answer has a rarity from 1 (everyone says it) to 100 (almost nobody does).
 ### The photographs
 Only images that are safe to use on a commercial site with no conditions: CC0, or public domain for a reason that holds worldwide (author dead long enough, a US federal government work such as NASA, or released by the author). `scripts/images/fetch_images.py` reads each file's Commons record and refuses anything else, including US-only public domain, CC BY/BY-SA, ESA/ESO material and trademark or insignia warnings. Every reveal still credits the author and links to the source. To add photographs: add an entry to `src/data/images.ts`, add its Commons file to `scripts/images/picks.json`, run `python3 scripts/images/fetch_images.py`, look at the result, then `npm test`. The library is dealt in shuffled passes, so no photograph repeats until all have been used: add at least one a day to keep ahead.
 
+### Where the answers come from
+
+Beyond the hand-written core in `src/data/prompts/`, extra answers are plain lists in `scripts/answers/lists/<prompt-id>.<source>.txt`, scored for rarity and merged by `scripts/answers/build.py` (see its header; run `scripts/answers/dump-core.ts` first). Sources:
+
+- `*.hand.txt`: written by hand.
+- `*.data.txt`: open datasets via `scripts/answers/fetch_sources.py` (dariusk/corpora, CC0; GeoNames; PokeAPI).
+- `*.wordnet.txt`: Princeton WordNet 3.0 via `scripts/answers/from_wordnet.py`, which takes every kind of thing (or named person or place) WordNet files under a category and filters out group labels, Latin names, vulgar words and off-topic senses.
+
+WordNet licence notice: *WordNet 3.0 Copyright 2006 by Princeton University. All rights reserved. THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND PRINCETON UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED. BY WAY OF EXAMPLE, BUT NOT LIMITATION, PRINCETON UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES OF MERCHANT- ABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE, DATABASE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. The name of Princeton University or Princeton may not be used in advertising or publicity pertaining to distribution of the software and/or database.* (Full licence: https://wordnet.princeton.edu/license-and-commercial-use; commercial use is permitted.)
+
 ### Adding prompts
 Add a `PromptSeed` to a file in `src/data/prompts/` (or create a new file and list it in `index.ts`). Give it plenty of answers (40+), from everyday to obscure (no more than eight under 18; score 92+ is the 100-point Obscure tier: give each prompt one or two of those, no more), with aliases for alternative spellings. `npx tsx tests/validate-prompts.ts src/data/prompts/<file>.ts` checks for duplicate spellings, score range, that every answer matches itself, and that each prompt has both easy and obscure answers.
 
