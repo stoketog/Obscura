@@ -1,0 +1,293 @@
+# Olympic events, past and present. Written by hand.
+200 metres|200m
+400 metres|400m
+800 metres|800m
+1500 metres|1500m;metric mile
+5000 metres|5000m;5k
+10,000 metres|10000m;10,000m;10k
+110 metres hurdles|110m hurdles
+100 metres hurdles|100m hurdles
+400 metres hurdles|400m hurdles
+3000 metres steeplechase|3000m steeplechase
+4 × 100 metres relay|4x100m relay;4x100 relay
+4 × 400 metres relay|4x400m relay;4x400 relay
+Mixed 4 × 400 metres relay|mixed relay
+20 kilometres race walk|20km race walk
+35 kilometres race walk|35km walk
+50 kilometres race walk|50km walk
+Marathon race walking mixed relay
+60 metres
+5 miles
+3 miles team race
+Cross country running
+200 metres hurdles
+60 metres hurdles
+2500 metres steeplechase
+4000 metres steeplechase
+Standing high jump
+Standing triple jump
+56-pound weight throw
+Two-handed shot put
+Two-handed discus
+Two-handed javelin
+Greek-style discus
+Pentathlon (athletics)
+Triathlon (1904)
+50 metres freestyle|50m freestyle
+100 metres freestyle|100m freestyle
+200 metres freestyle|200m freestyle
+400 metres freestyle|400m freestyle
+800 metres freestyle|800m freestyle
+1500 metres freestyle|1500m freestyle
+100 metres backstroke|100m backstroke
+200 metres backstroke|200m backstroke
+100 metres breaststroke|100m breaststroke
+200 metres breaststroke|200m breaststroke
+100 metres butterfly|100m butterfly
+200 metres butterfly|200m butterfly
+200 metres individual medley|200m individual medley;200m IM
+400 metres individual medley|400m individual medley;400m IM
+4 × 100 metres freestyle relay|4x100m freestyle relay
+4 × 200 metres freestyle relay|4x200m freestyle relay
+4 × 100 metres medley relay|4x100m medley relay;medley relay
+Marathon swimming|10 km open water;open water swimming
+Backstroke
+Breaststroke
+Butterfly stroke|butterfly
+Individual medley
+Underwater swimming
+Obstacle swimming
+200 metres team swimming
+4000 metres freestyle
+Floor exercise|floor
+Pommel horse
+Still rings|rings
+Parallel bars
+Horizontal bar|high bar
+Uneven bars
+Balance beam|beam
+All-around
+Team all-around
+Rope climbing
+Club swinging
+Tumbling
+Side horse vault
+Artistic gymnastics
+Trampoline gymnastics
+3 metre springboard|springboard;3m springboard
+10 metre platform|platform diving;10m platform
+Synchronised diving|synchronized diving
+Plain high diving
+Fancy diving
+Artistic swimming
+Team artistic swimming
+Team sprint
+Keirin
+Omnium
+Madison
+Individual pursuit
+Team pursuit
+Points race
+Track cycling
+Road race
+Individual time trial|time trial
+BMX racing
+BMX freestyle
+Cross-country mountain biking|cross-country cycling
+Road cycling
+1 km time trial|kilo
+Tandem sprint
+12-hour race
+Scratch race
+Single sculls
+Double sculls
+Quadruple sculls
+Coxless pair
+Coxless four
+Coxed four
+Coxed pair
+Lightweight double sculls
+Lightweight coxless four
+Canoe sprint
+K-1 500 metres
+K-1 1000 metres
+K-2 500 metres
+K-4 500 metres
+C-1 1000 metres
+C-2 500 metres
+Kayak cross
+Canoe slalom C-1
+Kayak slalom K-1
+Laser|ILCA
+470 class|470
+49er
+49erFX
+Nacra 17
+Finn class
+Star class
+Windsurfing
+iQFoil
+Formula Kite|kitefoiling;kitesurfing
+Tornado class
+Flying Dutchman
+Soling
+Dragon class
+Yngling
+10 metre air pistol|10m air pistol
+10 metre air rifle|10m air rifle
+25 metre pistol
+25 metre rapid fire pistol
+50 metre rifle three positions|50m rifle 3 positions
+50 metre pistol
+50 metre rifle prone
+Double trap
+Running target
+Running deer
+Duelling pistol
+Live pigeon shooting
+Flyweight boxing|flyweight
+Light welterweight
+Light middleweight
+Light heavyweight
+Super heavyweight
+Greco-Roman wrestling
+Freestyle wrestling
+Épée|epee
+Team foil
+Team épée
+Team sabre
+Single stick
+Masters foil
+Individual recurve
+Team recurve
+Mixed team archery
+Double York round
+Running deer archery
+Popinjay
+Individual dressage
+Team dressage
+Individual eventing
+Team eventing
+Individual jumping
+Team jumping
+Equestrian vaulting
+Equestrian high jump
+Equestrian long jump
+Mixed doubles
+3x3 basketball
+Beach handball
+Indoor tennis
+Real tennis
+Street skateboarding
+Park skateboarding
+Shortboard surfing
+Bouldering
+Lead climbing
+Speed climbing
+Boulder and lead
+Mixed relay triathlon
+Laser run
+Downhill
+Super-G|super giant slalom
+Giant slalom
+Alpine combined|combined
+Team parallel
+Parallel giant slalom
+Alpine skiing
+Skiathlon
+Team sprint (cross-country)
+Cross-country sprint
+50 kilometre freestyle|50 km cross-country
+10 kilometre classical
+4 × 10 kilometre relay
+Mass start
+Normal hill
+Large hill
+Team ski jumping
+Individual Gundersen
+Team Nordic combined
+Biathlon sprint
+Biathlon pursuit
+Biathlon individual
+Biathlon relay
+Mixed relay biathlon
+Single mixed relay
+500 metres speed skating
+1000 metres speed skating
+1500 metres speed skating
+5000 metres speed skating
+10,000 metres speed skating
+Team pursuit speed skating
+500 metres short track
+1000 metres short track
+1500 metres short track
+5000 metres relay
+Mixed team relay
+Men's singles figure skating
+Ladies' singles figure skating
+Pairs skating
+Team event figure skating
+Special figures
+Two-man bobsleigh
+Four-man bobsleigh
+Monobob
+Two-woman bobsleigh
+Five-man bobsleigh
+Luge singles
+Luge doubles
+Luge team relay
+Skeleton racing
+Aerials
+Ski cross
+Halfpipe
+Snowboard halfpipe
+Snowboard slopestyle
+Snowboard big air
+Parallel slalom
+Snowboard parallel giant slalom
+Mixed team aerials
+Ski mountaineering
+Mixed doubles curling
+Military patrol
+Skijoring
+Speed skiing
+Ski ballet
+Winter pentathlon
+Sled dog racing
+Bandy
+Ice stock sport
+Roque
+Basque pelota
+Glima
+Korfball
+Gliding
+Motorboating
+Water motorsports
+Ballooning
+Kaatsen
+Longue paume
+La canne
+Savate
+Wushu
+Taekwondo demonstration
+Roller hockey
+Trampolining
+Mixed team judo
+Art competitions
+Alpinism
+Aeronautics
+Vault (gymnastics)|vault
+Eight (rowing)|eight;coxed eight
+Trap shooting|trap
+Skeet shooting|skeet
+Sabre fencing|sabre;saber
+Foil fencing|foil
+Lightweight boxing
+Heavyweight boxing
+Middleweight boxing
+Welterweight boxing
+Featherweight boxing
+Bantamweight boxing
+Tennis singles
+Tennis doubles
+Rugby sevens
