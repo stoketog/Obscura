@@ -1,0 +1,383 @@
+# More furniture. Written by hand.
+Armchair
+Armoire
+Bar stool
+Bean bag
+Bed
+Bedside table
+Bench
+Bookcase
+Bookshelf
+Buffet
+Bunk bed
+Bureau
+Cabinet
+Camp bed
+Canapé
+Canopy bed
+Captain's chair
+Chaise longue
+Chest of drawers
+Chesterfield
+Chiffonier
+China cabinet
+Club chair
+Coat rack
+Coat stand
+Coffee table
+Commode
+Console table
+Corner sofa
+Cot
+Couch
+Cradle
+Credenza
+Cupboard
+Daybed
+Deckchair
+Desk
+Dining chair
+Dining table
+Divan
+Dresser
+Dressing table
+Drop-leaf table
+Easy chair
+Écritoire
+End table
+Étagère
+Fainting couch
+Filing cabinet
+Folding chair
+Footstool
+Four-poster bed
+Futon
+Gateleg table
+Grandfather clock
+Hall stand
+Hall table
+Hammock
+Hat stand
+Highboy
+High chair
+Hope chest
+Hutch
+Kitchen island
+Kneeling chair
+Ladder-back chair
+Loveseat
+Lowboy
+Magazine rack
+Mattress
+Murphy bed
+Nest of tables
+Nightstand
+Office chair
+Ottoman
+Park bench
+Pedestal table
+Pew
+Piano stool
+Plant stand
+Pouffe
+Recliner
+Rocking chair
+Room divider
+Settee
+Settle
+Shelf
+Shoe rack
+Sideboard
+Side table
+Sofa
+Sofa bed
+Stool
+Swivel chair
+Table
+Tallboy
+Tea trolley
+Throne
+Toy box
+Trestle table
+Trundle bed
+TV stand
+Umbrella stand
+Vanity
+Wardrobe
+Washstand
+Water bed
+Welsh dresser
+Windsor chair
+Wing chair
+Wingback chair
+Writing desk
+Bergère
+Fauteuil
+Méridienne
+Récamier
+Ottoman bed
+Divan bed
+Sleigh bed
+Platform bed
+Loft bed
+Captain's bed
+Cabin bed
+Day bed
+Four-poster
+Half-tester
+Tester bed
+Box bed
+Truckle bed
+Moses basket
+Bassinet
+Crib
+Cot bed
+Changing table
+Playpen
+Booster seat
+Rocking horse
+Bean-bag chair
+Papasan chair
+Egg chair
+Ball chair
+Barcelona chair
+Eames lounge chair
+Wassily chair
+Panton chair
+Tulip chair
+Ghost chair
+Adirondack chair
+Director's chair
+Butterfly chair
+Bentwood chair
+Cantilever chair
+Chiavari chair
+Shaker chair
+Rush chair
+Spindle-back chair
+Balloon-back chair
+Hepplewhite chair
+Chippendale chair
+Sheraton chair
+Queen Anne chair
+Savonarola chair
+Glastonbury chair
+Curule chair
+Klismos
+Faldstool
+Misericord
+Choir stall
+Lectern
+Pulpit
+Bar cart
+Drinks cabinet
+Cocktail cabinet
+Wine rack
+Dumbwaiter
+Butler's tray
+Serving trolley
+Tea table
+Card table
+Games table
+Billiard table
+Snooker table
+Pool table
+Ping-pong table
+Picnic table
+Bistro table
+Café table
+Breakfast bar
+Refectory table
+Extending table
+Draw-leaf table
+Tilt-top table
+Tripod table
+Pembroke table
+Sofa table
+Sofa table
+Library table
+Partners desk
+Pedestal desk
+Roll-top desk
+Davenport
+Secretary
+Secretaire
+Escritoire
+Bureau bookcase
+Kneehole desk
+Standing desk
+Computer desk
+School desk
+Lap desk
+Bookstand
+Display cabinet
+Curio cabinet
+Vitrine
+Corner cupboard
+Linen press
+Blanket box
+Ottoman box
+Trunk
+Steamer trunk
+Coffer
+Cassone
+Kist
+Cabinet on stand
+Cabinet of curiosities
+Apothecary cabinet
+Map chest
+Plan chest
+Tool chest
+Medicine cabinet
+Bathroom cabinet
+Wall cabinet
+Shoe cabinet
+Key cabinet
+Gun cabinet
+Valet stand
+Clothes horse
+Clothes rail
+Cheval mirror
+Overmantel mirror
+Pier glass
+Console
+Pier table
+Torchère
+Candle stand
+Lamp table
+Kotatsu
+Chabudai
+Tansu
+Bakery rack
+Hall tree
+Mudroom bench
+Storage bench
+Window seat
+Banquette
+Booth
+Sectional sofa
+Modular sofa
+Camelback sofa
+Lawson sofa
+Tuxedo sofa
+Knole sofa
+Bridgewater sofa
+Futon sofa
+Chesterfield sofa
+Love seat
+Chaise
+Sun lounger
+Deck chair
+Garden bench
+Swing seat
+Porch swing
+Glider chair
+Hanging chair
+Sun bed
+
+Ladder shelf
+Floating shelf
+Wall shelf
+Corner shelf
+Cube storage
+Bookcase headboard
+Headboard
+Footboard
+Bed frame
+Divan base
+Box spring
+Blanket chest
+Lingerie chest
+Semainier
+Bachelor's chest
+Campaign chest
+Chest-on-chest
+Highboy chest
+Commode chair
+Close stool
+Night table
+Tea cart
+Canterbury
+Whatnot
+Torchiere
+Plant table
+Aquarium stand
+Record cabinet
+Media console
+Entertainment centre
+Wall unit
+Bookcase wall
+Room screen
+Folding screen
+Shoji screen
+Fire screen
+Coal scuttle
+Hall seat
+Monk's bench
+Settle bed
+Hall bench
+Piano bench
+Vanity stool
+Dressing stool
+Step stool
+Milking stool
+Kitchen stool
+Counter stool
+Saddle stool
+Drum stool
+Tabouret
+Poof
+Hassock
+Footrest
+Leg rest
+Chaise lounge
+Lounge chair
+Accent chair
+Slipper chair
+Tub chair
+Barrel chair
+Bucket chair
+Cocktail chair
+Occasional chair
+Side chair
+Carver chair
+Corner chair
+Elbow chair
+Hall chair
+Porter's chair
+Gossip bench
+Telephone table
+Telephone seat
+Nesting tables
+Drinks trolley
+Kitchen dresser
+Larder cupboard
+Pantry cabinet
+Kitchen cabinet
+Tall unit
+Base unit
+Welsh dresser rack
+Plate rack
+Spice rack
+Ironing board
+Laundry hamper
+Linen basket
+Blanket ladder
+Towel rail
+Hat rack
+Gun rack
+Bicycle rack
+Coat tree
+Sewing table
+Drafting table
+Dressing screen
+Bedroom bench
+Chair bed
+Wall bed
+Futon chair
+Sofa chair
+Work table
+Reading chair
+Nursing chair
+Gaming chair
+Massage chair

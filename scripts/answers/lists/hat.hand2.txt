@@ -1,0 +1,244 @@
+# More hats and headwear. Written by hand.
+Akubra
+Ascot cap
+Aviator hat
+Balaclava
+Balmoral
+Baseball cap
+Basque beret
+Beanie
+Bearskin
+Beaver hat
+Bell-boy hat
+Beret
+Bicorne
+Biretta
+Boater
+Bobble hat|Pom-pom hat;Bobble beanie
+Bonnet
+Boonie hat
+Bowler hat|Derby;Billycock
+Breton cap
+Bucket hat
+Busby
+Calash
+Capotain
+Capuchon
+Cartwheel hat
+Caubeen
+Chaperon
+Chef's hat
+Chullo
+Cloche
+Coif
+Coolie hat
+Coonskin cap
+Cossack hat
+Cowboy hat
+Deerstalker
+Doll hat
+Dunce cap
+Dutch cap
+Easter bonnet
+Fascinator
+Fedora
+Fez
+Flat cap
+Fur hat
+Gandhi cap
+Garrison cap
+Gatsby cap
+Glengarry
+Golf cap
+Hard hat
+Havelock
+Helmet
+Hennin
+Homburg
+Jester hat
+Jockey cap
+Kalpak
+Kepi
+Kippah
+Kufi
+Kolpik
+Lampshade hat
+Leghorn hat
+Mitre
+Montera
+Mortarboard
+Newsboy cap
+Nightcap
+Panama hat
+Papakha
+Party hat
+Peaked cap
+Pillbox hat
+Pith helmet
+Plague doctor hat
+Pork pie hat
+Rain hat
+Sailor cap
+Santa hat
+Shako
+Shtreimel
+Skullcap
+Slouch hat
+Snapback
+Sombrero
+Sou'wester
+Stovepipe hat
+Straw hat
+Sun hat
+Tam o' shanter
+Taqiyah
+Ten-gallon hat
+Tilley hat
+Top hat
+Toque|Tuque
+Trapper hat
+Tricorne
+Trilby
+Turban
+Ushanka
+Visor
+Watch cap
+Wide-awake hat
+Wimple
+Witch's hat
+Zucchetto
+Kofia
+Dastar
+Pagri
+Cap of maintenance
+Phrygian cap
+Pileus
+Petasos
+Kausia
+Modius
+Kamilavka
+Klobuk
+Skufia
+Camauro
+Galero
+Capirote
+Kokoshnik
+Shpitzel
+Spodik
+Kolpak
+Kalpak
+Telpek
+Doppa
+Tubeteika
+Karakul hat
+Jinnah cap
+Rumi topi
+Dhaka topi
+Topi
+Gat
+Jeongjagwan
+Kat
+Songkok
+Peci
+Kopiah
+Tengkolok
+Salakot
+Sugegasa
+Jingasa
+Eboshi
+Kanmuri
+Kasa
+Ajirogasa
+Takuhatsugasa
+Conical hat
+Nón lá
+Doumao
+Mianguan
+Futou
+Wushamao
+Guan
+Montero
+Tocado
+Charro hat
+Vaquero hat
+Gaucho hat
+Boina
+Chupalla
+Ch'ullu
+Bombín
+Pollera hat
+Chola hat
+Juliet cap
+Half hat
+Picture hat
+Merry widow hat
+Caroline hat
+Gainsborough hat
+Poke bonnet
+Mob cap
+Sun bonnet
+Prairie bonnet
+Slouch beanie
+Fisherman beanie
+Five-panel cap
+Trucker hat
+Dad hat
+Fitted cap
+Camp cap
+Patrol cap
+Bush hat
+Campaign hat
+Smokey Bear hat
+Drill instructor hat
+Peaked cap
+Service cap
+Combination cap
+Officer's cap
+Forage cap
+Field cap
+Side cap
+Overseas cap
+Wedge cap
+Tent hat
+Cricket cap
+Rugby cap
+Skull cap
+Swim cap
+Bathing cap
+Shower cap
+Riding hat
+Riding helmet
+Cycle helmet
+Motorcycle helmet
+Ski helmet
+Climbing helmet
+Hockey helmet
+Batting helmet
+Football helmet
+Space helmet
+Diving helmet
+Firefighter's helmet
+Custodian helmet
+Bobby's helmet
+Kettle hat
+Barbute
+Sallet
+Bascinet
+Armet
+Close helmet
+Great helm
+Burgonet
+Morion
+Cabasset
+Spangenhelm
+Nasal helmet
+Corinthian helmet
+Galea
+Kabuto
+Pickelhaube
+Stahlhelm
+Brodie helmet
+Adrian helmet
+M1 helmet
+Pilot's helmet
+Leather flying helmet

@@ -1,0 +1,358 @@
+# More types of vehicle. Written by hand.
+Aerial work platform
+Airboat
+Aircraft carrier
+Airliner
+Airship
+All-terrain vehicle
+Ambulance
+Amphibious vehicle
+Armoured car
+Articulated lorry
+Autogyro
+Autorickshaw
+Balloon
+Barge
+Bathyscaphe
+Battleship
+Bicycle
+Biplane
+Blimp
+BMX
+Boat
+Bobsleigh
+Bulldozer
+Bus
+Cabin cruiser
+Cable car
+Camper van
+Campervan
+Canal boat
+Canoe
+Car
+Caravan
+Cargo bike
+Cargo ship
+Catamaran
+Cement mixer
+Chariot
+Cherry picker
+Coach
+Combine harvester
+Concrete mixer
+Container ship
+Convertible
+Coracle
+Coupé
+Crane
+Cruise ship
+Cruiser
+Dhow
+Dinghy
+Dirt bike
+Dog sled
+Double-decker bus
+Dragster
+Dredger
+Dump truck
+Dune buggy
+E-scooter
+Electric bicycle
+Estate car
+Excavator
+Ferry
+Fire engine
+Fishing trawler
+Flatbed truck
+Forklift
+Formula One car
+Freight train
+Frigate
+Funicular
+Galleon
+Garbage truck
+Glider
+Go-kart
+Golf cart
+Gondola
+Gritter
+Hang glider
+Hatchback
+Hearse
+Helicopter
+High-speed train
+Hot air balloon
+Hovercraft
+Houseboat
+Hydrofoil
+Hydroplane
+Ice-cream van
+Icebreaker
+Jeep
+Jet ski
+Jetpack
+JCB
+Junk
+Kayak
+Kick scooter
+Lifeboat
+Light rail
+Limousine
+Locomotive
+Longboat
+Lorry
+Luge
+Maglev
+Microlight
+Milk float
+Minibus
+Minivan
+Moped
+Monorail
+Monster truck
+Motor scooter
+Motorboat
+Motorcycle
+Motorhome
+Mountain bike
+Narrowboat
+Ocean liner
+Oil tanker
+Paddle steamer
+Paraglider
+Penny-farthing
+People carrier
+Pickup truck
+Police car
+Pontoon boat
+Powerboat
+Quad bike
+Racing car
+Raft
+Recumbent bicycle
+Rickshaw
+Road roller
+Road train
+Rocket
+Rowing boat
+Sailboat
+Saloon
+Sampan
+Scooter
+Seaplane
+Segway
+Semi-trailer truck
+Shuttle bus
+Sidecar
+Skateboard
+Ski lift
+Sled
+Sledge
+Snowcat
+Snowmobile
+Snowplough
+Space shuttle
+Spacecraft
+Speedboat
+Sports car
+Stagecoach
+Steamboat
+Steamroller
+Street sweeper
+Submarine
+SUV
+Supertanker
+Tandem
+Tank
+Tanker
+Taxi
+Telehandler
+Tow truck
+Tractor
+Tractor unit
+Train
+Tram
+Tricycle
+Trolleybus
+Truck
+Tugboat
+Unicycle
+Van
+Velomobile
+Wagon
+Water taxi
+Wheelbarrow
+Yacht
+Zeppelin
+Bubble car
+Cyclecar
+Kei car
+Microcar
+Crossover
+Roadster
+Shooting brake
+Targa
+Ute
+Panel van
+Box truck
+Refrigerated truck
+Car transporter
+Low-loader
+Logging truck
+Skip lorry
+Tipper truck
+Bin lorry
+Mobile crane
+Crawler crane
+Backhoe loader
+Skid-steer loader
+Wheel loader
+Grader
+Scraper
+Trencher
+Paver
+Asphalt paver
+Sprayer
+Baler
+Forage harvester
+Threshing machine
+Steam traction engine
+Traction engine
+Steam wagon
+Charabanc
+Omnibus
+Horse-drawn carriage
+Hansom cab
+Hackney carriage
+Landau
+Phaeton
+Brougham
+Barouche
+Curricle
+Gig
+Trap
+Cart
+Oxcart
+Covered wagon
+Conestoga wagon
+Prairie schooner
+Buckboard
+Surrey
+Sulky
+Troika
+Sleigh
+Tonga
+Tuk-tuk
+Jeepney
+Matatu
+Dolmus
+Songthaew
+Marshrutka
+Cycle rickshaw
+Pedicab
+Velotaxi
+Handcar
+Draisine
+Railbus
+Diesel multiple unit
+Electric multiple unit
+Steam locomotive
+Diesel locomotive
+Electric locomotive
+Shunter
+Bullet train
+Shinkansen
+TGV
+Sleeper train
+Underground train
+Tube train
+Metro
+Subway train
+Rack railway
+Cog railway
+Gondola lift
+Chairlift
+Drag lift
+Aerial tramway
+People mover
+Skytrain
+Hyperloop
+Airbus
+Jumbo jet
+Concorde
+Turboprop
+Seaplane
+Flying boat
+Floatplane
+Tiltrotor
+Gyrocopter
+Drone
+Fighter jet
+Bomber
+Stealth bomber
+Transport aircraft
+Air ambulance
+Air tanker
+Water bomber
+Crop duster
+Spaceplane
+Lunar rover
+Mars rover
+Lunar module
+Space capsule
+Space station
+Satellite launcher
+Destroyer
+Corvette
+Submarine chaser
+Minesweeper
+Patrol boat
+Landing craft
+Gunboat
+Ironclad
+Dreadnought
+Man-of-war
+Clipper
+Schooner
+Brigantine
+Brig
+Barque
+Ketch
+Yawl
+Sloop
+Cutter
+Trimaran
+Dragon boat
+Gondola boat
+Punt
+Pedalo
+Jetboat
+RIB
+Inflatable boat
+Lifeboat
+Trawler
+Whaler
+Collier
+Bulk carrier
+Ro-ro ferry
+Car ferry
+Paddle boat
+Narrow boat
+Keelboat
+Galley
+Trireme
+Longship
+Cog
+Carrack
+Caravel
+Junk ship
+Felucca
+Outrigger canoe
+Umiak
+Dugout canoe
+Gig boat
+Wherry
+Lighter
+Tender
+Chain ferry
+Pontoon

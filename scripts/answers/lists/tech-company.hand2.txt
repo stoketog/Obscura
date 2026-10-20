@@ -1,0 +1,383 @@
+# More technology companies. Written by hand.
+Accenture
+Acer
+Activision Blizzard
+Adobe
+Advanced Micro Devices|AMD
+Airbnb
+Akamai
+Alibaba
+Alphabet
+Amazon
+Analog Devices
+Anthropic
+Apple
+Applied Materials
+Arm
+ASML
+Asus
+Atari
+Atlassian
+Autodesk
+Baidu
+Bandcamp
+Bitdefender
+BlackBerry
+Booking Holdings
+Bose
+Broadcom
+ByteDance
+Canon
+Canva
+Capgemini
+Cisco
+Cloudflare
+Coinbase
+Commodore
+Compaq
+Cray
+CrowdStrike
+Datadog
+Dell
+Deliveroo
+DeepMind
+DigitalOcean
+Discord
+DJI
+Docusign
+DoorDash
+Dropbox
+eBay
+Electronic Arts
+Epic Games
+Ericsson
+Etsy
+Expedia
+Facebook|Meta;Meta Platforms
+Figma
+Fitbit
+Foxconn
+Fujitsu
+Garmin
+GitHub
+GitLab
+GoPro
+Google
+Grab
+Hewlett-Packard|HP
+Hitachi
+Honeywell
+HTC
+Huawei
+IBM
+Infosys
+Instagram
+Intel
+Intuit
+Jabra
+JD.com
+Juniper Networks
+Kaspersky
+Kodak
+Konami
+Lenovo
+LG
+LinkedIn
+Logitech
+Lyft
+Marvell
+MediaTek
+Micron
+Microsoft
+Monzo
+Motorola
+Mozilla
+MSI
+NEC
+Netflix
+NetEase
+Nintendo
+Nokia
+Nothing
+Nvidia
+NXP
+Okta
+OnePlus
+OpenAI
+Oppo
+Oracle
+Palantir
+Palo Alto Networks
+Panasonic
+PayPal
+Philips
+Pinterest
+Psion
+Qualcomm
+Rakuten
+Raspberry Pi
+Razer
+Realme
+Red Hat
+Reddit
+Revolut
+Ricoh
+Roku
+Salesforce
+Samsung
+SanDisk
+SAP
+Seagate
+Sega
+ServiceNow
+Sharp
+Shopify
+Siemens
+Sinclair Research
+Skype
+Slack
+Snap
+Snowflake
+SoftBank
+Sony
+SpaceX
+Splunk
+Spotify
+Square|Block
+Stripe
+Sun Microsystems
+Supercell
+Symantec
+Synopsys
+Taiwan Semiconductor
+Tata Consultancy Services
+Tencent
+Tesla
+Texas Instruments
+TikTok
+T-Mobile
+Toshiba
+Twilio
+Twitch
+Twitter|X Corp
+Uber
+Ubisoft
+Unity
+Valve
+Verisign
+Vivo
+VMware
+Vodafone
+Wayfair
+Western Digital
+WhatsApp
+Wikimedia Foundation
+Wipro
+Wise
+Workday
+Xerox
+Xiaomi
+Yahoo
+Yandex
+Zoom
+ZTE
+Zynga
+Acorn Computers
+Amstrad
+Apricot Computers
+Dragon Data
+Research Machines
+ICL
+Ferranti
+Marconi
+Plessey
+GEC
+Psygnosis
+Rare
+Codemasters
+Rockstar Games
+Rocksteady
+Sumo Digital
+Frontier Developments
+Jagex
+Ocado
+Darktrace
+Sage Group
+Autonomy
+Imagination Technologies
+Graphcore
+Wolfram Research
+Borland
+Novell
+Lotus Development
+WordPerfect
+Netscape
+AOL
+CompuServe
+Prodigy
+MySpace
+Friendster
+Bebo
+Napster
+LimeWire
+Kazaa
+Palm
+Handspring
+Silicon Graphics
+Digital Equipment Corporation
+Data General
+Wang Laboratories
+Control Data
+Burroughs
+Sperry
+Univac
+Honeywell Bull
+Olivetti
+Nixdorf
+Tandy
+RadioShack
+Gateway
+Packard Bell
+Iomega
+Creative Technology
+3dfx
+Matrox
+S3 Graphics
+Cyrix
+Transmeta
+Rambus
+Lattice Semiconductor
+Xilinx
+Altera
+Fairchild Semiconductor
+Zilog
+MOS Technology
+Motorola Solutions
+Garmin
+TomTom
+Sonos
+Peloton
+Ring
+Nest
+iRobot
+Dyson
+Tile
+Oculus
+Magic Leap
+Niantic
+Mojang
+King
+Rovio
+Riot Games
+Bungie
+Naughty Dog
+FromSoftware
+Square Enix
+Capcom
+Bandai Namco
+SNK
+Taito
+Hudson Soft
+Game Freak
+CD Projekt
+Paradox Interactive
+Embracer Group
+Take-Two Interactive
+Bethesda
+id Software
+Blizzard Entertainment
+Activision
+Mistral AI
+Hugging Face
+Cohere
+xAI
+Perplexity
+Scale AI
+Databricks
+Anduril
+Figure AI
+Boston Dynamics
+Waymo
+Cruise
+Mobileye
+Arrival
+Rivian
+Lucid Motors
+Zoox
+Nuro
+Aurora Innovation
+Instacart
+Gopuff
+Klarna
+Adyen
+Checkout.com
+Plaid
+Robinhood
+Chime
+Affirm
+Nubank
+Paytm
+Flipkart
+Ola
+Zomato
+Swiggy
+Byju's
+Gojek
+Tokopedia
+Sea Limited
+Shopee
+Lazada
+Coupang
+Kakao
+Naver
+Line
+Mercari
+Pixiv
+Telegram
+Signal
+Viber
+WeChat
+Weibo
+Kuaishou
+Pinduoduo
+Temu
+Shein
+Meituan
+DiDi
+NetApp
+Pure Storage
+Nutanix
+HashiCorp
+MongoDB
+Elastic
+Confluent
+Cloudera
+Teradata
+Informatica
+Tableau
+Qlik
+Alteryx
+UiPath
+Zendesk
+HubSpot
+Mailchimp
+Squarespace
+Wix
+Automattic
+Asana
+Trello
+Notion
+Airtable
+Monday.com
+Miro
+Evernote
+Box
+Basecamp|37signals
+Fastly
+Equinix
+Digital Realty
+Rackspace
+Linode
+Vultr
+OVHcloud
+Hetzner

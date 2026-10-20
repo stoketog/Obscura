@@ -1,0 +1,331 @@
+# More tools you would find in a toolbox or workshop. Written by hand.
+Adjustable spanner
+Allen key
+Angle grinder
+Awl
+Ball-peen hammer
+Band saw
+Belt sander
+Bench grinder
+Bench vice
+Bevel gauge
+Bolt cutters
+Box cutter
+Bradawl
+Brick hammer
+Bricklayer's trowel
+Bow saw
+Cable cutter
+Calipers
+Carpenter's square
+Caulking gun
+Centre punch
+Chalk line
+Chisel
+Circular saw
+Claw hammer
+Club hammer
+Cold chisel
+Combination spanner
+Combination square
+Compass saw
+Coping saw
+Cordless drill
+Countersink
+Crimping tool
+Crosscut saw
+Crowbar
+Cutting mat
+Deburring tool
+Dial indicator
+Digital multimeter
+Dovetail saw
+Drill bit
+Drill press
+Drywall saw
+Electric screwdriver
+Engineer's square
+Feeler gauge
+File
+Flat-head screwdriver
+Flooring nailer
+Fretsaw
+G-clamp
+Glue gun
+Grease gun
+Grinding wheel
+Grub screw key
+Hacksaw
+Hammer
+Hammer drill
+Hand drill
+Hand plane
+Handsaw
+Heat gun
+Hex key
+Hole punch
+Hole saw
+Impact driver
+Impact wrench
+Jack plane
+Jigsaw
+Junior hacksaw
+Knife
+Level
+Lump hammer
+Mallet
+Mitre box
+Mitre saw
+Monkey wrench
+Multi-tool
+Multimeter
+Nail gun
+Nail punch
+Needle-nose pliers
+Nut driver
+Oil can
+Orbital sander
+Paint brush
+Paint roller
+Paint scraper
+Pin hammer
+Pipe cutter
+Pipe wrench
+Plane
+Pliers
+Plumb bob
+Pop rivet gun
+Power drill
+Pry bar
+Putty knife
+Rasp
+Ratchet
+Reciprocating saw
+Rip saw
+Rivet gun
+Rotary tool
+Router
+Rubber mallet
+Ruler
+Sander
+Sandpaper
+Saw
+Scraper
+Scribe
+Screwdriver
+Scroll saw
+Sledgehammer
+Slip-joint pliers
+Socket set
+Socket wrench
+Soldering iron
+Spanner
+Spirit level
+Spokeshave
+Staple gun
+Stanley knife
+Steel rule
+Stud finder
+Table saw
+Tack hammer
+Tap and die
+Tape measure
+Tenon saw
+Tile cutter
+Tin snips
+Torque wrench
+Torx driver
+Trowel
+Try square
+Utility knife
+Vernier caliper
+Vice
+Vice grips
+Voltage tester
+Wire brush
+Wire cutters
+Wire strippers
+Wood chisel
+Workbench
+Wrench
+Mole grips
+Locking pliers
+Water pump pliers
+Long-nose pliers
+Side cutters
+Diagonal pliers
+End cutters
+Pincers
+Combination pliers
+Circlip pliers
+Fencing pliers
+Lineman's pliers
+Phillips screwdriver
+Pozidriv screwdriver
+Stubby screwdriver
+Precision screwdriver
+Offset screwdriver
+Ratchet screwdriver
+Jeweller's screwdriver
+Ring spanner
+Open-ended spanner
+Ratchet spanner
+Box spanner
+Crow's foot spanner
+Basin wrench
+Strap wrench
+Chain wrench
+Oil filter wrench
+Lug wrench
+Wheel brace
+Breaker bar
+Extension bar
+Universal joint
+Spark plug socket
+Tyre lever
+Valve core tool
+Feeler blade
+Thread gauge
+Wire gauge
+Depth gauge
+Marking gauge
+Mortise gauge
+Sliding bevel
+Set square
+Framing square
+Speed square
+Laser level
+Line level
+Torpedo level
+Plumb line
+Chalk reel
+Marking knife
+Pencil
+Carpenter's pencil
+Scriber
+Dividers
+Trammel
+Punch
+Pin punch
+Drift punch
+Letter punch
+Number punch
+Leather punch
+Grommet punch
+Eyelet tool
+Hammer tacker
+Cable stapler
+Brad nailer
+Finish nailer
+Framing nailer
+Pneumatic stapler
+Air compressor
+Spray gun
+Airbrush
+Blowtorch
+Blow lamp
+Butane torch
+Welding torch
+Welder
+Arc welder
+MIG welder
+TIG welder
+Welding helmet
+Plasma cutter
+Oxy-acetylene torch
+Soldering gun
+Desoldering pump
+Solder sucker
+Helping hands
+Hot glue gun
+Heat shrink gun
+Wallpaper scraper
+Wallpaper steamer
+Seam roller
+Filling knife
+Taping knife
+Hawk
+Plastering trowel
+Float
+Darby
+Edging trowel
+Pointing trowel
+Margin trowel
+Notched trowel
+Grout float
+Tile nippers
+Tile spacer
+Glass cutter
+Bolster chisel
+Brick bolster
+Plugging chisel
+Scutch hammer
+Lump hammer
+Stonemason's hammer
+Rock hammer
+Geologist's hammer
+Drywall hammer
+Framing hammer
+Upholstery hammer
+Cross-peen hammer
+Straight-peen hammer
+Dead-blow hammer
+Soft-faced hammer
+Copper mallet
+Carpenter's mallet
+Carving mallet
+Gouge
+Skew chisel
+Mortise chisel
+Firmer chisel
+Bevel-edge chisel
+Paring chisel
+Carving gouge
+Draw knife
+Froe
+Adze
+Hatchet
+Axe
+Block plane
+Smoothing plane
+Jointer plane
+Rebate plane
+Shoulder plane
+Router plane
+Spokeshave
+Card scraper
+Cabinet scraper
+Rasp file
+Needle file
+Half-round file
+Bastard file
+Mill file
+Riffler
+Wire wool
+Sanding block
+Detail sander
+Random orbital sander
+Palm sander
+Disc sander
+Drum sander
+Planer
+Thicknesser
+Biscuit jointer
+Dowel jig
+Pocket hole jig
+Mitre clamp
+Bar clamp
+Sash clamp
+Pipe clamp
+Spring clamp
+Quick-release clamp
+Corner clamp
+Band clamp
+Toggle clamp
+Hand screw
+Holdfast
+Bench dog
+Sawhorse
+Trestle
+Stepladder
+Spirit level
