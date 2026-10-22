@@ -24,7 +24,7 @@ export const DAY_2026_10_23: PromptSeed[] = [
     Congo|Republic of the Congo;Congo-Brazzaville;Congo Brazzaville
     Central African Republic|CAR
     Cape Verde|Cabo Verde
-    Côte d'Ivoire|Cote d'Ivoire;Cote dIvoire
+    Côte d'Ivoire|Cote d'Ivoire;Cote dIvoire;Ivory Coast;The Ivory Coast
     Comoros
     Congo-Kinshasa|DR Congo;DRC;Democratic Republic of the Congo;Congo Kinshasa
     Curaçao|Curacao
