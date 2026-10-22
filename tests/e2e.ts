@@ -46,9 +46,14 @@ async function open(b: Browser, opts: { mobile?: boolean; url?: string; skipHelp
   await page.clock.install({ time: new Date(CLOCK) });
   await page.goto(opts.url ?? ADMIN);
   await page.clock.resume();
-  await q(page, 'help-modal').waitFor();
-  if (opts.skipHelp !== false) await q(page, 'help-close').click();
+  await q(page, 'home').waitFor();
   return { ctx, page, errors, requests };
+}
+/** Continue to the next prompt, saying "Not yet" if the guess offer pops up in between. */
+async function nextRound(p: Page) {
+  await q(p, 'next-btn').click();
+  await p.waitForTimeout(80);
+  if (await q(p, 'guess-sheet').count()) await q(p, 'early-not-yet').click();
 }
 async function begin(p: Page) {
   await q(p, 'play-btn').click();
@@ -65,7 +70,7 @@ async function playDay(p: Page, choose: (i: number) => string) {
   for (let i = 0; i < 7; i++) {
     await answer(p, choose(i));
     await q(p, 'reveal').waitFor();
-    await q(p, 'next-btn').click();
+    await nextRound(p);
     if (i < 6) await q(p, 'round').waitFor();
   }
   await q(p, 'guess-screen').waitFor();
@@ -85,8 +90,10 @@ async function main() {
   const b = await chromium.launch();
 
   console.log('Home');
-  await t('first visit: help sheet once, then the home screen with a dark chamber and today’s number', async () => {
-    const { ctx, page: p, errors } = await open(b, { skipHelp: false });
+  await t('first visit: straight to the home screen (rules one tap away) with a dark chamber and today’s number', async () => {
+    const { ctx, page: p, errors } = await open(b);
+    eq(await q(p, 'help-modal').count(), 0, 'no rules sheet in the way');
+    await q(p, 'help-btn').click();
     ok((await text(p, 'help-modal')).includes('One photograph. Seven prompts. One guess.'), 'help copy');
     await q(p, 'help-close').click();
     ok((await text(p, 'home-logo')).includes('Obscura'), 'title');
@@ -219,13 +226,60 @@ async function main() {
     eq(errors.length, 0, errors.join('|')); await ctx.close();
   });
 
+  await t('the guess offer pops up after prompt 3; a right early guess reveals it and the day plays on', async () => {
+    const { ctx, page: p, errors } = await open(b);
+    await begin(p);
+    for (let i = 0; i < 3; i++) {
+      await answer(p, common(i).name); await q(p, 'reveal').waitFor();
+      if (i < 2) { eq(await q(p, 'guess-now-btn').count(), i >= 0 ? 1 : 0, 'guess now button'); await nextRound(p); await q(p, 'round').waitFor(); }
+    }
+    ok((await text(p, 'rarer-line')).length > 0, 'a rarer answer is shown');
+    await q(p, 'next-btn').click();
+    await q(p, 'guess-sheet').waitFor();
+    await q(p, 'early-input').fill(daily.image.answer); await q(p, 'early-submit').click();
+    eq(await q(p, 'early-result').getAttribute('data-correct'), 'true');
+    await q(p, 'early-continue').click();
+    await q(p, 'round').waitFor();
+    await q(p, 'early-note').waitFor();
+    for (let i = 3; i < 7; i++) {
+      await answer(p, common(i).name); await q(p, 'reveal').waitFor();
+      eq(await q(p, 'guess-now-btn').count(), 0, 'no second guess');
+      if (i < 6) { await nextRound(p); await q(p, 'round').waitFor(); }
+    }
+    ok(/see the results/i.test(await text(p, 'next-btn')), 'straight to results');
+    await q(p, 'next-btn').click();
+    await q(p, 'result').waitFor();
+    ok((await text(p, 'guess-verdict')).includes('after prompt 3'), 'verdict');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+
+  await t('a wrong early guess shows its cost and takes it off the total at the end', async () => {
+    const { ctx, page: p } = await open(b);
+    await begin(p);
+    await answer(p, rare(0).name); await q(p, 'reveal').waitFor();
+    await q(p, 'guess-now-btn').click();
+    await q(p, 'early-input').fill('a teapot'); await q(p, 'early-submit').click();
+    eq(await q(p, 'early-result').getAttribute('data-correct'), 'false');
+    await q(p, 'early-continue').click();
+    await q(p, 'early-note').waitFor();
+    for (let i = 0; i < 6; i++) {
+      await nextRound(p); await q(p, 'round').waitFor();
+      await answer(p, rare(i + 1).name); await q(p, 'reveal').waitFor();
+    }
+    await q(p, 'next-btn').click();
+    await q(p, 'result').waitFor();
+    ok((await text(p, 'result-bonus')).startsWith('−'), 'penalty shown');
+    ok((await text(p, 'guess-verdict')).includes('early guess'), 'verdict');
+    await ctx.close();
+  });
+
   console.log('Layout');
   await t('phone width: no sideways scrolling on home, play, guess and results', async () => {
     const { ctx, page: p, errors } = await open(b, { mobile: true });
     await noHScroll(p, 'home');
     await begin(p); await noHScroll(p, 'play');
     for (let i = 0; i < 7; i++) {
-      await answer(p, rare(i).name); await q(p, 'reveal').waitFor(); await q(p, 'next-btn').click();
+      await answer(p, rare(i).name); await q(p, 'reveal').waitFor(); await nextRound(p);
       if (i < 6) await q(p, 'round').waitFor();
     }
     await q(p, 'guess-screen').waitFor(); await noHScroll(p, 'guess');
@@ -255,7 +309,7 @@ async function main() {
     await q(p, `archive-day-${PAST}`).click();
     await q(p, 'start-btn').click();
     for (let i = 0; i < 7; i++) {
-      await answer(p, inTier(past.prompts[i], 'uncommon').name); await q(p, 'reveal').waitFor(); await q(p, 'next-btn').click();
+      await answer(p, inTier(past.prompts[i], 'uncommon').name); await q(p, 'reveal').waitFor(); await nextRound(p);
       if (i < 6) await q(p, 'round').waitFor();
     }
     await q(p, 'guess-input').fill(past.image.answer); await q(p, 'guess-submit').click();

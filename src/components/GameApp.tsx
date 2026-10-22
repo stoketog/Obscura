@@ -53,10 +53,8 @@ function GameAppInner() {
     navigator.serviceWorker.register('/sw.js').catch(() => {});
   }, []);
 
-  // First visit: show the how-to-play sheet once.
-  useEffect(() => {
-    if (api.ready && !api.profile.seenHelp) setModal('help');
-  }, [api.ready, api.profile.seenHelp]);
+  // No rules sheet on the way in: the home screen, the intro card and a hint on the first prompt teach the game,
+  // so a new player is typing within seconds. The full rules stay one tap away under "?".
 
   // Secret admin toggle (dev / admin builds only): Ctrl/Cmd + Shift + A
   useEffect(() => {

@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
-import type { RoundState } from '@/lib/types';
-import { currentRoundIndex, lastDoneIndex, remainingMs } from '@/lib/game';
-import { MAX_POINTS, ROUND_MS, ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, developedFor, tierById } from '@/lib/scoring';
+import type { AnswerEntry, Prompt, RoundState, TierId } from '@/lib/types';
+import { canGuess, currentRoundIndex, lastDoneIndex, remainingMs } from '@/lib/game';
+import { MAX_POINTS, ROUND_MS, ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, developedFor, guessBonusFor, tierById, tierFor } from '@/lib/scoring';
+import { GuessSheet } from './GuessSheet';
 import { prettyDate } from '@/lib/dates';
 import { useCountUp } from '@/hooks/useCountUp';
 import { Chamber } from './Chamber';
 import { TierChip, TierDot } from './TierChip';
-import { IconArrow } from './Icons';
+import { IconArrow, IconCheck, IconClose, IconSearch } from './Icons';
 import { useSettings } from '@/hooks/useSettings';
 
 interface Props {
@@ -36,9 +37,9 @@ export function GameScreen({ api, holding, onFinished, onContinue, compact = fal
   const developed = developedFor(game.points);
 
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-6 sm:px-5 lg:grid lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12 lg:pb-12" data-testid="game">
+    <main className="mx-auto w-full max-w-5xl flex-1 overflow-x-clip px-4 pb-6 sm:px-5 lg:grid lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12 lg:pb-12" data-testid="game">
       <section className={`mx-auto w-full max-w-xl ${compact ? 'hidden' : ''} lg:max-w-none`} data-testid="hud">
-        <Chamber image={daily.image} developed={developed} tag={`${developed}% developed`} />
+        <Chamber image={daily.image} developed={developed} revealed={!!game.guess?.correct} tag={game.guess?.correct ? `Named · ${daily.image.answer}` : `${developed}% developed`} />
         <div className="mt-3 flex items-center justify-between gap-3 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-mist-500">
           <span data-testid="puzzle-number">{daily.endless ? `Endless · dive ${daily.endless}` : `No. ${daily.number} · ${prettyDate(daily.dateKey)}`}</span>
           <span>
@@ -49,6 +50,7 @@ export function GameScreen({ api, holding, onFinished, onContinue, compact = fal
           </span>
         </div>
         <Segments api={api} index={active ? idx : -1} className="mt-2" />
+        {game.guess?.early && <EarlyGuessNote api={api} />}
       </section>
 
       <section className="mx-auto mt-5 w-full max-w-xl lg:mt-0">
@@ -85,15 +87,41 @@ function Segment({ round, current }: { round: RoundState; current: boolean }) {
 
 /* ───────────────────────── Before the first round ───────────────────────── */
 
-function Intro({ api }: { api: ObscuraApi }) {
+/** Swipe the current card away, then run `fn` (which brings in the next card, swiping in from the right). */
+function useSwipeAway(): [boolean, (fn: () => void) => void] {
+  const [leaving, setLeaving] = useState(false);
+  const go = (fn: () => void) => {
+    if (leaving) return;
+    const reduced = document.documentElement.dataset.motion === 'reduced' || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return fn();
+    setLeaving(true);
+    window.setTimeout(fn, 210);
+  };
+  return [leaving, go];
+}
+
+/** Under the photograph once the one guess has been used early. */
+function EarlyGuessNote({ api }: { api: ObscuraApi }) {
+  const g = api.game!.guess!;
+  const cost = guessBonusFor(developedFor(api.game!.points));
   return (
-    <section className="animate-rise" data-testid="intro">
+    <p className={`mt-3 flex items-start gap-2 rounded-md border px-3 py-2 text-xs leading-relaxed ${g.correct ? 'border-bio-400/30 bg-bio-400/5 text-bio-300' : 'border-white/12 bg-white/[0.03] text-mist-300'}`} data-testid="early-note">
+      {g.correct ? <IconCheck size={14} className="mt-0.5 shrink-0" /> : <IconClose size={13} className="mt-0.5 shrink-0" />}
+      {g.correct ? `Named at ${g.developed}% developed: +${g.bonus}. Every answer still scores.` : `“${g.text}” wasn’t it. It costs −${cost} at the end if nothing changes; more light makes it cheaper.`}
+    </p>
+  );
+}
+
+function Intro({ api }: { api: ObscuraApi }) {
+  const [leaving, swipe] = useSwipeAway();
+  return (
+    <section className={leaving ? 'swipe-out' : 'animate-rise'} data-testid="intro">
       <p className="eyebrow">Today’s chamber is dark</p>
       <h1 className="mt-2 font-display text-[2.4rem] leading-[1.02] text-mist-100 sm:text-5xl">
         {ROUNDS_PER_DAY} prompts. {ROUND_SECONDS} seconds each.
       </h1>
       <p className="mt-3 text-[0.95rem] leading-relaxed text-mist-300">
-        Name anything that fits, like <em>“a cheese”</em> or <em>“a bird”</em>. Every answer lets light into the chamber, and the rarer it is, the more light gets in. When all seven are done, you get one guess at the photograph.
+        Name anything that fits, like <em>“a cheese”</em> or <em>“a bird”</em>. Every answer lets light into the chamber, and the rarer it is, the more light gets in. You get one guess at the photograph, whenever you dare: the earlier, the bigger the bonus, but a wrong early guess costs you.
       </p>
       <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2" aria-label="Rarity and points">
         {TIERS.map((t) => (
@@ -104,7 +132,7 @@ function Intro({ api }: { api: ObscuraApi }) {
           </li>
         ))}
       </ul>
-      <button className="btn-primary mt-6 w-full" onClick={api.start} data-testid="start-btn">
+      <button className="btn-primary mt-6 w-full" onClick={() => swipe(api.start)} data-testid="start-btn">
         Start round 1
         <IconArrow size={18} />
       </button>
@@ -146,7 +174,7 @@ function ActivePrompt({ api, round, index, onFinished, compact }: { api: Obscura
   const tone = left <= 8000 ? 'danger' : left <= 15000 ? 'warn' : 'ok';
 
   return (
-    <section className="animate-rise" data-testid="round">
+    <section className="swipe-in" data-testid="round">
       <div className="flex items-center justify-between gap-3">
         <p className="eyebrow" data-testid="round-label">
           Prompt {index + 1} of {ROUNDS_PER_DAY}
@@ -157,6 +185,12 @@ function ActivePrompt({ api, round, index, onFinished, compact }: { api: Obscura
         {lead && <p className="text-sm text-mist-500">{lead}</p>}
         <h1 className={`font-display leading-[1.02] text-mist-100 ${compact ? 'text-3xl' : 'text-[2.6rem] sm:text-5xl'}`}>{subject}</h1>
       </div>
+
+      {index === 0 && api.stats.played === 0 && !compact && (
+        <p className="mt-2 text-xs text-bio-300" data-testid="first-hint">
+          Type anything that fits. The rarer it is, the more of the photograph you’ll see.
+        </p>
+      )}
 
       <AnswerBox api={api} round={round} onFinished={onFinished} />
 
@@ -308,15 +342,36 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
   const after = developedFor(game!.rounds.slice(0, index + 1).reduce((s, r) => s + r.points, 0));
   const next = index + 2;
   const { play } = useSettings();
+  const [leaving, swipe] = useSwipeAway();
+  const [sheet, setSheet] = useState<null | 'offer' | 'manual'>(null);
+  const guessOpen = canGuess(game!) && !done;
+  const rarer = rarerThan(prompt, answered ? round.tier! : null);
   useEffect(() => {
     if (after <= before) return;
     const id = window.setTimeout(() => play('ascent'), 450);
     return () => window.clearTimeout(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  // Between prompts 3 and 4, and 5 and 6, offer the guess once before moving on.
+  const offerKey = `${game!.dateKey}:${index}`;
+  const offerDue = guessOpen && (index === 2 || index === 4) && !OFFERED.has(offerKey);
+  const goNext = () => {
+    if (done) return onContinue();
+    if (offerDue) {
+      OFFERED.add(offerKey);
+      return setSheet('offer');
+    }
+    swipe(api.start);
+  };
+  const closeSheet = () => {
+    const wasOffer = sheet === 'offer';
+    setSheet(null);
+    // "Not yet" (or a guess made from the offer) carries straight on to the next prompt.
+    if (wasOffer) swipe(api.start);
+  };
 
   return (
-    <section className="animate-pop" data-testid="reveal">
+    <section className={leaving ? 'swipe-out' : 'animate-pop'} data-testid="reveal">
       <p className="eyebrow">{prompt.text}</p>
       {answered ? (
         <>
@@ -341,14 +396,64 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
           <h2 className="mt-2 font-display text-[2.6rem] leading-none text-mist-100" data-testid="reveal-answer">
             {round.end === 'timeout' ? 'Time’s up' : 'Skipped'}
           </h2>
-          <p className="mt-3 text-sm text-mist-300">No light this round. Every possible answer is shown when the day is over.</p>
+          <p className="mt-3 text-sm text-mist-300">No light this round.</p>
         </>
       )}
 
-      <button className="btn-primary mt-6 w-full" onClick={done ? onContinue : api.start} data-testid="next-btn" autoFocus>
-        {done ? 'Guess the photograph' : `Start round ${next}`}
+      <RarerLine rarer={rarer} answered={!!answered} answeredTop={!!answered && round.tier === 'mythic'} />
+
+      <button className="btn-primary mt-6 w-full" onClick={goNext} data-testid="next-btn" autoFocus>
+        {done ? (game!.guess ? 'See the results' : 'Guess the photograph') : `Start round ${next}`}
         <IconArrow size={18} />
       </button>
+      {guessOpen && (
+        <button className="btn-ghost mt-2 w-full" onClick={() => setSheet('manual')} data-testid="guess-now-btn">
+          <IconSearch size={16} />
+          Guess the photograph now · +{guessBonusFor(developedFor(game!.points))}
+        </button>
+      )}
+      {sheet && <GuessSheet api={api} offer={sheet === 'offer'} onClose={closeSheet} />}
     </section>
+  );
+}
+
+/** Guess offers already shown this session, so a re-render never pops one up twice. */
+const OFFERED = new Set<string>();
+
+/**
+ * After each round, a taste of what scored more: the best-known answer from the next tier up (the "I knew that!"
+ * one) and, if that isn't already the top, one of the 100-point answers. Shown once the round is over, so it
+ * gives nothing away.
+ */
+function rarerThan(prompt: Prompt, tier: TierId | null): AnswerEntry[] {
+  const order = TIERS.map((t) => t.id);
+  const at = tier ? order.indexOf(tier) : -1;
+  if (at === order.length - 1) return [];
+  const inTier = (id: TierId) => prompt.entries.filter((e) => tierFor(e.score).id === id).sort((a, b) => a.score - b.score || a.name.localeCompare(b.name));
+  const out: AnswerEntry[] = [];
+  const nextUp = inTier(order[Math.max(0, at + 1)]);
+  if (nextUp.length) out.push(nextUp[0]);
+  const top = inTier(order[order.length - 1]);
+  if (top.length && !out.some((e) => e.name === top[0].name)) out.push(top[0]);
+  return out;
+}
+
+function RarerLine({ rarer, answered, answeredTop }: { rarer: AnswerEntry[]; answered: boolean; answeredTop: boolean }) {
+  if (answeredTop) return <p className="mt-2 text-xs text-bio-300" data-testid="rarer-line">Top marks. Nothing scores higher.</p>;
+  if (!rarer.length) return null;
+  return (
+    <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-mist-500" data-testid="rarer-line">
+      <span>{answered ? 'Rarer:' : 'You could have said:'}</span>
+      {rarer.map((e) => {
+        const t = tierFor(e.score);
+        return (
+          <span key={e.name} className="flex items-center gap-1 text-mist-100">
+            <TierDot id={t.id} size={7} />
+            {e.name}
+            <span className="font-mono text-mist-500">{t.points}</span>
+          </span>
+        );
+      })}
+    </p>
   );
 }

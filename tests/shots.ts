@@ -18,7 +18,7 @@ async function main() {
     await p.clock.install({ time: new Date(`${DAY}T10:00:00Z`) });
     await p.goto('http://localhost:4195/');
     await p.clock.resume();
-    await p.locator('[data-testid=help-close]').click();
+    await p.locator('[data-testid=home]').waitFor();
     await p.waitForTimeout(600);
     await p.screenshot({ path: `${OUT}/${name}-home.png` });
     await p.locator('[data-testid=play-btn]').click({ timeout: 5000 }).catch(async (e) => { await p.screenshot({ path: `${OUT}/${name}-FAIL.png` }); throw e; });
@@ -35,6 +35,11 @@ async function main() {
       await p.waitForTimeout(1500);
       if (i === 2) await p.screenshot({ path: `${OUT}/${name}-reveal.png` });
       await p.locator('[data-testid=next-btn]').click();
+      await p.waitForTimeout(150);
+      if (await p.locator('[data-testid=guess-sheet]').count()) {
+        if (i === 2) await p.screenshot({ path: `${OUT}/${name}-offer.png` });
+        await p.locator('[data-testid=early-not-yet]').click();
+      }
       if (i < 6) await p.locator('[data-testid=round]').waitFor();
     }
     await p.locator('[data-testid=guess-screen]').waitFor();

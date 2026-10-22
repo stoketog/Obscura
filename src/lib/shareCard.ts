@@ -91,7 +91,7 @@ export async function drawShareCard(game: GameState, daily: DailySet, host: stri
 
   // The big number
   const guess = game.guess;
-  const pct = guess ? guess.developed : out.developed;
+  const pct = guess?.correct ? guess.developed : out.developed;
   ctx.fillStyle = LIGHT;
   ctx.font = '400 28px "IBM Plex Mono", ui-monospace, monospace';
   const eyebrow = guess?.correct ? 'NAMED THE PHOTOGRAPH AT' : 'THE PHOTOGRAPH DEVELOPED TO';
@@ -101,7 +101,7 @@ export async function drawShareCard(game: GameState, daily: DailySet, host: stri
   ctx.fillText(`${pct}%`, pad - 12, 1000);
   ctx.font = '400 38px "IBM Plex Sans", system-ui, sans-serif';
   ctx.fillStyle = SOFT;
-  const verdict = guess ? (guess.correct ? `Guessed it · ${dayTotal(game)} points` : `Guess missed · ${dayTotal(game)} points`) : `${dayTotal(game)} points`;
+  const verdict = guess ? (guess.correct ? `Guessed it${guess.early ? ` after prompt ${guess.afterRound}` : ''} · ${dayTotal(game)} points` : `${guess.penalty ? `Early guess missed (−${guess.penalty})` : 'Guess missed'} · ${dayTotal(game)} points`) : `${dayTotal(game)} points`;
   ctx.fillText(verdict, pad, 1068);
 
   // Seven blocks, one per prompt

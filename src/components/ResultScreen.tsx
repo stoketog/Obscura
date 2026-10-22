@@ -191,7 +191,13 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
     }
   };
 
-  const verdict = !guess.text ? 'You passed on the guess.' : guess.correct ? `You named it at ${guess.developed}% developed.` : `Your guess, “${guess.text}”, wasn’t it.`;
+  const verdict = !guess.text
+    ? 'You passed on the guess.'
+    : guess.correct
+      ? `You named it at ${guess.developed}% developed${guess.early ? `, after prompt ${guess.afterRound}` : ''}.`
+      : guess.early
+        ? `Your early guess, “${guess.text}”, wasn’t it${guess.penalty ? `: −${guess.penalty}` : ''}.`
+        : `Your guess, “${guess.text}”, wasn’t it.`;
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-12 sm:px-5 lg:grid lg:grid-cols-[1fr_1.05fr] lg:gap-12" data-testid="result">
@@ -223,7 +229,7 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
       <section className="mx-auto mt-8 w-full max-w-xl lg:mt-0">
         <div className="grid grid-cols-3 gap-2">
           <Stat label="Developed" value={`${out.developed}%`} testId="result-developed" />
-          <Stat label={guess.correct ? 'Guessed it' : 'Guess'} value={guess.correct ? `+${guess.bonus}` : '—'} accent={guess.correct} testId="result-bonus" />
+          <Stat label={guess.correct ? 'Guessed it' : guess.penalty ? 'Early guess' : 'Guess'} value={guess.correct ? `+${guess.bonus}` : guess.penalty ? `−${guess.penalty}` : '—'} accent={guess.correct} testId="result-bonus" />
           <Stat label="Total" value={String(Math.round(total))} testId="result-total" />
         </div>
 

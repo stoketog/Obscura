@@ -512,4 +512,56 @@ test('a calendar reminder repeats daily at the chosen time', () => {
   assert.ok(reminderIcs('20:00', 'x', new Date(2026, 9, 22, 11, 0)).includes('DTSTART:20261022T200000'));
 });
 
+console.log('Guessing early');
+const playRounds = (profile: PlayerProfile, n: number, pick: (p: Prompt) => string = best) => {
+  let prof = profile;
+  for (let i = 0; i < n; i++) {
+    const at = currentRoundIndex(getGame(prof, daily));
+    prof = startRound(prof, daily, T0);
+    prof = submitAnswer(prof, daily, pick(daily.prompts[at]), T0 + 1000).profile;
+  }
+  return prof;
+};
+test('the one guess can be made between prompts, never before the first or while a clock runs', () => {
+  assert.equal(submitGuess(emptyProfile(), daily, daily.image.answer).guess, null);
+  const running = startRound(playRounds(emptyProfile(), 1), daily, T0);
+  assert.equal(submitGuess(running, daily, daily.image.answer).guess, null);
+  const between = playRounds(emptyProfile(), 2);
+  assert.equal(submitGuess(between, daily, '').guess, null, 'no passing early');
+  assert.ok(submitGuess(between, daily, 'a wrong guess').guess);
+});
+test('a right early guess earns the bonus for how little was showing, and the day plays on', () => {
+  const p3 = playRounds(emptyProfile(), 3, worst);
+  const dev = developedFor(getGame(p3, daily).points);
+  const { profile, guess } = submitGuess(p3, daily, daily.image.answer);
+  assert.ok(guess?.correct && guess.early);
+  assert.equal(guess.bonus, guessBonusFor(dev));
+  assert.equal(guess.afterRound, 3);
+  assert.equal(submitGuess(profile, daily, daily.image.answer).guess, null, 'only one guess');
+  const end = playRounds(profile, 4);
+  const g = getGame(end, daily);
+  assert.equal(g.status, 'done');
+  assert.equal(dayTotal(g), g.points + guess.bonus);
+  assert.equal(g.guess?.penalty, undefined);
+  assert.deepEqual(end.history[daily.dateKey].guess, { correct: true, bonus: guess.bonus });
+});
+test('a wrong early guess costs what a right guess would have earned at the end', () => {
+  const p2 = playRounds(emptyProfile(), 2);
+  const wrong = submitGuess(p2, daily, 'definitely not this').profile;
+  const end = playRounds(wrong, 5);
+  const g = getGame(end, daily);
+  const penalty = guessBonusFor(g.outcome!.developed);
+  assert.equal(g.guess?.penalty, penalty);
+  assert.equal(dayTotal(g), Math.max(0, g.points - penalty));
+  assert.equal(end.history[daily.dateKey].guess?.penalty, penalty);
+  assert.equal(deriveStats(end, daily.dateKey).bestPoints, dayTotal(g));
+  assert.equal(submitGuess(end, daily, daily.image.answer).guess, null, 'no second guess at the end');
+});
+test('waiting until the end changes nothing: a wrong end guess costs nothing', () => {
+  const p = submitGuess(playAll(emptyProfile(), best), daily, 'wrong').profile;
+  const g = getGame(p, daily);
+  assert.equal(g.guess?.penalty, undefined);
+  assert.equal(dayTotal(g), g.points);
+});
+
 console.log(`\n${passed} tests passed${process.exitCode ? ' — with failures' : ''}`);

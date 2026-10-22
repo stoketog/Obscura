@@ -135,7 +135,10 @@ function finishRound(profile: PlayerProfile, daily: DayRef, index: number, patch
     const tiers: Array<TierId | null> = rounds.map((r) => r.tier ?? null);
     const outcome: Outcome = { points, developed: developedFor(points), streakAfter, tiers };
     const best = rounds.reduce<{ name: string; score: number } | null>((b, r) => (r.answer && r.score !== undefined && (!b || r.score > b.score) ? { name: r.answer, score: r.score } : b), null);
+    // A wrong early guess is charged now, at what a right guess at the end would have earned.
+    if (next.guess?.early && !next.guess.correct) next = { ...next, guess: { ...next.guess, penalty: guessBonusFor(outcome.developed) } };
     const entry: HistoryEntry = { dateKey: daily.dateKey, puzzleNumber: daily.number, points, developed: outcome.developed, tiers, best };
+    if (next.guess) entry.guess = { correct: next.guess.correct, bonus: next.guess.bonus, ...(next.guess.penalty ? { penalty: next.guess.penalty } : {}) };
     if (!practice) {
       const history = { ...profile.history, [daily.dateKey]: entry };
       let freezes = freezesHeld(profile) - plan.spend;
@@ -221,9 +224,25 @@ export function skipRound(profile: PlayerProfile, daily: DayRef): PlayerProfile 
   return finishRound(profile, daily, i, { end: 'skipped', points: 0 });
 }
 
-/** Points for the day including the guess bonus. */
+/** Points for the day including the guess bonus, less any penalty for a wrong early guess (never below 0). */
 export function dayTotal(game: GameState): number {
-  return game.points + (game.guess?.bonus ?? 0);
+  return Math.max(0, game.points + (game.guess?.bonus ?? 0) - (game.guess?.penalty ?? 0));
+}
+
+/** What a history entry adds up to, guess included. */
+export function entryTotal(h: HistoryEntry): number {
+  return Math.max(0, h.points + (h.guess?.bonus ?? 0) - (h.guess?.penalty ?? 0));
+}
+
+/**
+ * Whether the one guess can be made right now: once, between prompts (never while a clock is running, and not
+ * before the first prompt), or after the last.
+ */
+export function canGuess(game: GameState): boolean {
+  if (game.guess) return false;
+  if (game.status === 'done') return !!game.outcome;
+  const done = game.rounds.filter((r) => r.status === 'done').length;
+  return done >= 1 && !game.rounds.some((r) => r.status === 'active');
 }
 
 /**
@@ -232,11 +251,15 @@ export function dayTotal(game: GameState): number {
  */
 export function submitGuess(profile: PlayerProfile, daily: DailySet, raw: string): { profile: PlayerProfile; guess: GuessRecord | null } {
   const game = getGame(profile, daily);
-  if (game.status !== 'done' || !game.outcome || game.guess) return { profile, guess: null };
+  if (!canGuess(game)) return { profile, guess: null };
   const text = raw.trim().slice(0, 80);
-  const developed = game.outcome.developed;
+  const early = game.status !== 'done';
+  // An early guess must actually be a guess; passing is only for the end of the day.
+  if (early && !text) return { profile, guess: null };
+  const developed = early ? developedFor(game.points) : game.outcome!.developed;
   const correct = !!text && matchGuess(daily.image, text);
-  const guess: GuessRecord = { text, correct, developed, bonus: correct ? guessBonusFor(developed) : 0 };
+  const afterRound = game.rounds.filter((r) => r.status === 'done').length;
+  const guess: GuessRecord = { text, correct, developed, bonus: correct ? guessBonusFor(developed) : 0, afterRound, ...(early ? { early: true } : {}) };
   let next = withGame(profile, { ...game, guess });
   const h = next.history[daily.dateKey];
   if (!daily.endless && !daily.archive && !game.archive && h) next = { ...next, history: { ...next.history, [daily.dateKey]: { ...h, guess: { correct, bonus: guess.bonus } } } };
@@ -279,12 +302,12 @@ export function deriveStats(profile: PlayerProfile, todayKey: string): Stats {
     h.tiers.forEach((t) => t && (tierCounts[t] += 1));
     if (h.best && (!rarest || h.best.score > rarest.score)) rarest = h.best;
   }
-  const total = all.reduce((s, h) => s + h.points + (h.guess?.bonus ?? 0), 0);
+  const total = all.reduce((s, h) => s + entryTotal(h), 0);
   return {
     played: all.length,
     currentStreak: effectiveStreak(profile, todayKey),
     longestStreak: profile.longestStreak,
-    bestPoints: all.reduce((m, h) => Math.max(m, h.points + (h.guess?.bonus ?? 0)), 0),
+    bestPoints: all.reduce((m, h) => Math.max(m, entryTotal(h)), 0),
     averagePoints: all.length ? Math.round(total / all.length) : 0,
     bestDeveloped: all.reduce((m, h) => Math.max(m, h.developed ?? developedFor(h.points)), 0),
     guessedRight: all.filter((h) => h.guess?.correct).length,

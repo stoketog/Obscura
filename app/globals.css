@@ -165,6 +165,13 @@ button { font: inherit; color: inherit; }
 @keyframes pulseSoft { 0%,100% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.06); opacity: 1; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+/* Between prompts: the old card swipes off to the left, the next one swipes in from the right with a slight tilt. */
+@keyframes swipe-in { from { opacity: 0; transform: translateX(56px) rotate(1.2deg); filter: blur(2px); } 60% { opacity: 1; filter: none; } to { opacity: 1; transform: none; } }
+@keyframes swipe-out { to { opacity: 0; transform: translateX(-64px) rotate(-1.4deg); filter: blur(2px); } }
+.swipe-in { animation: swipe-in 0.42s cubic-bezier(0.2, 0.9, 0.25, 1) both; }
+.swipe-out { animation: swipe-out 0.22s cubic-bezier(0.5, 0, 0.75, 0.3) both; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .swipe-in, .swipe-out { animation: none; } }
+:root[data-motion="reduced"] :is(.swipe-in, .swipe-out) { animation: none; }
 @keyframes pop { 0% { opacity: 0; transform: scale(0.7); } 100% { opacity: 1; transform: scale(1); } }
 @keyframes sheen { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
 @keyframes shimmer { to { background-position: -220% 0; } }
