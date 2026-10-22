@@ -26,6 +26,62 @@
       "PD-old-auto-expired"
     ]
   },
+  "alcatraz": {
+    "file": "f0b18df9e462b99d.jpg",
+    "width": 1280,
+    "height": 960,
+    "title": "Alcatraz Island, San Francisco",
+    "author": "Carleton E. Watkins",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/264897",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1863, printed ca. 1876",
+    "classification": "Photographs"
+  },
+  "alhambra": {
+    "file": "7f0d8873137fdb0b.jpg",
+    "width": 896,
+    "height": 1280,
+    "title": "[Hall of Justice, Alhambra, Granada]",
+    "author": "Unknown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/263839",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1880s–90s",
+    "classification": "Photographs"
+  },
+  "arc-de-triomphe": {
+    "file": "7e1149110e229512.jpg",
+    "width": 1280,
+    "height": 1021,
+    "title": "Arc de Triomphe de l'Ètoile",
+    "author": "Edouard Baldus",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/262473",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1860s",
+    "classification": "Photographs"
+  },
+  "astrolabe": {
+    "file": "4c6f2c8612118b24.jpg",
+    "width": 1203,
+    "height": 1280,
+    "title": "Astrolabe",
+    "author": "Regiomontanus",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/923639",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1462",
+    "classification": "Metalwork-Copper alloy"
+  },
   "aurora": {
     "file": "cddfaa09af0a50c0.jpg",
     "width": 1280,
@@ -53,6 +109,20 @@
     "templates": [
       "Cc-zero"
     ]
+  },
+  "baobab": {
+    "file": "e875c28395cdfed6.jpg",
+    "width": 1016,
+    "height": 1280,
+    "title": "Baobab à Mohéli",
+    "author": "Désiré Charnay",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/286282",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1863",
+    "classification": "Photographs"
   },
   "bell-rock": {
     "file": "e73b711442960800.jpg",
@@ -82,6 +152,48 @@
       "PD-old-100-expired"
     ]
   },
+  "card-players": {
+    "file": "8b658ff09ff1948c.jpg",
+    "width": 1280,
+    "height": 1019,
+    "title": "The Card Players",
+    "author": "Paul Cézanne",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/435868",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1890–92",
+    "classification": "Paintings"
+  },
+  "chess": {
+    "file": "cb4ece378a53e7e1.jpg",
+    "width": 1280,
+    "height": 974,
+    "title": "Chess Set",
+    "author": "Unknown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/452204",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "12th century",
+    "classification": "games or toys"
+  },
+  "cleopatra": {
+    "file": "4955c5774a027319.jpg",
+    "width": 1024,
+    "height": 1280,
+    "title": "Cleopatra",
+    "author": "William Wetmore Story",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/12649",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1858, carved 1869",
+    "classification": ""
+  },
   "colosseum": {
     "file": "e94f1be034548e1b.jpg",
     "width": 1280,
@@ -107,6 +219,48 @@
       "PD-old-auto-expired"
     ]
   },
+  "dice": {
+    "file": "842782cd38f8bbef.jpg",
+    "width": 1280,
+    "height": 960,
+    "title": "Dice",
+    "author": "Unknown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/449310",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "9th–10th century",
+    "classification": "Gaming pieces"
+  },
+  "dickens": {
+    "file": "d9ea5a28a32aae29.jpg",
+    "width": 1015,
+    "height": 1280,
+    "title": "Charles Dickens",
+    "author": "J. Gurney & Son",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/286063",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1867",
+    "classification": "Photographs"
+  },
+  "dome-of-the-rock": {
+    "file": "da29a55d440a19a3.jpg",
+    "width": 1280,
+    "height": 1017,
+    "title": "[Dome of the Rock, Jerusalem]",
+    "author": "Felice Beato",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/631032",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1856–57",
+    "classification": "Photographs"
+  },
   "earthrise": {
     "file": "a4b180959d841be4.jpg",
     "width": 1280,
@@ -121,6 +275,32 @@
       "Template:PD-USGov-NASA/layout"
     ]
   },
+  "eiffel-tower": {
+    "file": "f4d191a0049dcb01.jpg",
+    "width": 845,
+    "height": 1280,
+    "title": "File:Lightning striking the Eiffel Tower - NOAA.jpg",
+    "author": "Unknown",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File%3ALightning_striking_the_Eiffel_Tower_-_NOAA.jpg",
+    "templates": [
+      "PD-old-auto-expired"
+    ]
+  },
+  "elizabeth-i": {
+    "file": "fce1b791fd932140.jpg",
+    "width": 1024,
+    "height": 1280,
+    "title": "Elizabeth I",
+    "author": "Wedgwood and Bentley",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/199105",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "18th century",
+    "classification": "Ceramics-Pottery"
+  },
   "enigma": {
     "file": "9220eef5a9885076.jpg",
     "width": 960,
@@ -133,6 +313,34 @@
     "templates": [
       "Cc-zero"
     ]
+  },
+  "franklin": {
+    "file": "4860a951cbadbc89.jpg",
+    "width": 1140,
+    "height": 1280,
+    "title": "Benjamin Franklin",
+    "author": "Henry Kirke Brown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/17659",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1852",
+    "classification": ""
+  },
+  "frederick-douglass": {
+    "file": "9ffa92bf74e3bbde.jpg",
+    "width": 1144,
+    "height": 1280,
+    "title": "Frederick Douglass",
+    "author": "Unknown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/282066",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1855",
+    "classification": "Photographs"
   },
   "giants-causeway": {
     "file": "3fe733224d350557.jpg",
@@ -171,6 +379,46 @@
       "Cc-zero"
     ]
   },
+  "grand-canyon": {
+    "file": "9ea3f7e7a4a6fecd.jpg",
+    "width": 943,
+    "height": 1280,
+    "title": "Grand Canyon, Colorado River, Near Paria Creek, Looking West",
+    "author": "William H. Bell",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/265934",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1872",
+    "classification": "Photographs"
+  },
+  "grandfather-clock": {
+    "file": "c9289ee648ff084c.jpg",
+    "width": 764,
+    "height": 1280,
+    "title": "Longcase clock",
+    "author": "Mario Gambelli",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/205302",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1766",
+    "classification": "Horology"
+  },
+  "great-wall": {
+    "file": "65bffe1ee0581b63.jpg",
+    "width": 1280,
+    "height": 958,
+    "title": "File:Great Wall of China July 2006.JPG",
+    "author": "Velatrix",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File%3AGreat_Wall_of_China_July_2006.JPG",
+    "templates": [
+      "cc-zero"
+    ]
+  },
   "great-wave": {
     "file": "fe004e7e0a7f38c7.jpg",
     "width": 1280,
@@ -197,6 +445,48 @@
       "PD-self"
     ]
   },
+  "half-dome": {
+    "file": "b17d66e23c691450.jpg",
+    "width": 1280,
+    "height": 960,
+    "title": "South Dome, Yosemite",
+    "author": "Carleton E. Watkins",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/264921",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1872, printed ca. 1876",
+    "classification": "Photographs"
+  },
+  "henry-viii": {
+    "file": "5e25b70e80eb944c.jpg",
+    "width": 991,
+    "height": 1280,
+    "title": "Portrait of Henry VIII",
+    "author": "Cornelis Massys",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/662833",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1547",
+    "classification": "Prints"
+  },
+  "hourglass": {
+    "file": "f6ccf1c594d6168a.jpg",
+    "width": 813,
+    "height": 1280,
+    "title": "Hourglass",
+    "author": "Unknown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/202374",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "18th century",
+    "classification": "Glass"
+  },
   "hubble": {
     "file": "34af8e1fcc4dea6b.jpg",
     "width": 1280,
@@ -208,6 +498,48 @@
     "templates": [
       "PD-USGov-NASA"
     ]
+  },
+  "jefferson": {
+    "file": "f3227411573bcb7f.jpg",
+    "width": 946,
+    "height": 1280,
+    "title": "Thomas Jefferson",
+    "author": "John Trumbull",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/12829",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1788",
+    "classification": ""
+  },
+  "knight-armour": {
+    "file": "dc3f032c1d4b2e41.jpg",
+    "width": 960,
+    "height": 1280,
+    "title": "Armor (Gusoku)",
+    "author": "Unknown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/22020",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "19th century",
+    "classification": "Armor for Man"
+  },
+  "leonardo": {
+    "file": "61b7a67487fafe8d.jpg",
+    "width": 1024,
+    "height": 1280,
+    "title": "Leonardo da Vinci (1452–1519)",
+    "author": "Antonio Berini",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/198614",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "early 19th century",
+    "classification": "Lapidary Work-Gems"
   },
   "lincoln": {
     "file": "f56544d2a1269025.jpg",
@@ -233,6 +565,48 @@
       "PD-old-auto-1923",
       "PD-old-auto-expired"
     ]
+  },
+  "mark-twain": {
+    "file": "7ecd66e23abbaa00.jpg",
+    "width": 1041,
+    "height": 1280,
+    "title": "Mark Twain",
+    "author": "Charles Noel Flagg",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/10890",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1890",
+    "classification": ""
+  },
+  "michelangelo": {
+    "file": "f9eb7ab5ff3179ac.jpg",
+    "width": 921,
+    "height": 1280,
+    "title": "Michelangelo Buonarroti (1475–1564)",
+    "author": "Daniele da Volterra",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/436771",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "probably ca. 1545",
+    "classification": "Paintings"
+  },
+  "microscope": {
+    "file": "5b282843d921830c.jpg",
+    "width": 1080,
+    "height": 1280,
+    "title": "Microscope",
+    "author": "Claude-Siméon Passemant",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/207549",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1750",
+    "classification": "Metalwork-Gilt Bronze"
   },
   "moai": {
     "file": "f67dbaaf4b54b23c.jpg",
@@ -262,6 +636,20 @@
       "PD-old-100-expired"
     ]
   },
+  "mont-blanc": {
+    "file": "22662a3e5ca42f11.jpg",
+    "width": 765,
+    "height": 1280,
+    "title": "[The Ascent of Mont Blanc]",
+    "author": "Auguste-Rosalie Bisson",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/283137",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1861",
+    "classification": "Photographs"
+  },
   "mont-saint-michel": {
     "file": "a9be3451db25def7.jpg",
     "width": 960,
@@ -274,6 +662,20 @@
     "templates": [
       "Cc-zero"
     ]
+  },
+  "moon-landing": {
+    "file": "166bfd828d2bfa60.jpg",
+    "width": 1280,
+    "height": 1036,
+    "title": "Buzz Aldrin with Apollo 11 Lunar Module on the Moon",
+    "author": "Neil Armstrong",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/786294",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1969",
+    "classification": "Photographs"
   },
   "mount-fuji": {
     "file": "7c537ca6ed22f1a9.jpg",
@@ -313,6 +715,48 @@
       "Cc-zero"
     ]
   },
+  "niagara": {
+    "file": "f0d06d6f3c4c94d7.jpg",
+    "width": 1280,
+    "height": 972,
+    "title": "Niagara Falls",
+    "author": "Silas A. Holmes",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/282057",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1855",
+    "classification": "Photographs"
+  },
+  "notre-dame": {
+    "file": "6f725d843327f4db.jpg",
+    "width": 1035,
+    "height": 1280,
+    "title": "Notre Dame, Paris",
+    "author": "Bisson Frères",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/269270",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1850s",
+    "classification": "Photographs"
+  },
+  "oscar-wilde": {
+    "file": "26c07f46dfb85f64.jpg",
+    "width": 751,
+    "height": 1280,
+    "title": "Oscar Wilde",
+    "author": "Napoleon Sarony",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/283247",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1882",
+    "classification": "Photographs"
+  },
   "pangolin": {
     "file": "654167da10b29333.jpg",
     "width": 1280,
@@ -324,6 +768,20 @@
     "templates": [
       "PD-self"
     ]
+  },
+  "parthenon": {
+    "file": "c990dab00a7688f2.jpg",
+    "width": 1280,
+    "height": 942,
+    "title": "[Acropolis, Athens, Greece]",
+    "author": "James Robertson",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/286249",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "Early 1850s",
+    "classification": "Photographs"
   },
   "penny-farthing": {
     "file": "34cfa3dbaa1123bc.jpg",
@@ -362,6 +820,48 @@
       "Template:PD-Hubble"
     ]
   },
+  "pocket-watch": {
+    "file": "22ec5c08bfc5800b.jpg",
+    "width": 1280,
+    "height": 1148,
+    "title": "Watch",
+    "author": "Firm of Bautte et Moynier",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/209247",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1826–31",
+    "classification": "Horology"
+  },
+  "pompeii": {
+    "file": "0d7a3d5b7c0fb4c0.jpg",
+    "width": 1280,
+    "height": 892,
+    "title": "Temple of Jupiter, Pompeii",
+    "author": "Alfred-Nicolas Normand",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/785777",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1851",
+    "classification": "Photographs"
+  },
+  "queen-victoria": {
+    "file": "d64d44873eb50dbd.jpg",
+    "width": 1026,
+    "height": 1280,
+    "title": "Queen Victoria",
+    "author": "Thomas Sully",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/12702",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1838",
+    "classification": ""
+  },
   "rosetta-stone": {
     "file": "f7ce95ec63725391.jpg",
     "width": 960,
@@ -374,6 +874,20 @@
     "templates": [
       "Cc-zero"
     ]
+  },
+  "samurai-armour": {
+    "file": "5ef68363efbbf4f7.jpg",
+    "width": 921,
+    "height": 1280,
+    "title": "Armor (<i>Yoroi</i>) of Ashikaga Takauji (1305–1358)",
+    "author": "Unknown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/35694",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "early–mid-14th century",
+    "classification": "Armor for Man"
   },
   "saturn-v": {
     "file": "25e5be19a034b957.jpg",
@@ -400,6 +914,20 @@
       "Cc-zero"
     ]
   },
+  "solar-eclipse": {
+    "file": "addcceed6727a365.jpg",
+    "width": 1280,
+    "height": 1263,
+    "title": "[Solar Eclipse from Caroline Island]",
+    "author": "H. A. Lawrence",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/786870",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "May 6, 1883",
+    "classification": "Photographs"
+  },
   "sphinx": {
     "file": "5b6769930da393a4.jpg",
     "width": 1280,
@@ -413,6 +941,34 @@
       "PD-old-auto-expired"
     ]
   },
+  "st-basils": {
+    "file": "16049e090adfd7a9.jpg",
+    "width": 1044,
+    "height": 1280,
+    "title": "St. Basil's Cathedral, Red Square, Moscow",
+    "author": "Unknown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/285908",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1860",
+    "classification": "Photographs"
+  },
+  "st-peters": {
+    "file": "506241e18d8addab.jpg",
+    "width": 1280,
+    "height": 1027,
+    "title": "[St. Peter's, Rome]",
+    "author": "Unknown",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/268999",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1850s",
+    "classification": "Photographs"
+  },
   "stonehenge": {
     "file": "f661a6b3dc5a0054.jpg",
     "width": 1280,
@@ -424,6 +980,20 @@
     "templates": [
       "PD-self"
     ]
+  },
+  "sundial": {
+    "file": "91c181d513daebe0.jpg",
+    "width": 1280,
+    "height": 1271,
+    "title": "Sundial",
+    "author": "Goldsmith Chandlee",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/8026",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1800",
+    "classification": ""
   },
   "taj-mahal": {
     "file": "8615a43487bb4311.jpg",
@@ -438,6 +1008,62 @@
       "Cc-zero"
     ]
   },
+  "the-gleaners": {
+    "file": "c166e0baaf860bf7.jpg",
+    "width": 1280,
+    "height": 971,
+    "title": "The Gleaners",
+    "author": "Jean-François Millet",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/370558",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1855–56",
+    "classification": "Prints"
+  },
+  "thinker": {
+    "file": "9d6789c7b81ae3d6.jpg",
+    "width": 1005,
+    "height": 1280,
+    "title": "The Thinker",
+    "author": "Auguste Rodin",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/191811",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "modeled ca. 1880, cast ca. 1910",
+    "classification": "Sculpture-Bronze"
+  },
+  "trevi": {
+    "file": "a7ca06b1508f1eae.jpg",
+    "width": 971,
+    "height": 1280,
+    "title": "Fontana di Trevi",
+    "author": "Eugène Constant",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/288400",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1848–52",
+    "classification": "Photographs"
+  },
+  "venice-canal": {
+    "file": "f866de90f39aaf74.jpg",
+    "width": 1280,
+    "height": 966,
+    "title": "[Night View of the Grand Canal, Venice]",
+    "author": "Carlo Naya",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/270389",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1875",
+    "classification": "Photographs"
+  },
   "venus-flytrap": {
     "file": "9433dfbd9ee73d2f.jpg",
     "width": 1280,
@@ -450,5 +1076,47 @@
     "templates": [
       "Cc-zero"
     ]
+  },
+  "washington": {
+    "file": "155e6650bf59620f.jpg",
+    "width": 988,
+    "height": 1280,
+    "title": "George Washington",
+    "author": "Isaac Broome",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/3931",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "ca. 1876",
+    "classification": ""
+  },
+  "washington-delaware": {
+    "file": "5e2325ef7304627e.jpg",
+    "width": 1280,
+    "height": 750,
+    "title": "Washington Crossing the Delaware",
+    "author": "Emanuel Leutze",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/11417",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "1851",
+    "classification": ""
+  },
+  "windsor-castle": {
+    "file": "71e0cf6fabedf1c3.jpg",
+    "width": 1280,
+    "height": 1084,
+    "title": "Windsor Castle",
+    "author": "William Henry Fox Talbot",
+    "license": "CC0",
+    "source": "https://www.metmuseum.org/art/collection/search/306348",
+    "templates": [
+      "Met Open Access"
+    ],
+    "date": "June 1841",
+    "classification": "Photographs"
   }
 }

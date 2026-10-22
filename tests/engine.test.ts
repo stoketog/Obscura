@@ -390,7 +390,7 @@ test('every photograph in use has an approved licence, a file and a credit', () 
   for (const img of IMAGES) {
     const c = credits[img.id];
     assert.ok(c.license === 'CC0' || c.license === 'Public domain', `${img.id}: ${c.license}`);
-    assert.ok(/^https:\/\/commons\.wikimedia\.org\//.test(c.source), `${img.id}: source`);
+    assert.ok(/^https:\/\/(commons\.wikimedia\.org|www\.metmuseum\.org)\//.test(c.source), `${img.id}: source`); // Commons, or the Met (Open Access, CC0)
     assert.ok(c.author, `${img.id}: author`);
     assert.ok(existsSync(`public/daily/${c.file}`), `${img.id}: missing file`);
     assert.ok(!c.file.includes(img.id), `${img.id}: file name gives the answer away`);
