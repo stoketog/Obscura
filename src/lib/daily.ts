@@ -169,19 +169,31 @@ export function getDaily<T extends Dealable = (typeof PROMPT_INDEX)[number]>(dat
   return { dateKey, number, prompts, image };
 }
 
-/** Prompt ids shown on a date: pinned if published, otherwise the plain deal. */
+/** Prompt ids actually shown on each date, per pool, filled in day by day from the end of the pinned schedule. */
+const shownCache = new WeakMap<object, Map<string, string[]>>();
+
+/** Prompt ids shown on a date: pinned if published, otherwise the (nudged) deal. */
 function promptIdsOn<T extends Dealable>(dateKey: string, pool: T[]): string[] {
-  return SCHEDULE[dateKey]?.prompts ?? pickPrompts(dateKey, pool).map((p) => p.id);
+  if (SCHEDULE[dateKey]) return SCHEDULE[dateKey].prompts;
+  const n = puzzleNumberFor(dateKey);
+  if (n <= LOCKED_THROUGH) return pickPrompts(dateKey, pool).map((p) => p.id);
+  let cache = shownCache.get(pool);
+  if (!cache) shownCache.set(pool, (cache = new Map()));
+  // Work forward from the first unpinned day so every day's nudge sees the real days before it (no deep recursion).
+  for (let k = n - Math.min(n - LOCKED_THROUGH - 1, 400); k <= n; k++) {
+    const key = addDays(dateKey, k - n);
+    if (!cache.has(key)) cache.set(key, nudged(key, pool).map((p) => p.id));
+  }
+  return cache.get(dateKey)!;
 }
 
 /**
  * The deal for a day that isn't pinned, nudged so that nothing shown in the previous three days comes back (the
- * plain deal guarantees that among dealt days, but not right after the pinned ones). A clash is swapped for the
+ * plain deal guarantees that among plain days, but not next to pinned or nudged ones). A clash is swapped for the
  * next prompt of the same topic in a seeded order.
  */
-function dealtPrompts<T extends Dealable>(dateKey: string, pool: T[]): T[] {
+function nudged<T extends Dealable>(dateKey: string, pool: T[]): T[] {
   const dealt = pickPrompts(dateKey, pool);
-  if (puzzleNumberFor(dateKey) > LOCKED_THROUGH + 3) return dealt;
   const recent = new Set<string>();
   for (let k = 1; k <= 3; k++) promptIdsOn(addDays(dateKey, -k), pool).forEach((id) => recent.add(id));
   const used = new Set(dealt.map((p) => p.id));
@@ -193,6 +205,12 @@ function dealtPrompts<T extends Dealable>(dateKey: string, pool: T[]): T[] {
     used.add(alt.id);
     return alt;
   });
+}
+
+function dealtPrompts<T extends Dealable>(dateKey: string, pool: T[]): T[] {
+  if (puzzleNumberFor(dateKey) <= LOCKED_THROUGH) return pickPrompts(dateKey, pool);
+  const byId = new Map(pool.map((p) => [p.id, p]));
+  return promptIdsOn(dateKey, pool).map((id) => byId.get(id)!);
 }
 
 /**

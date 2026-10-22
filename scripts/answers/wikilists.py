@@ -298,7 +298,93 @@ def nobel_peace():
         ordered(people_aliases([(n, []) for n, _ in rows]), pinned, key=lambda n: -yr.get(plain(n), 0)))
 
 
-for fn in (oscar_films, ballon_dor, f1_champions, tube_stations, eurovision, best_new_artist, booker, nobel_peace):
+def song_title(s):
+    s = re.sub(r'\[[^\]]*\]', '', str(s)).strip().strip('"“')
+    if re.search(r'["”]', s):  # 'Al Andar" #', 'I'm Still Alive" (Live)': the title is the quoted part
+        s = re.split(r'["”]', s)[0]
+    s = clean(s)
+    s = re.sub(r'\s*\((?:with|featuring|feat\.?|ft\.?|Taylor\'s Version|From the Vault|[^()]*[Vv]ersion|[^()]*[Rr]emix|[^()]*[Ee]dit)[^()]*\)', '', s)
+    return s.strip(' "“”\'')
+
+
+def christmas_number_ones():
+    t = tables('List of Christmas number one singles (UK)')[0]
+    song_col = [c for c in t.columns if str(c).startswith('Song')][0]
+    rows, artists, extra_sides = [], {}, {}
+    for _, r in t.iterrows():
+        song = song_title(r[song_col])
+        artist = re.split(r'\s+(?:ft\.?|feat\.?|featuring|with|and|&|vs\.?)\s+', clean(r['Artist']))[0].strip()
+        year = int(re.match(r'\d{4}', str(r['Year'])).group())
+        if song and song.lower() != 'nan':
+            # Double A-sides ("Mull of Kintyre / Girls' School") are one answer, either side accepted.
+            sides = [x.strip(' "“”') for x in re.split(r'\s*/\s*|"\s*"', song) if x.strip(' "“”')]
+            song = sides[0]
+            rows.append((song, artist, year))
+            extra_sides[plain(song)] = sides[1:]
+            artists.setdefault(plain(artist), set()).add(plain(song))
+    # An artist's name counts on its own only when they had one Christmas number one.
+    entries = [(s, extra_sides.get(plain(s), []) + ([a] if len(artists[plain(a)]) == 1 else [])) for s, a, _ in rows]
+    pinned = ['Last Christmas', 'Do They Know It\'s Christmas?', 'Mistletoe and Wine', 'Bohemian Rhapsody', 'Merry Xmas Everybody', 'Mull of Kintyre',
+              'Always on My Mind', 'Killing in the Name', 'Mad World', 'Hallelujah', 'Stay Another Day', 'Too Much', 'Sausage Rolls for Everyone']
+    yr = {}
+    for s_, _, y in rows:
+        yr[plain(s_)] = max(yr.get(plain(s_), 0), y)
+    add('christmas-number-one', 'music', 'Name a UK Christmas number one single (or its act)', 'UK Christmas number ones',
+        ordered(entries, pinned, key=lambda n: -yr.get(plain(n), 0)))
+
+
+def artist_songs(title, table, pid, text, category, pinned):
+    t = tables(title)[table]
+    rows = []
+    for _, r in t.iterrows():
+        raw = str(r['Song'])
+        if re.search(r'\(live\)|live cover|medley|instrumental', raw, re.I):
+            continue
+        song = song_title(raw)
+        if not song or song.lower() == 'nan' or len(song) > 60:
+            continue
+        rows.append((song, [song[4:]] if song.lower().startswith('the ') else []))
+    entries = dedupe([(n, list(a) + variants(n)) for n, a in ordered(rows, pinned)])
+    # Only the pinned hits have a real fame order; every other song is a deep cut and scores as Rare, the last
+    # two (in Wikipedia's alphabetical order) as Obscure.
+    pin = {plain(p) for p in pinned}
+    hits = [e for e in entries if plain(e[0]) in pin]
+    deep = [e for e in entries if plain(e[0]) not in pin]
+    answers = []
+    for i, (n, a) in enumerate(hits):
+        score = 2 + round(i / 7 * 14) if i < 8 else 18 + round((i - 8) / max(1, len(hits) - 9) * 19)
+        answers.append((n, a, score))
+    for i, (n, a) in enumerate(deep):
+        answers.append((n, a, 95 + (i - len(deep) + 2) if i >= len(deep) - 2 else 40 + round(i / max(1, len(deep) - 3) * 50)))
+    print(f'  {pid}: {len(answers)} answers · {len(hits)} hits')
+    PROMPTS.append({'id': pid, 'group': 'music', 'text': text, 'category': category,
+                    'answers': [f'{n}|{sc}' + (f'|{";".join(a)}' if a else '') for n, a, sc in answers]})
+
+
+def abba():
+    artist_songs('List of songs recorded by ABBA', 2, 'abba-song', 'Name an ABBA song', 'ABBA songs',
+                 ['Dancing Queen', 'Mamma Mia', 'Waterloo', 'SOS', 'Fernando', 'Take a Chance on Me', 'The Winner Takes It All', 'Super Trouper',
+                  'Gimme! Gimme! Gimme! (A Man After Midnight)', 'Money, Money, Money', 'Knowing Me, Knowing You', 'Chiquitita', 'Voulez-Vous',
+                  'Thank You for the Music', 'Does Your Mother Know', 'Lay All Your Love on Me', 'I Have a Dream', 'Ring Ring', 'Honey, Honey',
+                  'The Name of the Game', 'One of Us', 'Summer Night City', 'Slipping Through My Fingers', 'Our Last Summer', 'Angeleyes',
+                  'When I Kissed the Teacher', 'Hasta Mañana', 'Happy New Year', 'The Day Before You Came', 'Eagle', 'Head over Heels', 'Under Attack',
+                  'Head over Heels', 'I Do, I Do, I Do, I Do, I Do', 'Bang-A-Boomerang', 'Andante, Andante', 'I Still Have Faith in You', 'Don\'t Shut Me Down'])
+
+
+def taylor_swift():
+    artist_songs('List_of_songs_by_Taylor_Swift', 2, 'taylor-swift-song', 'Name a Taylor Swift song', 'Taylor Swift songs',
+                 ['Shake It Off', 'Love Story', 'Blank Space', 'You Belong with Me', 'Anti-Hero', 'Cruel Summer', 'We Are Never Ever Getting Back Together',
+                  'Bad Blood', 'Style', 'Look What You Made Me Do', 'All Too Well', 'Cardigan', 'Lover', 'Wildest Dreams', 'I Knew You Were Trouble',
+                  'Fortnight', 'The Fate of Ophelia', 'Our Song', 'Teardrops on My Guitar', 'Delicate', 'Willow', 'Karma', 'Mean', 'Fifteen',
+                  '22', 'Me!', 'Enchanted', 'Red', 'August', 'Exile', 'You Need to Calm Down', 'Back to December', 'Bejeweled', 'Lavender Haze',
+                  'Champagne Problems', 'Getaway Car', '...Ready for It?', 'End Game', 'Gorgeous', 'Mine', 'White Horse', 'Tim McGraw', 'Speak Now',
+                  'Sparks Fly', 'Picture to Burn', 'The Man', 'Paper Rings', 'Betty', 'The Last Great American Dynasty', 'Out of the Woods',
+                  'Welcome to New York', 'New Romantics', 'Wonderland', 'Clean', 'Mirrorball', 'Is It Over Now?', 'Snow on the Beach', 'Mastermind',
+                  'Midnight Rain', 'Maroon', 'Down Bad', 'So Long, London', 'Florida!!!', 'Opalite', 'Elizabeth Taylor', 'Father Figure', 'Wood',
+                  'Begin Again', 'State of Grace', 'Long Live', 'Dear John', 'Holy Ground', 'Death by a Thousand Cuts', 'Cornelia Street', 'Gold Rush'])
+
+
+for fn in (oscar_films, ballon_dor, f1_champions, tube_stations, eurovision, best_new_artist, booker, nobel_peace, christmas_number_ones, abba, taylor_swift):
     try:
         fn()
     except Exception as e:  # one broken page must not stop the rest

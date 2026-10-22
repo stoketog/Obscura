@@ -46,7 +46,26 @@ interface Spec {
   rule: (spelling: string) => boolean;
   /** Use only the main name, never aliases (people prompts, whose aliases include bare surnames). */
   canonicalOnly?: boolean;
+  /** Only these answers (any spelling, compared as bare letters), with every spelling of theirs accepted. */
+  member?: string[];
+  /** Extra spellings for an answer, by its main name (a duplicate entry in the base list, say). */
+  extra?: Record<string, string[]>;
 }
+
+/** Membership lists, by the base list's main name (checked against Wikipedia's lists, October 2026). */
+const EUROPE = ('Albania|Andorra|Austria|Belarus|Belgium|Bosnia and Herzegovina|Bulgaria|Croatia|Cyprus|Czech Republic|Denmark|Estonia|Finland|France|Germany|Greece|Hungary|Iceland|Ireland|Italy|Kosovo|Latvia|Liechtenstein|Lithuania|Luxembourg|Malta|Moldova|Monaco|Montenegro|Netherlands|North Macedonia|Norway|Poland|Portugal|Romania|Russia|San Marino|Serbia|Slovakia|Slovenia|Spain|Sweden|Switzerland|Ukraine|United Kingdom|Vatican City|Turkey|Georgia|Armenia|Azerbaijan|Kazakhstan').split('|');
+const ASIA = ('Afghanistan|Armenia|Azerbaijan|Bahrain|Bangladesh|Bhutan|Brunei|Cambodia|China|Cyprus|Georgia|India|Indonesia|Iran|Iraq|Israel|Japan|Jordan|Kazakhstan|Kuwait|Kyrgyzstan|Laos|Lebanon|Malaysia|Maldives|Mongolia|Myanmar|Nepal|North Korea|Oman|Pakistan|Palestine|Philippines|Qatar|Russia|Saudi Arabia|Singapore|South Korea|Sri Lanka|Syria|Taiwan|Tajikistan|Thailand|Timor-Leste|Turkey|Turkmenistan|United Arab Emirates|Uzbekistan|Vietnam|Yemen|Egypt').split('|');
+const AMERICAS = ('Antigua and Barbuda|Argentina|Bahamas|Barbados|Belize|Bolivia|Brazil|Canada|Chile|Colombia|Costa Rica|Cuba|Dominica|Dominican Republic|Ecuador|El Salvador|Grenada|Guatemala|Guyana|Haiti|Honduras|Jamaica|Mexico|Nicaragua|Panama|Paraguay|Peru|Saint Kitts and Nevis|Saint Lucia|Saint Vincent and the Grenadines|Suriname|Trinidad and Tobago|United States|Uruguay|Venezuela').split('|');
+const LANDLOCKED = ('Afghanistan|Andorra|Armenia|Austria|Azerbaijan|Belarus|Bhutan|Bolivia|Botswana|Burkina Faso|Burundi|Central African Republic|Chad|Czech Republic|Eswatini|Ethiopia|Hungary|Kazakhstan|Kosovo|Kyrgyzstan|Laos|Lesotho|Liechtenstein|Luxembourg|Malawi|Mali|Moldova|Mongolia|Nepal|Niger|North Macedonia|Paraguay|Rwanda|San Marino|Serbia|Slovakia|South Sudan|Switzerland|Tajikistan|Turkmenistan|Uganda|Uzbekistan|Vatican City|Zambia|Zimbabwe').split('|');
+/** The 27 EU members, plus the countries that use the euro without being members. */
+const EU_EURO = ('Austria|Belgium|Bulgaria|Croatia|Cyprus|Czech Republic|Denmark|Estonia|Finland|France|Germany|Greece|Hungary|Ireland|Italy|Latvia|Lithuania|Luxembourg|Malta|Netherlands|Poland|Portugal|Romania|Slovakia|Slovenia|Spain|Sweden|Andorra|Monaco|San Marino|Vatican City|Montenegro|Kosovo').split('|');
+const ISLAND_NATIONS = ('Antigua and Barbuda|Bahamas|Bahrain|Barbados|Brunei|Cape Verde|Comoros|Cuba|Cyprus|Dominica|Dominican Republic|Fiji|Grenada|Haiti|Iceland|Indonesia|Ireland|Jamaica|Japan|Kiribati|Madagascar|Maldives|Malta|Marshall Islands|Mauritius|Micronesia|Nauru|New Zealand|Palau|Papua New Guinea|Philippines|Saint Kitts and Nevis|Saint Lucia|Saint Vincent and the Grenadines|Samoa|Sao Tome and Principe|Seychelles|Singapore|Solomon Islands|Sri Lanka|Taiwan|Timor-Leste|Tonga|Trinidad and Tobago|Tuvalu|United Kingdom|Vanuatu|Australia').split('|');
+/** The 56 members (Gabon and Togo joined in 2022). */
+const COMMONWEALTH = 'Antigua and Barbuda|Australia|Bahamas|Bangladesh|Barbados|Belize|Botswana|Brunei|Cameroon|Canada|Cyprus|Dominica|Eswatini|Fiji|Gabon|Gambia|Ghana|Grenada|Guyana|India|Jamaica|Kenya|Kiribati|Lesotho|Malawi|Malaysia|Maldives|Malta|Mauritius|Mozambique|Namibia|Nauru|New Zealand|Nigeria|Pakistan|Papua New Guinea|Rwanda|Saint Kitts and Nevis|Saint Lucia|Saint Vincent and the Grenadines|Samoa|Seychelles|Sierra Leone|Singapore|Solomon Islands|South Africa|Sri Lanka|Tanzania|Togo|Tonga|Trinidad and Tobago|Tuvalu|Uganda|United Kingdom|Vanuatu|Zambia'.split('|');
+const EURO_CAPITALS = ('London|Paris|Rome|Berlin|Madrid|Moscow|Dublin|Athens|Lisbon|Amsterdam|Vienna|Stockholm|Oslo|Copenhagen|Helsinki|Warsaw|Prague|Budapest|Brussels|Bern|Reykjavik|Valletta|Nicosia|Bucharest|Sofia|Belgrade|Zagreb|Ljubljana|Bratislava|Sarajevo|Skopje|Tirana|Podgorica|Pristina|Chisinau|Kyiv|Minsk|Vilnius|Riga|Tallinn|Luxembourg City|Vaduz|Monaco|Andorra la Vella|San Marino|Vatican City|Tbilisi|Yerevan|Baku|Ankara|Astana').split('|');
+/** Capitals that share their country's (or territory's) first letter. */
+const SAME_LETTER_CAPITALS = ('Andorra la Vella|Algiers|Buenos Aires|Brasília|Belmopan|Bridgetown|Brussels|Bandar Seri Begawan|Djibouti|Georgetown|Guatemala City|Kuwait City|Luxembourg City|Malé|Majuro|Maputo|Mexico City|Monaco|Niamey|Panama City|Port Moresby|San Marino|São Tomé|Seoul|Singapore|Stockholm|Taipei|Tunis|Vatican City|Gibraltar|Saint-Pierre|Noumea|Mamoudzou').split('|');
+const COLOURS = /^(red|blue|green|black|white|gold|golden|yellow|grey|gray|pink|brown|purple|orange|silver|scarlet|crimson|violet|indigo|tawny|ruby|emerald|copper|olive|rose|azure|ivory)$/;
 
 const ANIMALS = ['mammal', 'bird', 'fish', 'bug', 'reptile-amphibian', 'sea-creature'];
 const CITIES = ['capital-city', 'european-city', 'asian-city'];
@@ -67,6 +86,32 @@ const SPECS: Spec[] = [
   { id: 'capital-6-letters', group: 'geography', text: 'Name a capital city with exactly six letters', category: 'Capitals · 6 letters', from: ['capital-city'], rule: (s) => letters(s).length === 6 },
   { id: 'river-4-letters', group: 'geography', text: 'Name a river with a four-letter name', category: 'Rivers · 4 letters', from: ['river'], rule: (s) => letters(s.replace(/^(river|the)\s+/i, '').replace(/\s+river$/i, '')).length === 4 },
   { id: 'island-starts-s', group: 'geography', text: 'Name an island beginning with S', category: 'Islands · starting with S', from: ['island'], rule: (s) => letters(s)[0] === 's' },
+  { id: 'capital-two-words', group: 'geography', text: 'Name a capital city with two or more words in its name', category: 'Capitals · two words or more', from: ['capital-city'], rule: (s) => words(s) >= 2 },
+  { id: 'capital-ends-vowel', group: 'geography', text: 'Name a capital city ending in a vowel', category: 'Capitals · ending in a vowel', from: ['capital-city'], rule: (s) => /[aeiou]$/.test(letters(s)) },
+  { id: 'us-state-with-o', group: 'geography', text: 'Name a US state with the letter O in it', category: 'US states · with an O', from: ['us-state'], rule: (s) => letters(s).includes('o') },
+  { id: 'island-ends-a', group: 'geography', text: 'Name an island ending in A', category: 'Islands · ending in A', from: ['island'], rule: (s) => letters(s).endsWith('a') },
+  { id: 'mountain-starts-k', group: 'geography', text: 'Name a mountain or volcano beginning with K', category: 'Mountains · starting with K', from: ['mountain'], rule: (s) => letters(s.replace(/^(mount|mt\.?|monte|mont)\s+/i, ''))[0] === 'k' },
+  { id: 'place-zqx', group: 'geography', text: 'Name a country or capital with a Z, Q or X in it', category: 'Places · with Z, Q or X', from: ['country', 'capital-city'], rule: (s) => /[zqx]/.test(letters(s)) },
+  { id: 'place-land', group: 'geography', text: 'Name a country or island with “land” in its name', category: 'Places · with “land”', from: ['country', 'island'], rule: (s) => letters(s).includes('land') },
+  { id: 'tube-one-word', group: 'geography', text: 'Name a London Underground station with a one-word name', category: 'Tube stations · one word', from: ['tube-station'], rule: (s) => words(s) === 1 },
+  { id: 'emperor-ends-us', group: 'history', text: 'Name a Roman emperor whose name ends in “-us”', category: 'Roman emperors · ending -us', from: ['roman-emperor'], rule: (s) => letters(s).endsWith('us') },
+  { id: 'animal-3-letters', group: 'nature', text: 'Name an animal with a three-letter name', category: 'Animals · 3 letters', from: ANIMALS, rule: (s) => letters(s).length === 3 },
+  { id: 'mammal-ends-a', group: 'nature', text: 'Name a mammal ending in A', category: 'Mammals · ending in A', from: ['mammal'], rule: (s) => letters(s).endsWith('a') },
+  { id: 'creature-fish', group: 'nature', text: 'Name a sea creature ending in “-fish”', category: 'Sea life · ending -fish', from: ['fish', 'sea-creature'], rule: (s) => letters(s).endsWith('fish') },
+  { id: 'fruit-berry', group: 'food', text: 'Name a fruit ending in “-berry”', category: 'Fruit · ending -berry', from: ['fruit'], rule: (s) => letters(s).endsWith('berry') },
+  { id: 'fruit-short', group: 'food', text: 'Name a fruit with five letters or fewer', category: 'Fruit · 5 letters or fewer', from: ['fruit'], rule: (s) => letters(s).length <= 5 },
+  { id: 'sport-ball', group: 'sport', text: 'Name a sport ending in “-ball”', category: 'Sports · ending -ball', from: ['sport'], rule: (s) => letters(s).endsWith('ball') },
+  { id: 'oscar-film-one-word', group: 'screen', text: 'Name an Oscar-winning film with a one-word title', category: 'Oscar winners · one-word titles', from: ['oscar-winning-film'], rule: (s) => words(s) === 1 },
+  { id: 'oscar-film-number', group: 'screen', text: 'Name an Oscar-winning film with a number in its title', category: 'Oscar winners · with a number', from: ['oscar-winning-film'], rule: (s) => /\d/.test(s) || /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|hundred|thousand|million)\b/i.test(s) },
+  { id: 'country-europe', group: 'geography', text: 'Name a country in Europe', category: 'Countries · Europe', from: ['country'], rule: () => true, member: EUROPE },
+  { id: 'country-asia', group: 'geography', text: 'Name a country in Asia', category: 'Countries · Asia', from: ['country'], rule: () => true, member: ASIA },
+  { id: 'country-americas', group: 'geography', text: 'Name a country in North, Central or South America', category: 'Countries · the Americas', from: ['country'], rule: () => true, member: AMERICAS },
+  { id: 'country-landlocked', group: 'geography', text: 'Name a landlocked country (no coastline)', category: 'Countries · landlocked', from: ['country'], rule: () => true, member: LANDLOCKED },
+  { id: 'country-eu-euro', group: 'geography', text: 'Name an EU member, or a country that uses the euro', category: 'Countries · EU or euro', from: ['country'], rule: () => true, member: EU_EURO },
+  { id: 'country-island', group: 'geography', text: 'Name an island country', category: 'Countries · island nations', from: ['country'], rule: () => true, member: ISLAND_NATIONS },
+  { id: 'country-commonwealth', group: 'geography', text: 'Name a member of the Commonwealth', category: 'Commonwealth members', from: ['country'], rule: () => true, member: COMMONWEALTH },
+  { id: 'capital-europe', group: 'geography', text: 'Name a European capital city', category: 'Capitals · Europe', from: ['capital-city'], rule: () => true, member: EURO_CAPITALS },
+  { id: 'capital-same-letter', group: 'geography', text: 'Name a capital starting with the same letter as its country', category: 'Capitals · same first letter as the country', from: ['capital-city'], rule: () => true, member: SAME_LETTER_CAPITALS, extra: { Djibouti: ['Djibouti City'] } },
   // Nature
   { id: 'animal-4-letters', group: 'nature', text: 'Name an animal with a four-letter name', category: 'Animals · 4 letters', from: ANIMALS, rule: (s) => letters(s).length === 4 },
   { id: 'animal-5-letters', group: 'nature', text: 'Name an animal with a five-letter name', category: 'Animals · 5 letters', from: ANIMALS, rule: (s) => letters(s).length === 5 },
@@ -135,7 +180,10 @@ for (const spec of SPECS) {
     if (!base) throw new Error(`${spec.id}: unknown base prompt ${id}`);
     for (const e of base.entries as AnswerEntry[]) {
       const aliases = spec.canonicalOnly ? [] : e.aliases.filter((a) => letters(a).length >= 4 && !BLOCK.has(letters(a)) && !acronym(a));
-      const ok = [e.name, ...aliases].filter((s) => (s === e.name || !acronym(s)) && spec.rule(s));
+      const member = spec.member && new Set(spec.member.map(letters));
+      const ok = member
+        ? ([e.name, ...aliases].some((s) => member.has(letters(s))) ? [e.name, ...aliases].filter((s) => s === e.name || !acronym(s)) : [])
+        : [e.name, ...aliases].filter((s) => (s === e.name || !acronym(s)) && spec.rule(s));
       if (!ok.length) continue;
       const fresh = ok.filter((s) => !taken.has(letters(s)));
       if (!fresh.length) continue;
@@ -145,13 +193,17 @@ for (const spec of SPECS) {
         prior.base = Math.min(prior.base, e.score);
         continue;
       }
+      fresh.push(...(spec.extra?.[e.name] ?? []).filter((s) => !taken.has(letters(s))));
       fresh.forEach((s) => taken.add(letters(s)));
       const display = fresh[0] === e.name ? e.name : titleCase(fresh[0]);
       seen.set(key, { name: display, aliases: fresh.slice(1), base: e.score });
     }
   }
   const list = [...seen.values()];
-  if (list.length < 30) throw new Error(`${spec.id} has only ${list.length} answers`);
+  if (list.length < 30) {
+    console.log(`  skipped ${spec.id}: only ${list.length} answers`);
+    continue;
+  }
   seeds.push({ id: spec.id, group: spec.group, text: spec.text, category: spec.category, answers: rescore(list) });
   console.log(String(list.length).padStart(4), spec.id);
 }

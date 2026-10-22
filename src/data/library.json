@@ -812,6 +812,188 @@
   "file": "island-starts-s-ba20c6de06.json"
  },
  {
+  "id": "capital-two-words",
+  "group": "geography",
+  "text": "Name a capital city with two or more words in its name",
+  "category": "Capitals · two words or more",
+  "file": "capital-two-words-3938464c6d.json"
+ },
+ {
+  "id": "capital-ends-vowel",
+  "group": "geography",
+  "text": "Name a capital city ending in a vowel",
+  "category": "Capitals · ending in a vowel",
+  "file": "capital-ends-vowel-140f9ac98f.json"
+ },
+ {
+  "id": "us-state-with-o",
+  "group": "geography",
+  "text": "Name a US state with the letter O in it",
+  "category": "US states · with an O",
+  "file": "us-state-with-o-def145b282.json"
+ },
+ {
+  "id": "island-ends-a",
+  "group": "geography",
+  "text": "Name an island ending in A",
+  "category": "Islands · ending in A",
+  "file": "island-ends-a-f3eeaeb781.json"
+ },
+ {
+  "id": "mountain-starts-k",
+  "group": "geography",
+  "text": "Name a mountain or volcano beginning with K",
+  "category": "Mountains · starting with K",
+  "file": "mountain-starts-k-6e88a65692.json"
+ },
+ {
+  "id": "place-zqx",
+  "group": "geography",
+  "text": "Name a country or capital with a Z, Q or X in it",
+  "category": "Places · with Z, Q or X",
+  "file": "place-zqx-ad99a56135.json"
+ },
+ {
+  "id": "place-land",
+  "group": "geography",
+  "text": "Name a country or island with “land” in its name",
+  "category": "Places · with “land”",
+  "file": "place-land-5e63064bbc.json"
+ },
+ {
+  "id": "tube-one-word",
+  "group": "geography",
+  "text": "Name a London Underground station with a one-word name",
+  "category": "Tube stations · one word",
+  "file": "tube-one-word-554633a627.json"
+ },
+ {
+  "id": "emperor-ends-us",
+  "group": "history",
+  "text": "Name a Roman emperor whose name ends in “-us”",
+  "category": "Roman emperors · ending -us",
+  "file": "emperor-ends-us-1326ec6217.json"
+ },
+ {
+  "id": "animal-3-letters",
+  "group": "nature",
+  "text": "Name an animal with a three-letter name",
+  "category": "Animals · 3 letters",
+  "file": "animal-3-letters-ae74bc37c9.json"
+ },
+ {
+  "id": "mammal-ends-a",
+  "group": "nature",
+  "text": "Name a mammal ending in A",
+  "category": "Mammals · ending in A",
+  "file": "mammal-ends-a-bc2cf68694.json"
+ },
+ {
+  "id": "creature-fish",
+  "group": "nature",
+  "text": "Name a sea creature ending in “-fish”",
+  "category": "Sea life · ending -fish",
+  "file": "creature-fish-fe8b19345d.json"
+ },
+ {
+  "id": "fruit-berry",
+  "group": "food",
+  "text": "Name a fruit ending in “-berry”",
+  "category": "Fruit · ending -berry",
+  "file": "fruit-berry-d3da3c9734.json"
+ },
+ {
+  "id": "fruit-short",
+  "group": "food",
+  "text": "Name a fruit with five letters or fewer",
+  "category": "Fruit · 5 letters or fewer",
+  "file": "fruit-short-4b0e097663.json"
+ },
+ {
+  "id": "sport-ball",
+  "group": "sport",
+  "text": "Name a sport ending in “-ball”",
+  "category": "Sports · ending -ball",
+  "file": "sport-ball-866d46b2e9.json"
+ },
+ {
+  "id": "oscar-film-one-word",
+  "group": "screen",
+  "text": "Name an Oscar-winning film with a one-word title",
+  "category": "Oscar winners · one-word titles",
+  "file": "oscar-film-one-word-e6fa04dc93.json"
+ },
+ {
+  "id": "oscar-film-number",
+  "group": "screen",
+  "text": "Name an Oscar-winning film with a number in its title",
+  "category": "Oscar winners · with a number",
+  "file": "oscar-film-number-e5321b0b87.json"
+ },
+ {
+  "id": "country-europe",
+  "group": "geography",
+  "text": "Name a country in Europe",
+  "category": "Countries · Europe",
+  "file": "country-europe-e244ef2238.json"
+ },
+ {
+  "id": "country-asia",
+  "group": "geography",
+  "text": "Name a country in Asia",
+  "category": "Countries · Asia",
+  "file": "country-asia-bd630a6a1a.json"
+ },
+ {
+  "id": "country-americas",
+  "group": "geography",
+  "text": "Name a country in North, Central or South America",
+  "category": "Countries · the Americas",
+  "file": "country-americas-ec8598b28a.json"
+ },
+ {
+  "id": "country-landlocked",
+  "group": "geography",
+  "text": "Name a landlocked country (no coastline)",
+  "category": "Countries · landlocked",
+  "file": "country-landlocked-06ef758bab.json"
+ },
+ {
+  "id": "country-eu-euro",
+  "group": "geography",
+  "text": "Name an EU member, or a country that uses the euro",
+  "category": "Countries · EU or euro",
+  "file": "country-eu-euro-173bfa7765.json"
+ },
+ {
+  "id": "country-island",
+  "group": "geography",
+  "text": "Name an island country",
+  "category": "Countries · island nations",
+  "file": "country-island-c97288c17a.json"
+ },
+ {
+  "id": "country-commonwealth",
+  "group": "geography",
+  "text": "Name a member of the Commonwealth",
+  "category": "Commonwealth members",
+  "file": "country-commonwealth-87acdffa85.json"
+ },
+ {
+  "id": "capital-europe",
+  "group": "geography",
+  "text": "Name a European capital city",
+  "category": "Capitals · Europe",
+  "file": "capital-europe-906089f6c0.json"
+ },
+ {
+  "id": "capital-same-letter",
+  "group": "geography",
+  "text": "Name a capital starting with the same letter as its country",
+  "category": "Capitals · same first letter as the country",
+  "file": "capital-same-letter-ba5c2811bc.json"
+ },
+ {
   "id": "animal-4-letters",
   "group": "nature",
   "text": "Name an animal with a four-letter name",
@@ -1125,5 +1307,229 @@
   "text": "Name a Nobel Peace Prize winner (person or organisation)",
   "category": "Nobel Peace Prize laureates",
   "file": "nobel-peace-laureate-3ba5bb627b.json"
+ },
+ {
+  "id": "christmas-number-one",
+  "group": "music",
+  "text": "Name a UK Christmas number one single (or its act)",
+  "category": "UK Christmas number ones",
+  "file": "christmas-number-one-9ab510ce52.json"
+ },
+ {
+  "id": "abba-song",
+  "group": "music",
+  "text": "Name an ABBA song",
+  "category": "ABBA songs",
+  "file": "abba-song-4613ad1df2.json"
+ },
+ {
+  "id": "taylor-swift-song",
+  "group": "music",
+  "text": "Name a Taylor Swift song",
+  "category": "Taylor Swift songs",
+  "file": "taylor-swift-song-434ec703cb.json"
+ },
+ {
+  "id": "english-county",
+  "group": "geography",
+  "text": "Name an English county (today’s or historic)",
+  "category": "English counties",
+  "file": "english-county-f701c437bb.json"
+ },
+ {
+  "id": "former-country",
+  "group": "history",
+  "text": "Name a country that no longer exists (or was renamed)",
+  "category": "Former countries",
+  "file": "former-country-700d8a2529.json"
+ },
+ {
+  "id": "pharaoh",
+  "group": "history",
+  "text": "Name an ancient Egyptian pharaoh",
+  "category": "Pharaohs",
+  "file": "pharaoh-3bd978753d.json"
+ },
+ {
+  "id": "famous-ship",
+  "group": "history",
+  "text": "Name a famous real ship (any era)",
+  "category": "Famous ships",
+  "file": "famous-ship-059a6da52e.json"
+ },
+ {
+  "id": "medieval-weapon",
+  "group": "history",
+  "text": "Name a medieval weapon or piece of armour",
+  "category": "Medieval arms and armour",
+  "file": "medieval-weapon-d0083ddad8.json"
+ },
+ {
+  "id": "weather",
+  "group": "science",
+  "text": "Name a type of weather",
+  "category": "Weather",
+  "file": "weather-3ab8da133a.json"
+ },
+ {
+  "id": "shape",
+  "group": "science",
+  "text": "Name a shape (flat or 3D)",
+  "category": "Shapes",
+  "file": "shape-960ad69ea8.json"
+ },
+ {
+  "id": "space-mission",
+  "group": "science",
+  "text": "Name a spacecraft, rocket or space mission",
+  "category": "Space missions",
+  "file": "space-mission-0aeba0f681.json"
+ },
+ {
+  "id": "fairy-tale",
+  "group": "general",
+  "text": "Name a fairy tale",
+  "category": "Fairy tales",
+  "file": "fairy-tale-31d230e6f8.json"
+ },
+ {
+  "id": "toy",
+  "group": "general",
+  "text": "Name a toy",
+  "category": "Toys",
+  "file": "toy-3672909322.json"
+ },
+ {
+  "id": "card-game",
+  "group": "general",
+  "text": "Name a card game",
+  "category": "Card games",
+  "file": "card-game-5e04d70977.json"
+ },
+ {
+  "id": "nursery-rhyme",
+  "group": "general",
+  "text": "Name a nursery rhyme",
+  "category": "Nursery rhymes",
+  "file": "nursery-rhyme-c03e634aa5.json"
+ },
+ {
+  "id": "social-app",
+  "group": "general",
+  "text": "Name a social media or messaging app",
+  "category": "Social and messaging apps",
+  "file": "social-app-6b413850a9.json"
+ },
+ {
+  "id": "vegetable",
+  "group": "food",
+  "text": "Name a vegetable",
+  "category": "Vegetables",
+  "file": "vegetable-49352dc771.json"
+ },
+ {
+  "id": "dessert",
+  "group": "food",
+  "text": "Name a dessert or pudding",
+  "category": "Desserts",
+  "file": "dessert-a0707e9d41.json"
+ },
+ {
+  "id": "breakfast-cereal",
+  "group": "food",
+  "text": "Name a breakfast cereal",
+  "category": "Breakfast cereals",
+  "file": "breakfast-cereal-2030807bc0.json"
+ },
+ {
+  "id": "soup",
+  "group": "food",
+  "text": "Name a soup",
+  "category": "Soups",
+  "file": "soup-9b2eee4994.json"
+ },
+ {
+  "id": "sauce",
+  "group": "food",
+  "text": "Name a sauce or condiment",
+  "category": "Sauces and condiments",
+  "file": "sauce-8fe2e140d1.json"
+ },
+ {
+  "id": "fast-food-chain",
+  "group": "food",
+  "text": "Name a fast-food or restaurant chain",
+  "category": "Restaurant chains",
+  "file": "fast-food-chain-e4d2a3dc25.json"
+ },
+ {
+  "id": "football-stadium",
+  "group": "sport",
+  "text": "Name a football stadium (any country)",
+  "category": "Football stadiums",
+  "file": "football-stadium-942c4fd767.json"
+ },
+ {
+  "id": "sporting-event",
+  "group": "sport",
+  "text": "Name a famous sporting event or tournament",
+  "category": "Sporting events",
+  "file": "sporting-event-e6e485ebe9.json"
+ },
+ {
+  "id": "bond-film",
+  "group": "screen",
+  "text": "Name a James Bond film or a Bond actor",
+  "category": "James Bond",
+  "file": "bond-film-e9912e4dc8.json"
+ },
+ {
+  "id": "pixar-film",
+  "group": "screen",
+  "text": "Name a Pixar film",
+  "category": "Pixar films",
+  "file": "pixar-film-d17d63edc7.json"
+ },
+ {
+  "id": "soap-opera",
+  "group": "screen",
+  "text": "Name a TV soap opera",
+  "category": "Soap operas",
+  "file": "soap-opera-f849cc4a8e.json"
+ },
+ {
+  "id": "game-show",
+  "group": "screen",
+  "text": "Name a TV game show or quiz show",
+  "category": "Game shows",
+  "file": "game-show-a1870b9ae8.json"
+ },
+ {
+  "id": "christmas-film",
+  "group": "screen",
+  "text": "Name a Christmas film",
+  "category": "Christmas films",
+  "file": "christmas-film-b7d238f5bf.json"
+ },
+ {
+  "id": "queen-song",
+  "group": "music",
+  "text": "Name a song by Queen",
+  "category": "Queen songs",
+  "file": "queen-song-70aa24d160.json"
+ },
+ {
+  "id": "christmas-song",
+  "group": "music",
+  "text": "Name a Christmas song or carol",
+  "category": "Christmas songs and carols",
+  "file": "christmas-song-b4dd26bdd5.json"
+ },
+ {
+  "id": "shakespeare-character",
+  "group": "arts",
+  "text": "Name a Shakespeare character",
+  "category": "Shakespeare characters",
+  "file": "shakespeare-character-59cfc67ad1.json"
  }
 ]

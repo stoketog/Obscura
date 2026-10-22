@@ -15,6 +15,8 @@ import { withExtras } from './extra/merge';
 import { PUZZLES } from './puzzles';
 import { MORE } from './more';
 import { WIKILISTS } from './wikilists';
+import { ATLAS } from './atlas';
+import { ATLAS2 } from './atlas2';
 
 /**
  * The prompt library. To add a category, add a `PromptSeed` to any file here
@@ -43,4 +45,4 @@ export const CORE_SEEDS: PromptSeed[] = [
  * Everything: the core with its extras, then the puzzle prompts (letter and vowel rules, generated from the base
  * lists by scripts/answers/puzzles.ts) and the hand-made lists in more.ts.
  */
-export const PROMPT_SEEDS: PromptSeed[] = [...withExtras(CORE_SEEDS, EXTRA_ANSWERS), ...PUZZLES, ...MORE, ...WIKILISTS];
+export const PROMPT_SEEDS: PromptSeed[] = [...withExtras(CORE_SEEDS, EXTRA_ANSWERS), ...PUZZLES, ...MORE, ...WIKILISTS, ...ATLAS, ...ATLAS2];

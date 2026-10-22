@@ -394,5 +394,17 @@
    "footballer"
   ],
   "image": "colosseum"
+ },
+ "2026-10-25": {
+  "prompts": [
+   "fabric",
+   "furniture",
+   "football-club",
+   "flower-ends-a",
+   "body-part",
+   "spice",
+   "island"
+  ],
+  "image": "abacus"
  }
 }
