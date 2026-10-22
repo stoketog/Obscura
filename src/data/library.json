@@ -1531,5 +1531,61 @@
   "text": "Name a Shakespeare character",
   "category": "Shakespeare characters",
   "file": "shakespeare-character-59cfc67ad1.json"
+ },
+ {
+  "id": "country-starts-c",
+  "group": "geography",
+  "text": "Name a country that starts with the letter C",
+  "category": "Countries · starting with C",
+  "file": "country-starts-c-af063bc979.json",
+  "editorial": true
+ },
+ {
+  "id": "film-masked-character",
+  "group": "screen",
+  "text": "Name a film that features a character wearing a mask",
+  "category": "Films with masked characters",
+  "file": "film-masked-character-b80d5562f7.json",
+  "editorial": true
+ },
+ {
+  "id": "british-garden",
+  "group": "general",
+  "text": "Name something commonly found in a British garden",
+  "category": "In a British garden",
+  "file": "british-garden-7330c865a2.json",
+  "editorial": true
+ },
+ {
+  "id": "has-battery",
+  "group": "general",
+  "text": "Name something that has a battery",
+  "category": "Things with a battery",
+  "file": "has-battery-dcaa0ab41c.json",
+  "editorial": true
+ },
+ {
+  "id": "tail-not-animal",
+  "group": "general",
+  "text": "Name something that has a tail but isn’t an animal",
+  "category": "Tails that aren’t animals",
+  "file": "tail-not-animal-77b8f57227.json",
+  "editorial": true
+ },
+ {
+  "id": "short-war",
+  "group": "history",
+  "text": "Name a war that lasted less than 5 years",
+  "category": "Wars under five years",
+  "file": "short-war-4f5b200055.json",
+  "editorial": true
+ },
+ {
+  "id": "magnetic-substance",
+  "group": "science",
+  "text": "Name a substance that is naturally magnetic",
+  "category": "Naturally magnetic substances",
+  "file": "magnetic-substance-b3a927d65f.json",
+  "editorial": true
  }
 ]

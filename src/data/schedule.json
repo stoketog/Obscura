@@ -373,13 +373,13 @@
  },
  "2026-10-23": {
   "prompts": [
-   "colour",
-   "desert",
-   "vehicle",
-   "dance",
-   "tennis-player",
-   "programming-language",
-   "ancient-god"
+   "country-starts-c",
+   "film-masked-character",
+   "british-garden",
+   "has-battery",
+   "tail-not-animal",
+   "short-war",
+   "magnetic-substance"
   ],
   "image": "enigma"
  },

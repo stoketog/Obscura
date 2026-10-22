@@ -16,6 +16,8 @@ export interface PromptMeta {
   category: string;
   /** File under /answers holding this prompt's answers. */
   file: string;
+  /** Written for one particular day: only shown where the schedule pins it. */
+  editorial?: boolean;
 }
 
 export const PROMPT_INDEX: PromptMeta[] = INDEX as PromptMeta[];

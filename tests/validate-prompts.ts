@@ -41,7 +41,9 @@ async function main() {
       const sc = p.entries.map((e) => e.score);
       const lo = sc.filter((s) => s < 18).length, hi = sc.filter((s) => s >= 92).length;
       const mid = sc.filter((s) => s >= 18 && s < 38).length, rare = sc.filter((s) => s >= 38 && s < 92).length;
-      if (n < 30) fail(id, `only ${n} answers (need 30+)`);
+      // A day's own prompt can be a short closed list (countries starting with C); the library's need 30+.
+      const minAnswers = seed.editorial ? 12 : 30;
+      if (n < minAnswers) fail(id, `only ${n} answers (need ${minAnswers}+)`);
       if (lo < 3) fail(id, `needs 3+ everyday answers (score < 18), has ${lo}`);
       if (lo > 8) fail(id, `at most 8 everyday answers (score < 18), has ${lo}: move the rest to Uncommon`);
       if (hi < 1 || hi > 2) fail(id, `needs 1 or 2 top-tier (Obscure, 100 pts) answers (score >= 92), has ${hi}`);

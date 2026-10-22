@@ -27,7 +27,7 @@ const index = PROMPT_SEEDS.map((seed) => {
   const hash = createHash('sha256').update(body).digest('hex').slice(0, 10);
   const file = `${seed.id}-${hash}.json`;
   writeFileSync(join(outDir, file), body);
-  return { id: seed.id, group: seed.group, text: seed.text, category: seed.category, file };
+  return { id: seed.id, group: seed.group, text: seed.text, category: seed.category, file, ...(seed.editorial ? { editorial: true } : {}) };
 });
 
 writeFileSync(join(root, 'src/data/library.json'), JSON.stringify(index, null, 1) + '\n');

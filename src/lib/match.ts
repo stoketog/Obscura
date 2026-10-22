@@ -52,6 +52,17 @@ function indexFor(prompt: Prompt): Index {
   return idx;
 }
 
+/** The number at the end of a name ("world war 2" → 2, "henry viii" → 8, "toy story" → none), for typo checks. */
+const ROMAN: Record<string, number> = { i: 1, ii: 2, iii: 3, iv: 4, v: 5, vi: 6, vii: 7, viii: 8, ix: 9, x: 10, xi: 11, xii: 12 };
+const WORDS: Record<string, number> = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10 };
+function numberTag(s: string): number | null {
+  const last = s.split(' ').at(-1) ?? '';
+  if (/^\d+$/.test(last)) return Number(last);
+  if (s.includes(' ') && ROMAN[last] !== undefined) return ROMAN[last];
+  if (s.includes(' ') && WORDS[last] !== undefined) return WORDS[last];
+  return null;
+}
+
 function allowedDistance(len: number): number {
   if (len >= 9) return 2;
   if (len >= 5) return 1;
@@ -73,8 +84,11 @@ export function matchAnswer(prompt: Prompt, raw: string): MatchResult {
   let best: { d: number; entry: AnswerEntry } | null = null;
   let tie = false;
   let closest: { d: number; entry: AnswerEntry } | null = null;
+  const num = numberTag(text);
   for (const [n, entry] of idx.names) {
     if (Math.abs(n.length - text.length) > 2) continue;
+    // "World War 2" is not a typo of "World War I", nor "Rocky III" of "Rocky II".
+    if (num !== numberTag(n)) continue;
     const d = levenshtein(text, n);
     if (!closest || d < closest.d) closest = { d, entry };
     if (d <= maxD) {

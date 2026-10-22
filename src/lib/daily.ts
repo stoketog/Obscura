@@ -63,10 +63,11 @@ function shuffledOrder(n: number, seed: number): number[] {
 }
 
 /** Anything with an id and a group can be dealt: the bundled index (`PromptMeta`) or fully loaded prompts. */
-type Dealable = { id: string; group: PromptGroup };
+type Dealable = { id: string; group: PromptGroup; editorial?: boolean };
 
 export function pickPrompts<T extends Dealable = (typeof PROMPT_INDEX)[number]>(dateKey: string, pool: T[] = PROMPT_INDEX as unknown as T[], count = ROUNDS_PER_DAY, dayOverride?: number): T[] {
   const day = dayOverride ?? Math.max(0, puzzleNumberFor(dateKey) - 1);
+  pool = pool.filter((p) => !p.editorial); // a day's own prompts are never dealt at random
   const byGroup = new Map<PromptGroup, T[]>();
   for (const p of pool) byGroup.set(p.group, [...(byGroup.get(p.group) ?? []), p]);
   const groups = [...byGroup.keys()];
@@ -199,7 +200,7 @@ function nudged<T extends Dealable>(dateKey: string, pool: T[]): T[] {
   const used = new Set(dealt.map((p) => p.id));
   return dealt.map((p) => {
     if (!recent.has(p.id)) return p;
-    const same = pool.filter((q) => q.group === p.group && !recent.has(q.id) && !used.has(q.id));
+    const same = pool.filter((q) => q.group === p.group && !q.editorial && !recent.has(q.id) && !used.has(q.id));
     const alt = same.length ? same[shuffledOrder(same.length, hash(`${dateKey}:${p.id}`))[0]] : undefined;
     if (!alt) return p;
     used.add(alt.id);

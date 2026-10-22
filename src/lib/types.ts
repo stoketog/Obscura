@@ -32,6 +32,8 @@ export interface PromptSeed {
   /** Short topic label shown on the result screen. */
   category: string;
   answers: string[];
+  /** Written for one particular day (src/data/prompts/days): shown only where the schedule pins it, never dealt at random. */
+  editorial?: boolean;
 }
 
 export interface Prompt {
@@ -40,6 +42,7 @@ export interface Prompt {
   text: string;
   category: string;
   entries: AnswerEntry[];
+  editorial?: boolean;
 }
 
 export type TierId = 'everyday' | 'uncommon' | 'rare' | 'obscure' | 'mythic';

@@ -35,7 +35,8 @@ test('prompt ids are unique and there are enough for several days', () => {
 });
 test('every prompt has plenty of answers with valid scores', () => {
   for (const p of prompts) {
-    assert.ok(p.entries.length >= 30, `${p.id} has only ${p.entries.length} answers`);
+    // a day's own prompt may be a short closed list; the library's need 30+
+    assert.ok(p.entries.length >= (p.editorial ? 12 : 30), `${p.id} has only ${p.entries.length} answers`);
     for (const e of p.entries) assert.ok(e.score >= 1 && e.score <= 100, `${p.id}/${e.name} score ${e.score}`);
   }
 });
