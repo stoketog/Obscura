@@ -77,7 +77,8 @@ def main():
             print(f'  ✗ {sid}: nothing safe for "{query}"', flush=True)
         json.dump(dict(sorted(picks.items())), open(PICKS, 'w'), indent=2, ensure_ascii=False)
         json.dump(dict(sorted(alts.items())), open(ALTS, 'w'), indent=2, ensure_ascii=False)
-        time.sleep(2)
+        # Wikimedia rate-limits anonymous traffic hard: one subject every ~20 seconds stays under it.
+        time.sleep(18)
     print(f'done: {len(todo) - len(missing)} picked, {len(missing)} without a safe file: {", ".join(missing)}')
 
 

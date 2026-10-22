@@ -39,7 +39,7 @@ def get(url, binary=False):
                 return data if binary else json.loads(data)
         except urllib.error.HTTPError as e:
             if e.code == 429 or e.code >= 500:
-                wait = int(e.headers.get('Retry-After') or 20) + 2
+                wait = int(e.headers.get('Retry-After') or 20) + 8
                 print(f'    rate limited, waiting {wait}s', flush=True)
                 time.sleep(wait)
                 continue
@@ -137,7 +137,7 @@ def main():
         # Save after every photo, so an interrupted run keeps what it already approved.
         json.dump(dict(sorted(credits.items())), open(CREDITS, 'w'), indent=2, ensure_ascii=False)
         print(f'  ✓ {key}: {title} [{info["license"]}; {", ".join(t[9:] for t in info["templates"])}]', flush=True)
-        time.sleep(8)
+        time.sleep(15)
     json.dump(dict(sorted(credits.items())), open(CREDITS, 'w'), indent=2, ensure_ascii=False)
     for key, why in refused.items():
         print(f'  ✗ {key}: {picks[key]} refused: {"; ".join(why)}')
