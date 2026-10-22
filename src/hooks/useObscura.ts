@@ -4,11 +4,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { DailySet, GameState, GuessRecord, PlayerProfile } from '@/lib/types';
 import { playerRepository, emptyProfile } from '@/lib/storage';
 import { toDateKey } from '@/lib/dates';
-import { ENDLESS_DIVES, getDaily, getEndlessDive } from '@/lib/daily';
+import { ENDLESS_DIVES, asPlayed, getDaily, getEndlessDive, imageForDay, type DayOf } from '@/lib/daily';
+import { PROMPT_INDEX, loadPrompts, type PromptMeta } from '@/lib/library';
 import { deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, submitGuess, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
 import { ADMIN_ENABLED } from '@/lib/config';
 import { logUnrecognised, loadForcedDate, loadOverrides, saveForcedDate, saveOverrides, type OverrideMap } from '@/lib/admin';
-import { rarestEntry } from '@/lib/prompts';
+import { rarestEntry } from '@/lib/parse';
 
 export type View = 'home' | 'play';
 
@@ -33,7 +34,19 @@ export interface ObscuraApi {
   today: string;
   /** The date being played (differs from `today` only in admin time-travel). */
   dateKey: string;
+  /** The day being shown, known straight away (prompts without their answers). */
+  plan: DayOf<PromptMeta> | null;
+  /** The same day with every prompt's answers loaded; null while they download. */
   daily: DailySet | null;
+  /** True if the answers could not be downloaded (offline, say). */
+  loadError: boolean;
+  retryLoad: () => void;
+  /** The past day being replayed from the archive, or null. */
+  archiveDate: string | null;
+  /** Open a past day: plays it, or shows its result if it is finished. Never touches the streak. */
+  openArchive: (dateKey: string) => void;
+  /** Record that the player has been shown these badges. */
+  markBadgesSeen: (ids: string[]) => void;
   game: GameState | null;
   stats: Stats;
   streak: number;
@@ -74,9 +87,13 @@ export function useObscura(): ObscuraApi {
   const [today, setToday] = useState(() => toDateKey(new Date()));
   const [view, setViewRaw] = useState<View>('home');
   const [endless, setEndless] = useState<number | null>(null);
+  const [archiveDate, setArchiveDate] = useState<string | null>(null);
   // Going home always returns to the daily.
   const setView = useCallback((v: View) => {
-    if (v === 'home') setEndless(null);
+    if (v === 'home') {
+      setEndless(null);
+      setArchiveDate(null);
+    }
     setViewRaw(v);
   }, []);
   const [overrides, setOverrides] = useState<OverrideMap>({});
@@ -86,7 +103,20 @@ export function useObscura(): ObscuraApi {
 
   // Hydrate from storage on the client only (the server render is a neutral shell).
   useEffect(() => {
-    setProfile(playerRepository.load());
+    const loadedProfile = playerRepository.load();
+    // Games saved before photographs were recorded with each game get the photograph they were played with, while
+    // the daily deal still matches it.
+    const missing = Object.values(loadedProfile.games).filter((g) => !g.imageId);
+    if (missing.length) {
+      const games = { ...loadedProfile.games };
+      for (const g of missing) {
+        const dive = g.dateKey.startsWith('endless-') ? Number(g.dateKey.slice(8)) : 0;
+        games[g.dateKey] = { ...g, imageId: dive ? getEndlessDive(dive).image.id : imageForDay(g.puzzleNumber - 1).id };
+      }
+      const next = { ...loadedProfile, games };
+      playerRepository.save(next);
+      setProfile(next);
+    } else setProfile(loadedProfile);
     setToday(toDateKey(new Date()));
     if (ADMIN_ENABLED) {
       setOverrides(loadOverrides());
@@ -122,11 +152,42 @@ export function useObscura(): ObscuraApi {
 
   const dateKey = ADMIN_ENABLED && forcedDate ? forcedDate : today;
 
-  const daily = useMemo<DailySet | null>(() => (!ready ? null : endless ? getEndlessDive(endless) : getDaily(dateKey, ADMIN_ENABLED ? overrides : undefined)), [ready, dateKey, overrides, endless]);
+  // The day on screen, worked out from the bundled index alone (no answers yet).
+  const planRaw = useMemo<DayOf<PromptMeta> | null>(() => {
+    if (!ready) return null;
+    if (endless) return getEndlessDive(endless);
+    const key = archiveDate ?? dateKey;
+    const day = getDaily(key, ADMIN_ENABLED ? overrides : undefined);
+    return archiveDate ? { ...day, archive: true } : day;
+  }, [ready, dateKey, overrides, endless, archiveDate]);
+  const saved = planRaw ? profile.games[planRaw.dateKey] : undefined;
+  const planned = planRaw ? asPlayed(planRaw, saved, PROMPT_INDEX) : null;
+  // A stable identity for the day, so its answers are fetched once, not on every move.
+  const planKey = planned ? `${planned.dateKey}|${planned.archive ? 'a' : ''}|${planned.image.id}|${planned.prompts.map((p) => p.id).join(',')}` : '';
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const plan = useMemo(() => planned, [planKey]);
+
+  const [loaded, setLoaded] = useState<{ key: string; set: DailySet } | null>(null);
+  const [loadError, setLoadError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  useEffect(() => {
+    if (!plan) return;
+    let live = true;
+    setLoadError(false);
+    loadPrompts(plan.prompts)
+      .then((prompts) => live && setLoaded({ key: planKey, set: { ...plan, prompts } }))
+      .catch(() => live && setLoadError(true));
+    return () => {
+      live = false;
+    };
+  }, [plan, planKey, attempt]);
+  const retryLoad = useCallback(() => setAttempt((n) => n + 1), []);
+
+  const daily = loaded && loaded.key === planKey ? loaded.set : null;
   const dailyRef = useRef(daily);
   dailyRef.current = daily;
 
-  const game = useMemo(() => (daily ? getGame(profile, daily) : null), [profile, daily]);
+  const game = useMemo(() => (plan ? getGame(profile, plan) : null), [profile, plan]);
 
   const commit = useCallback((next: PlayerProfile) => {
     profileRef.current = next;
@@ -195,9 +256,27 @@ export function useObscura(): ObscuraApi {
 
   const openEndless = useCallback((dive: number) => {
     if (dive < 1 || dive > ENDLESS_DIVES) return;
+    setArchiveDate(null);
     setEndless(dive);
     setViewRaw('play');
   }, []);
+
+  const openArchive = useCallback((key: string) => {
+    setEndless(null);
+    setArchiveDate(key);
+    setViewRaw('play');
+  }, []);
+
+  const markBadgesSeen = useCallback(
+    (ids: string[]) => {
+      const cur = profileRef.current;
+      const seen = new Set(cur.badgesSeen ?? []);
+      if (ids.every((id) => seen.has(id))) return;
+      ids.forEach((id) => seen.add(id));
+      commit({ ...cur, badgesSeen: [...seen] });
+    },
+    [commit],
+  );
 
   const endlessDives = useMemo<EndlessDive[]>(
     () =>
@@ -278,5 +357,5 @@ export function useObscura(): ObscuraApi {
     [overrides, forcedDate, commit],
   );
 
-  return { ready, profile, today, dateKey, daily, game, stats, streak, view, setView, endless, openEndless, endlessDives, start, submit, skip, expire, guess, markCelebrated, dismissHelp, admin };
+  return { ready, profile, today, dateKey, plan, daily, loadError, retryLoad, archiveDate, openArchive, markBadgesSeen, game, stats, streak, view, setView, endless, openEndless, endlessDives, start, submit, skip, expire, guess, markCelebrated, dismissHelp, admin };
 }

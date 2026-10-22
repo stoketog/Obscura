@@ -1,7 +1,7 @@
-import type { DailyImage, DailySet, Prompt, PromptGroup } from './types';
-import { getPrompts } from './prompts';
+import type { DailyImage, DailySet, PromptGroup } from './types';
+import { PROMPT_INDEX } from './library';
 import { IMAGES } from '@/data/images';
-import { puzzleNumberFor } from './dates';
+import { addDays, puzzleNumberFor } from './dates';
 import { ROUNDS_PER_DAY } from './scoring';
 
 /**
@@ -54,9 +54,12 @@ function shuffledOrder(n: number, seed: number): number[] {
   return idx;
 }
 
-export function pickPrompts(dateKey: string, pool: Prompt[] = getPrompts(), count = ROUNDS_PER_DAY, dayOverride?: number): Prompt[] {
+/** Anything with an id and a group can be dealt: the bundled index (`PromptMeta`) or fully loaded prompts. */
+type Dealable = { id: string; group: PromptGroup };
+
+export function pickPrompts<T extends Dealable = (typeof PROMPT_INDEX)[number]>(dateKey: string, pool: T[] = PROMPT_INDEX as unknown as T[], count = ROUNDS_PER_DAY, dayOverride?: number): T[] {
   const day = dayOverride ?? Math.max(0, puzzleNumberFor(dateKey) - 1);
-  const byGroup = new Map<PromptGroup, Prompt[]>();
+  const byGroup = new Map<PromptGroup, T[]>();
   for (const p of pool) byGroup.set(p.group, [...(byGroup.get(p.group) ?? []), p]);
   const groups = [...byGroup.keys()];
   const used = new Map<PromptGroup, number>();
@@ -83,7 +86,7 @@ export function pickPrompts(dateKey: string, pool: Prompt[] = getPrompts(), coun
     return seq;
   };
 
-  const draw = (wanted: PromptGroup, slot: number): Prompt => {
+  const draw = (wanted: PromptGroup, slot: number): T => {
     // A pool without this group (a tiny test pool, say) falls back to whichever groups exist.
     const g = byGroup.has(wanted) ? wanted : groups[slot % groups.length];
     const list = byGroup.get(g)!;
@@ -92,7 +95,7 @@ export function pickPrompts(dateKey: string, pool: Prompt[] = getPrompts(), coun
     return list[extend(g, list.length, n)[n]];
   };
 
-  let today: Prompt[] = [];
+  let today: T[] = [];
   for (let d = 0; d <= day; d++) {
     today = [];
     for (let slot = 0; slot < slotsPerDay; slot++) {
@@ -103,7 +106,7 @@ export function pickPrompts(dateKey: string, pool: Prompt[] = getPrompts(), coun
   // Different order each day so the same topic isn't always the opening round.
   const order = shuffledOrder(today.length, 0x5107 ^ hash(dateKey));
   const seen = new Set<string>();
-  const out: Prompt[] = [];
+  const out: T[] = [];
   for (const i of order) {
     if (!seen.has(today[i].id)) {
       seen.add(today[i].id);
@@ -136,13 +139,19 @@ export function imageForDay(day: number, library: DailyImage[] = IMAGES): DailyI
   return library[order[d % n]];
 }
 
+/**
+ * A day, before or after its answers are loaded: `DailySet<PromptMeta>` is what the game can work out on its own
+ * (which seven prompts, which photograph); `DailySet` (full prompts) is what it plays once the answers arrive.
+ */
+export type DayOf<T> = Omit<DailySet, 'prompts'> & { prompts: T[] };
+
 /** `overrides` maps a date to an explicit list of prompt ids (admin / editorial). */
-export function getDaily(dateKey: string, overrides?: Record<string, string[]>, pool: Prompt[] = getPrompts()): DailySet {
+export function getDaily<T extends Dealable = (typeof PROMPT_INDEX)[number]>(dateKey: string, overrides?: Record<string, string[]>, pool: T[] = PROMPT_INDEX as unknown as T[]): DayOf<T> {
   const forced = overrides?.[dateKey];
   let prompts = pickPrompts(dateKey, pool);
   if (forced && forced.length) {
     const byId = new Map(pool.map((p) => [p.id, p]));
-    const picked = forced.map((id, i) => byId.get(id) ?? prompts[i]).filter(Boolean) as Prompt[];
+    const picked = forced.map((id, i) => byId.get(id) ?? prompts[i]).filter(Boolean) as T[];
     if (picked.length === ROUNDS_PER_DAY) prompts = picked;
   }
   const number = puzzleNumberFor(dateKey);
@@ -157,19 +166,45 @@ export function getDaily(dateKey: string, overrides?: Record<string, string[]>, 
  */
 export const ENDLESS_DIVES = 2;
 
-const dives = new Map<string, DailySet>();
-export function getEndlessDive(n: number, pool?: Prompt[]): DailySet {
+const dives = new Map<string, DayOf<Dealable>>();
+export function getEndlessDive<T extends Dealable = (typeof PROMPT_INDEX)[number]>(n: number, pool?: T[]): DayOf<T> {
   const key = `endless-${n}`;
-  const cached = pool ? undefined : dives.get(key);
+  const cached = pool ? undefined : (dives.get(key) as DayOf<T> | undefined);
   if (cached) return cached;
   // A later dive never reuses a prompt from an earlier one.
-  let source = pool ?? getPrompts();
+  let source: T[] = pool ?? (PROMPT_INDEX as unknown as T[]);
   for (let k = 1; k < n; k++) {
     const used = new Set(getEndlessDive(k, pool).prompts.map((p) => p.id));
     source = source.filter((p) => !used.has(p.id));
   }
   // Endless dives take their photographs from the far end of the daily deal, so they rarely match a recent day.
-  const set: DailySet = { dateKey: key, number: 0, endless: n, prompts: pickPrompts(key, source, ROUNDS_PER_DAY, 4000 + n * 37), image: imageForDay(IMAGES.length * 3 - n) };
+  const set: DayOf<T> = { dateKey: key, number: 0, endless: n, prompts: pickPrompts(key, source, ROUNDS_PER_DAY, 4000 + n * 37), image: imageForDay(IMAGES.length * 3 - n) };
   if (!pool) dives.set(key, set);
   return set;
+}
+
+/**
+ * A day as it was actually played. Once a game is saved, its prompts and photograph are taken from the save, so a
+ * past day keeps showing what the player saw even after the library grows and the daily deal shifts.
+ */
+export function asPlayed<T extends Dealable>(day: DayOf<T>, saved: { rounds: Array<{ promptId: string }>; imageId?: string } | undefined, pool: T[], library: DailyImage[] = IMAGES): DayOf<T> {
+  if (!saved) return day;
+  const byId = new Map(pool.map((p) => [p.id, p]));
+  const prompts = saved.rounds.map((r) => byId.get(r.promptId));
+  const image = saved.imageId ? library.find((i) => i.id === saved.imageId) : undefined;
+  return {
+    ...day,
+    prompts: prompts.every(Boolean) && prompts.length === day.prompts.length ? (prompts as T[]) : day.prompts,
+    image: image ?? day.image,
+  };
+}
+
+/** Every past day that can be replayed from the archive, newest first (puzzle 1 up to yesterday). */
+export function archiveDates(todayKey: string): string[] {
+  const n = puzzleNumberFor(todayKey) - 1;
+  return Array.from({ length: Math.max(0, n) }, (_, i) => addDays(todayKey, -(i + 1)));
+}
+
+export function imageById(id: string | undefined, library: DailyImage[] = IMAGES): DailyImage | undefined {
+  return id ? library.find((i) => i.id === id) : undefined;
 }

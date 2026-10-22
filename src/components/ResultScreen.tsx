@@ -11,7 +11,8 @@ import { useSettings } from '@/hooks/useSettings';
 import { Chamber } from './Chamber';
 import { Segments } from './GameScreen';
 import { TierChip, TierDot } from './TierChip';
-import { IconArrow, IconCheck, IconClock, IconCopy, IconShare, IconInfinity, IconClose } from './Icons';
+import { IconArrow, IconCheck, IconClock, IconCopy, IconShare, IconInfinity, IconClose, IconSnow, IconAward, IconCalendar, IconImage } from './Icons';
+import { unseenBadges, type Badge } from '@/lib/badges';
 
 function useNow(ms = 1000) {
   const [now, setNow] = useState(() => new Date());
@@ -23,10 +24,20 @@ function useNow(ms = 1000) {
 }
 
 /** After the seventh prompt: one guess at the photograph, then the full results. */
-export function ResultScreen({ api, onOpenStats }: { api: ObscuraApi; onOpenStats: () => void }) {
+export function ResultScreen({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpenStats: () => void; onOpenDarkroom: (tab: 'prints' | 'badges') => void }) {
   const { game } = api;
   if (!api.daily || !game?.outcome) return null;
-  return game.guess ? <Results api={api} onOpenStats={onOpenStats} /> : <GuessScreen api={api} />;
+  return game.guess ? <Results api={api} onOpenStats={onOpenStats} onOpenDarkroom={onOpenDarkroom} /> : <GuessScreen api={api} />;
+}
+
+/** Badges earned that the player hasn't been told about yet, captured once when the results open. */
+function useNewBadges(api: ObscuraApi): Badge[] {
+  const [fresh] = useState(() => unseenBadges(api.profile));
+  useEffect(() => {
+    if (fresh.length) api.markBadgesSeen(fresh.map((b) => b.id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return fresh;
 }
 
 /* ───────────────────────── The one guess ───────────────────────── */
@@ -131,7 +142,8 @@ function GuessScreen({ api }: { api: ObscuraApi }) {
 
 /* ───────────────────────── The reveal and every answer ───────────────────────── */
 
-function Results({ api, onOpenStats }: { api: ObscuraApi; onOpenStats: () => void }) {
+function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpenStats: () => void; onOpenDarkroom: (tab: 'prints' | 'badges') => void }) {
+  const newBadges = useNewBadges(api);
   const { daily: d, game: g, streak, markCelebrated } = api;
   const daily = d!;
   const game = g!;
@@ -184,7 +196,7 @@ function Results({ api, onOpenStats }: { api: ObscuraApi; onOpenStats: () => voi
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-12 sm:px-5 lg:grid lg:grid-cols-[1fr_1.05fr] lg:gap-12" data-testid="result">
       <section className="mx-auto w-full max-w-xl lg:sticky lg:top-4 lg:max-w-none lg:self-start">
-        <p className="eyebrow">{daily.endless ? `Endless · dive ${daily.endless}` : `No. ${daily.number} · ${prettyDate(daily.dateKey)}`}</p>
+        <p className="eyebrow">{daily.endless ? `Endless · dive ${daily.endless}` : `No. ${daily.number} · ${prettyDate(daily.dateKey)}${daily.archive ? ' · archive' : ''}`}</p>
         <figure className="mt-3">
           <Chamber image={daily.image} developed={100} revealed aspect={`${daily.image.width} / ${daily.image.height}`} className="max-h-[56dvh] lg:max-h-[62dvh]" testId="reveal-photo" />
           <figcaption className="mt-4">
@@ -232,8 +244,41 @@ function Results({ api, onOpenStats }: { api: ObscuraApi; onOpenStats: () => voi
           </pre>
         </div>
 
+        {(out.freezesUsed || out.freezeEarned) && (
+          <p className="mt-1 flex items-start gap-2 rounded-md border border-sky-300/25 bg-sky-300/5 px-3.5 py-2.5 text-xs leading-relaxed text-sky-200" data-testid="freeze-note">
+            <IconSnow size={15} className="mt-0.5 shrink-0" />
+            <span>
+              {out.freezesUsed ? `${out.freezesUsed === 1 ? 'A streak freeze' : `${out.freezesUsed} streak freezes`} covered the ${out.freezesUsed === 1 ? 'day' : 'days'} you missed, so your streak lives on. ` : ''}
+              {out.freezeEarned ? 'You earned a streak freeze for playing seven days. It will cover a day you miss.' : ''}
+            </span>
+          </p>
+        )}
+
+        {newBadges.length > 0 && (
+          <button className="panel mt-3 flex w-full items-center gap-3 border-bio-400/40 px-3.5 py-3 text-left animate-rise" onClick={() => onOpenDarkroom('badges')} data-testid="new-badges">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-bio-400/15 text-bio-400">
+              <IconAward size={20} />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="eyebrow block !text-[0.6rem]">{newBadges.length === 1 ? 'New badge' : `${newBadges.length} new badges`}</span>
+              <b className="block truncate text-sm text-mist-100">{newBadges.map((b) => b.name).join(' · ')}</b>
+            </span>
+            <IconArrow size={15} className="shrink-0 text-mist-500" />
+          </button>
+        )}
+
         <div className="mt-2 flex items-center justify-between gap-3 text-sm text-mist-300">
-          {daily.endless ? (
+          {daily.archive ? (
+            <>
+              <span className="flex items-center gap-2" data-testid="archive-note">
+                <IconCalendar size={17} className="text-bio-400" />
+                Archive day. Your streak is safe.
+              </span>
+              <button className="btn-ghost !min-h-10" onClick={() => api.setView('home')} data-testid="result-home">
+                Home
+              </button>
+            </>
+          ) : daily.endless ? (
             <>
               <span className="flex items-center gap-2" data-testid="endless-note">
                 <IconInfinity size={18} className="text-bio-400" />
@@ -256,6 +301,11 @@ function Results({ api, onOpenStats }: { api: ObscuraApi; onOpenStats: () => voi
             </>
           )}
         </div>
+
+        <button className="btn-ghost mt-3 w-full" onClick={() => onOpenDarkroom('prints')} data-testid="result-darkroom">
+          <IconImage size={16} />
+          Hung in your Darkroom
+        </button>
 
         <AllAnswers api={api} />
       </section>

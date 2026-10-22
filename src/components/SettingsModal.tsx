@@ -1,7 +1,10 @@
 import { useSettings } from '@/hooks/useSettings';
 import type { ThemePref } from '@/lib/settings';
 import { Modal } from './Modal';
-import { IconMute, IconSound } from './Icons';
+import { useState } from 'react';
+import { IconMute, IconSound, IconBell, IconDownload } from './Icons';
+import { downloadReminder } from '@/lib/reminder';
+import { useInstall } from './Install';
 
 function Switch({ checked, onChange, label, testId }: { checked: boolean; onChange: (v: boolean) => void; label: string; testId: string }) {
   return (
@@ -86,10 +89,64 @@ export function SettingsModal({ onClose }: { onClose: () => void }) {
         </Row>
       </section>
 
+      <Reminders />
+
       <p className="mt-2 text-center text-xs text-mist-500">Settings are saved on this device.</p>
       <button className="btn-primary mt-4 w-full" onClick={onClose} data-testid="settings-close">
         Done
       </button>
     </Modal>
+  );
+}
+
+const TIMES = ['07:00', '08:00', '09:00', '12:00', '13:00', '17:00', '18:00', '19:00', '20:00', '21:00'];
+
+/** A daily reminder through the player's own calendar, and the app install, for players who want to come back. */
+function Reminders() {
+  const [time, setTime] = useState('09:00');
+  const [done, setDone] = useState(false);
+  const install = useInstall();
+  return (
+    <section aria-label="Reminders" className="border-t border-white/10 pt-3" data-testid="reminders">
+      <p className="eyebrow !text-[0.62rem]">Daily reminder</p>
+      <p className="mt-2 text-xs leading-snug text-mist-500">Adds a daily event to your calendar (Apple, Google or Outlook), so your phone reminds you when the new photograph is in.</p>
+      <div className="mt-3 flex items-center gap-2">
+        <IconBell size={18} className="shrink-0 text-mist-300" />
+        <select className="input-field !h-11 !min-h-0 !w-auto !py-0 !pr-8 text-sm" value={time} onChange={(e) => setTime(e.target.value)} aria-label="Reminder time" data-testid="reminder-time">
+          {TIMES.map((t) => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+        <button
+          className="btn-ghost !min-h-11 flex-1 text-sm"
+          onClick={() => {
+            downloadReminder(time);
+            setDone(true);
+          }}
+          data-testid="reminder-add"
+        >
+          <IconDownload size={16} />
+          Add to calendar
+        </button>
+      </div>
+      {done && (
+        <p className="mt-2 text-xs text-bio-300" role="status" data-testid="reminder-done">
+          Open the downloaded file to add it. You can delete the event any time to stop.
+        </p>
+      )}
+      {(install.canPrompt || install.ios) && (
+        <Row title="Install Obscura" hint={install.ios ? 'In Safari, tap Share, then Add to Home Screen.' : 'Open it from your home screen like an app.'}>
+          {install.canPrompt ? (
+            <button className="btn-ghost !min-h-10 text-sm" onClick={() => install.prompt()} data-testid="install-btn">
+              Install
+            </button>
+          ) : (
+            <span />
+          )}
+        </Row>
+      )}
+    </section>
   );
 }

@@ -85,6 +85,8 @@ writeFileSync(
 <title>Obscura — How obscure can you get?</title>
 <meta name="description" content="One photograph. Seven prompts. One guess. A daily game about the obscure: rare answers let light into a dark room." />
 <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>

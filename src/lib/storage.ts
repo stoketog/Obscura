@@ -60,11 +60,14 @@ function sanitize(raw: unknown): PlayerProfile {
   const r = raw as Partial<PlayerProfile>;
   // Profiles from the original clue-based version are incompatible; start fresh.
   if (r.version !== 3) return base;
+  const history = r.history && typeof r.history === 'object' ? r.history : {};
   return {
     ...base,
     ...r,
-    history: r.history && typeof r.history === 'object' ? r.history : {},
+    history,
     games: r.games && typeof r.games === 'object' ? r.games : {},
+    // Players from before streak freezes start with the freezes their days played would have earned.
+    freezes: typeof r.freezes === 'number' ? r.freezes : Math.min(2, Math.floor(Object.keys(history).length / 7)),
   };
 }
 

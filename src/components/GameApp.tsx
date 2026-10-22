@@ -14,6 +14,8 @@ import { Wordmark } from './Wordmark';
 import { IconChart, IconHelp, IconGear, IconBack, IconMenu } from './Icons';
 import { SettingsModal } from './SettingsModal';
 import { Sidebar } from './Sidebar';
+import { ArchiveModal } from './ArchiveModal';
+import { DarkroomModal } from './DarkroomModal';
 import { ENGINEERLE_URL } from '@/lib/sites';
 import { loadSettings, withSettings } from '@/lib/settings';
 import { SettingsProvider } from '@/hooks/useSettings';
@@ -38,12 +40,18 @@ function GameAppInner() {
   useEffect(() => {
     if (window.location.hash === '#engineerle') window.location.replace(withSettings(ENGINEERLE_URL, loadSettings()));
   }, []);
-  const [modal, setModal] = useState<null | 'stats' | 'help' | 'admin' | 'settings'>(null);
+  const [modal, setModal] = useState<null | 'stats' | 'help' | 'admin' | 'settings' | 'archive' | 'darkroom' | 'badges'>(null);
   // After the last round, keep its reveal on screen until the player chooses to make their guess.
   const [hold, setHold] = useState(false);
   const onFinished = () => setHold(true);
   const onContinue = () => setHold(false);
   const vp = useVisualViewport();
+
+  // Offline support and installability. Production only, so development always runs the latest code.
+  useEffect(() => {
+    if (process.env.NODE_ENV !== 'production' || !('serviceWorker' in navigator)) return;
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  }, []);
 
   // First visit: show the how-to-play sheet once.
   useEffect(() => {
@@ -63,7 +71,9 @@ function GameAppInner() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  const ready = api.ready && !!api.daily && !!api.game;
+  const ready = api.ready && !!api.plan && !!api.game;
+  // Play and result screens need the day's answers; until they arrive (or if they can't), show a holding screen.
+  const answersReady = !!api.daily;
   const closeHelp = () => {
     setModal(null);
     if (!api.profile.seenHelp) api.dismissHelp();
@@ -72,7 +82,7 @@ function GameAppInner() {
   const showGame = ready && api.view === 'play' && (api.game!.status === 'playing' || hold);
   const showResult = ready && api.view === 'play' && !showGame;
   const view = !ready || api.view === 'home' ? 'home' : showGame ? 'play' : 'result';
-  const revealed = showResult && !!api.game?.guess;
+  const revealed = showResult && answersReady && !!api.game?.guess;
   // The room warms a little as light gets in.
   const light = ready && view !== 'home' ? developedFor(api.game!.points) / 100 : 0;
 
@@ -135,11 +145,24 @@ function GameAppInner() {
               </div>
             </div>
           ) : api.view === 'home' ? (
-            <HomeScreen api={api} />
+            <HomeScreen api={api} onArchive={() => setModal('archive')} onDarkroom={() => setModal('darkroom')} />
+          ) : !answersReady ? (
+            <div className="grid flex-1 place-items-center px-6 text-center" data-testid="answers-loading">
+              {api.loadError ? (
+                <div className="flex flex-col items-center gap-3">
+                  <p className="text-sm text-mist-300">Couldn’t load today’s prompts. Check your connection.</p>
+                  <button className="btn-primary" onClick={api.retryLoad} data-testid="answers-retry">
+                    Try again
+                  </button>
+                </div>
+              ) : (
+                <Emblem size={56} />
+              )}
+            </div>
           ) : showGame ? (
             <GameScreen api={api} holding={hold} onFinished={onFinished} onContinue={onContinue} compact={!!vp?.squeezed} />
           ) : showResult ? (
-            <ResultScreen api={api} onOpenStats={() => setModal('stats')} />
+            <ResultScreen api={api} onOpenStats={() => setModal('stats')} onOpenDarkroom={(tab) => setModal(tab === 'badges' ? 'badges' : 'darkroom')} />
           ) : null}
         </div>
       </div>
@@ -150,12 +173,16 @@ function GameAppInner() {
           onStats={() => setModal('stats')}
           onHelp={() => setModal('help')}
           onSettings={() => setModal('settings')}
+          onArchive={() => setModal('archive')}
+          onDarkroom={() => setModal('darkroom')}
           onClose={() => setMenu(false)}
         />
       )}
       {modal === 'settings' && <SettingsModal onClose={() => setModal(null)} />}
       {modal === 'stats' && api.ready && <StatsModal api={api} onClose={() => setModal(null)} />}
       {modal === 'help' && <HelpModal onClose={closeHelp} />}
+      {modal === 'archive' && api.ready && <ArchiveModal api={api} onClose={() => setModal(null)} />}
+      {(modal === 'darkroom' || modal === 'badges') && api.ready && <DarkroomModal api={api} start={modal === 'badges' ? 'badges' : 'prints'} onClose={() => setModal(null)} />}
       {modal === 'admin' && AdminPanel && (
         <Suspense fallback={null}>
           <AdminPanel api={api} onClose={() => setModal(null)} />

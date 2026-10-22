@@ -2,15 +2,18 @@ import assert from 'node:assert/strict';
 import { PROMPT_SEEDS } from '@/data/prompts';
 import { IMAGES, IMAGE_EDITORIAL } from '@/data/images';
 import CREDITS from '@/data/image-credits.json';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { getPrompts, parseAnswer, rarestEntry } from '@/lib/prompts';
 import { matchAnswer } from '@/lib/match';
 import { normalize } from '@/lib/text';
 import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, tierFor, tierById, developedFor, guessBonusFor } from '@/lib/scoring';
 import { matchGuess } from '@/lib/picture';
-import { getDaily, pickPrompts, imageForDay } from '@/lib/daily';
+import { getDaily, pickPrompts, imageForDay, asPlayed, archiveDates } from '@/lib/daily';
+import { PROMPT_INDEX } from '@/lib/library';
+import { earnedBadges, unseenBadges } from '@/lib/badges';
+import { reminderIcs } from '@/lib/reminder';
 import { addDays, puzzleNumberFor, EPOCH } from '@/lib/dates';
-import { currentRoundIndex, dayTotal, deriveStats, effectiveStreak, expireRound, freshGame, getGame, remainingMs, skipRound, startRound, submitAnswer, submitGuess } from '@/lib/game';
+import { developedBucket, streakOnIce, currentRoundIndex, dayTotal, deriveStats, effectiveStreak, expireRound, freshGame, getGame, remainingMs, skipRound, startRound, submitAnswer, submitGuess } from '@/lib/game';
 import { emptyProfile } from '@/lib/storage';
 import { buildShareText } from '@/lib/share';
 import type { DailySet, PlayerProfile, Prompt } from '@/lib/types';
@@ -202,13 +205,13 @@ test('day numbers count from the epoch; admin overrides replace the list', () =>
   assert.equal(puzzleNumberFor(D0), 1);
   assert.equal(puzzleNumberFor(addDays(D0, 9)), 10);
   const ids = prompts.slice(0, 7).map((p) => p.id).reverse();
-  const d = getDaily('2026-12-01', { '2026-12-01': ids });
+  const d = getDaily('2026-12-01', { '2026-12-01': ids }, getPrompts());
   assert.deepEqual(d.prompts.map((p) => p.id), ids);
-  assert.equal(getDaily('2026-12-01', { '2026-12-01': ['nope'] }).prompts.length, ROUNDS_PER_DAY);
+  assert.equal(getDaily('2026-12-01', { '2026-12-01': ['nope'] }, getPrompts()).prompts.length, ROUNDS_PER_DAY);
 });
 
 console.log('Game rules');
-const daily: DailySet = getDaily(addDays(D0, 3));
+const daily: DailySet = getDaily(addDays(D0, 3), undefined, getPrompts());
 const T0 = 1_700_000_000_000;
 const best = (p: Prompt) => rarestEntry(p).name;
 const worst = (p: Prompt) => p.entries.reduce((a, b) => (b.score < a.score ? b : a)).name;
@@ -335,8 +338,8 @@ test('a finished day cannot be replayed', () => {
   assert.equal(startRound(prof, daily, T0), prof);
 });
 test('streak: consecutive days extend, a gap resets, display breaks silently', () => {
-  const d1 = getDaily(addDays(D0, 10));
-  const d2 = getDaily(addDays(D0, 11));
+  const d1 = getDaily(addDays(D0, 10), undefined, getPrompts());
+  const d2 = getDaily(addDays(D0, 11), undefined, getPrompts());
   const play = (profile: PlayerProfile, d: DailySet) => {
     let p = profile;
     for (let i = 0; i < 7; i++) {
@@ -353,7 +356,7 @@ test('streak: consecutive days extend, a gap resets, display breaks silently', (
   assert.equal(effectiveStreak(p, d2.dateKey), 2);
   assert.equal(effectiveStreak(p, addDays(d2.dateKey, 1)), 2);
   assert.equal(effectiveStreak(p, addDays(d2.dateKey, 2)), 0);
-  const d4 = getDaily(addDays(D0, 14));
+  const d4 = getDaily(addDays(D0, 14), undefined, getPrompts());
   assert.equal(play(p, d4).currentStreak, 1);
 });
 test('stats summarise history', () => {
@@ -406,6 +409,107 @@ test('photographs are dealt without repeats until the library is used up', () =>
   const seen = new Set(Array.from({ length: n }, (_, d) => imageForDay(d).id));
   assert.equal(seen.size, n);
   for (let d = 0; d < n * 3; d++) assert.notEqual(imageForDay(d).id, imageForDay(d + 1).id);
+});
+
+console.log('Library split, archive, freezes, badges');
+test('the bundled index matches the library, in the same order, and every answer file exists', () => {
+  assert.deepEqual(PROMPT_INDEX.map((p) => p.id), PROMPT_SEEDS.map((p) => p.id));
+  for (const m of PROMPT_INDEX) {
+    assert.ok(existsSync(`public/answers/${m.file}`), `${m.id}: missing ${m.file}`);
+    const seed = PROMPT_SEEDS.find((s) => s.id === m.id)!;
+    assert.deepEqual(JSON.parse(readFileSync(`public/answers/${m.file}`, 'utf8')), seed.answers, `${m.id}: answer file is stale (run scripts/answers/split.ts)`);
+  }
+});
+test('the daily deal is the same from the index as from the full library', () => {
+  for (let i = 0; i < 60; i++) {
+    const key = addDays(D0, i);
+    assert.deepEqual(pickPrompts(key).map((p) => p.id), pickPrompts(key, getPrompts()).map((p) => p.id));
+  }
+});
+test('a saved game keeps its own prompts and photograph', () => {
+  const day = getDaily(addDays(D0, 5));
+  const other = getDaily(addDays(D0, 6));
+  const saved = freshGame({ ...other, dateKey: day.dateKey });
+  const played = asPlayed(day, saved, PROMPT_INDEX);
+  assert.deepEqual(played.prompts.map((p) => p.id), other.prompts.map((p) => p.id));
+  assert.equal(played.image.id, other.image.id);
+  assert.equal(asPlayed(day, undefined, PROMPT_INDEX), day);
+});
+test('archive lists every past day, newest first, and never today', () => {
+  const today = addDays(D0, 9);
+  const dates = archiveDates(today);
+  assert.equal(dates.length, 9);
+  assert.equal(dates[0], addDays(today, -1));
+  assert.equal(dates.at(-1), D0);
+  assert.equal(archiveDates(D0).length, 0);
+});
+const skipDay = (profile: PlayerProfile, d: DailySet) => {
+  let p = profile;
+  for (let i = 0; i < 7; i++) p = skipRound(startRound(p, d, T0), d);
+  return p;
+};
+const full = (n: number) => getDaily(addDays(D0, n), undefined, getPrompts());
+test('archive days never touch the streak, history or stats', () => {
+  let p = skipDay(emptyProfile(), full(20));
+  const past = { ...full(15), archive: true };
+  const after = skipDay(p, past);
+  assert.equal(after.currentStreak, 1);
+  assert.equal(after.lastCompletedDate, full(20).dateKey);
+  assert.equal(Object.keys(after.history).length, 1);
+  assert.equal(getGame(after, past).status, 'done');
+  assert.equal(getGame(after, past).archive, true);
+  const guessed = submitGuess(after, past, 'nothing').profile;
+  assert.equal(guessed.history[past.dateKey], undefined);
+});
+test('a streak freeze is earned every seven days and covers a missed day', () => {
+  let p = emptyProfile();
+  for (let i = 0; i < 7; i++) p = skipDay(p, full(30 + i));
+  assert.equal(p.currentStreak, 7);
+  assert.equal(p.freezes, 1);
+  assert.equal(getGame(p, full(36)).outcome?.freezeEarned, true);
+  // Miss day 37, play day 38: the freeze covers it.
+  assert.equal(effectiveStreak(p, full(38).dateKey), 7);
+  assert.equal(streakOnIce(p, full(38).dateKey), true);
+  const q = skipDay(p, full(38));
+  assert.equal(q.currentStreak, 8);
+  assert.equal(q.freezes, 0);
+  assert.deepEqual(q.frozenDates, [full(37).dateKey]);
+  assert.equal(getGame(q, full(38)).outcome?.freezesUsed, 1);
+  // With no freeze left, a missed day breaks it.
+  assert.equal(effectiveStreak(q, full(40).dateKey), 0);
+  assert.equal(skipDay(q, full(40)).currentStreak, 1);
+  // Two missed days need two freezes.
+  const one = { ...p, freezes: 1 };
+  assert.equal(skipDay(one, full(39)).currentStreak, 1);
+  const two = { ...p, freezes: 2 };
+  assert.equal(skipDay(two, full(39)).currentStreak, 8);
+  assert.equal(deriveStats(p, full(36).dateKey).freezes, 1);
+});
+test('freezes are capped at two', () => {
+  let p: PlayerProfile = { ...emptyProfile(), freezes: 2 };
+  for (let i = 0; i < 7; i++) p = skipDay(p, full(50 + i));
+  assert.equal(p.freezes, 2);
+});
+test('distribution counts days by how developed the photograph got', () => {
+  const p = playAll(emptyProfile(), best);
+  const s = deriveStats(p, daily.dateKey);
+  assert.equal(s.distribution.reduce((a, b) => a + b, 0), 1);
+  assert.equal(s.distribution[developedBucket(getGame(p, daily).outcome!.developed)], 1);
+});
+test('badges follow from the saved games, and new ones are reported once', () => {
+  assert.equal(earnedBadges(emptyProfile()).length, 0);
+  const p = submitGuess(playAll(emptyProfile(), best), daily, daily.image.answer).profile;
+  const ids = earnedBadges(p).map((b) => b.id);
+  for (const id of ['first-light', 'named', 'obscurist', 'no-blanks', 'nothing-common']) assert.ok(ids.includes(id), `missing ${id}`);
+  assert.ok(!ids.includes('streak-3'));
+  assert.equal(unseenBadges({ ...p, badgesSeen: ids }).length, 0);
+});
+test('a calendar reminder repeats daily at the chosen time', () => {
+  const ics = reminderIcs('09:00', 'https://obscura.example/', new Date(2026, 9, 22, 11, 0));
+  assert.ok(ics.includes('RRULE:FREQ=DAILY'));
+  assert.ok(ics.includes('DTSTART:20261023T090000'), 'starts at the next 9am');
+  assert.ok(ics.includes('BEGIN:VALARM'));
+  assert.ok(reminderIcs('20:00', 'x', new Date(2026, 9, 22, 11, 0)).includes('DTSTART:20261022T200000'));
 });
 
 console.log(`\n${passed} tests passed${process.exitCode ? ' — with failures' : ''}`);

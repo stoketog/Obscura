@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useSettings } from '@/hooks/useSettings';
 import { ENGINEERLE_URL } from '@/lib/sites';
 import { withSettings } from '@/lib/settings';
-import { IconChart, IconClose, IconGear, IconHelp, IconWrench, IconGlobe } from './Icons';
+import { IconChart, IconClose, IconGear, IconHelp, IconWrench, IconGlobe, IconCalendar, IconImage } from './Icons';
+import { InstallItem } from './Install';
 import { Emblem } from './Emblem';
 import { Wordmark } from './Wordmark';
 
@@ -12,11 +13,13 @@ interface Props {
   onStats: () => void;
   onHelp: () => void;
   onSettings: () => void;
+  onArchive: () => void;
+  onDarkroom: () => void;
   onClose: () => void;
 }
 
 /** The side menu: switch between games, and reach stats, help and settings. */
-export function Sidebar({ onHome, onStats, onHelp, onSettings, onClose }: Props) {
+export function Sidebar({ onHome, onStats, onHelp, onSettings, onArchive, onDarkroom, onClose }: Props) {
   const ref = useRef<HTMLElement>(null);
   const { settings } = useSettings();
   useEffect(() => {
@@ -61,6 +64,14 @@ export function Sidebar({ onHome, onStats, onHelp, onSettings, onClose }: Props)
             </span>
           </a>
           <p className="eyebrow mt-5 px-2 !text-[0.6rem]">You</p>
+          <button className="side-item" onClick={go(onArchive)} data-testid="side-archive">
+            <span className="side-ico"><IconCalendar size={18} /></span>
+            <b className="text-sm text-white">Archive</b>
+          </button>
+          <button className="side-item" onClick={go(onDarkroom)} data-testid="side-darkroom">
+            <span className="side-ico"><IconImage size={18} /></span>
+            <b className="text-sm text-white">Darkroom</b>
+          </button>
           <button className="side-item" onClick={go(onStats)} data-testid="side-stats">
             <span className="side-ico"><IconChart size={18} /></span>
             <b className="text-sm text-white">Statistics</b>
@@ -73,6 +84,7 @@ export function Sidebar({ onHome, onStats, onHelp, onSettings, onClose }: Props)
             <span className="side-ico"><IconGear size={18} /></span>
             <b className="text-sm text-white">Settings</b>
           </button>
+          <InstallItem />
         </nav>
         <p className="px-5 pb-5 text-xs text-mist-500 safe-pb">Everything is saved on this device.</p>
       </aside>

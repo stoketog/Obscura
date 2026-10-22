@@ -88,6 +88,13 @@ export interface GameState {
   guess?: GuessRecord;
   /** True once the end-of-day reveal has been shown. */
   celebrated?: boolean;
+  /**
+   * The photograph this game was played with. Saved so a past game always shows the photograph it was played with,
+   * even after the library grows and the daily deal moves on.
+   */
+  imageId?: string;
+  /** Played from the archive (a past day): never moves the streak, history or stats. */
+  archive?: boolean;
 }
 
 export interface Outcome {
@@ -96,6 +103,10 @@ export interface Outcome {
   developed: number;
   streakAfter: number;
   tiers: Array<TierId | null>;
+  /** Streak freezes spent to keep the streak alive across missed days (daily games only). */
+  freezesUsed?: number;
+  /** True when finishing this day earned a new streak freeze. */
+  freezeEarned?: boolean;
 }
 
 /** The one guess at the day's photograph. */
@@ -131,6 +142,12 @@ export interface PlayerProfile {
   games: Record<string, GameState>;
   /** Set once the player has seen the how-to-play sheet. */
   seenHelp: boolean;
+  /** Streak freezes held (0 to MAX_FREEZES). One is earned for every seven daily puzzles finished. */
+  freezes?: number;
+  /** Days a freeze covered, so the calendar can show them. */
+  frozenDates?: string[];
+  /** Badges the player has already been told about. */
+  badgesSeen?: string[];
 }
 
 /** What a daily photograph shows. Used only as a vague hint before the reveal. */
@@ -165,4 +182,6 @@ export interface DailySet {
   image: DailyImage;
   /** Set for an endless-mode dive (1, 2, …). Dives never touch streaks, history or stats. */
   endless?: number;
+  /** A past day replayed from the archive. Like a dive, it never touches streaks, history or stats. */
+  archive?: boolean;
 }

@@ -5,7 +5,9 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Obscura — How obscure can you get?',
   description: 'One photograph. Seven prompts. One guess. A daily game about the obscure: the rarer your answers, the more light gets in.',
-  icons: { icon: '/icon.svg' },
+  icons: { icon: '/icon.svg', apple: '/icons/apple-touch-icon.png' },
+  manifest: '/manifest.webmanifest',
+  appleWebApp: { capable: true, title: 'Obscura', statusBarStyle: 'black-translucent' },
   openGraph: {
     title: 'Obscura',
     description: 'One photograph. Seven prompts. One guess. The rarer your answers, the more of the photograph you see.',

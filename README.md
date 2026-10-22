@@ -2,7 +2,14 @@
 
 A daily game about the obscure. Every day a real photograph hangs in a dark room (the *camera obscura*). Seven shared prompts ("Name a cheese"), 30 seconds each: type any answer that fits, and the rarer it is, the more points it earns and the more light gets into the room. The photograph starts as a heavy blur (colours and rough shapes only) and sharpens as your points rise (700 points develops it fully). After the seventh prompt you get **one** guess at what the photograph shows; a right guess earns a bonus that is bigger the less you could see (100 at 0%, about 80 at 25%, 55 at 54%, 30 at 80%, never below 10). Then the photograph is revealed with its credit, and every accepted answer for every prompt is listed, cascaded by rarity.
 
-There is also an **Endless** mode in early access: two fixed practice dives, each with its own photograph, that never touch your streak or stats, with a visible "in development" block (see `ENDLESS_DIVES` in `src/lib/daily.ts`).
+Coming back:
+- **Archive**: every past day can be played (or its result looked at again). Archive days never move the streak, history or stats.
+- **Streak freezes**: one is earned for every seven daily puzzles finished (hold up to two). Each covers one missed day, spent when the player comes back and finishes a day (`streakPlan` in `src/lib/game.ts`).
+- **Darkroom**: every photograph the player has developed and seen revealed, plus **badges** (`src/lib/badges.ts`, worked out from the saved games).
+- **Stats**: a distribution of how developed each day's photograph got, Wordle-style.
+- **Daily reminder**: Settings downloads a repeating calendar event (.ics), so it works on every phone with no server. The site is an installable app (`public/manifest.webmanifest`, `public/sw.js`); the service worker already handles push notifications, ready for when a server can send them.
+
+**Endless** mode (two practice dives) is still in the code but hidden from the home screen (`SHOW_ENDLESS` in `HomeScreen.tsx`).
 
 Sister game: **Engineerle**, five daily engineering puzzles, now its own site (`github.com/stoketog/engineerle`, engineerle.io). The side menu links to it and carries the player's settings across (`?s=` in the address, read once and removed); old `/#engineerle` links are forwarded.
 
@@ -29,6 +36,7 @@ npm run test:e2e              # Playwright suite (needs both builds, see tests/e
 | Path | Purpose |
 |---|---|
 | `src/data/prompts/*` | The answer library. Each prompt lists every accepted answer as `Name\|rarity\|alias;alias` |
+| `src/data/library.json`, `public/answers/*` | The library as the browser gets it: a small bundled index, and one answer file per prompt fetched only when played. Written by `scripts/answers/split.ts` (run by `scripts/check.sh`); `src/lib/library.ts` loads them |
 | `src/data/images.ts` | The photograph library: the answer, accepted names, a one-line story, joined with `image-credits.json` (licence, author, source) |
 | `public/daily/*` | The photographs themselves, with hashed file names so the answer is not in the network log |
 | `scripts/images/` | `fetch_images.py` downloads the picks in `picks.json` from Wikimedia Commons and refuses anything not safe for a commercial site |
@@ -78,4 +86,5 @@ Compiled in only for `next dev` or `NEXT_PUBLIC_OBSCURA_ADMIN=1`. Open with the 
 - `PlayerRepository` → accounts, sync, leaderboards
 - `getPrompts()` in `src/lib/prompts.ts` → fetch prompts from a database
 - Real rarity: replace the editorial scores with measured data (how often other players submit each answer, as in leaderboards) once there is a backend
-- NOTE: v1 ships the answer lists inside the client bundle. Before launching competitively, check answers server-side.
+- NOTE: answer files are public (fetched per prompt). Before launching competitively, check answers server-side.
+- Saved games record their photograph (`imageId`), so past days keep their picture as the library grows. Adding photographs or prompts still changes the deal for *future and unplayed* days.

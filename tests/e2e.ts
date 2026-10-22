@@ -8,7 +8,8 @@
  */
 import { chromium, type Browser, type Page } from 'playwright';
 import { spawn, type ChildProcess } from 'node:child_process';
-import { getDaily, getEndlessDive } from '@/lib/daily';
+import { getPrompts } from '@/lib/prompts';
+import { getDaily } from '@/lib/daily';
 import { developedFor, guessBonusFor, tierFor } from '@/lib/scoring';
 import type { Prompt } from '@/lib/types';
 
@@ -28,13 +29,15 @@ const text = async (p: Page, id: string) => ((await q(p, id).first().textContent
 
 const DAY = '2026-11-05';
 const CLOCK = `${DAY}T10:00:00Z`;
-const daily = getDaily(DAY);
+const daily = getDaily(DAY, undefined, getPrompts());
 const inTier = (prompt: Prompt, id: string) => prompt.entries.find((e) => tierFor(e.score).id === id)!;
 const rare = (i: number) => inTier(daily.prompts[i], 'rare');
 const common = (i: number) => daily.prompts[i].entries.reduce((a, b) => (b.score < a.score ? b : a));
 
 async function open(b: Browser, opts: { mobile?: boolean; url?: string; skipHelp?: boolean } = {}) {
   const ctx = await b.newContext({ viewport: opts.mobile ? { width: 360, height: 740 } : { width: 1280, height: 820 }, hasTouch: !!opts.mobile, reducedMotion: 'reduce', timezoneId: 'UTC', permissions: ['clipboard-read', 'clipboard-write'], acceptDownloads: true });
+  const requests: string[] = [];
+  ctx.on('request', (r) => requests.push(r.url()));
   const page = await ctx.newPage();
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(String(e)));
@@ -45,7 +48,7 @@ async function open(b: Browser, opts: { mobile?: boolean; url?: string; skipHelp
   await page.clock.resume();
   await q(page, 'help-modal').waitFor();
   if (opts.skipHelp !== false) await q(page, 'help-close').click();
-  return { ctx, page, errors };
+  return { ctx, page, errors, requests };
 }
 async function begin(p: Page) {
   await q(p, 'play-btn').click();
@@ -231,21 +234,61 @@ async function main() {
     eq(errors.length, 0, errors.join('|')); await ctx.close();
   });
 
-  console.log('Endless and builds');
-  await t('an endless dive plays with its own photograph and never touches the streak', async () => {
+  console.log('Archive, Darkroom, reminders and builds');
+  await t('only today’s seven answer files are downloaded, and the page script is small', async () => {
+    const { ctx, page: p, requests } = await open(b, { url: PROD });
+    await begin(p);
+    await p.waitForTimeout(300);
+    const files = requests.filter((n) => n.includes('/answers/'));
+    eq(new Set(files).size, 7, 'answer files');
+    const size = await p.evaluate(async () => (await (await fetch('/app.js')).text()).length);
+    ok(size < 600_000, `page script is ${size} bytes`);
+    await ctx.close();
+  });
+
+  await t('archive: a missed day plays with its own photograph, never touches the streak, and lands in the Darkroom', async () => {
     const { ctx, page: p } = await open(b);
-    const dive = getEndlessDive(1);
-    await q(p, 'endless-dive-1').click(); await q(p, 'start-btn').click();
+    const PAST = '2026-11-01';
+    const past = getDaily(PAST, undefined, getPrompts());
+    await q(p, 'home-archive').click();
+    await q(p, 'archive-modal').waitFor();
+    await q(p, `archive-day-${PAST}`).click();
+    await q(p, 'start-btn').click();
     for (let i = 0; i < 7; i++) {
-      await answer(p, inTier(dive.prompts[i], 'uncommon').name); await q(p, 'reveal').waitFor(); await q(p, 'next-btn').click();
+      await answer(p, inTier(past.prompts[i], 'uncommon').name); await q(p, 'reveal').waitFor(); await q(p, 'next-btn').click();
       if (i < 6) await q(p, 'round').waitFor();
     }
-    await q(p, 'guess-input').fill(dive.image.answer); await q(p, 'guess-submit').click();
+    await q(p, 'guess-input').fill(past.image.answer); await q(p, 'guess-submit').click();
     await q(p, 'result').waitFor();
-    eq(await text(p, 'reveal-name'), dive.image.answer);
-    await q(p, 'endless-note').waitFor();
+    eq(await text(p, 'reveal-name'), past.image.answer);
+    await q(p, 'archive-note').waitFor();
+    await q(p, 'new-badges').waitFor();
+    ok((await text(p, 'share-preview')).includes('(archive)'), 'share text says archive');
+    await q(p, 'new-badges').click();
+    await q(p, 'badge-first-light').waitFor();
+    eq(await q(p, 'badge-first-light').getAttribute('data-earned'), 'true');
+    await q(p, 'tab-prints').click();
+    await q(p, `print-${PAST}`).click();
+    ok((await text(p, 'print-detail')).includes(past.image.answer), 'print detail');
+    await p.keyboard.press('Escape');
     await q(p, 'result-home').click();
     ok((await text(p, 'home-streak')).startsWith('0'), 'streak untouched');
+    await q(p, 'stats-btn').click();
+    eq(await text(p, 'stat-played'), '0', 'stats untouched');
+    await q(p, 'distribution').waitFor();
+    await ctx.close();
+  });
+
+  await t('settings: a daily reminder downloads as a calendar file; the app is installable', async () => {
+    const { ctx, page: p } = await open(b, { url: PROD });
+    await q(p, 'menu-btn').click(); await q(p, 'side-settings').click();
+    await q(p, 'reminder-time').selectOption('20:00');
+    const [dl] = await Promise.all([p.waitForEvent('download'), q(p, 'reminder-add').click()]);
+    eq(dl.suggestedFilename(), 'obscura-daily-reminder.ics');
+    const manifest = await p.evaluate(async () => (await fetch('/manifest.webmanifest')).json());
+    eq(manifest.display, 'standalone');
+    const sw = await p.evaluate(async () => (await fetch('/sw.js')).ok);
+    ok(sw, 'service worker file');
     await ctx.close();
   });
 

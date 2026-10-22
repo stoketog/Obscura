@@ -22,6 +22,9 @@ export function HelpModal({ onClose }: { onClose: () => void }) {
         <li>
           <b className="font-medium text-mist-100">See every answer.</b> Afterwards the photograph is revealed, with every answer you could have given for each prompt. Come back tomorrow to keep your streak.
         </li>
+        <li>
+          <b className="font-medium text-mist-100">Missed a day?</b> Every seven days you play earns a streak freeze (hold up to two), and each one covers a day you miss. Missed days can still be played from the Archive, just not for your streak.
+        </li>
       </ul>
       <div className="mt-5 grid grid-cols-2 gap-2" aria-label="Points per rarity">
         {[...TIERS].reverse().map((t) => (

@@ -1,14 +1,34 @@
 import { ROUNDS_PER_DAY, developedFor } from '@/lib/scoring';
-import { currentRoundIndex, dayTotal } from '@/lib/game';
+import { currentRoundIndex, dayTotal, streakOnIce } from '@/lib/game';
+import { useEffect, useState } from 'react';
+import { formatCountdown, msUntilNextDay } from '@/lib/dates';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { prettyDate } from '@/lib/dates';
 import { Emblem } from './Emblem';
 import { Wordmark } from './Wordmark';
 import { Chamber } from './Chamber';
-import { IconFlame, IconTrophy, IconArrow, IconInfinity, IconLock } from './Icons';
+import { IconFlame, IconTrophy, IconArrow, IconInfinity, IconLock, IconCalendar, IconImage, IconSnow, IconClock } from './Icons';
 
-export function HomeScreen({ api }: { api: ObscuraApi }) {
-  const { stats, streak, game, daily, dateKey } = api;
+/** Endless mode stays in the code but off the home screen until more than two dives exist. */
+const SHOW_ENDLESS = false;
+
+function Countdown() {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(new Date()), 1000);
+    return () => window.clearInterval(id);
+  }, []);
+  return (
+    <p className="mt-3 flex items-center justify-center gap-2 font-mono text-xs text-mist-300" data-testid="home-countdown">
+      <IconClock size={14} />
+      Next photograph in {formatCountdown(msUntilNextDay(now))}
+    </p>
+  );
+}
+
+export function HomeScreen({ api, onArchive, onDarkroom }: { api: ObscuraApi; onArchive: () => void; onDarkroom: () => void }) {
+  const { stats, streak, game, plan: daily, dateKey } = api;
+  const onIce = streakOnIce(api.profile, dateKey);
   const done = game?.status === 'done';
   const guessed = !!game?.guess;
   const roundsDone = game?.rounds.filter((r) => r.status === 'done').length ?? 0;
@@ -47,6 +67,7 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
               {cta}
               <IconArrow size={18} />
             </button>
+            {guessed && <Countdown />}
             <div className="mt-3 flex items-center justify-between gap-3 text-xs text-mist-300" data-testid="home-stats">
               <span className="flex items-center gap-1.5">
                 <IconFlame size={14} className="text-bio-400" />
@@ -54,6 +75,12 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
                   {streak} {streak === 1 ? 'day' : 'days'}
                 </span>
                 streak
+                {stats.freezes > 0 && (
+                  <span className={`ml-1 flex items-center gap-0.5 ${onIce ? 'text-sky-300' : 'text-mist-500'}`} title={onIce ? 'A freeze is covering the day you missed. Play today to keep your streak.' : `${stats.freezes} streak ${stats.freezes === 1 ? 'freeze' : 'freezes'}`} data-testid="home-freezes">
+                    <IconSnow size={13} />
+                    {stats.freezes}
+                  </span>
+                )}
               </span>
               <span className="flex items-center gap-1.5">
                 <IconTrophy size={14} className="text-bio-400" />
@@ -66,7 +93,35 @@ export function HomeScreen({ api }: { api: ObscuraApi }) {
           </div>
         </div>
 
-        <EndlessCard api={api} />
+        {onIce && (
+          <p className="mt-3 flex items-start gap-2 rounded-md border border-sky-300/25 bg-sky-300/5 px-3.5 py-2.5 text-xs leading-relaxed text-sky-200" data-testid="home-on-ice">
+            <IconSnow size={15} className="mt-0.5 shrink-0" />
+            You missed a day, but a streak freeze has it covered. Finish today’s to keep your {streak}-day streak.
+          </p>
+        )}
+
+        <div className="mb-2 mt-3 grid grid-cols-2 gap-3 lg:mb-0">
+          <button className="panel flex items-center gap-2.5 p-3.5 text-left transition-colors hover:border-bio-400/40 sm:gap-3 sm:p-4" onClick={onArchive} data-testid="home-archive">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-white/5 text-bio-400 sm:h-10 sm:w-10">
+              <IconCalendar size={20} />
+            </span>
+            <span className="min-w-0">
+              <b className="block font-display text-[1.4rem] font-normal leading-none text-mist-100 sm:text-2xl">Archive</b>
+              <span className="mt-1 block truncate text-xs text-mist-500">Past days</span>
+            </span>
+          </button>
+          <button className="panel flex items-center gap-2.5 p-3.5 text-left transition-colors hover:border-bio-400/40 sm:gap-3 sm:p-4" onClick={onDarkroom} data-testid="home-darkroom">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-white/5 text-bio-400 sm:h-10 sm:w-10">
+              <IconImage size={20} />
+            </span>
+            <span className="min-w-0">
+              <b className="block font-display text-[1.4rem] font-normal leading-none text-mist-100 sm:text-2xl">Darkroom</b>
+              <span className="mt-1 block truncate text-xs text-mist-500">Photos and badges</span>
+            </span>
+          </button>
+        </div>
+
+        {SHOW_ENDLESS && <EndlessCard api={api} />}
       </section>
     </main>
   );

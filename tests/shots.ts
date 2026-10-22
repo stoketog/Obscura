@@ -1,12 +1,13 @@
 /** Screenshots of every screen for review:  npx tsx tests/shots.ts <out-dir>  (needs dist-admin built) */
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
+import { getPrompts } from '@/lib/prompts';
 import { getDaily } from '@/lib/daily';
 import { tierFor } from '@/lib/scoring';
 
 const OUT = process.argv[2];
 const DAY = '2026-11-05';
-const daily = getDaily(DAY);
+const daily = getDaily(DAY, undefined, getPrompts());
 async function main() {
   const srv = spawn('node', ['scripts/serve.mjs'], { env: { ...process.env, OBSCURA_OUT: 'dist-admin', PORT: '4195' }, stdio: 'ignore' });
   await new Promise((r) => setTimeout(r, 800));
@@ -20,7 +21,7 @@ async function main() {
     await p.locator('[data-testid=help-close]').click();
     await p.waitForTimeout(600);
     await p.screenshot({ path: `${OUT}/${name}-home.png` });
-    await p.locator('[data-testid=play-btn]').click();
+    await p.locator('[data-testid=play-btn]').click({ timeout: 5000 }).catch(async (e) => { await p.screenshot({ path: `${OUT}/${name}-FAIL.png` }); throw e; });
     await p.screenshot({ path: `${OUT}/${name}-intro.png` });
     await p.locator('[data-testid=start-btn]').click();
     const plan = ['rare', 'everyday', 'obscure', 'uncommon', 'rare', 'everyday', 'mythic'];
@@ -51,9 +52,25 @@ async function main() {
       const [dl] = await Promise.all([p.waitForEvent('download'), p.locator('[data-testid=share-card-btn]').click()]);
       await dl.saveAs(`${OUT}/share-card.png`);
     }
+    const tid = (id: string) => p.locator(`[data-testid=${id}]`);
+    const shot = async (n: string) => { await p.waitForTimeout(400); await p.screenshot({ path: `${OUT}/${name}-${n}.png` }); };
+    await tid('result-darkroom').scrollIntoViewIfNeeded();
+    await shot('result-extras');
+    await tid('result-darkroom').click(); await shot('darkroom');
+    await tid('tab-badges').click(); await shot('badges');
+    await p.keyboard.press('Escape');
+    await tid('stats-btn').click(); await tid('distribution').scrollIntoViewIfNeeded(); await shot('stats');
+    await p.keyboard.press('Escape');
+    await tid('back-btn').click(); await shot('home-done');
+    await tid('home-archive').click(); await shot('archive');
+    await p.keyboard.press('Escape');
+    await tid('menu-btn').click(); await shot('menu');
+    await tid('side-settings').click(); await tid('reminders').scrollIntoViewIfNeeded(); await shot('settings');
+    await p.keyboard.press('Escape');
     await ctx.close();
   }
   await b.close();
   srv.kill();
 }
 main().catch((e) => { console.error(e); process.exit(1); });
+process.on('unhandledRejection', (e) => console.error(e));

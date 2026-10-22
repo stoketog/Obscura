@@ -3,21 +3,31 @@ import { MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, developedFor, guessBonusFor, poin
 import { matchGuess } from './picture';
 import { matchAnswer } from './match';
 import { normalize } from './text';
-import { addDays } from './dates';
+import { addDays, daysBetween } from './dates';
 
 /** Pure game rules. Nothing in here touches the DOM, the clock or storage: `now` is always passed in. */
 
-export function freshGame(daily: DailySet): GameState {
+/** What the rules need to know about a day: its date, number, prompt ids and photograph (answers not required). */
+export type DayRef = Pick<DailySet, 'dateKey' | 'number' | 'endless' | 'archive'> & { prompts: Array<{ id: string }>; image: { id: string } };
+
+/** Most streak freezes a player can hold at once. */
+export const MAX_FREEZES = 2;
+/** A freeze is earned for every this many daily puzzles finished. */
+export const FREEZE_EVERY = 7;
+
+export function freshGame(daily: DayRef): GameState {
   return {
     dateKey: daily.dateKey,
     puzzleNumber: daily.number,
     rounds: daily.prompts.map((p): RoundState => ({ promptId: p.id, status: 'pending', misses: [], points: 0 })),
     status: 'playing',
     points: 0,
+    imageId: daily.image.id,
+    ...(daily.archive ? { archive: true } : {}),
   };
 }
 
-export function getGame(profile: PlayerProfile, daily: DailySet): GameState {
+export function getGame(profile: PlayerProfile, daily: DayRef): GameState {
   const saved = profile.games[daily.dateKey];
   // A saved game whose prompts no longer match (e.g. an editorial change) is replaced only if untouched.
   if (saved && saved.rounds.length === daily.prompts.length) return saved;
@@ -44,18 +54,56 @@ export function dayPoints(game: GameState): number {
   return game.rounds.reduce((s, r) => s + r.points, 0);
 }
 
-export function nextStreak(profile: PlayerProfile, dateKey: string): number {
-  if (profile.lastCompletedDate === dateKey) return profile.currentStreak || 1;
-  if (profile.lastCompletedDate && addDays(profile.lastCompletedDate, 1) === dateKey) return profile.currentStreak + 1;
-  return 1;
+export function freezesHeld(profile: PlayerProfile): number {
+  return Math.max(0, Math.min(MAX_FREEZES, profile.freezes ?? 0));
 }
 
-/** Streak as it should be *displayed* today (a missed day silently breaks it). */
+/** Days missed between the last finished daily and `dateKey` (not counting either). */
+export function missedDays(profile: PlayerProfile, dateKey: string): number {
+  const last = profile.lastCompletedDate;
+  if (!last) return 0;
+  return Math.max(0, daysBetween(last, dateKey) - 1);
+}
+
+/**
+ * The streak after finishing `dateKey`, and how many freezes that spends. Missed days are covered by freezes, one
+ * each, if there are enough of them; the streak then carries on (a covered day keeps the streak but doesn't add to
+ * it). Too many missed days and the streak starts again at 1, keeping the freezes.
+ */
+export function streakPlan(profile: PlayerProfile, dateKey: string): { streak: number; spend: number; covered: string[] } {
+  const last = profile.lastCompletedDate;
+  if (last === dateKey) return { streak: profile.currentStreak || 1, spend: 0, covered: [] };
+  if (!last || daysBetween(last, dateKey) < 0) return { streak: 1, spend: 0, covered: [] };
+  const missed = missedDays(profile, dateKey);
+  if (missed === 0) return { streak: profile.currentStreak + 1, spend: 0, covered: [] };
+  if (missed <= freezesHeld(profile)) {
+    const covered = Array.from({ length: missed }, (_, i) => addDays(last, i + 1));
+    return { streak: profile.currentStreak + 1, spend: missed, covered };
+  }
+  return { streak: 1, spend: 0, covered: [] };
+}
+
+export function nextStreak(profile: PlayerProfile, dateKey: string): number {
+  return streakPlan(profile, dateKey).streak;
+}
+
+/**
+ * Streak as it should be *displayed* today. A missed day breaks it unless enough freezes are held to cover the gap
+ * (they are only spent when the player comes back and finishes a day).
+ */
 export function effectiveStreak(profile: PlayerProfile, todayKey: string): number {
   const last = profile.lastCompletedDate;
   if (!last) return 0;
   if (last === todayKey || addDays(last, 1) === todayKey) return profile.currentStreak;
-  return 0;
+  return missedDays(profile, todayKey) <= freezesHeld(profile) ? profile.currentStreak : 0;
+}
+
+/** True when the streak is alive today only because freezes will cover the days missed. */
+export function streakOnIce(profile: PlayerProfile, todayKey: string): boolean {
+  const last = profile.lastCompletedDate;
+  if (!last || last === todayKey || addDays(last, 1) === todayKey) return false;
+  const missed = missedDays(profile, todayKey);
+  return missed > 0 && missed <= freezesHeld(profile);
 }
 
 function withGame(profile: PlayerProfile, game: GameState): PlayerProfile {
@@ -63,7 +111,7 @@ function withGame(profile: PlayerProfile, game: GameState): PlayerProfile {
 }
 
 /** Start the timer on the current round (no-op if one is already running or the day is over). */
-export function startRound(profile: PlayerProfile, daily: DailySet, now: number): PlayerProfile {
+export function startRound(profile: PlayerProfile, daily: DayRef, now: number): PlayerProfile {
   const game = getGame(profile, daily);
   const i = currentRoundIndex(game);
   if (game.status !== 'playing' || i < 0 || game.rounds[i].status !== 'pending') return profile;
@@ -72,7 +120,7 @@ export function startRound(profile: PlayerProfile, daily: DailySet, now: number)
 }
 
 /** Close the current round and, if it was the last, close the day. */
-function finishRound(profile: PlayerProfile, daily: DailySet, index: number, patch: Partial<RoundState>): PlayerProfile {
+function finishRound(profile: PlayerProfile, daily: DayRef, index: number, patch: Partial<RoundState>): PlayerProfile {
   const game = getGame(profile, daily);
   const rounds = game.rounds.map((r, k): RoundState => (k === index ? { ...r, ...patch, status: 'done' } : r));
   let next: GameState = { ...game, rounds, points: rounds.reduce((s, r) => s + r.points, 0) };
@@ -80,22 +128,33 @@ function finishRound(profile: PlayerProfile, daily: DailySet, index: number, pat
 
   if (rounds.every((r) => r.status === 'done')) {
     const points = next.points;
-    // Endless dives are practice: they never move the streak or the daily history.
-    const streakAfter = daily.endless ? profile.currentStreak : nextStreak(profile, daily.dateKey);
+    // Endless dives and archive days are practice: they never move the streak or the daily history.
+    const practice = !!daily.endless || !!daily.archive || !!game.archive;
+    const plan = practice ? { streak: profile.currentStreak, spend: 0, covered: [] as string[] } : streakPlan(profile, daily.dateKey);
+    const streakAfter = plan.streak;
     const tiers: Array<TierId | null> = rounds.map((r) => r.tier ?? null);
     const outcome: Outcome = { points, developed: developedFor(points), streakAfter, tiers };
-    next = { ...next, status: 'done', outcome };
     const best = rounds.reduce<{ name: string; score: number } | null>((b, r) => (r.answer && r.score !== undefined && (!b || r.score > b.score) ? { name: r.answer, score: r.score } : b), null);
     const entry: HistoryEntry = { dateKey: daily.dateKey, puzzleNumber: daily.number, points, developed: outcome.developed, tiers, best };
-    if (!daily.endless) {
+    if (!practice) {
+      const history = { ...profile.history, [daily.dateKey]: entry };
+      let freezes = freezesHeld(profile) - plan.spend;
+      const isNew = !profile.history[daily.dateKey];
+      const earned = isNew && Object.keys(history).length % FREEZE_EVERY === 0 && freezes < MAX_FREEZES;
+      if (earned) freezes += 1;
+      if (plan.spend) outcome.freezesUsed = plan.spend;
+      if (earned) outcome.freezeEarned = true;
       nextProfile = {
         ...profile,
         currentStreak: streakAfter,
         longestStreak: Math.max(profile.longestStreak, streakAfter),
         lastCompletedDate: daily.dateKey,
-        history: { ...profile.history, [daily.dateKey]: entry },
+        history,
+        freezes,
+        frozenDates: plan.covered.length ? [...(profile.frozenDates ?? []), ...plan.covered] : profile.frozenDates,
       };
     }
+    next = { ...next, status: 'done', outcome };
   }
   return withGame(nextProfile, next);
 }
@@ -146,7 +205,7 @@ export function submitAnswer(profile: PlayerProfile, daily: DailySet, raw: strin
 }
 
 /** Called by the UI when the countdown reaches zero. Safe to call repeatedly. */
-export function expireRound(profile: PlayerProfile, daily: DailySet, now: number): PlayerProfile {
+export function expireRound(profile: PlayerProfile, daily: DayRef, now: number): PlayerProfile {
   const game = getGame(profile, daily);
   const i = currentRoundIndex(game);
   if (game.status !== 'playing' || i < 0) return profile;
@@ -155,7 +214,7 @@ export function expireRound(profile: PlayerProfile, daily: DailySet, now: number
   return finishRound(profile, daily, i, { end: 'timeout', points: 0 });
 }
 
-export function skipRound(profile: PlayerProfile, daily: DailySet): PlayerProfile {
+export function skipRound(profile: PlayerProfile, daily: DayRef): PlayerProfile {
   const game = getGame(profile, daily);
   const i = currentRoundIndex(game);
   if (game.status !== 'playing' || i < 0 || game.rounds[i].status !== 'active') return profile;
@@ -180,7 +239,7 @@ export function submitGuess(profile: PlayerProfile, daily: DailySet, raw: string
   const guess: GuessRecord = { text, correct, developed, bonus: correct ? guessBonusFor(developed) : 0 };
   let next = withGame(profile, { ...game, guess });
   const h = next.history[daily.dateKey];
-  if (!daily.endless && h) next = { ...next, history: { ...next.history, [daily.dateKey]: { ...h, guess: { correct, bonus: guess.bonus } } } };
+  if (!daily.endless && !daily.archive && !game.archive && h) next = { ...next, history: { ...next.history, [daily.dateKey]: { ...h, guess: { correct, bonus: guess.bonus } } } };
   return { profile: next, guess };
 }
 
@@ -200,7 +259,17 @@ export interface Stats {
   /** Count of answers per tier across all days. */
   tierCounts: Record<TierId, number>;
   rarest: { name: string; score: number } | null;
+  /** Days by how developed the photograph got: 0–19%, 20–39%, 40–59%, 60–79%, 80–100%. */
+  distribution: number[];
+  /** Streak freezes held. */
+  freezes: number;
 }
+
+/** Which of the five distribution buckets a development % falls in. */
+export function developedBucket(developed: number): number {
+  return Math.min(4, Math.max(0, Math.floor(developed / 20)));
+}
+export const BUCKET_LABELS = ['0–19%', '20–39%', '40–59%', '60–79%', '80–100%'];
 
 export function deriveStats(profile: PlayerProfile, todayKey: string): Stats {
   const all = Object.values(profile.history);
@@ -223,6 +292,11 @@ export function deriveStats(profile: PlayerProfile, todayKey: string): Stats {
     totalPoints: total,
     tierCounts,
     rarest,
+    distribution: all.reduce((d, h) => {
+      d[developedBucket(h.developed ?? developedFor(h.points))] += 1;
+      return d;
+    }, [0, 0, 0, 0, 0]),
+    freezes: freezesHeld(profile),
   };
 }
 
