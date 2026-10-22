@@ -1,0 +1,14 @@
+// Cloudflare Workers config: serves the static export in ./out (built by `npm run build`).
+// Only used if the site is hosted as a Worker with static assets; Cloudflare Pages skips this file
+// (it has no `pages_build_output_dir`), and Vercel ignores it.
+//   Build command:  npm run build
+//   Deploy command: npx wrangler deploy
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "obscura",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
