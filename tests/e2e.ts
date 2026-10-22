@@ -39,6 +39,20 @@ async function open(b: Browser, opts: { mobile?: boolean; url?: string; skipHelp
   const ctx = await b.newContext({ viewport: opts.mobile ? { width: 360, height: 740 } : { width: 1280, height: 820 }, hasTouch: !!opts.mobile, reducedMotion: 'reduce', timezoneId: 'UTC', permissions: ['clipboard-read', 'clipboard-write'], acceptDownloads: true });
   const requests: string[] = [];
   ctx.on('request', (r) => requests.push(r.url()));
+  // Never touch the real database from tests: answer the stats functions with a small fake crowd.
+  const calls: string[] = [];
+  await ctx.route('https://vgcfipoqezslcngyvumf.supabase.co/**', (route) => {
+    const fn = route.request().url().split('/rpc/')[1] ?? '';
+    calls.push(fn);
+    if (fn === 'answer_stats') {
+      const body = JSON.parse(route.request().postData() || '{}');
+      const pr = daily.prompts.find((x) => x.id === body.p_prompt);
+      const rows = pr ? [{ answer: pr.entries[0].name, players: 30, total: 50 }, { answer: rare(daily.prompts.indexOf(pr)).name, players: 5, total: 50 }] : [];
+      return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(rows) });
+    }
+    if (fn === 'record_result') return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify([{ beaten_pct: 83, players: 120 }]) });
+    return route.fulfill({ status: 200, contentType: 'application/json', body: '' });
+  });
   const page = await ctx.newPage();
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(String(e)));
@@ -48,7 +62,7 @@ async function open(b: Browser, opts: { mobile?: boolean; url?: string; skipHelp
   await page.goto(opts.url ?? ADMIN);
   await page.clock.resume();
   await q(page, 'home').waitFor();
-  return { ctx, page, errors, requests };
+  return { ctx, page, errors, requests, calls };
 }
 /** Continue to the next prompt, saying "Not yet" if the guess offer pops up in between. */
 async function nextRound(p: Page) {
@@ -305,6 +319,34 @@ async function main() {
     ok(/\?c=[A-Za-z0-9_-]+/.test(copied), 'a challenge link');
     eq(decodeChallenge(copied.split('?c=')[1].trim())?.name, 'Sam');
     eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+
+  await t('the crowd: each reveal says how many players gave that answer, results show your rank and the most popular answers', async () => {
+    const { ctx, page: p, errors, calls } = await open(b);
+    await begin(p);
+    await answer(p, rare(0).name); await q(p, 'reveal').waitFor();
+    await q(p, 'share-line').waitFor();
+    eq(await text(p, 'share-line'), 'Said by 10% of players today.');
+    for (let i = 1; i < 7; i++) {
+      await nextRound(p); await q(p, 'round').waitFor();
+      await answer(p, rare(i).name); await q(p, 'reveal').waitFor();
+    }
+    await q(p, 'next-btn').click();
+    await q(p, 'guess-input').fill(daily.image.answer); await q(p, 'guess-submit').click();
+    await q(p, 'standing').waitFor();
+    ok((await text(p, 'standing')).includes('83%'), 'standing');
+    await q(p, 'top-answers').first().waitFor();
+    ok((await text(p, 'top-answers')).includes('60%'), 'top answers');
+    ok(calls.filter((c) => c === 'record_answer').length === 7, `answers recorded: ${calls.filter((c) => c === 'record_answer').length}`);
+    ok(calls.includes('record_result') && calls.includes('log_event'), 'result and events');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
+  });
+
+  await t('sign-in: the menu offers Google sign-in when signed out', async () => {
+    const { ctx, page: p } = await open(b);
+    await q(p, 'menu-btn').click();
+    ok((await text(p, 'sign-in')).includes('Sign in with Google'), 'button');
+    await ctx.close();
   });
 
   console.log('Layout');

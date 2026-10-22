@@ -15,6 +15,9 @@ import { TierChip, TierDot } from './TierChip';
 import { IconArrow, IconCheck, IconClock, IconCopy, IconShare, IconInfinity, IconClose, IconSnow, IconAward, IconCalendar, IconImage, IconSwords } from './Icons';
 import { unseenBadges, type Badge } from '@/lib/badges';
 import { ChallengeCompare, ChallengeSheet } from './Challenge';
+import { StandingLine, TopAnswers } from './Crowd';
+import { GoogleMark } from './GoogleMark';
+import { logEvent } from '@/lib/online';
 
 function useNow(ms = 1000) {
   const [now, setNow] = useState(() => new Date());
@@ -173,8 +176,13 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
     window.setTimeout(() => setNote(null), 2400);
   };
 
-  const onCopy = async () => flash((await copyText(shareText)) ? 'Result copied' : 'Couldn’t copy. Select the text and copy it.');
+  const onCopy = async () => {
+    logEvent('share_text', daily.dateKey);
+    await onCopyText();
+  };
+  const onCopyText = async () => flash((await copyText(shareText)) ? 'Result copied' : 'Couldn’t copy. Select the text and copy it.');
   const onShareCard = async () => {
+    logEvent('share_card', daily.dateKey);
     setBusy(true);
     try {
       const blob = await shareCardBlob(game, daily, host);
@@ -239,6 +247,8 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
           <Stat label={guess.correct ? 'Guessed it' : 'Guess'} value={guess.correct ? `+${guess.bonus}` : '—'} accent={guess.correct} testId="result-bonus" />
           <Stat label="Total" value={String(Math.round(total))} testId="result-total" />
         </div>
+
+        {!daily.archive && !daily.endless && <StandingLine api={api} />}
 
         <div className="mt-4 flex flex-col gap-2">
           <button className="btn-primary w-full" onClick={onShareCard} disabled={busy} data-testid="share-card-btn">
@@ -324,6 +334,17 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
           )}
         </div>
 
+        {!api.account && !daily.endless && api.stats.played >= 2 && (
+          <button className="panel mt-3 flex w-full items-center gap-3 px-3.5 py-3 text-left" onClick={api.signIn} data-testid="result-sign-in">
+            <GoogleMark size={20} />
+            <span className="min-w-0 flex-1 text-sm text-mist-300">
+              <b className="block font-medium text-mist-100">Keep your {api.streak > 1 ? `${api.streak}-day streak` : 'progress'} safe</b>
+              Sign in with Google to play on any device.
+            </span>
+            <IconArrow size={15} className="shrink-0 text-mist-500" />
+          </button>
+        )}
+
         <button className="btn-ghost mt-3 w-full" onClick={() => onOpenDarkroom('prints')} data-testid="result-darkroom">
           <IconImage size={16} />
           Hung in your Darkroom
@@ -371,14 +392,14 @@ function AllAnswers({ api }: { api: ObscuraApi }) {
       </ul>
       <ol className="mt-4 space-y-2" data-testid="breakdown">
         {daily!.prompts.map((p, i) => (
-          <PromptCard key={p.id} prompt={p} round={game!.rounds[i]} index={i} open={!!open[i]} onToggle={() => setOpen((o) => ({ ...o, [i]: !o[i] }))} />
+          <PromptCard key={p.id} api={api} prompt={p} round={game!.rounds[i]} index={i} open={!!open[i]} onToggle={() => setOpen((o) => ({ ...o, [i]: !o[i] }))} />
         ))}
       </ol>
     </div>
   );
 }
 
-function PromptCard({ prompt, round, index, open, onToggle }: { prompt: Prompt; round: RoundState; index: number; open: boolean; onToggle: () => void }) {
+function PromptCard({ api, prompt, round, index, open, onToggle }: { api?: ObscuraApi; prompt: Prompt; round: RoundState; index: number; open: boolean; onToggle: () => void }) {
   const groups = useMemo(() => {
     const by = new Map<TierId, AnswerEntry[]>();
     for (const e of prompt.entries) {
@@ -405,6 +426,7 @@ function PromptCard({ prompt, round, index, open, onToggle }: { prompt: Prompt; 
       </button>
       {open && (
         <div id={id} className="border-t border-white/5 px-4 pb-4 pt-2" data-testid="cascade">
+          {api && !api.daily?.endless && <TopAnswers api={api} promptId={prompt.id} />}
           {groups.map(({ tier, entries }) => {
             if (!entries.length) return null;
             const mine = round.tier === tier.id;

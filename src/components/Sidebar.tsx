@@ -4,6 +4,8 @@ import { ENGINEERLE_URL } from '@/lib/sites';
 import { withSettings } from '@/lib/settings';
 import { IconChart, IconClose, IconGear, IconHelp, IconWrench, IconGlobe, IconCalendar, IconImage } from './Icons';
 import { InstallItem } from './Install';
+import type { Account } from '@/lib/online';
+import { GoogleMark } from './GoogleMark';
 import { Emblem } from './Emblem';
 import { Wordmark } from './Wordmark';
 
@@ -16,10 +18,14 @@ interface Props {
   onArchive: () => void;
   onDarkroom: () => void;
   onClose: () => void;
+  account: Account | null;
+  syncState: 'idle' | 'saving' | 'error';
+  onSignIn: () => void;
+  onSignOut: () => void;
 }
 
 /** The side menu: switch between games, and reach stats, help and settings. */
-export function Sidebar({ onHome, onStats, onHelp, onSettings, onArchive, onDarkroom, onClose }: Props) {
+export function Sidebar({ onHome, onStats, onHelp, onSettings, onArchive, onDarkroom, onClose, account, syncState, onSignIn, onSignOut }: Props) {
   const ref = useRef<HTMLElement>(null);
   const { settings } = useSettings();
   useEffect(() => {
@@ -86,7 +92,27 @@ export function Sidebar({ onHome, onStats, onHelp, onSettings, onArchive, onDark
           </button>
           <InstallItem />
         </nav>
-        <p className="px-5 pb-5 text-xs text-mist-500 safe-pb">Everything is saved on this device.</p>
+        <div className="border-t border-white/10 px-5 pb-5 pt-4 safe-pb" data-testid="account">
+          {account ? (
+            <>
+              <p className="truncate text-sm text-mist-100" data-testid="account-name">
+                {account.name}
+              </p>
+              <p className="mt-0.5 text-xs text-mist-500">{syncState === 'error' ? 'Couldn’t save to your account. Will try again.' : syncState === 'saving' ? 'Saving to your account…' : 'Your streak and stats are saved to your Google account.'}</p>
+              <button className="mt-2 text-xs text-mist-300 underline underline-offset-2 hover:text-mist-100" onClick={onSignOut} data-testid="sign-out">
+                Sign out
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="btn-ghost w-full !justify-center gap-2 text-sm" onClick={onSignIn} data-testid="sign-in">
+                <GoogleMark />
+                Sign in with Google
+              </button>
+              <p className="mt-2 text-xs leading-snug text-mist-500">Keep your streak and stats on every device. Without signing in, everything is saved on this device only.</p>
+            </>
+          )}
+        </div>
       </aside>
     </>
   );

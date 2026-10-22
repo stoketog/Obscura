@@ -91,6 +91,13 @@ Lives in its own repository and domain. Obscura only links to it (`src/lib/sites
 ### Admin / dev mode
 Compiled in only for `next dev` or `NEXT_PUBLIC_OBSCURA_ADMIN=1`. Open with the gear button or **Ctrl/Cmd+Shift+A**: pick any date, swap which prompt appears in each of the day's seven rounds, test any answer against any prompt, preview every photograph at any stage of development and test guesses against it, undo a guess, instantly play a day, reset a day or all progress. A production build contains none of this code.
 
+### The database (Supabase project `obscura`, London)
+Optional by design: every call times out quickly and fails silently, so the game plays the same offline.
+- **Stats** (`src/lib/online.ts`, plain fetch, no library): `record_answer`, `answer_stats`, `record_result`, `log_event` are database functions in `public` that validate input (dates within two days of today, short strings, a fixed list of event names) and write to tables in a `private` schema the Data API never exposes. They return only totals, never another player's rows. The advisor warnings about anonymous callers on these four functions are expected: they are the game's public API.
+- **Accounts**: Google sign-in through Supabase Auth (supabase-js, loaded only when signing in or already signed in). `public.profiles` holds each player's saved game; row-level security lets a player read and write only their own row. Signing in merges this device's game with the account's (`src/lib/merge.ts`).
+- Players are counted by a random id per device (`obscura:v1:player`), or their account id once signed in.
+- Useful queries (SQL editor): players per day `select play_date, count(distinct player_key) from private.events where name = 'visit' group by 1 order by 1 desc;` · finishes `... where name = 'day_finished' ...` · shares `... where name in ('share_text','share_card','challenge_sent') ...`.
+
 ### Going to a backend later
 - `PlayerRepository` → accounts, sync, leaderboards
 - `getPrompts()` in `src/lib/prompts.ts` → fetch prompts from a database

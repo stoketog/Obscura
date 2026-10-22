@@ -2,17 +2,39 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { DailySet, GameState, GuessRecord, PlayerProfile } from '@/lib/types';
-import { playerRepository, emptyProfile } from '@/lib/storage';
+import { playerRepository, emptyProfile, sanitize, safeStorage } from '@/lib/storage';
+import { STORAGE_PREFIX } from '@/lib/config';
+import { mergeProfiles } from '@/lib/merge';
+import * as online from '@/lib/online';
 import { toDateKey } from '@/lib/dates';
 import { ENDLESS_DIVES, asPlayed, getDaily, getEndlessDive, type DayOf } from '@/lib/daily';
 import { PROMPT_INDEX, loadPrompts, type PromptMeta } from '@/lib/library';
 import { adoptChallengeFromUrl, loadChallenges, type Challenge } from '@/lib/challenge';
-import { deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, submitGuess, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
+import { dayTotal, deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, submitGuess, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
 import { ADMIN_ENABLED } from '@/lib/config';
 import { logUnrecognised, loadForcedDate, loadOverrides, saveForcedDate, saveOverrides, type OverrideMap } from '@/lib/admin';
 import { rarestEntry } from '@/lib/parse';
 
 export type View = 'home' | 'play';
+
+const STANDING_KEY = STORAGE_PREFIX + 'standing';
+const REPORTED_KEY = STORAGE_PREFIX + 'reported';
+const VISIT_KEY = STORAGE_PREFIX + 'visit';
+function readJson<T>(key: string, fallback: T): T {
+  try {
+    const raw = safeStorage.get(key);
+    return raw ? (JSON.parse(raw) as T) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+function writeJson(key: string, value: unknown): void {
+  try {
+    safeStorage.set(key, JSON.stringify(value));
+  } catch {
+    /* storage full or blocked */
+  }
+}
 
 export interface EndlessDive {
   dive: number;
@@ -52,6 +74,16 @@ export interface ObscuraApi {
   challenges: Challenge[];
   /** Open the day a challenge is for: today's game, or the archive day. */
   openChallenge: (c: Challenge) => void;
+  /** The Google account this device is signed in to, or null. */
+  account: online.Account | null;
+  /** Sending the saved game to the account: 'idle', 'saving' or 'error'. */
+  syncState: 'idle' | 'saving' | 'error';
+  signIn: () => void;
+  signOut: () => void;
+  /** How today's finished day ranks against everyone else's, once known. */
+  standing: online.Standing | null;
+  /** Who answered what for a prompt of the day being shown (after this player's answer is in). */
+  statsFor: (promptId: string) => Promise<online.AnswerShare | null>;
   game: GameState | null;
   stats: Stats;
   streak: number;
@@ -94,6 +126,10 @@ export function useObscura(): ObscuraApi {
   const [endless, setEndless] = useState<number | null>(null);
   const [archiveDate, setArchiveDate] = useState<string | null>(null);
   const [challenges, setChallenges] = useState<Challenge[]>([]);
+  const [account, setAccount] = useState<online.Account | null>(null);
+  const accountRef = useRef<online.Account | null>(null);
+  const [syncState, setSyncState] = useState<'idle' | 'saving' | 'error'>('idle');
+  const [standings, setStandings] = useState<Record<string, online.Standing>>(() => readJson(STANDING_KEY, {}));
   // Going home always returns to the daily.
   const setView = useCallback((v: View) => {
     if (v === 'home') {
@@ -125,7 +161,7 @@ export function useObscura(): ObscuraApi {
     } else setProfile(loadedProfile);
     setToday(toDateKey(new Date()));
     // A challenge link (?c=…) is kept on this device and the address tidied.
-    adoptChallengeFromUrl();
+    if (adoptChallengeFromUrl()) online.logEvent('challenge_opened');
     setChallenges(loadChallenges());
     if (ADMIN_ENABLED) {
       setOverrides(loadOverrides());
@@ -198,17 +234,119 @@ export function useObscura(): ObscuraApi {
 
   const game = useMemo(() => (plan ? getGame(profile, plan) : null), [profile, plan]);
 
-  const commit = useCallback((next: PlayerProfile) => {
-    profileRef.current = next;
-    setProfile(next);
-    playerRepository.save(next);
+  const pushTimer = useRef<number | null>(null);
+  const schedulePush = useCallback(() => {
+    const a = accountRef.current;
+    if (!a) return;
+    if (pushTimer.current) window.clearTimeout(pushTimer.current);
+    pushTimer.current = window.setTimeout(async () => {
+      setSyncState('saving');
+      const ok = await online.pushProfile(a.id, profileRef.current).catch(() => false);
+      setSyncState(ok ? 'idle' : 'error');
+    }, 1500);
+  }, []);
+
+  const commit = useCallback(
+    (next: PlayerProfile) => {
+      profileRef.current = next;
+      setProfile(next);
+      playerRepository.save(next);
+      schedulePush();
+    },
+    [schedulePush],
+  );
+
+  // Accounts: bring the saved game on the account and this device's together, then keep the account up to date.
+  const accountStarted = useRef(false);
+  const startAccount = useCallback(async () => {
+    if (accountStarted.current) return;
+    accountStarted.current = true;
+    await online.watchAccount(async (a, event) => {
+      accountRef.current = a;
+      setAccount(a);
+      if (!a || (event !== 'INITIAL_SESSION' && event !== 'SIGNED_IN')) return;
+      if (event === 'SIGNED_IN') online.logEvent('signed_in');
+      setSyncState('saving');
+      const remote = await online.pullProfile(a.id).catch(() => null);
+      const merged = mergeProfiles(profileRef.current, remote ? sanitize(remote) : null);
+      profileRef.current = merged;
+      setProfile(merged);
+      playerRepository.save(merged);
+      const ok = await online.pushProfile(a.id, merged).catch(() => false);
+      setSyncState(ok ? 'idle' : 'error');
+    });
+  }, []);
+  useEffect(() => {
+    if (!ready) return;
+    if (online.mightBeSignedIn()) void startAccount();
+    // One "visit" a day per device, for counting players and return visits.
+    const t = toDateKey(new Date());
+    if (safeStorage.get(VISIT_KEY) !== t) {
+      safeStorage.set(VISIT_KEY, t);
+      online.logEvent('visit', t);
+    }
+  }, [ready, startAccount]);
+  const signIn = useCallback(() => {
+    void startAccount().then(() => online.signInWithGoogle());
+  }, [startAccount]);
+  const signOut = useCallback(() => {
+    void online.signOut().then(() => {
+      accountRef.current = null;
+      setAccount(null);
+    });
+  }, []);
+
+  // Report each finished prompt and each finished day of today's game (never archive days or dives), once.
+  const pending = useRef(new Map<string, Promise<unknown>>());
+  useEffect(() => {
+    if (!ready || !daily || daily.endless || daily.archive) return;
+    const g = getGame(profile, daily);
+    if (g.archive) return;
+    const reported = new Set<string>(readJson(REPORTED_KEY, [] as string[]));
+    let changed = false;
+    g.rounds.forEach((r, i) => {
+      const key = `${daily.dateKey}|${r.promptId}`;
+      if (r.status !== 'done' || reported.has(key)) return;
+      reported.add(key);
+      changed = true;
+      const p = daily.prompts[i];
+      pending.current.set(key, online.recordAnswerAsync(daily.dateKey, p.id, r.answer ?? null, r.tier ?? null));
+      online.refreshStats(daily.dateKey, p.id);
+    });
+    const dayKey = `${daily.dateKey}|day`;
+    if (g.status === 'done' && g.guess && g.outcome && !reported.has(dayKey)) {
+      reported.add(dayKey);
+      changed = true;
+      online.logEvent('day_finished', daily.dateKey, { total: dayTotal(g), developed: g.outcome.developed, named: g.guess.correct, early: !!g.guess.early });
+      void online
+        .recordResult({ date: daily.dateKey, points: g.points, developed: g.outcome.developed, guessCorrect: g.guess.text ? g.guess.correct : null, guessDeveloped: g.guess.text ? g.guess.developed : null, total: dayTotal(g) })
+        .then((st) => {
+          if (!st) return;
+          setStandings((prev) => {
+            const next = { ...prev, [daily.dateKey]: st };
+            writeJson(STANDING_KEY, next);
+            return next;
+          });
+        });
+    }
+    if (changed) writeJson(REPORTED_KEY, [...reported].slice(-400));
+  }, [ready, daily, profile]);
+
+  const statsFor = useCallback(async (promptId: string) => {
+    const d = dailyRef.current;
+    if (!d || d.endless) return null;
+    const key = `${d.dateKey}|${promptId}`;
+    await pending.current.get(key)?.catch(() => null);
+    return online.answerStats(d.dateKey, promptId);
   }, []);
 
   const isDone = (p: PlayerProfile, d: DailySet) => getGame(p, d).status === 'done';
 
   const start = useCallback(() => {
     const d = dailyRef.current;
-    if (d) commit(startRound(profileRef.current, d, Date.now()));
+    if (!d) return;
+    if (!d.endless && !d.archive && getGame(profileRef.current, d).rounds.every((r) => r.status === 'pending')) online.logEvent('day_started', d.dateKey);
+    commit(startRound(profileRef.current, d, Date.now()));
   }, [commit]);
 
   const submit = useCallback(
@@ -271,6 +409,7 @@ export function useObscura(): ObscuraApi {
   }, []);
 
   const openArchive = useCallback((key: string) => {
+    online.logEvent('archive_played', key);
     setEndless(null);
     setArchiveDate(key);
     setViewRaw('play');
@@ -375,5 +514,5 @@ export function useObscura(): ObscuraApi {
     [overrides, forcedDate, commit],
   );
 
-  return { ready, profile, today, dateKey, plan, daily, loadError, retryLoad, archiveDate, openArchive, markBadgesSeen, challenges, openChallenge, game, stats, streak, view, setView, endless, openEndless, endlessDives, start, submit, skip, expire, guess, markCelebrated, dismissHelp, admin };
+  return { ready, profile, today, dateKey, plan, daily, loadError, retryLoad, archiveDate, openArchive, markBadgesSeen, challenges, openChallenge, account, syncState, signIn, signOut, standing: standings[dateKey] ?? null, statsFor, game, stats, streak, view, setView, endless, openEndless, endlessDives, start, submit, skip, expire, guess, markCelebrated, dismissHelp, admin };
 }

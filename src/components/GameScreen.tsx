@@ -4,6 +4,7 @@ import type { AnswerEntry, Prompt, RoundState, TierId } from '@/lib/types';
 import { canGuess, currentRoundIndex, lastDoneIndex, remainingMs } from '@/lib/game';
 import { MAX_POINTS, ROUND_MS, ROUND_SECONDS, ROUNDS_PER_DAY, TIERS, developedFor, guessBonusFor, tierById, tierFor } from '@/lib/scoring';
 import { GuessSheet } from './GuessSheet';
+import { ShareLine } from './Crowd';
 import { prettyDate } from '@/lib/dates';
 import { useCountUp } from '@/hooks/useCountUp';
 import { Chamber } from './Chamber';
@@ -392,6 +393,7 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
           <p className="mt-3 text-sm text-mist-300" data-testid="reveal-line">
             {TIER_LINE[round.tier!]}
           </p>
+          {!daily!.endless && <ShareLine api={api} promptId={prompt.id} answer={round.answer ?? null} onDay={!daily!.archive} />}
         </>
       ) : (
         <>

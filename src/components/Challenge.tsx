@@ -3,6 +3,7 @@ import type { ObscuraApi } from '@/hooks/useObscura';
 import type { Challenge } from '@/lib/challenge';
 import { challengeFor, challengeUrl, loadName, saveName } from '@/lib/challenge';
 import { copyText } from '@/lib/share';
+import { logEvent } from '@/lib/online';
 import { dayTotal } from '@/lib/game';
 import { parseDateKey, puzzleNumberFor } from '@/lib/dates';
 import { tierById } from '@/lib/scoring';
@@ -22,6 +23,7 @@ export function ChallengeSheet({ api, onClose }: { api: ObscuraApi; onClose: () 
 
   const send = async () => {
     saveName(name);
+    logEvent('challenge_sent', daily.dateKey);
     const c = challengeFor(game, daily, name);
     if (!c) return;
     const url = challengeUrl(window.location.origin, c);

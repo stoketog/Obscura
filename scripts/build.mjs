@@ -29,12 +29,18 @@ await build({
   sourcemap: false,
   format: 'esm',
   target: 'es2022',
-  outfile: join(dist, 'app.js'),
+  // Split so supabase-js (needed only for signing in) is a separate file, loaded on demand, as in the Next build.
+  splitting: true,
+  outdir: dist,
+  entryNames: 'app',
+  chunkNames: 'chunks/[name]-[hash]',
   jsx: 'automatic',
   define: {
     'process.env.NODE_ENV': '"production"',
     'process.env.NEXT_PUBLIC_OBSCURA_ADMIN': admin ? '"1"' : '"0"',
     'process.env.NEXT_PUBLIC_ENGINEERLE_URL': JSON.stringify(process.env.NEXT_PUBLIC_ENGINEERLE_URL || ''),
+    'process.env.NEXT_PUBLIC_SUPABASE_URL': JSON.stringify(process.env.NEXT_PUBLIC_SUPABASE_URL || ''),
+    'process.env.NEXT_PUBLIC_SUPABASE_KEY': JSON.stringify(process.env.NEXT_PUBLIC_SUPABASE_KEY || ''),
   },
   logLevel: 'info',
 });

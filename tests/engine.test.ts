@@ -13,6 +13,7 @@ import { getDaily, pickPrompts, imageForDay, asPlayed, archiveDates } from '@/li
 import { PROMPT_INDEX } from '@/lib/library';
 import { earnedBadges, unseenBadges } from '@/lib/badges';
 import { reminderIcs } from '@/lib/reminder';
+import { mergeProfiles } from '@/lib/merge';
 import { addDays, puzzleNumberFor, EPOCH } from '@/lib/dates';
 import { developedBucket, streakOnIce, currentRoundIndex, dayTotal, deriveStats, effectiveStreak, expireRound, freshGame, getGame, remainingMs, skipRound, startRound, submitAnswer, submitGuess } from '@/lib/game';
 import { emptyProfile } from '@/lib/storage';
@@ -586,6 +587,21 @@ test('the days after the pinned ones never repeat a prompt from the three days b
     assert.equal(new Set(today).size, 7, d);
     today.forEach((id) => assert.ok(!recent.has(id), `${id} repeats on ${d}`));
   }
+});
+
+console.log('Accounts');
+test('merging two saved games keeps every day, the further-along copy of each, and the most recent streak', () => {
+  const a = skipDay(skipDay(emptyProfile(), full(60)), full(61));
+  const b0 = skipDay(emptyProfile(), full(70));
+  const b = submitGuess(playAll(b0, best), daily, daily.image.answer).profile;
+  const m = mergeProfiles(a, b);
+  for (const k of [full(60).dateKey, full(61).dateKey, full(70).dateKey, daily.dateKey]) assert.ok(m.games[k], `missing ${k}`);
+  assert.ok(m.games[daily.dateKey].guess, 'kept the finished copy');
+  assert.equal(m.lastCompletedDate, a.lastCompletedDate, 'the side that played most recently leads');
+  assert.equal(m.currentStreak, a.currentStreak);
+  assert.equal(m.longestStreak, Math.max(a.longestStreak, b.longestStreak));
+  assert.deepEqual(mergeProfiles(a, null), a);
+  assert.deepEqual(Object.keys(mergeProfiles(a, a).games).sort(), Object.keys(a.games).sort());
 });
 
 console.log(`\n${passed} tests passed${process.exitCode ? ' — with failures' : ''}`);

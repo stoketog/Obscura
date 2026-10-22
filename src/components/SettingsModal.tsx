@@ -4,6 +4,7 @@ import { Modal } from './Modal';
 import { useState } from 'react';
 import { IconMute, IconSound, IconBell, IconDownload } from './Icons';
 import { downloadReminder } from '@/lib/reminder';
+import { logEvent } from '@/lib/online';
 import { useInstall } from './Install';
 
 function Switch({ checked, onChange, label, testId }: { checked: boolean; onChange: (v: boolean) => void; label: string; testId: string }) {
@@ -116,6 +117,7 @@ function Reminders() {
           className="btn-ghost !min-h-11 flex-1 text-sm"
           onClick={() => {
             downloadReminder(time);
+            logEvent('reminder_added', null, { time });
             setDone(true);
           }}
           data-testid="reminder-add"

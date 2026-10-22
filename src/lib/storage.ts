@@ -54,7 +54,8 @@ export const safeStorage = {
   },
 };
 
-function sanitize(raw: unknown): PlayerProfile {
+/** A saved game read from anywhere (this device or an account), made safe to use. */
+export function sanitize(raw: unknown): PlayerProfile {
   const base = emptyProfile();
   if (!raw || typeof raw !== 'object') return base;
   const r = raw as Partial<PlayerProfile>;

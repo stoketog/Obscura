@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { IconDownload } from './Icons';
+import { logEvent } from '@/lib/online';
 
 /**
  * "Install Obscura": adds the game to the home screen as an app. Chrome, Edge and Android offer a real install
@@ -19,6 +20,7 @@ if (typeof window !== 'undefined') {
     listeners.forEach((l) => l());
   });
   window.addEventListener('appinstalled', () => {
+    logEvent('installed');
     deferred = null;
     listeners.forEach((l) => l());
   });

@@ -5,6 +5,7 @@ import { developedFor, guessBonusFor } from '@/lib/scoring';
 import { useSettings } from '@/hooks/useSettings';
 import { keySoundFor } from '@/lib/sfx';
 import { Modal } from './Modal';
+import { logEvent } from '@/lib/online';
 import { IconCheck, IconClose } from './Icons';
 
 /**
@@ -29,6 +30,7 @@ export function GuessSheet({ api, offer = false, onClose }: { api: ObscuraApi; o
     const g = api.guess(text);
     if (!g) return;
     play(g.correct ? 'finish' : 'miss');
+    logEvent('guess_early', api.daily?.dateKey ?? null, { correct: g.correct, developed: g.developed, afterRound: g.afterRound });
     setResult(g);
   };
 

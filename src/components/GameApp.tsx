@@ -174,6 +174,10 @@ function GameAppInner() {
           onSettings={() => setModal('settings')}
           onArchive={() => setModal('archive')}
           onDarkroom={() => setModal('darkroom')}
+          account={api.account}
+          syncState={api.syncState}
+          onSignIn={api.signIn}
+          onSignOut={api.signOut}
           onClose={() => setMenu(false)}
         />
       )}
