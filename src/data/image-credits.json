@@ -121,6 +121,18 @@
       "Template:PD-USGov-NASA/layout"
     ]
   },
+  "eiffel-tower": {
+    "file": "f4d191a0049dcb01.jpg",
+    "width": 845,
+    "height": 1280,
+    "title": "File:Lightning striking the Eiffel Tower - NOAA.jpg",
+    "author": "Unknown",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File%3ALightning_striking_the_Eiffel_Tower_-_NOAA.jpg",
+    "templates": [
+      "PD-old-auto-expired"
+    ]
+  },
   "enigma": {
     "file": "9220eef5a9885076.jpg",
     "width": 960,
