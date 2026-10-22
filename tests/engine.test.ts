@@ -604,4 +604,20 @@ test('merging two saved games keeps every day, the further-along copy of each, a
   assert.deepEqual(Object.keys(mergeProfiles(a, a).games).sort(), Object.keys(a.games).sort());
 });
 
+console.log('Answers testers expected');
+test('everyday jobs, birds and drinks that testers typed are accepted', () => {
+  const ok = (id: string, list: string[]) => list.forEach((a) => assert.equal(matchAnswer(byId(id), a).kind, 'hit', `${id}: ${a}`));
+  ok('job', ['Draughtsman', 'Draftsman', 'Diesel mechanic', 'Technician', 'Scaffolder', 'HGV driver', 'Lorry driver', 'Solicitor', 'Barrister', 'Bin man', 'Teaching assistant', 'Care worker', 'GP', 'Influencer']);
+  ok('bird', ['Carrion crow', 'Red grouse', 'Hen', 'Rooster', 'Diver', 'Great northern diver']);
+  ok('drink', ['Orange squash', 'Hot water', 'Energy drink', 'J2O', 'Fruit Shoot', 'Mocktail', 'Non-alcoholic beer']);
+});
+test('a specific kind of a listed job counts, as an Everyday answer; nonsense does not', () => {
+  const m = matchAnswer(byId('job'), 'Forklift truck mechanic');
+  assert.equal(m.kind, 'hit');
+  assert.ok(m.kind === 'hit' && m.entry.score < 18);
+  assert.equal(matchAnswer(byId('job'), 'mechanic mechanic mechanic mechanic mechanic').kind, 'miss');
+  assert.equal(matchAnswer(byId('job'), '12 engineer').kind, 'miss');
+  assert.equal(matchAnswer(byId('bird'), 'Diesel mechanic').kind, 'miss');
+});
+
 console.log(`\n${passed} tests passed${process.exitCode ? ' — with failures' : ''}`);

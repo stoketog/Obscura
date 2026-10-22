@@ -1,0 +1,6 @@
+# Everyday bird words testers used. Written by hand.
+Hen|Rooster;Cockerel;Chook;Bantam
+Diver|Loon
+Swallow-tailed kite
+Carrion crow
+Red grouse

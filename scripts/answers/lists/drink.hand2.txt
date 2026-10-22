@@ -1,0 +1,159 @@
+# More non-alcoholic drinks, from tester feedback and UK shelves. Written by hand.
+Orange squash
+Blackcurrant squash
+Lemon squash
+Hot water
+Energy drink
+Sports drink
+Isotonic drink
+Protein shake
+Meal replacement shake
+J2O
+Fruit Shoot
+Mocktail
+Virgin mojito
+Virgin Mary
+Virgin piña colada|Virgin pina colada
+Alcohol-free beer|Non-alcoholic beer;0% beer;Alcohol free beer;Low-alcohol beer
+Alcohol-free wine|Non-alcoholic wine;Alcohol free wine
+Alcohol-free gin|Non-alcoholic gin
+Alcohol-free cider|Non-alcoholic cider
+Lemon and lime
+Lime and soda|Lime soda
+Lime cordial
+Orange and mango juice
+Tropical juice
+Multivitamin juice
+Mango juice
+Watermelon juice
+Pomegranate juice
+Grapefruit juice
+Prune juice
+Beetroot juice
+Celery juice
+Green juice
+Wheatgrass shot
+Ginger shot
+Apple and blackcurrant
+Fizzy water|Carbonated water
+Still water
+Tap water
+Mineral water
+Spring water
+Flavoured water|Flavored water
+Vitamin water
+Iced latte
+Pumpkin spice latte
+Chai latte
+Turmeric latte|Golden milk
+Babyccino
+Decaf coffee|Decaf
+Instant coffee
+Filter coffee
+Cortado
+Ristretto
+Affogato
+Turkish coffee
+Greek frappé|Frappé
+Vietnamese iced coffee
+Dalgona coffee
+Builder's tea
+Breakfast tea|English breakfast tea
+Darjeeling
+Assam
+Lapsang souchong
+Oolong
+White tea
+Jasmine tea
+Fruit tea
+Lemon and ginger tea
+Hibiscus tea
+Masala chai
+Thai iced tea
+Arnold Palmer
+Lemonade (cloudy)|Cloudy lemonade
+Pink lemonade
+Cherryade
+Limeade
+Orangeade
+Dr Pepper
+Mountain Dew
+Lilt
+Um Bongo
+Panda Pops
+Tizer
+Rubicon
+Oasis
+Robinsons
+Kia-Ora
+Sunny Delight|SunnyD
+Capri-Sun
+Yazoo
+Frijj
+Nesquik
+Hot Vimto
+Cream soda
+Sarsaparilla
+Birch beer
+Malt drink|Malta
+Ginger tea
+Chicory coffee
+Barleycup
+Postum
+Caro
+Agua fresca
+Tamarind juice
+Sugarcane juice
+Jallab
+Sobia
+Tejuino
+Chicha morada
+Atole
+Champurrado
+Sikhye
+Sujeonggwa
+Barley tea|Mugicha;Boricha
+Genmaicha
+Hojicha
+Sencha
+Pu-erh
+Bubble tea|Boba tea;Pearl milk tea
+Taro milk tea
+Cendol
+Teh tarik
+Kopi
+Milo
+Horlicks
+Ovaltine
+Cocoa|Drinking chocolate
+Egg cream
+Malted milk|Malt
+Frappe
+Float|Ice cream float;Coke float
+Slush puppie|Slush;Slushie
+Snow cone syrup
+Hot apple juice|Mulled apple juice
+Hot Ribena
+Hot lemon
+Lemon water
+Cucumber water
+Honey water
+Rose water drink
+Sharbat
+Nimbu pani
+Jaljeera
+Aam panna
+Falooda
+Thandai
+Kefir
+Buttermilk
+Doogh
+Tan
+Ayran
+Switchel
+Shrub
+Tepache
+Kvass
+Ginger beer
+Tonic water|Tonic
+Bitter lemon

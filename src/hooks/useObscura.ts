@@ -357,7 +357,12 @@ export function useObscura(): ObscuraApi {
       const idx = currentRoundIndex(getGame(before, d));
       const res = submitAnswer(before, d, raw, Date.now());
       if (res.profile !== before) commit(res.profile);
-      if (res.outcome.kind === 'miss' && idx >= 0) logUnrecognised(d.prompts[idx].id, raw.trim().toLowerCase().slice(0, 60));
+      if (res.outcome.kind === 'miss' && idx >= 0 && !res.outcome.expired) {
+        const typed = raw.trim().toLowerCase().slice(0, 60);
+        logUnrecognised(d.prompts[idx].id, typed);
+        // Also tell the database, so answers players expect can be found and added for everyone.
+        if (typed.length >= 2) online.logEvent('unrecognised', d.dateKey, { prompt: d.prompts[idx].id, text: typed, near: res.outcome.near ?? null });
+      }
       return { outcome: res.outcome, finished: res.profile !== before && isDone(res.profile, d) && !isDone(before, d) };
     },
     [commit],

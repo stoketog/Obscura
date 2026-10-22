@@ -1,0 +1,3 @@
+# Tester-style everyday answers. Written by hand.
+Torch|Flashlight
+Paint roller|Roller

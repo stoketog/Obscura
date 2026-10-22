@@ -1,0 +1,4 @@
+# Furnishings people count as furniture. Written by hand.
+Mirror
+Lamp|Floor lamp;Standard lamp
+Rug

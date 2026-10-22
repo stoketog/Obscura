@@ -115,7 +115,7 @@ export async function recordResult(r: { date: string; points: number; developed:
   return row ? { beatenPct: row.beaten_pct, players: row.players } : null;
 }
 
-export type EventName = 'visit' | 'day_started' | 'day_finished' | 'guess_early' | 'share_text' | 'share_card' | 'challenge_sent' | 'challenge_opened' | 'signed_in' | 'installed' | 'reminder_added' | 'archive_played';
+export type EventName = 'unrecognised' | 'visit' | 'day_started' | 'day_finished' | 'guess_early' | 'share_text' | 'share_card' | 'challenge_sent' | 'challenge_opened' | 'signed_in' | 'installed' | 'reminder_added' | 'archive_played';
 
 export function logEvent(name: EventName, date: string | null = null, props: Record<string, unknown> | null = null): void {
   void rpc('log_event', { p_player: playerKey(), p_name: name, p_date: date, p_props: props });

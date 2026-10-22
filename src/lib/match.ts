@@ -87,6 +87,34 @@ export function matchAnswer(prompt: Prompt, raw: string): MatchResult {
     }
   }
   if (best && !tie) return { kind: 'hit', entry: best.entry, fuzzy: true };
+
+  // Job titles are endless ("diesel mechanic", "HGV technician"): a specific kind of a job on the list counts,
+  // as an Everyday answer, so it is never worth inventing one.
+  const compound = compoundJob(prompt, raw, text);
+  if (compound) return { kind: 'hit', entry: compound, fuzzy: false };
+
   if (closest && closest.d <= 2 && text.length >= 4) return { kind: 'miss', near: closest.entry };
   return { kind: 'miss' };
+}
+
+/** The last word of a job title that makes "<anything sensible> <word>" a job. */
+const JOB_HEADS = new Set(
+  ('mechanic technician engineer driver nurse manager assistant operator officer worker inspector analyst consultant designer ' +
+    'developer scientist teacher surveyor fitter installer cleaner specialist coordinator supervisor administrator therapist ' +
+    'instructor apprentice technologist agent advisor adviser clerk planner researcher producer director writer editor artist ' +
+    'maker builder repairer porter attendant guard keeper farmer tutor coach trainer salesman executive controller estimator ' +
+    'buyer dealer broker chef cook doctor surgeon lecturer professor scientist labourer laborer operative machinist welder ' +
+    'electrician plumber carpenter joiner gardener photographer journalist reporter presenter accountant economist lawyer solicitor')
+    .split(' '),
+);
+
+function compoundJob(prompt: Prompt, raw: string, text: string): AnswerEntry | null {
+  if (prompt.id !== 'job') return null;
+  const words = text.split(' ').filter(Boolean);
+  if (words.length < 2 || words.length > 4) return null;
+  const head = words[words.length - 1].replace(/s$/, '');
+  if (!JOB_HEADS.has(head)) return null;
+  if (!words.slice(0, -1).every((w) => /^[a-z0-9]{2,}$/.test(w) && !/^\d+$/.test(w))) return null;
+  const name = raw.trim().replace(/\s+/g, ' ').replace(/^(\p{Ll})/u, (c) => c.toUpperCase());
+  return { name, score: 10, aliases: [] };
 }

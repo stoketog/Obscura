@@ -1,0 +1,480 @@
+# Everyday jobs and job titles people actually say, UK and US. Written by hand.
+# Trades and construction
+Draughtsman|Draftsman;Draughtswoman;Draughtsperson;Drafter
+CAD technician|CAD designer;CAD draughtsman
+Technician
+Scaffolder
+Joiner
+Tiler
+Plasterer
+Roofer
+Bricklayer|Brickie
+Stonemason|Mason
+Steel fixer|Steelfixer
+Steel erector
+Groundworker
+Labourer|Laborer;General labourer
+Site manager
+Site engineer
+Foreman
+Quantity surveyor|QS
+Building surveyor
+Land surveyor
+Painter and decorator|Decorator;Painter-decorator
+Plumbing and heating engineer
+Gas engineer|Gas fitter;Gas Safe engineer
+Heating engineer
+Boiler engineer
+Electrician apprentice
+Apprentice
+Glazier
+Locksmith
+Shopfitter
+Kitchen fitter
+Bathroom fitter
+Carpet fitter
+Floor layer
+Plant operator
+Crane operator|Crane driver
+Digger driver|Excavator operator
+Forklift driver|Forklift operator;Fork lift driver
+Dumper driver
+Road worker
+Asphalt layer
+Drainage engineer
+Demolition worker
+Welder
+Fabricator|Welder fabricator;Metal fabricator
+Sheet metal worker
+Pipefitter|Pipe fitter
+Boilermaker
+CNC machinist|CNC operator
+Machinist
+Toolmaker
+Fitter
+Mechanical fitter
+Maintenance engineer
+Maintenance technician
+Multi-skilled engineer
+Electrical engineer
+Electronics engineer
+Field service engineer
+Service engineer
+Diesel mechanic
+Motor mechanic|Car mechanic;Auto mechanic
+HGV mechanic|HGV technician
+Vehicle technician|Motor vehicle technician
+Aircraft engineer|Aircraft mechanic;Aircraft technician
+Marine engineer
+Panel beater
+Body shop technician|Bodywork technician
+Paint sprayer|Car sprayer
+Tyre fitter|Tire fitter
+MOT tester
+Lift engineer|Elevator mechanic
+Wind turbine technician
+Solar panel installer|Solar installer
+Air conditioning engineer|HVAC technician;HVAC engineer
+Refrigeration engineer
+Lineman|Linesman;Line worker;Overhead linesman
+Cable jointer
+Telecoms engineer|Telecom engineer
+Satellite installer
+Aerial installer
+Alarm engineer|Security systems engineer
+# Transport and logistics
+HGV driver|Lorry driver;Truck driver;Trucker
+Delivery driver
+Van driver
+Courier
+Train driver|Engine driver;Locomotive driver
+Train conductor|Conductor;Guard
+Tram driver
+Bus driver
+Coach driver
+Taxi driver|Cabbie;Cab driver
+Uber driver|Rideshare driver;Private hire driver
+Chauffeur
+Removal man|Mover;Removals man
+Warehouse operative|Warehouse worker;Warehouse assistant
+Picker|Order picker;Picker packer
+Packer
+Dispatcher
+Logistics manager
+Supply chain manager
+Shipping clerk
+Freight forwarder
+Dock worker|Docker;Stevedore;Longshoreman
+Deckhand
+Ferry captain
+Harbour master|Harbor master
+Air traffic controller
+Flight attendant|Air hostess;Cabin crew;Steward;Stewardess
+Airline pilot
+Baggage handler
+Ground crew
+Airport security officer
+# Shops, hospitality and services
+Shop assistant|Sales assistant;Retail assistant;Shop worker
+Store manager|Shop manager
+Assistant manager
+Shelf stacker|Shelf filler
+Checkout operator|Checkout assistant
+Cashier
+Stock controller
+Visual merchandiser
+Personal shopper
+Barista
+Bartender|Barman;Barmaid;Bar staff;Mixologist
+Pub landlord|Publican;Landlord
+Waiter|Waitress;Server
+Sommelier
+Maître d’|Maitre d;Head waiter
+Kitchen porter|KP;Dishwasher;Pot washer
+Commis chef
+Sous chef
+Head chef|Executive chef
+Pastry chef|Patissier
+Line cook
+Short-order cook
+Dinner lady|Lunch lady;Dinner supervisor
+Caterer
+Fishmonger
+Greengrocer
+Grocer
+Delicatessen owner|Deli worker
+Hotel manager
+Hotel receptionist|Front desk clerk
+Housekeeper
+Chambermaid|Room attendant
+Concierge
+Bellboy|Bellhop;Porter
+Doorman
+Bouncer|Door supervisor
+Security guard|Security officer
+Night watchman
+Valet
+Butler
+Footman
+Nanny
+Childminder
+Au pair
+Babysitter
+Dog walker
+Pet sitter
+Dog groomer|Groomer
+Beautician|Beauty therapist
+Nail technician|Manicurist
+Make-up artist|Makeup artist
+Tattoo artist|Tattooist
+Piercer|Body piercer
+Massage therapist|Masseur;Masseuse
+Personal trainer|PT;Fitness instructor
+Yoga teacher|Yoga instructor
+Swimming instructor|Swim teacher
+Driving instructor
+Ski instructor
+Window cleaner
+Cleaner|Office cleaner;Domestic cleaner
+Carpet cleaner
+Chimney sweep
+Pest controller|Exterminator;Rat catcher
+Bin man|Binman;Refuse collector;Garbage collector;Garbage man;Dustman
+Road sweeper|Street sweeper
+Caretaker
+Janitor|Custodian
+Groundskeeper|Groundsman
+Tree surgeon|Arborist
+Landscaper|Landscape gardener
+Florist
+Undertaker|Funeral director;Mortician
+Embalmer
+Gravedigger
+Celebrant
+Wedding planner
+Event planner|Events manager
+Estate agent|Real estate agent;Realtor;Letting agent
+Removals manager
+Traffic warden|Parking attendant;Civil enforcement officer
+Lollipop lady|Lollipop man;Crossing guard;School crossing patrol
+# Health and care
+GP|General practitioner;Family doctor
+Consultant
+Registrar
+Junior doctor
+House officer
+Hospital porter
+Healthcare assistant|HCA;Nursing assistant
+Care worker|Carer;Care assistant;Support worker;Caregiver
+Home help
+District nurse
+Practice nurse
+Mental health nurse
+Dental nurse
+Dental hygienist|Hygienist
+Dental technician
+Orthodontist
+Veterinary nurse|Vet nurse;Veterinary technician;Vet tech
+Sonographer
+Radiologist
+Radiographer
+Phlebotomist
+Paramedic
+Ambulance driver|Ambulance technician;EMT
+Occupational therapist|OT
+Speech therapist|Speech and language therapist
+Podiatrist|Chiropodist
+Chiropractor
+Osteopath
+Audiologist
+Dietitian|Dietician
+Nutritionist
+Pharmacy technician
+Pharmacy assistant
+Anaesthetist|Anesthesiologist;Anesthetist
+Cardiologist
+Dermatologist
+Neurologist
+Oncologist
+Paediatrician|Pediatrician
+Psychotherapist
+Counsellor|Counselor;Therapist
+Optical assistant
+Optical technician
+Lab technician|Laboratory technician;Lab assistant
+Biomedical scientist
+Clinical scientist
+Medical secretary
+# Office, business and tech
+Personal assistant|PA;Executive assistant
+Administrator|Admin assistant;Administrative assistant;Office administrator
+Office manager
+Receptionist
+Clerk|Office clerk
+Data entry clerk
+Call centre operator|Call center agent;Customer service advisor;Customer service representative
+Telesales executive|Telemarketer
+Sales rep|Sales representative;Salesman;Saleswoman;Salesperson
+Account manager
+Business analyst
+Management consultant
+HR manager|Human resources manager;HR advisor;HR officer
+Recruiter|Recruitment consultant;Headhunter;Talent scout
+Marketing manager|Marketing executive
+Social media manager
+Content creator
+Influencer|Social media influencer
+YouTuber
+Streamer|Twitch streamer
+Podcaster
+Blogger
+Copywriter
+Proofreader
+Product manager
+Project manager
+Programme manager|Program manager
+Operations manager
+Office junior
+Intern
+CEO|Chief executive;Managing director;Chief executive officer
+Chairman|Chairwoman;Chairperson
+Entrepreneur|Business owner
+Shopkeeper
+Stockbroker|Broker
+Trader|Stock trader;City trader
+Investment banker
+Financial advisor|Financial adviser;Financial planner
+Bookkeeper
+Payroll officer|Payroll clerk
+Tax adviser|Tax advisor;Tax consultant
+Loss adjuster
+Insurance broker
+Underwriter
+Mortgage advisor|Mortgage adviser
+Bank teller|Teller
+Data scientist
+Data analyst
+Software developer|Software engineer;Developer;Coder;Programmer
+Web developer|Web designer
+App developer
+Game developer|Games developer;Video game designer
+IT technician|IT support;Helpdesk;IT support technician
+Network engineer
+Systems administrator|Sysadmin
+Cyber security analyst|Cybersecurity analyst;Security analyst;Ethical hacker
+DevOps engineer
+Database administrator|DBA
+UX designer|UI designer
+Graphic designer
+Illustrator
+Animator
+Video editor
+Film editor
+Sound engineer|Audio engineer
+Lighting technician
+Camera operator|Cameraman;Camerawoman
+Photographer
+Photojournalist
+Journalist|Reporter
+Newsreader|News anchor;Newscaster
+Weather presenter|Weatherman;Meteorologist
+Radio presenter|DJ;Radio DJ
+TV presenter|Television presenter;Host
+Editor
+Publisher
+Literary agent
+Translator
+Interpreter
+Librarian
+Archivist
+Curator
+Tour guide
+Travel agent
+# Law, government and public service
+Solicitor
+Barrister
+Paralegal
+Legal secretary
+Conveyancer
+Notary
+Bailiff
+Court clerk
+Magistrate
+Coroner
+MP|Member of Parliament
+Councillor|Councilor
+Civil servant
+Diplomat|Ambassador
+Police officer|Policeman;Policewoman;Police constable;PC;Cop
+Detective
+PCSO|Police community support officer
+Prison officer|Prison guard;Correctional officer;Warder
+Probation officer
+Firefighter|Fireman;Firewoman
+Coastguard
+Lifeboat crew
+Soldier
+Sailor
+Royal Marine|Marine
+Paratrooper
+RAF pilot|Fighter pilot
+Border Force officer|Customs officer;Border guard
+Immigration officer
+Social worker
+Youth worker
+Charity worker
+Postman|Postwoman;Postal worker;Mail carrier;Mailman;Postie
+Lollipop man
+# Education
+Teacher|Schoolteacher
+Teaching assistant|TA;Classroom assistant
+Supply teacher|Substitute teacher
+Headteacher|Head teacher;Headmaster;Headmistress;Principal
+Deputy head
+Lecturer
+Professor
+Tutor
+Nursery nurse|Nursery teacher;Early years practitioner
+SENCO
+Exam invigilator|Invigilator
+School nurse
+Careers adviser
+# Farming, outdoors and making things
+Farmer
+Farmhand|Farm worker;Farm labourer
+Dairy farmer
+Shepherd
+Gamekeeper
+Forester
+Fisherman
+Trawlerman
+Beekeeper
+Gardener
+Horticulturist
+Zookeeper
+Park ranger|Ranger
+Stable hand|Groom
+Jockey
+Racehorse trainer
+Farrier
+Blacksmith
+Watchmaker|Clockmaker
+Jeweller|Jeweler
+Goldsmith
+Silversmith
+Potter
+Glassblower
+Seamstress|Sewing machinist;Dressmaker
+Tailor
+Upholsterer
+Cobbler|Shoemaker;Shoe repairer
+Saddler
+Thatcher
+Signwriter|Sign maker
+Printer
+Bookbinder
+Baker
+Butcher
+Brewer
+Distiller
+Winemaker
+Factory worker|Production operative
+Machine operator
+Assembly line worker
+Quality inspector|Quality controller
+Miner|Coal miner
+Oil rig worker|Roughneck;Offshore worker
+Quarry worker
+# Arts, sport and entertainment
+Actor|Actress
+Stage manager
+Set designer
+Costume designer
+Dancer
+Choreographer
+Singer
+Musician
+Session musician
+Composer
+Orchestra conductor
+Music teacher
+Busker
+Comedian|Stand-up comedian
+Magician
+Clown
+Stuntman|Stunt performer
+Model
+Fashion designer
+Footballer|Football player;Soccer player
+Professional athlete|Athlete
+Referee|Ref
+Umpire
+Football manager
+Coach
+Physio|Sports physio
+Lifeguard
+Caddie|Caddy
+Croupier|Dealer
+Bookmaker|Bookie
+Writer|Author;Novelist
+Poet
+Screenwriter
+Artist
+Sculptor
+Architect
+Interior designer
+Landscape architect
+Engineer
+Civil engineer
+Structural engineer
+Mechanical engineer
+Chemical engineer
+Software tester|QA tester;Tester
+Technologist
+Inspector
+Auditor
+Health and safety officer
+Environmental health officer
+Building inspector
+Meter reader
+Hygienist

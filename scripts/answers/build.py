@@ -142,7 +142,7 @@ def main():
             if pid in CHARACTER_PROMPTS:
                 al += character_forms(name)
             if name:
-                by_prompt.setdefault(pid, []).append((name, al))
+                by_prompt.setdefault(pid, []).append((name, al, '.hand' in f))
     out = {}
     report = []
     for pid, items in sorted(by_prompt.items()):
@@ -150,13 +150,16 @@ def main():
         for s in core[pid]['spellings']:
             taken |= keys(s) | keys(base_of(pid, s))
         fresh = []
-        for name, al in items:
+        for name, al, by_hand in items:
             if keys(base_of(pid, name)) & taken:
                 continue
             # An alternative name that already belongs to an answer means this is that answer again ("Attack on
-            # Pearl Harbor|pearl harbor" when "Pearl Harbor" is accepted), so the whole entry is skipped.
+            # Pearl Harbor|pearl harbor" when "Pearl Harbor" is accepted), so the whole entry is skipped. Names
+            # written by hand are trusted as answers in their own right: only their clashing alternatives are dropped.
             if any(keys(a) & taken for a in al):
-                continue
+                if not by_hand:
+                    continue
+                al = [a for a in al if not (keys(a) & taken)]
             name, al = feature_forms(pid, name, al)
             k = keys(name)
             if not k or k & taken:
