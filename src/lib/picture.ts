@@ -7,20 +7,26 @@ import { levenshtein, normalize } from './text';
  * How the day's photograph looks at a given stage of development, and how the final guess is judged.
  */
 
-/** CSS filter for the photograph at `developed` percent: from almost black and very soft to sharp and true. */
+/** How soft the photograph is at `developed` percent: a heavy blur at 0% that clears steadily to sharp at 100%. */
+export function chamberBlur(developed: number): number {
+  const p = Math.max(0, Math.min(100, developed)) / 100;
+  return 22 * Math.pow(1 - p, 1.6);
+}
+
+/**
+ * CSS filter for the photograph at `developed` percent. The reveal is a blur that clears: colours and light are true
+ * from the start (only slightly muted), so the player can always see the photograph, just not its detail.
+ */
 export function chamberFilter(developed: number): string {
   const p = Math.max(0, Math.min(100, developed)) / 100;
-  const blur = 30 * Math.pow(1 - p, 1.35);
-  const bright = 0.07 + 0.93 * Math.pow(p, 0.75);
-  const sepia = 0.55 * (1 - p);
-  const sat = 0.35 + 0.65 * p;
-  return `blur(${blur.toFixed(1)}px) brightness(${bright.toFixed(3)}) sepia(${sepia.toFixed(2)}) saturate(${sat.toFixed(2)})`;
+  const bright = 0.88 + 0.12 * p;
+  const sat = 0.8 + 0.2 * p;
+  return `blur(${chamberBlur(developed).toFixed(1)}px) brightness(${bright.toFixed(3)}) saturate(${sat.toFixed(2)})`;
 }
 
 /** The image is drawn slightly larger while blurred, so the soft edges never show. */
 export function chamberScale(developed: number): number {
-  const p = Math.max(0, Math.min(100, developed)) / 100;
-  return 1 + 0.12 * (1 - p);
+  return 1 + 0.12 * (chamberBlur(developed) / 22);
 }
 
 const KIND_HINT: Record<DailyImage['kind'], string> = {

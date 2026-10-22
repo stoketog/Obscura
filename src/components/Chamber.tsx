@@ -4,7 +4,7 @@ import { chamberFilter, chamberScale } from '@/lib/picture';
 
 /**
  * The back wall of the chamber: the day's photograph, as developed as the player's points allow.
- * At 0% it is a warm, near-black blur; every answer lets light in and the picture sharpens.
+ * At 0% it is a heavy blur showing only colours and rough shapes; every answer clears the blur a little more.
  * The alt text never names the subject until it is revealed.
  */
 export function Chamber({
