@@ -1,4 +1,4 @@
-/** Screenshots of every screen for review:  npx tsx tests/shots.ts <out-dir>  (needs dist-admin built) */
+/** Screenshots of every screen for review:  npx tsx tests/shots.ts <out-dir>  (needs dist-admin built; THEME=light for the light theme) */
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import { getPrompts } from '@/lib/prompts';
@@ -14,6 +14,7 @@ async function main() {
   const b = await chromium.launch();
   for (const [name, vp, mobile] of [['d', { width: 1280, height: 860 }, false], ['m', { width: 390, height: 844 }, true]] as const) {
     const ctx = await b.newContext({ viewport: vp, hasTouch: mobile, deviceScaleFactor: 1, reducedMotion: 'reduce', timezoneId: 'UTC', acceptDownloads: true });
+    if (process.env.THEME) await ctx.addInitScript((t) => localStorage.setItem('obscura:v1:settings', JSON.stringify({ theme: t })), process.env.THEME);
     const p = await ctx.newPage();
     await p.clock.install({ time: new Date(`${DAY}T10:00:00Z`) });
     await p.goto('http://localhost:4195/');

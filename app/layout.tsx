@@ -22,14 +22,18 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 };
 
+const THEME_BOOT = `try{var t=(JSON.parse(localStorage.getItem('obscura:v1:settings')||'{}').theme)||'dark';if(t==='auto')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.dataset.theme=t;}catch(e){}`;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+        {/* Set the theme before the first paint, so a light-mode player never sees a flash of the dark page. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
       </head>
       <body>{children}</body>
     </html>

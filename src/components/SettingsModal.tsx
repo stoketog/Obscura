@@ -69,7 +69,7 @@ export function SettingsModal({ onClose }: { onClose: () => void }) {
 
       <section aria-label="Appearance" className="hairline-t border-t border-white/10 pt-3">
         <p className="eyebrow !text-[0.62rem]">Appearance</p>
-        <Row title="Theme" hint="Panels and menus. The dark room behind them stays dark.">
+        <Row title="Theme" hint="Dark is the darkroom; Light is daylight. Auto follows your device.">
           <div className="seg" role="radiogroup" aria-label="Theme">
             {THEMES.map((t) => (
               <button key={t.id} type="button" role="radio" aria-checked={settings.theme === t.id} data-on={settings.theme === t.id} onClick={() => set({ theme: t.id })} data-testid={`set-theme-${t.id}`}>

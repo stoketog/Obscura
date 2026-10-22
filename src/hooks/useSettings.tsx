@@ -17,14 +17,22 @@ export const useSettings = () => useContext(Ctx);
 
 export function SettingsProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
+  const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => setSettings(loadSettings()), []);
+  useEffect(() => {
+    setSettings(loadSettings());
+    setLoaded(true);
+  }, []);
 
   // theme, motion and performance flags live on <html> so plain CSS can follow them
   useEffect(() => {
+    if (!loaded) return; // the boot script in layout.tsx has already set the saved theme
     const root = document.documentElement;
     const apply = () => {
-      root.dataset.theme = resolveTheme(settings.theme);
+      const theme = resolveTheme(settings.theme);
+      root.dataset.theme = theme;
+      // the browser bar matches the page
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#f4ede0' : '#0d0b09');
       root.dataset.motion = settings.reduceMotion ? 'reduced' : 'full';
     };
     apply();
@@ -32,7 +40,7 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     const mq = window.matchMedia('(prefers-color-scheme: light)');
     mq.addEventListener('change', apply);
     return () => mq.removeEventListener('change', apply);
-  }, [settings.theme, settings.reduceMotion]);
+  }, [loaded, settings.theme, settings.reduceMotion]);
 
   useEffect(() => {
     sfx.setVolume(settings.volume / 100);
