@@ -26,14 +26,13 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     const apply = () => {
       root.dataset.theme = resolveTheme(settings.theme);
       root.dataset.motion = settings.reduceMotion ? 'reduced' : 'full';
-      root.dataset.perf = settings.lowCpu ? 'low' : 'full';
     };
     apply();
     if (settings.theme !== 'auto') return;
     const mq = window.matchMedia('(prefers-color-scheme: light)');
     mq.addEventListener('change', apply);
     return () => mq.removeEventListener('change', apply);
-  }, [settings.theme, settings.reduceMotion, settings.lowCpu]);
+  }, [settings.theme, settings.reduceMotion]);
 
   useEffect(() => {
     sfx.setVolume(settings.volume / 100);

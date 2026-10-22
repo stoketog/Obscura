@@ -8,6 +8,7 @@ export interface Settings {
   muted: boolean;
   theme: ThemePref;
   /** Draws the world less often and leaves out the supporting scenery. */
+  /** No longer shown in Obscura; kept so settings links to and from Engineerle keep the same format. */
   lowCpu: boolean;
   /** No animated transitions, camera moves or shaking. */
   reduceMotion: boolean;

@@ -68,7 +68,7 @@ export function SettingsModal({ onClose }: { onClose: () => void }) {
 
       <section aria-label="Appearance" className="hairline-t border-t border-white/10 pt-3">
         <p className="eyebrow !text-[0.62rem]">Appearance</p>
-        <Row title="Theme" hint="Panels and menus. The world behind them stays as it is.">
+        <Row title="Theme" hint="Panels and menus. The dark room behind them stays dark.">
           <div className="seg" role="radiogroup" aria-label="Theme">
             {THEMES.map((t) => (
               <button key={t.id} type="button" role="radio" aria-checked={settings.theme === t.id} data-on={settings.theme === t.id} onClick={() => set({ theme: t.id })} data-testid={`set-theme-${t.id}`}>
@@ -77,14 +77,7 @@ export function SettingsModal({ onClose }: { onClose: () => void }) {
             ))}
           </div>
         </Row>
-      </section>
-
-      <section aria-label="Performance" className="border-t border-white/10 pt-3">
-        <p className="eyebrow !text-[0.62rem]">Performance</p>
-        <Row title="Low CPU mode" hint="Draws the world less often at a lower resolution, with no shadows or extra scenery. Good for older phones and laptops.">
-          <Switch checked={settings.lowCpu} onChange={(v) => set({ lowCpu: v })} label="Low CPU mode" testId="set-lowcpu" />
-        </Row>
-        <Row title="Reduce motion" hint="Holds the world still and cuts camera moves and shaking.">
+        <Row title="Reduce motion" hint="Turns off fades, slides and the burst of light as the photograph develops.">
           <Switch checked={settings.reduceMotion} onChange={(v) => set({ reduceMotion: v })} label="Reduce motion" testId="set-motion" />
         </Row>
       </section>
