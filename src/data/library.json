@@ -712,5 +712,362 @@
   "text": "Name a bone in the human body",
   "category": "Anatomy",
   "file": "bone-0930606661.json"
+ },
+ {
+  "id": "country-5-or-fewer",
+  "group": "geography",
+  "text": "Name a country with five letters or fewer",
+  "category": "Countries · 5 letters or fewer",
+  "file": "country-5-or-fewer-ebef6c4750.json"
+ },
+ {
+  "id": "country-7-letters",
+  "group": "geography",
+  "text": "Name a country with exactly seven letters (spaces don’t count)",
+  "category": "Countries · 7 letters",
+  "file": "country-7-letters-a58a4c158e.json"
+ },
+ {
+  "id": "country-no-a",
+  "group": "geography",
+  "text": "Name a country without the letter A",
+  "category": "Countries · no letter A",
+  "file": "country-no-a-eb480d3a70.json"
+ },
+ {
+  "id": "country-3-vowels",
+  "group": "geography",
+  "text": "Name a country with exactly three vowels (A, E, I, O, U)",
+  "category": "Countries · 3 vowels",
+  "file": "country-3-vowels-8369c40046.json"
+ },
+ {
+  "id": "place-one-vowel",
+  "group": "geography",
+  "text": "Name a country or capital with only one vowel, like Panama",
+  "category": "Places · one vowel only",
+  "file": "place-one-vowel-1dd6bcf1ca.json"
+ },
+ {
+  "id": "country-ends-ia",
+  "group": "geography",
+  "text": "Name a country ending in “-ia”",
+  "category": "Countries · ending -ia",
+  "file": "country-ends-ia-6475feeab9.json"
+ },
+ {
+  "id": "country-two-words",
+  "group": "geography",
+  "text": "Name a country with two or more words in its name",
+  "category": "Countries · two words or more",
+  "file": "country-two-words-25f1a30c15.json"
+ },
+ {
+  "id": "country-starts-vowel",
+  "group": "geography",
+  "text": "Name a country beginning with a vowel",
+  "category": "Countries · first letter a vowel",
+  "file": "country-starts-vowel-2bf9ac7e69.json"
+ },
+ {
+  "id": "place-same-start-end",
+  "group": "geography",
+  "text": "Name a country or capital starting and ending with the same letter",
+  "category": "Places · same first and last letter",
+  "file": "place-same-start-end-968b4aea0c.json"
+ },
+ {
+  "id": "city-starts-b",
+  "group": "geography",
+  "text": "Name a city beginning with B",
+  "category": "Cities · starting with B",
+  "file": "city-starts-b-d73c7da384.json"
+ },
+ {
+  "id": "city-ends-a",
+  "group": "geography",
+  "text": "Name a city ending in A",
+  "category": "Cities · ending in A",
+  "file": "city-ends-a-2a2a5f09f5.json"
+ },
+ {
+  "id": "capital-6-letters",
+  "group": "geography",
+  "text": "Name a capital city with exactly six letters",
+  "category": "Capitals · 6 letters",
+  "file": "capital-6-letters-216922c780.json"
+ },
+ {
+  "id": "river-4-letters",
+  "group": "geography",
+  "text": "Name a river with a four-letter name",
+  "category": "Rivers · 4 letters",
+  "file": "river-4-letters-c070194345.json"
+ },
+ {
+  "id": "island-starts-s",
+  "group": "geography",
+  "text": "Name an island beginning with S",
+  "category": "Islands · starting with S",
+  "file": "island-starts-s-6160addae6.json"
+ },
+ {
+  "id": "animal-4-letters",
+  "group": "nature",
+  "text": "Name an animal with a four-letter name",
+  "category": "Animals · 4 letters",
+  "file": "animal-4-letters-13d705dc4c.json"
+ },
+ {
+  "id": "animal-5-letters",
+  "group": "nature",
+  "text": "Name an animal with a five-letter name",
+  "category": "Animals · 5 letters",
+  "file": "animal-5-letters-03b8e3e1e1.json"
+ },
+ {
+  "id": "animal-z-or-x",
+  "group": "nature",
+  "text": "Name an animal with a Z or an X in its name",
+  "category": "Animals · with Z or X",
+  "file": "animal-z-or-x-86dabb017f.json"
+ },
+ {
+  "id": "animal-double-letter",
+  "group": "nature",
+  "text": "Name a one-word animal with a double letter, like Rabbit",
+  "category": "Animals · double letter",
+  "file": "animal-double-letter-4c96d72e3f.json"
+ },
+ {
+  "id": "mammal-starts-b",
+  "group": "nature",
+  "text": "Name a mammal beginning with B",
+  "category": "Mammals · starting with B",
+  "file": "mammal-starts-b-5c3e6e7408.json"
+ },
+ {
+  "id": "bird-6-letters",
+  "group": "nature",
+  "text": "Name a bird with a six-letter, one-word name",
+  "category": "Birds · 6 letters",
+  "file": "bird-6-letters-0cf2cbe030.json"
+ },
+ {
+  "id": "flower-ends-a",
+  "group": "nature",
+  "text": "Name a flower or plant ending in A",
+  "category": "Flowers · ending in A",
+  "file": "flower-ends-a-64b4795fd5.json"
+ },
+ {
+  "id": "tree-short",
+  "group": "nature",
+  "text": "Name a tree with five letters or fewer",
+  "category": "Trees · 5 letters or fewer",
+  "file": "tree-short-5bde713f20.json"
+ },
+ {
+  "id": "fruit-double-letter",
+  "group": "food",
+  "text": "Name a fruit with a double letter, like Apple",
+  "category": "Fruit · double letter",
+  "file": "fruit-double-letter-950fef823a.json"
+ },
+ {
+  "id": "cheese-ends-o",
+  "group": "food",
+  "text": "Name a cheese ending in O",
+  "category": "Cheese · ending in O",
+  "file": "cheese-ends-o-223235aa17.json"
+ },
+ {
+  "id": "colour-5-letters",
+  "group": "general",
+  "text": "Name a colour with exactly five letters",
+  "category": "Colours · 5 letters",
+  "file": "colour-5-letters-197551212b.json"
+ },
+ {
+  "id": "colour-starts-b",
+  "group": "general",
+  "text": "Name a colour beginning with B",
+  "category": "Colours · starting with B",
+  "file": "colour-starts-b-8458ee02b9.json"
+ },
+ {
+  "id": "job-starts-p",
+  "group": "general",
+  "text": "Name a job beginning with P",
+  "category": "Jobs · starting with P",
+  "file": "job-starts-p-51abc109cb.json"
+ },
+ {
+  "id": "clothing-starts-s",
+  "group": "general",
+  "text": "Name an item of clothing beginning with S",
+  "category": "Clothing · starting with S",
+  "file": "clothing-starts-s-cbb92845cb.json"
+ },
+ {
+  "id": "car-brand-vowel",
+  "group": "general",
+  "text": "Name a car manufacturer beginning with a vowel",
+  "category": "Car makers · first letter a vowel",
+  "file": "car-brand-vowel-001988500c.json"
+ },
+ {
+  "id": "tech-company-vowel",
+  "group": "general",
+  "text": "Name a technology company beginning with a vowel",
+  "category": "Tech companies · first letter a vowel",
+  "file": "tech-company-vowel-b932487792.json"
+ },
+ {
+  "id": "language-ish-ese",
+  "group": "general",
+  "text": "Name a language ending in “-ish” or “-ese”",
+  "category": "Languages · -ish or -ese",
+  "file": "language-ish-ese-68bd71712d.json"
+ },
+ {
+  "id": "element-ium",
+  "group": "science",
+  "text": "Name a chemical element ending in “-ium”",
+  "category": "Elements · ending -ium",
+  "file": "element-ium-1c1298e80c.json"
+ },
+ {
+  "id": "scientist-vowel",
+  "group": "science",
+  "text": "Name a scientist or inventor whose surname begins with a vowel",
+  "category": "Scientists · surname starts with a vowel",
+  "file": "scientist-vowel-2f73c455a5.json"
+ },
+ {
+  "id": "footballer-m",
+  "group": "sport",
+  "text": "Name a footballer whose surname begins with M",
+  "category": "Footballers · surname starts with M",
+  "file": "footballer-m-7d17c60fff.json"
+ },
+ {
+  "id": "footballer-ends-o",
+  "group": "sport",
+  "text": "Name a footballer whose surname (or nickname) ends in O",
+  "category": "Footballers · ending in O",
+  "file": "footballer-ends-o-5b827fdace.json"
+ },
+ {
+  "id": "actor-surname-s",
+  "group": "screen",
+  "text": "Name an actor or actress whose surname begins with S",
+  "category": "Actors · surname starts with S",
+  "file": "actor-surname-s-8d1e2d54d6.json"
+ },
+ {
+  "id": "pokemon-5-letters",
+  "group": "screen",
+  "text": "Name a Pokémon with exactly five letters",
+  "category": "Pokémon · 5 letters",
+  "file": "pokemon-5-letters-45d6e16422.json"
+ },
+ {
+  "id": "pokemon-vowel",
+  "group": "screen",
+  "text": "Name a Pokémon beginning with a vowel",
+  "category": "Pokémon · first letter a vowel",
+  "file": "pokemon-vowel-1e211ec82d.json"
+ },
+ {
+  "id": "disney-one-word",
+  "group": "screen",
+  "text": "Name a Disney animated film with a one-word title",
+  "category": "Disney films · one-word titles",
+  "file": "disney-one-word-b832283f8f.json"
+ },
+ {
+  "id": "band-the",
+  "group": "music",
+  "text": "Name a band whose name starts with “The”",
+  "category": "Bands · starting with The",
+  "file": "band-the-388e98bd64.json"
+ },
+ {
+  "id": "singer-one-name",
+  "group": "music",
+  "text": "Name a singer known by just one name, like Adele",
+  "category": "Singers · one name",
+  "file": "singer-one-name-8a97a59c30.json"
+ },
+ {
+  "id": "painter-ends-vowel",
+  "group": "arts",
+  "text": "Name a painter whose surname ends in a vowel",
+  "category": "Painters · surname ends in a vowel",
+  "file": "painter-ends-vowel-70b963bcaf.json"
+ },
+ {
+  "id": "god-ends-a",
+  "group": "history",
+  "text": "Name a god or goddess whose name ends in A",
+  "category": "Gods · ending in A",
+  "file": "god-ends-a-da866d76f1.json"
+ },
+ {
+  "id": "ucl-finalist",
+  "group": "sport",
+  "text": "Name a European Cup or Champions League finalist",
+  "category": "European Cup finalists",
+  "file": "ucl-finalist-5f08704057.json"
+ },
+ {
+  "id": "premier-league-club",
+  "group": "sport",
+  "text": "Name a club that has played in the Premier League (since 1992)",
+  "category": "Premier League clubs",
+  "file": "premier-league-club-cc98041777.json"
+ },
+ {
+  "id": "fa-cup-winner",
+  "group": "sport",
+  "text": "Name a club that has won the FA Cup",
+  "category": "FA Cup winners",
+  "file": "fa-cup-winner-762e2c26e0.json"
+ },
+ {
+  "id": "olympic-host-city",
+  "group": "geography",
+  "text": "Name a city that has hosted the Olympic Games (Summer or Winter)",
+  "category": "Olympic host cities",
+  "file": "olympic-host-city-3f714158d4.json"
+ },
+ {
+  "id": "nato-member",
+  "group": "geography",
+  "text": "Name a member country of NATO",
+  "category": "NATO members",
+  "file": "nato-member-b0cfcbb814.json"
+ },
+ {
+  "id": "african-country",
+  "group": "geography",
+  "text": "Name a country in Africa",
+  "category": "African countries",
+  "file": "african-country-ee3c0bbc42.json"
+ },
+ {
+  "id": "us-state-capital",
+  "group": "geography",
+  "text": "Name a US state capital",
+  "category": "US state capitals",
+  "file": "us-state-capital-248cf502bd.json"
+ },
+ {
+  "id": "ancient-civilisation",
+  "group": "history",
+  "text": "Name an ancient civilisation",
+  "category": "Ancient civilisations",
+  "file": "ancient-civilisation-15058976c5.json"
  }
 ]

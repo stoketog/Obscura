@@ -12,6 +12,8 @@ import { NATURE } from './nature';
 import { CULTURE } from './culture';
 import { EXTRA_ANSWERS } from './extra';
 import { withExtras } from './extra/merge';
+import { PUZZLES } from './puzzles';
+import { MORE } from './more';
 
 /**
  * The prompt library. To add a category, add a `PromptSeed` to any file here
@@ -36,4 +38,8 @@ export const CORE_SEEDS: PromptSeed[] = [
   ...CULTURE,
 ];
 
-export const PROMPT_SEEDS: PromptSeed[] = withExtras(CORE_SEEDS, EXTRA_ANSWERS);
+/**
+ * Everything: the core with its extras, then the puzzle prompts (letter and vowel rules, generated from the base
+ * lists by scripts/answers/puzzles.ts) and the hand-made lists in more.ts.
+ */
+export const PROMPT_SEEDS: PromptSeed[] = [...withExtras(CORE_SEEDS, EXTRA_ANSWERS), ...PUZZLES, ...MORE];

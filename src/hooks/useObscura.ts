@@ -4,8 +4,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { DailySet, GameState, GuessRecord, PlayerProfile } from '@/lib/types';
 import { playerRepository, emptyProfile } from '@/lib/storage';
 import { toDateKey } from '@/lib/dates';
-import { ENDLESS_DIVES, asPlayed, getDaily, getEndlessDive, imageForDay, type DayOf } from '@/lib/daily';
+import { ENDLESS_DIVES, asPlayed, getDaily, getEndlessDive, type DayOf } from '@/lib/daily';
 import { PROMPT_INDEX, loadPrompts, type PromptMeta } from '@/lib/library';
+import { adoptChallengeFromUrl, loadChallenges, type Challenge } from '@/lib/challenge';
 import { deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, submitGuess, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
 import { ADMIN_ENABLED } from '@/lib/config';
 import { logUnrecognised, loadForcedDate, loadOverrides, saveForcedDate, saveOverrides, type OverrideMap } from '@/lib/admin';
@@ -47,6 +48,10 @@ export interface ObscuraApi {
   openArchive: (dateKey: string) => void;
   /** Record that the player has been shown these badges. */
   markBadgesSeen: (ids: string[]) => void;
+  /** Friends' results received through challenge links, newest first. */
+  challenges: Challenge[];
+  /** Open the day a challenge is for: today's game, or the archive day. */
+  openChallenge: (c: Challenge) => void;
   game: GameState | null;
   stats: Stats;
   streak: number;
@@ -88,6 +93,7 @@ export function useObscura(): ObscuraApi {
   const [view, setViewRaw] = useState<View>('home');
   const [endless, setEndless] = useState<number | null>(null);
   const [archiveDate, setArchiveDate] = useState<string | null>(null);
+  const [challenges, setChallenges] = useState<Challenge[]>([]);
   // Going home always returns to the daily.
   const setView = useCallback((v: View) => {
     if (v === 'home') {
@@ -111,13 +117,16 @@ export function useObscura(): ObscuraApi {
       const games = { ...loadedProfile.games };
       for (const g of missing) {
         const dive = g.dateKey.startsWith('endless-') ? Number(g.dateKey.slice(8)) : 0;
-        games[g.dateKey] = { ...g, imageId: dive ? getEndlessDive(dive).image.id : imageForDay(g.puzzleNumber - 1).id };
+        games[g.dateKey] = { ...g, imageId: dive ? getEndlessDive(dive).image.id : getDaily(g.dateKey).image.id };
       }
       const next = { ...loadedProfile, games };
       playerRepository.save(next);
       setProfile(next);
     } else setProfile(loadedProfile);
     setToday(toDateKey(new Date()));
+    // A challenge link (?c=…) is kept on this device and the address tidied.
+    adoptChallengeFromUrl();
+    setChallenges(loadChallenges());
     if (ADMIN_ENABLED) {
       setOverrides(loadOverrides());
       setForced(loadForcedDate());
@@ -267,6 +276,15 @@ export function useObscura(): ObscuraApi {
     setViewRaw('play');
   }, []);
 
+  const openChallenge = useCallback(
+    (c: Challenge) => {
+      setEndless(null);
+      setArchiveDate(c.date < today ? c.date : null);
+      setViewRaw('play');
+    },
+    [today],
+  );
+
   const markBadgesSeen = useCallback(
     (ids: string[]) => {
       const cur = profileRef.current;
@@ -357,5 +375,5 @@ export function useObscura(): ObscuraApi {
     [overrides, forcedDate, commit],
   );
 
-  return { ready, profile, today, dateKey, plan, daily, loadError, retryLoad, archiveDate, openArchive, markBadgesSeen, game, stats, streak, view, setView, endless, openEndless, endlessDives, start, submit, skip, expire, guess, markCelebrated, dismissHelp, admin };
+  return { ready, profile, today, dateKey, plan, daily, loadError, retryLoad, archiveDate, openArchive, markBadgesSeen, challenges, openChallenge, game, stats, streak, view, setView, endless, openEndless, endlessDives, start, submit, skip, expire, guess, markCelebrated, dismissHelp, admin };
 }

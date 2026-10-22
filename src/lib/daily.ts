@@ -2,6 +2,14 @@ import type { DailyImage, DailySet, PromptGroup } from './types';
 import { PROMPT_INDEX } from './library';
 import { IMAGES } from '@/data/images';
 import { addDays, puzzleNumberFor } from './dates';
+import SCHEDULE_JSON from '@/data/schedule.json';
+
+/** Days already published, pinned for good (scripts/lock-schedule.ts). Later days are dealt from the library. */
+const SCHEDULE = SCHEDULE_JSON as Record<string, { prompts: string[]; image: string }>;
+const PINNED_DATES = Object.keys(SCHEDULE).sort();
+/** Puzzle number of the last pinned day (0 if none). */
+const LOCKED_THROUGH = PINNED_DATES.length ? puzzleNumberFor(PINNED_DATES[PINNED_DATES.length - 1]) : 0;
+const PINNED_IMAGES = new Set(Object.values(SCHEDULE).map((d) => d.image));
 import { ROUNDS_PER_DAY } from './scoring';
 
 /**
@@ -148,14 +156,56 @@ export type DayOf<T> = Omit<DailySet, 'prompts'> & { prompts: T[] };
 /** `overrides` maps a date to an explicit list of prompt ids (admin / editorial). */
 export function getDaily<T extends Dealable = (typeof PROMPT_INDEX)[number]>(dateKey: string, overrides?: Record<string, string[]>, pool: T[] = PROMPT_INDEX as unknown as T[]): DayOf<T> {
   const forced = overrides?.[dateKey];
-  let prompts = pickPrompts(dateKey, pool);
+  const number = puzzleNumberFor(dateKey);
+  const byId = new Map(pool.map((p) => [p.id, p]));
+  const pinned = SCHEDULE[dateKey];
+  const pinnedPrompts = pinned?.prompts.map((id) => byId.get(id));
+  let prompts = pinnedPrompts && pinnedPrompts.every(Boolean) && pinnedPrompts.length === ROUNDS_PER_DAY ? (pinnedPrompts as T[]) : dealtPrompts(dateKey, pool);
   if (forced && forced.length) {
-    const byId = new Map(pool.map((p) => [p.id, p]));
     const picked = forced.map((id, i) => byId.get(id) ?? prompts[i]).filter(Boolean) as T[];
     if (picked.length === ROUNDS_PER_DAY) prompts = picked;
   }
-  const number = puzzleNumberFor(dateKey);
-  return { dateKey, number, prompts, image: imageForDay(number - 1) };
+  const image = (pinned && IMAGES.find((i) => i.id === pinned.image)) || imageForNumber(number);
+  return { dateKey, number, prompts, image };
+}
+
+/** Prompt ids shown on a date: pinned if published, otherwise the plain deal. */
+function promptIdsOn<T extends Dealable>(dateKey: string, pool: T[]): string[] {
+  return SCHEDULE[dateKey]?.prompts ?? pickPrompts(dateKey, pool).map((p) => p.id);
+}
+
+/**
+ * The deal for a day that isn't pinned, nudged so that nothing shown in the previous three days comes back (the
+ * plain deal guarantees that among dealt days, but not right after the pinned ones). A clash is swapped for the
+ * next prompt of the same topic in a seeded order.
+ */
+function dealtPrompts<T extends Dealable>(dateKey: string, pool: T[]): T[] {
+  const dealt = pickPrompts(dateKey, pool);
+  if (puzzleNumberFor(dateKey) > LOCKED_THROUGH + 3) return dealt;
+  const recent = new Set<string>();
+  for (let k = 1; k <= 3; k++) promptIdsOn(addDays(dateKey, -k), pool).forEach((id) => recent.add(id));
+  const used = new Set(dealt.map((p) => p.id));
+  return dealt.map((p) => {
+    if (!recent.has(p.id)) return p;
+    const same = pool.filter((q) => q.group === p.group && !recent.has(q.id) && !used.has(q.id));
+    const alt = same.length ? same[shuffledOrder(same.length, hash(`${dateKey}:${p.id}`))[0]] : undefined;
+    if (!alt) return p;
+    used.add(alt.id);
+    return alt;
+  });
+}
+
+/**
+ * The photograph for a day that isn't pinned. Photographs no published day has used come first (in a seeded
+ * order), so new photographs reach players before any repeat; after that, the library is dealt in passes.
+ */
+export function imageForNumber(number: number, library: DailyImage[] = IMAGES): DailyImage {
+  const k = number - 1 - LOCKED_THROUGH;
+  if (k < 0) return imageForDay(number - 1, library);
+  const fresh = library.filter((i) => !PINNED_IMAGES.has(i.id));
+  const order = shuffledOrder(fresh.length, 0x2b7e ^ hash('fresh-images'));
+  if (k < fresh.length) return fresh[order[k]];
+  return imageForDay(k - fresh.length, library);
 }
 
 /**

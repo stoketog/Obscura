@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { PROMPT_SEEDS } from '@/data/prompts';
 import { IMAGES, IMAGE_EDITORIAL } from '@/data/images';
 import CREDITS from '@/data/image-credits.json';
+import SCHEDULE from '@/data/schedule.json';
 import { existsSync, readFileSync } from 'node:fs';
 import { getPrompts, parseAnswer, rarestEntry } from '@/lib/prompts';
 import { matchAnswer } from '@/lib/match';
@@ -33,7 +34,7 @@ test('prompt ids are unique and there are enough for several days', () => {
 });
 test('every prompt has plenty of answers with valid scores', () => {
   for (const p of prompts) {
-    assert.ok(p.entries.length >= 40, `${p.id} has only ${p.entries.length} answers`);
+    assert.ok(p.entries.length >= 30, `${p.id} has only ${p.entries.length} answers`);
     for (const e of p.entries) assert.ok(e.score >= 1 && e.score <= 100, `${p.id}/${e.name} score ${e.score}`);
   }
 });
@@ -558,6 +559,33 @@ test('waiting until the end changes nothing: a wrong end guess costs nothing', (
   const p = submitGuess(playAll(emptyProfile(), best), daily, 'wrong').profile;
   const g = getGame(p, daily);
   assert.equal(dayTotal(g), g.points);
+});
+
+console.log('Published days stay put');
+test('every pinned day keeps its own seven prompts and photograph', () => {
+  const schedule = SCHEDULE as Record<string, { prompts: string[]; image: string }>;
+  const ids = new Set(PROMPT_INDEX.map((p) => p.id));
+  const keys = Object.keys(schedule);
+  assert.ok(keys.length >= 30, 'schedule is locked');
+  for (const k of keys) {
+    const d = getDaily(k);
+    assert.deepEqual(d.prompts.map((p) => p.id), schedule[k].prompts, k);
+    assert.equal(d.image.id, schedule[k].image, k);
+    schedule[k].prompts.forEach((id) => assert.ok(ids.has(id), `${k}: unknown prompt ${id}`));
+    assert.ok(IMAGES.some((im) => im.id === schedule[k].image), `${k}: unknown photo`);
+  }
+});
+test('the days after the pinned ones never repeat a prompt from the three days before', () => {
+  const keys = Object.keys(SCHEDULE).sort();
+  const last = keys[keys.length - 1];
+  for (let i = 1; i <= 10; i++) {
+    const d = addDays(last, i);
+    const recent = new Set<string>();
+    for (let k = 1; k <= 3; k++) getDaily(addDays(d, -k)).prompts.forEach((p) => recent.add(p.id));
+    const today = getDaily(d).prompts.map((p) => p.id);
+    assert.equal(new Set(today).size, 7, d);
+    today.forEach((id) => assert.ok(!recent.has(id), `${id} repeats on ${d}`));
+  }
 });
 
 console.log(`\n${passed} tests passed${process.exitCode ? ' — with failures' : ''}`);

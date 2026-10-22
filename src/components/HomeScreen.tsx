@@ -3,6 +3,7 @@ import { currentRoundIndex, dayTotal, streakOnIce } from '@/lib/game';
 import { useEffect, useState } from 'react';
 import { formatCountdown, msUntilNextDay } from '@/lib/dates';
 import { withViewTransition } from '@/lib/viewTransition';
+import { ChallengeInbox } from './Challenge';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { prettyDate } from '@/lib/dates';
 import { Emblem } from './Emblem';
@@ -100,6 +101,8 @@ export function HomeScreen({ api, onArchive, onDarkroom }: { api: ObscuraApi; on
             You missed a day, but a streak freeze has it covered. Finish today’s to keep your {streak}-day streak.
           </p>
         )}
+
+        <ChallengeInbox api={api} />
 
         <div className="mb-2 mt-3 grid grid-cols-2 gap-3 lg:mb-0">
           <button className="panel flex items-center gap-2.5 p-3.5 text-left transition-colors hover:border-bio-400/40 sm:gap-3 sm:p-4" onClick={onArchive} data-testid="home-archive">

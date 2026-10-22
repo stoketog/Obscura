@@ -1,5 +1,6 @@
 import type { DailyImage, ImageKind } from '@/lib/types';
 import CREDITS from './image-credits.json';
+import MORE from './images-more.json';
 
 /**
  * THE PHOTOGRAPH LIBRARY
@@ -78,8 +79,11 @@ interface Credit {
 
 const credits = CREDITS as Record<string, Credit>;
 
+/** The hand-written entries above, then the larger batch from scripts/images/subjects.py (export_editorial.py). */
+const ALL: Editorial[] = [...EDITORIAL, ...(MORE as Editorial[])];
+
 /** Only images that passed the licence check and were downloaded are ever used. */
-export const IMAGES: DailyImage[] = EDITORIAL.filter((e) => credits[e.id]).map((e) => {
+export const IMAGES: DailyImage[] = ALL.filter((e) => credits[e.id]).map((e) => {
   const c = credits[e.id];
   return {
     ...e,
@@ -91,4 +95,4 @@ export const IMAGES: DailyImage[] = EDITORIAL.filter((e) => credits[e.id]).map((
 });
 
 /** Every editorial entry, including any whose photograph has not been fetched yet (for the admin tools and tests). */
-export const IMAGE_EDITORIAL = EDITORIAL;
+export const IMAGE_EDITORIAL = ALL;

@@ -1,0 +1,3515 @@
+[
+ {
+  "id": "eiffel-tower",
+  "answer": "Eiffel Tower",
+  "aliases": [
+   "Tour Eiffel",
+   "Eiffel"
+  ],
+  "kind": "place",
+  "blurb": "Built for the 1889 World’s Fair in Paris, it was the tallest structure in the world until 1930."
+ },
+ {
+  "id": "statue-of-liberty",
+  "answer": "Statue of Liberty",
+  "aliases": [
+   "Liberty Enlightening the World",
+   "Lady Liberty",
+   "Liberty Statue"
+  ],
+  "kind": "place",
+  "blurb": "A gift from France, dedicated in 1886 on Liberty Island in New York Harbor."
+ },
+ {
+  "id": "big-ben",
+  "answer": "Big Ben",
+  "aliases": [
+   "Elizabeth Tower",
+   "Clock Tower",
+   "Palace of Westminster",
+   "Houses of Parliament"
+  ],
+  "kind": "place",
+  "blurb": "Strictly the name of the great bell; the tower was renamed the Elizabeth Tower in 2012."
+ },
+ {
+  "id": "tower-bridge",
+  "answer": "Tower Bridge",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "A bascule and suspension bridge over the Thames in London, opened in 1894."
+ },
+ {
+  "id": "sydney-opera-house",
+  "answer": "Sydney Opera House",
+  "aliases": [
+   "Opera House"
+  ],
+  "kind": "place",
+  "blurb": "Designed by the Danish architect Jørn Utzon and opened in 1973."
+ },
+ {
+  "id": "great-wall",
+  "answer": "Great Wall of China",
+  "aliases": [
+   "Great Wall",
+   "Wall of China"
+  ],
+  "kind": "place",
+  "blurb": "Built and rebuilt over two thousand years; most of what stands today dates from the Ming dynasty."
+ },
+ {
+  "id": "christ-redeemer",
+  "answer": "Christ the Redeemer",
+  "aliases": [
+   "Cristo Redentor",
+   "Christ the Redeemer statue",
+   "Corcovado"
+  ],
+  "kind": "place",
+  "blurb": "An Art Deco statue completed in 1931 on top of Corcovado mountain above Rio de Janeiro."
+ },
+ {
+  "id": "pyramids-giza",
+  "answer": "Pyramids of Giza",
+  "aliases": [
+   "Great Pyramid",
+   "Great Pyramid of Giza",
+   "Giza pyramids",
+   "Pyramids",
+   "Giza"
+  ],
+  "kind": "place",
+  "blurb": "The Great Pyramid, built for the pharaoh Khufu around 2560 BC, is the oldest of the Seven Wonders of the Ancient World."
+ },
+ {
+  "id": "parthenon",
+  "answer": "Parthenon",
+  "aliases": [
+   "Acropolis",
+   "The Parthenon"
+  ],
+  "kind": "place",
+  "blurb": "A temple to Athena on the Acropolis of Athens, completed in 438 BC."
+ },
+ {
+  "id": "chichen-itza",
+  "answer": "Chichén Itzá",
+  "aliases": [
+   "Chichen Itza",
+   "El Castillo",
+   "Temple of Kukulcan",
+   "Kukulkan"
+  ],
+  "kind": "place",
+  "blurb": "A great Maya city on the Yucatán Peninsula; its stepped pyramid is known as El Castillo."
+ },
+ {
+  "id": "sagrada-familia",
+  "answer": "Sagrada Família",
+  "aliases": [
+   "Sagrada Familia",
+   "La Sagrada Familia"
+  ],
+  "kind": "place",
+  "blurb": "Antoni Gaudí’s basilica in Barcelona, under construction since 1882."
+ },
+ {
+  "id": "st-basils",
+  "answer": "St Basil’s Cathedral",
+  "aliases": [
+   "St Basil's Cathedral",
+   "Saint Basil’s Cathedral",
+   "Saint Basils Cathedral",
+   "St Basils",
+   "Cathedral of Vasily the Blessed"
+  ],
+  "kind": "place",
+  "blurb": "Built in Red Square, Moscow, between 1555 and 1561 on the orders of Ivan the Terrible."
+ },
+ {
+  "id": "notre-dame",
+  "answer": "Notre-Dame de Paris",
+  "aliases": [
+   "Notre Dame",
+   "Notre-Dame",
+   "Notre Dame Cathedral"
+  ],
+  "kind": "place",
+  "blurb": "A Gothic cathedral on the Île de la Cité in Paris, begun in 1163 and reopened in 2024 after a fire."
+ },
+ {
+  "id": "arc-de-triomphe",
+  "answer": "Arc de Triomphe",
+  "aliases": [
+   "Arc de Triomphe de l’Étoile",
+   "Arc de Triomphe de l'Etoile"
+  ],
+  "kind": "place",
+  "blurb": "Commissioned by Napoleon in 1806 and finished in 1836, at the western end of the Champs-Élysées."
+ },
+ {
+  "id": "brandenburg-gate",
+  "answer": "Brandenburg Gate",
+  "aliases": [
+   "Brandenburger Tor"
+  ],
+  "kind": "place",
+  "blurb": "An 18th-century neoclassical gate in Berlin that became a symbol of a divided and then reunited Germany."
+ },
+ {
+  "id": "mount-rushmore",
+  "answer": "Mount Rushmore",
+  "aliases": [
+   "Mount Rushmore National Memorial",
+   "Rushmore"
+  ],
+  "kind": "place",
+  "blurb": "The faces of Washington, Jefferson, Theodore Roosevelt and Lincoln, carved into the Black Hills of South Dakota between 1927 and 1941."
+ },
+ {
+  "id": "empire-state",
+  "answer": "Empire State Building",
+  "aliases": [
+   "Empire State"
+  ],
+  "kind": "place",
+  "blurb": "Finished in 1931, it was the tallest building in the world for nearly 40 years."
+ },
+ {
+  "id": "chrysler-building",
+  "answer": "Chrysler Building",
+  "aliases": [
+   "Chrysler"
+  ],
+  "kind": "place",
+  "blurb": "An Art Deco skyscraper in Manhattan, briefly the world’s tallest building in 1930."
+ },
+ {
+  "id": "white-house",
+  "answer": "White House",
+  "aliases": [
+   "The White House"
+  ],
+  "kind": "place",
+  "blurb": "The home and office of the President of the United States since 1800."
+ },
+ {
+  "id": "us-capitol",
+  "answer": "United States Capitol",
+  "aliases": [
+   "Capitol",
+   "US Capitol",
+   "Capitol Building",
+   "Capitol Hill"
+  ],
+  "kind": "place",
+  "blurb": "The meeting place of the US Congress in Washington, D.C."
+ },
+ {
+  "id": "lincoln-memorial",
+  "answer": "Lincoln Memorial",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "A temple-like memorial to Abraham Lincoln in Washington, D.C., dedicated in 1922."
+ },
+ {
+  "id": "washington-monument",
+  "answer": "Washington Monument",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "A marble obelisk in Washington, D.C., finished in 1884; at the time the tallest structure in the world."
+ },
+ {
+  "id": "alcatraz",
+  "answer": "Alcatraz",
+  "aliases": [
+   "Alcatraz Island",
+   "The Rock",
+   "Alcatraz prison"
+  ],
+  "kind": "place",
+  "blurb": "An island in San Francisco Bay that held a federal prison from 1934 to 1963."
+ },
+ {
+  "id": "hoover-dam",
+  "answer": "Hoover Dam",
+  "aliases": [
+   "Boulder Dam"
+  ],
+  "kind": "place",
+  "blurb": "A concrete arch dam on the Colorado River between Nevada and Arizona, finished in 1936."
+ },
+ {
+  "id": "space-needle",
+  "answer": "Space Needle",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "An observation tower built in Seattle for the 1962 World’s Fair."
+ },
+ {
+  "id": "gateway-arch",
+  "answer": "Gateway Arch",
+  "aliases": [
+   "St Louis Arch",
+   "St. Louis Arch"
+  ],
+  "kind": "place",
+  "blurb": "A 192-metre stainless steel arch in St. Louis, Missouri, completed in 1965."
+ },
+ {
+  "id": "flatiron",
+  "answer": "Flatiron Building",
+  "aliases": [
+   "Flatiron"
+  ],
+  "kind": "place",
+  "blurb": "A triangular skyscraper in Manhattan, completed in 1902."
+ },
+ {
+  "id": "brooklyn-bridge",
+  "answer": "Brooklyn Bridge",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "Opened in 1883 over the East River between Manhattan and Brooklyn."
+ },
+ {
+  "id": "times-square",
+  "answer": "Times Square",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "The neon-lit crossroads of Broadway and Seventh Avenue in Manhattan."
+ },
+ {
+  "id": "grand-central",
+  "answer": "Grand Central Terminal",
+  "aliases": [
+   "Grand Central",
+   "Grand Central Station"
+  ],
+  "kind": "place",
+  "blurb": "A railway terminal in Manhattan, opened in 1913, with a famous painted ceiling of the night sky."
+ },
+ {
+  "id": "golden-temple",
+  "answer": "Golden Temple",
+  "aliases": [
+   "Harmandir Sahib",
+   "Darbar Sahib"
+  ],
+  "kind": "place",
+  "blurb": "The holiest gurdwara of Sikhism, in Amritsar, India."
+ },
+ {
+  "id": "forbidden-city",
+  "answer": "Forbidden City",
+  "aliases": [
+   "Palace Museum",
+   "Imperial Palace Beijing"
+  ],
+  "kind": "place",
+  "blurb": "The palace of China’s emperors in Beijing from 1420 to 1912."
+ },
+ {
+  "id": "kinkaku-ji",
+  "answer": "Kinkaku-ji",
+  "aliases": [
+   "Golden Pavilion",
+   "Temple of the Golden Pavilion",
+   "Kinkakuji"
+  ],
+  "kind": "place",
+  "blurb": "A Zen temple in Kyoto whose top two floors are covered in gold leaf."
+ },
+ {
+  "id": "himeji",
+  "answer": "Himeji Castle",
+  "aliases": [
+   "Himeji",
+   "White Heron Castle"
+  ],
+  "kind": "place",
+  "blurb": "A white hilltop castle in Japan, completed in its present form in 1609."
+ },
+ {
+  "id": "borobudur",
+  "answer": "Borobudur",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "A 9th-century Buddhist temple in Central Java, Indonesia, the largest in the world."
+ },
+ {
+  "id": "alhambra",
+  "answer": "Alhambra",
+  "aliases": [
+   "The Alhambra"
+  ],
+  "kind": "place",
+  "blurb": "A palace and fortress in Granada, Spain, built mostly by the Nasrid rulers in the 13th and 14th centuries."
+ },
+ {
+  "id": "versailles",
+  "answer": "Palace of Versailles",
+  "aliases": [
+   "Versailles",
+   "Chateau de Versailles",
+   "Château de Versailles"
+  ],
+  "kind": "place",
+  "blurb": "The royal palace outside Paris built up by Louis XIV from 1661."
+ },
+ {
+  "id": "st-peters",
+  "answer": "St Peter’s Basilica",
+  "aliases": [
+   "St Peter's Basilica",
+   "Saint Peter’s Basilica",
+   "St Peters",
+   "St. Peter’s Basilica",
+   "Vatican"
+  ],
+  "kind": "place",
+  "blurb": "The great church of the Vatican, completed in 1626, with a dome designed by Michelangelo."
+ },
+ {
+  "id": "trevi",
+  "answer": "Trevi Fountain",
+  "aliases": [
+   "Fontana di Trevi",
+   "Trevi"
+  ],
+  "kind": "place",
+  "blurb": "A Baroque fountain in Rome, finished in 1762; tradition says a coin thrown in means you will return."
+ },
+ {
+  "id": "pantheon",
+  "answer": "Pantheon",
+  "aliases": [
+   "Pantheon Rome",
+   "The Pantheon"
+  ],
+  "kind": "place",
+  "blurb": "A Roman temple finished around AD 125, whose concrete dome is still the largest unreinforced one in the world."
+ },
+ {
+  "id": "rialto",
+  "answer": "Rialto Bridge",
+  "aliases": [
+   "Ponte di Rialto",
+   "Rialto"
+  ],
+  "kind": "place",
+  "blurb": "The oldest bridge over the Grand Canal in Venice, the stone version finished in 1591."
+ },
+ {
+  "id": "st-marks",
+  "answer": "St Mark’s Basilica",
+  "aliases": [
+   "St Mark's Basilica",
+   "San Marco",
+   "Basilica di San Marco",
+   "St Marks"
+  ],
+  "kind": "place",
+  "blurb": "The cathedral of Venice, famous for its gold mosaics and Byzantine domes."
+ },
+ {
+  "id": "duomo-florence",
+  "answer": "Florence Cathedral",
+  "aliases": [
+   "Duomo",
+   "Il Duomo",
+   "Santa Maria del Fiore",
+   "Duomo di Firenze",
+   "Brunelleschi’s dome"
+  ],
+  "kind": "place",
+  "blurb": "Its brick dome, designed by Filippo Brunelleschi and finished in 1436, is the largest brick dome ever built."
+ },
+ {
+  "id": "edinburgh-castle",
+  "answer": "Edinburgh Castle",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "A fortress on Castle Rock in the middle of Edinburgh, Scotland."
+ },
+ {
+  "id": "windsor-castle",
+  "answer": "Windsor Castle",
+  "aliases": [
+   "Windsor"
+  ],
+  "kind": "place",
+  "blurb": "The oldest and largest occupied castle in the world, a royal home since the 11th century."
+ },
+ {
+  "id": "tower-of-london",
+  "answer": "Tower of London",
+  "aliases": [
+   "White Tower",
+   "The Tower"
+  ],
+  "kind": "place",
+  "blurb": "A royal fortress beside the Thames, begun by William the Conqueror; home of the Crown Jewels."
+ },
+ {
+  "id": "st-pauls",
+  "answer": "St Paul’s Cathedral",
+  "aliases": [
+   "St Paul's Cathedral",
+   "St Pauls",
+   "Saint Paul’s Cathedral"
+  ],
+  "kind": "place",
+  "blurb": "Sir Christopher Wren’s cathedral in the City of London, completed in 1710."
+ },
+ {
+  "id": "buckingham-palace",
+  "answer": "Buckingham Palace",
+  "aliases": [
+   "Buckingham"
+  ],
+  "kind": "place",
+  "blurb": "The London home of the British monarch since 1837."
+ },
+ {
+  "id": "angel-north",
+  "answer": "Angel of the North",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "Antony Gormley’s steel sculpture near Gateshead, put up in 1998, with wings 54 metres across."
+ },
+ {
+  "id": "forth-bridge",
+  "answer": "Forth Bridge",
+  "aliases": [
+   "Forth Rail Bridge"
+  ],
+  "kind": "place",
+  "blurb": "A cantilever railway bridge over the Firth of Forth in Scotland, opened in 1890."
+ },
+ {
+  "id": "clifton-bridge",
+  "answer": "Clifton Suspension Bridge",
+  "aliases": [
+   "Clifton Bridge"
+  ],
+  "kind": "place",
+  "blurb": "Spanning the Avon Gorge in Bristol, designed by Isambard Kingdom Brunel and opened in 1864."
+ },
+ {
+  "id": "kremlin",
+  "answer": "Moscow Kremlin",
+  "aliases": [
+   "Kremlin",
+   "The Kremlin"
+  ],
+  "kind": "place",
+  "blurb": "A walled fortress in the middle of Moscow, the seat of Russian power."
+ },
+ {
+  "id": "blue-mosque",
+  "answer": "Blue Mosque",
+  "aliases": [
+   "Sultan Ahmed Mosque",
+   "Sultanahmet Mosque"
+  ],
+  "kind": "place",
+  "blurb": "A 17th-century mosque in Istanbul, named for the blue tiles inside."
+ },
+ {
+  "id": "dome-of-the-rock",
+  "answer": "Dome of the Rock",
+  "aliases": [
+   "Qubbat al-Sakhra"
+  ],
+  "kind": "place",
+  "blurb": "A shrine on the Temple Mount in Jerusalem, completed in 691."
+ },
+ {
+  "id": "burj-khalifa",
+  "answer": "Burj Khalifa",
+  "aliases": [
+   "Burj Dubai"
+  ],
+  "kind": "place",
+  "blurb": "At 828 metres, the tallest building in the world since it opened in Dubai in 2010."
+ },
+ {
+  "id": "cn-tower",
+  "answer": "CN Tower",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "A 553-metre communications tower in Toronto, completed in 1976."
+ },
+ {
+  "id": "atomium",
+  "answer": "Atomium",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "Built for the 1958 Brussels World’s Fair: nine steel spheres in the shape of an iron crystal, magnified billions of times."
+ },
+ {
+  "id": "manneken-pis",
+  "answer": "Manneken Pis",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "A small bronze fountain of a boy in Brussels, in place since 1619."
+ },
+ {
+  "id": "little-mermaid",
+  "answer": "The Little Mermaid statue",
+  "aliases": [
+   "Little Mermaid",
+   "Den lille Havfrue"
+  ],
+  "kind": "place",
+  "blurb": "A bronze statue on the waterfront in Copenhagen, unveiled in 1913."
+ },
+ {
+  "id": "hallstatt",
+  "answer": "Hallstatt",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "A lakeside village in the Austrian Alps, known for salt mining for some 7,000 years."
+ },
+ {
+  "id": "meteora",
+  "answer": "Meteora",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "Monasteries built on top of sandstone pillars in central Greece."
+ },
+ {
+  "id": "dubrovnik",
+  "answer": "Dubrovnik",
+  "aliases": [
+   "Dubrovnik city walls"
+  ],
+  "kind": "place",
+  "blurb": "A walled city on the Adriatic coast of Croatia."
+ },
+ {
+  "id": "santorini",
+  "answer": "Santorini",
+  "aliases": [
+   "Oia",
+   "Thira",
+   "Thera"
+  ],
+  "kind": "place",
+  "blurb": "A Greek island in the Aegean, the remains of a volcano that erupted around 1600 BC."
+ },
+ {
+  "id": "venice-canal",
+  "answer": "Venice",
+  "aliases": [
+   "Grand Canal",
+   "Venezia"
+  ],
+  "kind": "place",
+  "blurb": "A city built on 118 small islands in a lagoon in north-east Italy."
+ },
+ {
+  "id": "cinque-terre",
+  "answer": "Cinque Terre",
+  "aliases": [
+   "Manarola",
+   "Vernazza",
+   "Riomaggiore"
+  ],
+  "kind": "place",
+  "blurb": "Five fishing villages clinging to the cliffs of the Italian Riviera."
+ },
+ {
+  "id": "mont-blanc",
+  "answer": "Mont Blanc",
+  "aliases": [
+   "Monte Bianco"
+  ],
+  "kind": "nature",
+  "blurb": "At 4,806 metres, the highest mountain in the Alps."
+ },
+ {
+  "id": "matterhorn",
+  "answer": "Matterhorn",
+  "aliases": [
+   "Monte Cervino",
+   "Cervin"
+  ],
+  "kind": "nature",
+  "blurb": "A pyramid-shaped peak of 4,478 metres on the border between Switzerland and Italy."
+ },
+ {
+  "id": "everest",
+  "answer": "Mount Everest",
+  "aliases": [
+   "Everest",
+   "Chomolungma",
+   "Sagarmatha"
+  ],
+  "kind": "nature",
+  "blurb": "The highest mountain above sea level, 8,849 metres, first climbed in 1953."
+ },
+ {
+  "id": "kilimanjaro",
+  "answer": "Mount Kilimanjaro",
+  "aliases": [
+   "Kilimanjaro",
+   "Kibo"
+  ],
+  "kind": "nature",
+  "blurb": "Africa’s highest mountain, a dormant volcano in Tanzania, 5,895 metres high."
+ },
+ {
+  "id": "table-mountain",
+  "answer": "Table Mountain",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A flat-topped mountain overlooking Cape Town, South Africa."
+ },
+ {
+  "id": "uluru",
+  "answer": "Uluru",
+  "aliases": [
+   "Ayers Rock"
+  ],
+  "kind": "nature",
+  "blurb": "A sandstone monolith in Australia’s Northern Territory, sacred to the Aṉangu people."
+ },
+ {
+  "id": "grand-canyon",
+  "answer": "Grand Canyon",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Carved by the Colorado River in Arizona, up to 1.8 kilometres deep."
+ },
+ {
+  "id": "niagara",
+  "answer": "Niagara Falls",
+  "aliases": [
+   "Niagara",
+   "Horseshoe Falls"
+  ],
+  "kind": "nature",
+  "blurb": "Three waterfalls on the border between Canada and the United States."
+ },
+ {
+  "id": "victoria-falls",
+  "answer": "Victoria Falls",
+  "aliases": [
+   "Mosi-oa-Tunya"
+  ],
+  "kind": "nature",
+  "blurb": "A waterfall on the Zambezi River between Zambia and Zimbabwe, about 1.7 kilometres wide."
+ },
+ {
+  "id": "old-faithful",
+  "answer": "Old Faithful",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A geyser in Yellowstone National Park that erupts roughly every 90 minutes."
+ },
+ {
+  "id": "half-dome",
+  "answer": "Half Dome",
+  "aliases": [
+   "Yosemite"
+  ],
+  "kind": "nature",
+  "blurb": "A granite dome rising 1,400 metres above the floor of Yosemite Valley."
+ },
+ {
+  "id": "monument-valley",
+  "answer": "Monument Valley",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Sandstone buttes on the Navajo Nation on the Arizona–Utah border, seen in many westerns."
+ },
+ {
+  "id": "delicate-arch",
+  "answer": "Delicate Arch",
+  "aliases": [
+   "Arches National Park"
+  ],
+  "kind": "nature",
+  "blurb": "A freestanding sandstone arch in Arches National Park, Utah, pictured on Utah’s licence plates."
+ },
+ {
+  "id": "devils-tower",
+  "answer": "Devils Tower",
+  "aliases": [
+   "Devil’s Tower",
+   "Devil's Tower",
+   "Bear Lodge"
+  ],
+  "kind": "nature",
+  "blurb": "A volcanic rock tower in Wyoming, the first US national monument, declared in 1906."
+ },
+ {
+  "id": "antelope-canyon",
+  "answer": "Antelope Canyon",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A slot canyon in Arizona, its sandstone walls carved smooth by flash floods."
+ },
+ {
+  "id": "great-barrier-reef",
+  "answer": "Great Barrier Reef",
+  "aliases": [
+   "Barrier Reef"
+  ],
+  "kind": "nature",
+  "blurb": "The world’s largest coral reef system, off the coast of Queensland, Australia."
+ },
+ {
+  "id": "cliffs-of-moher",
+  "answer": "Cliffs of Moher",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Sea cliffs in County Clare, Ireland, rising up to 214 metres above the Atlantic."
+ },
+ {
+  "id": "white-cliffs",
+  "answer": "White Cliffs of Dover",
+  "aliases": [
+   "Cliffs of Dover",
+   "White Cliffs"
+  ],
+  "kind": "nature",
+  "blurb": "Chalk cliffs facing France across the Strait of Dover."
+ },
+ {
+  "id": "durdle-door",
+  "answer": "Durdle Door",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A natural limestone arch on the Jurassic Coast in Dorset, England."
+ },
+ {
+  "id": "old-man-hoy",
+  "answer": "Old Man of Hoy",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A 137-metre sea stack of red sandstone off the island of Hoy in Orkney."
+ },
+ {
+  "id": "fingals-cave",
+  "answer": "Fingal’s Cave",
+  "aliases": [
+   "Fingal's Cave",
+   "Fingals Cave",
+   "Staffa"
+  ],
+  "kind": "nature",
+  "blurb": "A sea cave of basalt columns on the island of Staffa, which inspired Mendelssohn’s Hebrides overture."
+ },
+ {
+  "id": "ha-long",
+  "answer": "Ha Long Bay",
+  "aliases": [
+   "Halong Bay",
+   "Hạ Long Bay"
+  ],
+  "kind": "nature",
+  "blurb": "About 1,600 limestone islands rising from the sea in northern Vietnam."
+ },
+ {
+  "id": "zhangjiajie",
+  "answer": "Zhangjiajie",
+  "aliases": [
+   "Avatar Mountains",
+   "Tianzi Mountains"
+  ],
+  "kind": "nature",
+  "blurb": "Thousands of sandstone pillars in China’s Hunan province."
+ },
+ {
+  "id": "salar-uyuni",
+  "answer": "Salar de Uyuni",
+  "aliases": [
+   "Uyuni",
+   "Uyuni salt flat"
+  ],
+  "kind": "nature",
+  "blurb": "The world’s largest salt flat, over 10,000 square kilometres, in south-west Bolivia."
+ },
+ {
+  "id": "iguazu",
+  "answer": "Iguazu Falls",
+  "aliases": [
+   "Iguaçu Falls",
+   "Iguassu Falls",
+   "Iguazu"
+  ],
+  "kind": "nature",
+  "blurb": "Around 275 waterfalls on the border between Argentina and Brazil."
+ },
+ {
+  "id": "angel-falls",
+  "answer": "Angel Falls",
+  "aliases": [
+   "Salto Ángel",
+   "Kerepakupai Merú"
+  ],
+  "kind": "nature",
+  "blurb": "The world’s highest uninterrupted waterfall, 979 metres, in Venezuela."
+ },
+ {
+  "id": "perito-moreno",
+  "answer": "Perito Moreno Glacier",
+  "aliases": [
+   "Perito Moreno"
+  ],
+  "kind": "nature",
+  "blurb": "A glacier in Argentine Patagonia whose ice front is about 70 metres high."
+ },
+ {
+  "id": "torres-paine",
+  "answer": "Torres del Paine",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Granite towers in a national park in Chilean Patagonia."
+ },
+ {
+  "id": "wadi-rum",
+  "answer": "Wadi Rum",
+  "aliases": [
+   "Valley of the Moon"
+  ],
+  "kind": "nature",
+  "blurb": "A desert valley of sandstone and granite in southern Jordan."
+ },
+ {
+  "id": "mount-st-helens",
+  "answer": "Mount St. Helens",
+  "aliases": [
+   "Mount St Helens",
+   "St Helens",
+   "Mount Saint Helens"
+  ],
+  "kind": "nature",
+  "blurb": "A volcano in Washington State whose 1980 eruption blew away its north face."
+ },
+ {
+  "id": "kilauea",
+  "answer": "Kīlauea",
+  "aliases": [
+   "Kilauea",
+   "Hawaii volcano"
+  ],
+  "kind": "nature",
+  "blurb": "One of the most active volcanoes in the world, on the Big Island of Hawaii."
+ },
+ {
+  "id": "vesuvius",
+  "answer": "Mount Vesuvius",
+  "aliases": [
+   "Vesuvius",
+   "Vesuvio"
+  ],
+  "kind": "nature",
+  "blurb": "The volcano near Naples that buried Pompeii and Herculaneum in AD 79."
+ },
+ {
+  "id": "pompeii",
+  "answer": "Pompeii",
+  "aliases": [],
+  "kind": "place",
+  "blurb": "A Roman town near Naples buried by Vesuvius in AD 79 and preserved under the ash."
+ },
+ {
+  "id": "eyjafjallajokull",
+  "answer": "Eyjafjallajökull",
+  "aliases": [
+   "Eyjafjallajokull"
+  ],
+  "kind": "nature",
+  "blurb": "An Icelandic volcano whose 2010 ash cloud grounded flights across Europe."
+ },
+ {
+  "id": "skogafoss",
+  "answer": "Skógafoss",
+  "aliases": [
+   "Skogafoss"
+  ],
+  "kind": "nature",
+  "blurb": "A 60-metre waterfall in southern Iceland."
+ },
+ {
+  "id": "sequoia",
+  "answer": "General Sherman",
+  "aliases": [
+   "General Sherman tree",
+   "Giant sequoia",
+   "Sequoia"
+  ],
+  "kind": "nature",
+  "blurb": "A giant sequoia in California, the largest single-stem tree on Earth by volume."
+ },
+ {
+  "id": "baobab",
+  "answer": "Baobab",
+  "aliases": [
+   "Avenue of the Baobabs",
+   "Baobab tree"
+  ],
+  "kind": "nature",
+  "blurb": "Trees that store water in their swollen trunks; this avenue is in western Madagascar."
+ },
+ {
+  "id": "milky-way",
+  "answer": "Milky Way",
+  "aliases": [
+   "Galaxy",
+   "The Milky Way"
+  ],
+  "kind": "space",
+  "blurb": "Our own galaxy, seen edge-on as a band of light across a dark sky."
+ },
+ {
+  "id": "moon-landing",
+  "answer": "Moon landing",
+  "aliases": [
+   "Apollo 11",
+   "Buzz Aldrin",
+   "First Moon landing",
+   "Man on the Moon"
+  ],
+  "kind": "space",
+  "blurb": "Buzz Aldrin on the Moon on 20 July 1969, photographed by Neil Armstrong."
+ },
+ {
+  "id": "blue-marble",
+  "answer": "Blue Marble",
+  "aliases": [
+   "The Blue Marble",
+   "Earth",
+   "Planet Earth"
+  ],
+  "kind": "space",
+  "blurb": "The whole Earth, photographed by the crew of Apollo 17 on their way to the Moon in 1972."
+ },
+ {
+  "id": "saturn",
+  "answer": "Saturn",
+  "aliases": [
+   "Saturn rings"
+  ],
+  "kind": "space",
+  "blurb": "The sixth planet from the Sun; its rings are mostly ice, and stretch hundreds of thousands of kilometres."
+ },
+ {
+  "id": "jupiter",
+  "answer": "Jupiter",
+  "aliases": [
+   "Great Red Spot"
+  ],
+  "kind": "space",
+  "blurb": "The largest planet in the solar system, with a storm larger than the Earth."
+ },
+ {
+  "id": "mars",
+  "answer": "Mars",
+  "aliases": [
+   "The Red Planet",
+   "Red Planet"
+  ],
+  "kind": "space",
+  "blurb": "The fourth planet from the Sun, red from the iron oxide in its dust."
+ },
+ {
+  "id": "pluto",
+  "answer": "Pluto",
+  "aliases": [],
+  "kind": "space",
+  "blurb": "Photographed close up for the first time by NASA’s New Horizons probe in 2015."
+ },
+ {
+  "id": "sun",
+  "answer": "The Sun",
+  "aliases": [
+   "Sun",
+   "Solar flare"
+  ],
+  "kind": "space",
+  "blurb": "Our star, about 150 million kilometres away, seen in ultraviolet light."
+ },
+ {
+  "id": "crab-nebula",
+  "answer": "Crab Nebula",
+  "aliases": [
+   "Messier 1",
+   "M1"
+  ],
+  "kind": "space",
+  "blurb": "The remains of a star seen exploding by Chinese astronomers in 1054."
+ },
+ {
+  "id": "andromeda",
+  "answer": "Andromeda Galaxy",
+  "aliases": [
+   "Andromeda",
+   "M31",
+   "Messier 31"
+  ],
+  "kind": "space",
+  "blurb": "The nearest large galaxy to ours, about 2.5 million light years away."
+ },
+ {
+  "id": "horsehead",
+  "answer": "Horsehead Nebula",
+  "aliases": [
+   "Horsehead"
+  ],
+  "kind": "space",
+  "blurb": "A dark cloud of dust in Orion, shaped like a horse’s head."
+ },
+ {
+  "id": "iss",
+  "answer": "International Space Station",
+  "aliases": [
+   "ISS",
+   "Space station"
+  ],
+  "kind": "space",
+  "blurb": "Crewed without a break since November 2000, it orbits the Earth about every 90 minutes."
+ },
+ {
+  "id": "space-shuttle",
+  "answer": "Space Shuttle",
+  "aliases": [
+   "Shuttle",
+   "Space Shuttle launch"
+  ],
+  "kind": "space",
+  "blurb": "NASA’s reusable spacecraft, which flew 135 missions between 1981 and 2011."
+ },
+ {
+  "id": "mars-rover",
+  "answer": "Curiosity rover",
+  "aliases": [
+   "Curiosity",
+   "Mars rover",
+   "Mars Curiosity"
+  ],
+  "kind": "space",
+  "blurb": "A car-sized rover exploring Gale Crater on Mars since 2012."
+ },
+ {
+  "id": "jwst",
+  "answer": "James Webb Space Telescope",
+  "aliases": [
+   "James Webb",
+   "JWST",
+   "Webb Telescope",
+   "Webb"
+  ],
+  "kind": "space",
+  "blurb": "A space telescope launched on Christmas Day 2021, with a gold-coated mirror 6.5 metres across."
+ },
+ {
+  "id": "apollo-lunar-module",
+  "answer": "Lunar Module",
+  "aliases": [
+   "Apollo Lunar Module",
+   "LEM",
+   "Eagle",
+   "Lunar Lander"
+  ],
+  "kind": "space",
+  "blurb": "The two-stage craft that landed Apollo astronauts on the Moon."
+ },
+ {
+  "id": "sputnik",
+  "answer": "Sputnik 1",
+  "aliases": [
+   "Sputnik"
+  ],
+  "kind": "space",
+  "blurb": "The first artificial satellite, launched by the Soviet Union on 4 October 1957."
+ },
+ {
+  "id": "solar-eclipse",
+  "answer": "Solar eclipse",
+  "aliases": [
+   "Eclipse",
+   "Total solar eclipse"
+  ],
+  "kind": "space",
+  "blurb": "The Moon passing in front of the Sun, leaving only the glowing corona."
+ },
+ {
+  "id": "halley",
+  "answer": "Halley’s Comet",
+  "aliases": [
+   "Halley's Comet",
+   "Halleys Comet",
+   "Comet Halley"
+  ],
+  "kind": "space",
+  "blurb": "A comet that returns about every 76 years; next due in 2061."
+ },
+ {
+  "id": "model-t",
+  "answer": "Ford Model T",
+  "aliases": [
+   "Model T",
+   "Tin Lizzie"
+  ],
+  "kind": "object",
+  "blurb": "The first mass-produced car, built from 1908 to 1927; over 15 million were made."
+ },
+ {
+  "id": "vw-beetle",
+  "answer": "Volkswagen Beetle",
+  "aliases": [
+   "Beetle",
+   "VW Beetle",
+   "Bug",
+   "Käfer"
+  ],
+  "kind": "object",
+  "blurb": "Built from 1938 to 2003, one of the best-selling cars ever made."
+ },
+ {
+  "id": "mini",
+  "answer": "Mini",
+  "aliases": [
+   "Austin Mini",
+   "Morris Mini",
+   "Mini Cooper",
+   "Classic Mini"
+  ],
+  "kind": "object",
+  "blurb": "A small British car launched in 1959, with its engine turned sideways to save space."
+ },
+ {
+  "id": "red-telephone-box",
+  "answer": "Red telephone box",
+  "aliases": [
+   "Telephone box",
+   "Phone box",
+   "K6",
+   "Telephone kiosk",
+   "Phone booth",
+   "Red phone box"
+  ],
+  "kind": "object",
+  "blurb": "Designed by Sir Giles Gilbert Scott; the K6 version of 1935 became a symbol of Britain."
+ },
+ {
+  "id": "routemaster",
+  "answer": "Routemaster",
+  "aliases": [
+   "Red bus",
+   "Double-decker bus",
+   "London bus",
+   "Double decker"
+  ],
+  "kind": "object",
+  "blurb": "The London double-decker bus built from 1954 to 1968, with an open platform at the back."
+ },
+ {
+  "id": "black-cab",
+  "answer": "London taxi",
+  "aliases": [
+   "Black cab",
+   "Hackney carriage",
+   "Taxi",
+   "FX4",
+   "Austin FX4"
+  ],
+  "kind": "object",
+  "blurb": "The Austin FX4 black cab served London’s streets from 1958 to 1997."
+ },
+ {
+  "id": "flying-scotsman",
+  "answer": "Flying Scotsman",
+  "aliases": [
+   "LNER 4472",
+   "Flying Scotsman locomotive"
+  ],
+  "kind": "object",
+  "blurb": "A steam locomotive built in 1923, the first officially recorded to reach 100 mph."
+ },
+ {
+  "id": "mallard",
+  "answer": "Mallard locomotive",
+  "aliases": [
+   "Mallard",
+   "LNER 4468"
+  ],
+  "kind": "object",
+  "blurb": "Holder of the world speed record for steam locomotives: 126 mph in 1938."
+ },
+ {
+  "id": "rocket",
+  "answer": "Stephenson’s Rocket",
+  "aliases": [
+   "Rocket",
+   "Stephenson's Rocket",
+   "Stephensons Rocket"
+  ],
+  "kind": "object",
+  "blurb": "An early steam locomotive that won the Rainhill Trials in 1829."
+ },
+ {
+  "id": "concorde",
+  "answer": "Concorde",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A supersonic airliner that flew passengers across the Atlantic in about three and a half hours, from 1976 to 2003."
+ },
+ {
+  "id": "wright-flyer",
+  "answer": "Wright Flyer",
+  "aliases": [
+   "Wright brothers",
+   "Kitty Hawk",
+   "Wright Flyer 1903"
+  ],
+  "kind": "object",
+  "blurb": "The Wright brothers’ first powered flight, at Kitty Hawk, North Carolina, on 17 December 1903."
+ },
+ {
+  "id": "spitfire",
+  "answer": "Supermarine Spitfire",
+  "aliases": [
+   "Spitfire"
+  ],
+  "kind": "object",
+  "blurb": "A British fighter plane famous for its part in the Battle of Britain in 1940."
+ },
+ {
+  "id": "hindenburg",
+  "answer": "Hindenburg",
+  "aliases": [
+   "Hindenburg airship",
+   "Zeppelin"
+  ],
+  "kind": "object",
+  "blurb": "A German passenger airship destroyed by fire in New Jersey in 1937."
+ },
+ {
+  "id": "titanic",
+  "answer": "RMS Titanic",
+  "aliases": [
+   "Titanic"
+  ],
+  "kind": "object",
+  "blurb": "An ocean liner that sank on her maiden voyage in April 1912 after striking an iceberg."
+ },
+ {
+  "id": "mary-rose",
+  "answer": "Mary Rose",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "Henry VIII’s warship, which sank in 1545 and was raised from the Solent in 1982."
+ },
+ {
+  "id": "hms-victory",
+  "answer": "HMS Victory",
+  "aliases": [
+   "Victory"
+  ],
+  "kind": "object",
+  "blurb": "Nelson’s flagship at the Battle of Trafalgar in 1805, preserved at Portsmouth."
+ },
+ {
+  "id": "telescope",
+  "answer": "Telescope",
+  "aliases": [
+   "Refracting telescope"
+  ],
+  "kind": "object",
+  "blurb": "Used by Galileo to look at the sky in 1609."
+ },
+ {
+  "id": "microscope",
+  "answer": "Microscope",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "Robert Hooke used an early compound microscope to coin the word “cell” in 1665."
+ },
+ {
+  "id": "typewriter",
+  "answer": "Typewriter",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "The QWERTY keyboard layout comes from the Sholes and Glidden typewriter of 1873."
+ },
+ {
+  "id": "sewing-machine",
+  "answer": "Sewing machine",
+  "aliases": [
+   "Singer sewing machine",
+   "Singer"
+  ],
+  "kind": "object",
+  "blurb": "Treadle-powered Singer machines put a sewing machine in millions of homes."
+ },
+ {
+  "id": "rotary-phone",
+  "answer": "Rotary telephone",
+  "aliases": [
+   "Telephone",
+   "Rotary phone",
+   "Dial phone",
+   "Phone"
+  ],
+  "kind": "object",
+  "blurb": "Dialling a number meant turning the dial once for each digit."
+ },
+ {
+  "id": "pocket-watch",
+  "answer": "Pocket watch",
+  "aliases": [
+   "Watch",
+   "Fob watch"
+  ],
+  "kind": "object",
+  "blurb": "The usual way to carry the time until wristwatches took over after the First World War."
+ },
+ {
+  "id": "hourglass",
+  "answer": "Hourglass",
+  "aliases": [
+   "Sand timer",
+   "Sandglass",
+   "Egg timer"
+  ],
+  "kind": "object",
+  "blurb": "Sand trickles from the top bulb to the bottom in a fixed time."
+ },
+ {
+  "id": "sundial",
+  "answer": "Sundial",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "Tells the time from the shadow cast by its pointer, called a gnomon."
+ },
+ {
+  "id": "compass",
+  "answer": "Compass",
+  "aliases": [
+   "Magnetic compass"
+  ],
+  "kind": "object",
+  "blurb": "A magnetised needle that points to magnetic north."
+ },
+ {
+  "id": "globe",
+  "answer": "Globe",
+  "aliases": [
+   "Terrestrial globe",
+   "World globe"
+  ],
+  "kind": "object",
+  "blurb": "A model of the Earth; the oldest surviving one, from 1492, is in Nuremberg."
+ },
+ {
+  "id": "sextant",
+  "answer": "Sextant",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A navigation instrument that measures the angle between the horizon and the Sun or a star."
+ },
+ {
+  "id": "astrolabe",
+  "answer": "Astrolabe",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "An ancient instrument for measuring the positions of stars and telling the time."
+ },
+ {
+  "id": "lighthouse-lens",
+  "answer": "Fresnel lens",
+  "aliases": [
+   "Lighthouse lens",
+   "Fresnel"
+  ],
+  "kind": "object",
+  "blurb": "Invented by Augustin-Jean Fresnel in 1822 to throw a lighthouse’s beam much further."
+ },
+ {
+  "id": "camera-obscura",
+  "answer": "Camera obscura",
+  "aliases": [
+   "Pinhole camera"
+  ],
+  "kind": "object",
+  "blurb": "A dark room or box where light through a small hole projects an upside-down image: the idea behind this game."
+ },
+ {
+  "id": "box-camera",
+  "answer": "Kodak Brownie",
+  "aliases": [
+   "Brownie",
+   "Box camera",
+   "Brownie camera"
+  ],
+  "kind": "object",
+  "blurb": "A cheap cardboard box camera launched in 1900 that made photography popular."
+ },
+ {
+  "id": "phonograph",
+  "answer": "Phonograph",
+  "aliases": [
+   "Edison phonograph",
+   "Edison cylinder"
+  ],
+  "kind": "object",
+  "blurb": "Thomas Edison’s 1877 invention, which recorded and played back sound on a cylinder."
+ },
+ {
+  "id": "light-bulb",
+  "answer": "Light bulb",
+  "aliases": [
+   "Lightbulb",
+   "Incandescent light bulb",
+   "Bulb",
+   "Edison bulb"
+  ],
+  "kind": "object",
+  "blurb": "Edison’s carbon-filament lamp of 1879 made electric light practical."
+ },
+ {
+  "id": "cassette",
+  "answer": "Cassette tape",
+  "aliases": [
+   "Cassette",
+   "Compact cassette",
+   "Tape"
+  ],
+  "kind": "object",
+  "blurb": "Philips’ compact cassette of 1963 made recorded music portable."
+ },
+ {
+  "id": "floppy-disk",
+  "answer": "Floppy disk",
+  "aliases": [
+   "Floppy",
+   "Diskette",
+   "Save icon"
+  ],
+  "kind": "object",
+  "blurb": "The 3½-inch disk held 1.44 megabytes and still lives on as the save icon."
+ },
+ {
+  "id": "vinyl-record",
+  "answer": "Vinyl record",
+  "aliases": [
+   "Record",
+   "LP",
+   "Gramophone record",
+   "Vinyl"
+  ],
+  "kind": "object",
+  "blurb": "Long-playing records spun at 33⅓ revolutions per minute."
+ },
+ {
+  "id": "jukebox",
+  "answer": "Jukebox",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A coin-operated record player found in diners and bars."
+ },
+ {
+  "id": "pinball",
+  "answer": "Pinball machine",
+  "aliases": [
+   "Pinball"
+  ],
+  "kind": "object",
+  "blurb": "Flippers were added to pinball in 1947."
+ },
+ {
+  "id": "rubiks-cube",
+  "answer": "Rubik’s Cube",
+  "aliases": [
+   "Rubik's Cube",
+   "Rubiks Cube",
+   "Magic Cube"
+  ],
+  "kind": "object",
+  "blurb": "Invented by Ernő Rubik in 1974; it has over 43 quintillion possible positions."
+ },
+ {
+  "id": "chess",
+  "answer": "Chess",
+  "aliases": [
+   "Chessboard",
+   "Chess set",
+   "Chess pieces"
+  ],
+  "kind": "object",
+  "blurb": "A game of strategy for two players, played in its modern form since the 15th century."
+ },
+ {
+  "id": "lewis-chessmen",
+  "answer": "Lewis chessmen",
+  "aliases": [
+   "Lewis chess pieces",
+   "Uig chessmen"
+  ],
+  "kind": "artwork",
+  "blurb": "Twelfth-century chess pieces carved from walrus ivory, found on the Isle of Lewis in 1831."
+ },
+ {
+  "id": "dice",
+  "answer": "Dice",
+  "aliases": [
+   "Die"
+  ],
+  "kind": "object",
+  "blurb": "Cubes numbered so that opposite faces always add up to seven."
+ },
+ {
+  "id": "kite",
+  "answer": "Kite",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "Flown in China more than 2,000 years ago."
+ },
+ {
+  "id": "hot-air-balloon",
+  "answer": "Hot air balloon",
+  "aliases": [
+   "Balloon",
+   "Hot-air balloon"
+  ],
+  "kind": "object",
+  "blurb": "The Montgolfier brothers flew the first crewed hot air balloon in Paris in 1783."
+ },
+ {
+  "id": "bicycle",
+  "answer": "Bicycle",
+  "aliases": [
+   "Bike",
+   "Push bike"
+  ],
+  "kind": "object",
+  "blurb": "The safety bicycle of the 1880s, with two equal wheels and a chain, is the design still used today."
+ },
+ {
+  "id": "anchor",
+  "answer": "Anchor",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A heavy hook that digs into the seabed to hold a ship in place."
+ },
+ {
+  "id": "ships-wheel",
+  "answer": "Ship’s wheel",
+  "aliases": [
+   "Ship's wheel",
+   "Helm",
+   "Steering wheel"
+  ],
+  "kind": "object",
+  "blurb": "Turns the rudder to steer a ship."
+ },
+ {
+  "id": "lantern",
+  "answer": "Lantern",
+  "aliases": [
+   "Oil lamp",
+   "Hurricane lamp"
+  ],
+  "kind": "object",
+  "blurb": "A portable lamp with a glass cover to keep the flame out of the wind."
+ },
+ {
+  "id": "candle",
+  "answer": "Candle",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A wick in wax: the commonest light at night for thousands of years."
+ },
+ {
+  "id": "quill",
+  "answer": "Quill pen",
+  "aliases": [
+   "Quill",
+   "Feather pen"
+  ],
+  "kind": "object",
+  "blurb": "A pen cut from a bird’s feather, used for writing from the 6th to the 19th century."
+ },
+ {
+  "id": "fountain-pen",
+  "answer": "Fountain pen",
+  "aliases": [
+   "Pen"
+  ],
+  "kind": "object",
+  "blurb": "A pen with its own ink supply, fed to the nib by capillary action."
+ },
+ {
+  "id": "grandfather-clock",
+  "answer": "Grandfather clock",
+  "aliases": [
+   "Longcase clock",
+   "Clock"
+  ],
+  "kind": "object",
+  "blurb": "A tall pendulum clock; the name comes from a popular song of 1876."
+ },
+ {
+  "id": "cuckoo-clock",
+  "answer": "Cuckoo clock",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A clock from Germany’s Black Forest in which a carved bird calls out the hours."
+ },
+ {
+  "id": "samurai-armour",
+  "answer": "Samurai armour",
+  "aliases": [
+   "Samurai",
+   "Samurai armor",
+   "Yoroi"
+  ],
+  "kind": "object",
+  "blurb": "Japanese armour made of lacquered plates laced together with silk."
+ },
+ {
+  "id": "knight-armour",
+  "answer": "Suit of armour",
+  "aliases": [
+   "Armour",
+   "Armor",
+   "Knight",
+   "Plate armour",
+   "Suit of armor"
+  ],
+  "kind": "object",
+  "blurb": "Full plate armour of the 15th and 16th centuries covered the whole body."
+ },
+ {
+  "id": "crown-jewels",
+  "answer": "Imperial State Crown",
+  "aliases": [
+   "Crown",
+   "State Crown"
+  ],
+  "kind": "object",
+  "blurb": "Worn by the British monarch at the State Opening of Parliament."
+ },
+ {
+  "id": "tutankhamun",
+  "answer": "Mask of Tutankhamun",
+  "aliases": [
+   "Tutankhamun",
+   "Tutankhamun mask",
+   "King Tut",
+   "Tutankhamen"
+  ],
+  "kind": "artwork",
+  "blurb": "The gold burial mask of the boy pharaoh, found by Howard Carter in 1925."
+ },
+ {
+  "id": "terracotta-army",
+  "answer": "Terracotta Army",
+  "aliases": [
+   "Terracotta Warriors",
+   "Terracotta soldiers"
+  ],
+  "kind": "artwork",
+  "blurb": "Thousands of clay soldiers buried with China’s first emperor around 210 BC."
+ },
+ {
+  "id": "sutton-hoo",
+  "answer": "Sutton Hoo helmet",
+  "aliases": [
+   "Sutton Hoo"
+  ],
+  "kind": "artwork",
+  "blurb": "An Anglo-Saxon helmet from a 7th-century ship burial in Suffolk."
+ },
+ {
+  "id": "venus-de-milo",
+  "answer": "Venus de Milo",
+  "aliases": [
+   "Aphrodite of Milos"
+  ],
+  "kind": "artwork",
+  "blurb": "A Greek marble statue of Aphrodite from about 150 BC, now in the Louvre."
+ },
+ {
+  "id": "david",
+  "answer": "David",
+  "aliases": [
+   "Michelangelo’s David",
+   "Statue of David",
+   "Michelangelo's David"
+  ],
+  "kind": "artwork",
+  "blurb": "Michelangelo’s 5-metre marble statue, carved between 1501 and 1504, in Florence."
+ },
+ {
+  "id": "thinker",
+  "answer": "The Thinker",
+  "aliases": [
+   "Le Penseur",
+   "Thinker"
+  ],
+  "kind": "artwork",
+  "blurb": "Auguste Rodin’s bronze of a man lost in thought, first cast in 1904."
+ },
+ {
+  "id": "winged-victory",
+  "answer": "Winged Victory of Samothrace",
+  "aliases": [
+   "Winged Victory",
+   "Nike of Samothrace"
+  ],
+  "kind": "artwork",
+  "blurb": "A Greek marble statue of the goddess Nike, now at the top of a staircase in the Louvre."
+ },
+ {
+  "id": "discobolus",
+  "answer": "Discobolus",
+  "aliases": [
+   "Discus thrower",
+   "Discus Thrower"
+  ],
+  "kind": "artwork",
+  "blurb": "A Roman copy of a lost Greek bronze of an athlete throwing a discus."
+ },
+ {
+  "id": "nefertiti",
+  "answer": "Bust of Nefertiti",
+  "aliases": [
+   "Nefertiti"
+  ],
+  "kind": "artwork",
+  "blurb": "A painted limestone bust of the Egyptian queen, made around 1345 BC, in Berlin."
+ },
+ {
+  "id": "bayeux",
+  "answer": "Bayeux Tapestry",
+  "aliases": [
+   "Bayeux"
+  ],
+  "kind": "artwork",
+  "blurb": "A 70-metre embroidery telling the story of the Norman conquest of England in 1066."
+ },
+ {
+  "id": "magna-carta",
+  "answer": "Magna Carta",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "The charter of rights agreed by King John at Runnymede in 1215."
+ },
+ {
+  "id": "declaration",
+  "answer": "Declaration of Independence",
+  "aliases": [
+   "US Declaration of Independence"
+  ],
+  "kind": "object",
+  "blurb": "Adopted by the Continental Congress on 4 July 1776."
+ },
+ {
+  "id": "liberty-bell",
+  "answer": "Liberty Bell",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A bell in Philadelphia, cracked since the 19th century, that became a symbol of American independence."
+ },
+ {
+  "id": "red-panda",
+  "answer": "Red panda",
+  "aliases": [
+   "Lesser panda",
+   "Firefox"
+  ],
+  "kind": "nature",
+  "blurb": "A tree-climbing mammal of the eastern Himalayas, more closely related to raccoons and weasels than to giant pandas."
+ },
+ {
+  "id": "giant-panda",
+  "answer": "Giant panda",
+  "aliases": [
+   "Panda"
+  ],
+  "kind": "nature",
+  "blurb": "A bear from the mountains of central China that eats almost nothing but bamboo."
+ },
+ {
+  "id": "snow-leopard",
+  "answer": "Snow leopard",
+  "aliases": [
+   "Ounce"
+  ],
+  "kind": "nature",
+  "blurb": "A big cat of Central Asia’s mountains, which uses its long tail for balance and warmth."
+ },
+ {
+  "id": "okapi",
+  "answer": "Okapi",
+  "aliases": [
+   "Forest giraffe"
+  ],
+  "kind": "nature",
+  "blurb": "A forest relative of the giraffe from the Congo, with zebra-striped legs."
+ },
+ {
+  "id": "aye-aye",
+  "answer": "Aye-aye",
+  "aliases": [
+   "Aye aye"
+  ],
+  "kind": "nature",
+  "blurb": "A lemur from Madagascar that taps on wood with a long middle finger to find grubs."
+ },
+ {
+  "id": "platypus",
+  "answer": "Platypus",
+  "aliases": [
+   "Duck-billed platypus"
+  ],
+  "kind": "nature",
+  "blurb": "An egg-laying mammal from Australia, with a duck’s bill and a beaver’s tail."
+ },
+ {
+  "id": "echidna",
+  "answer": "Echidna",
+  "aliases": [
+   "Spiny anteater"
+  ],
+  "kind": "nature",
+  "blurb": "One of only five living egg-laying mammals."
+ },
+ {
+  "id": "quokka",
+  "answer": "Quokka",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A small wallaby from Western Australia known for its apparent smile."
+ },
+ {
+  "id": "koala",
+  "answer": "Koala",
+  "aliases": [
+   "Koala bear"
+  ],
+  "kind": "nature",
+  "blurb": "An Australian marsupial that sleeps up to 20 hours a day."
+ },
+ {
+  "id": "kangaroo",
+  "answer": "Kangaroo",
+  "aliases": [
+   "Red kangaroo"
+  ],
+  "kind": "nature",
+  "blurb": "The red kangaroo is the largest marsupial alive."
+ },
+ {
+  "id": "wombat",
+  "answer": "Wombat",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A burrowing Australian marsupial that produces cube-shaped droppings."
+ },
+ {
+  "id": "sloth",
+  "answer": "Sloth",
+  "aliases": [
+   "Three-toed sloth",
+   "Two-toed sloth"
+  ],
+  "kind": "nature",
+  "blurb": "A tree-dwelling mammal of Central and South America that moves so little algae grows in its fur."
+ },
+ {
+  "id": "capybara",
+  "answer": "Capybara",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "The largest rodent in the world, from South America."
+ },
+ {
+  "id": "tapir",
+  "answer": "Tapir",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A pig-shaped mammal with a short trunk, related to horses and rhinos."
+ },
+ {
+  "id": "anteater",
+  "answer": "Giant anteater",
+  "aliases": [
+   "Anteater"
+  ],
+  "kind": "nature",
+  "blurb": "Eats up to 30,000 ants and termites a day with a tongue 60 centimetres long."
+ },
+ {
+  "id": "armadillo",
+  "answer": "Armadillo",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A mammal with a shell of bony plates; the three-banded kind can roll into a ball."
+ },
+ {
+  "id": "meerkat",
+  "answer": "Meerkat",
+  "aliases": [
+   "Suricate"
+  ],
+  "kind": "nature",
+  "blurb": "A mongoose of southern Africa that stands up on sentry duty."
+ },
+ {
+  "id": "fennec",
+  "answer": "Fennec fox",
+  "aliases": [
+   "Fennec"
+  ],
+  "kind": "nature",
+  "blurb": "The smallest fox, from the Sahara, with ears up to 15 centimetres long."
+ },
+ {
+  "id": "arctic-fox",
+  "answer": "Arctic fox",
+  "aliases": [
+   "Polar fox",
+   "Snow fox"
+  ],
+  "kind": "nature",
+  "blurb": "Turns white in winter and brown in summer."
+ },
+ {
+  "id": "polar-bear",
+  "answer": "Polar bear",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "The largest land carnivore, whose fur hides black skin."
+ },
+ {
+  "id": "walrus",
+  "answer": "Walrus",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Uses its tusks to haul itself out of the water onto ice."
+ },
+ {
+  "id": "beluga",
+  "answer": "Beluga whale",
+  "aliases": [
+   "Beluga",
+   "White whale"
+  ],
+  "kind": "nature",
+  "blurb": "An Arctic whale nicknamed the sea canary for its chirps and whistles."
+ },
+ {
+  "id": "humpback",
+  "answer": "Humpback whale",
+  "aliases": [
+   "Humpback"
+  ],
+  "kind": "nature",
+  "blurb": "Known for its long, complex songs and for leaping clear of the water."
+ },
+ {
+  "id": "orca",
+  "answer": "Orca",
+  "aliases": [
+   "Killer whale"
+  ],
+  "kind": "nature",
+  "blurb": "The largest member of the dolphin family."
+ },
+ {
+  "id": "manatee",
+  "answer": "Manatee",
+  "aliases": [
+   "Sea cow"
+  ],
+  "kind": "nature",
+  "blurb": "A slow, plant-eating sea mammal; sailors may have mistaken them for mermaids."
+ },
+ {
+  "id": "sea-otter",
+  "answer": "Sea otter",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Floats on its back and uses stones to crack open shellfish."
+ },
+ {
+  "id": "puffin",
+  "answer": "Puffin",
+  "aliases": [
+   "Atlantic puffin"
+  ],
+  "kind": "nature",
+  "blurb": "A seabird with a striped bill that can carry a dozen fish at once."
+ },
+ {
+  "id": "flamingo",
+  "answer": "Flamingo",
+  "aliases": [
+   "Greater flamingo"
+  ],
+  "kind": "nature",
+  "blurb": "Pink from the shrimp and algae it eats."
+ },
+ {
+  "id": "peacock",
+  "answer": "Peacock",
+  "aliases": [
+   "Peafowl",
+   "Indian peafowl"
+  ],
+  "kind": "nature",
+  "blurb": "The male Indian peafowl, which fans out a train of up to 200 eyed feathers."
+ },
+ {
+  "id": "toucan",
+  "answer": "Toucan",
+  "aliases": [
+   "Toco toucan"
+  ],
+  "kind": "nature",
+  "blurb": "Its huge bill is mostly hollow and helps it lose heat."
+ },
+ {
+  "id": "kiwi-bird",
+  "answer": "Kiwi",
+  "aliases": [
+   "Kiwi bird"
+  ],
+  "kind": "nature",
+  "blurb": "A flightless bird from New Zealand that lays an egg a fifth of its own weight."
+ },
+ {
+  "id": "emperor-penguin",
+  "answer": "Emperor penguin",
+  "aliases": [
+   "Penguin"
+  ],
+  "kind": "nature",
+  "blurb": "The largest penguin; the males keep the egg warm through the Antarctic winter."
+ },
+ {
+  "id": "bald-eagle",
+  "answer": "Bald eagle",
+  "aliases": [
+   "American eagle"
+  ],
+  "kind": "nature",
+  "blurb": "The national bird of the United States."
+ },
+ {
+  "id": "snowy-owl",
+  "answer": "Snowy owl",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "An owl of the Arctic tundra that hunts by day in the summer."
+ },
+ {
+  "id": "hummingbird",
+  "answer": "Hummingbird",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Can hover and fly backwards, beating its wings up to 80 times a second."
+ },
+ {
+  "id": "kingfisher",
+  "answer": "Kingfisher",
+  "aliases": [
+   "Common kingfisher"
+  ],
+  "kind": "nature",
+  "blurb": "Dives headfirst into water to catch fish."
+ },
+ {
+  "id": "secretary-bird",
+  "answer": "Secretarybird",
+  "aliases": [
+   "Secretary bird"
+  ],
+  "kind": "nature",
+  "blurb": "An African bird of prey that hunts snakes on foot by stamping on them."
+ },
+ {
+  "id": "cassowary",
+  "answer": "Cassowary",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A large flightless bird of New Guinea and Australia with a bony crest."
+ },
+ {
+  "id": "chameleon",
+  "answer": "Chameleon",
+  "aliases": [
+   "Panther chameleon"
+  ],
+  "kind": "nature",
+  "blurb": "Changes colour and moves each eye on its own."
+ },
+ {
+  "id": "komodo",
+  "answer": "Komodo dragon",
+  "aliases": [
+   "Komodo"
+  ],
+  "kind": "nature",
+  "blurb": "The largest living lizard, from Indonesia, up to 3 metres long."
+ },
+ {
+  "id": "galapagos-tortoise",
+  "answer": "Galápagos tortoise",
+  "aliases": [
+   "Galapagos tortoise",
+   "Giant tortoise",
+   "Tortoise"
+  ],
+  "kind": "nature",
+  "blurb": "Can live for well over 100 years."
+ },
+ {
+  "id": "sea-turtle",
+  "answer": "Green sea turtle",
+  "aliases": [
+   "Sea turtle",
+   "Turtle"
+  ],
+  "kind": "nature",
+  "blurb": "Returns to the beach where it hatched to lay its own eggs."
+ },
+ {
+  "id": "poison-dart-frog",
+  "answer": "Poison dart frog",
+  "aliases": [
+   "Poison arrow frog",
+   "Dart frog"
+  ],
+  "kind": "nature",
+  "blurb": "Its bright colours warn predators of the poison in its skin."
+ },
+ {
+  "id": "red-eyed-tree-frog",
+  "answer": "Red-eyed tree frog",
+  "aliases": [
+   "Tree frog"
+  ],
+  "kind": "nature",
+  "blurb": "A rainforest frog of Central America that flashes its red eyes to startle predators."
+ },
+ {
+  "id": "seahorse",
+  "answer": "Seahorse",
+  "aliases": [
+   "Sea horse"
+  ],
+  "kind": "nature",
+  "blurb": "The male carries the eggs in a pouch until they hatch."
+ },
+ {
+  "id": "octopus",
+  "answer": "Octopus",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Has three hearts, blue blood and eight arms full of neurons."
+ },
+ {
+  "id": "jellyfish",
+  "answer": "Jellyfish",
+  "aliases": [
+   "Jelly"
+  ],
+  "kind": "nature",
+  "blurb": "Has no brain, heart or bones and is about 95% water."
+ },
+ {
+  "id": "clownfish",
+  "answer": "Clownfish",
+  "aliases": [
+   "Anemonefish",
+   "Clown fish"
+  ],
+  "kind": "nature",
+  "blurb": "Lives among the stinging tentacles of sea anemones."
+ },
+ {
+  "id": "pufferfish",
+  "answer": "Pufferfish",
+  "aliases": [
+   "Puffer fish",
+   "Blowfish",
+   "Fugu"
+  ],
+  "kind": "nature",
+  "blurb": "Fills itself with water to become a spiny ball."
+ },
+ {
+  "id": "great-white",
+  "answer": "Great white shark",
+  "aliases": [
+   "Great white",
+   "White shark"
+  ],
+  "kind": "nature",
+  "blurb": "The largest predatory fish, found in coastal waters around the world."
+ },
+ {
+  "id": "hammerhead",
+  "answer": "Hammerhead shark",
+  "aliases": [
+   "Hammerhead"
+  ],
+  "kind": "nature",
+  "blurb": "Its wide head spreads out its eyes and senses."
+ },
+ {
+  "id": "manta-ray",
+  "answer": "Manta ray",
+  "aliases": [
+   "Manta"
+  ],
+  "kind": "nature",
+  "blurb": "The largest ray, with fins up to 7 metres across."
+ },
+ {
+  "id": "monarch",
+  "answer": "Monarch butterfly",
+  "aliases": [
+   "Monarch"
+  ],
+  "kind": "nature",
+  "blurb": "Migrates up to 4,800 kilometres from North America to Mexico."
+ },
+ {
+  "id": "praying-mantis",
+  "answer": "Praying mantis",
+  "aliases": [
+   "Mantis"
+  ],
+  "kind": "nature",
+  "blurb": "An insect that holds its front legs together as if in prayer, ready to strike."
+ },
+ {
+  "id": "honey-bee",
+  "answer": "Honey bee",
+  "aliases": [
+   "Bee",
+   "Honeybee"
+  ],
+  "kind": "nature",
+  "blurb": "Tells other bees where flowers are with a waggle dance."
+ },
+ {
+  "id": "ladybird",
+  "answer": "Ladybird",
+  "aliases": [
+   "Ladybug",
+   "Lady beetle"
+  ],
+  "kind": "nature",
+  "blurb": "A beetle that can eat thousands of aphids in its lifetime."
+ },
+ {
+  "id": "dragonfly",
+  "answer": "Dragonfly",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Insects that were already flying 300 million years ago."
+ },
+ {
+  "id": "stag-beetle",
+  "answer": "Stag beetle",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "The males use their huge jaws to wrestle each other."
+ },
+ {
+  "id": "tarantula",
+  "answer": "Tarantula",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "A large hairy spider that can live for over 20 years."
+ },
+ {
+  "id": "sunflower",
+  "answer": "Sunflower",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Young sunflowers turn to follow the Sun across the sky."
+ },
+ {
+  "id": "lotus",
+  "answer": "Lotus",
+  "aliases": [
+   "Sacred lotus",
+   "Lotus flower"
+  ],
+  "kind": "nature",
+  "blurb": "A water plant whose leaves stay clean because water rolls off them."
+ },
+ {
+  "id": "rafflesia",
+  "answer": "Rafflesia",
+  "aliases": [
+   "Corpse flower",
+   "Corpse lily"
+  ],
+  "kind": "nature",
+  "blurb": "The largest single flower in the world, about a metre across, which smells of rotting meat."
+ },
+ {
+  "id": "cherry-blossom",
+  "answer": "Cherry blossom",
+  "aliases": [
+   "Sakura"
+  ],
+  "kind": "nature",
+  "blurb": "Celebrated in Japan each spring with hanami, flower-viewing parties."
+ },
+ {
+  "id": "tulip",
+  "answer": "Tulip",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Tulip bulbs sold for fortunes in the Dutch tulip mania of 1637."
+ },
+ {
+  "id": "cactus",
+  "answer": "Saguaro",
+  "aliases": [
+   "Saguaro cactus",
+   "Cactus"
+  ],
+  "kind": "nature",
+  "blurb": "A cactus of the Sonoran Desert that can live 200 years and grow 12 metres tall."
+ },
+ {
+  "id": "fly-agaric",
+  "answer": "Fly agaric",
+  "aliases": [
+   "Toadstool",
+   "Amanita muscaria",
+   "Mushroom"
+  ],
+  "kind": "nature",
+  "blurb": "The red-and-white toadstool of fairy tales, and poisonous."
+ },
+ {
+  "id": "snowflake",
+  "answer": "Snowflake",
+  "aliases": [
+   "Snow crystal"
+  ],
+  "kind": "nature",
+  "blurb": "Ice crystals with six sides, each one formed in its own way as it falls."
+ },
+ {
+  "id": "rainbow",
+  "answer": "Rainbow",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "Sunlight split into colours by raindrops; you always see it with the Sun behind you."
+ },
+ {
+  "id": "lightning",
+  "answer": "Lightning",
+  "aliases": [
+   "Lightning strike",
+   "Thunderstorm"
+  ],
+  "kind": "nature",
+  "blurb": "A bolt of lightning can heat the air to five times hotter than the surface of the Sun."
+ },
+ {
+  "id": "tornado",
+  "answer": "Tornado",
+  "aliases": [
+   "Twister"
+  ],
+  "kind": "nature",
+  "blurb": "A spinning column of air reaching from a thunderstorm to the ground."
+ },
+ {
+  "id": "iceberg",
+  "answer": "Iceberg",
+  "aliases": [],
+  "kind": "nature",
+  "blurb": "About nine-tenths of an iceberg is hidden below the water."
+ },
+ {
+  "id": "einstein",
+  "answer": "Albert Einstein",
+  "aliases": [
+   "Einstein"
+  ],
+  "kind": "person",
+  "blurb": "The physicist of relativity and E = mc², awarded the Nobel Prize in Physics in 1921."
+ },
+ {
+  "id": "tesla",
+  "answer": "Nikola Tesla",
+  "aliases": [
+   "Tesla"
+  ],
+  "kind": "person",
+  "blurb": "The inventor behind alternating-current power systems."
+ },
+ {
+  "id": "edison",
+  "answer": "Thomas Edison",
+  "aliases": [
+   "Edison",
+   "Thomas Alva Edison"
+  ],
+  "kind": "person",
+  "blurb": "The inventor of the phonograph and a practical light bulb, with over 1,000 US patents."
+ },
+ {
+  "id": "newton",
+  "answer": "Isaac Newton",
+  "aliases": [
+   "Newton",
+   "Sir Isaac Newton"
+  ],
+  "kind": "person",
+  "blurb": "The mathematician and physicist who set out the laws of motion and gravity in 1687."
+ },
+ {
+  "id": "galileo",
+  "answer": "Galileo Galilei",
+  "aliases": [
+   "Galileo"
+  ],
+  "kind": "person",
+  "blurb": "The astronomer who turned a telescope on the sky and was tried by the Inquisition in 1633."
+ },
+ {
+  "id": "shakespeare",
+  "answer": "William Shakespeare",
+  "aliases": [
+   "Shakespeare",
+   "The Bard"
+  ],
+  "kind": "person",
+  "blurb": "The playwright of Hamlet, Macbeth and Romeo and Juliet."
+ },
+ {
+  "id": "napoleon",
+  "answer": "Napoleon Bonaparte",
+  "aliases": [
+   "Napoleon",
+   "Bonaparte",
+   "Napoleon I"
+  ],
+  "kind": "person",
+  "blurb": "Emperor of the French from 1804 to 1814, defeated at Waterloo in 1815."
+ },
+ {
+  "id": "queen-victoria",
+  "answer": "Queen Victoria",
+  "aliases": [
+   "Victoria"
+  ],
+  "kind": "person",
+  "blurb": "Queen of the United Kingdom from 1837 to 1901."
+ },
+ {
+  "id": "elizabeth-i",
+  "answer": "Elizabeth I",
+  "aliases": [
+   "Queen Elizabeth I",
+   "Elizabeth the First",
+   "Gloriana",
+   "Virgin Queen"
+  ],
+  "kind": "person",
+  "blurb": "Queen of England from 1558 to 1603, whose navy beat the Spanish Armada."
+ },
+ {
+  "id": "henry-viii",
+  "answer": "Henry VIII",
+  "aliases": [
+   "King Henry VIII",
+   "Henry the Eighth"
+  ],
+  "kind": "person",
+  "blurb": "King of England from 1509 to 1547, who married six times."
+ },
+ {
+  "id": "churchill",
+  "answer": "Winston Churchill",
+  "aliases": [
+   "Churchill"
+  ],
+  "kind": "person",
+  "blurb": "Britain’s Prime Minister through most of the Second World War."
+ },
+ {
+  "id": "washington",
+  "answer": "George Washington",
+  "aliases": [
+   "Washington"
+  ],
+  "kind": "person",
+  "blurb": "The first President of the United States, from 1789 to 1797."
+ },
+ {
+  "id": "jefferson",
+  "answer": "Thomas Jefferson",
+  "aliases": [
+   "Jefferson"
+  ],
+  "kind": "person",
+  "blurb": "The third US President and main author of the Declaration of Independence."
+ },
+ {
+  "id": "franklin",
+  "answer": "Benjamin Franklin",
+  "aliases": [
+   "Ben Franklin",
+   "Franklin"
+  ],
+  "kind": "person",
+  "blurb": "A printer, scientist and statesman who flew a kite in a thunderstorm."
+ },
+ {
+  "id": "fdr",
+  "answer": "Franklin D. Roosevelt",
+  "aliases": [
+   "FDR",
+   "Franklin Roosevelt",
+   "Roosevelt",
+   "Franklin Delano Roosevelt"
+  ],
+  "kind": "person",
+  "blurb": "The only US President elected four times."
+ },
+ {
+  "id": "teddy-roosevelt",
+  "answer": "Theodore Roosevelt",
+  "aliases": [
+   "Teddy Roosevelt",
+   "Roosevelt",
+   "TR"
+  ],
+  "kind": "person",
+  "blurb": "The 26th US President; the teddy bear is named after him."
+ },
+ {
+  "id": "jfk",
+  "answer": "John F. Kennedy",
+  "aliases": [
+   "JFK",
+   "Kennedy",
+   "John Kennedy"
+  ],
+  "kind": "person",
+  "blurb": "The 35th President of the United States, assassinated in Dallas in 1963."
+ },
+ {
+  "id": "mlk",
+  "answer": "Martin Luther King Jr.",
+  "aliases": [
+   "Martin Luther King",
+   "MLK",
+   "Dr King",
+   "Martin Luther King Jr"
+  ],
+  "kind": "person",
+  "blurb": "Civil rights leader whose “I Have a Dream” speech was given in 1963."
+ },
+ {
+  "id": "gandhi",
+  "answer": "Mahatma Gandhi",
+  "aliases": [
+   "Gandhi",
+   "Mohandas Gandhi",
+   "Bapu"
+  ],
+  "kind": "person",
+  "blurb": "Led India’s non-violent campaign for independence from Britain."
+ },
+ {
+  "id": "frederick-douglass",
+  "answer": "Frederick Douglass",
+  "aliases": [
+   "Douglass"
+  ],
+  "kind": "person",
+  "blurb": "Escaped slavery and became one of the great orators of the abolition movement."
+ },
+ {
+  "id": "harriet-tubman",
+  "answer": "Harriet Tubman",
+  "aliases": [
+   "Tubman"
+  ],
+  "kind": "person",
+  "blurb": "Escaped slavery and led dozens of others to freedom on the Underground Railroad."
+ },
+ {
+  "id": "florence-nightingale",
+  "answer": "Florence Nightingale",
+  "aliases": [
+   "Nightingale",
+   "The Lady with the Lamp"
+  ],
+  "kind": "person",
+  "blurb": "The founder of modern nursing, known from the Crimean War as the Lady with the Lamp."
+ },
+ {
+  "id": "emmeline-pankhurst",
+  "answer": "Emmeline Pankhurst",
+  "aliases": [
+   "Pankhurst"
+  ],
+  "kind": "person",
+  "blurb": "Led the suffragettes’ campaign for votes for women in Britain."
+ },
+ {
+  "id": "amelia-earhart",
+  "answer": "Amelia Earhart",
+  "aliases": [
+   "Earhart"
+  ],
+  "kind": "person",
+  "blurb": "The first woman to fly solo across the Atlantic, in 1932; she vanished over the Pacific in 1937."
+ },
+ {
+  "id": "neil-armstrong",
+  "answer": "Neil Armstrong",
+  "aliases": [
+   "Armstrong"
+  ],
+  "kind": "person",
+  "blurb": "The first person to walk on the Moon, on 20 July 1969."
+ },
+ {
+  "id": "yuri-gagarin",
+  "answer": "Yuri Gagarin",
+  "aliases": [
+   "Gagarin"
+  ],
+  "kind": "person",
+  "blurb": "The first human in space, on 12 April 1961."
+ },
+ {
+  "id": "wright-brothers",
+  "answer": "Wright brothers",
+  "aliases": [
+   "Orville Wright",
+   "Wilbur Wright",
+   "Orville and Wilbur Wright"
+  ],
+  "kind": "person",
+  "blurb": "Orville and Wilbur Wright, who made the first powered aeroplane flight in 1903."
+ },
+ {
+  "id": "mozart",
+  "answer": "Wolfgang Amadeus Mozart",
+  "aliases": [
+   "Mozart"
+  ],
+  "kind": "person",
+  "blurb": "Composer of over 600 works, who died at 35 in 1791."
+ },
+ {
+  "id": "beethoven",
+  "answer": "Ludwig van Beethoven",
+  "aliases": [
+   "Beethoven"
+  ],
+  "kind": "person",
+  "blurb": "Composer who wrote his Ninth Symphony after he had gone almost completely deaf."
+ },
+ {
+  "id": "bach",
+  "answer": "Johann Sebastian Bach",
+  "aliases": [
+   "Bach",
+   "J.S. Bach",
+   "JS Bach"
+  ],
+  "kind": "person",
+  "blurb": "Baroque composer of the Brandenburg Concertos and the St Matthew Passion."
+ },
+ {
+  "id": "van-gogh-self",
+  "answer": "Vincent van Gogh",
+  "aliases": [
+   "Van Gogh",
+   "Vincent"
+  ],
+  "kind": "person",
+  "blurb": "Painter of The Starry Night; seen here in one of his many self-portraits."
+ },
+ {
+  "id": "frida-kahlo",
+  "answer": "Frida Kahlo",
+  "aliases": [
+   "Kahlo",
+   "Frida"
+  ],
+  "kind": "person",
+  "blurb": "The Mexican painter famous for her self-portraits."
+ },
+ {
+  "id": "charlie-chaplin",
+  "answer": "Charlie Chaplin",
+  "aliases": [
+   "Chaplin",
+   "The Tramp"
+  ],
+  "kind": "person",
+  "blurb": "The silent film star best known as the Tramp, with bowler hat and cane."
+ },
+ {
+  "id": "houdini",
+  "answer": "Harry Houdini",
+  "aliases": [
+   "Houdini"
+  ],
+  "kind": "person",
+  "blurb": "An escape artist who could free himself from handcuffs, straitjackets and locked trunks."
+ },
+ {
+  "id": "mark-twain",
+  "answer": "Mark Twain",
+  "aliases": [
+   "Samuel Clemens",
+   "Twain"
+  ],
+  "kind": "person",
+  "blurb": "The author of The Adventures of Tom Sawyer and Huckleberry Finn."
+ },
+ {
+  "id": "dickens",
+  "answer": "Charles Dickens",
+  "aliases": [
+   "Dickens"
+  ],
+  "kind": "person",
+  "blurb": "The Victorian novelist of Oliver Twist and A Christmas Carol."
+ },
+ {
+  "id": "jane-austen",
+  "answer": "Jane Austen",
+  "aliases": [
+   "Austen"
+  ],
+  "kind": "person",
+  "blurb": "The novelist of Pride and Prejudice and Emma."
+ },
+ {
+  "id": "oscar-wilde",
+  "answer": "Oscar Wilde",
+  "aliases": [
+   "Wilde"
+  ],
+  "kind": "person",
+  "blurb": "Irish wit and playwright of The Importance of Being Earnest."
+ },
+ {
+  "id": "edgar-allan-poe",
+  "answer": "Edgar Allan Poe",
+  "aliases": [
+   "Poe",
+   "Edgar Poe"
+  ],
+  "kind": "person",
+  "blurb": "The American writer of The Raven and The Tell-Tale Heart."
+ },
+ {
+  "id": "cleopatra",
+  "answer": "Cleopatra",
+  "aliases": [
+   "Cleopatra VII"
+  ],
+  "kind": "person",
+  "blurb": "The last active ruler of Ptolemaic Egypt, who died in 30 BC."
+ },
+ {
+  "id": "julius-caesar",
+  "answer": "Julius Caesar",
+  "aliases": [
+   "Caesar"
+  ],
+  "kind": "person",
+  "blurb": "The Roman general and dictator murdered on the Ides of March, 44 BC."
+ },
+ {
+  "id": "leonardo",
+  "answer": "Leonardo da Vinci",
+  "aliases": [
+   "Leonardo",
+   "Da Vinci"
+  ],
+  "kind": "person",
+  "blurb": "Painter of the Mona Lisa, and an inventor and anatomist; this red chalk drawing is thought to be him."
+ },
+ {
+  "id": "michelangelo",
+  "answer": "Michelangelo",
+  "aliases": [
+   "Michelangelo Buonarroti",
+   "Buonarroti"
+  ],
+  "kind": "person",
+  "blurb": "Sculptor of David and painter of the Sistine Chapel ceiling."
+ },
+ {
+  "id": "lenin",
+  "answer": "Vladimir Lenin",
+  "aliases": [
+   "Lenin"
+  ],
+  "kind": "person",
+  "blurb": "Leader of the Bolshevik revolution of 1917 in Russia."
+ },
+ {
+  "id": "mandela",
+  "answer": "Nelson Mandela",
+  "aliases": [
+   "Mandela",
+   "Madiba"
+  ],
+  "kind": "person",
+  "blurb": "Spent 27 years in prison and became South Africa’s first black President in 1994."
+ },
+ {
+  "id": "jesse-owens",
+  "answer": "Jesse Owens",
+  "aliases": [
+   "Owens"
+  ],
+  "kind": "person",
+  "blurb": "Won four gold medals at the 1936 Berlin Olympics."
+ },
+ {
+  "id": "babe-ruth",
+  "answer": "Babe Ruth",
+  "aliases": [
+   "Ruth",
+   "The Bambino"
+  ],
+  "kind": "person",
+  "blurb": "The New York Yankees slugger who hit 714 home runs."
+ },
+ {
+  "id": "starry-night",
+  "answer": "The Starry Night",
+  "aliases": [
+   "Starry Night"
+  ],
+  "kind": "artwork",
+  "blurb": "Painted by Vincent van Gogh in 1889 from his window at an asylum in Saint-Rémy."
+ },
+ {
+  "id": "sunflowers",
+  "answer": "Sunflowers",
+  "aliases": [
+   "Van Gogh Sunflowers",
+   "Vase with Fifteen Sunflowers"
+  ],
+  "kind": "artwork",
+  "blurb": "One of Vincent van Gogh’s series of still lifes of sunflowers in a vase, painted in Arles in 1888."
+ },
+ {
+  "id": "girl-pearl",
+  "answer": "Girl with a Pearl Earring",
+  "aliases": [
+   "Girl with the Pearl Earring",
+   "Girl with Pearl Earring"
+  ],
+  "kind": "artwork",
+  "blurb": "Johannes Vermeer’s painting of about 1665, in the Mauritshuis in The Hague."
+ },
+ {
+  "id": "the-scream",
+  "answer": "The Scream",
+  "aliases": [
+   "Scream",
+   "Skrik"
+  ],
+  "kind": "artwork",
+  "blurb": "Edvard Munch’s anguished figure on a bridge, first painted in 1893."
+ },
+ {
+  "id": "birth-of-venus",
+  "answer": "The Birth of Venus",
+  "aliases": [
+   "Birth of Venus"
+  ],
+  "kind": "artwork",
+  "blurb": "Sandro Botticelli’s goddess arriving on a shell, painted in the 1480s."
+ },
+ {
+  "id": "last-supper",
+  "answer": "The Last Supper",
+  "aliases": [
+   "Last Supper"
+  ],
+  "kind": "artwork",
+  "blurb": "Leonardo da Vinci’s mural in Milan, painted in the 1490s."
+ },
+ {
+  "id": "creation-adam",
+  "answer": "The Creation of Adam",
+  "aliases": [
+   "Creation of Adam",
+   "Sistine Chapel"
+  ],
+  "kind": "artwork",
+  "blurb": "Michelangelo’s fresco on the Sistine Chapel ceiling, painted around 1512."
+ },
+ {
+  "id": "night-watch",
+  "answer": "The Night Watch",
+  "aliases": [
+   "Night Watch",
+   "Nachtwacht"
+  ],
+  "kind": "artwork",
+  "blurb": "Rembrandt’s huge group portrait of a militia company, finished in 1642."
+ },
+ {
+  "id": "water-lilies",
+  "answer": "Water Lilies",
+  "aliases": [
+   "Nymphéas",
+   "Nympheas",
+   "Monet water lilies"
+  ],
+  "kind": "artwork",
+  "blurb": "Claude Monet painted the pond at his garden in Giverny about 250 times."
+ },
+ {
+  "id": "impression-sunrise",
+  "answer": "Impression, Sunrise",
+  "aliases": [
+   "Impression Sunrise",
+   "Impression, soleil levant"
+  ],
+  "kind": "artwork",
+  "blurb": "Claude Monet’s painting of Le Havre harbour that gave Impressionism its name in 1874."
+ },
+ {
+  "id": "american-gothic",
+  "answer": "American Gothic",
+  "aliases": [],
+  "kind": "artwork",
+  "blurb": "Grant Wood’s 1930 painting of a farmer and a woman in front of a Gothic-style window."
+ },
+ {
+  "id": "arnolfini",
+  "answer": "Arnolfini Portrait",
+  "aliases": [
+   "The Arnolfini Portrait",
+   "Arnolfini Wedding"
+  ],
+  "kind": "artwork",
+  "blurb": "Jan van Eyck’s 1434 portrait of a couple, with a convex mirror reflecting the room."
+ },
+ {
+  "id": "garden-earthly",
+  "answer": "The Garden of Earthly Delights",
+  "aliases": [
+   "Garden of Earthly Delights"
+  ],
+  "kind": "artwork",
+  "blurb": "Hieronymus Bosch’s strange triptych of paradise, pleasure and hell, painted around 1500."
+ },
+ {
+  "id": "hay-wain",
+  "answer": "The Hay Wain",
+  "aliases": [
+   "Hay Wain"
+  ],
+  "kind": "artwork",
+  "blurb": "John Constable’s 1821 painting of a cart in the River Stour in Suffolk."
+ },
+ {
+  "id": "fighting-temeraire",
+  "answer": "The Fighting Temeraire",
+  "aliases": [
+   "Fighting Temeraire"
+  ],
+  "kind": "artwork",
+  "blurb": "J. M. W. Turner’s 1839 painting of an old warship being towed to be broken up."
+ },
+ {
+  "id": "wanderer-fog",
+  "answer": "Wanderer above the Sea of Fog",
+  "aliases": [
+   "Wanderer above the Sea of Fog",
+   "Wanderer Above the Mist"
+  ],
+  "kind": "artwork",
+  "blurb": "Caspar David Friedrich’s painting of about 1818: a man on a rocky peak looking over the clouds."
+ },
+ {
+  "id": "liberty-leading",
+  "answer": "Liberty Leading the People",
+  "aliases": [
+   "Liberty Leading the People"
+  ],
+  "kind": "artwork",
+  "blurb": "Eugène Delacroix’s painting of the July Revolution of 1830 in Paris."
+ },
+ {
+  "id": "las-meninas",
+  "answer": "Las Meninas",
+  "aliases": [
+   "The Ladies-in-waiting"
+  ],
+  "kind": "artwork",
+  "blurb": "Diego Velázquez’s 1656 painting of the Spanish court, with the artist himself at his easel."
+ },
+ {
+  "id": "kiss-klimt",
+  "answer": "The Kiss",
+  "aliases": [
+   "The Kiss Klimt",
+   "Der Kuss"
+  ],
+  "kind": "artwork",
+  "blurb": "Gustav Klimt’s gold-leafed painting of lovers, finished in 1908."
+ },
+ {
+  "id": "sunday-afternoon",
+  "answer": "A Sunday Afternoon on the Island of La Grande Jatte",
+  "aliases": [
+   "A Sunday Afternoon",
+   "La Grande Jatte",
+   "Sunday Afternoon on the Island of La Grande Jatte"
+  ],
+  "kind": "artwork",
+  "blurb": "Georges Seurat’s painting made of tiny dots of colour, finished in 1886."
+ },
+ {
+  "id": "school-athens",
+  "answer": "The School of Athens",
+  "aliases": [
+   "School of Athens"
+  ],
+  "kind": "artwork",
+  "blurb": "Raphael’s fresco of the great philosophers of ancient Greece, in the Vatican."
+ },
+ {
+  "id": "ophelia",
+  "answer": "Ophelia",
+  "aliases": [],
+  "kind": "artwork",
+  "blurb": "John Everett Millais’s 1852 painting of Ophelia from Hamlet floating in a stream."
+ },
+ {
+  "id": "dance-moulin",
+  "answer": "Bal du moulin de la Galette",
+  "aliases": [
+   "Dance at Le Moulin de la Galette",
+   "Moulin de la Galette"
+  ],
+  "kind": "artwork",
+  "blurb": "Pierre-Auguste Renoir’s painting of a Sunday dance in Montmartre, 1876."
+ },
+ {
+  "id": "tower-babel",
+  "answer": "The Tower of Babel",
+  "aliases": [
+   "Tower of Babel"
+  ],
+  "kind": "artwork",
+  "blurb": "Pieter Bruegel the Elder’s 1563 painting of the unfinished tower."
+ },
+ {
+  "id": "hunters-snow",
+  "answer": "The Hunters in the Snow",
+  "aliases": [
+   "Hunters in the Snow"
+  ],
+  "kind": "artwork",
+  "blurb": "Pieter Bruegel the Elder’s winter landscape of 1565."
+ },
+ {
+  "id": "raft-medusa",
+  "answer": "The Raft of the Medusa",
+  "aliases": [
+   "Raft of the Medusa"
+  ],
+  "kind": "artwork",
+  "blurb": "Théodore Géricault’s painting of the survivors of a French shipwreck in 1816."
+ },
+ {
+  "id": "napoleon-alps",
+  "answer": "Napoleon Crossing the Alps",
+  "aliases": [
+   "Napoleon Crossing the Alps"
+  ],
+  "kind": "artwork",
+  "blurb": "Jacques-Louis David’s heroic portrait of Napoleon on a rearing horse."
+ },
+ {
+  "id": "whistlers-mother",
+  "answer": "Whistler’s Mother",
+  "aliases": [
+   "Whistler's Mother",
+   "Arrangement in Grey and Black No. 1",
+   "Whistlers Mother"
+  ],
+  "kind": "artwork",
+  "blurb": "James McNeill Whistler’s 1871 painting of his mother, seated in profile."
+ },
+ {
+  "id": "washington-delaware",
+  "answer": "Washington Crossing the Delaware",
+  "aliases": [
+   "Washington Crossing the Delaware"
+  ],
+  "kind": "artwork",
+  "blurb": "Emanuel Leutze’s 1851 painting of Washington’s crossing on Christmas night, 1776."
+ },
+ {
+  "id": "primavera",
+  "answer": "Primavera",
+  "aliases": [
+   "Allegory of Spring"
+  ],
+  "kind": "artwork",
+  "blurb": "Sandro Botticelli’s painting of a gathering of mythological figures in an orange grove."
+ },
+ {
+  "id": "the-swing",
+  "answer": "The Swing",
+  "aliases": [
+   "Les hasards heureux de l’escarpolette"
+  ],
+  "kind": "artwork",
+  "blurb": "Jean-Honoré Fragonard’s playful Rococo painting of 1767."
+ },
+ {
+  "id": "the-gleaners",
+  "answer": "The Gleaners",
+  "aliases": [
+   "Gleaners",
+   "Des glaneuses"
+  ],
+  "kind": "artwork",
+  "blurb": "Jean-François Millet’s 1857 painting of three women gathering leftover grain."
+ },
+ {
+  "id": "card-players",
+  "answer": "The Card Players",
+  "aliases": [
+   "Card Players",
+   "Les Joueurs de cartes"
+  ],
+  "kind": "artwork",
+  "blurb": "One of Paul Cézanne’s five paintings of Provençal peasants playing cards."
+ },
+ {
+  "id": "bedroom-arles",
+  "answer": "Bedroom in Arles",
+  "aliases": [
+   "The Bedroom",
+   "Van Gogh’s Bedroom"
+  ],
+  "kind": "artwork",
+  "blurb": "Vincent van Gogh’s painting of his own bedroom in the Yellow House, 1888."
+ },
+ {
+  "id": "cafe-terrace",
+  "answer": "Café Terrace at Night",
+  "aliases": [
+   "Cafe Terrace at Night",
+   "Café Terrace"
+  ],
+  "kind": "artwork",
+  "blurb": "Vincent van Gogh’s painting of a café in Arles under a starry sky, 1888."
+ },
+ {
+  "id": "plum-garden",
+  "answer": "Plum Park in Kameido",
+  "aliases": [
+   "Plum Garden at Kameido"
+  ],
+  "kind": "artwork",
+  "blurb": "A woodblock print by Hiroshige from 1857, which Van Gogh copied in oils."
+ },
+ {
+  "id": "fine-wind",
+  "answer": "Fine Wind, Clear Morning",
+  "aliases": [
+   "Red Fuji",
+   "South Wind, Clear Sky"
+  ],
+  "kind": "artwork",
+  "blurb": "Hokusai’s print of Mount Fuji turned red in the early morning, from around 1831."
+ },
+ {
+  "id": "book-kells",
+  "answer": "Book of Kells",
+  "aliases": [
+   "Kells"
+  ],
+  "kind": "artwork",
+  "blurb": "An illuminated manuscript of the Gospels made by Irish monks around AD 800."
+ },
+ {
+  "id": "vitruvian",
+  "answer": "Vitruvian Man",
+  "aliases": [
+   "Vitruvian"
+  ],
+  "kind": "artwork",
+  "blurb": "Leonardo da Vinci’s drawing of the ideal proportions of the human body, about 1490."
+ },
+ {
+  "id": "durer-hare",
+  "answer": "Young Hare",
+  "aliases": [
+   "Hare",
+   "The Hare",
+   "Dürer’s hare"
+  ],
+  "kind": "artwork",
+  "blurb": "Albrecht Dürer’s watercolour of a hare, painted in 1502."
+ },
+ {
+  "id": "praying-hands",
+  "answer": "Praying Hands",
+  "aliases": [
+   "Study of the Hands of an Apostle"
+  ],
+  "kind": "artwork",
+  "blurb": "Albrecht Dürer’s pen-and-ink study of praying hands, 1508."
+ },
+ {
+  "id": "rhinoceros",
+  "answer": "Dürer’s Rhinoceros",
+  "aliases": [
+   "Durer’s Rhinoceros",
+   "Dürer's Rhinoceros",
+   "Rhinoceros"
+  ],
+  "kind": "artwork",
+  "blurb": "A 1515 woodcut of a rhinoceros, drawn by Albrecht Dürer from a description without ever seeing one."
+ },
+ {
+  "id": "audubon",
+  "answer": "Audubon’s Flamingo",
+  "aliases": [
+   "American Flamingo",
+   "Birds of America"
+  ],
+  "kind": "artwork",
+  "blurb": "A plate from John James Audubon’s Birds of America, printed life-size between 1827 and 1838."
+ },
+ {
+  "id": "croissant",
+  "answer": "Croissant",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A crescent of buttery, layered pastry, now a French breakfast staple."
+ },
+ {
+  "id": "pretzel",
+  "answer": "Pretzel",
+  "aliases": [
+   "Brezel"
+  ],
+  "kind": "object",
+  "blurb": "A knotted bread from southern Germany, boiled in lye before baking."
+ },
+ {
+  "id": "sushi",
+  "answer": "Sushi",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "Vinegared rice with fish or vegetables, from Japan."
+ },
+ {
+  "id": "pizza",
+  "answer": "Pizza",
+  "aliases": [
+   "Margherita",
+   "Pizza Margherita"
+  ],
+  "kind": "object",
+  "blurb": "The Margherita, with tomato, mozzarella and basil, is said to be named after a queen of Italy."
+ },
+ {
+  "id": "pineapple",
+  "answer": "Pineapple",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A tropical plant whose fruit is made of many berries fused together."
+ },
+ {
+  "id": "pomegranate",
+  "answer": "Pomegranate",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A fruit packed with hundreds of juicy seeds."
+ },
+ {
+  "id": "dragon-fruit",
+  "answer": "Dragon fruit",
+  "aliases": [
+   "Pitaya",
+   "Pitahaya"
+  ],
+  "kind": "object",
+  "blurb": "The fruit of a climbing cactus."
+ },
+ {
+  "id": "durian",
+  "answer": "Durian",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A spiky Southeast Asian fruit with a smell so strong it is banned on some public transport."
+ },
+ {
+  "id": "honeycomb",
+  "answer": "Honeycomb",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "Six-sided wax cells built by bees to store honey and raise their young."
+ },
+ {
+  "id": "coffee-beans",
+  "answer": "Coffee",
+  "aliases": [
+   "Coffee beans",
+   "Coffee bean"
+  ],
+  "kind": "object",
+  "blurb": "Coffee beans are the seeds of a cherry-like fruit."
+ },
+ {
+  "id": "teapot",
+  "answer": "Teapot",
+  "aliases": [
+   "Tea pot"
+  ],
+  "kind": "object",
+  "blurb": "Tea reached Europe in the early 17th century; the teapot followed from China."
+ },
+ {
+  "id": "faberge-egg",
+  "answer": "Fabergé egg",
+  "aliases": [
+   "Faberge egg",
+   "Imperial egg"
+  ],
+  "kind": "object",
+  "blurb": "Jewelled Easter eggs made for the Russian tsars by the House of Fabergé."
+ },
+ {
+  "id": "matryoshka",
+  "answer": "Matryoshka doll",
+  "aliases": [
+   "Russian doll",
+   "Russian dolls",
+   "Nesting dolls",
+   "Matryoshka",
+   "Babushka doll"
+  ],
+  "kind": "object",
+  "blurb": "Wooden dolls that nest one inside another, first made in Russia in 1890."
+ },
+ {
+  "id": "teddy-bear",
+  "answer": "Teddy bear",
+  "aliases": [
+   "Teddy"
+  ],
+  "kind": "object",
+  "blurb": "Named after President Theodore Roosevelt in 1902."
+ },
+ {
+  "id": "kaleidoscope",
+  "answer": "Kaleidoscope",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "Invented by David Brewster in 1816: mirrors turn coloured glass into patterns."
+ },
+ {
+  "id": "accordion",
+  "answer": "Accordion",
+  "aliases": [
+   "Piano accordion",
+   "Squeezebox"
+  ],
+  "kind": "object",
+  "blurb": "A bellows-driven free-reed instrument patented in Vienna in 1829."
+ },
+ {
+  "id": "harp",
+  "answer": "Harp",
+  "aliases": [
+   "Concert harp"
+  ],
+  "kind": "object",
+  "blurb": "The concert harp has 47 strings and seven pedals."
+ },
+ {
+  "id": "violin",
+  "answer": "Violin",
+  "aliases": [
+   "Fiddle",
+   "Stradivarius"
+  ],
+  "kind": "object",
+  "blurb": "The violins made by Antonio Stradivari around 1700 are among the most valuable instruments in the world."
+ },
+ {
+  "id": "bagpipes",
+  "answer": "Bagpipes",
+  "aliases": [
+   "Bagpipe",
+   "Great Highland bagpipe"
+  ],
+  "kind": "object",
+  "blurb": "Air from a bag fed through pipes; the Great Highland bagpipe is the best known."
+ },
+ {
+  "id": "didgeridoo",
+  "answer": "Didgeridoo",
+  "aliases": [
+   "Didjeridu",
+   "Yidaki"
+  ],
+  "kind": "object",
+  "blurb": "A wind instrument of Aboriginal Australians, traditionally made from a termite-hollowed tree."
+ },
+ {
+  "id": "sitar",
+  "answer": "Sitar",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "A long-necked Indian string instrument with sympathetic strings that ring along."
+ },
+ {
+  "id": "theremin",
+  "answer": "Theremin",
+  "aliases": [],
+  "kind": "object",
+  "blurb": "An electronic instrument played without being touched, invented by Léon Theremin in 1920."
+ },
+ {
+  "id": "steel-drum",
+  "answer": "Steelpan",
+  "aliases": [
+   "Steel drum",
+   "Steel pan",
+   "Pan"
+  ],
+  "kind": "object",
+  "blurb": "A drum made from an oil barrel, invented in Trinidad and Tobago in the 1930s."
+ }
+]

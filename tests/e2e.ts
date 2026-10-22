@@ -10,6 +10,7 @@ import { chromium, type Browser, type Page } from 'playwright';
 import { spawn, type ChildProcess } from 'node:child_process';
 import { getPrompts } from '@/lib/prompts';
 import { getDaily } from '@/lib/daily';
+import { decodeChallenge, encodeChallenge } from '@/lib/challenge';
 import { developedFor, guessBonusFor, tierFor } from '@/lib/scoring';
 import type { Prompt } from '@/lib/types';
 
@@ -277,6 +278,33 @@ async function main() {
     eq(await text(p, 'result-bonus'), '—', 'no bonus, no penalty');
     ok((await text(p, 'guess-verdict')).includes('early guess'), 'verdict');
     await ctx.close();
+  });
+
+  await t('a challenge link: shows on the home screen, then the results compare both players prompt by prompt', async () => {
+    const c = { date: DAY, name: 'Ben', rounds: daily.prompts.map((pr, i) => (i === 2 ? { answer: null, tier: null, points: 0 } : { answer: common(i).name, tier: 'everyday' as const, points: 10 })), developed: 9, guess: { correct: false, developed: 9, afterRound: 7 }, total: 60 };
+    const { ctx, page: p, errors } = await open(b, { url: `${ADMIN}?c=${encodeChallenge(c)}` });
+    ok(!(await p.evaluate(() => location.search)).includes('c='), 'address tidied');
+    ok((await text(p, `challenge-${DAY}`)).includes('Ben challenged you'), 'inbox');
+    await q(p, `challenge-${DAY}`).click();
+    await q(p, 'start-btn').click(); await q(p, 'round').waitFor();
+    for (let i = 0; i < 7; i++) {
+      await answer(p, rare(i).name); await q(p, 'reveal').waitFor();
+      if (i < 6) { await nextRound(p); await q(p, 'round').waitFor(); }
+    }
+    await q(p, 'next-btn').click();
+    await q(p, 'guess-input').fill(daily.image.answer); await q(p, 'guess-submit').click();
+    await q(p, 'challenge-compare').waitFor();
+    eq(await text(p, 'challenge-verdict'), 'You win');
+    ok((await text(p, 'challenge-compare')).includes(common(0).name), 'their answer listed');
+    await q(p, 'challenge-btn').click();
+    await q(p, 'challenge-name').fill('Sam');
+    await q(p, 'challenge-send').click();
+    await p.waitForTimeout(300);
+    ok((await text(p, 'challenge-note')).includes('copied'), `link copied (note: "${await text(p, 'challenge-note')}", share: ${await p.evaluate(() => typeof navigator.share)})`);
+    const copied = await p.evaluate(() => navigator.clipboard.readText());
+    ok(/\?c=[A-Za-z0-9_-]+/.test(copied), 'a challenge link');
+    eq(decodeChallenge(copied.split('?c=')[1].trim())?.name, 'Sam');
+    eq(errors.length, 0, errors.join('|')); await ctx.close();
   });
 
   console.log('Layout');

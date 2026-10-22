@@ -1,0 +1,398 @@
+{
+ "2026-09-22": {
+  "prompts": [
+   "poet",
+   "landmark",
+   "football-club",
+   "tech-company",
+   "unit",
+   "vehicle",
+   "furniture"
+  ],
+  "image": "darwin"
+ },
+ "2026-09-23": {
+  "prompts": [
+   "kitchen-item",
+   "music-genre",
+   "nfl-team",
+   "lake",
+   "scientist",
+   "pasta",
+   "ancient-god"
+  ],
+  "image": "golden-gate"
+ },
+ "2026-09-24": {
+  "prompts": [
+   "tree",
+   "tv-sitcom",
+   "hat",
+   "boardgame",
+   "nba-team",
+   "dance",
+   "island"
+  ],
+  "image": "giants-causeway"
+ },
+ "2026-09-25": {
+  "prompts": [
+   "sea-or-ocean",
+   "bird",
+   "fabric",
+   "branch-of-science",
+   "colour",
+   "olympic-sport",
+   "shoe"
+  ],
+  "image": "marie-curie"
+ },
+ "2026-09-26": {
+  "prompts": [
+   "beatles-song",
+   "clothing",
+   "cocktail",
+   "capital-city",
+   "mythical",
+   "sport",
+   "roman-emperor"
+  ],
+  "image": "lincoln"
+ },
+ "2026-09-27": {
+  "prompts": [
+   "tool",
+   "cheese",
+   "river",
+   "job",
+   "tv-drama",
+   "currency",
+   "f1-driver"
+  ],
+  "image": "gramophone"
+ },
+ "2026-09-28": {
+  "prompts": [
+   "dinosaur",
+   "constellation",
+   "footballer",
+   "us-state",
+   "car-brand",
+   "language",
+   "painter"
+  ],
+  "image": "hagia-sophia"
+ },
+ "2026-09-29": {
+  "prompts": [
+   "tennis-player",
+   "asian-city",
+   "drink",
+   "empire",
+   "sweet",
+   "instrument",
+   "disease"
+  ],
+  "image": "mount-fuji"
+ },
+ "2026-09-30": {
+  "prompts": [
+   "european-city",
+   "golfer",
+   "tech-company",
+   "vehicle",
+   "band",
+   "film-director",
+   "shoe"
+  ],
+  "image": "stonehenge"
+ },
+ "2026-10-01": {
+  "prompts": [
+   "boardgame",
+   "spice",
+   "mountain",
+   "nba-team",
+   "dog-breed",
+   "gemstone",
+   "hat"
+  ],
+  "image": "brunel"
+ },
+ "2026-10-02": {
+  "prompts": [
+   "furniture",
+   "country",
+   "solo-singer",
+   "explorer",
+   "football-club",
+   "bread",
+   "bug"
+  ],
+  "image": "hubble"
+ },
+ "2026-10-03": {
+  "prompts": [
+   "kitchen-item",
+   "drink",
+   "colour",
+   "fabric",
+   "desert",
+   "nfl-team",
+   "actor"
+  ],
+  "image": "shoebill"
+ },
+ "2026-10-04": {
+  "prompts": [
+   "language",
+   "river",
+   "sweet",
+   "moon",
+   "car-brand",
+   "sport",
+   "musical"
+  ],
+  "image": "rosetta-stone"
+ },
+ "2026-10-05": {
+  "prompts": [
+   "golfer",
+   "composer",
+   "battle",
+   "sea-or-ocean",
+   "currency",
+   "bone",
+   "fruit"
+  ],
+  "image": "mona-lisa"
+ },
+ "2026-10-06": {
+  "prompts": [
+   "tool",
+   "job",
+   "beatles-song",
+   "flower",
+   "superhero",
+   "footballer",
+   "island"
+  ],
+  "image": "axolotl"
+ },
+ "2026-10-07": {
+  "prompts": [
+   "mythical",
+   "clothing",
+   "olympic-sport",
+   "tech-company",
+   "landmark",
+   "mammal",
+   "element"
+  ],
+  "image": "pillars-of-creation"
+ },
+ "2026-10-08": {
+  "prompts": [
+   "uk-prime-minister",
+   "f1-driver",
+   "hat",
+   "vehicle",
+   "cheese",
+   "dance",
+   "capital-city"
+  ],
+  "image": "mont-saint-michel"
+ },
+ "2026-10-09": {
+  "prompts": [
+   "lake",
+   "tennis-player",
+   "kitchen-item",
+   "pokemon",
+   "colour",
+   "furniture",
+   "pasta"
+  ],
+  "image": "pangolin"
+ },
+ "2026-10-10": {
+  "prompts": [
+   "us-state",
+   "shoe",
+   "boardgame",
+   "sport",
+   "programming-language",
+   "reptile-amphibian",
+   "famous-painting"
+  ],
+  "image": "penny-farthing"
+ },
+ "2026-10-11": {
+  "prompts": [
+   "country",
+   "football-club",
+   "currency",
+   "body-part",
+   "music-genre",
+   "us-president",
+   "fabric"
+  ],
+  "image": "aurora"
+ },
+ "2026-10-12": {
+  "prompts": [
+   "simpsons-character",
+   "sweet",
+   "solo-singer",
+   "nba-team",
+   "tool",
+   "drink",
+   "mountain"
+  ],
+  "image": "earthrise"
+ },
+ "2026-10-13": {
+  "prompts": [
+   "golfer",
+   "fish",
+   "cocktail",
+   "mythical",
+   "constellation",
+   "clothing",
+   "asian-city"
+  ],
+  "image": "ada-lovelace"
+ },
+ "2026-10-14": {
+  "prompts": [
+   "european-city",
+   "british-monarch",
+   "car-brand",
+   "band",
+   "sea-creature",
+   "f1-driver",
+   "bread"
+  ],
+  "image": "moai"
+ },
+ "2026-10-15": {
+  "prompts": [
+   "disney-film",
+   "language",
+   "footballer",
+   "tech-company",
+   "job",
+   "hat",
+   "desert"
+  ],
+  "image": "sphinx"
+ },
+ "2026-10-16": {
+  "prompts": [
+   "furniture",
+   "vehicle",
+   "shakespeare-play",
+   "scientist",
+   "boardgame",
+   "nfl-team",
+   "sea-or-ocean"
+  ],
+  "image": "taj-mahal"
+ },
+ "2026-10-17": {
+  "prompts": [
+   "spice",
+   "philosopher",
+   "composer",
+   "fabric",
+   "olympic-sport",
+   "branch-of-science",
+   "island"
+  ],
+  "image": "narwhal"
+ },
+ "2026-10-18": {
+  "prompts": [
+   "shoe",
+   "harry-potter-character",
+   "instrument",
+   "colour",
+   "landmark",
+   "dog-breed",
+   "tennis-player"
+  ],
+  "image": "neuschwanstein"
+ },
+ "2026-10-19": {
+  "prompts": [
+   "language",
+   "tree",
+   "river",
+   "sweet",
+   "kitchen-item",
+   "football-club",
+   "gemstone"
+  ],
+  "image": "bell-rock"
+ },
+ "2026-10-20": {
+  "prompts": [
+   "car-brand",
+   "sport",
+   "fruit",
+   "inventor",
+   "currency",
+   "beatles-song",
+   "capital-city"
+  ],
+  "image": "venus-flytrap"
+ },
+ "2026-10-21": {
+  "prompts": [
+   "mythical",
+   "star-wars-character",
+   "lake",
+   "tool",
+   "clothing",
+   "cocktail",
+   "nba-team"
+  ],
+  "image": "petra"
+ },
+ "2026-10-22": {
+  "prompts": [
+   "drink",
+   "unit",
+   "f1-driver",
+   "us-state",
+   "bird",
+   "novelist",
+   "job"
+  ],
+  "image": "saturn-v"
+ },
+ "2026-10-23": {
+  "prompts": [
+   "colour",
+   "desert",
+   "vehicle",
+   "dance",
+   "tennis-player",
+   "programming-language",
+   "ancient-god"
+  ],
+  "image": "enigma"
+ },
+ "2026-10-24": {
+  "prompts": [
+   "tech-company",
+   "shoe",
+   "boardgame",
+   "european-city",
+   "video-game",
+   "solo-singer",
+   "footballer"
+  ],
+  "image": "colosseum"
+ }
+}

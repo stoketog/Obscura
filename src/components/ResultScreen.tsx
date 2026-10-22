@@ -12,8 +12,9 @@ import { keySoundFor } from '@/lib/sfx';
 import { Chamber } from './Chamber';
 import { Segments } from './GameScreen';
 import { TierChip, TierDot } from './TierChip';
-import { IconArrow, IconCheck, IconClock, IconCopy, IconShare, IconInfinity, IconClose, IconSnow, IconAward, IconCalendar, IconImage } from './Icons';
+import { IconArrow, IconCheck, IconClock, IconCopy, IconShare, IconInfinity, IconClose, IconSnow, IconAward, IconCalendar, IconImage, IconSwords } from './Icons';
 import { unseenBadges, type Badge } from '@/lib/badges';
+import { ChallengeCompare, ChallengeSheet } from './Challenge';
 
 function useNow(ms = 1000) {
   const [now, setNow] = useState(() => new Date());
@@ -149,6 +150,7 @@ function GuessScreen({ api }: { api: ObscuraApi }) {
 
 function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpenStats: () => void; onOpenDarkroom: (tab: 'prints' | 'badges') => void }) {
   const newBadges = useNewBadges(api);
+  const [challenge, setChallenge] = useState(false);
   const { daily: d, game: g, streak, markCelebrated } = api;
   const daily = d!;
   const game = g!;
@@ -243,10 +245,19 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
             <IconShare size={18} />
             {busy ? 'Making the image…' : 'Share result card'}
           </button>
-          <button className="btn-ghost w-full" onClick={onCopy} data-testid="copy-btn">
-            <IconCopy size={16} />
-            Copy as text
-          </button>
+          <div className="grid grid-cols-2 gap-2">
+            <button className="btn-ghost w-full" onClick={onCopy} data-testid="copy-btn">
+              <IconCopy size={16} />
+              Copy as text
+            </button>
+            {!daily.endless && (
+              <button className="btn-ghost w-full" onClick={() => setChallenge(true)} data-testid="challenge-btn">
+                <IconSwords size={16} />
+                Challenge a friend
+              </button>
+            )}
+          </div>
+          {challenge && <ChallengeSheet api={api} onClose={() => setChallenge(false)} />}
           <p className="h-5 text-center text-xs text-bio-300" role="status" data-testid="share-note">
             {note ?? ''}
           </p>
@@ -317,6 +328,8 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
           <IconImage size={16} />
           Hung in your Darkroom
         </button>
+
+        <ChallengeCompare api={api} />
 
         <AllAnswers api={api} />
       </section>
