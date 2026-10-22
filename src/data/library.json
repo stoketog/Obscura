@@ -1069,5 +1069,61 @@
   "text": "Name an ancient civilisation",
   "category": "Ancient civilisations",
   "file": "ancient-civilisation-15058976c5.json"
+ },
+ {
+  "id": "oscar-winning-film",
+  "group": "screen",
+  "text": "Name a film that has won an Oscar",
+  "category": "Oscar-winning films",
+  "file": "oscar-winning-film-c17276d411.json"
+ },
+ {
+  "id": "ballon-dor-winner",
+  "group": "sport",
+  "text": "Name a winner of the men's Ballon d'Or",
+  "category": "Ballon d'Or winners",
+  "file": "ballon-dor-winner-8e1a9385d3.json"
+ },
+ {
+  "id": "f1-world-champion",
+  "group": "sport",
+  "text": "Name a Formula 1 World Champion",
+  "category": "F1 world champions",
+  "file": "f1-world-champion-04ee62787b.json"
+ },
+ {
+  "id": "tube-station",
+  "group": "geography",
+  "text": "Name a London Underground station",
+  "category": "Tube stations",
+  "file": "tube-station-4de381eb7c.json"
+ },
+ {
+  "id": "eurovision-winner",
+  "group": "music",
+  "text": "Name a Eurovision winner (the act or the song)",
+  "category": "Eurovision winners",
+  "file": "eurovision-winner-2fc3fa520d.json"
+ },
+ {
+  "id": "grammy-best-new-artist",
+  "group": "music",
+  "text": "Name a Grammy nominee for Best New Artist",
+  "category": "Grammy Best New Artist nominees",
+  "file": "grammy-best-new-artist-6e714bf7fd.json"
+ },
+ {
+  "id": "booker-winner",
+  "group": "arts",
+  "text": "Name a Booker Prize-winning novel (or its author)",
+  "category": "Booker Prize winners",
+  "file": "booker-winner-06c8b686c0.json"
+ },
+ {
+  "id": "nobel-peace-laureate",
+  "group": "history",
+  "text": "Name a Nobel Peace Prize winner (person or organisation)",
+  "category": "Nobel Peace Prize laureates",
+  "file": "nobel-peace-laureate-3ba5bb627b.json"
  }
 ]

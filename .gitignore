@@ -8,3 +8,4 @@ next-env.d.ts
 test-results
 scripts/answers/.core.json
 __pycache__/
+scripts/answers/.wiki/
