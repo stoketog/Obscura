@@ -10,6 +10,7 @@ import { Chamber } from './Chamber';
 import { TierChip, TierDot } from './TierChip';
 import { IconArrow, IconCheck, IconClose, IconSearch } from './Icons';
 import { useSettings } from '@/hooks/useSettings';
+import { keySoundFor } from '@/lib/sfx';
 
 interface Props {
   api: ObscuraApi;
@@ -39,7 +40,7 @@ export function GameScreen({ api, holding, onFinished, onContinue, compact = fal
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 overflow-x-clip px-4 pb-6 sm:px-5 lg:grid lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12 lg:pb-12" data-testid="game">
       <section className={`mx-auto w-full max-w-xl ${compact ? 'hidden' : ''} lg:max-w-none`} data-testid="hud">
-        <Chamber image={daily.image} developed={developed} revealed={!!game.guess?.correct} tag={game.guess?.correct ? `Named · ${daily.image.answer}` : `${developed}% developed`} />
+        <Chamber image={daily.image} developed={developed} transitionName="chamber" revealed={!!game.guess?.correct} tag={game.guess?.correct ? `Named · ${daily.image.answer}` : `${developed}% developed`} />
         <div className="mt-3 flex items-center justify-between gap-3 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-mist-500">
           <span data-testid="puzzle-number">{daily.endless ? `Endless · dive ${daily.endless}` : `No. ${daily.number} · ${prettyDate(daily.dateKey)}`}</span>
           <span>
@@ -103,11 +104,10 @@ function useSwipeAway(): [boolean, (fn: () => void) => void] {
 /** Under the photograph once the one guess has been used early. */
 function EarlyGuessNote({ api }: { api: ObscuraApi }) {
   const g = api.game!.guess!;
-  const cost = guessBonusFor(developedFor(api.game!.points));
   return (
     <p className={`mt-3 flex items-start gap-2 rounded-md border px-3 py-2 text-xs leading-relaxed ${g.correct ? 'border-bio-400/30 bg-bio-400/5 text-bio-300' : 'border-white/12 bg-white/[0.03] text-mist-300'}`} data-testid="early-note">
       {g.correct ? <IconCheck size={14} className="mt-0.5 shrink-0" /> : <IconClose size={13} className="mt-0.5 shrink-0" />}
-      {g.correct ? `Named at ${g.developed}% developed: +${g.bonus}. Every answer still scores.` : `“${g.text}” wasn’t it. It costs −${cost} at the end if nothing changes; more light makes it cheaper.`}
+      {g.correct ? `Named at ${g.developed}% developed: +${g.bonus}. Every answer still scores.` : `“${g.text}” wasn’t it. That was today’s guess; every answer still scores.`}
     </p>
   );
 }
@@ -121,7 +121,7 @@ function Intro({ api }: { api: ObscuraApi }) {
         {ROUNDS_PER_DAY} prompts. {ROUND_SECONDS} seconds each.
       </h1>
       <p className="mt-3 text-[0.95rem] leading-relaxed text-mist-300">
-        Name anything that fits, like <em>“a cheese”</em> or <em>“a bird”</em>. Every answer lets light into the chamber, and the rarer it is, the more light gets in. You get one guess at the photograph, whenever you dare: the earlier, the bigger the bonus, but a wrong early guess costs you.
+        Name anything that fits, like <em>“a cheese”</em> or <em>“a bird”</em>. Every answer lets light into the chamber, and the rarer it is, the more light gets in. You get one guess at the photograph, whenever you dare: the earlier you get it right, the bigger the bonus. Get it wrong and there’s no second try.
       </p>
       <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2" aria-label="Rarity and points">
         {TIERS.map((t) => (
@@ -280,6 +280,8 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
           maxLength={60}
           value={text}
           onChange={(e) => {
+            const k = keySoundFor(text, e.target.value);
+            if (k !== null) play('key', k);
             setText(e.target.value);
             setMsg(null);
           }}

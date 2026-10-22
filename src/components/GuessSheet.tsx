@@ -3,13 +3,14 @@ import type { ObscuraApi } from '@/hooks/useObscura';
 import type { GuessRecord } from '@/lib/types';
 import { developedFor, guessBonusFor } from '@/lib/scoring';
 import { useSettings } from '@/hooks/useSettings';
+import { keySoundFor } from '@/lib/sfx';
 import { Modal } from './Modal';
 import { IconCheck, IconClose } from './Icons';
 
 /**
  * The one guess, taken early, between prompts. A right guess earns the bonus for how little is showing now; a
- * wrong one costs what a right guess would have earned at the end. `offer` is the gentle version that pops up
- * by itself after prompts 3 and 5.
+ * wrong one simply uses up the day's only guess (no points lost). `offer` is the version that appears on the way
+ * from prompt 3 to 4 and from 5 to 6.
  */
 export function GuessSheet({ api, offer = false, onClose }: { api: ObscuraApi; offer?: boolean; onClose: () => void }) {
   const game = api.game!;
@@ -42,7 +43,7 @@ export function GuessSheet({ api, offer = false, onClose }: { api: ObscuraApi; o
           <p className="mt-3 text-sm leading-relaxed text-mist-300">
             {result.correct
               ? `It’s ${api.daily!.image.answer}, named at ${result.developed}% developed. Keep going: every answer still scores.`
-              : `“${result.text}” isn’t it. At the end you’ll lose what a right guess would have earned then, so the more light you let in, the less it costs.`}
+              : `“${result.text}” isn’t it, and that was today’s only guess. Keep going: every answer still scores.`}
           </p>
           <button className="btn-primary mt-5 w-full" onClick={onClose} data-testid="early-continue">
             {offer ? 'On to the next prompt' : 'Keep playing'}
@@ -62,11 +63,11 @@ export function GuessSheet({ api, offer = false, onClose }: { api: ObscuraApi; o
               <p className="mt-1 text-[0.66rem] leading-tight text-mist-500">less the longer you wait</p>
             </div>
             <div className="panel px-3 py-2.5">
-              <p className="text-[0.7rem] text-mist-500">If wrong, at most</p>
+              <p className="text-[0.7rem] text-mist-500">If wrong</p>
               <p className="font-display text-3xl leading-none text-mist-100" data-testid="early-cost">
-                −{bonus}
+                0
               </p>
-              <p className="mt-1 text-[0.66rem] leading-tight text-mist-500">less as more light gets in</p>
+              <p className="mt-1 text-[0.66rem] leading-tight text-mist-500">and no more guesses today</p>
             </div>
           </div>
           <form
@@ -88,7 +89,11 @@ export function GuessSheet({ api, offer = false, onClose }: { api: ObscuraApi; o
               placeholder="Type what you see"
               maxLength={80}
               value={text}
-              onChange={(e) => setText(e.target.value)}
+              onChange={(e) => {
+                const k = keySoundFor(text, e.target.value);
+                if (k !== null) play('key', k);
+                setText(e.target.value);
+              }}
               aria-label="Your guess"
               data-testid="early-input"
             />

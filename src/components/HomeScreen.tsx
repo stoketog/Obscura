@@ -2,6 +2,7 @@ import { ROUNDS_PER_DAY, developedFor } from '@/lib/scoring';
 import { currentRoundIndex, dayTotal, streakOnIce } from '@/lib/game';
 import { useEffect, useState } from 'react';
 import { formatCountdown, msUntilNextDay } from '@/lib/dates';
+import { withViewTransition } from '@/lib/viewTransition';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { prettyDate } from '@/lib/dates';
 import { Emblem } from './Emblem';
@@ -53,7 +54,7 @@ export function HomeScreen({ api, onArchive, onDarkroom }: { api: ObscuraApi; on
 
       <section className="mt-6 lg:mt-0">
         <div className="panel overflow-hidden" data-testid="home-today">
-          {daily && <Chamber image={daily.image} developed={developed} revealed={guessed} aspect="16 / 9" className="!rounded-none !border-0" testId="home-chamber" tag={guessed ? undefined : done || started ? `${developed}% developed` : 'Undeveloped'} />}
+          {daily && <Chamber image={daily.image} developed={developed} revealed={guessed} aspect="16 / 9" className="!rounded-none !border-0" testId="home-chamber" transitionName="chamber" tag={guessed ? undefined : done || started ? `${developed}% developed` : 'Undeveloped'} />}
           <div className="p-4">
             <div className="flex items-center justify-between gap-3">
               <p className="eyebrow" data-testid="home-progress">
@@ -63,7 +64,7 @@ export function HomeScreen({ api, onArchive, onDarkroom }: { api: ObscuraApi; on
                 {guessed ? `${dayTotal(game!)} pts` : started || done ? `${roundsDone}/${ROUNDS_PER_DAY} prompts` : ''}
               </p>
             </div>
-            <button className="btn-primary mt-4 w-full" onClick={() => api.setView('play')} data-testid="play-btn">
+            <button className="btn-primary mt-4 w-full" onClick={() => withViewTransition(() => api.setView('play'))} data-testid="play-btn">
               {cta}
               <IconArrow size={18} />
             </button>

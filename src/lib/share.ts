@@ -12,9 +12,7 @@ export function buildShareText(game: GameState, daily: DailySet, streak: number,
     ? `Photograph ${out.developed}% developed`
     : guess.correct
       ? `Named the photograph at ${guess.developed}% developed ✓${guess.early ? ` (after prompt ${guess.afterRound})` : ''}`
-      : guess.penalty
-        ? `Guessed early and missed (−${guess.penalty}) · ${out.developed}% developed`
-        : `Photograph ${out.developed}% developed · guess missed`;
+      : `Photograph ${out.developed}% developed · guess missed${guess.early ? ` (guessed after prompt ${guess.afterRound})` : ''}`;
   const lines = [title, line, row, `${dayTotal(game)} points`];
   if (streak > 1 && !daily.endless && !daily.archive) lines.push(`${streak} day streak`);
   if (link) lines.push(link);

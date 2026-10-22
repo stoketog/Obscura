@@ -19,6 +19,7 @@ import { DarkroomModal } from './DarkroomModal';
 import { ENGINEERLE_URL } from '@/lib/sites';
 import { loadSettings, withSettings } from '@/lib/settings';
 import { SettingsProvider } from '@/hooks/useSettings';
+import { withViewTransition } from '@/lib/viewTransition';
 
 // The flag is written out literally at each use (not via a shared const) so bundlers
 // (Next/SWC, esbuild) fold it and dead-code-eliminate the admin tools from production builds.
@@ -99,7 +100,7 @@ function GameAppInner() {
         <div className="relative z-10 flex h-full flex-col overflow-y-auto overflow-x-hidden" data-testid="scroller" data-view={view}>
           <header className="relative z-20 mx-auto flex w-full max-w-5xl shrink-0 items-center justify-between px-2 pb-1 safe-pt sm:px-3">
             {api.view === 'play' ? (
-              <button className="icon-btn" aria-label="Back to home" onClick={() => api.setView('home')} data-testid="back-btn">
+              <button className="icon-btn" aria-label="Back to home" onClick={() => withViewTransition(() => api.setView('home'))} data-testid="back-btn">
                 <IconBack size={18} />
               </button>
             ) : (

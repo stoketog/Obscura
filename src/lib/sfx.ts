@@ -7,7 +7,7 @@
 
 export type SfxName =
   | 'tap' | 'toggle' | 'open' | 'close' | 'start' | 'tick' | 'tickUrgent' | 'hit' | 'miss' | 'repeat' | 'timeup' | 'skip' | 'ascent' | 'finish'
-  | 'scribble' | 'correct' | 'wrong' | 'solved' | 'failed' | 'creak' | 'crack' | 'clunk' | 'snap' | 'whoosh' | 'rumble' | 'splash' | 'pencil';
+  | 'key' | 'scribble' | 'correct' | 'wrong' | 'solved' | 'failed' | 'creak' | 'crack' | 'clunk' | 'snap' | 'whoosh' | 'rumble' | 'splash' | 'pencil';
 
 interface ToneOpts {
   f: number;
@@ -251,9 +251,20 @@ class Engine {
     // never stack the same sound on top of itself within a few ms (double clicks, key repeat)
     const now = ctx.currentTime;
     const prev = this.last.get(name) ?? -1;
-    if (now - prev < (name === 'scribble' ? 0.3 : 0.035)) return;
+    if (now - prev < (name === 'scribble' ? 0.3 : name === 'key' ? 0.02 : 0.035)) return;
     this.last.set(name, now);
     switch (name) {
+      case 'key': {
+        // A soft key press: a short, slightly varied click with a little body. arg 1 = space bar, 2 = delete.
+        const pitch = 0.88 + Math.random() * 0.24;
+        if (arg === 2) {
+          this.noise({ dur: 0.035, f: 2600 * pitch, to: 1400, q: 1.2, gain: 0.07 });
+          break;
+        }
+        this.noise({ dur: arg === 1 ? 0.05 : 0.028, f: (arg === 1 ? 2200 : 3600) * pitch, q: 1.4, gain: arg === 1 ? 0.09 : 0.075, attack: 0.001 });
+        this.tone({ f: (arg === 1 ? 180 : 240) * pitch, to: 120, dur: 0.035, gain: 0.05, type: 'sine', attack: 0.001 });
+        break;
+      }
       case 'tap':
         this.tone({ f: 1500, to: 900, dur: 0.045, gain: 0.16, type: 'triangle' });
         this.noise({ dur: 0.02, f: 4200, q: 0.8, gain: 0.05 });
@@ -380,3 +391,10 @@ class Engine {
 }
 
 export const sfx = new Engine();
+
+/** Which key sound an edit to a text box should make: 0 a letter, 1 a space, 2 a delete; null for no change. */
+export function keySoundFor(prev: string, next: string): number | null {
+  if (next === prev) return null;
+  if (next.length < prev.length) return 2;
+  return next.endsWith(' ') ? 1 : 0;
+}

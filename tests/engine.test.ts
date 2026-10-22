@@ -542,25 +542,21 @@ test('a right early guess earns the bonus for how little was showing, and the da
   const g = getGame(end, daily);
   assert.equal(g.status, 'done');
   assert.equal(dayTotal(g), g.points + guess.bonus);
-  assert.equal(g.guess?.penalty, undefined);
   assert.deepEqual(end.history[daily.dateKey].guess, { correct: true, bonus: guess.bonus });
 });
-test('a wrong early guess costs what a right guess would have earned at the end', () => {
+test('a wrong early guess costs no points, it just uses up the day’s only guess', () => {
   const p2 = playRounds(emptyProfile(), 2);
   const wrong = submitGuess(p2, daily, 'definitely not this').profile;
   const end = playRounds(wrong, 5);
   const g = getGame(end, daily);
-  const penalty = guessBonusFor(g.outcome!.developed);
-  assert.equal(g.guess?.penalty, penalty);
-  assert.equal(dayTotal(g), Math.max(0, g.points - penalty));
-  assert.equal(end.history[daily.dateKey].guess?.penalty, penalty);
-  assert.equal(deriveStats(end, daily.dateKey).bestPoints, dayTotal(g));
+  assert.equal(g.guess?.correct, false);
+  assert.equal(dayTotal(g), g.points);
+  assert.deepEqual(end.history[daily.dateKey].guess, { correct: false, bonus: 0 });
   assert.equal(submitGuess(end, daily, daily.image.answer).guess, null, 'no second guess at the end');
 });
 test('waiting until the end changes nothing: a wrong end guess costs nothing', () => {
   const p = submitGuess(playAll(emptyProfile(), best), daily, 'wrong').profile;
   const g = getGame(p, daily);
-  assert.equal(g.guess?.penalty, undefined);
   assert.equal(dayTotal(g), g.points);
 });
 

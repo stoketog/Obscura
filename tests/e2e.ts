@@ -236,7 +236,13 @@ async function main() {
     ok((await text(p, 'rarer-line')).length > 0, 'a rarer answer is shown');
     await q(p, 'next-btn').click();
     await q(p, 'guess-sheet').waitFor();
-    await q(p, 'early-input').fill(daily.image.answer); await q(p, 'early-submit').click();
+    // The sheet must sit on top of everything, and typing must reach its box even while the screen behind updates.
+    const top = await q(p, 'early-input').evaluate((el) => { const r = el.getBoundingClientRect(); const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return hit === el && r.top >= 0 && r.bottom <= window.innerHeight; });
+    ok(top, 'guess box is visible and on top');
+    await p.waitForTimeout(1200);
+    await p.keyboard.type(daily.image.answer, { delay: 30 });
+    eq(await q(p, 'early-input').inputValue(), daily.image.answer, 'typed text');
+    await p.keyboard.press('Enter');
     eq(await q(p, 'early-result').getAttribute('data-correct'), 'true');
     await q(p, 'early-continue').click();
     await q(p, 'round').waitFor();
@@ -253,7 +259,7 @@ async function main() {
     eq(errors.length, 0, errors.join('|')); await ctx.close();
   });
 
-  await t('a wrong early guess shows its cost and takes it off the total at the end', async () => {
+  await t('a wrong early guess costs nothing, but there is no second guess', async () => {
     const { ctx, page: p } = await open(b);
     await begin(p);
     await answer(p, rare(0).name); await q(p, 'reveal').waitFor();
@@ -268,7 +274,7 @@ async function main() {
     }
     await q(p, 'next-btn').click();
     await q(p, 'result').waitFor();
-    ok((await text(p, 'result-bonus')).startsWith('−'), 'penalty shown');
+    eq(await text(p, 'result-bonus'), '—', 'no bonus, no penalty');
     ok((await text(p, 'guess-verdict')).includes('early guess'), 'verdict');
     await ctx.close();
   });

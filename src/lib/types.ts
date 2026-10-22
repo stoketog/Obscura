@@ -122,11 +122,6 @@ export interface GuessRecord {
   afterRound?: number;
   /** Made before the last prompt was finished. */
   early?: boolean;
-  /**
-   * A wrong early guess costs what a right guess would have earned at the end of the day. Set when the day
-   * finishes (it depends on how developed the photograph ends up).
-   */
-  penalty?: number;
 }
 
 export interface HistoryEntry {
@@ -139,7 +134,7 @@ export interface HistoryEntry {
   /** Highest-scoring answer of the day. */
   best: { name: string; score: number } | null;
   /** Set once the final guess is made. */
-  guess?: { correct: boolean; bonus: number; penalty?: number };
+  guess?: { correct: boolean; bonus: number };
 }
 
 export interface PlayerProfile {

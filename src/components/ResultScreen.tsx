@@ -8,6 +8,7 @@ import { buildShareText, copyText } from '@/lib/share';
 import { shareCardBlob } from '@/lib/shareCard';
 import { formatCountdown, msUntilNextDay, prettyDate } from '@/lib/dates';
 import { useSettings } from '@/hooks/useSettings';
+import { keySoundFor } from '@/lib/sfx';
 import { Chamber } from './Chamber';
 import { Segments } from './GameScreen';
 import { TierChip, TierDot } from './TierChip';
@@ -62,7 +63,7 @@ function GuessScreen({ api }: { api: ObscuraApi }) {
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-8 sm:px-5 lg:grid lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12 lg:pb-12" data-testid="guess-screen">
       <section className="mx-auto w-full max-w-xl lg:max-w-none">
-        <Chamber image={daily.image} developed={out.developed} />
+        <Chamber image={daily.image} developed={out.developed} transitionName="chamber" />
         <div className="mt-4 flex items-baseline justify-between gap-3">
           <p className="flex items-baseline gap-2">
             <span className="font-display text-6xl leading-none text-bio-400" data-testid="guess-developed">
@@ -105,7 +106,11 @@ function GuessScreen({ api }: { api: ObscuraApi }) {
             placeholder="Type what you see"
             maxLength={80}
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => {
+              const k = keySoundFor(text, e.target.value);
+              if (k !== null) play('key', k);
+              setText(e.target.value);
+            }}
             data-testid="guess-input"
           />
           <button type="submit" className="btn-primary mt-3 w-full" disabled={!text.trim()} data-testid="guess-submit">
@@ -196,7 +201,7 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
     : guess.correct
       ? `You named it at ${guess.developed}% developed${guess.early ? `, after prompt ${guess.afterRound}` : ''}.`
       : guess.early
-        ? `Your early guess, “${guess.text}”, wasn’t it${guess.penalty ? `: −${guess.penalty}` : ''}.`
+        ? `Your early guess, “${guess.text}”, wasn’t it.`
         : `Your guess, “${guess.text}”, wasn’t it.`;
 
   return (
@@ -204,7 +209,7 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
       <section className="mx-auto w-full max-w-xl lg:sticky lg:top-4 lg:max-w-none lg:self-start">
         <p className="eyebrow">{daily.endless ? `Endless · dive ${daily.endless}` : `No. ${daily.number} · ${prettyDate(daily.dateKey)}${daily.archive ? ' · archive' : ''}`}</p>
         <figure className="mt-3">
-          <Chamber image={daily.image} developed={100} revealed aspect={`${daily.image.width} / ${daily.image.height}`} className="max-h-[56dvh] lg:max-h-[62dvh]" testId="reveal-photo" />
+          <Chamber image={daily.image} developed={100} revealed transitionName="chamber" aspect={`${daily.image.width} / ${daily.image.height}`} className="max-h-[56dvh] lg:max-h-[62dvh]" testId="reveal-photo" />
           <figcaption className="mt-4">
             <h1 className="font-display text-[2.6rem] leading-[1.02] text-mist-100 sm:text-5xl" data-testid="reveal-name">
               {daily.image.answer}
@@ -229,7 +234,7 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
       <section className="mx-auto mt-8 w-full max-w-xl lg:mt-0">
         <div className="grid grid-cols-3 gap-2">
           <Stat label="Developed" value={`${out.developed}%`} testId="result-developed" />
-          <Stat label={guess.correct ? 'Guessed it' : guess.penalty ? 'Early guess' : 'Guess'} value={guess.correct ? `+${guess.bonus}` : guess.penalty ? `−${guess.penalty}` : '—'} accent={guess.correct} testId="result-bonus" />
+          <Stat label={guess.correct ? 'Guessed it' : 'Guess'} value={guess.correct ? `+${guess.bonus}` : '—'} accent={guess.correct} testId="result-bonus" />
           <Stat label="Total" value={String(Math.round(total))} testId="result-total" />
         </div>
 

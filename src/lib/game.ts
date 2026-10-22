@@ -135,10 +135,8 @@ function finishRound(profile: PlayerProfile, daily: DayRef, index: number, patch
     const tiers: Array<TierId | null> = rounds.map((r) => r.tier ?? null);
     const outcome: Outcome = { points, developed: developedFor(points), streakAfter, tiers };
     const best = rounds.reduce<{ name: string; score: number } | null>((b, r) => (r.answer && r.score !== undefined && (!b || r.score > b.score) ? { name: r.answer, score: r.score } : b), null);
-    // A wrong early guess is charged now, at what a right guess at the end would have earned.
-    if (next.guess?.early && !next.guess.correct) next = { ...next, guess: { ...next.guess, penalty: guessBonusFor(outcome.developed) } };
     const entry: HistoryEntry = { dateKey: daily.dateKey, puzzleNumber: daily.number, points, developed: outcome.developed, tiers, best };
-    if (next.guess) entry.guess = { correct: next.guess.correct, bonus: next.guess.bonus, ...(next.guess.penalty ? { penalty: next.guess.penalty } : {}) };
+    if (next.guess) entry.guess = { correct: next.guess.correct, bonus: next.guess.bonus };
     if (!practice) {
       const history = { ...profile.history, [daily.dateKey]: entry };
       let freezes = freezesHeld(profile) - plan.spend;
@@ -224,14 +222,14 @@ export function skipRound(profile: PlayerProfile, daily: DayRef): PlayerProfile 
   return finishRound(profile, daily, i, { end: 'skipped', points: 0 });
 }
 
-/** Points for the day including the guess bonus, less any penalty for a wrong early guess (never below 0). */
+/** Points for the day including the guess bonus. A wrong guess, early or late, costs nothing but the chance. */
 export function dayTotal(game: GameState): number {
-  return Math.max(0, game.points + (game.guess?.bonus ?? 0) - (game.guess?.penalty ?? 0));
+  return game.points + (game.guess?.bonus ?? 0);
 }
 
 /** What a history entry adds up to, guess included. */
 export function entryTotal(h: HistoryEntry): number {
-  return Math.max(0, h.points + (h.guess?.bonus ?? 0) - (h.guess?.penalty ?? 0));
+  return h.points + (h.guess?.bonus ?? 0);
 }
 
 /**

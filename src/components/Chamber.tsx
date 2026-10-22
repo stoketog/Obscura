@@ -15,6 +15,7 @@ export function Chamber({
   className = '',
   aspect = '7 / 6',
   testId = 'chamber',
+  transitionName,
 }: {
   image: DailyImage;
   developed: number;
@@ -25,6 +26,8 @@ export function Chamber({
   className?: string;
   aspect?: string;
   testId?: string;
+  /** Shared with the same photograph on another screen, so it glides between them (see withViewTransition). */
+  transitionName?: string;
 }) {
   const shown = revealed ? 100 : developed;
   // A short bloom of light whenever more light gets in.
@@ -35,7 +38,7 @@ export function Chamber({
     last.current = shown;
   }, [shown]);
   return (
-    <div className={`projection ${className}`} style={{ aspectRatio: aspect }} data-testid={testId} data-developed={shown}>
+    <div className={`projection ${className}`} style={{ aspectRatio: aspect, ...(transitionName ? { viewTransitionName: transitionName } : {}) }} data-testid={testId} data-developed={shown}>
       <img
         src={image.src}
         alt={revealed ? `${image.answer}. ${image.blurb}` : 'The hidden photograph, partly developed'}
