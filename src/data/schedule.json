@@ -385,13 +385,13 @@
  },
  "2026-10-24": {
   "prompts": [
-   "tech-company",
-   "shoe",
-   "boardgame",
-   "european-city",
-   "video-game",
-   "solo-singer",
-   "footballer"
+   "friends-character",
+   "ucl-finalist",
+   "music-streaming",
+   "engineering-discipline",
+   "french-second-empire-colony",
+   "element-in-sun",
+   "game-20k-players"
   ],
   "image": "colosseum"
  },

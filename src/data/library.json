@@ -2206,5 +2206,11 @@
 {"id":"has-battery","group":"general","hash":"7997dc591c","editorial":true},
 {"id":"tail-not-animal","group":"general","hash":"1b83701590","editorial":true},
 {"id":"short-war","group":"history","hash":"91c05c4c1f","editorial":true},
-{"id":"magnetic-substance","group":"science","hash":"149abc92c5","editorial":true}
+{"id":"magnetic-substance","group":"science","hash":"149abc92c5","editorial":true},
+{"id":"friends-character","group":"screen","hash":"3d1ece789f","editorial":true},
+{"id":"music-streaming","group":"general","hash":"c9afb353b4","editorial":true},
+{"id":"engineering-discipline","group":"science","hash":"614ffc59c5","editorial":true},
+{"id":"french-second-empire-colony","group":"history","hash":"f1317063d3","editorial":true},
+{"id":"element-in-sun","group":"science","hash":"07556a3d36","editorial":true},
+{"id":"game-20k-players","group":"screen","hash":"6c069b4618","editorial":true}
 ]
