@@ -1,6 +1,6 @@
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { archiveDates } from '@/lib/daily';
-import { parseDateKey, puzzleNumberFor } from '@/lib/dates';
+import { displayNumberFor, parseDateKey } from '@/lib/dates';
 import { dayTotal } from '@/lib/game';
 import { ROUNDS_PER_DAY } from '@/lib/scoring';
 import { Modal } from './Modal';
@@ -40,7 +40,7 @@ export function ArchiveModal({ api, onClose }: { api: ObscuraApi; onClose: () =>
                 <li key={d}>
                   <button className={`btn-ghost !min-h-[3.6rem] w-full !flex-col !items-start !gap-0 !px-3 text-left ${done ? '' : '!border-bio-400/30'}`} onClick={() => open(d)} data-testid={`archive-day-${d}`}>
                     <span className="flex w-full items-center justify-between font-mono text-[0.68rem] text-mist-500">
-                      No. {puzzleNumberFor(d)}
+                      No. {displayNumberFor(d)}
                       {done && g.guess?.correct && <IconCheck size={12} className="text-bio-400" />}
                       {!done && frozen.has(d) && <IconSnow size={12} className="text-sky-300" />}
                     </span>

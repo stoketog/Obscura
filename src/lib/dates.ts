@@ -28,8 +28,16 @@ export function addDays(key: string, n: number): string {
   return toDateKey(d);
 }
 
+/** Internal day count (drives the daily deal and photographs). Not shown to players: see displayNumberFor. */
 export function puzzleNumberFor(key: string): number {
   return daysBetween(EPOCH, key) + 1;
+}
+
+/** The relaunch: 21 October 2026 is No. 1. The number players see (and share). */
+export const LAUNCH = '2026-10-21';
+
+export function displayNumberFor(key: string): number {
+  return daysBetween(LAUNCH, key) + 1;
 }
 
 /** Time until the next local midnight, for the "next puzzle in" countdown. */

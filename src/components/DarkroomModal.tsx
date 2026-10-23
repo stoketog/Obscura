@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import type { DailyImage, GameState } from '@/lib/types';
 import { imageById } from '@/lib/daily';
-import { prettyDate } from '@/lib/dates';
+import { displayNumberFor, prettyDate } from '@/lib/dates';
 import { dayTotal } from '@/lib/game';
 import { BADGES, earnedBadges } from '@/lib/badges';
 import { Modal } from './Modal';
@@ -24,7 +24,9 @@ export function darkroomPrints(api: ObscuraApi): Print[] {
 
 function label(g: GameState): string {
   if (g.dateKey.startsWith('endless-')) return `Endless dive ${g.dateKey.slice(8)}`;
-  return `No. ${g.puzzleNumber} · ${prettyDate(g.dateKey)}${g.archive ? ' · archive' : ''}`;
+  // Numbered from the relaunch (21 Oct 2026 is No. 1); earlier games show just their date.
+  const n = displayNumberFor(g.dateKey);
+  return `${n >= 1 ? `No. ${n} · ` : ''}${prettyDate(g.dateKey)}${g.archive ? ' · archive' : ''}`;
 }
 
 export function DarkroomModal({ api, onClose, start = 'prints' }: { api: ObscuraApi; onClose: () => void; start?: 'prints' | 'badges' }) {

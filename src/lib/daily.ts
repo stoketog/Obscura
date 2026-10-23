@@ -1,7 +1,7 @@
 import type { DailyImage, DailySet, PromptGroup } from './types';
 import { PROMPT_INDEX } from './library';
 import { IMAGES } from '@/data/images';
-import { addDays, puzzleNumberFor } from './dates';
+import { addDays, displayNumberFor, puzzleNumberFor } from './dates';
 import SCHEDULE_JSON from '@/data/schedule.json';
 
 /** Days already published, pinned for good (scripts/lock-schedule.ts). Later days are dealt from the library. */
@@ -180,7 +180,7 @@ export type DayOf<T> = Omit<DailySet, 'prompts'> & { prompts: T[] };
 /** `overrides` maps a date to an explicit list of prompt ids (admin / editorial). */
 export function getDaily<T extends Dealable = (typeof PROMPT_INDEX)[number]>(dateKey: string, overrides?: Record<string, string[]>, pool: T[] = PROMPT_INDEX as unknown as T[]): DayOf<T> {
   const forced = overrides?.[dateKey];
-  const number = puzzleNumberFor(dateKey);
+  const number = displayNumberFor(dateKey);
   const byId = new Map(pool.map((p) => [p.id, p]));
   const pinned = SCHEDULE[dateKey];
   const pinnedPrompts = pinned?.prompts.map((id) => byId.get(id));
@@ -189,7 +189,7 @@ export function getDaily<T extends Dealable = (typeof PROMPT_INDEX)[number]>(dat
     const picked = forced.map((id, i) => byId.get(id) ?? prompts[i]).filter(Boolean) as T[];
     if (picked.length === ROUNDS_PER_DAY) prompts = picked;
   }
-  const image = (pinned && IMAGES.find((i) => i.id === pinned.image)) || imageForNumber(number);
+  const image = (pinned && IMAGES.find((i) => i.id === pinned.image)) || imageForNumber(puzzleNumberFor(dateKey));
   return { dateKey, number, prompts, image };
 }
 

@@ -5,7 +5,7 @@ import { challengeFor, challengeUrl, loadName, saveName } from '@/lib/challenge'
 import { copyText } from '@/lib/share';
 import { logEvent } from '@/lib/online';
 import { dayTotal } from '@/lib/game';
-import { parseDateKey, puzzleNumberFor } from '@/lib/dates';
+import { displayNumberFor, parseDateKey } from '@/lib/dates';
 import { tierById } from '@/lib/scoring';
 import { Modal } from './Modal';
 import { TierDot } from './TierChip';
@@ -74,7 +74,7 @@ export function ChallengeInbox({ api }: { api: ObscuraApi }) {
             <span className="min-w-0 flex-1">
               <b className="block truncate text-sm text-mist-100">{done ? `You vs ${who(c)}: see who won` : `${who(c)} challenged you`}</b>
               <span className="block text-xs text-mist-500">
-                No. {puzzleNumberFor(c.date)} · {c.date === today ? 'today' : shortDate(c.date)}
+                No. {displayNumberFor(c.date)} · {c.date === today ? 'today' : shortDate(c.date)}
                 {done ? '' : ` · they scored ${c.total}`}
               </span>
             </span>
