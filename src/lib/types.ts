@@ -34,6 +34,8 @@ export interface PromptSeed {
   answers: string[];
   /** Written for one particular day (src/data/prompts/days): shown only where the schedule pins it, never dealt at random. */
   editorial?: boolean;
+  /** A short closed list (fewer than 12 possible answers, e.g. US states containing a V): checked more leniently. */
+  closed?: boolean;
 }
 
 export interface Prompt {
@@ -43,6 +45,7 @@ export interface Prompt {
   category: string;
   entries: AnswerEntry[];
   editorial?: boolean;
+  closed?: boolean;
 }
 
 export type TierId = 'everyday' | 'uncommon' | 'rare' | 'obscure' | 'mythic';

@@ -12,15 +12,15 @@ import INDEX from '@/data/library.json';
 export interface PromptMeta {
   id: string;
   group: PromptGroup;
-  text: string;
-  category: string;
-  /** File under /answers holding this prompt's answers. */
-  file: string;
+  /** Content hash: the prompt's file is /answers/<id>-<hash>.json. */
+  hash: string;
   /** Written for one particular day: only shown where the schedule pins it. */
   editorial?: boolean;
 }
 
 export const PROMPT_INDEX: PromptMeta[] = INDEX as PromptMeta[];
+
+export const answerFile = (meta: PromptMeta) => `${meta.id}-${meta.hash}.json`;
 
 const cache = new Map<string, Promise<Prompt>>();
 
@@ -29,10 +29,10 @@ async function fetchPrompt(meta: PromptMeta): Promise<Prompt> {
   // A flaky connection gets a couple of quiet retries before the error reaches the player.
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const res = await fetch(`/answers/${meta.file}`);
+      const res = await fetch(`/answers/${answerFile(meta)}`);
       if (!res.ok) throw new Error(`answers for ${meta.id}: HTTP ${res.status}`);
-      const answers = (await res.json()) as string[];
-      return parsePrompt({ id: meta.id, group: meta.group, text: meta.text, category: meta.category, answers });
+      const data = (await res.json()) as { text: string; category: string; answers: string[]; closed?: boolean };
+      return parsePrompt({ id: meta.id, group: meta.group, ...data, ...(meta.editorial ? { editorial: true } : {}) });
     } catch (e) {
       lastError = e;
       await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));

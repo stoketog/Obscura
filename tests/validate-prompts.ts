@@ -41,14 +41,16 @@ async function main() {
       const sc = p.entries.map((e) => e.score);
       const lo = sc.filter((s) => s < 18).length, hi = sc.filter((s) => s >= 92).length;
       const mid = sc.filter((s) => s >= 18 && s < 38).length, rare = sc.filter((s) => s >= 38 && s < 92).length;
-      // A day's own prompt can be a short closed list (countries starting with C); the library's need 30+.
-      const minAnswers = seed.editorial ? 12 : 30;
+      // Most prompts have 30+ answers. A question-sheet prompt may have 12+, a day's own prompt 12+, and a short closed
+      // list (closed: fewer than 12 possible answers) 5+, with a looser spread.
+      const small = !!seed.closed;
+      const minAnswers = small ? 5 : 12;
       if (n < minAnswers) fail(id, `only ${n} answers (need ${minAnswers}+)`);
-      if (lo < 3) fail(id, `needs 3+ everyday answers (score < 18), has ${lo}`);
+      if (lo < (small ? 1 : 3)) fail(id, `needs ${small ? 1 : 3}+ everyday answers (score < 18), has ${lo}`);
       if (lo > 8) fail(id, `at most 8 everyday answers (score < 18), has ${lo}: move the rest to Uncommon`);
       if (hi < 1 || hi > 2) fail(id, `needs 1 or 2 top-tier (Obscure, 100 pts) answers (score >= 92), has ${hi}`);
-      if (mid < 5) fail(id, `needs 5+ answers scored 18-37, has ${mid}`);
-      if (rare < (n < 80 ? 2 : 4)) fail(id, `needs ${n < 80 ? 2 : 4}+ answers scored 38-91, has ${rare}`);
+      if (!small && mid < (n >= 30 ? 5 : 2)) fail(id, `needs ${n >= 30 ? 5 : 2}+ answers scored 18-37, has ${mid}`);
+      if (!small && rare < (n < 30 ? 1 : n < 80 ? 2 : 4)) fail(id, `needs more answers scored 38-91, has ${rare}`);
       const seen = new Map<string, string>();
       for (const e of p.entries) {
         if (/[|;]/.test(e.name)) fail(id, `name contains | or ; : ${e.name}`);

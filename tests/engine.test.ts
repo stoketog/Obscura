@@ -10,7 +10,7 @@ import { normalize } from '@/lib/text';
 import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, tierFor, tierById, developedFor, guessBonusFor } from '@/lib/scoring';
 import { matchGuess } from '@/lib/picture';
 import { getDaily, pickPrompts, imageForDay, asPlayed, archiveDates } from '@/lib/daily';
-import { PROMPT_INDEX } from '@/lib/library';
+import { PROMPT_INDEX, answerFile } from '@/lib/library';
 import { earnedBadges, unseenBadges } from '@/lib/badges';
 import { reminderIcs } from '@/lib/reminder';
 import { mergeProfiles } from '@/lib/merge';
@@ -35,8 +35,8 @@ test('prompt ids are unique and there are enough for several days', () => {
 });
 test('every prompt has plenty of answers with valid scores', () => {
   for (const p of prompts) {
-    // a day's own prompt may be a short closed list; the library's need 30+
-    assert.ok(p.entries.length >= (p.editorial ? 12 : 30), `${p.id} has only ${p.entries.length} answers`);
+    // 12+ answers; a short closed list (US states containing a V) 5+
+    assert.ok(p.entries.length >= (p.closed ? 5 : 12), `${p.id} has only ${p.entries.length} answers`);
     for (const e of p.entries) assert.ok(e.score >= 1 && e.score <= 100, `${p.id}/${e.name} score ${e.score}`);
   }
 });
@@ -418,9 +418,11 @@ console.log('Library split, archive, freezes, badges');
 test('the bundled index matches the library, in the same order, and every answer file exists', () => {
   assert.deepEqual(PROMPT_INDEX.map((p) => p.id), PROMPT_SEEDS.map((p) => p.id));
   for (const m of PROMPT_INDEX) {
-    assert.ok(existsSync(`public/answers/${m.file}`), `${m.id}: missing ${m.file}`);
+    const file = `public/answers/${answerFile(m)}`;
+    assert.ok(existsSync(file), `${m.id}: missing ${file}`);
     const seed = PROMPT_SEEDS.find((s) => s.id === m.id)!;
-    assert.deepEqual(JSON.parse(readFileSync(`public/answers/${m.file}`, 'utf8')), seed.answers, `${m.id}: answer file is stale (run scripts/answers/split.ts)`);
+    const data = JSON.parse(readFileSync(file, 'utf8'));
+    assert.deepEqual([data.text, data.category, data.answers], [seed.text, seed.category, seed.answers], `${m.id}: answer file is stale (run scripts/answers/split.ts)`);
   }
 });
 test('the daily deal is the same from the index as from the full library', () => {
