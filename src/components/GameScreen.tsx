@@ -26,8 +26,16 @@ interface Props {
 /** "Name a cheese" → ["Name a", "Cheese"], so the subject can be set large on its own line. */
 export function splitPrompt(text: string): [string, string] {
   const m = text.match(/^(Name (?:a|an|the|any|one|some)?)\s*(.+)$/i);
-  if (!m) return ['', text];
-  return [m[1].trim(), m[2].charAt(0).toUpperCase() + m[2].slice(1)];
+  if (!m) return ['', keepTogether(text)];
+  return [m[1].trim(), keepTogether(m[2].charAt(0).toUpperCase() + m[2].slice(1))];
+}
+
+/**
+ * Small words ("a", "an", "the", "of", "in"...) never end a line on their own: each is joined to the word after it
+ * with a non-breaking space, so a heading wraps as "…wearing / a mask", never "…wearing a / mask".
+ */
+export function keepTogether(text: string): string {
+  return text.replace(/(^|\s)(a|an|the|of|in|on|to|for|with|by|or|and|is|it|its|from|at)\s+/gi, (_m, sp, w) => `${sp}${w}\u00a0`);
 }
 
 export function GameScreen({ api, holding, onFinished, onContinue, compact = false }: Props) {
@@ -184,7 +192,7 @@ function ActivePrompt({ api, round, index, onFinished, compact }: { api: Obscura
       </div>
       <div className={compact ? 'mt-1' : 'mt-3'} data-testid="prompt-text" aria-label={prompt.text}>
         {lead && <p className="text-sm text-mist-500">{lead}</p>}
-        <h1 className={`font-display leading-[1.02] text-mist-100 ${compact ? 'text-3xl' : 'text-[2.6rem] sm:text-5xl'}`}>{subject}</h1>
+        <h1 className={`prompt-heading font-display leading-[1.02] text-mist-100 ${compact ? 'text-3xl' : 'text-[2.6rem] sm:text-5xl'}`}>{subject}</h1>
       </div>
 
       {index === 0 && api.stats.played === 0 && !compact && (
@@ -240,7 +248,7 @@ function AnswerBox({ api, round, onFinished }: { api: ObscuraApi; round: RoundSt
       setMsg(null);
     } else if (outcome.kind === 'miss') {
       play(outcome.expired ? 'timeup' : 'miss');
-      setMsg({ text: outcome.expired ? 'Time’s up.' : 'Not on our list for this prompt. Try another.', near: outcome.near });
+      setMsg({ text: outcome.expired ? 'Time’s up.' : 'Not quite right!', near: outcome.near });
       setShake(true);
       window.setTimeout(() => setShake(false), 450);
       setText('');

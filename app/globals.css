@@ -347,3 +347,6 @@ button { font: inherit; color: inherit; }
 
 /* The link to the sister game, styled like a menu button */
 a.side-item { text-decoration: none; color: inherit; }
+
+/* Prompt headings wrap into even lines, never leaving one short word alone */
+.prompt-heading, .eyebrow { text-wrap: balance; }

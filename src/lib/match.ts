@@ -70,7 +70,7 @@ function indexFor(prompt: Prompt): Index {
 }
 
 const LEAD_WORDS = new Set(['lake', 'loch', 'mount', 'mt', 'river', 'isle', 'cape']);
-const TAIL_WORDS = new Set(['hat', 'lake', 'sea', 'ocean', 'river', 'city', 'town', 'united', 'fc', 'afc', 'island', 'islands', 'desert', 'mountains', 'rovers', 'athletic', 'wanderers', 'albion', 'county', 'hotspur']);
+const TAIL_WORDS = new Set(['hat', 'lake', 'sea', 'ocean', 'river', 'city', 'town', 'united', 'fc', 'afc', 'island', 'islands', 'desert', 'mountains', 'rovers', 'athletic', 'wanderers', 'albion', 'county', 'hotspur', 'monster', 'war', 'disease']);
 /** Teams are often named by their city alone. */
 const CITY_TEAMS = new Set(['nba-team', 'nfl-team']);
 function shortForms(n: string, promptId: string): string[] {
@@ -95,7 +95,7 @@ function numberTag(s: string): number | null {
 }
 
 function allowedDistance(len: number): number {
-  if (len >= 9) return 2;
+  if (len >= 8) return 2;
   if (len >= 5) return 1;
   return 0;
 }
