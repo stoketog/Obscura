@@ -440,13 +440,15 @@ test('a saved game keeps its own prompts and photograph', () => {
   assert.equal(played.image.id, other.image.id);
   assert.equal(asPlayed(day, undefined, PROMPT_INDEX), day);
 });
-test('archive lists every past day, newest first, and never today', () => {
+test('archive lists every past day from 21 October 2026, newest first, and never today', () => {
   const today = addDays(D0, 9);
-  const dates = archiveDates(today);
+  const dates = archiveDates(today, D0);
   assert.equal(dates.length, 9);
   assert.equal(dates[0], addDays(today, -1));
   assert.equal(dates.at(-1), D0);
-  assert.equal(archiveDates(D0).length, 0);
+  assert.equal(archiveDates(D0, D0).length, 0);
+  const live = archiveDates('2026-10-23');
+  assert.deepEqual(live, ['2026-10-22', '2026-10-21']);
 });
 const skipDay = (profile: PlayerProfile, d: DailySet) => {
   let p = profile;

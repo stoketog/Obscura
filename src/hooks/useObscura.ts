@@ -7,7 +7,7 @@ import { STORAGE_PREFIX } from '@/lib/config';
 import { mergeProfiles } from '@/lib/merge';
 import * as online from '@/lib/online';
 import { toDateKey } from '@/lib/dates';
-import { ENDLESS_DIVES, asPlayed, getDaily, getEndlessDive, type DayOf } from '@/lib/daily';
+import { ARCHIVE_FROM, ENDLESS_DIVES, asPlayed, getDaily, getEndlessDive, type DayOf } from '@/lib/daily';
 import { PROMPT_INDEX, loadPrompts, type PromptMeta } from '@/lib/library';
 import { adoptChallengeFromUrl, loadChallenges, type Challenge } from '@/lib/challenge';
 import { dayTotal, deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, submitGuess, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
@@ -414,6 +414,7 @@ export function useObscura(): ObscuraApi {
   }, []);
 
   const openArchive = useCallback((key: string) => {
+    if (key < ARCHIVE_FROM) return; // days before the relaunch aren't replayable
     online.logEvent('archive_played', key);
     setEndless(null);
     setArchiveDate(key);

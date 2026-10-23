@@ -291,10 +291,13 @@ export function asPlayed<T extends Dealable>(day: DayOf<T>, saved: { rounds: Arr
   };
 }
 
-/** Every past day that can be replayed from the archive, newest first (puzzle 1 up to yesterday). */
-export function archiveDates(todayKey: string): string[] {
+/** The first day the archive offers. Earlier days were from before the game's relaunch and can't be replayed. */
+export const ARCHIVE_FROM = '2026-10-21';
+
+/** Every past day that can be replayed from the archive, newest first (from ARCHIVE_FROM up to yesterday). */
+export function archiveDates(todayKey: string, from = ARCHIVE_FROM): string[] {
   const n = puzzleNumberFor(todayKey) - 1;
-  return Array.from({ length: Math.max(0, n) }, (_, i) => addDays(todayKey, -(i + 1)));
+  return Array.from({ length: Math.max(0, n) }, (_, i) => addDays(todayKey, -(i + 1))).filter((d) => d >= from);
 }
 
 export function imageById(id: string | undefined, library: DailyImage[] = IMAGES): DailyImage | undefined {
