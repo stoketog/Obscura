@@ -95,6 +95,17 @@ export function refreshStats(date: string, promptId: string): void {
   statsCache.delete(`${date}|${promptId}`);
 }
 
+/** How the day's totals are spread: players per 50-point band, 0–49 up to 750–800 (16 bands). */
+export async function scoreSpread(date: string): Promise<number[] | null> {
+  const rows = await rpc<Array<{ bucket: number; players: number }>>('score_spread', { p_date: date });
+  if (!rows) return null;
+  const bands = Array.from({ length: SPREAD_BANDS }, () => 0);
+  for (const r of rows) if (r.bucket >= 0 && r.bucket < SPREAD_BANDS) bands[r.bucket] = r.players;
+  return bands;
+}
+export const SPREAD_BANDS = 16;
+export const SPREAD_WIDTH = 50;
+
 export interface Standing {
   /** Share of the day's other players this player beat, 0–100. */
   beatenPct: number;

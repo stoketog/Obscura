@@ -50,6 +50,7 @@ async function open(b: Browser, opts: { mobile?: boolean; url?: string; skipHelp
       const rows = pr ? [{ answer: pr.entries[0].name, players: 30, total: 50 }, { answer: rare(daily.prompts.indexOf(pr)).name, players: 5, total: 50 }] : [];
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(rows) });
     }
+    if (fn === 'score_spread') return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify([{ bucket: 2, players: 10 }, { bucket: 5, players: 40 }, { bucket: 8, players: 50 }, { bucket: 9, players: 20 }]) });
     if (fn === 'record_result') return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify([{ beaten_pct: 83, players: 120 }]) });
     return route.fulfill({ status: 200, contentType: 'application/json', body: '' });
   });
@@ -348,6 +349,8 @@ async function main() {
     await q(p, 'guess-input').fill(daily.image.answer); await q(p, 'guess-submit').click();
     await q(p, 'standing').waitFor();
     ok((await text(p, 'standing')).includes('83%'), 'standing');
+    await q(p, 'score-graph').waitFor();
+    eq(await q(p, 'score-graph-you').count(), 1, 'your band is marked');
     await q(p, 'top-answers').first().waitFor();
     ok((await text(p, 'top-answers')).includes('60%'), 'top answers');
     ok(calls.filter((c) => c === 'record_answer').length === 7, `answers recorded: ${calls.filter((c) => c === 'record_answer').length}`);

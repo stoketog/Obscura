@@ -203,7 +203,7 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
           <Stat label="Total" value={String(Math.round(total))} testId="result-total" />
         </div>
 
-        {!daily.archive && !daily.endless && <StandingLine api={api} />}
+        {!daily.archive && !daily.endless && <StandingLine api={api} total={dayTotal(game)} />}
 
         <div className="mt-4 flex flex-col gap-2">
           <button className="btn-primary w-full" onClick={onShareCard} disabled={busy} data-testid="share-card-btn">
