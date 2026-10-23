@@ -19,6 +19,10 @@ import { ATLAS } from './atlas';
 import { ATLAS2 } from './atlas2';
 import { DAYS } from './days';
 import { CSVPOOL } from './csvpool';
+import { SHEET1 } from './sheet1';
+import { SHEET2 } from './sheet2';
+import { SHEET3 } from './sheet3';
+import { SHEET4 } from './sheet4';
 
 /**
  * The prompt library. To add a category, add a `PromptSeed` to any file here
@@ -47,4 +51,4 @@ export const CORE_SEEDS: PromptSeed[] = [
  * Everything: the core with its extras, then the puzzle prompts (letter and vowel rules, generated from the base
  * lists by scripts/answers/puzzles.ts) and the hand-made lists in more.ts.
  */
-export const PROMPT_SEEDS: PromptSeed[] = [...withExtras(CORE_SEEDS, EXTRA_ANSWERS), ...PUZZLES, ...MORE, ...WIKILISTS, ...ATLAS, ...ATLAS2, ...CSVPOOL, ...DAYS];
+export const PROMPT_SEEDS: PromptSeed[] = [...withExtras(CORE_SEEDS, EXTRA_ANSWERS), ...PUZZLES, ...MORE, ...WIKILISTS, ...ATLAS, ...ATLAS2, ...CSVPOOL, ...SHEET1, ...SHEET2, ...SHEET3, ...SHEET4, ...DAYS];
