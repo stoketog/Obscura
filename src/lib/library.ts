@@ -31,7 +31,7 @@ async function fetchPrompt(meta: PromptMeta): Promise<Prompt> {
     try {
       const res = await fetch(`/answers/${answerFile(meta)}`);
       if (!res.ok) throw new Error(`answers for ${meta.id}: HTTP ${res.status}`);
-      const data = (await res.json()) as { text: string; category: string; answers: string[]; closed?: boolean };
+      const data = (await res.json()) as { text: string; category: string; answers: string[]; closed?: boolean; facts?: Record<string, string> };
       return parsePrompt({ id: meta.id, group: meta.group, ...data, ...(meta.editorial ? { editorial: true } : {}) });
     } catch (e) {
       lastError = e;

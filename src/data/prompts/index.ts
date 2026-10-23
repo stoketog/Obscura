@@ -1,3 +1,4 @@
+import { FACTS } from '../facts';
 import type { PromptSeed } from '@/lib/types';
 import { GENERAL } from './general';
 import { GEOGRAPHY } from './geography';
@@ -51,4 +52,7 @@ export const CORE_SEEDS: PromptSeed[] = [
  * Everything: the core with its extras, then the puzzle prompts (letter and vowel rules, generated from the base
  * lists by scripts/answers/puzzles.ts) and the hand-made lists in more.ts.
  */
-export const PROMPT_SEEDS: PromptSeed[] = [...withExtras(CORE_SEEDS, EXTRA_ANSWERS), ...PUZZLES, ...MORE, ...WIKILISTS, ...ATLAS, ...ATLAS2, ...CSVPOOL, ...SHEET1, ...SHEET2, ...SHEET3, ...SHEET4, ...DAYS];
+const ALL_SEEDS: PromptSeed[] = [...withExtras(CORE_SEEDS, EXTRA_ANSWERS), ...PUZZLES, ...MORE, ...WIKILISTS, ...ATLAS, ...ATLAS2, ...CSVPOOL, ...SHEET1, ...SHEET2, ...SHEET3, ...SHEET4, ...DAYS];
+
+/** Every prompt, with any facts about its answers attached (src/data/facts). */
+export const PROMPT_SEEDS: PromptSeed[] = ALL_SEEDS.map((s) => (FACTS[s.id] ? { ...s, facts: FACTS[s.id] } : s));

@@ -381,6 +381,7 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
   const round = game!.rounds[index];
   const prompt = daily!.prompts[index];
   const answered = round.end === 'answered' && round.tier;
+  const entry = answered ? prompt.entries.find((e) => e.name === round.answer) : undefined;
   // Wait for the photograph to come into focus before the rarity and points land.
   const settle = answered && !game!.guess?.correct ? Math.round(DEVELOP_MS[round.tier!] * 0.8) : 0;
   const pts = useCountUp(round.points, 900, settle + 150);
@@ -423,6 +424,11 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
           <p className="after-develop mt-3 text-sm text-mist-300" style={{ ['--after' as string]: `${settle + 120}ms` }} data-testid="reveal-line">
             {TIER_LINE[round.tier!]}
           </p>
+          {entry?.fact && (
+            <p className="after-develop mt-2 border-l-2 border-bio-500/40 pl-3 text-[0.82rem] leading-relaxed text-mist-300" style={{ ['--after' as string]: `${settle + 240}ms` }} data-testid="reveal-fact">
+              {entry.fact}
+            </p>
+          )}
           {!daily!.endless && <ShareLine api={api} promptId={prompt.id} answer={round.answer ?? null} onDay={!daily!.archive} />}
         </>
       ) : (

@@ -3,6 +3,7 @@ import { PROMPT_SEEDS } from '@/data/prompts';
 import { IMAGES, IMAGE_EDITORIAL } from '@/data/images';
 import CREDITS from '@/data/image-credits.json';
 import SCHEDULE from '@/data/schedule.json';
+import { FACTS } from '@/data/facts';
 import { existsSync, readFileSync } from 'node:fs';
 import { getPrompts, parseAnswer, rarestEntry } from '@/lib/prompts';
 import { matchAnswer } from '@/lib/match';
@@ -570,6 +571,17 @@ test('five wrong guesses close the guess at 0, early or late', () => {
 });
 
 console.log('Published days stay put');
+test('every fact belongs to a real answer of a real prompt, and is short', () => {
+  for (const [id, facts] of Object.entries(FACTS)) {
+    const seed = PROMPT_SEEDS.find((x) => x.id === id);
+    assert.ok(seed, `no prompt ${id}`);
+    const names = new Set(seed!.answers.map((a) => a.split('|')[0].trim()));
+    for (const [name, fact] of Object.entries(facts)) {
+      assert.ok(names.has(name), `${id}: no answer "${name}"`);
+      assert.ok(fact.length <= 160, `${id}/${name}: too long`);
+    }
+  }
+});
 test('every pinned day keeps its own seven prompts and photograph', () => {
   const schedule = SCHEDULE as Record<string, { prompts: string[]; image: string }>;
   const ids = new Set(PROMPT_INDEX.map((p) => p.id));

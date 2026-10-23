@@ -326,6 +326,18 @@ function Stat({ label, value, accent = false, testId }: { label: string; value: 
 
 /* ───────────────────────── Every answer, cascaded under each prompt ───────────────────────── */
 
+/** One fact under a prompt: about the player's answer if there is one, otherwise about the rarest answer that has one. */
+function FactLine({ prompt, answer }: { prompt: Prompt; answer: string | null }) {
+  const withFacts = prompt.entries.filter((e) => e.fact);
+  if (!withFacts.length) return null;
+  const e = withFacts.find((x) => x.name === answer) ?? withFacts.reduce((a, b) => (b.score > a.score ? b : a));
+  return (
+    <p className="mt-2 rounded-md border border-white/8 bg-white/[0.02] px-3 py-2 text-[0.8rem] leading-relaxed text-mist-300" data-testid="cascade-fact">
+      <b className="font-medium text-mist-100">{e.name}:</b> {e.fact}
+    </p>
+  );
+}
+
 function AllAnswers({ api }: { api: ObscuraApi }) {
   const { daily, game } = api;
   const [open, setOpen] = useState<Record<number, boolean>>({ 0: true });
@@ -382,6 +394,7 @@ function PromptCard({ api, prompt, round, index, open, onToggle }: { api?: Obscu
       {open && (
         <div id={id} className="border-t border-white/5 px-4 pb-4 pt-2" data-testid="cascade">
           {api && !api.daily?.endless && <TopAnswers api={api} promptId={prompt.id} />}
+          <FactLine prompt={prompt} answer={round.answer ?? null} />
           {groups.map(({ tier, entries }) => {
             if (!entries.length) return null;
             const mine = round.tier === tier.id;

@@ -13,6 +13,8 @@ export interface AnswerEntry {
   aliases: string[];
   /** 1–100. Editorial estimate of how rarely players would think of it. */
   score: number;
+  /** A line or two about this answer, for notable ones. */
+  fact?: string;
 }
 
 /**
@@ -36,6 +38,8 @@ export interface PromptSeed {
   editorial?: boolean;
   /** A short closed list (fewer than 12 possible answers, e.g. US states containing a V): checked more leniently. */
   closed?: boolean;
+  /** A line or two about notable answers, keyed by answer name (src/data/facts). */
+  facts?: Record<string, string>;
 }
 
 export interface Prompt {

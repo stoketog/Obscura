@@ -170,7 +170,7 @@
 {"id":"singer-one-name","group":"music","hash":"77f78ea65c"},
 {"id":"painter-ends-vowel","group":"arts","hash":"d6fad72fca"},
 {"id":"god-ends-a","group":"history","hash":"78c87e2630"},
-{"id":"ucl-finalist","group":"sport","hash":"96e40514af"},
+{"id":"ucl-finalist","group":"sport","hash":"5ef1ae169a"},
 {"id":"premier-league-club","group":"sport","hash":"1688fccf8d"},
 {"id":"fa-cup-winner","group":"sport","hash":"2e0a992495"},
 {"id":"olympic-host-city","group":"geography","hash":"61626049b6"},
@@ -2207,10 +2207,10 @@
 {"id":"tail-not-animal","group":"general","hash":"1b83701590","editorial":true},
 {"id":"short-war","group":"history","hash":"91c05c4c1f","editorial":true},
 {"id":"magnetic-substance","group":"science","hash":"149abc92c5","editorial":true},
-{"id":"friends-character","group":"screen","hash":"3d1ece789f","editorial":true},
-{"id":"music-streaming","group":"general","hash":"c9afb353b4","editorial":true},
-{"id":"engineering-discipline","group":"science","hash":"614ffc59c5","editorial":true},
-{"id":"french-second-empire-colony","group":"history","hash":"f1317063d3","editorial":true},
-{"id":"element-in-sun","group":"science","hash":"07556a3d36","editorial":true},
-{"id":"game-20k-players","group":"screen","hash":"6c069b4618","editorial":true}
+{"id":"friends-character","group":"screen","hash":"e05237c5c2","editorial":true},
+{"id":"music-streaming","group":"general","hash":"32cec86c89","editorial":true},
+{"id":"engineering-discipline","group":"science","hash":"9f3cd80ed5","editorial":true},
+{"id":"french-second-empire-colony","group":"history","hash":"f77d2316a2","editorial":true},
+{"id":"element-in-sun","group":"science","hash":"6216e931ef","editorial":true},
+{"id":"game-20k-players","group":"screen","hash":"bd93d1f5cb","editorial":true}
 ]

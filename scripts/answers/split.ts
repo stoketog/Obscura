@@ -24,7 +24,7 @@ for (const f of readdirSync(outDir)) if (f.endsWith('.json')) rmSync(join(outDir
 
 // The bundled index carries only what dealing needs (id, topic, file); the wording travels with the answers.
 const index = PROMPT_SEEDS.map((seed) => {
-  const body = JSON.stringify({ text: seed.text, category: seed.category, answers: seed.answers, ...(seed.closed ? { closed: true } : {}) });
+  const body = JSON.stringify({ text: seed.text, category: seed.category, answers: seed.answers, ...(seed.closed ? { closed: true } : {}), ...(seed.facts ? { facts: seed.facts } : {}) });
   const hash = createHash('sha256').update(body).digest('hex').slice(0, 10);
   const file = `${seed.id}-${hash}.json`;
   writeFileSync(join(outDir, file), body);
