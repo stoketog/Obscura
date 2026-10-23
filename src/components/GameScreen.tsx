@@ -7,7 +7,7 @@ import { GuessSheet } from './GuessSheet';
 import { ShareLine } from './Crowd';
 import { prettyDate } from '@/lib/dates';
 import { useCountUp } from '@/hooks/useCountUp';
-import { Chamber } from './Chamber';
+import { Chamber, DEVELOP_MS, type DevelopMoment } from './Chamber';
 import { TierChip, TierDot } from './TierChip';
 import { IconArrow, IconCheck, IconClose, IconSearch } from './Icons';
 import { useSettings } from '@/hooks/useSettings';
@@ -47,6 +47,17 @@ export function GameScreen({ api, holding, onFinished, onContinue, compact = fal
   const developed = developedFor(game.points);
   const [guessing, setGuessing] = useState(false);
   const tappable = canGuess(game) && game.status !== 'done' && !holding;
+  // The answer that just landed plays its develop moment on the photograph.
+  const lastRound = !active && lastIdx >= 0 ? game.rounds[lastIdx] : null;
+  const moment: DevelopMoment | undefined =
+    lastRound?.end === 'answered' && lastRound.tier && !game.guess?.correct
+      ? {
+          key: `${game.dateKey}:${daily.endless ?? ''}:${lastIdx}`,
+          tier: lastRound.tier,
+          from: developedFor(game.rounds.slice(0, lastIdx).reduce((s, r) => s + r.points, 0)),
+          to: developedFor(game.rounds.slice(0, lastIdx + 1).reduce((s, r) => s + r.points, 0)),
+        }
+      : undefined;
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 overflow-x-clip px-4 pb-6 sm:px-5 lg:grid lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12 lg:pb-12" data-testid="game">
@@ -58,6 +69,7 @@ export function GameScreen({ api, holding, onFinished, onContinue, compact = fal
           revealed={!!game.guess?.correct}
           tag={game.guess?.correct ? `Named · ${daily.image.answer}` : `${developed}% developed`}
           onTap={tappable ? () => setGuessing(true) : undefined}
+          moment={moment}
           tapLabel={tappable ? `Tap to guess · +${guessWorth(game.misses?.length ?? 0)}` : undefined}
         />
         <div className="mt-3 flex items-center justify-between gap-3 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-mist-500">
@@ -369,7 +381,9 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
   const round = game!.rounds[index];
   const prompt = daily!.prompts[index];
   const answered = round.end === 'answered' && round.tier;
-  const pts = useCountUp(round.points, 900, 250);
+  // Wait for the photograph to come into focus before the rarity and points land.
+  const settle = answered && !game!.guess?.correct ? Math.round(DEVELOP_MS[round.tier!] * 0.8) : 0;
+  const pts = useCountUp(round.points, 900, settle + 150);
   const before = developedFor(game!.rounds.slice(0, index).reduce((s, r) => s + r.points, 0));
   const after = developedFor(game!.rounds.slice(0, index + 1).reduce((s, r) => s + r.points, 0));
   const next = index + 2;
@@ -378,8 +392,10 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
   const rarer = rarerThan(prompt, answered ? round.tier! : null);
   useEffect(() => {
     if (after <= before) return;
-    const id = window.setTimeout(() => play('ascent'), 450);
-    return () => window.clearTimeout(id);
+    // The rising sweep plays as the lens opens; the rarest answers get a chord when their rarity lands.
+    const ids = [window.setTimeout(() => play('ascent'), settle ? 120 : 450)];
+    if (round.tier === 'obscure' || round.tier === 'mythic') ids.push(window.setTimeout(() => play('solved'), settle));
+    return () => ids.forEach(window.clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const goNext = () => {
@@ -395,7 +411,7 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
           <h2 className="mt-2 break-words font-display text-[2.6rem] leading-[1.02] text-mist-100 sm:text-5xl" data-testid="reveal-answer">
             {round.answer}
           </h2>
-          <div className="mt-3 flex flex-wrap items-center gap-3">
+          <div className="after-develop mt-3 flex flex-wrap items-center gap-3" style={{ ['--after' as string]: `${settle}ms` }} data-testid="reveal-tier">
             <TierChip id={round.tier!} />
             <span className="font-mono text-lg text-bio-400" data-testid="reveal-points">
               +{Math.round(pts)}
@@ -404,7 +420,7 @@ function Reveal({ api, index, done, onContinue }: { api: ObscuraApi; index: numb
               +{after - before}% light
             </span>
           </div>
-          <p className="mt-3 text-sm text-mist-300" data-testid="reveal-line">
+          <p className="after-develop mt-3 text-sm text-mist-300" style={{ ['--after' as string]: `${settle + 120}ms` }} data-testid="reveal-line">
             {TIER_LINE[round.tier!]}
           </p>
           {!daily!.endless && <ShareLine api={api} promptId={prompt.id} answer={round.answer ?? null} onDay={!daily!.archive} />}
