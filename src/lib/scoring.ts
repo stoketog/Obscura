@@ -47,13 +47,13 @@ export function developedFor(points: number): number {
   return Math.max(0, Math.min(100, Math.round((points / MAX_POINTS) * 100)));
 }
 
-/**
- * The final guess: the less of the photograph you could see, the more a correct guess is worth.
- * 100 points at 0%, falling in a straight line (about 80 at 25%, 55 at 54%, 30 at 80%), never below 10.
- * Rounded to the nearest 5.
- */
-export function guessBonusFor(developed: number): number {
-  const raw = 100 - 0.875 * Math.max(0, Math.min(100, developed));
-  // Halves round down, so 100% developed gives exactly the 10-point floor.
-  return Math.max(10, Math.ceil(raw / 5 - 0.5) * 5);
+/** A right guess at the photograph is worth 100, less 20 for every wrong guess before it. */
+export const GUESS_FULL = 100;
+export const GUESS_COST = 20;
+/** Wrong guesses allowed before the guess is worth nothing and closes: 5. */
+export const MAX_GUESSES = GUESS_FULL / GUESS_COST;
+
+/** What a right guess is worth after `misses` wrong ones. */
+export function guessWorth(misses: number): number {
+  return Math.max(0, GUESS_FULL - GUESS_COST * misses);
 }

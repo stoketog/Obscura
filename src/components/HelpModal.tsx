@@ -5,7 +5,7 @@ import { TierChip } from './TierChip';
 export function HelpModal({ onClose }: { onClose: () => void }) {
   return (
     <Modal title="How to play" onClose={onClose} testId="help-modal">
-      <p className="font-display text-3xl leading-tight text-mist-100">One photograph. Seven prompts. One guess.</p>
+      <p className="font-display text-3xl leading-tight text-mist-100">One photograph. Seven prompts. Can you name it?</p>
       <ul className="mt-4 space-y-4 text-sm leading-relaxed text-mist-300">
         <li>
           <b className="font-medium text-mist-100">A photograph hangs in a dark room.</b> Everyone gets the same one each day, along with the same {ROUNDS_PER_DAY} prompts, like “Name a cheese” or “Name a bird”. You have {ROUND_SECONDS} seconds for each.
@@ -17,7 +17,7 @@ export function HelpModal({ onClose }: { onClose: () => void }) {
           <b className="font-medium text-mist-100">Rare answers let in more light.</b> Every answer has a rarity. The rarer it is, the more points it earns and the more of the photograph develops. Seven Obscure answers develop it fully.
         </li>
         <li>
-          <b className="font-medium text-mist-100">Then, one guess.</b> Name what’s in the photograph: a place, a person or a thing. A right guess earns a bonus, and the less you could see, the bigger it is (about +80 at 25% developed, +30 at 80%).
+          <b className="font-medium text-mist-100">Tap the photograph to guess.</b> Name what’s in it, a place, a person or a thing, at any time. A right guess is worth +100, and every wrong guess takes 20 off. After five wrong guesses it’s worth nothing and guessing closes for the day.
         </li>
         <li>
           <b className="font-medium text-mist-100">See every answer.</b> Afterwards the photograph is revealed, with every answer you could have given for each prompt. Come back tomorrow to keep your streak.

@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import { IMAGES } from '@/data/images';
 import { chamberFilter, chamberScale, matchGuess } from '@/lib/picture';
-import { guessBonusFor } from '@/lib/scoring';
 import { addDays } from '@/lib/dates';
 import { getPrompts, rarestEntry } from '@/lib/prompts';
 import { matchAnswer } from '@/lib/match';
@@ -182,7 +181,7 @@ function PhotosTab({ api }: { api: ObscuraApi }) {
         <img src={img.src} alt={img.answer} style={{ filter: chamberFilter(pct), transform: `scale(${chamberScale(pct)})` }} />
       </div>
       <label className={label}>
-        Developed: {pct}% · a right guess would earn +{guessBonusFor(pct)}
+        Developed: {pct}%
       </label>
       <input type="range" min={0} max={100} value={pct} onChange={(e) => setPct(Number(e.target.value))} className="range w-full" style={{ ['--fill' as string]: `${pct}%` }} data-testid="admin-photo-pct" />
       <p className="text-xs text-mist-300">{img.blurb}</p>
@@ -195,7 +194,7 @@ function PhotosTab({ api }: { api: ObscuraApi }) {
       <p className="text-[0.7rem] text-mist-500">Accepted: {[img.answer, ...img.aliases].join(' · ')}</p>
       <input className={field} placeholder="Test a guess" value={guess} onChange={(e) => setGuess(e.target.value)} data-testid="admin-photo-guess" />
       {ok !== null && <p className={`text-sm ${ok ? 'text-bio-300' : 'err-text'}`}>{ok ? 'Accepted' : 'Not accepted'}</p>}
-      {api.game?.guess && (
+      {(api.game?.guess || api.game?.misses?.length) && (
         <button className="btn-ghost w-full !min-h-9" onClick={api.admin.resetGuess} data-testid="admin-reset-guess">
           Undo today’s guess
         </button>

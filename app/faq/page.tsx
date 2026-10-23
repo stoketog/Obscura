@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'What is Obscura?',
-    answer: 'Obscura is a daily photograph guessing game. You answer seven prompts to develop a hidden photograph, then make one final guess about what you see.',
+    answer: 'Obscura is a daily photograph guessing game. You answer seven prompts to develop a hidden photograph, and can guess what it shows at any time by tapping it.',
   },
   {
     question: 'How do I play Obscura?',
-    answer: 'Start the daily game, work through the prompts and use the information you uncover to decide what the photograph shows. When you are ready, submit your final guess.',
+    answer: 'Start the daily game, work through the prompts and use the information you uncover to decide what the photograph shows. Tap the photograph whenever you think you know it.',
   },
   {
     question: 'How often is there a new Obscura?',
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: 'How does scoring work?',
-    answer: 'Your score is based on how successfully you navigate the prompts and identify the photograph. The less of the photograph you need to see, the more valuable a successful guess can be.',
+    answer: 'Your score is based on how successfully you navigate the prompts and identify the photograph. A right guess at the photograph is worth 100 points, less 20 for every wrong guess before it.',
   },
   {
     question: 'What is a streak?',

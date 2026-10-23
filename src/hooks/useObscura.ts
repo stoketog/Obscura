@@ -10,7 +10,7 @@ import { toDateKey } from '@/lib/dates';
 import { ARCHIVE_FROM, ENDLESS_DIVES, asPlayed, getDaily, getEndlessDive, type DayOf } from '@/lib/daily';
 import { PROMPT_INDEX, loadPrompts, type PromptMeta } from '@/lib/library';
 import { adoptChallengeFromUrl, loadChallenges, type Challenge } from '@/lib/challenge';
-import { dayTotal, deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, submitGuess, currentRoundIndex, type Stats, type SubmitOutcome } from '@/lib/game';
+import { dayTotal, deriveStats, effectiveStreak, expireRound, getGame, skipRound, startRound, submitAnswer, submitGuess, currentRoundIndex, type Stats, type SubmitOutcome, type GuessAttempt } from '@/lib/game';
 import { ADMIN_ENABLED } from '@/lib/config';
 import { logUnrecognised, loadForcedDate, loadOverrides, saveForcedDate, saveOverrides, type OverrideMap } from '@/lib/admin';
 import { rarestEntry } from '@/lib/parse';
@@ -100,8 +100,8 @@ export interface ObscuraApi {
   skip: () => boolean;
   /** Called when the countdown reaches zero. Returns true if that closed the day. */
   expire: () => boolean;
-  /** The one guess at the photograph (empty text passes). Null if it is not allowed now. */
-  guess: (raw: string) => GuessRecord | null;
+  /** A guess at the photograph (empty text passes, at the end). Null if guessing is closed. */
+  guess: (raw: string) => GuessAttempt | null;
   markCelebrated: () => void;
   dismissHelp: () => void;
   admin: {
@@ -387,7 +387,7 @@ export function useObscura(): ObscuraApi {
   }, [commit]);
 
   const guess = useCallback(
-    (raw: string): GuessRecord | null => {
+    (raw: string): GuessAttempt | null => {
       const d = dailyRef.current;
       if (!d) return null;
       const res = submitGuess(profileRef.current, d, raw);
@@ -496,8 +496,8 @@ export function useObscura(): ObscuraApi {
         if (!d) return;
         const cur = profileRef.current;
         const g = cur.games[d.dateKey];
-        if (!g?.guess) return;
-        const { guess: _drop, ...rest } = g;
+        if (!g?.guess && !g?.misses?.length) return;
+        const { guess: _drop, misses: _m, ...rest } = g;
         const h = cur.history[d.dateKey];
         const history = h ? { ...cur.history, [d.dateKey]: { ...h, guess: undefined } } : cur.history;
         commit({ ...cur, history, games: { ...cur.games, [d.dateKey]: rest } });

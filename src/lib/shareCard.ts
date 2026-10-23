@@ -101,7 +101,7 @@ export async function drawShareCard(game: GameState, daily: DailySet, host: stri
   ctx.fillText(`${pct}%`, pad - 12, 1000);
   ctx.font = '400 38px "IBM Plex Sans", system-ui, sans-serif';
   ctx.fillStyle = SOFT;
-  const verdict = guess ? (guess.correct ? `Guessed it${guess.early ? ` after prompt ${guess.afterRound}` : ''} · ${dayTotal(game)} points` : `Guess missed · ${dayTotal(game)} points`) : `${dayTotal(game)} points`;
+  const verdict = guess ? (guess.correct ? `Guessed it${guess.early ? ` after prompt ${guess.afterRound}` : ''} · ${dayTotal(game)} points` : `Not named · ${dayTotal(game)} points`) : `${dayTotal(game)} points`;
   ctx.fillText(verdict, pad, 1068);
 
   // Seven blocks, one per prompt

@@ -1,3 +1,4 @@
+import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import type { DailyImage } from '@/lib/types';
 import { chamberFilter, chamberScale } from '@/lib/picture';
@@ -16,6 +17,8 @@ export function Chamber({
   aspect = '7 / 6',
   testId = 'chamber',
   transitionName,
+  onTap,
+  tapLabel,
 }: {
   image: DailyImage;
   developed: number;
@@ -28,6 +31,10 @@ export function Chamber({
   testId?: string;
   /** Shared with the same photograph on another screen, so it glides between them (see withViewTransition). */
   transitionName?: string;
+  /** Tapping the photograph does this (e.g. opens the guess). */
+  onTap?: () => void;
+  /** What tapping does, for screen readers and the hint in the corner. */
+  tapLabel?: string;
 }) {
   const shown = revealed ? 100 : developed;
   // A short bloom of light whenever more light gets in.
@@ -38,7 +45,26 @@ export function Chamber({
     last.current = shown;
   }, [shown]);
   return (
-    <div className={`projection ${className}`} style={{ aspectRatio: aspect, ...(transitionName ? { viewTransitionName: transitionName } : {}) }} data-testid={testId} data-developed={shown}>
+    <div
+      className={`projection ${onTap ? 'projection-tap' : ''} ${className}`}
+      style={{ aspectRatio: aspect, ...(transitionName ? { viewTransitionName: transitionName } : {}) }}
+      data-testid={testId}
+      data-developed={shown}
+      {...(onTap
+        ? {
+            role: 'button',
+            tabIndex: 0,
+            'aria-label': tapLabel,
+            onClick: onTap,
+            onKeyDown: (e: React.KeyboardEvent) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onTap();
+              }
+            },
+          }
+        : {})}
+    >
       <img
         src={image.src}
         alt={revealed ? `${image.answer}. ${image.blurb}` : 'The hidden photograph, partly developed'}
@@ -49,6 +75,11 @@ export function Chamber({
       {tag && (
         <span className="projection-tag" data-testid={`${testId}-tag`}>
           {tag}
+        </span>
+      )}
+      {onTap && tapLabel && (
+        <span className="projection-hint" aria-hidden data-testid={`${testId}-hint`}>
+          {tapLabel}
         </span>
       )}
     </div>

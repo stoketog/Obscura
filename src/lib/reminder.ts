@@ -29,7 +29,7 @@ export function reminderIcs(time: string, url: string, now: Date = new Date()): 
     `DTEND:${end}`,
     'RRULE:FREQ=DAILY',
     'SUMMARY:Obscura: today’s photograph is waiting',
-    `DESCRIPTION:Seven prompts\\, one photograph\\, one guess. ${url}`,
+    `DESCRIPTION:Seven prompts\\, one photograph. Can you name it? ${url}`,
     `URL:${url}`,
     'TRANSP:TRANSPARENT',
     'BEGIN:VALARM',

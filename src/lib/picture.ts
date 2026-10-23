@@ -53,7 +53,7 @@ function allowedDistance(len: number): number {
 const squash = (s: string) => s.replace(/ /g, '').replace(/(es|s)$/, '');
 
 /**
- * Forgiving match for the one guess: case, accents, punctuation and a leading "the" never matter, small typos
+ * Forgiving match for a guess at the photograph: case, accents, punctuation and a leading "the" never matter, small typos
  * are allowed on longer names, and a guess that contains the full name ("the bell rock lighthouse in scotland")
  * counts. A generic word on its own ("lighthouse") does not: the name is the answer.
  */

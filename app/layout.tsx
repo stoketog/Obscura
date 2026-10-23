@@ -5,7 +5,7 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://obscuradaily.com'),
   title: 'Obscura — How obscure can you get?',
-  description: 'One photograph. Seven prompts. One guess. A daily photograph guessing game about the obscure: the rarer your answers, the more light gets in.',
+  description: 'One photograph. Seven prompts. Can you name it? A daily photograph guessing game about the obscure: the rarer your answers, the more light gets in.',
   alternates: {
     canonical: '/',
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   appleWebApp: { capable: true, title: 'Obscura', statusBarStyle: 'black-translucent' },
   openGraph: {
     title: 'Obscura — How obscure can you get?',
-    description: 'One photograph. Seven prompts. One guess. The rarer your answers, the more of the photograph you see.',
+    description: 'One photograph. Seven prompts. Can you name it? The rarer your answers, the more of the photograph you see.',
     type: 'website',
     url: 'https://obscuradaily.com/',
     siteName: 'Obscura',

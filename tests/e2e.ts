@@ -11,7 +11,7 @@ import { spawn, type ChildProcess } from 'node:child_process';
 import { getPrompts } from '@/lib/prompts';
 import { getDaily } from '@/lib/daily';
 import { decodeChallenge, encodeChallenge } from '@/lib/challenge';
-import { developedFor, guessBonusFor, tierFor } from '@/lib/scoring';
+import { developedFor, tierFor } from '@/lib/scoring';
 import type { Prompt } from '@/lib/types';
 
 const ADMIN = 'http://localhost:4181/';
@@ -64,11 +64,10 @@ async function open(b: Browser, opts: { mobile?: boolean; url?: string; skipHelp
   await q(page, 'home').waitFor();
   return { ctx, page, errors, requests, calls };
 }
-/** Continue to the next prompt, saying "Not yet" if the guess offer pops up in between. */
+/** Continue to the next prompt. */
 async function nextRound(p: Page) {
   await q(p, 'next-btn').click();
   await p.waitForTimeout(80);
-  if (await q(p, 'guess-sheet').count()) await q(p, 'early-not-yet').click();
 }
 async function begin(p: Page) {
   await q(p, 'play-btn').click();
@@ -109,10 +108,10 @@ async function main() {
     const { ctx, page: p, errors } = await open(b);
     eq(await q(p, 'help-modal').count(), 0, 'no rules sheet in the way');
     await q(p, 'help-btn').click();
-    ok((await text(p, 'help-modal')).includes('One photograph. Seven prompts. One guess.'), 'help copy');
+    ok((await text(p, 'help-modal')).includes('One photograph. Seven prompts. Can you name it?'), 'help copy');
     await q(p, 'help-close').click();
     ok((await text(p, 'home-logo')).includes('Obscura'), 'title');
-    ok((await p.textContent('body'))!.includes('One photograph. Seven prompts. One guess.'), 'tagline');
+    ok((await p.textContent('body'))!.includes('One photograph. Seven prompts. Can you name it?'), 'tagline');
     eq(await developedAttr(p, 'home-chamber'), 0, 'undeveloped');
     ok((await text(p, 'home-progress')).includes(`No. ${daily.number}`), 'puzzle number');
     ok(/enter the chamber/i.test(await text(p, 'play-btn')), 'cta');
@@ -173,20 +172,26 @@ async function main() {
   });
 
   console.log('The guess and the results');
-  await t('a full day of rare answers, then a right guess: bonus by development, full reveal and credit', async () => {
+  await t('a full day of rare answers, a wrong guess, then a right one: 100 less 20, full reveal and credit', async () => {
     const { ctx, page: p, errors } = await open(b);
     await playDay(p, (i) => rare(i).name);
     const dev = developedFor(55 * 7);
     eq(await text(p, 'guess-developed'), `${dev}%`);
-    ok((await text(p, 'guess-submit')).includes(`+${guessBonusFor(dev)}`), 'bonus on the button');
+    ok((await text(p, 'guess-submit')).includes('+100'), 'worth on the button');
+    await q(p, 'guess-input').fill('a teapot');
+    await q(p, 'guess-submit').click();
+    ok((await text(p, 'guess-note')).includes('Not quite right!'), 'miss note');
+    ok((await text(p, 'guess-submit')).includes('+80'), 'worth drops by 20');
+    eq(await text(p, 'guesses-left'), '4 left');
     await q(p, 'guess-input').fill(`the ${daily.image.answer.toLowerCase()}`);
     await q(p, 'guess-submit').click();
     await q(p, 'result').waitFor();
     eq(await text(p, 'reveal-name'), daily.image.answer);
     ok((await text(p, 'guess-verdict')).includes(`${dev}%`), 'verdict');
-    eq(await text(p, 'result-bonus'), `+${guessBonusFor(dev)}`);
+    ok((await text(p, 'guess-verdict')).includes('guess 2'), 'verdict counts guesses');
+    eq(await text(p, 'result-bonus'), '+80');
     await p.waitForTimeout(1600);
-    eq(await text(p, 'result-total'), String(55 * 7 + guessBonusFor(dev)));
+    eq(await text(p, 'result-total'), String(55 * 7 + 80));
     ok((await text(p, 'photo-credit')).includes(daily.image.credit.license), 'licence credited');
     eq(await q(p, 'photo-credit').locator('a').getAttribute('href'), daily.image.credit.source);
     eq(await q(p, 'after-glow').count(), 1, 'blurred photograph behind the results');
@@ -211,13 +216,17 @@ async function main() {
     await ctx.close();
   });
 
-  await t('a wrong guess earns nothing, is final, and the day stays finished after a reload', async () => {
+  await t('five wrong guesses close the guess at 0, and the day stays finished after a reload', async () => {
     const { ctx, page: p } = await open(b);
     await playDay(p, (i) => common(i).name);
-    await q(p, 'guess-input').fill('definitely not this');
-    await q(p, 'guess-submit').click();
+    for (let i = 0; i < 5; i++) {
+      await q(p, 'guess-input').fill(`definitely not this ${i}`);
+      await q(p, 'guess-submit').click();
+      await p.waitForTimeout(60);
+    }
     await q(p, 'result').waitFor();
-    ok((await text(p, 'guess-verdict')).includes('definitely not this'), 'verdict quotes the guess');
+    ok((await text(p, 'guess-verdict')).includes('Five guesses'), 'verdict');
+    eq(await text(p, 'result-bonus'), '—');
     await p.reload(); await p.waitForTimeout(300);
     ok(/see today’s result/i.test(await text(p, 'play-btn')), 'home shows result');
     await q(p, 'play-btn').click();
@@ -241,56 +250,60 @@ async function main() {
     eq(errors.length, 0, errors.join('|')); await ctx.close();
   });
 
-  await t('the guess offer pops up after prompt 3; a right early guess reveals it and the day plays on', async () => {
+  await t('tap the photograph to guess mid-round; a wrong guess costs 20, a right one reveals it and the day plays on', async () => {
     const { ctx, page: p, errors } = await open(b);
     await begin(p);
     for (let i = 0; i < 3; i++) {
       await answer(p, common(i).name); await q(p, 'reveal').waitFor();
-      if (i < 2) { eq(await q(p, 'guess-now-btn').count(), i >= 0 ? 1 : 0, 'guess now button'); await nextRound(p); await q(p, 'round').waitFor(); }
+      await nextRound(p); await q(p, 'round').waitFor();
     }
-    ok((await text(p, 'rarer-line')).length > 0, 'a rarer answer is shown');
-    await q(p, 'next-btn').click();
+    ok((await text(p, 'chamber-hint')).includes('+100'), 'tap hint shows the worth');
+    await q(p, 'chamber').click();
     await q(p, 'guess-sheet').waitFor();
-    // The sheet must sit on top of everything, and typing must reach its box even while the screen behind updates.
-    const top = await q(p, 'early-input').evaluate((el) => { const r = el.getBoundingClientRect(); const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return hit === el && r.top >= 0 && r.bottom <= window.innerHeight; });
+    // The sheet must sit on top of everything, and typing must reach its box even while the clock behind runs.
+    const top = await q(p, 'guess-input').evaluate((el) => { const r = el.getBoundingClientRect(); const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return hit === el && r.top >= 0 && r.bottom <= window.innerHeight; });
     ok(top, 'guess box is visible and on top');
-    await p.waitForTimeout(1200);
-    await p.keyboard.type(daily.image.answer, { delay: 30 });
-    eq(await q(p, 'early-input').inputValue(), daily.image.answer, 'typed text');
+    await q(p, 'guess-input').fill('a teapot'); await p.keyboard.press('Enter');
+    ok((await text(p, 'guess-note')).includes('+80'), 'now worth 80');
+    eq(await q(p, 'early-result').count(), 0, 'still open after a wrong guess');
+    await p.keyboard.type(daily.image.answer, { delay: 20 });
+    eq(await q(p, 'guess-input').inputValue(), daily.image.answer, 'typed text');
     await p.keyboard.press('Enter');
     eq(await q(p, 'early-result').getAttribute('data-correct'), 'true');
     await q(p, 'early-continue').click();
-    await q(p, 'round').waitFor();
     await q(p, 'early-note').waitFor();
+    eq(await q(p, 'chamber-hint').count(), 0, 'no more tapping once named');
     for (let i = 3; i < 7; i++) {
       await answer(p, common(i).name); await q(p, 'reveal').waitFor();
-      eq(await q(p, 'guess-now-btn').count(), 0, 'no second guess');
       if (i < 6) { await nextRound(p); await q(p, 'round').waitFor(); }
     }
     ok(/see the results/i.test(await text(p, 'next-btn')), 'straight to results');
     await q(p, 'next-btn').click();
     await q(p, 'result').waitFor();
     ok((await text(p, 'guess-verdict')).includes('after prompt 3'), 'verdict');
+    eq(await text(p, 'result-bonus'), '+80');
     eq(errors.length, 0, errors.join('|')); await ctx.close();
   });
 
-  await t('a wrong early guess costs nothing, but there is no second guess', async () => {
+  await t('wrong early guesses carry over to the end of the day', async () => {
     const { ctx, page: p } = await open(b);
     await begin(p);
     await answer(p, rare(0).name); await q(p, 'reveal').waitFor();
-    await q(p, 'guess-now-btn').click();
-    await q(p, 'early-input').fill('a teapot'); await q(p, 'early-submit').click();
-    eq(await q(p, 'early-result').getAttribute('data-correct'), 'false');
-    await q(p, 'early-continue').click();
-    await q(p, 'early-note').waitFor();
+    await q(p, 'chamber').click();
+    for (const w of ['a teapot', 'a kettle']) { await q(p, 'guess-input').fill(w); await q(p, 'guess-submit').click(); await p.waitForTimeout(60); }
+    await q(p, 'early-not-yet').click();
+    ok((await text(p, 'miss-note')).includes('+60'), 'note under the photograph');
     for (let i = 0; i < 6; i++) {
       await nextRound(p); await q(p, 'round').waitFor();
       await answer(p, rare(i + 1).name); await q(p, 'reveal').waitFor();
     }
     await q(p, 'next-btn').click();
+    await q(p, 'guess-screen').waitFor();
+    eq(await text(p, 'guesses-left'), '3 left');
+    ok((await text(p, 'guess-misses')).includes('a kettle'), 'misses listed');
+    await q(p, 'guess-input').fill(daily.image.answer); await q(p, 'guess-submit').click();
     await q(p, 'result').waitFor();
-    eq(await text(p, 'result-bonus'), '—', 'no bonus, no penalty');
-    ok((await text(p, 'guess-verdict')).includes('early guess'), 'verdict');
+    eq(await text(p, 'result-bonus'), '+60');
     await ctx.close();
   });
 
@@ -359,7 +372,7 @@ async function main() {
       if (i < 6) await q(p, 'round').waitFor();
     }
     await q(p, 'guess-screen').waitFor(); await noHScroll(p, 'guess');
-    await q(p, 'guess-input').fill('nope'); await q(p, 'guess-submit').click();
+    await q(p, 'guess-pass').click(); await q(p, 'pass-yes').click();
     await q(p, 'result').waitFor(); await q(p, 'toggle-all-answers').click(); await noHScroll(p, 'results');
     eq(errors.length, 0, errors.join('|')); await ctx.close();
   });

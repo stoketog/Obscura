@@ -16,7 +16,7 @@ export default function AboutPage() {
           <p className="eyebrow">About</p>
           <h1 className="mt-3 font-display text-5xl leading-none sm:text-6xl">Obscura</h1>
           <p className="mt-5 max-w-2xl font-display text-2xl italic leading-tight text-mist-200 sm:text-3xl">
-            One photograph. Seven prompts. One guess.
+            One photograph. Seven prompts. Can you name it?
           </p>
         </header>
 

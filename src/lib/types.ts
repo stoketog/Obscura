@@ -3,8 +3,8 @@
  *
  * Every day is one dark chamber with a hidden photograph and seven shared prompts ("Name a cheese").
  * The player types any answer from the category; the rarer the answer, the more points it earns, and the
- * points let light into the chamber: the day's photograph develops from black to sharp. At the end the
- * player gets one guess at what the photograph shows, worth more the less of it they could see.
+ * points let light into the chamber: the day’s photograph develops from black to sharp. The
+ * player can guess what the photograph shows at any time: 100 for a right guess, less 20 per wrong one.
  */
 
 /** One accepted answer to a prompt, with how obscure it is (1 = everyone says it, 100 = almost nobody). */
@@ -90,8 +90,10 @@ export interface GameState {
   /** Sum of round points so far. */
   points: number;
   outcome?: Outcome;
-  /** The final guess at the photograph; absent until it is made. */
+  /** The guess at the photograph, once settled (named, out of guesses, or passed); absent until then. */
   guess?: GuessRecord;
+  /** Wrong guesses so far while the guess is still open. Each one costs 20 of the 100 a right guess is worth. */
+  misses?: string[];
   /** True once the end-of-day reveal has been shown. */
   celebrated?: boolean;
   /**
@@ -115,7 +117,7 @@ export interface Outcome {
   freezeEarned?: boolean;
 }
 
-/** The one guess at the day's photograph. */
+/** How the guess at the day's photograph was settled. */
 export interface GuessRecord {
   /** What the player typed (trimmed). Empty when they passed. */
   text: string;
@@ -128,6 +130,8 @@ export interface GuessRecord {
   afterRound?: number;
   /** Made before the last prompt was finished. */
   early?: boolean;
+  /** The wrong guesses made before this one settled it. */
+  misses?: string[];
 }
 
 export interface HistoryEntry {

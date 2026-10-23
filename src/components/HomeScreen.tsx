@@ -47,7 +47,7 @@ export function HomeScreen({ api, onArchive, onDarkroom }: { api: ObscuraApi; on
             <Wordmark />
           </h1>
         </div>
-        <p className="mt-4 font-display text-[1.65rem] italic leading-tight text-mist-100 sm:text-3xl">One photograph. Seven prompts. One guess.</p>
+        <p className="mt-4 font-display text-[1.65rem] italic leading-tight text-mist-100 sm:text-3xl">One photograph. Seven prompts. Can you name it?</p>
         <p className="mt-3 max-w-md text-[0.95rem] leading-relaxed text-mist-300">
           Every day a photograph hangs in a dark room. Answer {ROUNDS_PER_DAY} prompts, and the rarer your answers, the more light gets in. Then name what you see. The less you saw, the more it’s worth.
         </p>

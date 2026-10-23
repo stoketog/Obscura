@@ -2,7 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import type { AnswerEntry, Prompt, RoundState, TierId } from '@/lib/types';
 import { useCountUp } from '@/hooks/useCountUp';
-import { TIERS, guessBonusFor, tierFor } from '@/lib/scoring';
+import { GUESS_COST, GUESS_FULL, TIERS, tierFor } from '@/lib/scoring';
+import { GuessForm } from './GuessSheet';
 import { dayTotal } from '@/lib/game';
 import { buildShareText, copyText } from '@/lib/share';
 import { shareCardBlob } from '@/lib/shareCard';
@@ -28,7 +29,7 @@ function useNow(ms = 1000) {
   return now;
 }
 
-/** After the seventh prompt: one guess at the photograph, then the full results. */
+/** After the seventh prompt: the guess at the photograph (if not settled yet), then the full results. */
 export function ResultScreen({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpenStats: () => void; onOpenDarkroom: (tab: 'prints' | 'badges') => void }) {
   const { game } = api;
   if (!api.daily || !game?.outcome) return null;
@@ -45,24 +46,12 @@ function useNewBadges(api: ObscuraApi): Badge[] {
   return fresh;
 }
 
-/* ───────────────────────── The one guess ───────────────────────── */
+/* ───────────────────────── The guess ───────────────────────── */
 
 function GuessScreen({ api }: { api: ObscuraApi }) {
   const daily = api.daily!;
   const out = api.game!.outcome!;
-  const bonus = guessBonusFor(out.developed);
-  const [text, setText] = useState('');
   const [confirmPass, setConfirmPass] = useState(false);
-  const ref = useRef<HTMLInputElement>(null);
-  const { play } = useSettings();
-  useEffect(() => {
-    ref.current?.focus({ preventScroll: true });
-  }, []);
-
-  const submit = (value: string) => {
-    const g = api.guess(value);
-    if (g) play(g.correct ? 'finish' : 'miss');
-  };
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-8 sm:px-5 lg:grid lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12 lg:pb-12" data-testid="guess-screen">
@@ -83,44 +72,14 @@ function GuessScreen({ api }: { api: ObscuraApi }) {
       </section>
 
       <section className="mx-auto mt-6 w-full max-w-xl animate-rise lg:mt-0">
-        <p className="eyebrow">One guess</p>
+        <p className="eyebrow">The photograph</p>
         <h1 className="mt-2 font-display text-[2.6rem] leading-[1.02] text-mist-100 sm:text-5xl">What’s in the photograph?</h1>
-        <p className="mt-2 text-sm leading-relaxed text-mist-300">A place, a person or a thing. Name it. Spelling doesn’t need to be perfect, but you only get one try.</p>
-        <form
-          className="mt-5"
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (text.trim()) submit(text);
-          }}
-          data-testid="guess-form"
-        >
-          <label htmlFor="guess" className="mb-1.5 block text-xs text-mist-500">
-            Your guess
-          </label>
-          <input
-            id="guess"
-            ref={ref}
-            className="input-field !pr-4"
-            type="text"
-            enterKeyHint="go"
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck={false}
-            placeholder="Type what you see"
-            maxLength={80}
-            value={text}
-            onChange={(e) => {
-              const k = keySoundFor(text, e.target.value);
-              if (k !== null) play('key', k);
-              setText(e.target.value);
-            }}
-            data-testid="guess-input"
-          />
-          <button type="submit" className="btn-primary mt-3 w-full" disabled={!text.trim()} data-testid="guess-submit">
-            Submit guess for +{bonus}
-          </button>
-        </form>
+        <p className="mt-2 text-sm leading-relaxed text-mist-300">
+          A place, a person or a thing. Spelling doesn’t need to be perfect. A right guess is worth {GUESS_FULL}, less {GUESS_COST} for every wrong one.
+        </p>
+        <div className="mt-5">
+          <GuessForm api={api} submitLabel={(w) => `Submit guess for +${w}`} />
+        </div>
 
         {confirmPass ? (
           <div className="panel mt-3 flex items-center justify-between gap-3 px-3 py-2.5 text-sm" data-testid="pass-confirm">
@@ -129,7 +88,7 @@ function GuessScreen({ api }: { api: ObscuraApi }) {
               <button className="btn-ghost !min-h-10" onClick={() => setConfirmPass(false)}>
                 Keep guessing
               </button>
-              <button className="btn-ghost !min-h-10" onClick={() => submit('')} data-testid="pass-yes">
+              <button className="btn-ghost !min-h-10" onClick={() => api.guess('')} data-testid="pass-yes">
                 Reveal
               </button>
             </span>
@@ -139,11 +98,6 @@ function GuessScreen({ api }: { api: ObscuraApi }) {
             I don’t know, show me
           </button>
         )}
-
-        <div className="panel mt-5 flex items-center justify-between gap-3 px-4 py-3">
-          <span className="text-sm text-mist-300">The less you can see, the more it’s worth</span>
-          <span className="shrink-0 font-mono text-xs text-mist-100">25% → +80</span>
-        </div>
       </section>
     </main>
   );
@@ -206,13 +160,14 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
     }
   };
 
-  const verdict = !guess.text
-    ? 'You passed on the guess.'
-    : guess.correct
-      ? `You named it at ${guess.developed}% developed${guess.early ? `, after prompt ${guess.afterRound}` : ''}.`
-      : guess.early
-        ? `Your early guess, “${guess.text}”, wasn’t it.`
-        : `Your guess, “${guess.text}”, wasn’t it.`;
+  const tries = (guess.misses?.length ?? 0) + (guess.correct ? 1 : 0);
+  const verdict = guess.correct
+    ? `You named it at ${guess.developed}% developed${guess.early ? `, after prompt ${guess.afterRound}` : ''}${tries > 1 ? `, on guess ${tries}` : ''}.`
+    : guess.misses?.length
+      ? guess.misses.length >= 5
+        ? 'Five guesses, none of them it.'
+        : `${guess.misses.length} wrong ${guess.misses.length === 1 ? 'guess' : 'guesses'}, then you passed.`
+      : 'You passed on the guess.';
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-12 sm:px-5 lg:grid lg:grid-cols-[1fr_1.05fr] lg:gap-12" data-testid="result">
@@ -225,7 +180,7 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
               {daily.image.answer}
             </h1>
             <p className={`mt-2 flex items-center gap-2 text-sm ${guess.correct ? 'text-bio-300' : 'text-mist-300'}`} data-testid="guess-verdict">
-              {guess.correct ? <IconCheck size={16} /> : guess.text ? <IconClose size={14} /> : null}
+              {guess.correct ? <IconCheck size={16} /> : guess.misses?.length ? <IconClose size={14} /> : null}
               {verdict}
             </p>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-mist-300" data-testid="reveal-blurb">

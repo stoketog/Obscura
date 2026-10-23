@@ -1,5 +1,5 @@
 import type { DailySet, GameState, GuessRecord, HistoryEntry, Outcome, PlayerProfile, RoundState, TierId } from './types';
-import { MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, developedFor, guessBonusFor, pointsFor, tierFor } from './scoring';
+import { MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, developedFor, guessWorth, MAX_GUESSES, pointsFor, tierFor } from './scoring';
 import { matchGuess } from './picture';
 import { matchAnswer } from './match';
 import { normalize } from './text';
@@ -222,7 +222,7 @@ export function skipRound(profile: PlayerProfile, daily: DayRef): PlayerProfile 
   return finishRound(profile, daily, i, { end: 'skipped', points: 0 });
 }
 
-/** Points for the day including the guess bonus. A wrong guess, early or late, costs nothing but the chance. */
+/** Points for the day including the guess bonus. */
 export function dayTotal(game: GameState): number {
   return game.points + (game.guess?.bonus ?? 0);
 }
@@ -232,36 +232,55 @@ export function entryTotal(h: HistoryEntry): number {
   return h.points + (h.guess?.bonus ?? 0);
 }
 
-/**
- * Whether the one guess can be made right now: once, between prompts (never while a clock is running, and not
- * before the first prompt), or after the last.
- */
+/** Guesses still to come today: 5, less one for each wrong guess; 0 once the guess is settled. */
+export function guessesLeft(game: GameState): number {
+  if (game.guess) return 0;
+  return Math.max(0, MAX_GUESSES - (game.misses?.length ?? 0));
+}
+
+/** Whether the photograph can be guessed right now: at any time, until it is named or the guesses run out. */
 export function canGuess(game: GameState): boolean {
   if (game.guess) return false;
   if (game.status === 'done') return !!game.outcome;
-  const done = game.rounds.filter((r) => r.status === 'done').length;
-  return done >= 1 && !game.rounds.some((r) => r.status === 'active');
+  return guessesLeft(game) > 0;
 }
 
+/** One attempt at the photograph, with what's left after it. */
+export type GuessAttempt = GuessRecord & { left: number; repeat?: boolean };
+
+const sameGuess = (a: string, b: string) => a.trim().toLowerCase().replace(/\s+/g, ' ') === b.trim().toLowerCase().replace(/\s+/g, ' ');
+
 /**
- * The one guess at the day's photograph, allowed once all seven rounds are over. An empty guess is a pass
- * (no bonus). The guess can never be changed.
+ * A guess at the photograph, allowed at any time. A right one earns 100 less 20 for each wrong guess before it; a
+ * wrong one costs 20, and the fifth wrong guess closes the guess at 0. The same wrong guess twice costs nothing.
+ * An empty guess is a pass, only at the end of the day.
  */
-export function submitGuess(profile: PlayerProfile, daily: DailySet, raw: string): { profile: PlayerProfile; guess: GuessRecord | null } {
+export function submitGuess(profile: PlayerProfile, daily: DailySet, raw: string): { profile: PlayerProfile; guess: GuessAttempt | null } {
   const game = getGame(profile, daily);
   if (!canGuess(game)) return { profile, guess: null };
   const text = raw.trim().slice(0, 80);
   const early = game.status !== 'done';
-  // An early guess must actually be a guess; passing is only for the end of the day.
   if (early && !text) return { profile, guess: null };
+  const misses = game.misses ?? [];
   const developed = early ? developedFor(game.points) : game.outcome!.developed;
-  const correct = !!text && matchGuess(daily.image, text);
   const afterRound = game.rounds.filter((r) => r.status === 'done').length;
-  const guess: GuessRecord = { text, correct, developed, bonus: correct ? guessBonusFor(developed) : 0, afterRound, ...(early ? { early: true } : {}) };
-  let next = withGame(profile, { ...game, guess });
+  const correct = !!text && matchGuess(daily.image, text);
+  const base = { text, correct, developed, afterRound, ...(early ? { early: true } : {}) };
+  if (text && !correct && misses.some((m) => sameGuess(m, text))) {
+    return { profile, guess: { ...base, bonus: 0, misses, left: guessesLeft(game), repeat: true } };
+  }
+  const nextMisses = correct || !text ? misses : [...misses, text];
+  const settled = correct || !text || nextMisses.length >= MAX_GUESSES;
+  if (!settled) {
+    const next = withGame(profile, { ...game, misses: nextMisses });
+    return { profile: next, guess: { ...base, bonus: 0, misses: nextMisses, left: MAX_GUESSES - nextMisses.length } };
+  }
+  const guess: GuessRecord = { ...base, bonus: correct ? guessWorth(misses.length) : 0, ...(nextMisses.length ? { misses: nextMisses } : {}) };
+  const { misses: _drop, ...rest } = game;
+  let next = withGame(profile, { ...rest, guess });
   const h = next.history[daily.dateKey];
   if (!daily.endless && !daily.archive && !game.archive && h) next = { ...next, history: { ...next.history, [daily.dateKey]: { ...h, guess: { correct, bonus: guess.bonus } } } };
-  return { profile: next, guess };
+  return { profile: next, guess: { ...guess, left: 0 } };
 }
 
 export interface Stats {
