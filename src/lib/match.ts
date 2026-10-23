@@ -47,9 +47,40 @@ function indexFor(prompt: Prompt): Index {
       for (const v of variants(n)) if (!exact.has(v)) exact.set(v, e);
     }
   }
+  // Short forms: "Bowler hat" → "bowler", "Lake Como" → "como", "Red Sea" → "red", "Lincoln City" → "lincoln",
+  // "Houston Rockets" → "houston". Only when exactly one answer on the prompt has that short form.
+  const shortOwners = new Map<string, Set<AnswerEntry>>();
+  for (const e of prompt.entries) {
+    for (const spelling of [e.name, ...e.aliases]) {
+      for (const sf of shortForms(normalize(spelling), prompt.id)) {
+        if (!shortOwners.has(sf)) shortOwners.set(sf, new Set());
+        shortOwners.get(sf)!.add(e);
+      }
+    }
+  }
+  for (const [sf, owners] of shortOwners) {
+    if (owners.size !== 1 || exact.has(sf)) continue;
+    const e = [...owners][0];
+    exact.set(sf, e);
+    names.push([sf, e]); // so a typo of the short form ("Licoln") still finds it
+  }
   idx = { exact, names };
   indexCache.set(prompt, idx);
   return idx;
+}
+
+const LEAD_WORDS = new Set(['lake', 'loch', 'mount', 'mt', 'river', 'isle', 'cape']);
+const TAIL_WORDS = new Set(['hat', 'lake', 'sea', 'ocean', 'river', 'city', 'town', 'united', 'fc', 'afc', 'island', 'islands', 'desert', 'mountains', 'rovers', 'athletic', 'wanderers', 'albion', 'county', 'hotspur']);
+/** Teams are often named by their city alone. */
+const CITY_TEAMS = new Set(['nba-team', 'nfl-team']);
+function shortForms(n: string, promptId: string): string[] {
+  const w = n.split(' ').filter(Boolean);
+  if (w.length < 2) return [];
+  const out: string[] = [];
+  if (LEAD_WORDS.has(w[0])) out.push(w.slice(1).join(' '));
+  if (TAIL_WORDS.has(w[w.length - 1])) out.push(w.slice(0, -1).join(' '));
+  if (CITY_TEAMS.has(promptId)) out.push(w.slice(0, -1).join(' '));
+  return out.filter((s) => s.replace(/ /g, '').length >= 3);
 }
 
 /** The number at the end of a name ("world war 2" → 2, "henry viii" → 8, "toy story" → none), for typo checks. */

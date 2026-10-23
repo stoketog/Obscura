@@ -9,7 +9,7 @@ import { matchAnswer } from '@/lib/match';
 import { normalize } from '@/lib/text';
 import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, tierFor, tierById, developedFor, guessBonusFor } from '@/lib/scoring';
 import { matchGuess } from '@/lib/picture';
-import { getDaily, pickPrompts, imageForDay, asPlayed, archiveDates } from '@/lib/daily';
+import { getDaily, pickPrompts, imageForDay, asPlayed, archiveDates, isLetterPrompt } from '@/lib/daily';
 import { PROMPT_INDEX, answerFile } from '@/lib/library';
 import { earnedBadges, unseenBadges } from '@/lib/badges';
 import { reminderIcs } from '@/lib/reminder';
@@ -621,6 +621,21 @@ test('a specific kind of a listed job counts, as an Everyday answer; nonsense do
   assert.equal(matchAnswer(byId('job'), 'mechanic mechanic mechanic mechanic mechanic').kind, 'miss');
   assert.equal(matchAnswer(byId('job'), '12 engineer').kind, 'miss');
   assert.equal(matchAnswer(byId('bird'), 'Diesel mechanic').kind, 'miss');
+});
+
+test('letter-rule prompts are capped at two a day; day-only prompts are never dealt', () => {
+  for (let i = 0; i < 90; i++) {
+    const today = pickPrompts(addDays('2026-10-26', i));
+    assert.ok(today.filter(isLetterPrompt).length <= 2, `day ${i}`);
+    assert.ok(!today.some((p) => (p as { editorial?: boolean }).editorial), `day ${i} dealt a day-only prompt`);
+  }
+});
+test('an unambiguous short form counts ("bowler", "Como", "Red", a typo of "Lincoln"); an ambiguous one does not', () => {
+  assert.equal(matchAnswer(byId('hat'), 'bowler').kind, 'hit');
+  assert.equal(matchAnswer(byId('lake'), 'como').kind, 'hit');
+  assert.equal(matchAnswer(byId('sea-or-ocean'), 'red').kind, 'hit');
+  assert.equal(matchAnswer(byId('football-club'), 'licoln').kind, 'hit');
+  assert.equal(matchAnswer(byId('football-club'), 'manchester').kind, 'miss');
 });
 
 console.log(`\n${passed} tests passed${process.exitCode ? ' — with failures' : ''}`);

@@ -62,6 +62,16 @@ function shuffledOrder(n: number, seed: number): number[] {
   return idx;
 }
 
+/**
+ * Letter and spelling prompts from the question sheet (ids starting "q-", e.g. "Name a tree ending in A") far
+ * outnumber the rest, so they are dealt from their own pile and capped: one a day, two every other day.
+ */
+export const isLetterPrompt = (p: { id: string }) => p.id.startsWith('q-');
+const LETTERS = 'letters' as PromptGroup;
+/** Which of the seven slots a letter prompt takes: the wildcard, then geography (general knowledge keeps its share). */
+const LETTER_SLOTS = [6, 1];
+const lettersOn = (d: number) => (d % 2 === 0 ? 2 : 1);
+
 /** Anything with an id and a group can be dealt: the bundled index (`PromptMeta`) or fully loaded prompts. */
 type Dealable = { id: string; group: PromptGroup; editorial?: boolean };
 
@@ -69,8 +79,11 @@ export function pickPrompts<T extends Dealable = (typeof PROMPT_INDEX)[number]>(
   const day = dayOverride ?? Math.max(0, puzzleNumberFor(dateKey) - 1);
   pool = pool.filter((p) => !p.editorial); // a day's own prompts are never dealt at random
   const byGroup = new Map<PromptGroup, T[]>();
-  for (const p of pool) byGroup.set(p.group, [...(byGroup.get(p.group) ?? []), p]);
-  const groups = [...byGroup.keys()];
+  for (const p of pool) {
+    const g = isLetterPrompt(p) ? LETTERS : p.group;
+    byGroup.set(g, [...(byGroup.get(g) ?? []), p]);
+  }
+  const groups = [...byGroup.keys()].filter((g) => g !== LETTERS);
   const used = new Map<PromptGroup, number>();
   // Each group's endless sequence, built one shuffled pass at a time. The start of a new pass
   // avoids the end of the previous one so the same prompt never appears on back-to-back days.
@@ -110,6 +123,16 @@ export function pickPrompts<T extends Dealable = (typeof PROMPT_INDEX)[number]>(
     for (let slot = 0; slot < slotsPerDay; slot++) {
       const choices = SLOTS[slot % SLOTS.length];
       today.push(draw(choices[(d + slot) % choices.length], slot));
+    }
+    if (byGroup.has(LETTERS)) {
+      for (let k = 0; k < lettersOn(d); k++) {
+        const slot = LETTER_SLOTS[k];
+        // Keep the day varied: skip a letter prompt whose topic is already on the day (a few tries).
+        const others = new Set(today.filter((_, i) => i !== slot).map((p) => p.group));
+        let pick = draw(LETTERS, slot);
+        for (let t = 0; t < 8 && others.has(pick.group); t++) pick = draw(LETTERS, slot);
+        today[slot] = pick;
+      }
     }
   }
   // Different order each day so the same topic isn't always the opening round.
@@ -200,7 +223,7 @@ function nudged<T extends Dealable>(dateKey: string, pool: T[]): T[] {
   const used = new Set(dealt.map((p) => p.id));
   return dealt.map((p) => {
     if (!recent.has(p.id)) return p;
-    const same = pool.filter((q) => q.group === p.group && !q.editorial && !recent.has(q.id) && !used.has(q.id));
+    const same = pool.filter((q) => q.group === p.group && isLetterPrompt(q) === isLetterPrompt(p) && !q.editorial && !recent.has(q.id) && !used.has(q.id));
     const alt = same.length ? same[shuffledOrder(same.length, hash(`${dateKey}:${p.id}`))[0]] : undefined;
     if (!alt) return p;
     used.add(alt.id);

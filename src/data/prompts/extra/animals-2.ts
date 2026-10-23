@@ -2,6 +2,8 @@ import type { ExtraAnswers } from './merge';
 
 /** Extra answers for the animal prompts, second file (see merge.ts). */
 export const ANIMALS_EXTRA_2: ExtraAnswers = {
+  // from answers players typed that weren't accepted (October 2026)
+  bird: ['Tit|30|tits'],
   bug: [
     'Ant|10', 'Bee|10', 'Spider|10', 'Fly|12', 'Beetle|14', 'Butterfly|14', 'Wasp|16', 'Moth|18', 'Ladybird|18|ladybug', 'Mosquito|18', 'Worm|18|earthworm',
     'Cockroach|20|roach', 'Grasshopper|22', 'Cricket|24', 'Dragonfly|24', 'Caterpillar|22', 'Slug|24', 'Snail|22', 'Centipede|28', 'Millipede|30', 'Woodlouse|34|pill bug;roly poly',

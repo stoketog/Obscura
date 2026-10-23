@@ -78,7 +78,7 @@
 {"id":"fruit","group":"food","hash":"9139233573"},
 {"id":"spice","group":"food","hash":"78ef66dedd"},
 {"id":"mammal","group":"nature","hash":"92897fe190"},
-{"id":"bird","group":"nature","hash":"d2c031244e"},
+{"id":"bird","group":"nature","hash":"3d555aa248"},
 {"id":"fish","group":"nature","hash":"5c126a055e"},
 {"id":"bug","group":"nature","hash":"2e49220ed8"},
 {"id":"reptile-amphibian","group":"nature","hash":"98ad3098bf"},
@@ -2200,11 +2200,11 @@
 {"id":"s-capital-largest","group":"geography","hash":"c98c52eabb"},
 {"id":"s-non-english-official","group":"geography","hash":"57d3f4408d"},
 {"id":"s-revolution-before-2000","group":"history","hash":"9e76e70131"},
-{"id":"country-starts-c","group":"geography","hash":"ddf4e77887","editorial":true},
-{"id":"film-masked-character","group":"screen","hash":"4190699687","editorial":true},
-{"id":"british-garden","group":"general","hash":"4558a0176a","editorial":true},
-{"id":"has-battery","group":"general","hash":"27eedfcc28","editorial":true},
-{"id":"tail-not-animal","group":"general","hash":"c069f96466","editorial":true},
-{"id":"short-war","group":"history","hash":"1cc923ebce","editorial":true},
-{"id":"magnetic-substance","group":"science","hash":"4d1ee4c0a9","editorial":true}
+{"id":"country-starts-c","group":"geography","hash":"9e204c85d1","editorial":true},
+{"id":"film-masked-character","group":"screen","hash":"23b993477e","editorial":true},
+{"id":"british-garden","group":"general","hash":"980eceb278","editorial":true},
+{"id":"has-battery","group":"general","hash":"7997dc591c","editorial":true},
+{"id":"tail-not-animal","group":"general","hash":"1b83701590","editorial":true},
+{"id":"short-war","group":"history","hash":"91c05c4c1f","editorial":true},
+{"id":"magnetic-substance","group":"science","hash":"149abc92c5","editorial":true}
 ]
