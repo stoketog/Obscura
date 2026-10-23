@@ -6,5 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
+    sitemap: 'https://obscuradaily.com/sitemap.xml',
+    host: 'https://obscuradaily.com',
   };
 }
