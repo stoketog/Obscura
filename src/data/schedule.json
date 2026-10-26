@@ -406,5 +406,17 @@
    "island"
   ],
   "image": "abacus"
+ },
+ "2026-10-26": {
+  "prompts": [
+   "astronaut",
+   "sea-animal",
+   "licence-type",
+   "euro-national-flower",
+   "breaking-bad-character",
+   "fa-cup-champion",
+   "natural-phenomenon"
+  ],
+  "image": "dickens"
  }
 }

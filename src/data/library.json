@@ -2212,5 +2212,12 @@
 {"id":"engineering-discipline","group":"science","hash":"9f3cd80ed5","editorial":true},
 {"id":"french-second-empire-colony","group":"history","hash":"f77d2316a2","editorial":true},
 {"id":"element-in-sun","group":"science","hash":"6216e931ef","editorial":true},
-{"id":"game-20k-players","group":"screen","hash":"bd93d1f5cb","editorial":true}
+{"id":"game-20k-players","group":"screen","hash":"bd93d1f5cb","editorial":true},
+{"id":"astronaut","group":"science","hash":"89ac3af801","editorial":true},
+{"id":"sea-animal","group":"nature","hash":"340328bee9","editorial":true},
+{"id":"licence-type","group":"general","hash":"8bee9a917c","editorial":true},
+{"id":"euro-national-flower","group":"nature","hash":"beade90549","editorial":true},
+{"id":"breaking-bad-character","group":"screen","hash":"0295bafaa6","editorial":true},
+{"id":"fa-cup-champion","group":"sport","hash":"27e969c946","editorial":true},
+{"id":"natural-phenomenon","group":"science","hash":"8ecf57281e","editorial":true}
 ]
