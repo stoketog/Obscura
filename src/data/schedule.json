@@ -418,5 +418,53 @@
    "natural-phenomenon"
   ],
   "image": "dickens"
+ },
+ "2026-10-27": {
+  "prompts": [
+   "s-flag-red",
+   "disney-one-word",
+   "q-fruit-end-vowel",
+   "language-ish-ese",
+   "vehicle",
+   "s-language-5-countries",
+   "fa-cup-winner"
+  ],
+  "image": "chess"
+ },
+ "2026-10-28": {
+  "prompts": [
+   "toy",
+   "mythical",
+   "card-game",
+   "unit",
+   "footballer",
+   "q-mammals-has-h",
+   "q-instruments-min6"
+  ],
+  "image": "grand-canyon"
+ },
+ "2026-10-29": {
+  "prompts": [
+   "mcu-hero",
+   "pressurised-product",
+   "national-holiday",
+   "one-border-country",
+   "uk-county",
+   "streaming-service",
+   "current-currency"
+  ],
+  "image": "pompeii"
+ },
+ "2026-10-30": {
+  "prompts": [
+   "oscar-film-one-word",
+   "football-stadium",
+   "animal-4-letters",
+   "q-elements-vowels3",
+   "q-breads-min11",
+   "social-app",
+   "car-brand"
+  ],
+  "image": "notre-dame"
  }
 }

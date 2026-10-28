@@ -2219,5 +2219,12 @@
 {"id":"euro-national-flower","group":"nature","hash":"beade90549","editorial":true},
 {"id":"breaking-bad-character","group":"screen","hash":"0295bafaa6","editorial":true},
 {"id":"fa-cup-champion","group":"sport","hash":"27e969c946","editorial":true},
-{"id":"natural-phenomenon","group":"science","hash":"8ecf57281e","editorial":true}
+{"id":"natural-phenomenon","group":"science","hash":"8ecf57281e","editorial":true},
+{"id":"mcu-hero","group":"screen","hash":"3c15e5c1fc","editorial":true},
+{"id":"pressurised-product","group":"general","hash":"94da923c15","editorial":true},
+{"id":"national-holiday","group":"general","hash":"291ee017d4","editorial":true},
+{"id":"one-border-country","group":"geography","hash":"58cb9398be","editorial":true},
+{"id":"uk-county","group":"geography","hash":"6fac35ad6a","editorial":true},
+{"id":"streaming-service","group":"screen","hash":"6772515a99","editorial":true},
+{"id":"current-currency","group":"general","hash":"49a7eea720","editorial":true}
 ]
