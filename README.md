@@ -86,6 +86,8 @@ WordNet licence notice: *WordNet 3.0 Copyright 2006 by Princeton University. All
 ### Adding prompts
 Add a `PromptSeed` to a file in `src/data/prompts/` (or create a new file and list it in `index.ts`). Give it plenty of answers (40+), from everyday to obscure (no more than eight under 18; score 92+ is the 100-point Obscure tier: give each prompt one or two of those, no more), with aliases for alternative spellings. `npx tsx tests/validate-prompts.ts src/data/prompts/<file>.ts` checks for duplicate spellings, score range, that every answer matches itself, and that each prompt has both easy and obscure answers.
 
+A prompt can also carry `rejects: ['Iceland']`: wrong answers players are likely to type that the typo allowance would otherwise take for a real one (Iceland for Ireland). They always miss. Never list a spelling that is also an accepted answer (the engine tests check this); see `rejecting` in `src/data/prompts/days/2026-10-29.ts`.
+
 Answers players type that the game doesn't recognise are logged locally (`obscura:v1:unrecognised`, visible in the admin Test tab) so the lists can be grown from real play.
 
 ### Engineerle

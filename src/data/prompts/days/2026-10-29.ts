@@ -5,7 +5,7 @@ import { ranked } from '../atlas';
  * Thursday 29 October 2026, prompts set by hand. Ordered from the answer most people give to the most unheard-of;
  * generous on purpose, rarity scoring does the work. Clackmannanshire is the only top answer for the county prompt.
  *
- * Rules each list follows:
+ * Rules each list follows (`rejecting` lists wrong answers that a typo would otherwise let in):
  *  - MCU hero: any hero (or anti-hero who leads a film or series) in a Marvel Studios film or series, up to
  *    Spider-Man: Brand New Day (2026). Unreleased films (Avengers: Doomsday) are not counted.
  *  - Pressurised: something sold in a container that holds its contents above atmospheric pressure (aerosols,
@@ -31,6 +31,9 @@ const soleTop = (seed: PromptSeed): PromptSeed => ({
     return Number(score) >= 92 ? [name, '91', aliases].filter((x) => x !== undefined).join('|') : a;
   }),
 });
+
+/** Names wrong answers the typo allowance would otherwise take for a real one ("Iceland" for Ireland). */
+const rejecting = (rejects: string[], seed: PromptSeed): PromptSeed => ({ ...seed, rejects });
 
 export const DAY_2026_10_29: PromptSeed[] = [
   day(ranked('mcu-hero', 'screen', 'Name a hero from the MCU', 'MCU heroes', `
@@ -332,7 +335,7 @@ export const DAY_2026_10_29: PromptSeed[] = [
     Hung Kings' Festival|Hung Kings Festival
     Pchum Ben
   `)),
-  day(ranked('one-border-country', 'geography', 'Name a country that borders only one other country', 'Countries with one land neighbour', `
+  day(rejecting(['Iceland', 'Zambia', 'North Korea'], ranked('one-border-country', 'geography', 'Name a country that borders only one other country', 'Countries with one land neighbour', `
     Canada
     Portugal
     Ireland
@@ -350,8 +353,8 @@ export const DAY_2026_10_29: PromptSeed[] = [
     Brunei
     Papua New Guinea|PNG
     Timor-Leste|East Timor
-  `)),
-  day(soleTop(ranked('uk-county', 'geography', 'Name a county within the United Kingdom', 'UK counties', `
+  `))),
+  day(rejecting(['Scotland'], soleTop(ranked('uk-county', 'geography', 'Name a county within the United Kingdom', 'UK counties', `
     Yorkshire
     Kent
     Cornwall
@@ -467,7 +470,7 @@ export const DAY_2026_10_29: PromptSeed[] = [
     Kinross-shire|Kinross
     Cromartyshire|Cromarty
     Clackmannanshire|Clackmannan;Clacks
-  `))),
+  `)))),
   day(ranked('streaming-service', 'screen', 'Name an online streaming service (e.g. Netflix)', 'Streaming services', `
     Netflix
     YouTube

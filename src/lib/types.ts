@@ -40,6 +40,11 @@ export interface PromptSeed {
   closed?: boolean;
   /** A line or two about notable answers, keyed by answer name (src/data/facts). */
   facts?: Record<string, string>;
+  /**
+   * Wrong answers players are likely to type that the typo allowance would otherwise take for a real one
+   * ("Iceland" for Ireland). They always miss. Never list a spelling that is also an accepted answer.
+   */
+  rejects?: string[];
 }
 
 export interface Prompt {
@@ -50,6 +55,8 @@ export interface Prompt {
   entries: AnswerEntry[];
   editorial?: boolean;
   closed?: boolean;
+  /** See PromptSeed.rejects. */
+  rejects?: string[];
 }
 
 export type TierId = 'everyday' | 'uncommon' | 'rare' | 'obscure' | 'mythic';

@@ -5,7 +5,7 @@ import CREDITS from '@/data/image-credits.json';
 import SCHEDULE from '@/data/schedule.json';
 import { FACTS } from '@/data/facts';
 import { existsSync, readFileSync } from 'node:fs';
-import { getPrompts, parseAnswer, rarestEntry } from '@/lib/prompts';
+import { getPrompts, parseAnswer, parsePrompt, rarestEntry } from '@/lib/prompts';
 import { matchAnswer } from '@/lib/match';
 import { normalize } from '@/lib/text';
 import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, tierFor, tierById, developedFor, guessWorth, MAX_GUESSES } from '@/lib/scoring';
@@ -160,6 +160,35 @@ test('wrong-category and nonsense answers miss; empty is empty', () => {
   assert.equal(matchAnswer(cheese, 'zzzzzz').kind, 'miss');
   assert.equal(matchAnswer(cheese, '   ').kind, 'empty');
   assert.equal(matchAnswer(cheese, '!!!').kind, 'empty');
+});
+test('a prompt can name answers that must never be taken for a typo of a real one', () => {
+  const p = parsePrompt({ id: 't-rejects', group: 'geography', text: 'Name a country', category: 'Countries', answers: ['Ireland|5', 'Gambia|60', 'Shetland|70'], rejects: ['Iceland', 'Zambia'] });
+  assert.equal(matchAnswer(p, 'Iceland').kind, 'miss');
+  assert.equal(matchAnswer(p, 'iceland').kind, 'miss');
+  assert.equal(matchAnswer(p, 'Zambias').kind, 'miss'); // plural of a rejected answer too
+  const typo = matchAnswer(p, 'Irelnd'); // real typos are still forgiven
+  assert.ok(typo.kind === 'hit' && typo.fuzzy && typo.entry.name === 'Ireland');
+  const without = parsePrompt({ id: 't-no-rejects', group: 'geography', text: 'Name a country', category: 'Countries', answers: ['Ireland|5'] });
+  assert.equal(matchAnswer(without, 'Iceland').kind, 'hit'); // without the list, the old typo allowance applies
+});
+test('29 Oct: Scotland, Iceland, Zambia and North Korea are not taken for Shetland, Ireland, Gambia and South Korea', () => {
+  const county = byId('uk-county');
+  const borders = byId('one-border-country');
+  assert.equal(matchAnswer(county, 'Scotland').kind, 'miss');
+  for (const w of ['Iceland', 'Zambia', 'North Korea']) assert.equal(matchAnswer(borders, w).kind, 'miss', w);
+  // the real answers and their honest typos still count
+  assert.equal(matchAnswer(county, 'Shetland').kind, 'hit');
+  assert.equal(matchAnswer(county, 'Shetlnd').kind, 'hit');
+  assert.equal(matchAnswer(borders, 'Ireland').kind, 'hit');
+  assert.equal(matchAnswer(borders, 'Gambia').kind, 'hit');
+  assert.equal(matchAnswer(borders, 'South Korea').kind, 'hit');
+  assert.equal(matchAnswer(borders, 'Gambya').kind, 'hit');
+});
+test('a rejected answer is never also an accepted spelling', () => {
+  for (const p of prompts) for (const r of p.rejects ?? []) {
+    const n = normalize(r);
+    assert.ok(!p.entries.some((e) => [e.name, ...e.aliases].some((s) => normalize(s) === n)), `${p.id}: "${r}" is both rejected and accepted`);
+  }
 });
 test('a near miss suggests the closest answer', () => {
   const m = matchAnswer(cheese, 'brie cheeze');

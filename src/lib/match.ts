@@ -28,6 +28,8 @@ function variants(text: string): string[] {
 
 interface Index {
   exact: Map<string, AnswerEntry>;
+  /** Every spelling of the prompt's rejected answers (see PromptSeed.rejects). */
+  rejected: Set<string>;
   /** [normalised spelling, entry] for fuzzy comparison. */
   names: Array<[string, AnswerEntry]>;
 }
@@ -64,7 +66,9 @@ function indexFor(prompt: Prompt): Index {
     exact.set(sf, e);
     names.push([sf, e]); // so a typo of the short form ("Licoln") still finds it
   }
-  idx = { exact, names };
+  const rejected = new Set<string>();
+  for (const r of prompt.rejects ?? []) for (const v of variants(normalize(r))) rejected.add(v);
+  idx = { exact, names, rejected };
   indexCache.set(prompt, idx);
   return idx;
 }
@@ -109,6 +113,9 @@ export function matchAnswer(prompt: Prompt, raw: string): MatchResult {
     const hit = idx.exact.get(v);
     if (hit) return { kind: 'hit', entry: hit, fuzzy: false };
   }
+
+  // A wrong answer the prompt names outright is never a typo of a real one.
+  for (const v of variants(text)) if (idx.rejected.has(v)) return { kind: 'miss' };
 
   // Typo allowance. Only accept when exactly one entry is the clear best match.
   const maxD = allowedDistance(text.length);

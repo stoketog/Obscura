@@ -15,7 +15,7 @@ export function parseAnswer(raw: string): AnswerEntry {
 const withFact = (e: AnswerEntry, facts?: Record<string, string>): AnswerEntry => (facts?.[e.name] ? { ...e, fact: facts[e.name] } : e);
 
 export function parsePrompt(seed: PromptSeed): Prompt {
-  return { id: seed.id, group: seed.group, text: seed.text, category: seed.category, entries: seed.answers.map((a) => withFact(parseAnswer(a), seed.facts)), ...(seed.editorial ? { editorial: true } : {}), ...(seed.closed ? { closed: true } : {}) };
+  return { id: seed.id, group: seed.group, text: seed.text, category: seed.category, entries: seed.answers.map((a) => withFact(parseAnswer(a), seed.facts)), ...(seed.editorial ? { editorial: true } : {}), ...(seed.closed ? { closed: true } : {}), ...(seed.rejects?.length ? { rejects: seed.rejects } : {}) };
 }
 
 /** The rarest accepted answer, revealed once a day is finished. */
