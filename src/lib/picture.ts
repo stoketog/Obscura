@@ -7,10 +7,18 @@ import { levenshtein, normalize } from './text';
  * How the day's photograph looks at a given stage of development, and how the final guess is judged.
  */
 
-/** How soft the photograph is at `developed` percent: a heavy blur at 0% that clears steadily to sharp at 100%. */
+/**
+ * The photograph is shown a little further on than the points say: at 0% it already looks 10% developed, and the
+ * rest of the way is stretched so that 100% is still fully sharp.
+ */
+export const REVEAL_HEAD_START = 10;
+
+/** What a development % looks like, 0–1, with the head start in. */
+const seen = (developed: number) => (REVEAL_HEAD_START + (Math.max(0, Math.min(100, developed)) * (100 - REVEAL_HEAD_START)) / 100) / 100;
+
+/** How soft the photograph is at `developed` percent: a heavy blur at the start that clears steadily to sharp at 100%. */
 export function chamberBlur(developed: number): number {
-  const p = Math.max(0, Math.min(100, developed)) / 100;
-  return 22 * Math.pow(1 - p, 1.6);
+  return 22 * Math.pow(1 - seen(developed), 1.6);
 }
 
 /**
@@ -18,7 +26,7 @@ export function chamberBlur(developed: number): number {
  * from the start (only slightly muted), so the player can always see the photograph, just not its detail.
  */
 export function chamberFilter(developed: number): string {
-  const p = Math.max(0, Math.min(100, developed)) / 100;
+  const p = seen(developed);
   const bright = 0.88 + 0.12 * p;
   const sat = 0.8 + 0.2 * p;
   return `blur(${chamberBlur(developed).toFixed(1)}px) brightness(${bright.toFixed(3)}) saturate(${sat.toFixed(2)})`;

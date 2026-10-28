@@ -17,7 +17,7 @@ export function HelpModal({ onClose }: { onClose: () => void }) {
           <b className="font-medium text-mist-100">Rare answers let in more light.</b> Every answer has a rarity. The rarer it is, the more points it earns and the more of the photograph develops. Seven Obscure answers develop it fully.
         </li>
         <li>
-          <b className="font-medium text-mist-100">Tap the photograph to guess.</b> Name what’s in it, a place, a person or a thing, at any time. A right guess is worth +100, and every wrong guess takes 20 off. After five wrong guesses it’s worth nothing and guessing closes for the day.
+          <b className="font-medium text-mist-100">Tap the photograph to guess.</b> Name what’s in it, a place, a person or a thing, at any time. A right guess is worth +100, and every wrong guess takes 10% (10 points) off. After ten wrong guesses it’s worth nothing and guessing closes for the day.
         </li>
         <li>
           <b className="font-medium text-mist-100">See every answer.</b> Afterwards the photograph is revealed, with every answer you could have given for each prompt. Come back tomorrow to keep your streak.

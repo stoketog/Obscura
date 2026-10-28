@@ -1,6 +1,6 @@
 # Obscura — one photograph, seven prompts, one guess
 
-A daily game about the obscure. Every day a real photograph hangs in a dark room (the *camera obscura*). Seven shared prompts ("Name a cheese"), 30 seconds each: type any answer that fits, and the rarer it is, the more points it earns and the more light gets into the room. The photograph starts as a heavy blur (colours and rough shapes only) and sharpens as your points rise (700 points develops it fully). There is **one** guess at what the photograph shows, made between any two prompts or after the last (`canGuess` in `src/lib/game.ts`); it is offered once after prompts 3 and 5. A wrong guess, early or at the end, costs no points: it just uses up the day's only guess. a right guess earns a bonus that is bigger the less you could see (100 at 0%, about 80 at 25%, 55 at 54%, 30 at 80%, never below 10). Then the photograph is revealed with its credit, and every accepted answer for every prompt is listed, cascaded by rarity.
+A daily game about the obscure. Every day a real photograph hangs in a dark room (the *camera obscura*). Seven shared prompts ("Name a cheese"), 30 seconds each: type any answer that fits, and the rarer it is, the more points it earns and the more light gets into the room. The photograph starts as a heavy blur (colours and rough shapes only) and sharpens as your points rise (700 points develops it fully). The photograph can be guessed at any time (`canGuess` in `src/lib/game.ts`): tap it, or guess after the last prompt. A right guess is worth 100, less 10% of that (10 points) for every wrong guess before it; after ten wrong guesses it is worth nothing and the guess closes (`guessWorth` in `src/lib/scoring.ts`). The picture is shown 10% further developed than the points say, so it is never fully dark (`REVEAL_HEAD_START` in `src/lib/picture.ts`; 100% is still fully sharp). Then the photograph is revealed with its credit, and every accepted answer for every prompt is listed, cascaded by rarity.
 
 Coming back:
 - **Archive**: every past day can be played (or its result looked at again). Archive days never move the streak, history or stats.
@@ -42,7 +42,7 @@ npm run test:e2e              # Playwright suite (needs both builds, see tests/e
 | `src/data/images.ts` | The photograph library: the answer, accepted names, a one-line story, joined with `image-credits.json` (licence, author, source) |
 | `public/daily/*` | The photographs themselves, with hashed file names so the answer is not in the network log |
 | `scripts/images/` | `fetch_images.py` downloads the picks in `picks.json` from Wikimedia Commons and refuses anything not safe for a commercial site |
-| `src/lib/scoring.ts` | Rarity tiers → points, round timer, points → % developed, % developed → guess bonus |
+| `src/lib/scoring.ts` | Rarity tiers → points, round timer, points → % developed, wrong guesses → guess worth |
 | `src/lib/picture.ts` | How the photograph looks at each stage of development, and forgiving matching for the final guess |
 | `src/lib/shareCard.ts` | The 1080×1350 share image, with the photograph blurred far past recognition |
 | `src/lib/match.ts` | Forgiving answer matching: case, accents, plurals, small typos, "did you mean" |

@@ -8,7 +8,7 @@ import { Modal } from './Modal';
 import { logEvent } from '@/lib/online';
 import { IconCheck, IconClose } from './Icons';
 
-/** Five dots: one per guess still to come, struck out as wrong guesses use them up. */
+/** Ten dots: one per guess still to come, struck out as wrong guesses use them up. */
 export function GuessDots({ misses }: { misses: number }) {
   return (
     <span className="flex items-center gap-1" role="img" aria-label={`${MAX_GUESSES - misses} of ${MAX_GUESSES} guesses left`} data-testid="guess-dots">
@@ -21,7 +21,7 @@ export function GuessDots({ misses }: { misses: number }) {
 
 /**
  * The guess form, shared by the sheet that opens when the photograph is tapped and by the screen at the end of the
- * day. A right guess is worth 100, less 20 for every wrong guess before it; at 0 the guess closes.
+ * day. A right guess is worth 100, less 10 for every wrong guess before it; at 0 the guess closes.
  */
 export function GuessForm({ api, onResult, submitLabel }: { api: ObscuraApi; onResult?: (g: GuessAttempt) => void; submitLabel?: (worth: number) => string }) {
   const game = api.game!;

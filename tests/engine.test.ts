@@ -9,7 +9,7 @@ import { getPrompts, parseAnswer, parsePrompt, rarestEntry } from '@/lib/prompts
 import { matchAnswer } from '@/lib/match';
 import { normalize } from '@/lib/text';
 import { TIERS, MAX_POINTS, ROUND_MS, ROUNDS_PER_DAY, pointsFor, tierFor, tierById, developedFor, guessWorth, MAX_GUESSES } from '@/lib/scoring';
-import { matchGuess } from '@/lib/picture';
+import { matchGuess, chamberBlur, chamberFilter, chamberScale, REVEAL_HEAD_START } from '@/lib/picture';
 import { getDaily, pickPrompts, imageForDay, asPlayed, archiveDates, isLetterPrompt } from '@/lib/daily';
 import { PROMPT_INDEX, answerFile } from '@/lib/library';
 import { earnedBadges, unseenBadges } from '@/lib/badges';
@@ -113,12 +113,22 @@ test('tiers map scores to points steeply', () => {
   assert.equal(MAX_POINTS, 700);
   for (let i = 1; i < TIERS.length; i++) assert.ok(TIERS[i].points > TIERS[i - 1].points);
 });
-test('the photograph develops in step with the points; a right guess is 100 less 20 per wrong one', () => {
+test('the photograph develops in step with the points; a right guess is 100 less 10% per wrong one', () => {
   assert.equal(developedFor(0), 0);
   assert.equal(developedFor(MAX_POINTS), 100);
   assert.equal(developedFor(380), 54);
-  assert.equal(MAX_GUESSES, 5);
-  assert.deepEqual([0, 1, 2, 3, 4, 5, 6].map(guessWorth), [100, 80, 60, 40, 20, 0, 0]);
+  assert.equal(MAX_GUESSES, 10);
+  assert.deepEqual([0, 1, 2, 3, 4, 5, 9, 10, 11].map(guessWorth), [100, 90, 80, 70, 60, 50, 10, 0, 0]);
+});
+test('the photograph starts 10% developed: a lighter blur at every stage, and still fully sharp only at 100%', () => {
+  assert.equal(REVEAL_HEAD_START, 10);
+  const old = (d: number) => 22 * Math.pow(1 - d / 100, 1.6);
+  assert.ok(Math.abs(chamberBlur(0) - old(10)) < 1e-9, 'the start is what 10% used to look like');
+  assert.ok(Math.abs(chamberBlur(50) - old(55)) < 1e-9, 'halfway is a little further on than before');
+  for (let d = 0; d < 100; d += 5) assert.ok(chamberBlur(d) > chamberBlur(d + 5), `clears steadily at ${d}`);
+  assert.equal(chamberBlur(100), 0);
+  assert.equal(chamberScale(100), 1);
+  assert.ok(chamberFilter(0).startsWith('blur(18.'), chamberFilter(0));
 });
 test('every rarity tier has its own colour and square, dim to bright', () => {
   assert.equal(new Set(TIERS.map((t) => t.color)).size, TIERS.length);
@@ -343,7 +353,7 @@ test('everyday answers develop little of the photograph; rare ones develop most 
   assert.ok(high.outcome!.developed > 60);
   assert.ok(high.points <= MAX_POINTS);
 });
-test('at the end of the day: a right guess scores, a wrong one costs 20 and leaves the guess open, a pass settles it', () => {
+test('at the end of the day: a right guess scores, a wrong one costs 10 and leaves the guess open, a pass settles it', () => {
   const done = playAll(emptyProfile(), best);
   const right = submitGuess(done, daily, `the ${daily.image.answer.toUpperCase()}`);
   assert.ok(right.guess?.correct);
@@ -354,10 +364,10 @@ test('at the end of the day: a right guess scores, a wrong one costs 20 and leav
   assert.equal(submitGuess(right.profile, daily, 'again').guess, null, 'settled once named');
   const wrong = submitGuess(done, daily, 'definitely not it');
   assert.equal(wrong.guess?.correct, false);
-  assert.equal(wrong.guess?.left, 4);
+  assert.equal(wrong.guess?.left, 9);
   assert.equal(getGame(wrong.profile, daily).guess, undefined, 'still open');
   const second = submitGuess(wrong.profile, daily, daily.image.answer);
-  assert.equal(second.guess?.bonus, 80);
+  assert.equal(second.guess?.bonus, 90);
   assert.deepEqual(second.guess?.misses, ['definitely not it']);
   const pass = submitGuess(wrong.profile, daily, '  ');
   assert.equal(pass.guess?.correct, false);
@@ -565,7 +575,7 @@ test('the photograph can be guessed at any time, even before the first prompt or
   const between = playRounds(emptyProfile(), 2);
   assert.equal(submitGuess(between, daily, '').guess, null, 'no passing early');
 });
-test('a right early guess earns 100 less 20 per wrong guess, and the day plays on', () => {
+test('a right early guess earns 100 less 10 per wrong guess, and the day plays on', () => {
   let p = playRounds(emptyProfile(), 3, worst);
   p = submitGuess(p, daily, 'nope one').profile;
   p = submitGuess(p, daily, 'nope two').profile;
@@ -574,20 +584,20 @@ test('a right early guess earns 100 less 20 per wrong guess, and the day plays o
   assert.equal(repeat.profile, p);
   const { profile, guess } = submitGuess(p, daily, daily.image.answer);
   assert.ok(guess?.correct && guess.early);
-  assert.equal(guess.bonus, 60);
+  assert.equal(guess.bonus, 80);
   assert.equal(guess.afterRound, 3);
   assert.equal(submitGuess(profile, daily, daily.image.answer).guess, null, 'settled');
   const end = playRounds(profile, 4);
   const g = getGame(end, daily);
   assert.equal(g.status, 'done');
-  assert.equal(dayTotal(g), g.points + 60);
-  assert.deepEqual(end.history[daily.dateKey].guess, { correct: true, bonus: 60 });
+  assert.equal(dayTotal(g), g.points + 80);
+  assert.deepEqual(end.history[daily.dateKey].guess, { correct: true, bonus: 80 });
 });
-test('five wrong guesses close the guess at 0, early or late', () => {
+test('ten wrong guesses close the guess at 0, early or late', () => {
   let p = playRounds(emptyProfile(), 2);
-  for (let i = 0; i < 4; i++) p = submitGuess(p, daily, `wrong ${i}`).profile;
+  for (let i = 0; i < 9; i++) p = submitGuess(p, daily, `wrong ${i}`).profile;
   assert.equal(getGame(p, daily).guess, undefined);
-  const last = submitGuess(p, daily, 'wrong 4');
+  const last = submitGuess(p, daily, 'wrong 9');
   assert.equal(last.guess?.left, 0);
   p = last.profile;
   assert.equal(getGame(p, daily).guess?.bonus, 0);

@@ -163,7 +163,7 @@ function Intro({ api }: { api: ObscuraApi }) {
         {ROUNDS_PER_DAY} prompts. {ROUND_SECONDS} seconds each.
       </h1>
       <p className="mt-3 text-[0.95rem] leading-relaxed text-mist-300">
-        Name anything that fits, like <em>“a cheese”</em> or <em>“a bird”</em>. Every answer lets light into the chamber, and the rarer it is, the more light gets in. Tap the photograph to guess what it is at any time. A right guess is worth 100 points, and every wrong guess takes 20 off.
+        Name anything that fits, like <em>“a cheese”</em> or <em>“a bird”</em>. Every answer lets light into the chamber, and the rarer it is, the more light gets in. Tap the photograph to guess what it is at any time. A right guess is worth 100 points, and every wrong guess takes 10% off.
       </p>
       <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2" aria-label="Rarity and points">
         {TIERS.map((t) => (

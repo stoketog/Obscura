@@ -232,7 +232,7 @@ export function entryTotal(h: HistoryEntry): number {
   return h.points + (h.guess?.bonus ?? 0);
 }
 
-/** Guesses still to come today: 5, less one for each wrong guess; 0 once the guess is settled. */
+/** Guesses still to come today: 10, less one for each wrong guess; 0 once the guess is settled. */
 export function guessesLeft(game: GameState): number {
   if (game.guess) return 0;
   return Math.max(0, MAX_GUESSES - (game.misses?.length ?? 0));
@@ -251,8 +251,8 @@ export type GuessAttempt = GuessRecord & { left: number; repeat?: boolean };
 const sameGuess = (a: string, b: string) => a.trim().toLowerCase().replace(/\s+/g, ' ') === b.trim().toLowerCase().replace(/\s+/g, ' ');
 
 /**
- * A guess at the photograph, allowed at any time. A right one earns 100 less 20 for each wrong guess before it; a
- * wrong one costs 20, and the fifth wrong guess closes the guess at 0. The same wrong guess twice costs nothing.
+ * A guess at the photograph, allowed at any time. A right one earns 100 less 10 for each wrong guess before it; a
+ * wrong one costs 10, and the tenth wrong guess closes the guess at 0. The same wrong guess twice costs nothing.
  * An empty guess is a pass, only at the end of the day.
  */
 export function submitGuess(profile: PlayerProfile, daily: DailySet, raw: string): { profile: PlayerProfile; guess: GuessAttempt | null } {

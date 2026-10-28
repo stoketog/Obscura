@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ObscuraApi } from '@/hooks/useObscura';
 import type { AnswerEntry, Prompt, RoundState, TierId } from '@/lib/types';
 import { useCountUp } from '@/hooks/useCountUp';
-import { GUESS_COST, GUESS_FULL, TIERS, tierFor } from '@/lib/scoring';
+import { GUESS_COST, GUESS_FULL, MAX_GUESSES, TIERS, tierFor } from '@/lib/scoring';
 import { GuessForm } from './GuessSheet';
 import { dayTotal } from '@/lib/game';
 import { buildShareText, copyText } from '@/lib/share';
@@ -164,8 +164,8 @@ function Results({ api, onOpenStats, onOpenDarkroom }: { api: ObscuraApi; onOpen
   const verdict = guess.correct
     ? `You named it at ${guess.developed}% developed${guess.early ? `, after prompt ${guess.afterRound}` : ''}${tries > 1 ? `, on guess ${tries}` : ''}.`
     : guess.misses?.length
-      ? guess.misses.length >= 5
-        ? 'Five guesses, none of them it.'
+      ? guess.misses.length >= MAX_GUESSES
+        ? 'Ten guesses, none of them it.'
         : `${guess.misses.length} wrong ${guess.misses.length === 1 ? 'guess' : 'guesses'}, then you passed.`
       : 'You passed on the guess.';
 
